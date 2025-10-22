@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Claude Code
+.claude/
+
+# Workspace files
+*.code-workspace
+
+# Notes and scratchpad
+notes/
+prompts/
+scratchpad/
