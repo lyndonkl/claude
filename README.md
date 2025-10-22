@@ -20,7 +20,7 @@ To use these extensions with Claude Code:
 
 1. Clone this repository
 2. Copy the desired skills or agents to your Claude Code configuration directory
-3. Refer to the [Claude Code documentation](https://docs.claude.com/claude-code) for setup instructions
+3. Refer to the [Claude Code documentation](https://docs.claude.com/en/docs/claude-code/) for setup instructions
 
 ## License
 
