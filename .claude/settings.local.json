@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/kushaldsouza/Documents/Projects/claude/skills/writer/resources /Users/kushaldsouza/Documents/Projects/claude/skills/writer/scripts)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
