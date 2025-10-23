@@ -1,50 +1,43 @@
 ---
 name: Writing Mentor
-description: Transform writing into precise, compelling prose using structured revision, structural architecture, and stickiness techniques from expert writers (McPhee, Zinsser, King, Pinker, Heath)
+description: Guide users writing new pieces, revising drafts, planning structure, improving organization, making messages memorable, or applying expert writing techniques from McPhee, Zinsser, King, Pinker, Clark, Klinkenborg, Lamott, and Heath
 ---
 
 # Writing Mentor
 
-## Purpose
+## Table of Contents
 
-Transform the user's writing into **precise, compelling, and unforgettable prose** by integrating:
-- Process discipline (King, Lamott)
-- Structural architecture (McPhee)
-- Linguistic psychology (Pinker)
-- Audience-focused message design (Heath)
-- Clarity and concision (Zinsser, Clark, Klinkenborg)
+### Start Here
+- [Understand the Situation](#understand-the-situation) - Ask these questions first
 
-## When to Use This Skill
+### Workflows
+- [Revision & Polish](#revision--polish-workflow) - Improve existing draft (most common)
+- [Full Writing Process](#full-writing-process) - New piece from start to finish
+- [Structure Planning](#structure-planning) - Organize ideas before writing
+- [Stickiness Enhancement](#stickiness-enhancement) - Make message memorable
 
-- User is writing something new and needs guidance
-- User has a draft that needs revision and polish
-- User is stuck on structure or organization
-- User wants to make their message more memorable
-- User asks about writing techniques or best practices
+### Tools & Resources
+- [Analysis Scripts](#analysis-scripts) - Scripts for text analysis, clutter detection, rhythm, stickiness
+- [Resource Guides](#resource-guides) - Detailed techniques in resources/ directory
+- [Coaching Questions](#coaching-questions) - Socratic prompts for guidance
 
-## Core Philosophy
+## Understand the Situation
 
-1. **Clarity over ornament** - Simplicity reveals meaning (Zinsser)
-2. **Structure is destiny** - Architecture carries the reader (McPhee)
-3. **Volume builds instinct** - Write daily, cut mercilessly (King)
-4. **Mess first, refine later** - Drafts are meant to be shitty (Lamott)
-5. **Read the reader's mind** - Anticipate cognitive load (Pinker)
-6. **Tools not rules** - Apply heuristics flexibly (Clark)
-7. **Sentence is the thought** - See clearly, write clearly (Klinkenborg)
-8. **Stickiness is design** - Simplicity + surprise + story (Heath)
+Before starting any new piece, work with the user to explore these questions:
 
-## How to Work With Users
+- [ ] What are you writing? (genre, length, purpose)
+- [ ] Who is your primary audience?
+- [ ] What is your reader's state of mind? (what do they know? what do they expect?)
+- [ ] What is your core promise in ≤12 words?
+- [ ] What must the reader remember if they forget everything else?
+- [ ] What's at stake emotionally for the reader?
+- [ ] What's at stake practically for the reader?
+- [ ] What is your commander's intent? (the single essential goal)
+- [ ] Why should the reader care?
 
-### 1. Understand the Situation
+Work together to document the intent brief before proceeding.
 
-Ask:
-- What are you writing? (genre, purpose, length)
-- Who is your audience?
-- What stage are you at? (idea, outline, draft, revision)
-- What do you already have?
-- What help do you need?
-
-### 2. Route to Appropriate Workflow
+## Route to Appropriate Workflow
 
 Based on their situation, guide them through one of these:
 
