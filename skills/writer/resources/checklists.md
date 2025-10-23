@@ -4,23 +4,6 @@ Quick reference checklists for each workflow. Check off items as you complete th
 
 ---
 
-## Intent Discovery Checklist
-
-Use before starting any new piece.
-
-- [ ] Define what you're writing (genre, length, purpose)
-- [ ] Identify primary audience (who will read this?)
-- [ ] Understand reader state of mind (what do they know? what do they expect?)
-- [ ] Formulate core promise in ≤12 words
-- [ ] Identify what reader must remember if they forget everything else
-- [ ] Define what's at stake emotionally for the reader
-- [ ] Define what's at stake practically for the reader
-- [ ] Frame commander's intent (the single essential goal)
-- [ ] Answer: "Why should the reader care?"
-- [ ] Document your intent brief
-
----
-
 ## Structure Planning Checklist
 
 Use after intent discovery, before drafting.
