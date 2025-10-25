@@ -1,5 +1,40 @@
 # McPhee's Structural Diagramming
 
+## Table of Contents
+
+- [Workflow](#workflow) - Step-by-step checklist for structure planning
+- [Philosophy](#philosophy) - Core principles of structural thinking
+- [Why Structure Matters](#why-structure-matters) - Impact of good vs. bad structure
+- [The Diagramming Method](#the-diagramming-method) - McPhee's approach
+- [Structure Types](#structure-types) - 8 structural patterns with examples
+- [Creating Your Own Structure Diagram](#creating-your-own-structure-diagram) - Five-step process
+- [Gold-Coin Placement Strategy](#gold-coin-placement-strategy) - How to reward readers
+- [Structure Selection Criteria](#structure-selection-criteria) - Matching structure to material
+- [Examples in Practice](#examples-in-practice) - Real-world structure selection
+- [Working with Structure](#working-with-structure) - Using structure through writing process
+- [Key Takeaways](#key-takeaways) - Essential principles
+
+## Workflow
+
+**Before starting:** Review [Philosophy](#philosophy) and [Why Structure Matters](#why-structure-matters) to understand the principles.
+
+Use this checklist after intent discovery, before drafting:
+
+- [ ] [Gather and understand all your material completely](#step-1-gather-your-material)
+- [ ] [Identify the natural organizing principle](#step-2-identify-the-organizing-principle) (time, space, importance, etc.)
+- [ ] [Sketch structure option #1](#step-3-sketch-3-options)
+- [ ] [Sketch structure option #2](#step-3-sketch-3-options)
+- [ ] [Sketch structure option #3](#step-3-sketch-3-options)
+- [ ] [Compare all three options](#step-4-test-each-structure)
+- [ ] [Select the structure that best serves the material](#step-5-select-and-refine)
+- [ ] [Map key moments and transitions](#step-5-select-and-refine)
+- [ ] [Identify where to place gold-coin moments](#gold-coin-placement-strategy)
+- [ ] [Annotate structure diagram with notes](#step-5-select-and-refine)
+- [ ] [Verify structure supports your through-line](#step-5-select-and-refine) (promise → delivery → resonance)
+- [ ] [Test: Does this feel inevitable or forced?](#step-4-test-each-structure)
+
+---
+
 ## Philosophy
 
 "Structure is as visible as someone's bones" - readers shouldn't notice it, but it carries everything.

@@ -7,16 +7,16 @@ description: Guide users writing new pieces, revising drafts, planning structure
 
 ## Table of Contents
 
-### Start Here
+**Start Here**
 - [Understand the Situation](#understand-the-situation) - Ask these questions first
 
-### Workflows
-- [Revision & Polish](#revision--polish-workflow) - Improve existing draft (most common)
-- [Full Writing Process](#full-writing-process) - New piece from start to finish
+**Workflows**
+- [Full Writing Process](#full-writing-process-new-piece) - New piece from start to finish
+- [Revision & Polish](#revision--polish-existing-draft) - Improve existing draft (most common)
 - [Structure Planning](#structure-planning) - Organize ideas before writing
 - [Stickiness Enhancement](#stickiness-enhancement) - Make message memorable
 
-### Tools & Resources
+**Tools & Resources**
 - [Analysis Scripts](#analysis-scripts) - Scripts for text analysis, clutter detection, rhythm, stickiness
 - [Resource Guides](#resource-guides) - Detailed techniques in resources/ directory
 - [Coaching Questions](#coaching-questions) - Socratic prompts for guidance
@@ -37,48 +37,38 @@ Before starting any new piece, work with the user to explore these questions:
 
 Work together to document the intent brief before proceeding.
 
-## Route to Appropriate Workflow
-
-Based on their situation, guide them through one of these:
-
-#### A. Full Writing Process (New Piece)
+## Full Writing Process (New Piece)
 
 **For:** User starting from scratch
 
 **Steps:**
 
-1. **Intent Discovery**
-   - Define core promise in ≤12 words
-   - Identify audience and reader state of mind
-   - Frame commander's intent (military-style clarity)
-   - Questions: "What must reader remember if they forget everything else? What's at stake emotionally or practically for the reader?"
-
-2. **Structural Architecture**
+1. **Structural Architecture**
    - Sketch structure before drafting (see resources/structure-types.md)
    - Design through-line: promise → delivery → resonance
    - Place gold-coin moments for momentum
    - Generate 3 structural blueprint options
    - Help user select structure that serves the material
 
-3. **Drafting Discipline**
+2. **Drafting Discipline**
    - Door closed: produce shitty first draft (Lamott)
    - Favor concrete nouns, strong verbs, sensory detail (King)
    - Write in short declarative sentences (Klinkenborg)
    - Set micro-quotas (20 min, 500 words) for flow state
    - Volume builds instinct - just get words on paper
 
-4. **Four-Pass Revision** (see resources/revision-guide.md)
+3. **Four-Pass Revision** (see resources/revision-guide.md)
    - Pass 1: Cut 10-25% (King's formula)
    - Pass 2: Reduce cognitive load (Pinker)
    - Pass 3: Improve rhythm (Clark)
    - Pass 4: Enhance message (Heath)
 
-5. **Stickiness Check** (see resources/success-model.md)
+4. **Stickiness Check** (see resources/success-model.md)
    - Apply SUCCESs model
    - Run scripts/success-checker.py
    - Refine for memorability
 
-#### B. Revision & Polish (Existing Draft)
+## Revision & Polish (Existing Draft)
 
 **For:** User has draft, needs improvement
 
@@ -128,7 +118,7 @@ Based on their situation, guide them through one of these:
 
 5. Show before/after stats, celebrate improvements
 
-#### C. Structure Planning
+## Structure Planning
 
 **For:** User has ideas but unsure how to organize
 
@@ -147,7 +137,7 @@ Based on their situation, guide them through one of these:
 5. Help user select and annotate chosen structure
 6. Map gold-coin placement (where to reward readers)
 
-#### D. Stickiness Enhancement
+## Stickiness Enhancement
 
 **For:** User wants message to be more memorable
 
