@@ -4,25 +4,6 @@ Quick reference checklists for each workflow. Check off items as you complete th
 
 ---
 
-## Drafting Session Checklist
-
-Use when ready to write first draft.
-
-- [ ] Set up distraction-free environment
-- [ ] Review your intent brief and structure diagram
-- [ ] Set micro-quota (time: 20-30 min, or words: 500-750)
-- [ ] Remind yourself: shitty first drafts are good (Lamott)
-- [ ] Close the door (draft is just for you)
-- [ ] Write without editing
-- [ ] Favor concrete nouns and strong verbs (King)
-- [ ] Write in short declarative sentences (Klinkenborg)
-- [ ] Keep moving - don't stop to perfect
-- [ ] Reach your quota
-- [ ] Save and step away
-- [ ] Celebrate completion (you have a draft!)
-
----
-
 ## Revision Checklist - Pass 1: Cut Clutter
 
 Use for first revision pass. Goal: Cut 10-25%.

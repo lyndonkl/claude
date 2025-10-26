@@ -41,30 +41,28 @@ Work together to document the intent brief before proceeding.
 
 **For:** User starting from scratch
 
-**Steps:**
-
 1. **Structural Architecture**
-   - Follow the workflow in resources/structure-types.md (McPhee's structural diagramming)
-   - This covers: understanding material, identifying organizing principle, sketching 3 options,
-     selecting best structure, mapping gold-coins and through-line
+   - [ ] Follow the workflow in resources/structure-types.md (McPhee's structural diagramming)
+   - [ ] This covers: understanding material, identifying organizing principle, sketching 3 options,
+         selecting best structure, mapping gold-coins and through-line
 
 2. **Drafting Discipline**
-   - Door closed: produce shitty first draft (Lamott)
-   - Favor concrete nouns, strong verbs, sensory detail (King)
-   - Write in short declarative sentences (Klinkenborg)
-   - Set micro-quotas (20 min, 500 words) for flow state
-   - Volume builds instinct - just get words on paper
+   - [ ] Review intent brief and structure diagram together
+   - [ ] Remind: shitty first drafts are good (Lamott) - write without editing
+   - [ ] Guide to favor concrete nouns, strong verbs, sensory detail (King)
+   - [ ] Guide to write in short declarative sentences (Klinkenborg)
+   - [ ] Encourage flow - don't stop to perfect, just get words on paper
 
-3. **Four-Pass Revision** (see resources/revision-guide.md)
-   - Pass 1: Cut 10-25% (King's formula)
-   - Pass 2: Reduce cognitive load (Pinker)
-   - Pass 3: Improve rhythm (Clark)
-   - Pass 4: Enhance message (Heath)
+3. **Four-Pass Revision** (see resources/revision-guide.md and resources/checklists.md)
+   - [ ] Pass 1: Cut 10-25% (King's formula)
+   - [ ] Pass 2: Reduce cognitive load (Pinker)
+   - [ ] Pass 3: Improve rhythm (Clark)
+   - [ ] Pass 4: Enhance message (Heath)
 
 4. **Stickiness Check** (see resources/success-model.md)
-   - Apply SUCCESs model
-   - Run scripts/success-checker.py
-   - Refine for memorability
+   - [ ] Apply SUCCESs model
+   - [ ] Run scripts/success-checker.py
+   - [ ] Refine for memorability
 
 ## Revision & Polish (Existing Draft)
 
