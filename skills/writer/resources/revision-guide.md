@@ -1,5 +1,76 @@
 # Four-Pass Revision System
 
+## Table of Contents
+
+- [Workflow](#workflow) - Step-by-step revision checklist for all 4 passes
+- [Why Four Passes?](#why-four-passes) - Philosophy behind the system
+- [Pass 1: Cut Clutter](#pass-1-cut-clutter-zinsserking) - Make it lean (Zinsser/King)
+- [Pass 2: Reduce Cognitive Load](#pass-2-reduce-cognitive-load-pinker) - Make it readable (Pinker)
+- [Pass 3: Improve Rhythm](#pass-3-improve-rhythm-clark) - Make it flow (Clark)
+- [Pass 4: Enhance Message](#pass-4-enhance-message-heath) - Make it stick (Heath)
+- [Complete Four-Pass Example](#complete-four-pass-example) - Full transformation demonstration
+
+## Workflow
+
+**Before starting:** Review [Why Four Passes?](#why-four-passes) to understand the philosophy.
+
+Use this workflow when revising any draft. Work through all four passes sequentially:
+
+**Pass 1: Cut Clutter** (see [Pass 1 details](#pass-1-cut-clutter-zinsserking))
+- [ ] Identify all clutter: adverbs (-ly words), qualifiers (very, really, quite), passive voice, weak verbs (is, are, was, were)
+- [ ] Remove adverbs - cut 70%
+- [ ] Delete qualifiers (very, really, quite, rather, somewhat, fairly)
+- [ ] Convert passive to active voice
+- [ ] Replace weak verbs with action verbs
+- [ ] Eliminate throat-clearing phrases
+- [ ] Remove clichés
+- [ ] Cut 10-25% of total word count
+- [ ] Ensure every remaining word earns its place
+
+See detailed examples and guidance in [Pass 1 section](#pass-1-cut-clutter-zinsserking).
+
+**Pass 2: Reduce Cognitive Load** (see [Pass 2 details](#pass-2-reduce-cognitive-load-pinker))
+- [ ] Identify and fix garden-path sentences
+- [ ] Signal topic at start of each sentence
+- [ ] Keep subject-verb-object close (max 7-word separation)
+- [ ] Clarify all ambiguous pronouns
+- [ ] Map topic chains for coherence
+- [ ] Break overly complex sentences into simpler ones
+- [ ] Read aloud - mark where you stumble
+- [ ] Ensure first reading is correct reading
+
+See detailed examples and guidance in [Pass 2 section](#pass-2-reduce-cognitive-load-pinker).
+
+**Pass 3: Improve Rhythm** (see [Pass 3 details](#pass-3-improve-rhythm-clark))
+- [ ] Analyze sentence length patterns - look for monotony
+- [ ] Identify monotonous patterns (5+ similar-length sentences)
+- [ ] Add short sentences for emphasis
+- [ ] Check last word of each sentence - is it strong?
+- [ ] Map gold-coin placement - are readers rewarded throughout?
+- [ ] Use ladder of abstraction (concrete → general → concrete)
+- [ ] Read aloud - does it flow?
+- [ ] Assess variety: good mix of short, medium, and long sentences
+
+See detailed examples and guidance in [Pass 3 section](#pass-3-improve-rhythm-clark).
+
+**Pass 4: Enhance Message** (see [Pass 4 details](#pass-4-enhance-message-heath))
+- [ ] Assess message against SUCCESs framework
+- [ ] Score message on all 6 SUCCESs elements (Simple, Unexpected, Concrete, Credible, Emotional, Stories)
+- [ ] Improve weak elements
+- [ ] Core message is ≤12 words
+- [ ] Added element of surprise or curiosity
+- [ ] Concrete, visualizable details present
+- [ ] Credibility established
+- [ ] Emotional connection created
+- [ ] Story or human element included
+- [ ] Aim for strong score on 5-6 elements
+
+See detailed examples and guidance in [Pass 4 section](#pass-4-enhance-message-heath).
+
+**After completing all 4 passes:** Review [Complete Four-Pass Example](#complete-four-pass-example) to see full transformation from draft to polished prose.
+
+---
+
 ## Why Four Passes?
 
 Trying to fix everything at once overwhelms your critical faculties. Each pass has one focus, making the work manageable and more effective. Multiple focused passes produce better results than one comprehensive revision.
@@ -93,17 +164,6 @@ This forces you to tighten sentences, remove tangents, and strengthen what remai
 **After:** "We are experiencing..."
 **Analysis:** "At this point in time" and "currently" both mean "now."
 
-### Pass 1 Checklist
-
-- [ ] Remove adverbs (-ly words) - cut 70%
-- [ ] Delete qualifiers (very, really, quite)
-- [ ] Convert passive to active voice
-- [ ] Replace weak verbs (is, are, was, were) with action verbs
-- [ ] Eliminate throat-clearing phrases
-- [ ] Remove clichés
-- [ ] Cut 10-25% of total word count
-- [ ] Ensure every remaining word earns its place
-
 ### Complete Example: Pass 1
 
 **Before (86 words):**
@@ -194,17 +254,6 @@ Ensure each sentence connects to the previous one. Readers follow topics through
 
 **Analysis:** Second version maintains topic: Mozart → His works → The operas
 
-### Pass 2 Checklist
-
-- [ ] Identify and fix garden-path sentences
-- [ ] Signal topic at start of each sentence
-- [ ] Keep subject-verb-object close (max 7-word separation)
-- [ ] Clarify all ambiguous pronouns
-- [ ] Map topic chains for coherence
-- [ ] Break overly complex sentences into simpler ones
-- [ ] Read aloud - mark where you stumble
-- [ ] Ensure first reading is correct reading
-
 ### Complete Example: Pass 2
 
 **Before (after Pass 1):**
@@ -293,17 +342,6 @@ Move between concrete and general: concrete → general → concrete
 **Example:**
 "She drove a battered 2015 Subaru Outback [concrete], one of those reliable station wagons that just keep going [general]. Her particular car had 180,000 miles and a dent in the rear bumper shaped like Texas [concrete]."
 
-### Pass 3 Checklist
-
-- [ ] Run sentence-variety.py script to analyze rhythm
-- [ ] Identify monotonous patterns (5+ similar-length sentences)
-- [ ] Add short sentences for emphasis
-- [ ] Check last word of each sentence - is it strong?
-- [ ] Map gold-coin placement - are readers rewarded throughout?
-- [ ] Use ladder of abstraction (concrete → general → concrete)
-- [ ] Read aloud - does it flow?
-- [ ] Variety score >7/10
-
 ### Complete Example: Pass 3
 
 **Before (after Pass 2):**
@@ -385,19 +423,6 @@ Emotional: "Your team worked nights and weekends. Your effort deserves a project
 **Example:**
 Statement: "Code reviews improve quality."
 Story: "Sarah caught a critical bug in code review - a null pointer that would have crashed the app in production. 50,000 users avoided downtime because Sarah took ten minutes to review carefully."
-
-### Pass 4 Checklist
-
-- [ ] Run success-checker.py script
-- [ ] Score message on all 6 SUCCESs elements
-- [ ] Improve weak elements
-- [ ] Core message is ≤12 words
-- [ ] Added element of surprise or curiosity
-- [ ] Concrete, visualizable details present
-- [ ] Credibility established
-- [ ] Emotional connection created
-- [ ] Story or human element included
-- [ ] Overall stickiness score ≥5/6
 
 ### Complete Example: Pass 4
 
