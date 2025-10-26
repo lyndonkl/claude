@@ -12,7 +12,9 @@
 
 ## Workflow
 
-**Before starting:** Review [Why Four Passes?](#why-four-passes) to understand the philosophy.
+**Before starting:**
+- Review [Why Four Passes?](#why-four-passes) to understand the philosophy
+- Review [Complete Four-Pass Example](#complete-four-pass-example) to see full transformation from draft to polished prose
 
 Use this workflow when revising any draft. Work through all four passes sequentially:
 
@@ -66,8 +68,6 @@ See detailed examples and guidance in [Pass 3 section](#pass-3-improve-rhythm-cl
 - [ ] Aim for strong score on 5-6 elements
 
 See detailed examples and guidance in [Pass 4 section](#pass-4-enhance-message-heath).
-
-**After completing all 4 passes:** Review [Complete Four-Pass Example](#complete-four-pass-example) to see full transformation from draft to polished prose.
 
 ---
 
@@ -467,17 +467,3 @@ Story: "Sarah caught a critical bug in code review - a null pointer that would h
 - Sentence variety: Added short punchy sentences
 - Stickiness: All 6 SUCCESs elements present
 - Impact: Message is now clear, concrete, and memorable
-
----
-
-## Tips for Success
-
-1. **Do passes on different days** - Fresh eyes catch more
-2. **Read aloud between passes** - Your ear catches problems your eye misses
-3. **Track statistics** - Word count, reading level, variety score
-4. **Don't skip passes** - Each builds on the previous
-5. **Be ruthless** - If it doesn't serve the piece, cut it
-6. **Celebrate improvements** - Acknowledge progress
-7. **Practice** - The system becomes intuitive with use
-
-The four-pass system transforms rough drafts into polished, powerful prose. Use it consistently, and your writing will improve dramatically.
