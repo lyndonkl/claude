@@ -43,8 +43,6 @@ Work together to document the intent brief before proceeding.
 
 1. **Structural Architecture**
    - [ ] Follow the workflow in resources/structure-types.md (McPhee's structural diagramming)
-   - [ ] This covers: understanding material, identifying organizing principle, sketching 3 options,
-         selecting best structure, mapping gold-coins and through-line
 
 2. **Drafting Discipline**
    - [ ] Review intent brief and structure diagram together
@@ -53,11 +51,8 @@ Work together to document the intent brief before proceeding.
    - [ ] Guide to write in short declarative sentences (Klinkenborg)
    - [ ] Encourage flow - don't stop to perfect, just get words on paper
 
-3. **Four-Pass Revision** (see resources/revision-guide.md and resources/checklists.md)
-   - [ ] Pass 1: Cut 10-25% (King's formula)
-   - [ ] Pass 2: Reduce cognitive load (Pinker)
-   - [ ] Pass 3: Improve rhythm (Clark)
-   - [ ] Pass 4: Enhance message (Heath)
+3. **Four-Pass Revision**
+   - [ ] Follow the workflow in resources/revision-guide.md (four-pass revision system)
 
 4. **Stickiness Check** (see resources/success-model.md)
    - [ ] Apply SUCCESs model
@@ -68,51 +63,18 @@ Work together to document the intent brief before proceeding.
 
 **For:** User has draft, needs improvement
 
-**Steps:**
+**Approach:** Use resources/revision-guide.md as your complete guide
 
-1. Read the draft (or have user share key sections)
-2. Run scripts/analyze-text.py for baseline stats
-3. Run scripts/detect-clutter.py to identify issues
-4. Guide through four-pass revision:
+This resource provides:
+- Workflow with complete checklists for all 4 passes
+- Pass 1: Cut Clutter (Zinsser/King) - Remove weak constructions, cut 10-25%
+- Pass 2: Reduce Cognitive Load (Pinker) - Fix garden-paths, improve readability
+- Pass 3: Improve Rhythm (Clark) - Vary sentences, add gold-coins, enhance flow
+- Pass 4: Enhance Message (Heath) - Apply SUCCESs model for stickiness
+- Complete examples showing full transformation
+- Tips for success
 
-   **Pass 1 - Clutter**: Remove qualifiers, adverbs, passive voice
-   - Target: Cut 10-25% (King's formula: 2nd draft = 1st draft - 10-25%)
-   - Kill adverbs (-ly words)
-   - Remove qualifiers (very, really, quite, rather, somewhat)
-   - Convert passive to active voice
-   - Replace weak verbs (is, are, was, were with action verbs)
-   - Eliminate throat-clearing and clichés
-   - Tools: Zinsser's clarity toolkit
-
-   **Pass 2 - Cognition**: Improve readability
-   - Fix garden-path sentences (avoid temporary ambiguities)
-   - Signal topic early in each sentence
-   - Keep subject-verb-object close together
-   - Check pronoun clarity
-   - Reduce cognitive load - make parsing effortless
-   - Map coherence via topic chains
-   - Tools: Pinker's reader-cognition principles
-
-   **Pass 3 - Rhythm**: Enhance flow
-   - Run scripts/sentence-variety.py
-   - Vary sentence lengths (avoid monotony)
-   - End sentences with strong words
-   - Add gold-coin moments (rewards for readers)
-   - Use ladder of abstraction (concrete → general → concrete)
-   - Tools: Clark's newsroom techniques
-
-   **Pass 4 - Message**: Boost stickiness
-   - Run scripts/success-checker.py
-   - Apply SUCCESs model:
-     - Simple: one-line core message
-     - Unexpected: break schema, create curiosity gaps
-     - Concrete: sensory, tangible details
-     - Credible: authority + testability
-     - Emotional: tie to values
-     - Stories: human challenge, problem-solving
-   - Tools: Heath's stickiness framework
-
-5. Show before/after stats, celebrate improvements
+Work through the workflow with the user, running analysis scripts before and after to show measurable improvements.
 
 ## Structure Planning
 
