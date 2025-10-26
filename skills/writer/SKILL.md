@@ -44,11 +44,9 @@ Work together to document the intent brief before proceeding.
 **Steps:**
 
 1. **Structural Architecture**
-   - Sketch structure before drafting (see resources/structure-types.md)
-   - Design through-line: promise → delivery → resonance
-   - Place gold-coin moments for momentum
-   - Generate 3 structural blueprint options
-   - Help user select structure that serves the material
+   - Follow the workflow in resources/structure-types.md (McPhee's structural diagramming)
+   - This covers: understanding material, identifying organizing principle, sketching 3 options,
+     selecting best structure, mapping gold-coins and through-line
 
 2. **Drafting Discipline**
    - Door closed: produce shitty first draft (Lamott)
@@ -122,20 +120,18 @@ Work together to document the intent brief before proceeding.
 
 **For:** User has ideas but unsure how to organize
 
-**Steps:**
+**Approach:** Use resources/structure-types.md as your complete guide
 
-1. Understand the material and purpose
-2. Reference resources/structure-types.md for McPhee's diagrams
-3. Present structure options:
-   - **List structure** (simplest - one point after another)
-   - **Chronological** (time-based progression)
-   - **Circular/cyclical** (start mid-action, flash back, return)
-   - **Dual profile** (subject in center, perspectives around edge)
-   - **Pyramid** (most important first, inverted pyramid)
-   - **Parallel narratives** (multiple storylines interwoven)
-4. Sketch 3 blueprint options
-5. Help user select and annotate chosen structure
-6. Map gold-coin placement (where to reward readers)
+This resource provides:
+- Workflow checklist (step-by-step process)
+- Philosophy and why structure matters
+- 8 structure types with diagrams (List, Chronological, Circular, Dual Profile, Pyramid, Parallel Narratives, etc.)
+- Creating your own structure diagram (5-step process)
+- Gold-coin placement strategy
+- Structure selection criteria
+- Real examples in practice
+
+Work through the workflow with the user to select and diagram the right structure for their material.
 
 ## Stickiness Enhancement
 

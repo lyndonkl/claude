@@ -4,25 +4,6 @@ Quick reference checklists for each workflow. Check off items as you complete th
 
 ---
 
-## Structure Planning Checklist
-
-Use after intent discovery, before drafting.
-
-- [ ] Gather and understand all your material completely
-- [ ] Identify the natural organizing principle (time, space, importance, etc.)
-- [ ] Sketch structure option #1
-- [ ] Sketch structure option #2
-- [ ] Sketch structure option #3
-- [ ] Compare all three options
-- [ ] Select the structure that best serves the material
-- [ ] Map key moments and transitions
-- [ ] Identify where to place gold-coin moments
-- [ ] Annotate structure diagram with notes
-- [ ] Verify structure supports your through-line (promise → delivery → resonance)
-- [ ] Test: Does this feel inevitable or forced?
-
----
-
 ## Drafting Session Checklist
 
 Use when ready to write first draft.
