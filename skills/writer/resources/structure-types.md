@@ -15,15 +15,15 @@
 
 **Before starting:** Review [Philosophy](#philosophy) and [Why Structure Matters](#why-structure-matters) to understand the principles.
 
-**IMPORTANT:** For analysis steps, output findings to a temp file to ensure thorough coverage of all material.
+**IMPORTANT:** For analysis steps, output findings to analysis files in the current directory to ensure thorough coverage of all material. These analysis files remain in the project for your review.
 
 Use this checklist after intent discovery, before drafting:
 
 **Step 1 - Material Analysis Phase:**
 
 - [ ] [Gather and understand all your material completely](#step-1-gather-your-material)
-- [ ] Create a temp file `/tmp/structure-material-analysis.md`
-- [ ] Output to temp file:
+- [ ] Create analysis file `writer-structure-material-analysis.md` in current directory
+- [ ] Output to analysis file:
   - List ALL key points, anecdotes, data, quotes, examples you have
   - Identify themes and patterns across the material
   - Note what's most important vs. supporting detail
@@ -32,10 +32,10 @@ Use this checklist after intent discovery, before drafting:
 
 **Step 2 - Structure Exploration Phase:**
 
-- [ ] Read the temp file `/tmp/structure-material-analysis.md`
+- [ ] Read the analysis file `writer-structure-material-analysis.md`
 - [ ] Review [Structure Types](#structure-types) - all 8 types with examples
-- [ ] Create a temp file `/tmp/structure-options.md`
-- [ ] Output to temp file - [Sketch 3 different structure options](#step-3-sketch-3-options):
+- [ ] Create analysis file `writer-structure-options.md` in current directory
+- [ ] Output to analysis file - [Sketch 3 different structure options](#step-3-sketch-3-options):
   - **Option 1:** Type, diagram sketch, pros/cons, how material fits
   - **Option 2:** Type, diagram sketch, pros/cons, how material fits
   - **Option 3:** Type, diagram sketch, pros/cons, how material fits
@@ -43,7 +43,7 @@ Use this checklist after intent discovery, before drafting:
 
 **Step 3 - Structure Selection Phase:**
 
-- [ ] Read the temp file `/tmp/structure-options.md`
+- [ ] Read the analysis file `writer-structure-options.md`
 - [ ] [Compare all three options](#step-4-test-each-structure)
 - [ ] [Select the structure that best serves the material](#step-5-select-and-refine)
 - [ ] [Map key moments and transitions](#step-5-select-and-refine)

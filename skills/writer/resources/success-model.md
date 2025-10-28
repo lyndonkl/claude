@@ -19,13 +19,13 @@
 - Review [The Heath Brothers' Framework](#the-heath-brothers-framework) to understand the six principles
 - Review [Complete Example](#complete-example) to see transformation from weak to sticky message
 
-**IMPORTANT:** Analyze the ENTIRE document first and output findings to a temp file, then read the temp file to make improvements. This ensures complete coverage.
+**IMPORTANT:** Analyze the ENTIRE document first and output findings to an analysis file in the current directory, then read that file to make improvements. This ensures complete coverage. The analysis file remains in the project for your review.
 
 **Step 1 - Analysis Phase:**
 
 - [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create a temp file `/tmp/stickiness-analysis.md`
-- [ ] Output to temp file: Assess the entire document against all 6 SUCCESs principles:
+- [ ] Create analysis file `writer-stickiness-analysis.md` in current directory
+- [ ] Output to analysis file: Assess the entire document against all 6 SUCCESs principles:
 
 **Simple** (see [S - Simple](#s---simple))
 - Identify the core message - is it ≤12 words and one main idea?
@@ -61,7 +61,7 @@
 
 **Step 2 - Improvement Phase:**
 
-- [ ] Read the temp file `/tmp/stickiness-analysis.md`
+- [ ] Read the analysis file `writer-stickiness-analysis.md`
 - [ ] Work through the ENTIRE draft making improvements for each weak principle:
   - Simple: Refine core message to ≤12 words
   - Unexpected: Add surprise or curiosity gaps

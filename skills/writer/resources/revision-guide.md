@@ -15,7 +15,7 @@
 - Review [Why Three Passes?](#why-three-passes) to understand the philosophy
 - Review [Complete Three-Pass Example](#complete-three-pass-example) to see full transformation from draft to polished prose
 
-**IMPORTANT:** For each pass, analyze the ENTIRE draft first and output findings to a temp file, then read the temp file to make improvements. This ensures complete coverage of the document.
+**IMPORTANT:** For each pass, analyze the ENTIRE draft first and output findings to an analysis file in the current directory, then read that file to make improvements. This ensures complete coverage of the document. These analysis files remain in the project for your review.
 
 Use this workflow when revising any draft. Work through all three passes sequentially:
 
@@ -23,8 +23,8 @@ Use this workflow when revising any draft. Work through all three passes sequent
 
 Step 1 - Analysis Phase:
 - [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create a temp file `/tmp/pass1-clutter-analysis.md`
-- [ ] Output to temp file: Identify ALL instances of clutter throughout the entire document:
+- [ ] Create analysis file `writer-pass1-clutter-analysis.md` in current directory
+- [ ] Output to analysis file: Identify ALL instances of clutter throughout the entire document:
   - List all adverbs (-ly words) with line/paragraph references
   - List all qualifiers (very, really, quite, rather, somewhat, fairly)
   - List all passive voice constructions
@@ -34,7 +34,7 @@ Step 1 - Analysis Phase:
   - Calculate total word count and target reduction (10-25%)
 
 Step 2 - Improvement Phase:
-- [ ] Read the temp file `/tmp/pass1-clutter-analysis.md`
+- [ ] Read the analysis file `writer-pass1-clutter-analysis.md`
 - [ ] Work through the ENTIRE draft making improvements:
   - Remove adverbs - cut 70%
   - Delete qualifiers
@@ -51,8 +51,8 @@ See detailed examples and guidance in [Pass 1 section](#pass-1-cut-clutter-zinss
 
 Step 1 - Analysis Phase:
 - [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create a temp file `/tmp/pass2-cognitive-load-analysis.md`
-- [ ] Output to temp file: Identify ALL cognitive load issues throughout the entire document:
+- [ ] Create analysis file `writer-pass2-cognitive-load-analysis.md` in current directory
+- [ ] Output to analysis file: Identify ALL cognitive load issues throughout the entire document:
   - List all garden-path sentences with line/paragraph references
   - List all sentences with buried topics
   - List all cases where subject-verb-object are far apart (>7 words)
@@ -61,7 +61,7 @@ Step 1 - Analysis Phase:
   - Mark any sentences that require re-reading
 
 Step 2 - Improvement Phase:
-- [ ] Read the temp file `/tmp/pass2-cognitive-load-analysis.md`
+- [ ] Read the analysis file `writer-pass2-cognitive-load-analysis.md`
 - [ ] Work through the ENTIRE draft making improvements:
   - Fix all garden-path sentences
   - Signal topic at start of each sentence
@@ -78,8 +78,8 @@ See detailed examples and guidance in [Pass 2 section](#pass-2-reduce-cognitive-
 
 Step 1 - Analysis Phase:
 - [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create a temp file `/tmp/pass3-rhythm-analysis.md`
-- [ ] Output to temp file: Analyze rhythm patterns throughout the entire document:
+- [ ] Create analysis file `writer-pass3-rhythm-analysis.md` in current directory
+- [ ] Output to analysis file: Analyze rhythm patterns throughout the entire document:
   - List sentence lengths for each paragraph (count words per sentence)
   - Identify monotonous patterns (5+ similar-length sentences in a row)
   - List the last word of each sentence - mark weak endings
@@ -88,7 +88,7 @@ Step 1 - Analysis Phase:
   - Mark sections that lack sentence variety
 
 Step 2 - Improvement Phase:
-- [ ] Read the temp file `/tmp/pass3-rhythm-analysis.md`
+- [ ] Read the analysis file `writer-pass3-rhythm-analysis.md`
 - [ ] Work through the ENTIRE draft making improvements:
   - Add short sentences for emphasis after longer ones
   - Replace weak sentence endings with strong words
