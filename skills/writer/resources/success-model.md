@@ -1,5 +1,49 @@
 # SUCCESs Model: Making Messages Stick
 
+## Table of Contents
+
+- [Workflow](#workflow) - Step-by-step stickiness enhancement checklist
+- [The Heath Brothers' Framework](#the-heath-brothers-framework) - Overview and philosophy
+- [S - Simple](#s---simple) - Strip to core essence
+- [U - Unexpected](#u---unexpected) - Get and keep attention
+- [C - Concrete](#c---concrete) - Make it visualizable
+- [C - Credible](#c---credible) - Make people believe
+- [E - Emotional](#e---emotional) - Make people care
+- [S - Stories](#s---stories) - Use narrative for mental simulation
+- [Stickiness Scorecard](#stickiness-scorecard) - Rate your message (0-18 points)
+- [Complete Example](#complete-example) - Before/after demonstration
+
+## Workflow
+
+**Before starting:**
+- Review [The Heath Brothers' Framework](#the-heath-brothers-framework) to understand the six principles
+- Review [Complete Example](#complete-example) to see transformation from weak to sticky message
+
+Work through all 6 SUCCESs elements sequentially:
+
+**Simple** (see [S - Simple](#s---simple))
+- [ ] Core message is ≤12 words, one main idea
+
+**Unexpected** (see [U - Unexpected](#u---unexpected))
+- [ ] Added element of surprise or curiosity gap
+
+**Concrete** (see [C - Concrete](#c---concrete))
+- [ ] Concrete, visualizable details present, specific examples
+
+**Credible** (see [C - Credible](#c---credible))
+- [ ] Credibility established (statistics, testability, authority, or vivid details)
+
+**Emotional** (see [E - Emotional](#e---emotional))
+- [ ] Emotional connection created, personal benefit clear
+
+**Stories** (see [S - Stories](#s---stories))
+- [ ] Story or human element included
+
+After working through all elements:
+- [ ] Score using [Stickiness Scorecard](#stickiness-scorecard) - aim for 15+/18
+
+---
+
 ## The Heath Brothers' Framework
 
 From "Made to Stick" by Chip and Dan Heath - a systematic approach to creating memorable messages based on research into why some ideas stick and others fade.
@@ -618,50 +662,6 @@ Rate your message on each element (0-3 points):
 
 ---
 
-## Applying the SUCCESs Model
-
-### Step 1: Assess Current Message
-
-Run through the scorecard. Where are you weak?
-
-### Step 2: Strengthen Weak Elements
-
-**If Simple is weak:**
-- State your core in 12 words
-- Remove competing ideas
-- Find your commander's intent
-
-**If Unexpected is weak:**
-- Add surprising fact early
-- Create curiosity gap
-- Violate reader expectations
-
-**If Concrete is weak:**
-- Add specific sensory details
-- Use real examples with numbers
-- Make it visualizable
-
-**If Credible is weak:**
-- Add statistics (human-scale)
-- Include "try it yourself" element
-- Add vivid details that ring true
-
-**If Emotional is weak:**
-- Focus on one individual
-- Show personal benefit (WIIFY)
-- Connect to identity or values
-
-**If Stories is weak:**
-- Add specific narrative
-- Include real example with details
-- Show challenge, connection, or creativity
-
-### Step 3: Rewrite and Retest
-
-Apply improvements, then score again. Aim for 15+/18.
-
----
-
 ## Complete Example
 
 **Original Message (Weak):**
@@ -685,16 +685,3 @@ Apply improvements, then score again. Aim for 15+/18.
 - Credible: 3 (testable, specific numbers, real person)
 - Emotional: 3 (personal benefit, leave work earlier)
 - Stories: 2 (Sarah's brief story)
-
----
-
-## Key Takeaways
-
-1. **Use all six elements** - they work together
-2. **Simple core first** - what's the one thing?
-3. **Test your message** - use the scorecard
-4. **Individuals over masses** - people care about people
-5. **Concrete over abstract** - make it visualizable
-6. **Stories stick** - show, don't just tell
-
-The SUCCESs model transforms forgettable messages into memorable ones. Apply it systematically, and your writing will stick in readers' minds long after they finish reading.
