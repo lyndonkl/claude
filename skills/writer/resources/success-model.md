@@ -19,28 +19,57 @@
 - Review [The Heath Brothers' Framework](#the-heath-brothers-framework) to understand the six principles
 - Review [Complete Example](#complete-example) to see transformation from weak to sticky message
 
-Work through all 6 SUCCESs elements sequentially:
+**IMPORTANT:** Analyze the ENTIRE document first and output findings to a temp file, then read the temp file to make improvements. This ensures complete coverage.
+
+**Step 1 - Analysis Phase:**
+
+- [ ] Read the ENTIRE draft from beginning to end
+- [ ] Create a temp file `/tmp/stickiness-analysis.md`
+- [ ] Output to temp file: Assess the entire document against all 6 SUCCESs principles:
 
 **Simple** (see [S - Simple](#s---simple))
-- [ ] Core message is ≤12 words, one main idea
+- Identify the core message - is it ≤12 words and one main idea?
+- List any competing or diluted messages
+- Rate simplicity: 0-3 points (0=complex/multiple ideas, 3=single clear core)
 
 **Unexpected** (see [U - Unexpected](#u---unexpected))
-- [ ] Added element of surprise or curiosity gap
+- Identify elements of surprise or curiosity gaps
+- Note where expectations could be violated
+- Rate unexpectedness: 0-3 points (0=predictable, 3=surprising)
 
 **Concrete** (see [C - Concrete](#c---concrete))
-- [ ] Concrete, visualizable details present, specific examples
+- List concrete, visualizable details throughout document
+- Identify abstract sections that need specific examples
+- Rate concreteness: 0-3 points (0=abstract, 3=vivid and specific)
 
 **Credible** (see [C - Credible](#c---credible))
-- [ ] Credibility established (statistics, testability, authority, or vivid details)
+- Identify credibility sources (statistics, testability, authority, vivid details)
+- Note claims that lack support
+- Rate credibility: 0-3 points (0=unsupported claims, 3=strong credibility)
 
 **Emotional** (see [E - Emotional](#e---emotional))
-- [ ] Emotional connection created, personal benefit clear
+- Identify emotional connections and personal benefits
+- Note where reader motivation could be strengthened
+- Rate emotional impact: 0-3 points (0=no emotion, 3=strong connection)
 
 **Stories** (see [S - Stories](#s---stories))
-- [ ] Story or human element included
+- Identify story or human elements present
+- Note opportunities to add narrative or examples
+- Rate story presence: 0-3 points (0=no stories, 3=compelling narrative)
 
-After working through all elements:
-- [ ] Score using [Stickiness Scorecard](#stickiness-scorecard) - aim for 15+/18
+**Total current stickiness score: __/18**
+
+**Step 2 - Improvement Phase:**
+
+- [ ] Read the temp file `/tmp/stickiness-analysis.md`
+- [ ] Work through the ENTIRE draft making improvements for each weak principle:
+  - Simple: Refine core message to ≤12 words
+  - Unexpected: Add surprise or curiosity gaps
+  - Concrete: Add visualizable details and specific examples
+  - Credible: Add statistics, testability, authority, or vivid details
+  - Emotional: Strengthen personal benefits and emotional connections
+  - Stories: Add narrative or human elements
+- [ ] Score final result using [Stickiness Scorecard](#stickiness-scorecard) - aim for 15+/18
 
 ---
 

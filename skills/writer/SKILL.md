@@ -38,9 +38,7 @@ Work together to document the intent brief before proceeding.
 **For:** User starting from scratch
 
 1. **Structural Architecture**
-   - [ ] **READ** resources/structure-types.md and follow its complete workflow
-   - [ ] Work through ALL steps in the workflow checklist in that file
-   - [ ] Complete the structure diagram before proceeding to drafting
+   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/structure-types.md
 
 2. **Drafting Discipline**
    - [ ] Review intent brief and structure diagram together
@@ -50,19 +48,10 @@ Work together to document the intent brief before proceeding.
    - [ ] Encourage flow - don't stop to perfect, just get words on paper
 
 3. **Three-Pass Revision**
-   - [ ] **READ** resources/revision-guide.md and follow its complete three-pass workflow
-   - [ ] For EACH pass: First read and analyze the ENTIRE draft, then make improvements
-   - [ ] Complete Pass 1 (Cut Clutter) on entire draft before moving to Pass 2
-   - [ ] Complete Pass 2 (Reduce Cognitive Load) on entire draft before moving to Pass 3
-   - [ ] Complete Pass 3 (Improve Rhythm) on entire draft
-   - [ ] Follow ALL checklist items in each pass's workflow from the resource file
+   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/revision-guide.md
 
 4. **Stickiness Check**
-   - [ ] **READ** resources/success-model.md and follow its complete SUCCESs workflow
-   - [ ] First: Read the ENTIRE draft and assess against all 6 SUCCESs principles
-   - [ ] Work through ALL 6 checklist items in the workflow from the resource file
-   - [ ] Second: Make improvements to enhance stickiness across the entire piece
-   - [ ] Use the Stickiness Scorecard from the resource file to rate the final result
+   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
 
 5. **Pre-Publishing Check**
    - [ ] Follow [Pre-Publishing Checklist](#pre-publishing-checklist) before sharing or publishing
@@ -71,52 +60,26 @@ Work together to document the intent brief before proceeding.
 
 **For:** User has draft, needs improvement
 
-**IMPORTANT:** Always work on the ENTIRE document. For each step, first analyze the complete draft, then make improvements.
+**Step 1: Three-Pass Revision**
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/revision-guide.md
+  - Pass 1: Cut Clutter (Zinsser/King) - Remove weak constructions, cut 10-25%
+  - Pass 2: Reduce Cognitive Load (Pinker) - Fix garden-paths, improve readability
+  - Pass 3: Improve Rhythm (Clark) - Vary sentences, add gold-coins, enhance flow
 
-### Step 1: Three-Pass Revision
-
-**READ resources/revision-guide.md** and follow its complete three-pass workflow:
-
-- [ ] **Pass 1: Cut Clutter (Zinsser/King)**
-  - First: Read and analyze the ENTIRE draft for clutter patterns
-  - Second: Remove weak constructions, cut 10-25% from the entire piece
-  - Follow ALL checklist items for Pass 1 from the resource file
-
-- [ ] **Pass 2: Reduce Cognitive Load (Pinker)**
-  - First: Read and analyze the ENTIRE draft for cognitive load issues
-  - Second: Fix garden-paths and improve readability across the entire piece
-  - Follow ALL checklist items for Pass 2 from the resource file
-
-- [ ] **Pass 3: Improve Rhythm (Clark)**
-  - First: Read and analyze the ENTIRE draft for rhythm and flow
-  - Second: Vary sentences, add gold-coins, enhance flow throughout
-  - Follow ALL checklist items for Pass 3 from the resource file
-
-### Step 2: Stickiness Enhancement (Optional)
-
-**READ resources/success-model.md** and follow its complete SUCCESs workflow:
-
-- [ ] First: Read the ENTIRE draft and assess against all 6 SUCCESs principles
-- [ ] Work through ALL 6 checklist items in the workflow from the resource file
-- [ ] Second: Make improvements to enhance stickiness across the entire piece
-- [ ] Use the Stickiness Scorecard from the resource file to rate the final result
+**Step 2: Stickiness Enhancement (Optional)**
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
+  - Apply SUCCESs framework to make messages memorable
 
 ## Structure Planning
 
 **For:** User has ideas but unsure how to organize
 
-**READ resources/structure-types.md** and follow its complete workflow:
-
-- [ ] Work through ALL steps in the workflow checklist from the resource file
-- [ ] Review all 8 structure types with the user (List, Chronological, Circular, Dual Profile, Pyramid, Parallel Narratives, etc.)
-- [ ] Follow the 5-step process for creating a structure diagram
-- [ ] Apply gold-coin placement strategy from the resource file
-- [ ] Complete the full structure diagram before proceeding to writing
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/structure-types.md
 
 This resource provides:
-- Complete workflow checklist (step-by-step process)
+- Workflow checklist (step-by-step process)
 - Philosophy and why structure matters
-- 8 structure types with diagrams and examples
+- 8 structure types with diagrams (List, Chronological, Circular, Dual Profile, Pyramid, Parallel Narratives, etc.)
 - Creating your own structure diagram (5-step process)
 - Gold-coin placement strategy
 - Structure selection criteria
@@ -126,24 +89,11 @@ This resource provides:
 
 **For:** User wants message to be more memorable
 
-**IMPORTANT:** Always analyze the ENTIRE document first, then make improvements.
-
-**READ resources/success-model.md** and follow its complete SUCCESs workflow:
-
-- [ ] First: Read and analyze the ENTIRE piece against all 6 SUCCESs principles
-- [ ] Work through ALL 6 checklist items in the workflow from the resource file:
-  - Simple (core message ≤12 words)
-  - Unexpected (surprise or curiosity gap)
-  - Concrete (visualizable details)
-  - Credible (statistics, testability, authority, or vivid details)
-  - Emotional (emotional connection, personal benefit)
-  - Stories (story or human element)
-- [ ] Second: Make improvements to enhance stickiness across the entire piece
-- [ ] Use the Stickiness Scorecard from the resource file to rate the result (aim for 15+/18)
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
 
 This resource provides:
-- Complete workflow with SUCCESs checklist
-- Detailed guidance on all 6 principles with examples
+- Workflow with complete SUCCESs checklist
+- Detailed guidance on all 6 principles (Simple, Unexpected, Concrete, Credible, Emotional, Stories)
 - Stickiness Scorecard for rating messages (0-18 points)
 - Step-by-step application process
 - Before/after examples showing transformation
@@ -151,8 +101,6 @@ This resource provides:
 ## Pre-Publishing Checklist
 
 Use before sharing or publishing.
-
-**IMPORTANT:** Review the ENTIRE document against this checklist. Read through completely, checking all items.
 
 ### Content
 - [ ] Core message is crystal clear

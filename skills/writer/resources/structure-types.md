@@ -15,21 +15,43 @@
 
 **Before starting:** Review [Philosophy](#philosophy) and [Why Structure Matters](#why-structure-matters) to understand the principles.
 
+**IMPORTANT:** For analysis steps, output findings to a temp file to ensure thorough coverage of all material.
+
 Use this checklist after intent discovery, before drafting:
 
+**Step 1 - Material Analysis Phase:**
+
 - [ ] [Gather and understand all your material completely](#step-1-gather-your-material)
-- [ ] [Identify the natural organizing principle](#step-2-identify-the-organizing-principle) (time, space, importance, etc.)
-- [ ] [Sketch structure option #1](#step-3-sketch-3-options)
-- [ ] [Sketch structure option #2](#step-3-sketch-3-options)
-- [ ] [Sketch structure option #3](#step-3-sketch-3-options)
+- [ ] Create a temp file `/tmp/structure-material-analysis.md`
+- [ ] Output to temp file:
+  - List ALL key points, anecdotes, data, quotes, examples you have
+  - Identify themes and patterns across the material
+  - Note what's most important vs. supporting detail
+  - Identify the natural organizing principle (time, space, importance, comparison, etc.)
+  - Consider your readers: Are they busy? Engaged? Unfamiliar with topic? Expert?
+
+**Step 2 - Structure Exploration Phase:**
+
+- [ ] Read the temp file `/tmp/structure-material-analysis.md`
+- [ ] Review [Structure Types](#structure-types) - all 8 types with examples
+- [ ] Create a temp file `/tmp/structure-options.md`
+- [ ] Output to temp file - [Sketch 3 different structure options](#step-3-sketch-3-options):
+  - **Option 1:** Type, diagram sketch, pros/cons, how material fits
+  - **Option 2:** Type, diagram sketch, pros/cons, how material fits
+  - **Option 3:** Type, diagram sketch, pros/cons, how material fits
+- [ ] For each option, test against criteria in [Structure Selection Criteria](#structure-selection-criteria)
+
+**Step 3 - Structure Selection Phase:**
+
+- [ ] Read the temp file `/tmp/structure-options.md`
 - [ ] [Compare all three options](#step-4-test-each-structure)
-- [ ] Consider your readers (busy? engaged? unfamiliar? expert?) - see [Structure Selection Criteria](#structure-selection-criteria)
 - [ ] [Select the structure that best serves the material](#step-5-select-and-refine)
 - [ ] [Map key moments and transitions](#step-5-select-and-refine)
-- [ ] [Identify where to place gold-coin moments](#gold-coin-placement-strategy)
-- [ ] [Annotate structure diagram with notes](#step-5-select-and-refine)
+- [ ] [Identify where to place gold-coin moments](#gold-coin-placement-strategy) throughout (especially middle)
+- [ ] [Annotate structure diagram with notes](#step-5-select-and-refine) about pacing and transitions
 - [ ] [Verify structure supports your through-line](#step-5-select-and-refine) (promise → delivery → resonance)
 - [ ] [Test: Does this feel inevitable or forced?](#step-4-test-each-structure)
+- [ ] Create final annotated structure diagram for user to review before drafting
 
 **How to know if your structure is working:**
 
