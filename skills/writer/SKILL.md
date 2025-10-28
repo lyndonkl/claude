@@ -15,11 +15,7 @@ description: Guide users writing new pieces, revising drafts, planning structure
 - [Revision & Polish](#revision--polish-existing-draft) - Improve existing draft (most common)
 - [Structure Planning](#structure-planning) - Organize ideas before writing
 - [Stickiness Enhancement](#stickiness-enhancement) - Make message memorable
-
-**Tools & Resources**
-- [Analysis Scripts](#analysis-scripts) - Scripts for text analysis, clutter detection, rhythm, stickiness
-- [Resource Guides](#resource-guides) - Detailed techniques in resources/ directory
-- [Coaching Questions](#coaching-questions) - Socratic prompts for guidance
+- [Pre-Publishing Checklist](#pre-publishing-checklist) - Final check before sharing
 
 ## Understand the Situation
 
@@ -58,7 +54,7 @@ Work together to document the intent brief before proceeding.
    - [ ] Follow the workflow in resources/success-model.md (SUCCESs framework)
 
 5. **Pre-Publishing Check**
-   - [ ] Follow Pre-Publishing Checklist before sharing or publishing
+   - [ ] Follow [Pre-Publishing Checklist](#pre-publishing-checklist) before sharing or publishing
 
 ## Revision & Polish (Existing Draft)
 
