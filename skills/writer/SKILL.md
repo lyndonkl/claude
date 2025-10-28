@@ -51,30 +51,30 @@ Work together to document the intent brief before proceeding.
    - [ ] Guide to write in short declarative sentences (Klinkenborg)
    - [ ] Encourage flow - don't stop to perfect, just get words on paper
 
-3. **Four-Pass Revision**
-   - [ ] Follow the workflow in resources/revision-guide.md (four-pass revision system)
+3. **Three-Pass Revision**
+   - [ ] Follow the workflow in resources/revision-guide.md (three-pass revision system)
 
-4. **Stickiness Check** (see resources/success-model.md)
-   - [ ] Apply SUCCESs model
-   - [ ] Run scripts/success-checker.py
-   - [ ] Refine for memorability
+4. **Stickiness Check**
+   - [ ] Follow the workflow in resources/success-model.md (SUCCESs framework)
 
 ## Revision & Polish (Existing Draft)
 
 **For:** User has draft, needs improvement
 
-**Approach:** Use resources/revision-guide.md as your complete guide
+**Approach:**
+1. Use resources/revision-guide.md for the three-pass revision system
+2. Use resources/success-model.md for message stickiness enhancement
 
-This resource provides:
-- Workflow with complete checklists for all 4 passes
+**Three-Pass Revision (resources/revision-guide.md):**
 - Pass 1: Cut Clutter (Zinsser/King) - Remove weak constructions, cut 10-25%
 - Pass 2: Reduce Cognitive Load (Pinker) - Fix garden-paths, improve readability
 - Pass 3: Improve Rhythm (Clark) - Vary sentences, add gold-coins, enhance flow
-- Pass 4: Enhance Message (Heath) - Apply SUCCESs model for stickiness
-- Complete examples showing full transformation
-- Tips for success
 
-Work through the workflow with the user, running analysis scripts before and after to show measurable improvements.
+**Stickiness Enhancement (resources/success-model.md):**
+- Apply SUCCESs framework to make messages memorable
+- Use workflow checklist for systematic stickiness assessment
+
+Work through the workflows with the user, running analysis scripts before and after to show measurable improvements.
 
 ## Structure Planning
 
@@ -97,19 +97,16 @@ Work through the workflow with the user to select and diagram the right structur
 
 **For:** User wants message to be more memorable
 
-**Steps:**
+**Approach:** Use resources/success-model.md as your complete guide
 
-1. Identify core message (12 words or less)
-2. Run scripts/success-checker.py
-3. Work through SUCCESs model (see resources/success-model.md):
-   - **S**imple: Strip to essence - what's the one thing?
-   - **U**nexpected: Create surprise and curiosity - violate expectations
-   - **C**oncrete: Add sensory details - can they visualize it?
-   - **C**redible: Build believability - why should they believe?
-   - **E**motional: Make them care - connect to identity and values
-   - **S**tories: Use narrative - mental simulation through story
-4. Score each element, identify weak areas
-5. Rewrite key sections for stickiness
+This resource provides:
+- Workflow with complete SUCCESs checklist
+- Detailed guidance on all 6 principles (Simple, Unexpected, Concrete, Credible, Emotional, Stories)
+- Stickiness Scorecard for rating messages (0-18 points)
+- Step-by-step application process
+- Before/after examples showing transformation
+
+Work through the workflow with the user to systematically enhance message stickiness.
 
 ### 3. Apply Techniques with References
 

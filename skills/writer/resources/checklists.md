@@ -4,50 +4,6 @@ Quick reference checklists for each workflow. Check off items as you complete th
 
 ---
 
-## Stickiness Checklist (SUCCESs)
-
-Use when you want to make a message memorable.
-
-### Simple
-- [ ] Core message stated in ≤12 words?
-- [ ] One main idea (not many)?
-- [ ] Commander's intent clear?
-- [ ] Can guide decision-making?
-
-### Unexpected
-- [ ] Violates reader expectations?
-- [ ] Opens with surprise?
-- [ ] Creates curiosity gap?
-- [ ] Makes them want to know more?
-
-### Concrete
-- [ ] Sensory details present?
-- [ ] Readers can visualize it?
-- [ ] Specific numbers (not vague "many")?
-- [ ] Focuses on individuals (not masses)?
-
-### Credible
-- [ ] Evidence provided?
-- [ ] Statistics human-scale?
-- [ ] Testable ("try it yourself")?
-- [ ] Vivid details that ring true?
-
-### Emotional
-- [ ] Shows personal benefit?
-- [ ] Appeals to identity?
-- [ ] Connects to values?
-- [ ] Makes readers care?
-
-### Stories
-- [ ] Specific narrative included?
-- [ ] Challenge/connection/creativity plot?
-- [ ] Real example with details?
-- [ ] Readers can mentally simulate it?
-
-**Total Score: __/18** (aim for 15+)
-
----
-
 ## Pre-Publishing Checklist
 
 Use before sharing or publishing.

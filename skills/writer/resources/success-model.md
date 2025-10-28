@@ -1,5 +1,41 @@
 # SUCCESs Model: Making Messages Stick
 
+## Table of Contents
+
+- [Workflow](#workflow) - Step-by-step stickiness enhancement checklist
+- [The Heath Brothers' Framework](#the-heath-brothers-framework) - Overview and philosophy
+- [S - Simple](#s---simple) - Strip to core essence
+- [U - Unexpected](#u---unexpected) - Get and keep attention
+- [C - Concrete](#c---concrete) - Make it visualizable
+- [C - Credible](#c---credible) - Make people believe
+- [E - Emotional](#e---emotional) - Make people care
+- [S - Stories](#s---stories) - Use narrative for mental simulation
+- [Stickiness Scorecard](#stickiness-scorecard) - Rate your message (0-18 points)
+- [Applying the SUCCESs Model](#applying-the-success-model) - Step-by-step application
+- [Complete Example](#complete-example) - Before/after demonstration
+
+## Workflow
+
+**Before starting:** Review [The Heath Brothers' Framework](#the-heath-brothers-framework) to understand the six principles.
+
+Use this workflow when enhancing message stickiness:
+
+- [ ] Assess message against SUCCESs framework
+- [ ] Score message on all 6 SUCCESs elements using the [Stickiness Scorecard](#stickiness-scorecard)
+- [ ] Identify weak elements (scored 0-1)
+- [ ] **Simple:** Core message is ≤12 words, one main idea
+- [ ] **Unexpected:** Added element of surprise or curiosity gap
+- [ ] **Concrete:** Concrete, visualizable details present, specific examples
+- [ ] **Credible:** Credibility established (statistics, testability, authority, or vivid details)
+- [ ] **Emotional:** Emotional connection created, personal benefit clear
+- [ ] **Story:** Story or human element included
+- [ ] Improve weak elements using techniques in each section
+- [ ] Retest score - aim for 15+/18 (strong on 5-6 elements)
+
+See detailed guidance and examples in each principle section below.
+
+---
+
 ## The Heath Brothers' Framework
 
 From "Made to Stick" by Chip and Dan Heath - a systematic approach to creating memorable messages based on research into why some ideas stick and others fade.

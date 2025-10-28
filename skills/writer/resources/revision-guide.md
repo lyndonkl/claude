@@ -1,22 +1,21 @@
-# Four-Pass Revision System
+# Three-Pass Revision System
 
 ## Table of Contents
 
-- [Workflow](#workflow) - Step-by-step revision checklist for all 4 passes
-- [Why Four Passes?](#why-four-passes) - Philosophy behind the system
+- [Workflow](#workflow) - Step-by-step revision checklist for all 3 passes
+- [Why Three Passes?](#why-three-passes) - Philosophy behind the system
 - [Pass 1: Cut Clutter](#pass-1-cut-clutter-zinsserking) - Make it lean (Zinsser/King)
 - [Pass 2: Reduce Cognitive Load](#pass-2-reduce-cognitive-load-pinker) - Make it readable (Pinker)
 - [Pass 3: Improve Rhythm](#pass-3-improve-rhythm-clark) - Make it flow (Clark)
-- [Pass 4: Enhance Message](#pass-4-enhance-message-heath) - Make it stick (Heath)
-- [Complete Four-Pass Example](#complete-four-pass-example) - Full transformation demonstration
+- [Complete Three-Pass Example](#complete-three-pass-example) - Full transformation demonstration
 
 ## Workflow
 
 **Before starting:**
-- Review [Why Four Passes?](#why-four-passes) to understand the philosophy
-- Review [Complete Four-Pass Example](#complete-four-pass-example) to see full transformation from draft to polished prose
+- Review [Why Three Passes?](#why-three-passes) to understand the philosophy
+- Review [Complete Three-Pass Example](#complete-three-pass-example) to see full transformation from draft to polished prose
 
-Use this workflow when revising any draft. Work through all four passes sequentially:
+Use this workflow when revising any draft. Work through all three passes sequentially:
 
 **Pass 1: Cut Clutter** (see [Pass 1 details](#pass-1-cut-clutter-zinsserking))
 - [ ] Identify all clutter: adverbs (-ly words), qualifiers (very, really, quite), passive voice, weak verbs (is, are, was, were)
@@ -55,23 +54,9 @@ See detailed examples and guidance in [Pass 2 section](#pass-2-reduce-cognitive-
 
 See detailed examples and guidance in [Pass 3 section](#pass-3-improve-rhythm-clark).
 
-**Pass 4: Enhance Message** (see [Pass 4 details](#pass-4-enhance-message-heath))
-- [ ] Assess message against SUCCESs framework
-- [ ] Score message on all 6 SUCCESs elements (Simple, Unexpected, Concrete, Credible, Emotional, Stories)
-- [ ] Improve weak elements
-- [ ] Core message is ≤12 words
-- [ ] Added element of surprise or curiosity
-- [ ] Concrete, visualizable details present
-- [ ] Credibility established
-- [ ] Emotional connection created
-- [ ] Story or human element included
-- [ ] Aim for strong score on 5-6 elements
-
-See detailed examples and guidance in [Pass 4 section](#pass-4-enhance-message-heath).
-
 ---
 
-## Why Four Passes?
+## Why Three Passes?
 
 Trying to fix everything at once overwhelms your critical faculties. Each pass has one focus, making the work manageable and more effective. Multiple focused passes produce better results than one comprehensive revision.
 
@@ -79,7 +64,8 @@ Trying to fix everything at once overwhelms your critical faculties. Each pass h
 1. **Pass 1: Cut Clutter** (Zinsser/King) - Make it lean
 2. **Pass 2: Reduce Cognitive Load** (Pinker) - Make it readable
 3. **Pass 3: Improve Rhythm** (Clark) - Make it flow
-4. **Pass 4: Enhance Message** (Heath) - Make it stick
+
+**Note:** Message stickiness (Heath's SUCCESs model) is handled separately in resources/success-model.md
 
 ---
 
@@ -359,92 +345,7 @@ Move between concrete and general: concrete → general → concrete
 
 ---
 
-## Pass 4: Enhance Message (Heath)
-
-### Goal
-
-Make your message stick in readers' memories using the SUCCESs model.
-
-### The SUCCESs Checklist
-
-#### S - Simple
-- [ ] Core message in ≤12 words
-- [ ] One main idea, not many
-- [ ] Proverb-like simplicity
-
-**Example:**
-Before: "Our strategic initiative focuses on leveraging synergies between departments to optimize resource utilization and enhance stakeholder value."
-After: "Work together. Share resources. Deliver value."
-
-#### U - Unexpected
-- [ ] Violate readers' expectations
-- [ ] Create curiosity gap
-- [ ] Surprise early
-
-**Example:**
-Boring: "Project budgets often exceed estimates."
-Unexpected: "Your project will fail. Not might fail - will fail. Unless you do three things..."
-
-#### C - Concrete
-- [ ] Sensory details
-- [ ] Specific examples
-- [ ] Visualizable
-
-**Example:**
-Abstract: "The project had quality issues."
-Concrete: "The dashboard crashed every morning at 9 AM when 200+ users logged in simultaneously."
-
-#### C - Credible
-- [ ] Statistics (human-scale)
-- [ ] Testability ("try it yourself")
-- [ ] Authority or anti-authority
-- [ ] Vivid details that ring true
-
-**Example:**
-Vague: "Many users experienced problems."
-Credible: "73% of users (847 out of 1,162) reported login failures between May 1-15."
-
-#### E - Emotional
-- [ ] Focus on individuals, not masses
-- [ ] Appeal to identity
-- [ ] Self-interest or values
-- [ ] Make them care
-
-**Example:**
-Distant: "Budget overruns affect project outcomes."
-Emotional: "Your team worked nights and weekends. Your effort deserves a project that succeeds."
-
-#### S - Stories
-- [ ] Specific narrative
-- [ ] Challenge, Connection, or Creativity plot
-- [ ] Mental simulation
-- [ ] Human element
-
-**Example:**
-Statement: "Code reviews improve quality."
-Story: "Sarah caught a critical bug in code review - a null pointer that would have crashed the app in production. 50,000 users avoided downtime because Sarah took ten minutes to review carefully."
-
-### Complete Example: Pass 4
-
-**Before (after Pass 3):**
-"This project deserves our full attention. Why? Three factors: budget, timeline, and quality. Our budget exceeded 20%. Similar projects show this pattern. The Acme redesign? Over budget. The Phoenix rollout? Same story. We must get back on track immediately."
-
-**After Pass 4 (enhanced stickiness):**
-"This project deserves your full attention [Emotional - "your"]. Why? Last year, we spent $240,000 over budget on projects exactly like this one [Concrete]. The Acme redesign? 30% over. The Phoenix rollout? 25% over [Concrete + Credible]. Here's what's different this time [Unexpected - curiosity gap]: we're using zero-based budgeting. Every dollar must be justified every week [Simple]. Sarah's team tested this on the Alpha project - they came in 5% under budget [Story + Credible]. We can do this [Emotional]."
-
-**What Changed:**
-- Simple: Clear core message
-- Unexpected: "Here's what's different" creates curiosity
-- Concrete: Specific dollar amounts ($240,000), specific percentages (30%, 25%, 5%)
-- Credible: Real projects, testable approach
-- Emotional: "Your" attention, "We can do this"
-- Story: Sarah's team success
-
-**SUCCESs Score: 6/6**
-
----
-
-## Complete Four-Pass Example
+## Complete Three-Pass Example
 
 **Original (250 words):**
 "It has come to our attention that there are several significant issues that need to be addressed regarding the software development project that our team has been working on for the past several months. The project timeline has been considerably extended beyond what was originally planned, and we are currently experiencing budget overruns that are quite substantial and concerning. In my personal opinion, based on my experience with similar projects, I really think that we need to very carefully reconsider our approach and make some important changes to how we're managing things going forward. There are basically three main areas where improvements could potentially be made. First of all, the communication between the various teams involved in the project has been somewhat lacking and could definitely be improved significantly. Secondly, the scope of the project seems to have expanded quite a bit from what was initially agreed upon, which has obviously had an impact on both our timeline and our budget. Thirdly, and perhaps most importantly in my view, we haven't been doing a very good job of tracking our progress and identifying problems early enough to actually do something about them before they become major issues. If we want to successfully complete this project and deliver results that meet our stakeholders' expectations, we really need to take immediate action to address these concerns and get things back on track."
@@ -458,12 +359,10 @@ Story: "Sarah caught a critical bug in code review - a null pointer that would h
 **After Pass 3 - Improve Rhythm (142 words):**
 "Our software development project is failing. The timeline? Blown. The budget? 30% over. We must change our approach. Why? Three problems. First, teams don't communicate. Updates are rare. Coordination is nonexistent. Second, scope keeps expanding. New features appear weekly. No one says no. Third, we don't track progress. Small problems become crises. How do we fix this? Three steps: daily standups, frozen scope, and weekly tracking. Sound simple? It is. Sound effective? Ask the Phoenix team. They faced the same problems last year - 25% over budget, three months late. They implemented these three steps. Result? Delivered on time, 5% under budget. We can do this."
 
-**After Pass 4 - Enhance Message (138 words):**
-"Your project is failing [Unexpected]. The timeline? Blown. The budget? $180,000 over [Concrete]. Your team deserves better [Emotional]. Three problems are killing us [Simple]: teams don't communicate [Concrete - updates are rare, coordination is nonexistent], scope keeps expanding [Concrete - new features appear weekly, no one says no], and we don't track progress [Concrete - small problems become crises]. Here's the good news [Unexpected]: three steps fix this [Simple]. Daily standups. Frozen scope. Weekly tracking. Ask Sarah from the Phoenix team [Story]. Last year, her project was in identical trouble - 25% over budget, three months late [Credible]. She implemented these three steps [Simple]. Her result? On time, 5% under budget [Credible]. Your team can do this [Emotional]."
-
 **Summary:**
-- Words: 250 → 138 (45% reduction)
+- Words: 250 → 142 (43% reduction)
 - Reading ease: Improved significantly
 - Sentence variety: Added short punchy sentences
-- Stickiness: All 6 SUCCESs elements present
-- Impact: Message is now clear, concrete, and memorable
+- Impact: Message is now clearer, more engaging, and flows better
+
+**Note:** For message stickiness enhancement (SUCCESs model), see resources/success-model.md
