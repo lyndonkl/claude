@@ -38,7 +38,7 @@ Work together to document the intent brief before proceeding.
 **For:** User starting from scratch
 
 1. **Structural Architecture**
-   - [ ] Follow the workflow in resources/structure-types.md (McPhee's structural diagramming)
+   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/structure-types.md
 
 2. **Drafting Discipline**
    - [ ] Review intent brief and structure diagram together
@@ -48,10 +48,10 @@ Work together to document the intent brief before proceeding.
    - [ ] Encourage flow - don't stop to perfect, just get words on paper
 
 3. **Three-Pass Revision**
-   - [ ] Follow the workflow in resources/revision-guide.md (three-pass revision system)
+   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/revision-guide.md
 
 4. **Stickiness Check**
-   - [ ] Follow the workflow in resources/success-model.md (SUCCESs framework)
+   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
 
 5. **Pre-Publishing Check**
    - [ ] Follow [Pre-Publishing Checklist](#pre-publishing-checklist) before sharing or publishing
@@ -60,26 +60,21 @@ Work together to document the intent brief before proceeding.
 
 **For:** User has draft, needs improvement
 
-**Approach:**
-1. Use resources/revision-guide.md for the three-pass revision system
-2. Use resources/success-model.md for message stickiness enhancement
+**Step 1: Three-Pass Revision**
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/revision-guide.md
+  - Pass 1: Cut Clutter (Zinsser/King) - Remove weak constructions, cut 10-25%
+  - Pass 2: Reduce Cognitive Load (Pinker) - Fix garden-paths, improve readability
+  - Pass 3: Improve Rhythm (Clark) - Vary sentences, add gold-coins, enhance flow
 
-**Three-Pass Revision (resources/revision-guide.md):**
-- Pass 1: Cut Clutter (Zinsser/King) - Remove weak constructions, cut 10-25%
-- Pass 2: Reduce Cognitive Load (Pinker) - Fix garden-paths, improve readability
-- Pass 3: Improve Rhythm (Clark) - Vary sentences, add gold-coins, enhance flow
-
-**Stickiness Enhancement (resources/success-model.md):**
-- Apply SUCCESs framework to make messages memorable
-- Use workflow checklist for systematic stickiness assessment
-
-Work through the workflows with the user, running analysis scripts before and after to show measurable improvements.
+**Step 2: Stickiness Enhancement (Optional)**
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
+  - Apply SUCCESs framework to make messages memorable
 
 ## Structure Planning
 
 **For:** User has ideas but unsure how to organize
 
-**Approach:** Use resources/structure-types.md as your complete guide
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/structure-types.md
 
 This resource provides:
 - Workflow checklist (step-by-step process)
@@ -90,13 +85,11 @@ This resource provides:
 - Structure selection criteria
 - Real examples in practice
 
-Work through the workflow with the user to select and diagram the right structure for their material.
-
 ## Stickiness Enhancement
 
 **For:** User wants message to be more memorable
 
-**Approach:** Use resources/success-model.md as your complete guide
+- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
 
 This resource provides:
 - Workflow with complete SUCCESs checklist
@@ -104,8 +97,6 @@ This resource provides:
 - Stickiness Scorecard for rating messages (0-18 points)
 - Step-by-step application process
 - Before/after examples showing transformation
-
-Work through the workflow with the user to systematically enhance message stickiness.
 
 ## Pre-Publishing Checklist
 
