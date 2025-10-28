@@ -6,9 +6,12 @@ A collection of custom agents and skills for Claude Code.
 
 ### Skills
 
-- **writer**: Transform writing into precise, compelling prose using structured revision, structural architecture, and stickiness techniques from expert writers (McPhee, Zinsser, King, Pinker, Heath)
-  - Includes resources for revision guides, structure types, checklists, and examples
-  - Python scripts for text analysis, clutter detection, sentence variety, and success checking
+- **writer**: Transform writing into precise, compelling prose using structured revision, structural architecture, and stickiness techniques from expert writers (McPhee, Zinsser, King, Pinker, Clark, Klinkenborg, Lamott, Heath)
+  - Five core workflows: Understand the Situation, Full Writing Process, Revision & Polish, Structure Planning, Stickiness Enhancement
+  - Three-Pass Revision System: Cut Clutter (Zinsser/King), Reduce Cognitive Load (Pinker), Improve Rhythm (Clark)
+  - McPhee's structural diagramming with 8 structure types and gold-coin placement
+  - SUCCESs framework for message stickiness (Simple, Unexpected, Concrete, Credible, Emotional, Stories)
+  - Pre-Publishing Checklist covering content, structure, clarity, style, and polish
 
 ### Agents
 
