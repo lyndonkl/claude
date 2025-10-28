@@ -1,5 +1,52 @@
 # McPhee's Structural Diagramming
 
+## Table of Contents
+
+- [Workflow](#workflow) - Step-by-step checklist for structure planning
+- [Philosophy](#philosophy) - Core principles of structural thinking
+- [Why Structure Matters](#why-structure-matters) - Impact of good vs. bad structure
+- [The Diagramming Method](#the-diagramming-method) - McPhee's approach
+- [Structure Types](#structure-types) - 8 structural patterns with examples
+- [Creating Your Own Structure Diagram](#creating-your-own-structure-diagram) - Five-step process
+- [Gold-Coin Placement Strategy](#gold-coin-placement-strategy) - How to reward readers
+- [Structure Selection Criteria](#structure-selection-criteria) - Matching structure to material
+
+## Workflow
+
+**Before starting:** Review [Philosophy](#philosophy) and [Why Structure Matters](#why-structure-matters) to understand the principles.
+
+Use this checklist after intent discovery, before drafting:
+
+- [ ] [Gather and understand all your material completely](#step-1-gather-your-material)
+- [ ] [Identify the natural organizing principle](#step-2-identify-the-organizing-principle) (time, space, importance, etc.)
+- [ ] [Sketch structure option #1](#step-3-sketch-3-options)
+- [ ] [Sketch structure option #2](#step-3-sketch-3-options)
+- [ ] [Sketch structure option #3](#step-3-sketch-3-options)
+- [ ] [Compare all three options](#step-4-test-each-structure)
+- [ ] Consider your readers (busy? engaged? unfamiliar? expert?) - see [Structure Selection Criteria](#structure-selection-criteria)
+- [ ] [Select the structure that best serves the material](#step-5-select-and-refine)
+- [ ] [Map key moments and transitions](#step-5-select-and-refine)
+- [ ] [Identify where to place gold-coin moments](#gold-coin-placement-strategy)
+- [ ] [Annotate structure diagram with notes](#step-5-select-and-refine)
+- [ ] [Verify structure supports your through-line](#step-5-select-and-refine) (promise → delivery → resonance)
+- [ ] [Test: Does this feel inevitable or forced?](#step-4-test-each-structure)
+
+**How to know if your structure is working:**
+
+If structure is working:
+- Readers won't notice it
+- They'll just experience flow
+- They'll feel the piece is "well-organized"
+- They'll reach the end satisfied
+
+If structure isn't working:
+- Readers will feel lost
+- They'll wonder "where is this going?"
+- They'll experience it as disorganized
+- They might abandon before the end
+
+---
+
 ## Philosophy
 
 "Structure is as visible as someone's bones" - readers shouldn't notice it, but it carries everything.
@@ -441,127 +488,3 @@ Distribute evenly - don't cluster them all in one section.
 - **Unfamiliar with topic:** Chronological (easy to follow)
 - **Expert readers:** Dual/Triple Profile (sophisticated)
 
-### Trust Your Instinct
-
-After sketching options, one usually feels right. McPhee: "The structure that arises from the material" - you'll recognize it when you find it.
-
----
-
-## Examples in Practice
-
-### Example 1: Blog Post About Learning to Code
-
-**Option A - Chronological:**
-```
-Day 1 → Week 1 → Month 1 → Month 3 → Month 6 → Today
-```
-Straightforward but predictable.
-
-**Option B - Circular:**
-```
-Start: Today (deployed first app - success!)
-    ↓
-Flash back: Six months ago (why I started)
-    ↓
-Progress: The journey (struggles and wins)
-    ↓
-Return: Today (the deployment, lessons learned)
-```
-More engaging, starts with payoff.
-
-**Option C - Dual Profile:**
-```
-         Me before coding
-              |
-      YouTube tutorials - ME - Bootcamp experience
-              |
-         Developer friends
-```
-Shows different aspects of learning.
-
-**Selected:** Option B (Circular) - hooks with success, builds toward it, satisfying return.
-
-### Example 2: Product Feature Comparison
-
-**Option A - List:**
-```
-Feature 1: Ours vs. Theirs
-Feature 2: Ours vs. Theirs
-Feature 3: Ours vs. Theirs
-```
-Clear but mechanical.
-
-**Option B - Parallel Narratives:**
-```
-User journey with our product: ─•──•──•──•─
-User journey with their product: ──•──•──•──•
-(Alternate sections)
-```
-Experiential, engaging.
-
-**Option C - Pyramid:**
-```
-Most important differentiator
-  Next important
-    Supporting features
-      Details
-```
-Efficient for busy readers.
-
-**Selected:** Option B for marketing blog, Option C for executive brief.
-
----
-
-## Working with Structure
-
-### Before Drafting
-
-1. **Complete your research/material gathering**
-2. **Create 3 structure diagrams**
-3. **Select the best one**
-4. **Annotate with gold coins**
-5. **Then start drafting**
-
-McPhee: "I never start writing without a structure."
-
-### During Drafting
-
-- Refer to your diagram
-- Follow the architecture
-- Allow small deviations if they serve the piece
-- But don't abandon structure entirely
-
-### During Revision
-
-- Check: Did you follow the structure?
-- Assess: Does it still serve the piece?
-- Adjust if needed (structure can evolve)
-- Ensure transitions work smoothly
-
-### Trust the Invisible Architecture
-
-If structure is working:
-- Readers won't notice it
-- They'll just experience flow
-- They'll feel the piece is "well-organized"
-- They'll reach the end satisfied
-
-If structure isn't working:
-- Readers will feel lost
-- They'll wonder "where is this going?"
-- They'll experience it as disorganized
-- They might abandon before the end
-
----
-
-## Key Takeaways
-
-1. **Blueprint before building** - always diagram before drafting
-2. **Structure arises from material** - don't impose, discover
-3. **Sketch 3 options** - first idea isn't always best
-4. **Invisible but essential** - like bones, not seen but carrying everything
-5. **Map gold coins** - place rewards strategically
-6. **Trust your instinct** - you'll recognize the right structure
-7. **Serve the content** - structure exists to support the material
-
-McPhee's structural diagramming transforms writing from wandering to purposeful. It ensures every piece has an invisible architecture that carries readers from beginning to end with momentum, clarity, and satisfaction.

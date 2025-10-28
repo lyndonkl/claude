@@ -1,160 +1,99 @@
 ---
 name: Writing Mentor
-description: Transform writing into precise, compelling prose using structured revision, structural architecture, and stickiness techniques from expert writers (McPhee, Zinsser, King, Pinker, Heath)
+description: Guide users writing new pieces, revising drafts, planning structure, improving organization, making messages memorable, or applying expert writing techniques from McPhee, Zinsser, King, Pinker, Clark, Klinkenborg, Lamott, and Heath
 ---
 
 # Writing Mentor
 
-## Purpose
+## Table of Contents
 
-Transform the user's writing into **precise, compelling, and unforgettable prose** by integrating:
-- Process discipline (King, Lamott)
-- Structural architecture (McPhee)
-- Linguistic psychology (Pinker)
-- Audience-focused message design (Heath)
-- Clarity and concision (Zinsser, Clark, Klinkenborg)
+**Start Here**
+- [Understand the Situation](#understand-the-situation) - Ask these questions first
 
-## When to Use This Skill
+**Workflows**
+- [Full Writing Process](#full-writing-process-new-piece) - New piece from start to finish
+- [Revision & Polish](#revision--polish-existing-draft) - Improve existing draft (most common)
+- [Structure Planning](#structure-planning) - Organize ideas before writing
+- [Stickiness Enhancement](#stickiness-enhancement) - Make message memorable
 
-- User is writing something new and needs guidance
-- User has a draft that needs revision and polish
-- User is stuck on structure or organization
-- User wants to make their message more memorable
-- User asks about writing techniques or best practices
+**Tools & Resources**
+- [Analysis Scripts](#analysis-scripts) - Scripts for text analysis, clutter detection, rhythm, stickiness
+- [Resource Guides](#resource-guides) - Detailed techniques in resources/ directory
+- [Coaching Questions](#coaching-questions) - Socratic prompts for guidance
 
-## Core Philosophy
+## Understand the Situation
 
-1. **Clarity over ornament** - Simplicity reveals meaning (Zinsser)
-2. **Structure is destiny** - Architecture carries the reader (McPhee)
-3. **Volume builds instinct** - Write daily, cut mercilessly (King)
-4. **Mess first, refine later** - Drafts are meant to be shitty (Lamott)
-5. **Read the reader's mind** - Anticipate cognitive load (Pinker)
-6. **Tools not rules** - Apply heuristics flexibly (Clark)
-7. **Sentence is the thought** - See clearly, write clearly (Klinkenborg)
-8. **Stickiness is design** - Simplicity + surprise + story (Heath)
+Before starting any new piece, work with the user to explore these questions:
 
-## How to Work With Users
+- [ ] What are you writing? (genre, length, purpose)
+- [ ] Who is your primary audience?
+- [ ] What is your reader's state of mind? (what do they know? what do they expect?)
+- [ ] What is your core promise in ≤12 words?
+- [ ] What must the reader remember if they forget everything else?
+- [ ] What's at stake emotionally for the reader?
+- [ ] What's at stake practically for the reader?
+- [ ] What is your commander's intent? (the single essential goal)
+- [ ] Why should the reader care?
 
-### 1. Understand the Situation
+Work together to document the intent brief before proceeding.
 
-Ask:
-- What are you writing? (genre, purpose, length)
-- Who is your audience?
-- What stage are you at? (idea, outline, draft, revision)
-- What do you already have?
-- What help do you need?
-
-### 2. Route to Appropriate Workflow
-
-Based on their situation, guide them through one of these:
-
-#### A. Full Writing Process (New Piece)
+## Full Writing Process (New Piece)
 
 **For:** User starting from scratch
 
-**Steps:**
+1. **Structural Architecture**
+   - [ ] Follow the workflow in resources/structure-types.md (McPhee's structural diagramming)
 
-1. **Intent Discovery**
-   - Define core promise in ≤12 words
-   - Identify audience and reader state of mind
-   - Frame commander's intent (military-style clarity)
-   - Questions: "What must reader remember if they forget everything else? What's at stake emotionally or practically for the reader?"
+2. **Drafting Discipline**
+   - [ ] Review intent brief and structure diagram together
+   - [ ] Remind: shitty first drafts are good (Lamott) - write without editing
+   - [ ] Guide to favor concrete nouns, strong verbs, sensory detail (King)
+   - [ ] Guide to write in short declarative sentences (Klinkenborg)
+   - [ ] Encourage flow - don't stop to perfect, just get words on paper
 
-2. **Structural Architecture**
-   - Sketch structure before drafting (see resources/structure-types.md)
-   - Design through-line: promise → delivery → resonance
-   - Place gold-coin moments for momentum
-   - Generate 3 structural blueprint options
-   - Help user select structure that serves the material
+3. **Four-Pass Revision**
+   - [ ] Follow the workflow in resources/revision-guide.md (four-pass revision system)
 
-3. **Drafting Discipline**
-   - Door closed: produce shitty first draft (Lamott)
-   - Favor concrete nouns, strong verbs, sensory detail (King)
-   - Write in short declarative sentences (Klinkenborg)
-   - Set micro-quotas (20 min, 500 words) for flow state
-   - Volume builds instinct - just get words on paper
+4. **Stickiness Check** (see resources/success-model.md)
+   - [ ] Apply SUCCESs model
+   - [ ] Run scripts/success-checker.py
+   - [ ] Refine for memorability
 
-4. **Four-Pass Revision** (see resources/revision-guide.md)
-   - Pass 1: Cut 10-25% (King's formula)
-   - Pass 2: Reduce cognitive load (Pinker)
-   - Pass 3: Improve rhythm (Clark)
-   - Pass 4: Enhance message (Heath)
-
-5. **Stickiness Check** (see resources/success-model.md)
-   - Apply SUCCESs model
-   - Run scripts/success-checker.py
-   - Refine for memorability
-
-#### B. Revision & Polish (Existing Draft)
+## Revision & Polish (Existing Draft)
 
 **For:** User has draft, needs improvement
 
-**Steps:**
+**Approach:** Use resources/revision-guide.md as your complete guide
 
-1. Read the draft (or have user share key sections)
-2. Run scripts/analyze-text.py for baseline stats
-3. Run scripts/detect-clutter.py to identify issues
-4. Guide through four-pass revision:
+This resource provides:
+- Workflow with complete checklists for all 4 passes
+- Pass 1: Cut Clutter (Zinsser/King) - Remove weak constructions, cut 10-25%
+- Pass 2: Reduce Cognitive Load (Pinker) - Fix garden-paths, improve readability
+- Pass 3: Improve Rhythm (Clark) - Vary sentences, add gold-coins, enhance flow
+- Pass 4: Enhance Message (Heath) - Apply SUCCESs model for stickiness
+- Complete examples showing full transformation
+- Tips for success
 
-   **Pass 1 - Clutter**: Remove qualifiers, adverbs, passive voice
-   - Target: Cut 10-25% (King's formula: 2nd draft = 1st draft - 10-25%)
-   - Kill adverbs (-ly words)
-   - Remove qualifiers (very, really, quite, rather, somewhat)
-   - Convert passive to active voice
-   - Replace weak verbs (is, are, was, were with action verbs)
-   - Eliminate throat-clearing and clichés
-   - Tools: Zinsser's clarity toolkit
+Work through the workflow with the user, running analysis scripts before and after to show measurable improvements.
 
-   **Pass 2 - Cognition**: Improve readability
-   - Fix garden-path sentences (avoid temporary ambiguities)
-   - Signal topic early in each sentence
-   - Keep subject-verb-object close together
-   - Check pronoun clarity
-   - Reduce cognitive load - make parsing effortless
-   - Map coherence via topic chains
-   - Tools: Pinker's reader-cognition principles
-
-   **Pass 3 - Rhythm**: Enhance flow
-   - Run scripts/sentence-variety.py
-   - Vary sentence lengths (avoid monotony)
-   - End sentences with strong words
-   - Add gold-coin moments (rewards for readers)
-   - Use ladder of abstraction (concrete → general → concrete)
-   - Tools: Clark's newsroom techniques
-
-   **Pass 4 - Message**: Boost stickiness
-   - Run scripts/success-checker.py
-   - Apply SUCCESs model:
-     - Simple: one-line core message
-     - Unexpected: break schema, create curiosity gaps
-     - Concrete: sensory, tangible details
-     - Credible: authority + testability
-     - Emotional: tie to values
-     - Stories: human challenge, problem-solving
-   - Tools: Heath's stickiness framework
-
-5. Show before/after stats, celebrate improvements
-
-#### C. Structure Planning
+## Structure Planning
 
 **For:** User has ideas but unsure how to organize
 
-**Steps:**
+**Approach:** Use resources/structure-types.md as your complete guide
 
-1. Understand the material and purpose
-2. Reference resources/structure-types.md for McPhee's diagrams
-3. Present structure options:
-   - **List structure** (simplest - one point after another)
-   - **Chronological** (time-based progression)
-   - **Circular/cyclical** (start mid-action, flash back, return)
-   - **Dual profile** (subject in center, perspectives around edge)
-   - **Pyramid** (most important first, inverted pyramid)
-   - **Parallel narratives** (multiple storylines interwoven)
-4. Sketch 3 blueprint options
-5. Help user select and annotate chosen structure
-6. Map gold-coin placement (where to reward readers)
+This resource provides:
+- Workflow checklist (step-by-step process)
+- Philosophy and why structure matters
+- 8 structure types with diagrams (List, Chronological, Circular, Dual Profile, Pyramid, Parallel Narratives, etc.)
+- Creating your own structure diagram (5-step process)
+- Gold-coin placement strategy
+- Structure selection criteria
+- Real examples in practice
 
-#### D. Stickiness Enhancement
+Work through the workflow with the user to select and diagram the right structure for their material.
+
+## Stickiness Enhancement
 
 **For:** User wants message to be more memorable
 
