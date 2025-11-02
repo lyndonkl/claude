@@ -1,0 +1,130 @@
+{
+  "name": "Abstraction Ladder Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Level Distinctness",
+      "description": "Each level is clearly distinct from adjacent levels with no redundancy",
+      "scoring": {
+        "1": "Levels are redundant or indistinguishable",
+        "2": "Some levels overlap significantly",
+        "3": "Levels are mostly distinct with minor overlap",
+        "4": "All levels are clearly distinct",
+        "5": "Each level adds unique, valuable perspective"
+      }
+    },
+    {
+      "name": "Transition Clarity",
+      "description": "Connections between levels are logical and traceable",
+      "scoring": {
+        "1": "No clear connection between levels",
+        "2": "Some connections are unclear or missing",
+        "3": "Most transitions are logical",
+        "4": "All transitions are clear and logical",
+        "5": "Transitions reveal deep insights about the topic"
+      }
+    },
+    {
+      "name": "Abstraction Range",
+      "description": "Spans from truly universal principles to concrete specifics",
+      "scoring": {
+        "1": "Limited range; all levels at similar abstraction",
+        "2": "Some variation but doesn't reach extremes",
+        "3": "Good range from abstract to concrete",
+        "4": "Excellent range; top is universal, bottom is specific",
+        "5": "Exceptional range with measurable concrete details and broadly applicable principles"
+      }
+    },
+    {
+      "name": "Concreteness at Bottom",
+      "description": "Most concrete level has specific, measurable, verifiable details",
+      "scoring": {
+        "1": "Bottom level still abstract or vague",
+        "2": "Bottom level somewhat specific but lacks detail",
+        "3": "Bottom level has concrete examples",
+        "4": "Bottom level has specific, measurable details",
+        "5": "Bottom level includes exact values, measurements, edge cases"
+      }
+    },
+    {
+      "name": "Abstraction at Top",
+      "description": "Most abstract level is universally applicable beyond this context",
+      "scoring": {
+        "1": "Top level is context-specific",
+        "2": "Top level is somewhat general but domain-limited",
+        "3": "Top level is broadly applicable",
+        "4": "Top level is universal within domain",
+        "5": "Top level transcends domain; applies to many fields"
+      }
+    },
+    {
+      "name": "Edge Case Quality",
+      "description": "Edge cases meaningfully test boundaries and reveal insights",
+      "scoring": {
+        "1": "No edge cases or trivial examples",
+        "2": "Edge cases present but don't challenge principles",
+        "3": "Edge cases test some boundaries",
+        "4": "Edge cases reveal interesting tensions or limits",
+        "5": "Edge cases expose deep insights and prompt refinement"
+      }
+    },
+    {
+      "name": "Assumption Transparency",
+      "description": "Assumptions, context, and limitations are stated explicitly",
+      "scoring": {
+        "1": "No acknowledgment of assumptions or limits",
+        "2": "Few assumptions mentioned",
+        "3": "Key assumptions stated",
+        "4": "Comprehensive assumption documentation",
+        "5": "Assumptions stated with analysis of how changes would affect ladder"
+      }
+    },
+    {
+      "name": "Coherence",
+      "description": "All levels address the same aspect/thread of the topic",
+      "scoring": {
+        "1": "Levels address completely different topics",
+        "2": "Significant topic drift between levels",
+        "3": "Mostly coherent with minor drift",
+        "4": "Strong coherence throughout",
+        "5": "Perfect thematic unity; tells a clear story"
+      }
+    },
+    {
+      "name": "Utility",
+      "description": "Ladder serves its stated purpose and provides actionable value",
+      "scoring": {
+        "1": "Purpose unclear; no practical value",
+        "2": "Some value but doesn't clearly serve a purpose",
+        "3": "Useful for stated purpose",
+        "4": "Highly useful with clear applications",
+        "5": "Exceptional utility; enables decisions or insights not otherwise possible"
+      }
+    },
+    {
+      "name": "Comprehensibility",
+      "description": "Someone unfamiliar with the topic can follow the logic",
+      "scoring": {
+        "1": "Requires deep expertise to understand",
+        "2": "Accessible only to domain experts",
+        "3": "Understandable with some background",
+        "4": "Clear to most readers",
+        "5": "Crystal clear; excellent pedagogical tool"
+      }
+    }
+  ],
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Average score ≥ 4.5 across all criteria",
+      "very_good": "Average score ≥ 4.0 across all criteria",
+      "good": "Average score ≥ 3.5 across all criteria",
+      "acceptable": "Average score ≥ 3.0 across all criteria",
+      "needs_improvement": "Average score < 3.0"
+    }
+  },
+  "usage_instructions": "Rate each criterion independently on 1-5 scale. Calculate average. Identify lowest-scoring criteria for targeted improvement before delivering to user."
+}
