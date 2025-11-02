@@ -1,0 +1,279 @@
+{
+  "criteria": [
+    {
+      "name": "Specification Clarity",
+      "description": "Is the initiative goal, scope, approach, and timeline clearly defined and actionable?",
+      "scoring": {
+        "1": "Vague goal ('improve system') with no clear scope or timeline. Stakeholders can't act on this.",
+        "2": "General goal stated but scope unclear (what's in/out?). Timeline missing or unrealistic.",
+        "3": "Goal, scope, timeline stated but lacks detail. Approach mentioned but not explained. Acceptable for low-stakes.",
+        "4": "Clear goal, explicit scope (in/out), realistic timeline with milestones. Approach well-explained. Good for medium-stakes.",
+        "5": "Crystal clear goal tied to business outcome. Precise scope with rationale. Detailed approach with diagrams. Timeline has buffer and dependencies. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "Spec says 'improve performance' without quantifying what that means",
+        "No 'out of scope' section (scope creep likely)",
+        "Timeline has no buffer or dependencies identified",
+        "Approach section just lists technology choices without explaining why"
+      ]
+    },
+    {
+      "name": "Specification Completeness",
+      "description": "Are all necessary components covered (current state, requirements, dependencies, assumptions)?",
+      "scoring": {
+        "1": "Major sections missing. No baseline, no requirements, or no dependencies documented.",
+        "2": "Some sections present but incomplete. Requirements exist but vague ('system should be fast').",
+        "3": "All major sections present. Requirements specific but could be more detailed. Acceptable for low-stakes.",
+        "4": "Comprehensive: baseline with data, specific requirements, dependencies and assumptions explicit. Good for medium-stakes.",
+        "5": "Exhaustive: current state with metrics, functional + non-functional requirements with acceptance criteria, all dependencies mapped, assumptions validated. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "No current state baseline (can't measure improvement)",
+        "Requirements mix functional and non-functional without clear categories",
+        "No assumptions stated (hidden risks)",
+        "Dependencies mentioned but not explicitly called out in own section"
+      ]
+    },
+    {
+      "name": "Risk Analysis Comprehensiveness",
+      "description": "Are risks identified across all dimensions (technical, operational, organizational, external)?",
+      "scoring": {
+        "1": "No risks identified, or only 1-2 obvious risks listed. Major blind spots.",
+        "2": "3-5 risks identified but all in one category (e.g., only technical). Missing organizational, external risks.",
+        "3": "5-10 risks covering technical and operational. Some organizational risks. Acceptable for low-stakes.",
+        "4": "10-15 risks across all four categories. Premortem conducted. Covers non-obvious risks. Good for medium-stakes.",
+        "5": "15+ risks identified through structured premortem. All categories covered with specific failure modes. Includes low-probability/high-impact risks. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "Risk register is just a list of vague concerns ('project might be delayed')",
+        "All risks are technical (missing organizational, external)",
+        "No premortem conducted (risks are just obvious failure modes)",
+        "Low-probability/high-impact risks ignored (e.g., key person leaves)"
+      ]
+    },
+    {
+      "name": "Risk Quantification",
+      "description": "Are risks scored by likelihood and impact, with clear prioritization?",
+      "scoring": {
+        "1": "No risk scoring. Can't tell which risks are most important.",
+        "2": "Risks listed but no likelihood/impact assessment. Unclear which to prioritize.",
+        "3": "Likelihood and impact assessed (Low/Med/High) for each risk. Priority clear. Acceptable for low-stakes.",
+        "4": "Likelihood (%) and impact (cost/time) quantified. Risk scores calculated. Top risks prioritized. Good for medium-stakes.",
+        "5": "Quantitative risk analysis: probability distributions, expected loss, mitigation cost-benefit. Risks ranked by expected value. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "All risks marked 'High' (no actual prioritization)",
+        "Likelihood/impact inconsistent (50% likelihood but marked 'Low'?)",
+        "No risk score or priority ranking (can't tell what to focus on)",
+        "Mitigation cost not compared to expected loss (over-mitigating low-risk items)"
+      ]
+    },
+    {
+      "name": "Risk Mitigation Depth",
+      "description": "Does each high-priority risk have specific, actionable mitigation strategies with owners?",
+      "scoring": {
+        "1": "No mitigation strategies. Just a list of risks.",
+        "2": "Generic mitigations ('monitor closely', 'be careful'). Not actionable.",
+        "3": "Specific mitigations for top 5 risks. Owners assigned. Acceptable for low-stakes.",
+        "4": "Detailed mitigations for all high-risk items (score 6-9). Clear actions, owners, status tracking. Good for medium-stakes.",
+        "5": "Comprehensive mitigations with preventive + detective + corrective controls. Cost-benefit analysis. Rollback plans. Continuous monitoring. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "Mitigation is vague ('increase testing') without specifics",
+        "No owners assigned to risks (accountability missing)",
+        "High-risk items have no mitigation plan",
+        "Mitigations are all preventive (no detective/corrective controls if prevention fails)"
+      ]
+    },
+    {
+      "name": "Metrics Measurability",
+      "description": "Are metrics specific, measurable, with clear baselines, targets, and measurement methods?",
+      "scoring": {
+        "1": "No metrics, or metrics are unmeasurable ('better UX', 'improved reliability').",
+        "2": "Metrics stated but no baseline or target ('track uptime'). Can't assess success.",
+        "3": "3-5 metrics with baselines and targets. Measurement method implied but not explicit. Acceptable for low-stakes.",
+        "4": "5-10 metrics with baselines, targets, measurement methods, tracking cadence, owners. Good for medium-stakes.",
+        "5": "Comprehensive metrics framework (leading/lagging/counter). All metrics SMART (specific, measurable, achievable, relevant, time-bound). Instrumentation plan. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "Metric is subjective ('improved user experience') without quantification",
+        "No baseline (can't measure improvement)",
+        "Target is vague ('reduce latency') without number",
+        "Measurement method missing (how will you actually track this?)"
+      ]
+    },
+    {
+      "name": "Leading/Lagging Balance",
+      "description": "Are there both leading indicators (early signals) and lagging indicators (outcomes)?",
+      "scoring": {
+        "1": "Only lagging indicators (outcomes). No early warning signals.",
+        "2": "Mostly lagging. One or two leading indicators but not well-chosen.",
+        "3": "2-3 leading indicators (predict outcomes) and 3-5 lagging (measure outcomes). Acceptable for low-stakes.",
+        "4": "Balanced: 3-5 leading indicators that predict lagging outcomes. Tracking cadence matches (leading daily/weekly, lagging monthly). Good for medium-stakes.",
+        "5": "Sophisticated framework: leading indicators validated to predict lagging. Includes counter-metrics to prevent gaming. Dashboard with real-time leading, periodic lagging. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "All metrics are outcomes (no early signals of trouble)",
+        "Leading indicators don't actually predict lagging (no validated correlation)",
+        "No counter-metrics (risk of gaming the system)",
+        "Tracking cadence wrong (measuring strategic metrics daily creates noise)"
+      ]
+    },
+    {
+      "name": "Integration: Spec↔Risk↔Metrics",
+      "description": "Do the three components reinforce each other (specs enable metrics, risks map to specs, metrics validate mitigations)?",
+      "scoring": {
+        "1": "Components are disconnected. Metrics don't relate to spec goals. Risks don't map to spec decisions.",
+        "2": "Weak connections. Some overlap but mostly independent documents.",
+        "3": "Moderate integration. Risks reference spec sections. Some metrics measure risk mitigations. Acceptable for low-stakes.",
+        "4": "Strong integration. Major spec decisions have corresponding risks. High-risk items have metrics to detect issues. Metrics align with spec goals. Good for medium-stakes.",
+        "5": "Seamless integration. Specs include instrumentation for metrics. Risks mapped to specific spec choices with rationale. Metrics validate both spec assumptions and risk mitigations. Traceability matrix. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "Metrics don't align with spec goals (tracking unrelated things)",
+        "Spec makes technology choice but risks don't assess that choice",
+        "High-risk items have no corresponding metrics to detect if risk is materializing",
+        "Spec doesn't include instrumentation needed to collect metrics"
+      ]
+    },
+    {
+      "name": "Actionability",
+      "description": "Can stakeholders act on this artifact? Are owners, timelines, and next steps clear?",
+      "scoring": {
+        "1": "No clear next steps. No owners assigned. Stakeholders can't act on this.",
+        "2": "Some next steps but vague ('start planning'). Owners missing or unclear.",
+        "3": "Next steps clear for immediate phase. Owners assigned to risks and metrics. Acceptable for low-stakes.",
+        "4": "Clear action plan with milestones, owners, dependencies. Stakeholders know what to do and when. Good for medium-stakes.",
+        "5": "Detailed execution plan with phase gates, decision points, escalation paths. RACI matrix for key activities. Stakeholders empowered to execute autonomously. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "No owners assigned to risks or metrics (accountability vacuum)",
+        "Timeline exists but no clear milestones or dependencies",
+        "Next steps are vague ('continue planning', 'monitor situation')",
+        "Unclear decision authority (who approves phase transitions?)"
+      ]
+    },
+    {
+      "name": "Realism and Feasibility",
+      "description": "Is the plan realistic given constraints (time, budget, team)? Are assumptions validated?",
+      "scoring": {
+        "1": "Unrealistic plan (6-month timeline for 2-year project). Assumptions unvalidated. Will fail.",
+        "2": "Overly optimistic. Timeline has no buffer. Assumes best-case scenario throughout.",
+        "3": "Mostly realistic. Timeline includes some buffer (10-20%). Key assumptions stated. Acceptable for low-stakes.",
+        "4": "Realistic timeline with 20-30% buffer. Assumptions validated or explicitly called out as needs validation. Good for medium-stakes.",
+        "5": "Conservative timeline with 30%+ buffer and contingency plans. All assumptions validated or mitigated. Three-point estimates for uncertain items. Exemplary for high-stakes."
+      },
+      "red_flags": [
+        "Timeline has no buffer (assumes everything goes perfectly)",
+        "Assumes team has skills they don't have (no training plan)",
+        "Budget doesn't include contingency (cost overruns likely)",
+        "Critical assumptions not validated ('we assume API will handle 10K req/s' - did you test this?)"
+      ]
+    }
+  ],
+  "stakes_guidance": {
+    "low_stakes": {
+      "description": "Initiative < 1 eng-month, reversible, limited impact. Examples: Small feature, internal tool, process tweak.",
+      "target_score": 3.0,
+      "required_criteria": [
+        "Specification Clarity ≥ 3",
+        "Risk Analysis Comprehensiveness ≥ 3",
+        "Metrics Measurability ≥ 3"
+      ],
+      "optional_criteria": [
+        "Risk Quantification (can use Low/Med/High)",
+        "Leading/Lagging Balance (3 metrics sufficient)"
+      ]
+    },
+    "medium_stakes": {
+      "description": "Initiative 1-6 months, affects multiple teams, significant impact. Examples: Service migration, product launch, infrastructure change.",
+      "target_score": 3.5,
+      "required_criteria": [
+        "All criteria ≥ 3",
+        "Specification Completeness ≥ 4",
+        "Risk Mitigation Depth ≥ 4",
+        "Metrics Measurability ≥ 4"
+      ],
+      "recommended": [
+        "Conduct premortem for risk analysis",
+        "Include counter-metrics to prevent gaming",
+        "Assign owners to all high-risk items and metrics"
+      ]
+    },
+    "high_stakes": {
+      "description": "Initiative 6+ months, company-wide, strategic/existential impact. Examples: Architecture overhaul, market expansion, regulatory compliance.",
+      "target_score": 4.0,
+      "required_criteria": [
+        "All criteria ≥ 4",
+        "Risk Quantification ≥ 4 (use quantitative analysis)",
+        "Integration ≥ 4 (traceability matrix recommended)",
+        "Actionability ≥ 4 (detailed execution plan)"
+      ],
+      "recommended": [
+        "Quantitative risk analysis (expected value, cost-benefit)",
+        "Advanced metrics frameworks (HEART, North Star, SLI/SLO)",
+        "Continuous validation loop (update risks/metrics monthly)",
+        "External review (architect, security, compliance)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure_mode": "Spec Without Risks",
+      "symptoms": "Detailed specification but no risk analysis. Assumes everything will go as planned.",
+      "consequences": "Blindsided by preventable failures. No mitigation plans when issues arise.",
+      "fix": "Run 30-minute premortem: 'Imagine this failed - why?' Identify top 10 risks and mitigate."
+    },
+    {
+      "failure_mode": "Risk Theater",
+      "symptoms": "50+ risks listed but no prioritization, mitigation, or owners. Just documenting everything that could go wrong.",
+      "consequences": "Analysis paralysis. Team can't focus. Risks aren't actually managed.",
+      "fix": "Score risks by likelihood × impact. Focus on top 10 (score 6-9). Assign owners and specific mitigations."
+    },
+    {
+      "failure_mode": "Vanity Metrics",
+      "symptoms": "Tracking activity metrics ('features shipped', 'lines of code') instead of outcome metrics ('user value', 'revenue').",
+      "consequences": "Team optimizes for the wrong thing. Looks busy but doesn't deliver value.",
+      "fix": "For each metric ask: 'If this goes up, are users/business better off?' Replace vanity with value metrics."
+    },
+    {
+      "failure_mode": "Plan and Forget",
+      "symptoms": "Beautiful spec/risk/metrics doc created then never referenced again.",
+      "consequences": "Doc becomes stale. Risks materialize but aren't detected. Metrics drift from goals.",
+      "fix": "Schedule monthly reviews. Update risks (new ones, status changes). Track metrics in team rituals (sprint reviews, all-hands)."
+    },
+    {
+      "failure_mode": "Premature Precision",
+      "symptoms": "Overconfident estimates: 'Migration will take exactly 47 days and cost $487,234.19'.",
+      "consequences": "False confidence. When reality diverges, team loses trust in planning.",
+      "fix": "Use ranges (30-60 days, $400-600K). State confidence levels (50%, 90%). Build in buffer (20-30%)."
+    },
+    {
+      "failure_mode": "Disconnected Components",
+      "symptoms": "Specs, risks, and metrics are separate documents that don't reference each other.",
+      "consequences": "Metrics don't validate spec assumptions. Risks aren't mitigated by spec choices. Incoherent plan.",
+      "fix": "Explicitly map: major spec decisions → corresponding risks → metrics that detect risk. Ensure traceability."
+    },
+    {
+      "failure_mode": "No Counter-Metrics",
+      "symptoms": "Optimizing for single metric without guardrails (e.g., 'ship faster!' without quality threshold).",
+      "consequences": "Gaming the system. Ship faster but quality tanks. Optimize costs but reliability suffers.",
+      "fix": "For each primary metric, define counter-metric: what you're NOT willing to sacrifice. Monitor both."
+    },
+    {
+      "failure_mode": "Analysis Paralysis",
+      "symptoms": "Spent 3 months planning, creating perfect spec/risks/metrics, haven't started building.",
+      "consequences": "Opportunity cost. Market moves on. Team demoralized by lack of progress.",
+      "fix": "Time-box planning (1-2 weeks for most initiatives). Embrace uncertainty. Learn by doing. Update plan as you learn."
+    }
+  ],
+  "scale": 5,
+  "minimum_average_score": 3.5,
+  "interpretation": {
+    "1.0-2.0": "Inadequate. Major gaps in spec, risks, or metrics. Do not proceed. Revise artifact.",
+    "2.0-3.0": "Needs improvement. Some components present but incomplete or vague. Acceptable only for very low-stakes initiatives. Revise before proceeding with medium/high-stakes.",
+    "3.0-3.5": "Acceptable for low-stakes initiatives. Core components present with sufficient detail. For medium-stakes, strengthen risk analysis and metrics.",
+    "3.5-4.0": "Good. Ready for medium-stakes initiatives. Comprehensive spec, proactive risk management, measurable success criteria. For high-stakes, add quantitative analysis and continuous validation.",
+    "4.0-5.0": "Excellent. Ready for high-stakes initiatives. Exemplary planning with detailed execution plan, quantitative risk analysis, sophisticated metrics, and strong integration."
+  }
+}

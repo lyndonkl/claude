@@ -1,0 +1,314 @@
+{
+  "criteria": [
+    {
+      "name": "Scaffold Structure Clarity",
+      "description": "Is the scaffold structure clear, systematic, and easy to follow?",
+      "scoring": {
+        "1": "No clear structure. Random collection of steps/checks without logical flow.",
+        "2": "Basic structure but steps are vague or out of order. User confused about what to do next.",
+        "3": "Clear structure with defined steps. User can follow but may need clarification on some steps.",
+        "4": "Well-organized structure with clear steps, checkpoints, and expected outputs at each stage.",
+        "5": "Exemplary structure: systematic, numbered steps with clear inputs/outputs, decision points explicit."
+      },
+      "red_flags": [
+        "Steps not numbered or sequenced",
+        "No clear starting/ending point",
+        "Validation steps missing",
+        "User must guess what to do next"
+      ]
+    },
+    {
+      "name": "Coverage Completeness",
+      "description": "Does the scaffold cover all necessary aspects (happy path, edge cases, validation, etc.)?",
+      "scoring": {
+        "1": "Major gaps. Only covers happy path, ignores edge cases/errors/validation.",
+        "2": "Partial coverage. Addresses main case but misses important edge cases or validation steps.",
+        "3": "Adequate coverage. Main cases and some edge cases covered. Basic validation included.",
+        "4": "Comprehensive coverage. Happy path, edge cases, error conditions, validation all included.",
+        "5": "Exhaustive coverage. All cases, validation at each step, robustness checks, limitations documented."
+      },
+      "red_flags": [
+        "TDD scaffold: No tests for edge cases or errors",
+        "EDA scaffold: Missing data quality checks",
+        "Statistical scaffold: No assumption checks",
+        "Any scaffold: No validation step before delivering"
+      ]
+    },
+    {
+      "name": "Technical Rigor",
+      "description": "Is the approach technically sound with appropriate methods/tests?",
+      "scoring": {
+        "1": "Technically incorrect. Wrong methods, flawed logic, or inappropriate techniques.",
+        "2": "Questionable rigor. Some techniques correct but others questionable or missing justification.",
+        "3": "Adequate rigor. Standard techniques applied correctly. Acceptable for routine work.",
+        "4": "High rigor. Appropriate methods, assumptions checked, sensitivity analysis included.",
+        "5": "Exemplary rigor. Best practices followed, multiple validation approaches, limitations acknowledged."
+      },
+      "red_flags": [
+        "Causal inference without DAG or identification strategy",
+        "Statistical test without checking assumptions",
+        "ML model without train/val/test split (data leakage)",
+        "TDD without testing error conditions"
+      ]
+    },
+    {
+      "name": "Actionability",
+      "description": "Can user execute scaffold without further guidance? Are examples concrete?",
+      "scoring": {
+        "1": "Not actionable. Vague advice, no concrete steps, no code examples.",
+        "2": "Somewhat actionable. General direction but user needs to figure out details.",
+        "3": "Actionable. Clear steps with code snippets. User can execute with minor adjustments.",
+        "4": "Highly actionable. Complete code examples, data assumptions stated, ready to adapt.",
+        "5": "Immediately executable. Copy-paste ready examples with inline comments, expected outputs shown."
+      },
+      "red_flags": [
+        "No code examples (just prose descriptions)",
+        "Code has placeholders without explaining what to fill in",
+        "No example inputs/outputs",
+        "Vague instructions ('check assumptions', 'validate results' without saying how)"
+      ]
+    },
+    {
+      "name": "Test Quality (for TDD)",
+      "description": "For TDD scaffolds: Do tests cover happy path, edge cases, errors, and integration?",
+      "scoring": {
+        "1": "Only happy path tests. No edge cases, errors, or integration tests.",
+        "2": "Happy path + some edge cases. Error handling or integration missing.",
+        "3": "Happy path, edge cases, basic error tests. Integration tests may be missing.",
+        "4": "Comprehensive: Happy path, edge cases, error conditions, integration tests all present.",
+        "5": "Exemplary: Above + property-based tests, test fixtures, mocks for external dependencies."
+      },
+      "red_flags": [
+        "No tests for None/empty input",
+        "No tests for expected exceptions",
+        "No tests for state changes/side effects",
+        "No integration tests for external systems"
+      ],
+      "applicable_to": ["TDD"]
+    },
+    {
+      "name": "Data Quality Assessment (for EDA)",
+      "description": "For EDA scaffolds: Are data quality checks (missing, duplicates, outliers, consistency) included?",
+      "scoring": {
+        "1": "No data quality checks. Jumps straight to analysis without inspecting data.",
+        "2": "Minimal checks. Maybe checks missing values but ignores duplicates, outliers, consistency.",
+        "3": "Basic quality checks. Missing values, duplicates, basic outliers checked.",
+        "4": "Thorough quality checks. Missing patterns, duplicates, outliers, type consistency, referential integrity.",
+        "5": "Comprehensive quality framework. All checks + distributions, cardinality, data lineage, validation rules."
+      },
+      "red_flags": [
+        "No check for missing values",
+        "No check for duplicates",
+        "No outlier detection",
+        "Assumes data is clean without validation"
+      ],
+      "applicable_to": ["EDA", "Statistical Analysis", "Predictive Modeling"]
+    },
+    {
+      "name": "Assumption Documentation",
+      "description": "Are assumptions explicitly stated and justified?",
+      "scoring": {
+        "1": "No assumptions stated. User unaware of what's being assumed.",
+        "2": "Some assumptions implicit but not documented. User must infer them.",
+        "3": "Key assumptions stated but not justified or validated.",
+        "4": "Assumptions explicitly stated with justification. User knows what's assumed and why.",
+        "5": "Assumptions stated, justified, validated where possible, and sensitivity to violations analyzed."
+      },
+      "red_flags": [
+        "Statistical test applied without stating/checking assumptions",
+        "Causal claim without stating identification assumptions",
+        "ML model without documenting train/test split assumptions",
+        "Function implementation without stating preconditions"
+      ]
+    },
+    {
+      "name": "Validation Steps Included",
+      "description": "Does scaffold include validation/quality checks before delivering results?",
+      "scoring": {
+        "1": "No validation. Results delivered without any quality checks.",
+        "2": "Informal validation. 'Looks good' without systematic checks.",
+        "3": "Basic validation. Some checks but not comprehensive or systematic.",
+        "4": "Systematic validation. Checklist of quality criteria, most items checked.",
+        "5": "Rigorous validation framework. Multiple validation approaches, robustness checks, edge cases tested."
+      },
+      "red_flags": [
+        "No validation step in workflow",
+        "No rubric or checklist to assess quality",
+        "No test suite execution before delivering code",
+        "No sensitivity analysis for statistical results"
+      ]
+    },
+    {
+      "name": "Code/Analysis Quality",
+      "description": "Is code well-structured, readable, and following best practices?",
+      "scoring": {
+        "1": "Poor quality. Spaghetti code, no structure, hard to understand.",
+        "2": "Low quality. Works but hard to read, poor naming, no comments.",
+        "3": "Adequate quality. Readable, basic structure, some comments. Acceptable for prototypes.",
+        "4": "Good quality. Clean code, good naming, appropriate comments, follows style guide.",
+        "5": "Excellent quality. Modular, DRY, well-documented, type hints, follows SOLID principles."
+      },
+      "red_flags": [
+        "Magic numbers without explanation",
+        "Copy-pasted code (not DRY)",
+        "Functions doing multiple unrelated things",
+        "No docstrings or comments explaining complex logic"
+      ]
+    },
+    {
+      "name": "Reproducibility",
+      "description": "Can another person reproduce the analysis/tests with provided information?",
+      "scoring": {
+        "1": "Not reproducible. Missing critical information (data, packages, random seeds).",
+        "2": "Partially reproducible. Some information provided but key details missing.",
+        "3": "Mostly reproducible. Enough information for skilled practitioner to reproduce with effort.",
+        "4": "Reproducible. All information provided (data access, package versions, random seeds, parameters).",
+        "5": "Fully reproducible. Documented environment, requirements.txt, Docker container, or notebook with all steps."
+      },
+      "red_flags": [
+        "No package versions specified",
+        "Random operations without setting seed",
+        "Data source not documented or inaccessible",
+        "No instructions for running tests/analysis"
+      ]
+    }
+  ],
+  "task_type_guidance": {
+    "TDD": {
+      "description": "Test-Driven Development scaffolds",
+      "focus_criteria": [
+        "Test Quality",
+        "Code/Analysis Quality",
+        "Validation Steps Included"
+      ],
+      "target_score": 3.5,
+      "success_indicators": [
+        "Tests written before implementation",
+        "Happy path, edge cases, errors all tested",
+        "Tests pass and are maintainable",
+        "Red-Green-Refactor cycle followed"
+      ]
+    },
+    "EDA": {
+      "description": "Exploratory Data Analysis scaffolds",
+      "focus_criteria": [
+        "Data Quality Assessment",
+        "Coverage Completeness",
+        "Assumption Documentation"
+      ],
+      "target_score": 3.5,
+      "success_indicators": [
+        "Data quality systematically checked",
+        "Univariate and bivariate analysis completed",
+        "Insights and recommendations documented",
+        "Missing values, outliers, distributions analyzed"
+      ]
+    },
+    "Statistical Analysis": {
+      "description": "Hypothesis testing, A/B tests, causal inference",
+      "focus_criteria": [
+        "Technical Rigor",
+        "Assumption Documentation",
+        "Validation Steps Included"
+      ],
+      "target_score": 4.0,
+      "success_indicators": [
+        "Hypotheses clearly stated",
+        "Appropriate test selected and justified",
+        "Assumptions checked (normality, independence, etc.)",
+        "Effect sizes and confidence intervals reported",
+        "Sensitivity analysis performed"
+      ]
+    },
+    "Predictive Modeling": {
+      "description": "ML model building and evaluation",
+      "focus_criteria": [
+        "Technical Rigor",
+        "Validation Steps Included",
+        "Reproducibility"
+      ],
+      "target_score": 4.0,
+      "success_indicators": [
+        "Train/val/test split before preprocessing (no data leakage)",
+        "Baseline model for comparison",
+        "Cross-validation performed",
+        "Error analysis and feature importance computed",
+        "Model deployment checklist completed"
+      ]
+    },
+    "Validation": {
+      "description": "Data/code/model quality checks",
+      "focus_criteria": [
+        "Coverage Completeness",
+        "Validation Steps Included",
+        "Technical Rigor"
+      ],
+      "target_score": 4.0,
+      "success_indicators": [
+        "Schema validation (types, ranges, constraints)",
+        "Referential integrity checked",
+        "Edge cases tested",
+        "Monitoring/alerting strategy defined"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure_mode": "Jumping to Implementation Without Scaffold",
+      "symptoms": "User writes code/analysis immediately without planning structure first.",
+      "consequences": "Missing edge cases, poor test coverage, incomplete analysis.",
+      "fix": "Force scaffold creation before implementation. Use template as checklist."
+    },
+    {
+      "failure_mode": "Testing Only Happy Path",
+      "symptoms": "TDD scaffold has tests for expected usage but none for errors/edge cases.",
+      "consequences": "Code breaks in production on unexpected inputs.",
+      "fix": "Require tests for: empty input, None, boundary values, invalid types, expected exceptions."
+    },
+    {
+      "failure_mode": "Skipping Data Quality Checks",
+      "symptoms": "EDA scaffold jumps to visualization without checking missing values, outliers, duplicates.",
+      "consequences": "Invalid conclusions based on dirty data.",
+      "fix": "Mandatory data quality section before any analysis. No exceptions."
+    },
+    {
+      "failure_mode": "Assumptions Not Documented",
+      "symptoms": "Statistical test applied without stating/checking assumptions (normality, independence, etc.).",
+      "consequences": "Invalid statistical inference. Wrong conclusions.",
+      "fix": "Explicit assumption section in scaffold. Check assumptions before applying test."
+    },
+    {
+      "failure_mode": "No Validation Step",
+      "symptoms": "Scaffold delivers results without any quality check or self-assessment.",
+      "consequences": "Low-quality outputs, errors not caught.",
+      "fix": "Mandatory validation step in workflow. Use rubric self-assessment."
+    },
+    {
+      "failure_mode": "Correlation Interpreted as Causation",
+      "symptoms": "EDA finds correlation, claims causal relationship without causal inference methods.",
+      "consequences": "Wrong business decisions based on spurious causality.",
+      "fix": "Distinguish predictive (correlation) from causal questions. Use causal inference methodology if claiming causation."
+    },
+    {
+      "failure_mode": "Data Leakage in ML",
+      "symptoms": "Preprocessing (scaling, imputation) done before train/test split.",
+      "consequences": "Overly optimistic model performance. Fails in production.",
+      "fix": "Scaffold enforces: split first, then preprocess. Fit transformers on train only."
+    },
+    {
+      "failure_mode": "Code Without Tests",
+      "symptoms": "Implementation provided but no test scaffold or test execution.",
+      "consequences": "Regressions not caught, bugs in production.",
+      "fix": "TDD scaffold mandatory for production code. Tests must pass before code review."
+    }
+  ],
+  "scale": 5,
+  "minimum_average_score": 3.5,
+  "interpretation": {
+    "1.0-2.0": "Inadequate. Major gaps in structure, coverage, or rigor. Do not use. Revise scaffold.",
+    "2.0-3.0": "Needs improvement. Basic structure present but incomplete or lacks rigor. Acceptable for learning/practice only.",
+    "3.0-3.5": "Acceptable. Covers main cases with adequate rigor. Suitable for routine work or prototypes.",
+    "3.5-4.0": "Good. Comprehensive coverage with good rigor. Suitable for production code/analysis.",
+    "4.0-5.0": "Excellent. Exemplary structure, rigor, and completeness. Production-ready with best practices."
+  }
+}

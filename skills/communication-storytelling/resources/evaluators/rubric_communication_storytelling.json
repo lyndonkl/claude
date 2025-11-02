@@ -1,0 +1,335 @@
+{
+  "criteria": [
+    {
+      "name": "Headline Clarity",
+      "description": "Can audience understand the core message in 10 seconds?",
+      "scoring": {
+        "1": "No clear headline, or headline is vague/generic. Reader doesn't know what message is about.",
+        "2": "Headline exists but is vague or buries key insight. Requires reading body to understand point.",
+        "3": "Headline clearly states topic and general direction. Reader gets gist but not full insight.",
+        "4": "Headline captures core message with specificity. Reader understands essence without reading body.",
+        "5": "Compelling headline that captures essence, creates curiosity, and uses concrete specifics. Impossible to misunderstand."
+      },
+      "red_flags": [
+        "Headline is generic ('Q3 Update', 'Project Status')",
+        "Can't summarize message in one sentence",
+        "Headline describes format not content ('Memo on X' vs 'We should do X because Y')",
+        "Buries insight in paragraph 3 instead of headline"
+      ]
+    },
+    {
+      "name": "Structure and Flow",
+      "description": "Is narrative easy to follow with logical progression?",
+      "scoring": {
+        "1": "No clear structure. Random collection of points without logical connection.",
+        "2": "Some structure but jumps around. Reader confused about how points relate or what comes next.",
+        "3": "Clear structure with distinct sections. Logical flow but transitions could be smoother.",
+        "4": "Well-organized structure with smooth transitions. Each point builds on previous. Easy to follow.",
+        "5": "Exemplary narrative arc. Points flow naturally, build tension/resolution, guide reader seamlessly from problem to action."
+      },
+      "red_flags": [
+        "Jumps between topics without transitions",
+        "Key points overlap or repeat",
+        "No clear progression (flat list of facts)",
+        "Conclusion doesn't follow from body (non sequitur)"
+      ]
+    },
+    {
+      "name": "Evidence Quality",
+      "description": "Are claims backed by concrete, credible proof?",
+      "scoring": {
+        "1": "No evidence. Claims without support. Asks for blind trust.",
+        "2": "Minimal evidence. Vague statements ('studies show', 'many customers') without specifics.",
+        "3": "Adequate evidence. Some data/examples provided but missing sources or context.",
+        "4": "Strong evidence. Specific data with sources, concrete examples, comparisons for context.",
+        "5": "Comprehensive proof. Multiple evidence types (quantitative, qualitative, examples), sources cited, limitations acknowledged."
+      },
+      "red_flags": [
+        "Unsourced claims ('experts agree', 'industry standard')",
+        "Cherry-picked data without showing full picture",
+        "Anecdotes presented as data ('one customer said' as proof of trend)",
+        "No comparisons (data without context)"
+      ]
+    },
+    {
+      "name": "Audience Fit",
+      "description": "Is message tailored to audience's expertise, concerns, and constraints?",
+      "scoring": {
+        "1": "Wrong audience fit. Jargon for non-experts, or dumbed-down for experts. Ignores their concerns.",
+        "2": "Partial fit. Some mismatch in sophistication or doesn't address key concerns audience has.",
+        "3": "Good fit. Appropriate sophistication level, addresses main concerns, reasonable length.",
+        "4": "Excellent fit. Matches expertise, directly addresses concerns, appropriate tone and length, uses their language.",
+        "5": "Perfect fit. Deeply understands audience, anticipates objections, uses analogies from their domain, feels personalized."
+      },
+      "red_flags": [
+        "Technical jargon for non-technical audience",
+        "Oversimplifies for expert audience",
+        "Doesn't address audience's stated priorities",
+        "Length mismatches time available (5-page email for busy executive)"
+      ]
+    },
+    {
+      "name": "Storytelling Techniques",
+      "description": "Uses specificity, shows vs tells, humanizes data, builds tension?",
+      "scoring": {
+        "1": "No storytelling. Dry recitation of facts or feature list. No narrative arc.",
+        "2": "Minimal storytelling. Mostly facts with occasional story elements. Tells more than shows.",
+        "3": "Good storytelling. Uses some techniques (specifics, examples, data humanization). Shows and tells.",
+        "4": "Strong storytelling. Consistently shows vs tells, uses specifics, humanizes data, builds some tension.",
+        "5": "Masterful storytelling. Vivid specifics, shows throughout, data becomes human stories, tension and resolution arc."
+      },
+      "red_flags": [
+        "Uses generalities instead of specifics ('many', 'significant', 'improved')",
+        "Tells instead of shows ('this is great' vs concrete evidence it's great)",
+        "Data dump without interpretation or humanization",
+        "No narrative arc (flat delivery of information)"
+      ]
+    },
+    {
+      "name": "Accountability and Honesty",
+      "description": "Takes ownership, acknowledges risks/limitations, no blame-shifting?",
+      "scoring": {
+        "1": "No accountability. Passive voice, blame-shifting, or hiding responsibility.",
+        "2": "Weak accountability. Some ownership but uses weasel words or deflects.",
+        "3": "Adequate accountability. Takes responsibility, but doesn't fully acknowledge limitations.",
+        "4": "Strong accountability. Clear ownership, acknowledges risks and limitations honestly.",
+        "5": "Exemplary accountability. Named ownership, vulnerable honesty about uncertainties, acknowledges past mistakes if relevant."
+      },
+      "red_flags": [
+        "Passive voice hides actors ('mistakes were made' vs 'I made mistakes')",
+        "Blame external factors without acknowledging internal role",
+        "Overconfident claims without acknowledging uncertainties",
+        "Misleading by omission (hiding risks or downsides)"
+      ]
+    },
+    {
+      "name": "Actionability (Call-to-Action)",
+      "description": "Is CTA clear, specific, achievable, and time-bound?",
+      "scoring": {
+        "1": "No CTA, or completely vague ('think about it', 'be better').",
+        "2": "CTA exists but vague or passive. Unclear what to do or who should do it.",
+        "3": "Clear CTA but missing timeline, owner, or specifics on how to do it.",
+        "4": "Strong CTA. Specific action, clear owner, deadline, achievable.",
+        "5": "Perfect CTA. Specific, achievable, time-bound, clear owner, low-friction next step provided (link, meeting invite, etc)."
+      },
+      "red_flags": [
+        "No action requested (information without purpose)",
+        "Vague ask ('let's improve X')",
+        "No timeline ('eventually', 'soon')",
+        "No owner (unclear who should act)",
+        "Too many asks (confusing priority)"
+      ]
+    },
+    {
+      "name": "Tone Appropriateness",
+      "description": "Does tone match situation (crisis, celebration, persuasion, etc)?",
+      "scoring": {
+        "1": "Tone completely wrong. Casual for crisis, or somber for celebration.",
+        "2": "Tone somewhat off. Misreads situation or audience expectations.",
+        "3": "Tone mostly appropriate. Minor mismatches but generally fits.",
+        "4": "Tone fits well. Appropriate formality, urgency, and emotion for situation.",
+        "5": "Tone perfect. Nuanced match to situation, builds appropriate emotional connection, feels authentic."
+      },
+      "red_flags": [
+        "Inappropriate levity in crisis",
+        "Overly formal for casual announcement",
+        "Defensive tone when accountability needed",
+        "Hype/marketing speak for internal honest conversation"
+      ]
+    },
+    {
+      "name": "Transparency",
+      "description": "Are assumptions, data sources, and limitations explicit?",
+      "scoring": {
+        "1": "Opaque. No visibility into how conclusions reached, what's assumed, or data sources.",
+        "2": "Minimal transparency. Some info provided but key assumptions or limitations hidden.",
+        "3": "Adequate transparency. Main assumptions and sources stated, but some gaps.",
+        "4": "High transparency. Assumptions explicit, sources cited, limitations acknowledged.",
+        "5": "Full transparency. Shows work, cites sources, states assumptions, acknowledges limitations, distinguishes facts from speculation."
+      },
+      "red_flags": [
+        "Unsourced data ('research shows')",
+        "Unstated assumptions (e.g., market stays stable)",
+        "No acknowledgment of limitations or uncertainties",
+        "Facts and speculation mixed without distinction"
+      ]
+    },
+    {
+      "name": "Credibility",
+      "description": "Does narrative build trust through vulnerability, track record, or expert validation?",
+      "scoring": {
+        "1": "No credibility signals. Asks for trust without earning it.",
+        "2": "Weak credibility. Some signals (e.g., 'trust me') but not substantiated.",
+        "3": "Adequate credibility. Track record or external validation mentioned.",
+        "4": "Strong credibility. Combines multiple signals: vulnerability, track record, expert validation, data transparency.",
+        "5": "Exceptional credibility. Vulnerable honesty, demonstrated track record, expert validation, shows calibration (past predictions vs outcomes)."
+      },
+      "red_flags": [
+        "No track record or validation provided",
+        "Overconfident without acknowledging past errors",
+        "Appeals to authority without substance ('experts agree')",
+        "No vulnerability (appears infallible, reduces trust)"
+      ]
+    }
+  ],
+  "audience_guidance": {
+    "Low-Stakes": {
+      "description": "Routine updates, internal announcements, FYI communications",
+      "target_score": 3.0,
+      "focus_criteria": ["Headline Clarity", "Actionability", "Audience Fit"],
+      "success_indicators": [
+        "Message is clear and quickly understood",
+        "Action needed (if any) is obvious",
+        "Appropriate length for stakes"
+      ],
+      "acceptable_tradeoffs": [
+        "Can be more concise at expense of storytelling",
+        "Less extensive proof needed",
+        "Lower formality acceptable"
+      ]
+    },
+    "Medium-Stakes": {
+      "description": "Product announcements, project updates, recommendations needing approval",
+      "target_score": 3.5,
+      "focus_criteria": ["Evidence Quality", "Structure and Flow", "Storytelling Techniques", "Actionability"],
+      "success_indicators": [
+        "Well-supported with concrete evidence",
+        "Compelling narrative that engages audience",
+        "Clear action and timeline",
+        "Addresses likely objections"
+      ],
+      "acceptable_tradeoffs": [
+        "Some complexity acceptable if audience has time",
+        "Can be longer if stakes warrant detail"
+      ]
+    },
+    "High-Stakes": {
+      "description": "Executive decisions, crisis communications, investor updates, major changes",
+      "target_score": 4.0,
+      "focus_criteria": ["All criteria, especially Accountability, Evidence Quality, Credibility, Transparency"],
+      "success_indicators": [
+        "Comprehensive evidence from multiple sources",
+        "Full transparency on assumptions and risks",
+        "Clear accountability and ownership",
+        "Builds credibility through vulnerability",
+        "Anticipates and addresses objections",
+        "Strong storytelling that builds trust"
+      ],
+      "acceptable_tradeoffs": [
+        "Can be longer if needed for completeness",
+        "Extra formality for gravitas"
+      ]
+    }
+  },
+  "communication_type_guidance": {
+    "Technical to Non-Technical": {
+      "description": "Explaining technical concepts/decisions to business stakeholders",
+      "critical_criteria": ["Audience Fit", "Storytelling Techniques"],
+      "key_patterns": [
+        "Use analogies from audience's domain",
+        "Focus on business impact, not technical implementation",
+        "Translate jargon or define terms",
+        "Show with concrete examples, not abstract concepts"
+      ]
+    },
+    "Executive Communication": {
+      "description": "Board updates, CEO memos, investor relations",
+      "critical_criteria": ["Headline Clarity", "Evidence Quality", "Transparency"],
+      "key_patterns": [
+        "Front-load conclusions (BLUF - Bottom Line Up Front)",
+        "Quantify everything (revenue, cost, time, risk)",
+        "Show vs baseline/target/competitors",
+        "Acknowledge risks explicitly"
+      ]
+    },
+    "Customer-Facing": {
+      "description": "Product announcements, incident communications, customer updates",
+      "critical_criteria": ["Tone Appropriateness", "Accountability", "Actionability"],
+      "key_patterns": [
+        "Lead with customer impact (not internal process)",
+        "Clear next steps for customer",
+        "Empathy for pain points",
+        "No jargon or internal acronyms"
+      ]
+    },
+    "Change Management": {
+      "description": "Org changes, process changes, difficult news",
+      "critical_criteria": ["Tone Appropriateness", "Accountability", "Storytelling Techniques", "Transparency"],
+      "key_patterns": [
+        "Acknowledge loss/pain (don't gloss over difficulty)",
+        "Paint compelling future state",
+        "Show path from here to there",
+        "Address 'what about me?' early"
+      ]
+    },
+    "Crisis Communication": {
+      "description": "Incidents, outages, mistakes, sensitive issues",
+      "critical_criteria": ["Accountability", "Transparency", "Actionability", "Credibility"],
+      "key_patterns": [
+        "Lead with facts (what happened, when, impact)",
+        "Take accountability (no passive voice or blame-shifting)",
+        "State what you're doing (concrete actions with timeline)",
+        "Commit to transparency (when they'll hear next)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure_mode": "Burying the Lede",
+      "symptoms": "Important insight appears in paragraph 3 or buried in middle of long text.",
+      "consequences": "Busy audience never sees main point. Decisions delayed or made without full context.",
+      "fix": "Move most important insight to headline and first sentence. Use inverted pyramid (most important first)."
+    },
+    {
+      "failure_mode": "Death by Bullets",
+      "symptoms": "Deck with 50 bullet points, no narrative thread connecting them.",
+      "consequences": "Audience can't follow logic, points don't build, no memorable takeaway.",
+      "fix": "Use bullets to support narrative, not replace it. Each slide should have one key point."
+    },
+    {
+      "failure_mode": "Jargon Mismatch",
+      "symptoms": "Technical terms for non-technical audience, or dumbed-down language for experts.",
+      "consequences": "Audience either confused or insulted. Message doesn't land.",
+      "fix": "Match sophistication to audience. Define jargon when needed. Use analogies from their domain."
+    },
+    {
+      "failure_mode": "Data Dump Without Interpretation",
+      "symptoms": "Lists metrics without context or insight. 'Churn is 3.2%, NPS is 58, CAC is $1,150.'",
+      "consequences": "Audience doesn't know what data means or what to do with it.",
+      "fix": "Lead with insight, support with data. 'We're retaining customers well (3.2% churn is top quartile) but they're expensive to acquire ($1,150 CAC = 18-month payback).'"
+    },
+    {
+      "failure_mode": "Vague Call-to-Action",
+      "symptoms": "CTA like 'Let's be more customer-focused' or 'Think about this'.",
+      "consequences": "No one does anything. Message dies without action.",
+      "fix": "Specific action, owner, timeline. 'Sarah, approve $50K budget by Friday' or 'Each team should interview 5 customers by month-end using guide [link].'"
+    },
+    {
+      "failure_mode": "No Stakes",
+      "symptoms": "Recommendation without showing cost of inaction. 'We should improve X.'",
+      "consequences": "Audience doesn't prioritize. Request ignored in favor of urgent items.",
+      "fix": "Show opportunity cost. 'Page load time is 2.5s, costing us 30% of conversions ($800K annually). Optimizing to 1s recovers $240K in year 1.'"
+    },
+    {
+      "failure_mode": "Correlation as Causation",
+      "symptoms": "Claims causal relationship based on correlation. 'Feature X increased, then revenue grew, so X caused growth.'",
+      "consequences": "Wrong decisions based on spurious relationships. Waste resources on non-drivers.",
+      "fix": "Be explicit about causation vs correlation. If claiming causation, show mechanism or use causal inference methods."
+    },
+    {
+      "failure_mode": "Passive Voice Hiding Accountability",
+      "symptoms": "'Mistakes were made', 'The decision was reached', 'It was determined that...'",
+      "consequences": "Erodes trust. Audience doesn't know who's responsible or in control.",
+      "fix": "Use active voice with named actors. 'I made mistakes', 'The exec team decided', 'Based on our analysis, I recommend...'"
+    }
+  ],
+  "scale": 5,
+  "minimum_average_score": 3.5,
+  "interpretation": {
+    "1.0-2.0": "Inadequate. Major issues with clarity, evidence, or audience fit. Do not deliver. Revise significantly.",
+    "2.0-3.0": "Needs improvement. Basic structure present but weak evidence, poor storytelling, or mismatched tone. Acceptable only for low-stakes FYI messages.",
+    "3.0-3.5": "Acceptable. Clear message with adequate evidence. Suitable for routine communications and internal updates.",
+    "3.5-4.0": "Good. Compelling narrative with strong evidence and clear action. Suitable for medium-stakes product announcements, recommendations.",
+    "4.0-5.0": "Excellent. Masterful storytelling, comprehensive evidence, builds credibility and trust. Suitable for high-stakes executive/crisis/customer communications."
+  }
+}
