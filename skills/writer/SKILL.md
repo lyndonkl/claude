@@ -37,66 +37,106 @@ Work together to document the intent brief before proceeding.
 
 **For:** User starting from scratch
 
-1. **Structural Architecture**
-   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/structure-types.md
+Copy this checklist and track your progress:
 
-2. **Drafting Discipline**
-   - [ ] Review intent brief and structure diagram together
-   - [ ] Remind: shitty first drafts are good (Lamott) - write without editing
-   - [ ] Guide to favor concrete nouns, strong verbs, sensory detail (King)
-   - [ ] Guide to write in short declarative sentences (Klinkenborg)
-   - [ ] Encourage flow - don't stop to perfect, just get words on paper
+```
+Full Writing Process:
+- [ ] Step 1: Plan structural architecture
+- [ ] Step 2: Draft with discipline
+- [ ] Step 3: Revise in three passes
+- [ ] Step 4: Enhance stickiness
+- [ ] Step 5: Pre-publishing check
+```
 
-3. **Three-Pass Revision**
-   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/revision-guide.md
+**Step 1: Plan structural architecture**
 
-4. **Stickiness Check**
-   - [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
+Work with user to select and diagram the appropriate structure type (List, Chronological, Circular, Pyramid, etc.). See [resources/structure-types.md](resources/structure-types.md) for complete workflow with 8 structure types, diagrams, and selection criteria.
 
-5. **Pre-Publishing Check**
-   - [ ] Follow [Pre-Publishing Checklist](#pre-publishing-checklist) before sharing or publishing
+**Step 2: Draft with discipline**
+
+Review intent brief and structure diagram together. Remind user that shitty first drafts are good (Lamott)—write without editing. Guide to favor concrete nouns, strong verbs, sensory detail (King), and short declarative sentences (Klinkenborg). Encourage flow—don't stop to perfect, just get words on paper.
+
+**Step 3: Revise in three passes**
+
+Apply systematic revision: Pass 1 cuts clutter (Zinsser/King), Pass 2 reduces cognitive load (Pinker), Pass 3 improves rhythm (Clark). See [resources/revision-guide.md](resources/revision-guide.md) for complete three-pass workflow with specific techniques for each pass.
+
+**Step 4: Enhance stickiness**
+
+Apply SUCCESs framework (Simple, Unexpected, Concrete, Credible, Emotional, Stories) to make message memorable. See [resources/success-model.md](resources/success-model.md) for complete workflow, stickiness scorecard (0-18 points), and before/after examples.
+
+**Step 5: Pre-publishing check**
+
+Run through comprehensive checklist covering content, structure, clarity, style, polish, and final tests. See [Pre-Publishing Checklist](#pre-publishing-checklist) below for all items before sharing or publishing.
 
 ## Revision & Polish (Existing Draft)
 
 **For:** User has draft, needs improvement
 
-**Step 1: Three-Pass Revision**
-- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/revision-guide.md
-  - Pass 1: Cut Clutter (Zinsser/King) - Remove weak constructions, cut 10-25%
-  - Pass 2: Reduce Cognitive Load (Pinker) - Fix garden-paths, improve readability
-  - Pass 3: Improve Rhythm (Clark) - Vary sentences, add gold-coins, enhance flow
+Copy this checklist and track your progress:
 
-**Step 2: Stickiness Enhancement (Optional)**
-- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
-  - Apply SUCCESs framework to make messages memorable
+```
+Revision & Polish:
+- [ ] Step 1: Three-pass revision
+- [ ] Step 2: Enhance stickiness (optional)
+```
+
+**Step 1: Three-pass revision**
+
+Apply systematic revision in three passes: Pass 1 cuts clutter (Zinsser/King) by removing weak constructions and cutting 10-25%; Pass 2 reduces cognitive load (Pinker) by fixing garden-paths and improving readability; Pass 3 improves rhythm (Clark) by varying sentences, adding gold-coins, and enhancing flow. See [resources/revision-guide.md](resources/revision-guide.md) for complete workflow with specific techniques for each pass.
+
+**Step 2: Enhance stickiness (optional)**
+
+Apply SUCCESs framework (Simple, Unexpected, Concrete, Credible, Emotional, Stories) to make message more memorable. See [resources/success-model.md](resources/success-model.md) for complete workflow, stickiness scorecard, and before/after examples.
 
 ## Structure Planning
 
 **For:** User has ideas but unsure how to organize
 
-- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/structure-types.md
+Copy this checklist and track your progress:
 
-This resource provides:
-- Workflow checklist (step-by-step process)
-- Philosophy and why structure matters
-- 8 structure types with diagrams (List, Chronological, Circular, Dual Profile, Pyramid, Parallel Narratives, etc.)
-- Creating your own structure diagram (5-step process)
-- Gold-coin placement strategy
-- Structure selection criteria
-- Real examples in practice
+```
+Structure Planning:
+- [ ] Step 1: Select appropriate structure type
+- [ ] Step 2: Create structure diagram
+- [ ] Step 3: Place gold-coins strategically
+```
+
+**Step 1: Select appropriate structure type**
+
+Work with user to understand their content and choose from 8 structure types (List, Chronological, Circular, Dual Profile, Pyramid, Parallel Narratives, etc.). See [resources/structure-types.md](resources/structure-types.md) for philosophy, structure selection criteria, and diagrams for each type.
+
+**Step 2: Create structure diagram**
+
+Follow the 5-step process to diagram the chosen structure with user's specific content. See [Creating Your Own Structure Diagram](resources/structure-types.md#creating-your-own-structure-diagram) for step-by-step guidance.
+
+**Step 3: Place gold-coins strategically**
+
+Identify where to place narrative rewards (gold-coins) to maintain reader engagement, especially in middle sections. See [Gold-Coin Placement Strategy](resources/structure-types.md#gold-coin-placement-strategy) for techniques.
 
 ## Stickiness Enhancement
 
 **For:** User wants message to be more memorable
 
-- [ ] **IMPORTANT:** Read and follow the complete workflow in resources/success-model.md
+Copy this checklist and track your progress:
 
-This resource provides:
-- Workflow with complete SUCCESs checklist
-- Detailed guidance on all 6 principles (Simple, Unexpected, Concrete, Credible, Emotional, Stories)
-- Stickiness Scorecard for rating messages (0-18 points)
-- Step-by-step application process
-- Before/after examples showing transformation
+```
+Stickiness Enhancement:
+- [ ] Step 1: Rate current stickiness
+- [ ] Step 2: Apply SUCCESs framework
+- [ ] Step 3: Re-rate and refine
+```
+
+**Step 1: Rate current stickiness**
+
+Use the stickiness scorecard to rate the current message on 6 dimensions (0-18 points total). This establishes baseline. See [resources/success-model.md](resources/success-model.md) for complete scorecard and rating guidance.
+
+**Step 2: Apply SUCCESs framework**
+
+Work through all 6 principles systematically: Simple (find core), Unexpected (break schemas), Concrete (sensory details), Credible (testable claims), Emotional (make people care), Stories (simulate experience). See [detailed guidance on all 6 principles](resources/success-model.md#success-framework-details) for specific techniques.
+
+**Step 3: Re-rate and refine**
+
+Score the revised message using the same scorecard. Aim for 12+ points for good stickiness. See [before/after examples](resources/success-model.md#before-after-examples) for transformation patterns.
 
 ## Pre-Publishing Checklist
 

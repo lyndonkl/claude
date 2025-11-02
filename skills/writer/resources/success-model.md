@@ -15,61 +15,30 @@
 
 ## Workflow
 
-**Before starting:**
-- Review [The Heath Brothers' Framework](#the-heath-brothers-framework) to understand the six principles
-- Review [Complete Example](#complete-example) to see transformation from weak to sticky message
+Copy this checklist and track your progress:
+
+```
+Stickiness Enhancement:
+- [ ] Step 1: Analyze against SUCCESs framework
+- [ ] Step 2: Improve weak principles
+- [ ] Step 3: Score and refine
+```
+
+**Before starting:** Review [The Heath Brothers' Framework](#the-heath-brothers-framework) to understand the six principles and [Complete Example](#complete-example) to see transformation from weak to sticky message.
 
 **IMPORTANT:** Analyze the ENTIRE document first and output findings to an analysis file in the current directory, then read that file to make improvements. This ensures complete coverage. The analysis file remains in the project for your review.
 
-**Step 1 - Analysis Phase:**
+**Step 1: Analyze against SUCCESs framework**
 
-- [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create analysis file `writer-stickiness-analysis.md` in current directory
-- [ ] Output to analysis file: Assess the entire document against all 6 SUCCESs principles:
+Read ENTIRE draft. Create analysis file `writer-stickiness-analysis.md` assessing the entire document against all 6 SUCCESs principles: **Simple** (identify core message ≤12 words, list competing messages, rate 0-3), **Unexpected** (identify surprise/curiosity gaps, note where expectations could be violated, rate 0-3), **Concrete** (list visualizable details, identify abstract sections needing examples, rate 0-3), **Credible** (identify credibility sources like statistics/testability/authority, note unsupported claims, rate 0-3), **Emotional** (identify emotional connections and personal benefits, note where motivation could be strengthened, rate 0-3), **Stories** (identify story/human elements, note opportunities to add narrative, rate 0-3). Calculate total current stickiness score out of 18. See each principle's section ([S - Simple](#s---simple), [U - Unexpected](#u---unexpected), [C - Concrete](#c---concrete), [C - Credible](#c---credible), [E - Emotional](#e---emotional), [S - Stories](#s---stories)) for detailed guidance.
 
-**Simple** (see [S - Simple](#s---simple))
-- Identify the core message - is it ≤12 words and one main idea?
-- List any competing or diluted messages
-- Rate simplicity: 0-3 points (0=complex/multiple ideas, 3=single clear core)
+**Step 2: Improve weak principles**
 
-**Unexpected** (see [U - Unexpected](#u---unexpected))
-- Identify elements of surprise or curiosity gaps
-- Note where expectations could be violated
-- Rate unexpectedness: 0-3 points (0=predictable, 3=surprising)
+Read analysis file. Work through ENTIRE draft making improvements for each weak principle: Simple (refine core message to ≤12 words), Unexpected (add surprise or curiosity gaps), Concrete (add visualizable details and specific examples), Credible (add statistics, testability, authority, or vivid details), Emotional (strengthen personal benefits and emotional connections), Stories (add narrative or human elements). See each principle's section for specific techniques and examples.
 
-**Concrete** (see [C - Concrete](#c---concrete))
-- List concrete, visualizable details throughout document
-- Identify abstract sections that need specific examples
-- Rate concreteness: 0-3 points (0=abstract, 3=vivid and specific)
+**Step 3: Score and refine**
 
-**Credible** (see [C - Credible](#c---credible))
-- Identify credibility sources (statistics, testability, authority, vivid details)
-- Note claims that lack support
-- Rate credibility: 0-3 points (0=unsupported claims, 3=strong credibility)
-
-**Emotional** (see [E - Emotional](#e---emotional))
-- Identify emotional connections and personal benefits
-- Note where reader motivation could be strengthened
-- Rate emotional impact: 0-3 points (0=no emotion, 3=strong connection)
-
-**Stories** (see [S - Stories](#s---stories))
-- Identify story or human elements present
-- Note opportunities to add narrative or examples
-- Rate story presence: 0-3 points (0=no stories, 3=compelling narrative)
-
-**Total current stickiness score: __/18**
-
-**Step 2 - Improvement Phase:**
-
-- [ ] Read the analysis file `writer-stickiness-analysis.md`
-- [ ] Work through the ENTIRE draft making improvements for each weak principle:
-  - Simple: Refine core message to ≤12 words
-  - Unexpected: Add surprise or curiosity gaps
-  - Concrete: Add visualizable details and specific examples
-  - Credible: Add statistics, testability, authority, or vivid details
-  - Emotional: Strengthen personal benefits and emotional connections
-  - Stories: Add narrative or human elements
-- [ ] Score final result using [Stickiness Scorecard](#stickiness-scorecard) - aim for 15+/18
+Score final result using [Stickiness Scorecard](#stickiness-scorecard). Aim for 12+/18 for good stickiness, 15+/18 for excellent. If score is below 12, identify the weakest 2 principles and do another improvement pass focusing on those. See [Complete Example](#complete-example) for before/after transformation showing how to apply multiple principles together.
 
 ---
 

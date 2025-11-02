@@ -13,59 +13,36 @@
 
 ## Workflow
 
+Copy this checklist and track your progress:
+
+```
+Structure Planning:
+- [ ] Step 1: Analyze material thoroughly
+- [ ] Step 2: Explore structure options
+- [ ] Step 3: Select and refine structure
+```
+
 **Before starting:** Review [Philosophy](#philosophy) and [Why Structure Matters](#why-structure-matters) to understand the principles.
 
 **IMPORTANT:** For analysis steps, output findings to analysis files in the current directory to ensure thorough coverage of all material. These analysis files remain in the project for your review.
 
-Use this checklist after intent discovery, before drafting:
+**Step 1: Analyze material thoroughly**
 
-**Step 1 - Material Analysis Phase:**
+Gather and understand all material completely. Create analysis file `writer-structure-material-analysis.md` and output: ALL key points/anecdotes/data/quotes/examples, themes and patterns, what's most important vs supporting detail, natural organizing principle (time, space, importance, comparison), and reader considerations (busy? engaged? unfamiliar? expert?). See [Step 1: Gather Your Material](#step-1-gather-your-material) for detailed guidance.
 
-- [ ] [Gather and understand all your material completely](#step-1-gather-your-material)
-- [ ] Create analysis file `writer-structure-material-analysis.md` in current directory
-- [ ] Output to analysis file:
-  - List ALL key points, anecdotes, data, quotes, examples you have
-  - Identify themes and patterns across the material
-  - Note what's most important vs. supporting detail
-  - Identify the natural organizing principle (time, space, importance, comparison, etc.)
-  - Consider your readers: Are they busy? Engaged? Unfamiliar with topic? Expert?
+**Step 2: Explore structure options**
 
-**Step 2 - Structure Exploration Phase:**
+Read the analysis file. Review all [8 Structure Types](#structure-types) with examples. Create analysis file `writer-structure-options.md` and sketch 3 different structure options, each with: type, diagram sketch, pros/cons, and how material fits. Test each option against [Structure Selection Criteria](#structure-selection-criteria). See [Step 3: Sketch 3 Options](#step-3-sketch-3-options) for detailed process.
 
-- [ ] Read the analysis file `writer-structure-material-analysis.md`
-- [ ] Review [Structure Types](#structure-types) - all 8 types with examples
-- [ ] Create analysis file `writer-structure-options.md` in current directory
-- [ ] Output to analysis file - [Sketch 3 different structure options](#step-3-sketch-3-options):
-  - **Option 1:** Type, diagram sketch, pros/cons, how material fits
-  - **Option 2:** Type, diagram sketch, pros/cons, how material fits
-  - **Option 3:** Type, diagram sketch, pros/cons, how material fits
-- [ ] For each option, test against criteria in [Structure Selection Criteria](#structure-selection-criteria)
+**Step 3: Select and refine structure**
 
-**Step 3 - Structure Selection Phase:**
-
-- [ ] Read the analysis file `writer-structure-options.md`
-- [ ] [Compare all three options](#step-4-test-each-structure)
-- [ ] [Select the structure that best serves the material](#step-5-select-and-refine)
-- [ ] [Map key moments and transitions](#step-5-select-and-refine)
-- [ ] [Identify where to place gold-coin moments](#gold-coin-placement-strategy) throughout (especially middle)
-- [ ] [Annotate structure diagram with notes](#step-5-select-and-refine) about pacing and transitions
-- [ ] [Verify structure supports your through-line](#step-5-select-and-refine) (promise → delivery → resonance)
-- [ ] [Test: Does this feel inevitable or forced?](#step-4-test-each-structure)
-- [ ] Create final annotated structure diagram for user to review before drafting
+Read the options file. Compare all three options and select the structure that best serves the material. Map key moments and transitions. Identify where to place [gold-coin moments](#gold-coin-placement-strategy) throughout (especially middle). Annotate structure diagram with pacing and transition notes. Verify structure supports your through-line (promise → delivery → resonance). Test: Does this feel inevitable or forced? Create final annotated structure diagram for user to review before drafting. See [Step 4: Test Each Structure](#step-4-test-each-structure) and [Step 5: Select and Refine](#step-5-select-and-refine) for detailed guidance.
 
 **How to know if your structure is working:**
 
-If structure is working:
-- Readers won't notice it
-- They'll just experience flow
-- They'll feel the piece is "well-organized"
-- They'll reach the end satisfied
+If structure is working: Readers won't notice it, they'll just experience flow, they'll feel the piece is "well-organized", they'll reach the end satisfied.
 
-If structure isn't working:
-- Readers will feel lost
-- They'll wonder "where is this going?"
-- They'll experience it as disorganized
-- They might abandon before the end
+If structure isn't working: Readers will feel lost, they'll wonder "where is this going?", they'll experience it as disorganized, they might abandon before the end.
 
 ---
 

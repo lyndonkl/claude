@@ -11,92 +11,42 @@
 
 ## Workflow
 
-**Before starting:**
-- Review [Why Three Passes?](#why-three-passes) to understand the philosophy
-- Review [Complete Three-Pass Example](#complete-three-pass-example) to see full transformation from draft to polished prose
+Copy this checklist and track your progress:
+
+```
+Three-Pass Revision:
+- [ ] Pass 1: Cut clutter (analyze → improve)
+- [ ] Pass 2: Reduce cognitive load (analyze → improve)
+- [ ] Pass 3: Improve rhythm (analyze → improve)
+```
+
+**Before starting:** Review [Why Three Passes?](#why-three-passes) to understand the philosophy and [Complete Three-Pass Example](#complete-three-pass-example) to see full transformation from draft to polished prose.
 
 **IMPORTANT:** For each pass, analyze the ENTIRE draft first and output findings to an analysis file in the current directory, then read that file to make improvements. This ensures complete coverage of the document. These analysis files remain in the project for your review.
 
-Use this workflow when revising any draft. Work through all three passes sequentially:
+**Pass 1: Cut clutter (analyze → improve)**
 
-**Pass 1: Cut Clutter** (see [Pass 1 details](#pass-1-cut-clutter-zinsserking))
+**Analysis phase:** Read ENTIRE draft. Create analysis file `writer-pass1-clutter-analysis.md` identifying ALL instances: adverbs (-ly words), qualifiers (very, really, quite), passive voice, weak verbs (is, are, was, were, has/have/had), throat-clearing phrases, clichés. Calculate word count and target 10-25% reduction.
 
-Step 1 - Analysis Phase:
-- [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create analysis file `writer-pass1-clutter-analysis.md` in current directory
-- [ ] Output to analysis file: Identify ALL instances of clutter throughout the entire document:
-  - List all adverbs (-ly words) with line/paragraph references
-  - List all qualifiers (very, really, quite, rather, somewhat, fairly)
-  - List all passive voice constructions
-  - List all weak verbs (is, are, was, were, has/have/had)
-  - List all throat-clearing phrases
-  - List all clichés
-  - Calculate total word count and target reduction (10-25%)
+**Improvement phase:** Read analysis file. Work through ENTIRE draft making improvements: remove 70% of adverbs, delete qualifiers, convert passive to active, replace weak verbs with action verbs, eliminate throat-clearing, remove clichés. Verify 10-25% word count reduction. Ensure every remaining word earns its place.
 
-Step 2 - Improvement Phase:
-- [ ] Read the analysis file `writer-pass1-clutter-analysis.md`
-- [ ] Work through the ENTIRE draft making improvements:
-  - Remove adverbs - cut 70%
-  - Delete qualifiers
-  - Convert passive to active voice
-  - Replace weak verbs with action verbs
-  - Eliminate throat-clearing phrases
-  - Remove clichés
-- [ ] Verify word count reduction of 10-25%
-- [ ] Ensure every remaining word earns its place
+See [Pass 1: Cut Clutter](#pass-1-cut-clutter-zinsserking) for detailed examples and guidance.
 
-See detailed examples and guidance in [Pass 1 section](#pass-1-cut-clutter-zinsserking).
+**Pass 2: Reduce cognitive load (analyze → improve)**
 
-**Pass 2: Reduce Cognitive Load** (see [Pass 2 details](#pass-2-reduce-cognitive-load-pinker))
+**Analysis phase:** Read ENTIRE draft. Create analysis file `writer-pass2-cognitive-load-analysis.md` identifying ALL issues: garden-path sentences, buried topics, subject-verb-object separated >7 words, ambiguous pronouns, broken topic chains, sentences requiring re-reading.
 
-Step 1 - Analysis Phase:
-- [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create analysis file `writer-pass2-cognitive-load-analysis.md` in current directory
-- [ ] Output to analysis file: Identify ALL cognitive load issues throughout the entire document:
-  - List all garden-path sentences with line/paragraph references
-  - List all sentences with buried topics
-  - List all cases where subject-verb-object are far apart (>7 words)
-  - List all ambiguous pronouns
-  - Map topic chains - note any breaks in coherence
-  - Mark any sentences that require re-reading
+**Improvement phase:** Read analysis file. Work through ENTIRE draft making improvements: fix garden-paths, signal topic at start of each sentence, keep subject-verb-object close, clarify pronouns, repair topic chains, break overly complex sentences. Read aloud to verify no stumbles. Ensure first reading is correct reading.
 
-Step 2 - Improvement Phase:
-- [ ] Read the analysis file `writer-pass2-cognitive-load-analysis.md`
-- [ ] Work through the ENTIRE draft making improvements:
-  - Fix all garden-path sentences
-  - Signal topic at start of each sentence
-  - Keep subject-verb-object close
-  - Clarify all ambiguous pronouns
-  - Repair broken topic chains for coherence
-  - Break overly complex sentences into simpler ones
-- [ ] Read aloud - verify no stumbles
-- [ ] Ensure first reading is correct reading
+See [Pass 2: Reduce Cognitive Load](#pass-2-reduce-cognitive-load-pinker) for detailed examples and guidance.
 
-See detailed examples and guidance in [Pass 2 section](#pass-2-reduce-cognitive-load-pinker).
+**Pass 3: Improve rhythm (analyze → improve)**
 
-**Pass 3: Improve Rhythm** (see [Pass 3 details](#pass-3-improve-rhythm-clark))
+**Analysis phase:** Read ENTIRE draft. Create analysis file `writer-pass3-rhythm-analysis.md` analyzing patterns: list sentence lengths for each paragraph, identify monotonous patterns (5+ similar-length in a row), list last word of each sentence marking weak endings, map gold-coin placement identifying gaps, note opportunities for ladder of abstraction (concrete → general → concrete), mark sections lacking variety.
 
-Step 1 - Analysis Phase:
-- [ ] Read the ENTIRE draft from beginning to end
-- [ ] Create analysis file `writer-pass3-rhythm-analysis.md` in current directory
-- [ ] Output to analysis file: Analyze rhythm patterns throughout the entire document:
-  - List sentence lengths for each paragraph (count words per sentence)
-  - Identify monotonous patterns (5+ similar-length sentences in a row)
-  - List the last word of each sentence - mark weak endings
-  - Map gold-coin placement throughout - identify gaps where readers need rewards
-  - Note opportunities for ladder of abstraction (concrete → general → concrete)
-  - Mark sections that lack sentence variety
+**Improvement phase:** Read analysis file. Work through ENTIRE draft making improvements: add short sentences for emphasis after longer ones, replace weak sentence endings with strong words, distribute gold-coin moments throughout (especially middle), apply ladder of abstraction, vary sentence lengths deliberately. Read aloud to verify flow. Assess variety: confirm good mix of short, medium, and long sentences.
 
-Step 2 - Improvement Phase:
-- [ ] Read the analysis file `writer-pass3-rhythm-analysis.md`
-- [ ] Work through the ENTIRE draft making improvements:
-  - Add short sentences for emphasis after longer ones
-  - Replace weak sentence endings with strong words
-  - Distribute gold-coin moments throughout (especially in middle sections)
-  - Apply ladder of abstraction technique
-  - Vary sentence lengths deliberately
-- [ ] Read aloud - verify it flows
-- [ ] Assess variety: confirm good mix of short, medium, and long sentences
+See [Pass 3: Improve Rhythm](#pass-3-improve-rhythm-clark) for detailed examples and guidance.
 
 See detailed examples and guidance in [Pass 3 section](#pass-3-improve-rhythm-clark).
 
