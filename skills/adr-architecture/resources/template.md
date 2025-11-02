@@ -1,14 +1,37 @@
 # ADR Template - Standard Format
 
-## When to Use This Template
+## Workflow
 
-Use this template for straightforward technology or process decisions where:
-- Clear alternatives exist
-- Trade-offs are primarily technical
-- Decision scope is well-defined
-- Standard ADR format is sufficient
+Copy this checklist and track your progress:
 
-For complex architectural decisions with multiple interdependent factors, see `methodology.md`.
+```
+ADR Creation Progress:
+- [ ] Step 1: Gather decision context and requirements
+- [ ] Step 2: Fill in template structure
+- [ ] Step 3: Document alternatives with pros/cons
+- [ ] Step 4: Analyze consequences honestly
+- [ ] Step 5: Validate with quality checklist
+```
+
+**Step 1: Gather decision context and requirements**
+
+Collect information on what decision needs to be made, why now, requirements (functional/non-functional), constraints (budget, timeline, skills, compliance), and scope. This becomes your Context section.
+
+**Step 2: Fill in template structure**
+
+Use [Quick Template](#quick-template) below to create ADR file with title (ADR-{NUMBER}: Decision), metadata (status, date, deciders), and sections for context, decision, alternatives, and consequences.
+
+**Step 3: Document alternatives with pros/cons**
+
+List 2-3+ real alternatives that were seriously considered. For each: description, pros (2-4 benefits), cons (2-4 drawbacks), and specific reason not chosen. See [Alternatives Considered](#alternatives-considered) guidance.
+
+**Step 4: Analyze consequences honestly**
+
+Document benefits, drawbacks, risks, and trade-offs accepted. Every decision has downsides - be honest about them and note mitigation strategies. See [Consequences](#consequences) guidance for structure.
+
+**Step 5: Validate with quality checklist**
+
+Use [Quality Checklist](#quality-checklist) to verify: context explains WHY, decision is specific/actionable, 2-3+ alternatives documented, consequences include benefits AND drawbacks, technical details accurate, future readers can understand without context.
 
 ## Quick Template
 

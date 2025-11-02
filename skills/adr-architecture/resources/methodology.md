@@ -1,23 +1,37 @@
 # ADR Methodology for Complex Decisions
 
-## When to Use This Guide
+## Complex ADR Workflow
 
-Use this methodology for complex architectural decisions that involve:
-- Multiple interdependent choices
-- System-wide architectural patterns
-- High-stakes decisions affecting entire organization
-- Need for detailed analysis sections (security, scalability, cost, compliance)
-- Multiple stakeholder perspectives
+Copy this checklist and track your progress:
 
-For straightforward technology selections, use `template.md` instead.
+```
+ADR Progress (Complex Decisions):
+- [ ] Step 1: Identify decision pattern and scope
+- [ ] Step 2: Conduct detailed analysis for each concern
+- [ ] Step 3: Engage stakeholders and gather input
+- [ ] Step 4: Build decision tree for related choices
+- [ ] Step 5: Perform quantitative analysis and create ADR
+```
 
-## Table of Contents
+**Step 1: Identify decision pattern and scope**
 
-1. [Complex Decision Patterns](#complex-decision-patterns)
-2. [Extended ADR Sections](#extended-adr-sections)
-3. [Stakeholder Management](#stakeholder-management)
-4. [Decision Trees for Related Choices](#decision-trees-for-related-choices)
-5. [Quantitative Analysis](#quantitative-analysis)
+Determine which pattern applies to your decision (cascading, competing concerns, unknown unknowns, etc.). See [Complex Decision Patterns](#complex-decision-patterns) for patterns and approaches.
+
+**Step 2: Conduct detailed analysis for each concern**
+
+For each competing concern (security, scalability, cost, compliance), analyze how alternatives address it. See [Extended ADR Sections](#extended-adr-sections) for analysis templates.
+
+**Step 3: Engage stakeholders and gather input**
+
+Identify all affected parties and gather their perspectives systematically. See [Stakeholder Management](#stakeholder-management) for mapping and engagement techniques.
+
+**Step 4: Build decision tree for related choices**
+
+Map out cascading or interdependent decisions. See [Decision Trees for Related Choices](#decision-trees-for-related-choices) for structuring related ADRs.
+
+**Step 5: Perform quantitative analysis and create ADR**
+
+Use scoring matrices, cost modeling, or load testing to support decision. See [Quantitative Analysis](#quantitative-analysis) for methods and examples.
 
 ## Complex Decision Patterns
 

@@ -76,83 +76,36 @@ When choosing between options:
 
 ## Workflow
 
-Follow these steps in order:
+Copy this checklist and track your progress:
 
-### 1. [ ] Understand Context
+```
+Alignment Framework Progress:
+- [ ] Step 1: Understand context
+- [ ] Step 2: Choose framework
+- [ ] Step 3: Develop alignment artifact
+- [ ] Step 4: Validate quality
+- [ ] Step 5: Deliver and socialize
+```
 
-Gather background:
-- [ ] **What team/organization?** (size, stage, structure)
-- [ ] **What's the current situation?** (new team, scaling, misalignment, crisis)
-- [ ] **What's the trigger?** (why is alignment needed NOW?)
-- [ ] **Who are the stakeholders?** (who needs to align?)
-- [ ] **What decisions are hard?** (where does misalignment show up?)
-- [ ] **What already exists?** (existing mission, values, or culture statements)
+**Step 1: Understand context**
 
-### 2. [ ] Choose Framework
+Gather background: team/organization (size, stage, structure), current situation (new team, scaling, misalignment, crisis), trigger (why alignment needed NOW), stakeholders (who needs to align), hard decisions (where misalignment shows up), and existing artifacts (mission, values, culture statements). This ensures the framework addresses real needs.
 
-Based on context and scope:
+**Step 2: Choose framework**
 
-- [ ] **For new teams/startups** → Use `resources/template.md`
-  - Defining identity from scratch
-  - Small team (< 30 people)
-  - Need full North Star + Values + Behaviors
+For new teams/startups (< 30 people, defining identity from scratch) → Use `resources/template.md`. For scaling organizations (existing values need refinement, multiple teams, need decision framework) → Study `resources/methodology.md`. To see examples → Review `resources/examples/` (engineering-team.md, product-vision.md, company-values.md).
 
-- [ ] **For scaling organizations** → Study `resources/methodology.md`
-  - Existing values need refinement
-  - Multiple teams need alignment
-  - Need decision framework for autonomy
+**Step 3: Develop alignment artifact**
 
-- [ ] **To see examples** → Review `resources/examples/`
-  - `engineering-team.md` - Technical team alignment
-  - `product-vision.md` - Product direction and principles
-  - `company-values.md` - Organization-wide values
+Create `alignment-values-north-star.md` with: compelling North Star (1-2 sentences, aspirational but specific), 3-5 core values (specific to this team, not generic), decision tenets ("When X vs Y, we..."), observable behaviors (concrete examples), anti-patterns (optional - what we DON'T do), and context (optional - why these values). See [Common Patterns](#common-patterns) for team-type specific guidance.
 
-### 3. [ ] Develop Alignment Artifact
+**Step 4: Validate quality**
 
-Create the framework following this structure:
+Self-check using `resources/evaluators/rubric_alignment_values_north_star.json`. Verify: North Star is inspiring yet concrete, values are specific and distinctive, decision tenets guide real decisions, behaviors are observable/measurable, usable for decisions TODAY, trade-offs acknowledged, no contradictions, distinguishes this team from others. Minimum standard: Score ≥ 3.5 (aim for 4.5+ if organization-wide).
 
-- [ ] **Write compelling North Star**: Aspirational but specific direction (1-2 sentences)
-- [ ] **Define 3-5 core values**: Principles that guide behavior (not generic - specific to this team)
-- [ ] **Create decision tenets**: "When choosing between X and Y, we..." statements
-- [ ] **List observable behaviors**: Concrete examples of values in action
-- [ ] **Add anti-patterns** (optional): What we explicitly DON'T do
-- [ ] **Include context** (optional): Why these values, what problem they solve
+**Step 5: Deliver and socialize**
 
-**Output file**: Create `alignment-values-north-star.md` in current directory
-
-### 4. [ ] Validate Quality
-
-Self-check using `resources/evaluators/rubric_alignment_values_north_star.json`:
-
-**Quality checks:**
-- [ ] North Star is inspiring yet concrete (not vague platitudes)
-- [ ] Values are specific to this team (not generic like "integrity")
-- [ ] Decision tenets provide actual guidance for real decisions
-- [ ] Behaviors are observable and measurable
-- [ ] Someone could use this to make a decision TODAY
-- [ ] Trade-offs are acknowledged (what we're NOT optimizing for)
-- [ ] No contradictions between values and behaviors
-- [ ] Could distinguish this team from others based on these values
-
-**Minimum standard**: Score ≥ 3.5 across all criteria
-
-For organization-wide values (high stakes), aim for 4.5+ average.
-
-### 5. [ ] Deliver and Socialize
-
-Present to stakeholders:
-- [ ] The completed alignment framework
-- [ ] Explain the rationale (why these specific values)
-- [ ] Provide examples of how to apply in decisions
-- [ ] Suggest rollout/socialization approach
-- [ ] Recommend review cadence (typically annually)
-
-**Socialization strategies:**
-- Use in hiring (interview for values)
-- Reference in decision-making (link back to tenets)
-- Include in onboarding
-- Revisit in team meetings
-- Update as team evolves
+Present completed framework with rationale (why these values), examples of application in decisions, rollout/socialization approach (hiring, decision-making, onboarding, team meetings), and review cadence (typically annually). Ensure team can recall and apply key points.
 
 ## Common Patterns
 

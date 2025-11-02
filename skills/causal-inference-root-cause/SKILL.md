@@ -82,111 +82,36 @@ Mechanism = slow checkout → user abandonment
 
 ## Workflow
 
-Follow these steps in order:
+Copy this checklist and track your progress:
 
-### 1. [ ] Define the Effect
+```
+Root Cause Analysis Progress:
+- [ ] Step 1: Define the effect
+- [ ] Step 2: Generate hypotheses
+- [ ] Step 3: Build causal model
+- [ ] Step 4: Test causality
+- [ ] Step 5: Document and validate
+```
 
-Clearly specify what you're investigating:
-- [ ] **Describe the effect/outcome**: What happened? (be specific)
-- [ ] **Quantify if possible**: How big is the effect? (magnitude, frequency)
-- [ ] **Establish timeline**: When did it start? Is it ongoing?
-- [ ] **Determine baseline**: What's normal? What changed from before?
-- [ ] **Identify stakeholders**: Who's impacted? Who needs answers?
+**Step 1: Define the effect**
 
-**Key questions:**
-- What exactly are we trying to explain?
-- Is this a one-time event or recurring pattern?
-- How do we measure this effect objectively?
+Describe effect/outcome (what happened, be specific), quantify if possible (magnitude, frequency), establish timeline (when it started, is it ongoing?), determine baseline (what's normal, what changed?), and identify stakeholders (who's impacted, who needs answers?). Key questions: What exactly are we explaining? One-time event or recurring pattern? How do we measure objectively?
 
-### 2. [ ] Generate Hypotheses
+**Step 2: Generate hypotheses**
 
-Brainstorm potential causes systematically:
-- [ ] **List proximate causes**: What are immediate triggers or symptoms?
-- [ ] **Identify potential root causes**: What underlying factors could explain this?
-- [ ] **Consider confounders**: What third factors might create spurious associations?
-- [ ] **Challenge assumptions**: What if our initial theory is wrong?
+List proximate causes (immediate triggers/symptoms), identify potential root causes (underlying factors), consider confounders (third factors creating spurious associations), and challenge assumptions (what if initial theory wrong?). Techniques: 5 Whys (ask "why" repeatedly), Fishbone diagram (categorize causes), Timeline analysis (what changed before effect?), Differential diagnosis (what else explains symptoms?). For simple investigations → Use `resources/template.md`. For complex problems → Study `resources/methodology.md` for advanced techniques.
 
-**Techniques to generate hypotheses:**
-- **5 Whys**: Ask "why" repeatedly to trace back to root
-- **Fishbone diagram**: Categorize causes (people, process, technology, environment)
-- **Timeline analysis**: What changed right before the effect?
-- **Differential diagnosis**: What else could explain these symptoms?
+**Step 3: Build causal model**
 
-**For simple investigations** → Use `resources/template.md` to structure analysis
+Draw causal chains (A → B → C → Effect), identify necessary vs sufficient causes, map confounding relationships (what influences both cause and effect?), note temporal sequence (cause precedes effect - necessary for causation), and specify mechanisms (HOW X causes Y). Model elements: Direct cause (X → Y), Indirect (X → Z → Y), Confounding (Z → X and Z → Y), Mediating variable (X → M → Y), Moderating variable (X → Y depends on M).
 
-**For complex causal problems** → Study `resources/methodology.md` for advanced techniques (confounding control, DAGs, Bradford Hill criteria)
+**Step 4: Test causality**
 
-### 3. [ ] Build Causal Model
+Check temporal sequence (cause before effect?), assess strength of association (strong correlation?), look for dose-response (more cause → more effect?), test counterfactual (what if cause absent/removed?), search for mechanism (explain HOW), check consistency (holds across contexts?), and rule out confounders. Evidence hierarchy: RCT (gold standard) > natural experiment > longitudinal > case-control > cross-sectional > expert opinion. Use Bradford Hill Criteria (9 factors: strength, consistency, specificity, temporality, dose-response, plausibility, coherence, experiment, analogy).
 
-Map how causes might lead to effect:
-- [ ] **Draw causal chains**: A → B → C → Effect (mechanisms)
-- [ ] **Identify necessary vs sufficient causes**: What must be present? What alone causes effect?
-- [ ] **Map confounding relationships**: What influences both cause and effect?
-- [ ] **Note temporal sequence**: Does cause precede effect? (necessary for causation)
-- [ ] **Specify mechanisms**: HOW does X cause Y? (not just THAT it does)
+**Step 5: Document and validate**
 
-**Causal model elements:**
-- **Direct cause**: X → Y (X directly causes Y)
-- **Indirect cause**: X → Z → Y (X causes Y through Z)
-- **Confounding**: Z → X, Z → Y (Z causes both, X and Y merely correlate)
-- **Mediating variable**: X → M → Y (M is the mechanism by which X causes Y)
-- **Moderating variable**: X → Y depends on M (M changes strength of X → Y)
-
-### 4. [ ] Test Causality
-
-Evaluate evidence for each hypothesis:
-- [ ] **Check temporal sequence**: Does cause precede effect? (if not, not causal)
-- [ ] **Assess strength of association**: Strong correlation? (stronger = more likely causal)
-- [ ] **Look for dose-response**: More cause → more effect? (gradient suggests causation)
-- [ ] **Test counterfactual**: What happens when cause is absent/removed?
-- [ ] **Search for mechanism**: Can you explain HOW cause produces effect?
-- [ ] **Check consistency**: Does relationship hold across contexts/populations?
-- [ ] **Rule out confounders**: Control for third variables that might explain both
-
-**Evidence hierarchy (strongest to weakest):**
-1. **Randomized controlled trial** (gold standard - removes confounding)
-2. **Natural experiment** (quasi-random assignment)
-3. **Longitudinal studies** (track changes over time)
-4. **Case-control studies** (compare cases with controls)
-5. **Cross-sectional studies** (snapshot correlations)
-6. **Expert opinion / intuition** (weakest)
-
-**Bradford Hill Criteria** (9 factors suggesting causation):
-1. Strength (strong association)
-2. Consistency (replicable)
-3. Specificity (specific cause → specific effect)
-4. Temporality (cause precedes effect)
-5. Dose-response (more cause → more effect)
-6. Plausibility (mechanism makes sense)
-7. Coherence (fits with existing knowledge)
-8. Experiment (intervention changes outcome)
-9. Analogy (similar cause-effect patterns exist)
-
-### 5. [ ] Document & Validate
-
-Create output and validate quality:
-- [ ] **Create** `causal-inference-root-cause.md` in current directory with:
-  - Effect description and quantification
-  - Competing hypotheses generated
-  - Causal model (chains, confounders, mechanisms)
-  - Evidence assessment for each hypothesis
-  - Most likely root cause(s) with confidence level
-  - Recommended tests or interventions
-  - Limitations and alternative explanations
-- [ ] **Validate quality** using `resources/evaluators/rubric_causal_inference_root_cause.json`
-
-**Quality checks:**
-- [ ] Distinguished proximate cause from root cause
-- [ ] Identified and controlled for obvious confounders
-- [ ] Explained causal mechanism (not just correlation)
-- [ ] Assessed evidence systematically (not cherry-picked)
-- [ ] Noted confidence level and uncertainty
-- [ ] Recommended testable interventions
-- [ ] Acknowledged limitations and alternative explanations
-
-**Minimum standard**: Score ≥ 3.5 across all rubric criteria
-
-If any criterion scores < 3, strengthen that aspect before delivering.
+Create `causal-inference-root-cause.md` with: effect description/quantification, competing hypotheses, causal model (chains, confounders, mechanisms), evidence assessment, root cause(s) with confidence level, recommended tests/interventions, and limitations/alternatives. Validate using `resources/evaluators/rubric_causal_inference_root_cause.json`: verify distinguished proximate from root cause, controlled confounders, explained mechanism, assessed evidence systematically, noted uncertainty, recommended interventions, acknowledged alternatives. Minimum standard: Score ≥ 3.5.
 
 ## Common Patterns
 

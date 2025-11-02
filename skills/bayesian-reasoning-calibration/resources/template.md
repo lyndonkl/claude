@@ -1,13 +1,37 @@
 # Bayesian Reasoning Template
 
-## When to Use This Template
+## Workflow
 
-Use for straightforward probability updates with:
-- Single hypothesis to test
-- Clear evidence to incorporate
-- Binary or simple multi-valued outcomes
+Copy this checklist and track your progress:
 
-For complex cases (multiple competing hypotheses, sequential evidence), see `methodology.md`.
+```
+Bayesian Update Progress:
+- [ ] Step 1: State question and establish prior from base rates
+- [ ] Step 2: Estimate likelihoods for evidence
+- [ ] Step 3: Calculate posterior using Bayes' theorem
+- [ ] Step 4: Perform sensitivity analysis
+- [ ] Step 5: Calibrate and validate with quality checklist
+```
+
+**Step 1: State question and establish prior from base rates**
+
+Define specific, testable hypothesis with timeframe and success criteria. Identify reference class and base rate, adjust for specific differences, and state prior explicitly with justification. See [Step 1: State the Question](#step-1-state-the-question) and [Step 2: Find Base Rates](#step-2-find-base-rates) for guidance.
+
+**Step 2: Estimate likelihoods for evidence**
+
+Assess P(E|H) (probability of evidence if hypothesis TRUE) and P(E|¬H) (probability if FALSE), calculate likelihood ratio = P(E|H) / P(E|¬H), and interpret diagnostic strength. See [Step 3: Estimate Likelihoods](#step-3-estimate-likelihoods) for examples and common mistakes.
+
+**Step 3: Calculate posterior using Bayes' theorem**
+
+Apply P(H|E) = [P(E|H) × P(H)] / P(E) or use simpler odds form: Posterior Odds = Prior Odds × LR. Interpret change in belief (prior → posterior) and strength of evidence. See [Step 4: Calculate Posterior](#step-4-calculate-posterior) for calculation methods.
+
+**Step 4: Perform sensitivity analysis**
+
+Test how posterior changes with different prior values and likelihoods to assess robustness of conclusion. See [Sensitivity Analysis](#sensitivity-analysis) section in template structure.
+
+**Step 5: Calibrate and validate with quality checklist**
+
+Check for overconfidence, base rate neglect, and extreme posteriors. Use [Calibration Check](#calibration-check) and [Quality Checklist](#quality-checklist) to verify prior is justified, likelihoods have reasoning, evidence is diagnostic (LR ≠ 1), calculation correct, and assumptions stated.
 
 ## Quick Template
 

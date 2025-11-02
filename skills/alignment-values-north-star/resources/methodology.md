@@ -1,26 +1,37 @@
 # Alignment Framework Methodology for Scaling Organizations
 
-## Table of Contents
+## Alignment Framework Workflow
 
-- [When to Use This Methodology](#when-to-use-this-methodology)
-- [Refining Existing Values](#refining-existing-values)
-- [Multi-Team Alignment Frameworks](#multi-team-alignment-frameworks)
-- [Building Decision Frameworks for Autonomy](#building-decision-frameworks-for-autonomy)
-- [Common Scaling Challenges](#common-scaling-challenges)
-- [Case Study: Company-Wide Values Refresh](#case-study-company-wide-values-refresh)
+Copy this checklist and track your progress:
 
----
+```
+Alignment Framework Progress:
+- [ ] Step 1: Audit current state and identify gaps
+- [ ] Step 2: Refine values through stakeholder discovery
+- [ ] Step 3: Build multi-team alignment framework
+- [ ] Step 4: Create decision frameworks for autonomy
+- [ ] Step 5: Rollout and reinforce across organization
+```
 
-## When to Use This Methodology
+**Step 1: Audit current state and identify gaps**
 
-Use this methodology when:
-- **Scaling organization** (50+ people, multiple teams)
-- **Existing values need refinement** (outdated, vague, or conflicting)
-- **Multiple teams need alignment** (silos forming, conflicting priorities)
-- **Need decision framework** (enabling autonomy while maintaining alignment)
-- **Values drift** (stated values don't match actual behavior)
+Document stated vs actual values, interview stakeholders, and analyze past decisions to identify values drift. See [Refining Existing Values](#refining-existing-values) for audit techniques.
 
-For new teams starting from scratch, use `template.md`.
+**Step 2: Refine values through stakeholder discovery**
+
+Evolve or replace values based on discovery findings, using stakeholder input to ensure relevance. See [Refinement Process](#refinement-process) for evolution patterns and rollout strategies.
+
+**Step 3: Build multi-team alignment framework**
+
+Create layered alignment across company, function, and team levels to prevent silos. See [Multi-Team Alignment Frameworks](#multi-team-alignment-frameworks) for nested framework structures.
+
+**Step 4: Create decision frameworks for autonomy**
+
+Build decision tenets and authority matrices to enable aligned autonomy. See [Building Decision Frameworks for Autonomy](#building-decision-frameworks-for-autonomy) for tenet patterns and RACI matrices.
+
+**Step 5: Rollout and reinforce across organization**
+
+Execute phased rollout with leadership alignment, cascading communication, and ongoing reinforcement. See [Rollout Strategy for Refined Values](#rollout-strategy-for-refined-values) and [Case Study: Company-Wide Values Refresh](#case-study-company-wide-values-refresh) for implementation examples.
 
 ---
 

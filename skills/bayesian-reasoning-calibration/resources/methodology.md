@@ -1,26 +1,37 @@
 # Bayesian Reasoning & Calibration Methodology
 
-## Table of Contents
+## Bayesian Reasoning Workflow
 
-- [When to Use This Methodology](#when-to-use-this-methodology)
-- [Multiple Hypothesis Updates](#multiple-hypothesis-updates)
-- [Sequential Evidence Updates](#sequential-evidence-updates)
-- [Handling Dependent Evidence](#handling-dependent-evidence)
-- [Calibration Techniques](#calibration-techniques)
-- [Advanced Applications](#advanced-applications)
+Copy this checklist and track your progress:
 
----
+```
+Bayesian Reasoning Progress:
+- [ ] Step 1: Define hypotheses and assign priors
+- [ ] Step 2: Assign likelihoods for each evidence-hypothesis pair
+- [ ] Step 3: Compute posteriors and update sequentially
+- [ ] Step 4: Check for dependent evidence and adjust
+- [ ] Step 5: Validate calibration and check for bias
+```
 
-## When to Use This Methodology
+**Step 1: Define hypotheses and assign priors**
 
-Use this methodology for complex Bayesian reasoning cases:
-- **Multiple competing hypotheses** (>2 hypotheses to update)
-- **Sequential evidence** (multiple pieces of evidence over time)
-- **Dependent evidence** (evidence items not independent)
-- **Complex priors** (hierarchical or uncertain priors)
-- **Calibration challenges** (checking for systematic biases)
+List all competing hypotheses (including catch-all "Other") and assign prior probabilities that sum to 1.0. See [Multiple Hypothesis Updates](#multiple-hypothesis-updates) for structuring priors with justifications.
 
-For simple single-hypothesis updates, use `template.md` calculator.
+**Step 2: Assign likelihoods for each evidence-hypothesis pair**
+
+For each hypothesis, define P(Evidence|Hypothesis) based on how likely the evidence would be if that hypothesis were true. See [Multiple Hypothesis Updates](#multiple-hypothesis-updates) for likelihood assessment techniques.
+
+**Step 3: Compute posteriors and update sequentially**
+
+Calculate posterior probabilities using Bayes' theorem, then chain updates for sequential evidence. See [Sequential Evidence Updates](#sequential-evidence-updates) for multi-stage updating process.
+
+**Step 4: Check for dependent evidence and adjust**
+
+Identify whether evidence items are independent or correlated, and use conditional likelihoods if needed. See [Handling Dependent Evidence](#handling-dependent-evidence) for dependence detection and correction.
+
+**Step 5: Validate calibration and check for bias**
+
+Track forecasts over time and compare stated probabilities to actual outcomes using calibration curves and Brier scores. See [Calibration Techniques](#calibration-techniques) for debiasing methods and metrics.
 
 ---
 

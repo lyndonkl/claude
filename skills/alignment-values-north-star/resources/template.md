@@ -1,13 +1,37 @@
 # Alignment Framework Template
 
-## When to Use This Template
+## Workflow
 
-Use this template when creating alignment frameworks for:
-- New teams defining their identity (< 30 people)
-- Clear, focused scope (single team or clear function)
-- Starting from scratch (no existing values to refine)
+Copy this checklist and track your progress:
 
-For scaling organizations with existing values, see `methodology.md`.
+```
+Alignment Framework Progress:
+- [ ] Step 1: Draft North Star and core values
+- [ ] Step 2: Create decision tenets for common dilemmas
+- [ ] Step 3: Define observable behaviors
+- [ ] Step 4: Add anti-patterns and usage guidance
+- [ ] Step 5: Validate with quality checklist
+```
+
+**Step 1: Draft North Star and core values**
+
+Write 1-2 sentence North Star (where we're going and why) and 3-5 core values with specific definitions, why they matter, what we optimize FOR, and what we de-prioritize. Use [Quick Template](#quick-template) structure and [Field-by-Field Guidance](#field-by-field-guidance) for details.
+
+**Step 2: Create decision tenets for common dilemmas**
+
+Identify 5-10 real trade-offs your team faces and write "When X vs Y, we..." statements. See [Decision Tenets](#decision-tenets) guidance for format. Include specific reasons tied to values and acknowledge merit of alternatives.
+
+**Step 3: Define observable behaviors**
+
+List 10-15 specific, observable actions across contexts: meetings, code/design reviews, planning, communication, hiring, operations. See [Observable Behaviors](#observable-behaviors) for examples. Focus on what you could notice in daily work.
+
+**Step 4: Add anti-patterns and usage guidance**
+
+Document 3-5 behaviors you explicitly DON'T do, even when tempting, and explain which value they violate. Add practical guidance for using framework in decision-making, hiring, onboarding, performance reviews. See [Anti-Patterns](#anti-patterns) section.
+
+**Step 5: Validate with quality checklist**
+
+Use [Quality Checklist](#quality-checklist) to verify: North Star is memorable, values are specific with trade-offs, decision tenets address real dilemmas, behaviors are observable, usable TODAY, no contradictions, 1-2 pages total, jargon-free.
 
 ## Quick Template
 

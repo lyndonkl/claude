@@ -80,96 +80,36 @@ A three-phase creative problem-solving method:
 
 ## Workflow
 
-Follow these steps in order:
+Copy this checklist and track your progress:
 
-### 1. [ ] Gather Requirements
+```
+Brainstorm Progress:
+- [ ] Step 1: Gather requirements
+- [ ] Step 2: Diverge (generate ideas)
+- [ ] Step 3: Cluster (group themes)
+- [ ] Step 4: Converge (evaluate and select)
+- [ ] Step 5: Document and validate
+```
 
-Ask the user to clarify:
-- [ ] **Topic/problem**: What are you brainstorming about?
-- [ ] **Goal**: What decision will this inform?
-- [ ] **Constraints**: Any must-haves, no-gos, or boundaries?
-- [ ] **Evaluation criteria**: What makes an idea "good"? (e.g., impact, feasibility, cost, speed)
-- [ ] **Target quantity**: How many ideas to generate? (suggest 20-50 for most cases)
-- [ ] **Rounds**: Single session or multiple rounds? (default: 1 round)
+**Step 1: Gather requirements**
 
-### 2. [ ] Diverge (Generate Ideas)
+Clarify topic/problem (what are you brainstorming?), goal (what decision will this inform?), constraints (must-haves, no-gos, boundaries), evaluation criteria (what makes an idea "good" - impact, feasibility, cost, speed, risk, alignment), target quantity (suggest 20-50 ideas), and rounds (single session or multiple rounds, default: 1).
 
-Generate many ideas without judgment:
-- [ ] **Suspend criticism**: All ideas are valid during divergence
-- [ ] **Aim for quantity**: More ideas = more raw material
-- [ ] **Encourage variety**: Different types, scales, approaches
-- [ ] **Use prompts** to stimulate creativity:
-  - "What if we had unlimited resources?"
-  - "What would a competitor do?"
-  - "What's the simplest possible approach?"
-  - "What's the most ambitious version?"
-  - "What are unconventional alternatives?"
-- [ ] **Target**: Generate 20-50 ideas (adjust based on complexity)
-- [ ] **Output**: Numbered list of raw ideas
+**Step 2: Diverge (generate ideas)**
 
-**For simple topics** → Generate ideas directly in SKILL.md
+Generate 20-50 ideas without judgment or filtering. Suspend criticism (all ideas valid during divergence), aim for quantity and variety (different types, scales, approaches), and use creative prompts: "What if unlimited resources?", "What would competitor do?", "Simplest approach?", "Most ambitious?", "Unconventional alternatives?". Output: Numbered list of raw ideas. For simple topics → generate directly. For complex topics → Use `resources/template.md` for structured prompts.
 
-**For complex topics** → Study `resources/template.md` for structured prompts and techniques
+**Step 3: Cluster (group themes)**
 
-### 3. [ ] Cluster (Group Themes)
+Organize ideas into 4-8 distinct clusters by identifying patterns, creating categories (mechanism, user/audience, timeline, effort, risk, strategic objective), naming clusters clearly, and checking coverage (distinct approaches). Fewer than 4 = not enough variety, more than 8 = too fragmented. Output: Ideas grouped under cluster labels.
 
-Organize ideas into meaningful groups:
-- [ ] **Identify patterns**: Which ideas are similar or related?
-- [ ] **Create categories**: Group by approach, theme, or mechanism
-- [ ] **Name clusters**: Give each cluster a clear, descriptive label
-- [ ] **Check coverage**: Do clusters represent distinct approaches?
-- [ ] **Target**: 4-8 clusters (fewer than 4 = not enough variety; more than 8 = too fragmented)
-- [ ] **Output**: Clusters with ideas grouped under each
+**Step 4: Converge (evaluate and select)**
 
-**Clustering approaches:**
-- By mechanism (how it works)
-- By target user/audience
-- By timeline (short-term vs long-term)
-- By resource requirements (low/medium/high effort)
-- By risk level
-- By strategic objective
+Define criteria (from step 1), score ideas on criteria (1-10 or Low/Med/High scale), rank by total/weighted score, select top 3-5 options, and document tradeoffs (why chosen, what deprioritized). Evaluation patterns: Impact/Effort matrix, weighted scoring, must-have filtering, pairwise comparison. See [Common Patterns](#common-patterns) for domain-specific approaches.
 
-### 4. [ ] Converge (Evaluate & Select)
+**Step 5: Document and validate**
 
-Evaluate ideas systematically and select strongest:
-- [ ] **Define criteria**: What makes an idea strong? (from step 1)
-  - Common criteria: Impact, Feasibility, Cost, Speed, Risk, Alignment
-- [ ] **Score ideas**: Rate each idea on defined criteria
-  - Use simple scale (1-10 or Low/Med/High)
-  - Can score individual ideas or representative ideas per cluster
-- [ ] **Rank ideas**: Order by total score or weighted criteria
-- [ ] **Select top options**: Identify 3-5 strongest ideas to pursue
-- [ ] **Document tradeoffs**: Note why top ideas were chosen and what was deprioritized
-
-**Evaluation patterns:**
-- Impact/Effort matrix (prioritize high impact, low effort)
-- Weighted scoring (multiply scores by criteria importance)
-- Must-have filtering (eliminate ideas that violate constraints)
-- Pairwise comparison (compare ideas head-to-head)
-
-### 5. [ ] Document & Validate
-
-Create output and validate quality:
-- [ ] **Create** `brainstorm-diverge-converge.md` in current directory with:
-  - Problem/topic statement
-  - Diverge: Full list of ideas generated
-  - Cluster: Ideas organized into themes
-  - Converge: Scored, ranked, and selected top options
-  - Next steps: Recommended actions based on selections
-- [ ] **Validate quality** using `resources/evaluators/rubric_brainstorm_diverge_converge.json`
-
-**Quality checks:**
-- [ ] Diverge phase generated sufficient quantity (20+ ideas)
-- [ ] Ideas show variety (not all similar)
-- [ ] Clusters are distinct and well-labeled
-- [ ] Evaluation criteria are explicit and relevant
-- [ ] Scoring is consistent and justified
-- [ ] Top selections are clearly better than alternatives
-- [ ] Next steps are actionable
-
-**Minimum standard**: Score ≥ 3.5 across all rubric criteria
-
-If any criterion scores < 3, revise that aspect before delivering.
+Create `brainstorm-diverge-converge.md` with: problem statement, diverge (full list), cluster (organized themes), converge (scored/ranked/selected), and next steps. Validate using `resources/evaluators/rubric_brainstorm_diverge_converge.json`: verify 20+ ideas with variety, distinct clusters, explicit criteria, consistent scoring, top selections clearly better, actionable next steps. Minimum standard: Score ≥ 3.5.
 
 ## Common Patterns
 

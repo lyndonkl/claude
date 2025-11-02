@@ -1,13 +1,37 @@
 # Brainstorm Diverge-Converge Template
 
-## When to Use This Template
+## Workflow
 
-Use for straightforward ideation and selection with:
-- Clear problem or topic
-- Single ideation session
-- Standard evaluation criteria (impact, feasibility, etc.)
+Copy this checklist and track your progress:
 
-For complex cases (multiple stakeholder groups, sequential rounds, novel domains), adapt this template as needed.
+```
+Brainstorm Progress:
+- [ ] Step 1: Define problem and criteria using template structure
+- [ ] Step 2: Diverge with creative prompts and techniques
+- [ ] Step 3: Cluster using bottom-up or top-down methods
+- [ ] Step 4: Converge with systematic scoring
+- [ ] Step 5: Document selections and next steps
+```
+
+**Step 1: Define problem and criteria using template structure**
+
+Fill in problem statement, decision context, constraints, and evaluation criteria (3-5 criteria that matter for your context). Use [Quick Template](#quick-template) to structure. See [Detailed Guidance](#detailed-guidance) for criteria selection.
+
+**Step 2: Diverge with creative prompts and techniques**
+
+Generate 20-50 ideas using SCAMPER prompts, perspective shifting, constraint removal, and analogies. Suspend judgment, aim for quantity and variety. See [Phase 1: Diverge](#phase-1-diverge-generate-ideas) for stimulation techniques and quality checks.
+
+**Step 3: Cluster using bottom-up or top-down methods**
+
+Group similar ideas into 4-8 distinct clusters. Use bottom-up clustering (identify natural groupings) or top-down (predefined categories). Name clusters clearly and specifically. See [Phase 2: Cluster](#phase-2-cluster-organize-themes) for methods and quality checks.
+
+**Step 4: Converge with systematic scoring**
+
+Score ideas on defined criteria (1-10 scale or Low/Med/High), rank by total/weighted score, and select top 3-5. Document tradeoffs and runner-ups. See [Phase 3: Converge](#phase-3-converge-evaluate--select) for scoring approaches and selection guidelines.
+
+**Step 5: Document selections and next steps**
+
+Fill in top selections with rationale, next steps, and timeline. Include runner-ups for future consideration and measurement plan. See [Worked Example](#worked-example) for complete example.
 
 ## Quick Template
 
