@@ -1,0 +1,186 @@
+{
+  "criteria": [
+    {
+      "name": "Perspective Authenticity",
+      "description": "Are roles represented genuinely without strawman arguments?",
+      "scale": {
+        "1": "Roles are caricatures or strawmen. Positions feel artificial or dismissive ('X just wants...'). No genuine advocacy.",
+        "2": "Some roles feel authentic but others are weak. Uneven representation. Some strawmanning present.",
+        "3": "Most roles feel genuine. Positions are reasonable but may lack depth. Minimal strawmanning.",
+        "4": "All roles authentically represented. Each is 'hero of their own story.' Steelman approach evident. Strong advocacy for each perspective.",
+        "5": "Exceptional authenticity. Every role's position is compellingly argued. Reader could genuinely support any perspective. Intellectual empathy demonstrated throughout."
+      }
+    },
+    {
+      "name": "Depth of Roleplay",
+      "description": "Are priorities, concerns, evidence, and vulnerabilities fully articulated for each role?",
+      "scale": {
+        "1": "Roles are one-dimensional. Only positions stated, no priorities, concerns, or evidence.",
+        "2": "Positions and some priorities stated. Concerns and evidence missing or thin.",
+        "3": "Positions, priorities, and concerns articulated. Evidence present but may be thin. Vulnerabilities rarely acknowledged.",
+        "4": "Comprehensive roleplay. Clear position, well-justified priorities, specific concerns, supporting evidence, and acknowledged vulnerabilities for each role.",
+        "5": "Exceptionally deep roleplay. Rich detail on priorities, nuanced concerns, strong evidence, intellectual honesty about vulnerabilities and limits. Success metrics defined for each role."
+      }
+    },
+    {
+      "name": "Debate Quality",
+      "description": "Do perspectives genuinely clash on key points of disagreement?",
+      "scale": {
+        "1": "No actual debate. Roles present positions but don't engage. Talking past each other or premature consensus.",
+        "2": "Limited engagement. Some responses to other roles but mostly separate monologues. Key tensions not surfaced.",
+        "3": "Moderate debate. Roles respond to each other on main points. Some clash evident but could go deeper.",
+        "4": "Strong debate. Perspectives directly engage on 3-5 key dimensions. Real clash of ideas. Tensions clearly surfaced.",
+        "5": "Exceptional debate. Deep engagement with point-counterpoint structure. All major tensions explored thoroughly. Debate format (devil's advocate, crux-finding, etc.) skillfully applied."
+      }
+    },
+    {
+      "name": "Tension Surfacing",
+      "description": "Are irreducible tradeoffs and conflicts explicitly identified?",
+      "scale": {
+        "1": "No tensions identified. Falsely suggests all perspectives align. Missing the point of debate.",
+        "2": "Some tensions mentioned but not explored. Glossed over or minimized.",
+        "3": "Main tensions identified (2-3 key tradeoffs). Reasonably clear where perspectives conflict.",
+        "4": "All major tensions surfaced and explored. Clear on irreducible tradeoffs (speed vs quality, cost vs flexibility, etc.). Dimensions of disagreement explicit.",
+        "5": "Comprehensive tension mapping. All conflicts identified, categorized, and explored deeply. False dichotomies challenged. Genuine irreducible tradeoffs distinguished from resolvable disagreements."
+      }
+    },
+    {
+      "name": "Crux Identification",
+      "description": "Are conditions that would change each role's mind identified?",
+      "scale": {
+        "1": "No cruxes identified. Positions appear fixed and immovable.",
+        "2": "Vague acknowledgment that positions could change but no specifics.",
+        "3": "Some cruxes identified for some roles. Moderate specificity on what would change minds.",
+        "4": "Clear cruxes for all roles. Specific conditions or evidence that would shift positions. Enables productive focus on key uncertainties.",
+        "5": "Exceptional crux identification. Specific, testable conditions for each role. Distinguishes between cruxes (truly pivotal) and nice-to-haves. Debate explicitly focuses on resolving cruxes."
+      }
+    },
+    {
+      "name": "Synthesis Coherence",
+      "description": "Is the unified recommendation logical, well-integrated, and addresses the decision?",
+      "scale": {
+        "1": "No synthesis. Just restates positions or says 'we need more information.' Avoids deciding.",
+        "2": "Weak synthesis. Either 'do everything' (no prioritization) or 'X wins, Y loses' (dismisses perspectives). Not truly integrated.",
+        "3": "Moderate synthesis. Clear recommendation but integration is shallow. May not fully address all concerns or explain tradeoffs.",
+        "4": "Strong synthesis. Coherent recommendation that integrates insights from all perspectives. Integration pattern clear (weighted, sequencing, conditional, hybrid, reframing, constraint elevation). Addresses decision directly.",
+        "5": "Exceptional synthesis. Deeply integrated recommendation better than any single perspective. Pattern expertly applied. Innovative solution that satisfies multiple objectives. Elegant and actionable."
+      }
+    },
+    {
+      "name": "Concern Integration",
+      "description": "Are each role's core concerns explicitly addressed in the synthesis?",
+      "scale": {
+        "1": "No concern integration. Synthesis ignores or dismisses most perspectives' concerns.",
+        "2": "Limited integration. Addresses concerns from 1-2 roles, ignores others.",
+        "3": "Moderate integration. Most roles' main concerns acknowledged but may not be fully addressed. Some perspectives feel under-represented.",
+        "4": "Strong integration. All roles' core concerns explicitly addressed. Clear explanation of how synthesis handles each perspective's priorities.",
+        "5": "Exceptional integration. Every role's concerns not just addressed but shown to be *strengthened* by the integrated approach. Synthesis makes each perspective better off than going solo."
+      }
+    },
+    {
+      "name": "Tradeoff Transparency",
+      "description": "Are accepted tradeoffs and rejected alternatives clearly explained?",
+      "scale": {
+        "1": "No tradeoff transparency. Synthesis presented as 'best of all worlds' without acknowledging costs.",
+        "2": "Minimal transparency. Vague acknowledgment that tradeoffs exist but not specified.",
+        "3": "Moderate transparency. Main tradeoffs mentioned. Some explanation of what's being accepted/rejected.",
+        "4": "Strong transparency. Clear on what's prioritized and what's sacrificed. Explicit rationale for tradeoffs. Alternatives rejected with reasons.",
+        "5": "Exceptional transparency. Comprehensive accounting of all tradeoffs. Clear on second-order effects. Honest about what each perspective gives up and why it's worth it. 'What we're NOT doing' as clear as 'What we ARE doing.'"
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Are next steps specific, feasible, with owners and timelines?",
+      "scale": {
+        "1": "No action plan. Vague or missing next steps.",
+        "2": "Vague next steps. 'Consider X', 'Explore Y.' No owners or timelines.",
+        "3": "Moderate actionability. Next steps identified but lack detail on who/when/how. Success metrics missing or vague.",
+        "4": "Strong actionability. Clear next steps with owners and dates. Success metrics defined. Implementation approach specified (phased, conditional, etc.).",
+        "5": "Exceptional actionability. Detailed implementation plan. Owners assigned, timeline clear, milestones defined, success metrics from each role's perspective, monitoring plan, escalation conditions, decision review cadence."
+      }
+    },
+    {
+      "name": "Stakeholder Readiness",
+      "description": "Is synthesis communicated appropriately for different audiences?",
+      "scale": {
+        "1": "No stakeholder tailoring. Single narrative that may not resonate with any audience.",
+        "2": "Minimal tailoring. One-size-fits-all communication. May be too technical for execs or too vague for implementers.",
+        "3": "Moderate tailoring. Some audience awareness. Key messages identified but not fully adapted.",
+        "4": "Strong tailoring. Synthesis clearly communicates to different stakeholders (exec summary, technical detail, operational guidance). Appropriate emphasis for each audience.",
+        "5": "Exceptional tailoring. Multiple versions or sections for different stakeholders. Executive summary for leaders, technical appendix for specialists, operational guide for implementation teams. Anticipates questions from each audience."
+      }
+    }
+  ],
+  "minimum_standard": 3.5,
+  "complexity_guidance": {
+    "simple_decisions": {
+      "threshold": 3.0,
+      "description": "Binary choices with 2-3 clear stakeholders (e.g., build vs buy, speed vs quality). Acceptable to have simpler analysis (criteria 3-4).",
+      "focus_criteria": ["Perspective Authenticity", "Tension Surfacing", "Synthesis Coherence"]
+    },
+    "standard_decisions": {
+      "threshold": 3.5,
+      "description": "Multi-faceted decisions with 3-4 stakeholders and competing priorities (e.g., product roadmap, hiring strategy, market entry). Standard threshold applies (criteria average ≥3.5).",
+      "focus_criteria": ["All criteria should meet threshold"]
+    },
+    "complex_decisions": {
+      "threshold": 4.0,
+      "description": "Strategic decisions with 4-5+ stakeholders, power dynamics, and high stakes (e.g., company strategy, major pivots, organizational change). Higher bar required (criteria average ≥4.0).",
+      "focus_criteria": ["Depth of Roleplay", "Debate Quality", "Concern Integration", "Tradeoff Transparency"],
+      "additional_requirements": ["Stakeholder mapping", "Multi-round debate structure", "Facilitation anti-pattern awareness"]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Strawman arguments",
+      "symptoms": "Roles are caricatured or weakly represented. 'X just wants shiny tech', 'Y only cares about money.'",
+      "fix": "Steelman approach: Present the *strongest* version of each perspective. Each role is 'hero of their own story.' If a position feels weak, strengthen it."
+    },
+    {
+      "failure": "Premature consensus",
+      "symptoms": "Roles agree too quickly without genuine debate. 'We all want the same thing.'",
+      "fix": "Play devil's advocate. Ask: 'What could go wrong?' 'Where do you disagree?' Test agreement with edge cases. Give permission to disagree."
+    },
+    {
+      "failure": "Talking past each other",
+      "symptoms": "Roles present positions but don't engage. Arguments on different dimensions (one says cost, other says speed).",
+      "fix": "Make dimensions of disagreement explicit. Force direct engagement: '[Role A], respond to [Role B]'s point about X.'"
+    },
+    {
+      "failure": "False dichotomies",
+      "symptoms": "'Either X or we fail.' 'We must choose between quality and speed.'",
+      "fix": "Challenge the dichotomy. Explore middle ground, sequencing, conditional strategies. Ask: 'Are those really the only two options?'"
+    },
+    {
+      "failure": "Synthesis dismisses perspectives",
+      "symptoms": "'X wins, Y loses.' Some roles' concerns ignored or minimized in synthesis.",
+      "fix": "Explicitly address every role's core concerns. Show how synthesis incorporates (not dismisses) each perspective. Check: 'Does this address your concern about [issue]?'"
+    },
+    {
+      "failure": "Vague tradeoffs",
+      "symptoms": "Synthesis presented as win-win without acknowledging costs. No transparency on what's sacrificed.",
+      "fix": "Make tradeoffs explicit. 'We're prioritizing X, accepting Y, rejecting Z because [rationale].' Be honest about costs."
+    },
+    {
+      "failure": "Analysis paralysis",
+      "symptoms": "'We need more information.' Endless debate without convergence. Perfect information fallacy.",
+      "fix": "Set decision deadline. Clarify decision criteria. Good-enough threshold. Explicitly trade off value of info vs cost of delay."
+    },
+    {
+      "failure": "Dominant voice",
+      "symptoms": "One role speaks 70%+ of time. Others defer. Synthesis reflects single perspective.",
+      "fix": "Explicit turn-taking. Direct questions to quieter roles. Affirm their contributions. Check power dynamics."
+    },
+    {
+      "failure": "No actionability",
+      "symptoms": "Synthesis is conceptual but not actionable. No clear next steps, owners, or timeline.",
+      "fix": "Specify: Who does what by when? How do we measure success? What's the implementation approach (phased, conditional)? When do we review?"
+    },
+    {
+      "failure": "Single narrative for all audiences",
+      "symptoms": "Same explanation for execs, engineers, and operators. Too technical or too vague for some.",
+      "fix": "Tailor communication. Exec summary (strategic), technical brief (implementation), operational guide (execution). Emphasize what each audience cares about."
+    }
+  ],
+  "usage_notes": "Use this rubric to self-assess before delivering synthesis. For simple binary decisions, 3.0+ is acceptable. For standard multi-stakeholder decisions, aim for 3.5+. For complex strategic decisions with high stakes, aim for 4.0+. Pay special attention to Perspective Authenticity, Synthesis Coherence, and Concern Integration as these are most critical for effective roleplay-debate-synthesis."
+}
