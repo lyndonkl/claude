@@ -1,0 +1,176 @@
+{
+  "criteria": [
+    {
+      "name": "Estimation Quality",
+      "description": "Are costs and benefits quantified with appropriate ranges/probabilities?",
+      "scale": {
+        "1": "Single-point estimates with no uncertainty. Major cost or benefit categories missing.",
+        "2": "Some ranges provided but many point estimates. Several categories incomplete.",
+        "3": "Most estimates have ranges. Key cost and benefit categories covered. Some uncertainty acknowledged.",
+        "4": "Comprehensive estimation with ranges for uncertain variables. Probabilities assigned to scenarios. Justification provided for estimates.",
+        "5": "Rigorous estimation with probability distributions, data sources cited, estimation method explained (analogous, parametric, bottom-up), and confidence levels stated."
+      }
+    },
+    {
+      "name": "Probability Calibration",
+      "description": "Are probabilities reasonable, justified, and calibrated?",
+      "scale": {
+        "1": "No probabilities assigned or completely arbitrary (e.g., all 50%).",
+        "2": "Probabilities assigned but no justification. Appear overconfident (too many 5% or 95%).",
+        "3": "Probabilities have some justification. Reasonable calibration for most scenarios.",
+        "4": "Probabilities justified with base rates, expert judgment, or reference class. Well-calibrated ranges.",
+        "5": "Rigorous probability assignment using historical data, base rates, and adjustments. Calibration checked explicitly. Confidence bounds stated."
+      }
+    },
+    {
+      "name": "Decision Analysis Rigor",
+      "description": "Is expected value and comparison logic sound?",
+      "scale": {
+        "1": "No expected value calculation. Comparison is purely subjective.",
+        "2": "Expected value attempted but calculation errors. Comparison incomplete.",
+        "3": "Expected value calculated correctly. Basic comparison of alternatives using EV or simple scoring.",
+        "4": "Sound EV calculation with appropriate decision criteria (NPV, IRR, utility). Clear comparison methodology.",
+        "5": "Rigorous analysis using appropriate technique (EV, decision tree, Monte Carlo, MCDA). Multiple decision criteria considered. Methodology appropriate for problem complexity."
+      }
+    },
+    {
+      "name": "Sensitivity Analysis",
+      "description": "Are key drivers identified and impact tested?",
+      "scale": {
+        "1": "No sensitivity analysis performed.",
+        "2": "Limited sensitivity (single variable tested). No identification of key drivers.",
+        "3": "One-way sensitivity on 2-3 key variables. Drivers identified but impact not quantified well.",
+        "4": "Comprehensive one-way sensitivity on all major variables. Key drivers ranked by impact. Break-even analysis performed.",
+        "5": "Advanced sensitivity including two-way analysis, scenario analysis, or tornado diagrams. Robustness tested across reasonable ranges. Conditions that change conclusion clearly stated."
+      }
+    },
+    {
+      "name": "Alternative Comparison",
+      "description": "Are all relevant alternatives considered and compared fairly?",
+      "scale": {
+        "1": "Only one alternative analyzed (no comparison).",
+        "2": "Two alternatives but comparison is cursory or biased.",
+        "3": "2-3 alternatives analyzed. Comparison is fair but may miss some options or factors.",
+        "4": "3-5 alternatives including creative options. Fair comparison across all relevant factors.",
+        "5": "Comprehensive alternative generation (considered 5+ initially, narrowed to 3-5). Comparison addresses all stakeholder concerns. Dominated options eliminated with explanation."
+      }
+    },
+    {
+      "name": "Assumption Transparency",
+      "description": "Are assumptions stated explicitly and justified?",
+      "scale": {
+        "1": "Assumptions hidden or unstated. Reader must guess what's assumed.",
+        "2": "Few assumptions stated. Most are implicit. Little justification.",
+        "3": "Major assumptions stated but justification is thin. Some assumptions still implicit.",
+        "4": "All key assumptions stated explicitly with justification. Reader can assess reasonableness.",
+        "5": "Complete assumption transparency. Each assumption justified with source or reasoning. Alternative assumptions considered. Impact of changing assumptions tested."
+      }
+    },
+    {
+      "name": "Narrative Clarity",
+      "description": "Is the story clear, logical, and persuasive?",
+      "scale": {
+        "1": "Narrative is confusing, illogical, or missing. Just numbers with no story.",
+        "2": "Some narrative but disjointed. Logic is hard to follow. Key points buried.",
+        "3": "Clear narrative structure. Main points are clear. Logic is mostly sound.",
+        "4": "Compelling narrative with clear problem statement, analysis summary, recommendation, and reasoning. Flows logically.",
+        "5": "Highly persuasive narrative that leads reader through problem, analysis, and conclusion. Key insights highlighted. Tradeoffs acknowledged. Objections preempted. Memorable framing."
+      }
+    },
+    {
+      "name": "Audience Tailoring",
+      "description": "Is content appropriate for stated audience?",
+      "scale": {
+        "1": "No consideration of audience. Wrong level of detail or wrong focus.",
+        "2": "Minimal tailoring. May have too much or too little detail for audience.",
+        "3": "Content generally appropriate. Length and detail reasonable for audience.",
+        "4": "Well-tailored to audience needs. Executives get summary, technical teams get methodology, finance gets numbers. Appropriate jargon level.",
+        "5": "Expertly tailored with multiple versions or sections for different stakeholders. Executive summary for leaders, technical appendix for specialists, financial detail for finance. Anticipates audience questions."
+      }
+    },
+    {
+      "name": "Risk Acknowledgment",
+      "description": "Are downside scenarios, risks, and limitations addressed?",
+      "scale": {
+        "1": "No mention of risks or limitations. Only upside presented.",
+        "2": "Brief mention of risks but no detail. Limitations glossed over.",
+        "3": "Downside scenarios included. Major risks identified. Some limitations noted.",
+        "4": "Comprehensive risk analysis with downside scenarios, mitigation strategies, and clear limitations. Probability of loss quantified.",
+        "5": "Rigorous risk treatment including probability-weighted downside, specific mitigation plans, uncertainty quantified, and honest assessment of analysis limitations. 'What would change our mind' conditions stated."
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Are next steps clear, specific, and feasible?",
+      "scale": {
+        "1": "No next steps or recommendation unclear.",
+        "2": "Vague next steps ('consider options', 'study further'). No specifics.",
+        "3": "Recommendation clear. Next steps identified but lack detail on who/when/how.",
+        "4": "Clear recommendation with specific next steps, owners, and timeline. Success metrics defined.",
+        "5": "Highly actionable with clear recommendation, detailed implementation plan with milestones, owners assigned, success metrics defined, decision review cadence specified, and monitoring plan for key assumptions."
+      }
+    }
+  ],
+  "minimum_standard": 3.5,
+  "stakes_guidance": {
+    "low_stakes": {
+      "threshold": 3.0,
+      "description": "Decisions under $100k or low strategic importance. Acceptable to have simpler analysis (criteria 3-4).",
+      "focus_criteria": ["Estimation Quality", "Decision Analysis Rigor", "Actionability"]
+    },
+    "medium_stakes": {
+      "threshold": 3.5,
+      "description": "Decisions $100k-$1M or moderate strategic importance. Standard threshold applies (criteria average ≥3.5).",
+      "focus_criteria": ["All criteria should meet threshold"]
+    },
+    "high_stakes": {
+      "threshold": 4.0,
+      "description": "Decisions >$1M or high strategic importance. Higher bar required (criteria average ≥4.0).",
+      "focus_criteria": ["Estimation Quality", "Sensitivity Analysis", "Risk Acknowledgment", "Assumption Transparency"],
+      "additional_requirements": ["External validation of key estimates", "Multiple modeling approaches for robustness", "Explicit stakeholder review process"]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Optimism bias",
+      "symptoms": "All probabilities favor best case. Downside scenarios underweighted.",
+      "fix": "Use reference class forecasting. Require explicit base rates. Weight downside equally."
+    },
+    {
+      "failure": "Sunk cost fallacy",
+      "symptoms": "Past investments influence forward-looking analysis.",
+      "fix": "Evaluate only incremental future costs/benefits. Ignore sunk costs explicitly."
+    },
+    {
+      "failure": "False precision",
+      "symptoms": "Point estimates to multiple decimal places when uncertainty is ±50%.",
+      "fix": "Use ranges. State confidence levels. Round appropriately given uncertainty."
+    },
+    {
+      "failure": "Anchoring on first estimate",
+      "symptoms": "All alternatives compared to one 'anchor' rather than objectively.",
+      "fix": "Generate alternatives independently. Use multiple estimation methods."
+    },
+    {
+      "failure": "Analysis paralysis",
+      "symptoms": "Endless modeling, no decision. Waiting for perfect information.",
+      "fix": "Set time limits. Use 'good enough' threshold. Decide with available info."
+    },
+    {
+      "failure": "Ignoring opportunity cost",
+      "symptoms": "Only evaluating direct costs, not what else could be done with resources.",
+      "fix": "Explicitly include opportunity cost. Compare to next-best alternative use of capital/time."
+    },
+    {
+      "failure": "Confirmation bias",
+      "symptoms": "Analysis structured to justify predetermined conclusion.",
+      "fix": "Generate alternatives before analyzing. Use blind evaluation. Seek disconfirming evidence."
+    },
+    {
+      "failure": "Overweighting quantifiable",
+      "symptoms": "Strategic or qualitative factors ignored because hard to measure.",
+      "fix": "Explicitly list qualitative factors. Use scoring for non-quantifiable. Ask 'what matters that we're not measuring?'"
+    }
+  ],
+  "usage_notes": "Use this rubric to self-assess before delivering analysis. For high-stakes decisions (>$1M or strategic), aim for 4.0+ average. For low-stakes (<$100k), 3.0+ may be acceptable. Pay special attention to Estimation Quality, Decision Analysis Rigor, and Risk Acknowledgment as these are most critical for sound decisions."
+}
