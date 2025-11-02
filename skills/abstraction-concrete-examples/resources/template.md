@@ -1,19 +1,37 @@
 # Quick-Start Template
 
-## When to Use This Template
+## Workflow
 
-Use this template for straightforward abstraction ladder creation. For complex topics, see `methodology.md` for detailed techniques.
+Copy this checklist and track your progress:
 
-## Quick Inputs
+```
+Abstraction Ladder Progress:
+- [ ] Step 1: Gather inputs (topic, purpose, audience, levels, direction)
+- [ ] Step 2: Choose starting point and build levels
+- [ ] Step 3: Add connections and transitions
+- [ ] Step 4: Test with edge cases
+- [ ] Step 5: Validate quality checklist
+```
 
-Before starting, gather:
+**Step 1: Gather inputs**
 
-1. **Topic**: What concept/system/problem are you exploring?
-2. **Purpose**: Why build this ladder? (communication? design? validation?)
-3. **Audience**: Who will use this?
-4. **Levels**: How many abstraction levels? (3-5, default: 4)
-5. **Direction**: Top-down, bottom-up, or middle-out?
-6. **Focus areas**: Edge cases? Communication? Implementation?
+Define topic (what concept/system/problem?), purpose (communication/design/validation?), audience (who will use this?), levels (3-5, default 4), direction (top-down/bottom-up/middle-out), and focus areas (edge cases/communication/implementation).
+
+**Step 2: Choose starting point and build levels**
+
+Use [Common Starting Points](#common-starting-points) to select direction. Top-down for teaching/design, bottom-up for analysis/patterns, middle-out for bridging gaps. Build each level ensuring distinctness and logical flow.
+
+**Step 3: Add connections and transitions**
+
+Explain how levels flow together as coherent whole. Each level should logically derive from previous level. See [Template Structure](#template-structure) for format.
+
+**Step 4: Test with edge cases**
+
+Identify 2-3 boundary scenarios that test principles. For each: describe scenario, state what abstract principle suggests, note what actually happens, assess alignment (matches/conflicts/requires nuance).
+
+**Step 5: Validate quality checklist**
+
+Use [Quality Checklist](#quality-checklist) to verify: levels are distinct, concrete level has specifics, abstract level is universal, edge cases are meaningful, assumptions stated, serves stated purpose.
 
 ## Template Structure
 

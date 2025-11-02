@@ -83,99 +83,36 @@ Evidence strongly supports launch, but not certain.
 
 ## Workflow
 
-Follow these steps in order:
+Copy this checklist and track your progress:
 
-### 1. [ ] Define the Question
+```
+Bayesian Reasoning Progress:
+- [ ] Step 1: Define the question
+- [ ] Step 2: Establish prior beliefs
+- [ ] Step 3: Identify evidence and likelihoods
+- [ ] Step 4: Calculate posterior
+- [ ] Step 5: Calibrate and document
+```
 
-Clarify what you're forecasting:
-- [ ] **What hypothesis?** (specific, testable claim)
-- [ ] **What probability?** (what are you estimating?)
-- [ ] **What timeframe?** (when will outcome be known?)
-- [ ] **What counts as success?** (clear success criteria)
-- [ ] **Why does this matter?** (what decision depends on this?)
+**Step 1: Define the question**
 
-**Example:**
-- Hypothesis: "Product feature will achieve >20% adoption within 3 months"
-- Probability to estimate: P(adoption >20%)
-- Timeframe: 3 months post-launch
-- Success: ≥20% of active users use feature weekly
-- Matters for: Launch decision and resource allocation
+Clarify hypothesis (specific, testable claim), probability to estimate, timeframe (when outcome is known), success criteria, and why this matters (what decision depends on it). Example: "Product feature will achieve >20% adoption within 3 months" - matters for launch decision.
 
-### 2. [ ] Establish Prior Beliefs
+**Step 2: Establish prior beliefs**
 
-Set initial probability before new evidence:
-- [ ] **Identify base rates**: What's the general frequency?
-- [ ] **Consider reference class**: What similar situations exist?
-- [ ] **Account for specifics**: How is this case different?
-- [ ] **State prior explicitly**: Assign probability (avoid vague "likely")
-- [ ] **Justify prior**: Explain reasoning
+Set initial probability using base rates (general frequency), reference class (similar situations), specific differences, and explicit probability assignment with justification. Good priors are based on base rates, account for differences, honest about uncertainty, and include ranges if unsure (e.g., 40-60%). Avoid purely intuitive priors, ignoring base rates, or extreme values without justification.
 
-**Good priors:**
-- Based on base rates and reference classes
-- Account for known differences
-- Honest about uncertainty
-- Range provided if unsure (e.g., 40-60%)
+**Step 3: Identify evidence and likelihoods**
 
-**Bad priors:**
-- Purely intuitive ("feels like 50%")
-- Ignoring base rates
-- Extreme (1% or 99%) without justification
-- Hidden or unstated
+Assess evidence (specific observation/data), diagnostic power (does it distinguish hypotheses?), P(E|H) (probability if hypothesis TRUE), P(E|¬H) (probability if FALSE), and calculate likelihood ratio = P(E|H) / P(E|¬H). LR > 10 = very strong evidence, 3-10 = moderate, 1-3 = weak, ≈1 = not diagnostic, <1 = evidence against.
 
-### 3. [ ] Identify Evidence & Likelihoods
+**Step 4: Calculate posterior**
 
-Assess how evidence relates to hypothesis:
-- [ ] **What evidence?** (specific observation or data)
-- [ ] **How diagnostic?** (does it distinguish hypotheses?)
-- [ ] **Estimate P(E|H)**: Probability of evidence if hypothesis TRUE
-- [ ] **Estimate P(E|¬H)**: Probability of evidence if hypothesis FALSE
-- [ ] **Calculate likelihood ratio**: P(E|H) / P(E|¬H)
+Apply Bayes' Theorem: P(H|E) = [P(E|H) × P(H)] / P(E), or use odds form: Posterior Odds = Prior Odds × Likelihood Ratio. Calculate P(E) = P(E|H)×P(H) + P(E|¬H)×P(¬H), get posterior probability, and interpret change. For simple cases → Use `resources/template.md` calculator. For complex cases (multiple hypotheses) → Study `resources/methodology.md`.
 
-**Likelihood ratio interpretation:**
-- LR > 10: Very strong evidence for H
-- LR = 3-10: Moderate evidence for H
-- LR = 1-3: Weak evidence for H
-- LR ≈ 1: Evidence is not diagnostic
-- LR < 1: Evidence against H
+**Step 5: Calibrate and document**
 
-### 4. [ ] Calculate Posterior
-
-Update probability using Bayes' Theorem:
-- [ ] **Apply formula**: P(H|E) = [P(E|H) × P(H)] / P(E)
-- [ ] **Or use odds form**: Posterior Odds = Prior Odds × Likelihood Ratio
-- [ ] **Calculate P(E)**: P(E|H)×P(H) + P(E|¬H)×P(¬H)
-- [ ] **Get posterior probability**: Final updated belief
-- [ ] **Interpret change**: How much did belief shift?
-
-**For simple cases:**
-Use resources/template.md calculator
-
-**For complex cases:**
-Study resources/methodology.md for multiple hypothesis updates
-
-### 5. [ ] Calibrate & Document
-
-Validate and record reasoning:
-- [ ] **Check calibration**: Am I over/underconfident?
-- [ ] **Validate assumptions**: Are likelihoods reasonable?
-- [ ] **Perform sensitivity analysis**: How sensitive to inputs?
-- [ ] **Document reasoning**: Create bayesian-reasoning-calibration.md
-- [ ] **Note limitations**: What could invalidate this?
-
-**Self-check using** `resources/evaluators/rubric_bayesian_reasoning_calibration.json`:
-
-**Quality checks:**
-- [ ] Prior is based on base rates, not just intuition
-- [ ] Likelihoods are estimated with justification
-- [ ] Evidence is actually diagnostic (LR ≠ 1)
-- [ ] Calculation is correct
-- [ ] Posterior is calibrated (not overconfident)
-- [ ] Assumptions are stated explicitly
-- [ ] Sensitivity to inputs is noted
-
-**Minimum standard**: Score ≥ 3.5 across all criteria
-
-**Output file**: Create `bayesian-reasoning-calibration.md` in current directory
+Check calibration (over/underconfident?), validate assumptions (are likelihoods reasonable?), perform sensitivity analysis, create `bayesian-reasoning-calibration.md`, and note limitations. Self-check using `resources/evaluators/rubric_bayesian_reasoning_calibration.json`: verify prior based on base rates, likelihoods justified, evidence diagnostic (LR ≠ 1), calculation correct, posterior calibrated, assumptions stated, sensitivity noted. Minimum standard: Score ≥ 3.5.
 
 ## Common Patterns
 

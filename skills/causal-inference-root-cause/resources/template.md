@@ -1,15 +1,37 @@
 # Causal Inference & Root Cause Analysis Template
 
-## When to Use This Template
+## Workflow
 
-Use for straightforward root cause investigations with:
-- Clear observable effect to explain
-- Available data or evidence
-- Need to distinguish correlation from causation
+Copy this checklist and track your progress:
 
-For complex cases (multiple confounders, research studies, policy evaluation), see `methodology.md` for advanced techniques.
+```
+Root Cause Analysis Progress:
+- [ ] Step 1: Define effect with quantification and timeline
+- [ ] Step 2: Generate competing hypotheses systematically
+- [ ] Step 3: Build causal model with mechanisms
+- [ ] Step 4: Assess evidence using essential tests
+- [ ] Step 5: Document conclusion with confidence level
+```
 
----
+**Step 1: Define effect with quantification and timeline**
+
+Describe what happened specifically, quantify magnitude (baseline vs current, change), establish timeline (first observed, duration, context), and identify impact (who's affected, severity, business impact). Use [Quick Template](#quick-template) section 1.
+
+**Step 2: Generate competing hypotheses systematically**
+
+List 3-5 potential causes, classify each as root/proximate/symptom, note evidence for/against each hypothesis, and identify potential confounders (third factors causing both X and Y). Use techniques from [Section-by-Section Guidance](#section-by-section-guidance): 5 Whys, Fishbone Diagram, Timeline Analysis.
+
+**Step 3: Build causal model with mechanisms**
+
+Draw causal chain (Root → Intermediate → Proximate → Effect) with mechanisms explaining HOW each step leads to next, and rule out confounders (distinguish Z causing both X and Y from X causing Y). See [Causal Model](#3-causal-model) template structure.
+
+**Step 4: Assess evidence using essential tests**
+
+Check temporal sequence (cause before effect?), test counterfactual (what if cause absent?), explain mechanism (HOW does it work?), look for dose-response (more cause → more effect?), verify consistency (holds across contexts?), and control for confounding. See [Evidence Assessment](#4-evidence-assessment) and [Section-by-Section Guidance](#4-evidence-assessment-1).
+
+**Step 5: Document conclusion with confidence level**
+
+State root cause with confidence level (High/Medium/Low) and justification, explain complete causal mechanism, clarify why this is root (not symptom), note alternative explanations and why less likely, recommend interventions addressing root cause, propose validation tests, and acknowledge limitations. Use [Quality Checklist](#quality-checklist) to verify completeness.
 
 ## Quick Template
 

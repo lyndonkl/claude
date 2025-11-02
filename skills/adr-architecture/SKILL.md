@@ -79,80 +79,36 @@ Use PostgreSQL 15+ as primary relational database.
 
 ## Workflow
 
-Follow these steps in order:
+Copy this checklist and track your progress:
 
-### 1. [ ] Understand the Decision
+```
+ADR Progress:
+- [ ] Step 1: Understand the decision
+- [ ] Step 2: Choose ADR template
+- [ ] Step 3: Document the decision
+- [ ] Step 4: Validate quality
+- [ ] Step 5: Deliver and file
+```
 
-Gather decision context:
-- [ ] **What decision needs to be made?** (specific technology, approach, or standard)
-- [ ] **Why now?** (what triggered this decision?)
-- [ ] **Who are the deciders?** (team, role, individuals)
-- [ ] **What are the constraints?** (budget, timeline, skills, compliance)
-- [ ] **What are the requirements?** (functional, non-functional, business)
-- [ ] **What's the scope?** (one service, entire system, organization-wide)
+**Step 1: Understand the decision**
 
-### 2. [ ] Choose ADR Template
+Gather decision context: what decision needs to be made, why now, who decides, constraints (budget, timeline, skills, compliance), requirements (functional, non-functional, business), and scope (one service vs organization-wide). This ensures the ADR addresses the right problem.
 
-Based on decision type:
+**Step 2: Choose ADR template**
 
-- [ ] **For technology selection** → Use `resources/template.md` (standard ADR format)
-  - Choosing frameworks, libraries, databases, tools
-  - Clear alternatives exist
-  - Trade-offs are technical
+For technology selection (frameworks, libraries, databases) → Use `resources/template.md`. For complex architectural decisions with multiple interdependent choices → Study `resources/methodology.md`. To see examples → Review `resources/examples/` (database-selection.md, microservices-migration.md, api-versioning.md).
 
-- [ ] **For complex architectural decisions** → Study `resources/methodology.md`
-  - System-wide architectural patterns
-  - Multiple interdependent decisions
-  - Need detailed analysis sections (security, scalability, cost)
+**Step 3: Document the decision**
 
-- [ ] **To see examples** → Review `resources/examples/`
-  - `database-selection.md` - Technology choice with trade-offs
-  - `microservices-migration.md` - Large architectural change
-  - `api-versioning.md` - Process/standard decision
+Create `adr-{number}-{short-title}.md` with: clear title, metadata (status, date, deciders), context (situation and requirements), decision (specific and actionable), alternatives considered (with pros/cons), consequences (trade-offs, risks, benefits), implementation notes if relevant, and links to related ADRs. See [Common Patterns](#common-patterns) for decision-type specific guidance.
 
-### 3. [ ] Document the Decision
+**Step 4: Validate quality**
 
-Create the ADR following this structure:
+Self-check using `resources/evaluators/rubric_adr_architecture.json`. Verify: context explains WHY, decision is specific and actionable, 2-3+ alternatives documented with trade-offs, consequences include benefits AND drawbacks, technical details accurate, understandable to unfamiliar readers, honest about downsides. Minimum standard: Score ≥ 3.5 (aim for 4.5+ if controversial/high-impact).
 
-- [ ] **Write clear title**: "ADR-{number}: {Decision in one line}"
-- [ ] **Add metadata**: Status, date, deciders
-- [ ] **Explain context**: Situation, requirements, constraints (why this decision is needed)
-- [ ] **State decision**: What you're choosing to do (be specific and actionable)
-- [ ] **List alternatives**: What else was considered (with brief pros/cons)
-- [ ] **Analyze consequences**: Trade-offs, risks, benefits, long-term implications
-- [ ] **Add implementation notes**: If relevant (migration path, rollout plan)
-- [ ] **Include links/references**: Related ADRs, external resources
+**Step 5: Deliver and file**
 
-**Output file**: Create `adr-{number}-{short-title}.md` in current directory
-
-### 4. [ ] Validate Quality
-
-Self-check using `resources/evaluators/rubric_adr_architecture.json`:
-
-**Quality checks:**
-- [ ] Context clearly explains WHY this decision is needed
-- [ ] Decision is specific and actionable (not vague)
-- [ ] At least 2-3 real alternatives are documented with trade-offs
-- [ ] Consequences include both benefits and drawbacks
-- [ ] Technical details are accurate
-- [ ] Someone unfamiliar with context can understand the decision
-- [ ] Trade-offs are honest (acknowledges downsides)
-- [ ] Future readers will understand "why we chose this"
-
-**Minimum standard**: Score ≥ 3.5 across all criteria
-
-If decision is controversial or high-impact, aim for 4.5+ average.
-
-### 5. [ ] Deliver and File
-
-Present to the user:
-- [ ] The completed ADR file
-- [ ] Highlight key trade-offs identified
-- [ ] Suggest ADR numbering if not provided
-- [ ] Recommend review process (if high-stakes decision)
-- [ ] Note any follow-up decisions needed
-
-**Filing convention**: Store ADRs in `docs/adr/` or `architecture/decisions/` directory with sequential numbering.
+Present the completed ADR file, highlight key trade-offs identified, suggest ADR numbering if not provided, recommend review process for high-stakes decisions, and note any follow-up decisions needed. Filing convention: Store ADRs in `docs/adr/` or `architecture/decisions/` directory with sequential numbering.
 
 ## Common Patterns
 

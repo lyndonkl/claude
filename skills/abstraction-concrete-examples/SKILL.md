@@ -55,83 +55,36 @@ A multi-level structure (typically 3-5 levels) connecting universal principles t
 
 ## Workflow
 
-Follow these steps in order:
+Copy this checklist and track your progress:
 
-### 1. [ ] Gather Requirements
+```
+Abstraction Ladder Progress:
+- [ ] Step 1: Gather requirements
+- [ ] Step 2: Choose approach
+- [ ] Step 3: Build the ladder
+- [ ] Step 4: Validate quality
+- [ ] Step 5: Deliver and explain
+```
 
-Ask the user to clarify:
-- [ ] **Topic**: What concept/problem/system to explore?
-- [ ] **Purpose**: Communication? Design? Validation? Edge case discovery?
-- [ ] **Audience**: Who will use this ladder?
-- [ ] **Scope**: How many levels? (suggest 4 as default)
-- [ ] **Starting point**: Top-down, bottom-up, or middle-out?
+**Step 1: Gather requirements**
 
-### 2. [ ] Choose Approach
+Ask the user to clarify topic, purpose, audience, scope (suggest 4 levels), and starting point (top-down, bottom-up, or middle-out). This ensures the ladder serves the user's actual need.
 
-Based on complexity and user needs:
+**Step 2: Choose approach**
 
-- [ ] **For straightforward cases** → Use `resources/template.md`
-  - User has clear topic and purpose
-  - Standard 3-5 level ladder
-  - No unusual constraints
+For straightforward cases with clear topics → Use `resources/template.md`. For complex cases with multiple parallel ladders or unusual constraints → Study `resources/methodology.md`. To see examples → Show user `resources/examples/` (api-design.md, hiring-process.md).
 
-- [ ] **For complex cases** → Study `resources/methodology.md`
-  - Multiple parallel ladders needed
-  - Unusual domain or constraints
-  - Need advanced techniques (ladder mapping, gap analysis, etc.)
+**Step 3: Build the ladder**
 
-- [ ] **To see examples** → Show user `resources/examples/`
-  - `api-design.md` - Technical example
-  - `hiring-process.md` - Business process example
+Create `abstraction-concrete-examples.md` with topic, 3-5 distinct abstraction levels, connections between levels, and 2-3 edge cases. Ensure top level is universal, bottom level has measurable specifics, and transitions are logical. Direction options: top-down (principle → examples), bottom-up (observations → principles), or middle-out (familiar → both directions).
 
-### 3. [ ] Build the Ladder
+**Step 4: Validate quality**
 
-Create the abstraction ladder following these principles:
+Self-assess using `resources/evaluators/rubric_abstraction_concrete_examples.json`. Check: each level is distinct, transitions are clear, top level is universal, bottom level is specific, edge cases reveal insights, assumptions are stated, no topic drift, serves stated purpose. Minimum standard: Average score ≥ 3.5. If any criterion < 3, revise before delivering.
 
-- [ ] Ensure each level is clearly distinct from adjacent levels
-- [ ] Make transitions logical and traceable
-- [ ] Make most abstract level universal (applies beyond this context)
-- [ ] Make most concrete level have measurable specifics
-- [ ] Include 2-3 edge cases that test the boundaries
+**Step 5: Deliver and explain**
 
-**Output format:**
-Create `abstraction-concrete-examples.md` in the current directory with:
-- Topic and purpose
-- Each abstraction level with clear labels
-- Connections between levels
-- Edge cases with analysis
-- Applications and limitations
-
-**Direction options:**
-- **Top-down**: Start with universal principle → derive concrete examples
-- **Bottom-up**: Start with concrete observations → extract patterns and principles
-- **Middle-out**: Start with familiar example → expand both directions
-
-### 4. [ ] Validate Quality
-
-Before delivering to user, self-assess using `resources/evaluators/rubric_abstraction_concrete_examples.json`:
-
-**Quality checks:**
-- [ ] Each level is distinct (no redundancy)
-- [ ] Transitions are clear and logical
-- [ ] Top level is truly universal/broadly applicable
-- [ ] Bottom level has specific, measurable details
-- [ ] Edge cases reveal meaningful insights
-- [ ] Assumptions are stated explicitly
-- [ ] All levels address the same thread (no topic drift)
-- [ ] Ladder serves the stated purpose
-
-**Minimum standard**: Average score ≥ 3.5 across all rubric criteria
-
-If any criterion scores < 3, revise that aspect before delivering.
-
-### 5. [ ] Deliver and Explain
-
-Present to the user:
-- [ ] The completed `abstraction-concrete-examples.md` file
-- [ ] Highlight key insights revealed by the ladder
-- [ ] Note any interesting edge cases or tensions discovered
-- [ ] Suggest applications based on their original purpose
+Present the completed `abstraction-concrete-examples.md` file. Highlight key insights revealed by the ladder, note interesting edge cases or tensions discovered, and suggest applications based on their original purpose.
 
 ## Common Patterns
 

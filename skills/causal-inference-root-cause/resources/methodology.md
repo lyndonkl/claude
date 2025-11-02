@@ -1,34 +1,37 @@
 # Causal Inference & Root Cause Analysis Methodology
 
-## Table of Contents
+## Root Cause Analysis Workflow
 
-- [When to Use This Methodology](#when-to-use-this-methodology)
-- [Hypothesis Generation Techniques](#hypothesis-generation-techniques)
-  - [5 Whys (Trace Back to Root)](#5-whys-trace-back-to-root)
-  - [Fishbone Diagram (Categorize Causes)](#fishbone-diagram-categorize-causes)
-  - [Timeline Analysis (What Changed?)](#timeline-analysis-what-changed)
-  - [Differential Diagnosis](#differential-diagnosis)
-- [Causal Model Building](#causal-model-building)
-  - [Distinguish Cause Types](#distinguish-cause-types)
-  - [Map Causal Chains](#map-causal-chains)
-- [Evidence Assessment Methods](#evidence-assessment-methods)
-  - [Essential Tests](#essential-tests)
-  - [Evidence Hierarchy](#evidence-hierarchy)
-  - [Bradford Hill Criteria](#bradford-hill-criteria)
-- [Worked Example: Website Conversion Drop](#worked-example-website-conversion-drop)
-- [Quality Checklist](#quality-checklist)
+Copy this checklist and track your progress:
 
----
+```
+Root Cause Analysis Progress:
+- [ ] Step 1: Generate hypotheses using structured techniques
+- [ ] Step 2: Build causal model and distinguish cause types
+- [ ] Step 3: Gather evidence and assess temporal sequence
+- [ ] Step 4: Test causality with Bradford Hill criteria
+- [ ] Step 5: Verify root cause and check coherence
+```
 
-## When to Use This Methodology
+**Step 1: Generate hypotheses using structured techniques**
 
-Use this methodology for complex root cause investigations involving:
-- Multiple potential confounders
-- Research studies or policy evaluations
-- High-stakes decisions (safety-critical, large-scale impacts)
-- Cases requiring rigorous causal evidence
+Use 5 Whys, Fishbone diagrams, timeline analysis, or differential diagnosis to systematically generate potential causes. See [Hypothesis Generation Techniques](#hypothesis-generation-techniques) for detailed methods.
 
-For straightforward investigations, use `template.md` directly.
+**Step 2: Build causal model and distinguish cause types**
+
+Map causal chains to distinguish root causes from proximate causes, symptoms, and confounders. See [Causal Model Building](#causal-model-building) for cause type definitions and chain mapping.
+
+**Step 3: Gather evidence and assess temporal sequence**
+
+Collect evidence for each hypothesis and verify temporal relationships (cause must precede effect). See [Evidence Assessment Methods](#evidence-assessment-methods) for essential tests and evidence hierarchy.
+
+**Step 4: Test causality with Bradford Hill criteria**
+
+Score hypotheses using the 9 Bradford Hill criteria (strength, consistency, specificity, temporality, dose-response, plausibility, coherence, experiment, analogy). See [Bradford Hill Criteria](#bradford-hill-criteria) for scoring rubric.
+
+**Step 5: Verify root cause and check coherence**
+
+Ensure the identified root cause has strong evidence, fits with known facts, and addresses systemic issues. See [Quality Checklist](#quality-checklist) and [Worked Example](#worked-example-website-conversion-drop) for validation techniques.
 
 ---
 
