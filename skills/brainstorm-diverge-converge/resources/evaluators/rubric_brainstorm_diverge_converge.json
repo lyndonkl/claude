@@ -1,0 +1,135 @@
+{
+  "name": "Brainstorm Diverge-Converge Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Divergence Quantity",
+      "description": "Generated sufficient number of ideas to explore the possibility space",
+      "scoring": {
+        "1": "Fewer than 10 ideas - insufficient exploration",
+        "2": "10-19 ideas - minimal exploration",
+        "3": "20-29 ideas - adequate exploration",
+        "4": "30-49 ideas - thorough exploration",
+        "5": "50+ ideas - comprehensive exploration of possibilities"
+      }
+    },
+    {
+      "name": "Divergence Variety",
+      "description": "Ideas show diversity in approach, scale, and type (not all similar)",
+      "scoring": {
+        "1": "All ideas are nearly identical or very similar",
+        "2": "Mostly similar ideas with 1-2 different approaches",
+        "3": "Mix of similar and different ideas, some variety present",
+        "4": "Good variety across multiple dimensions (incremental/radical, short/long-term, etc.)",
+        "5": "Exceptional variety - ideas span multiple approaches, scales, mechanisms, and perspectives"
+      }
+    },
+    {
+      "name": "Divergence Creativity",
+      "description": "Includes both safe/obvious ideas and creative/unconventional ideas",
+      "scoring": {
+        "1": "Only obvious, conventional ideas",
+        "2": "Mostly obvious ideas with 1-2 slightly creative ones",
+        "3": "Mix of obvious and creative ideas, some boundary-pushing",
+        "4": "Good balance of safe and creative ideas with several unconventional approaches",
+        "5": "Exceptional creativity - includes wild ideas that challenge assumptions alongside practical ones"
+      }
+    },
+    {
+      "name": "Cluster Quality",
+      "description": "Ideas are organized into meaningful, distinct, well-labeled themes",
+      "scoring": {
+        "1": "No clustering or random groupings with unclear logic",
+        "2": "Poor clustering - significant overlap between clusters or vague labels",
+        "3": "Decent clustering - mostly distinct groups with adequate labels",
+        "4": "Good clustering - clear distinct themes with descriptive, specific labels",
+        "5": "Exceptional clustering - perfectly distinct themes with insightful labels that reveal patterns"
+      }
+    },
+    {
+      "name": "Cluster Coverage",
+      "description": "Clusters represent meaningfully different approaches (4-8 clusters typical)",
+      "scoring": {
+        "1": "1-2 clusters (insufficient structure) or 12+ clusters (over-fragmented)",
+        "2": "3 clusters or 10-11 clusters (suboptimal structure)",
+        "3": "4-8 clusters with some overlap between them",
+        "4": "4-8 clusters that are distinct and well-balanced",
+        "5": "4-8 clusters that are distinct, balanced, and reveal strategic dimensions of the problem"
+      }
+    },
+    {
+      "name": "Evaluation Criteria Clarity",
+      "description": "Convergence criteria are explicit, relevant, and well-defined",
+      "scoring": {
+        "1": "No criteria stated or purely subjective ('better', 'best')",
+        "2": "Vague criteria without clear definition",
+        "3": "Criteria stated but could be more specific or relevant",
+        "4": "Clear, specific, relevant criteria (e.g., impact, feasibility, cost)",
+        "5": "Exceptional criteria - specific, relevant, weighted appropriately, with clear definitions"
+      }
+    },
+    {
+      "name": "Scoring Rigor",
+      "description": "Ideas are scored systematically with justified ratings",
+      "scoring": {
+        "1": "No scoring or arbitrary rankings",
+        "2": "Scoring present but inconsistent or unjustified",
+        "3": "Basic scoring with some justification",
+        "4": "Systematic scoring with clear justification for ratings",
+        "5": "Exceptional scoring - consistent, justified, includes sensitivity analysis or confidence intervals"
+      }
+    },
+    {
+      "name": "Selection Quality",
+      "description": "Top selections clearly outperform alternatives based on stated criteria",
+      "scoring": {
+        "1": "Selections don't match scores or criteria, appear arbitrary",
+        "2": "Selections somewhat aligned with scores but weak justification",
+        "3": "Selections aligned with scores, basic justification provided",
+        "4": "Selections clearly justified based on scores and criteria, tradeoffs noted",
+        "5": "Exceptional selections - fully justified with explicit tradeoff analysis and consideration of dependencies"
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Output includes clear next steps and decision-ready recommendations",
+      "scoring": {
+        "1": "No next steps or vague 'implement this' statements",
+        "2": "Generic next steps without specifics",
+        "3": "Basic next steps with some specific actions",
+        "4": "Clear, specific next steps with timelines and owners",
+        "5": "Exceptional actionability - detailed implementation plan with milestones, resources, and success metrics"
+      }
+    },
+    {
+      "name": "Process Integrity",
+      "description": "Follows diverge-cluster-converge sequence without premature filtering",
+      "scoring": {
+        "1": "Process violated - filtered during divergence or skipped clustering",
+        "2": "Some premature filtering or weak clustering step",
+        "3": "Process mostly followed with minor shortcuts",
+        "4": "Process followed correctly with clear phase separation",
+        "5": "Exceptional process integrity - clear phase separation, no premature judgment, explicit constraints"
+      }
+    }
+  ],
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Average score ≥ 4.5 (publication or high-stakes use)",
+      "very_good": "Average score ≥ 4.0 (most strategic decisions should aim for this)",
+      "good": "Average score ≥ 3.5 (minimum for important decisions)",
+      "acceptable": "Average score ≥ 3.0 (workable for low-stakes brainstorms)",
+      "needs_rework": "Average score < 3.0 (redo before using for decisions)"
+    },
+    "stakes_guidance": {
+      "low_stakes": "Exploratory ideation, early brainstorming: aim for ≥ 3.0",
+      "medium_stakes": "Feature prioritization, project selection: aim for ≥ 3.5",
+      "high_stakes": "Strategic initiatives, resource allocation: aim for ≥ 4.0"
+    }
+  },
+  "usage_instructions": "Rate each criterion on 1-5 scale. Calculate average. For important decisions, minimum score is 3.5. For high-stakes strategic choices, aim for ≥4.0. Check especially for divergence quantity (at least 20 ideas), cluster quality (distinct themes), and evaluation rigor (explicit criteria with justified scoring)."
+}

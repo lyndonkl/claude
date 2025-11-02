@@ -1,0 +1,135 @@
+{
+  "name": "Alignment Framework Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "North Star Clarity",
+      "description": "North Star is inspiring yet specific and memorable",
+      "scoring": {
+        "1": "No North Star or completely generic/vague",
+        "2": "North Star exists but generic or unmemorable",
+        "3": "North Star is clear and somewhat specific",
+        "4": "North Star is compelling, specific, and memorable",
+        "5": "Exceptional North Star that team can recite and use for decisions"
+      }
+    },
+    {
+      "name": "Value Specificity",
+      "description": "Values are distinctive to this team, not generic corporate values",
+      "scoring": {
+        "1": "Generic values that could apply to any company",
+        "2": "Some generic values with minimal context",
+        "3": "Values have some specificity to this team/context",
+        "4": "Values are clearly specific to this team with context",
+        "5": "Exceptionally distinctive values that couldn't apply elsewhere"
+      }
+    },
+    {
+      "name": "Trade-off Transparency",
+      "description": "Values explicitly state what's being optimized FOR and what's de-prioritized",
+      "scoring": {
+        "1": "No trade-offs mentioned",
+        "2": "Vague mention of trade-offs",
+        "3": "Some values include trade-offs",
+        "4": "Most values explicitly state trade-offs",
+        "5": "All values clearly state what's gained and what's sacrificed"
+      }
+    },
+    {
+      "name": "Decision Tenet Utility",
+      "description": "Decision tenets provide actionable guidance for real decisions",
+      "scoring": {
+        "1": "No decision tenets or purely abstract",
+        "2": "Tenets exist but too vague to apply",
+        "3": "Tenets provide some practical guidance",
+        "4": "Tenets address real trade-offs with clear guidance",
+        "5": "Exceptional tenets that resolve actual team dilemmas"
+      }
+    },
+    {
+      "name": "Behavioral Observability",
+      "description": "Behaviors are concrete, observable, and measurable",
+      "scoring": {
+        "1": "No behaviors or purely aspirational statements",
+        "2": "Behaviors are vague (e.g., 'communicate well')",
+        "3": "Some behaviors are specific and observable",
+        "4": "Most behaviors are concrete and observable",
+        "5": "All behaviors are specific enough to recognize in daily work"
+      }
+    },
+    {
+      "name": "Immediate Applicability",
+      "description": "Someone could use this framework to make a decision TODAY",
+      "scoring": {
+        "1": "Framework is purely aspirational, no practical use",
+        "2": "Limited practical guidance",
+        "3": "Could inform some decisions",
+        "4": "Clear guidance for most common decisions",
+        "5": "Exceptional practical utility for daily decision-making"
+      }
+    },
+    {
+      "name": "Internal Consistency",
+      "description": "No contradictions between values, tenets, and behaviors",
+      "scoring": {
+        "1": "Major contradictions throughout",
+        "2": "Some contradictions between sections",
+        "3": "Mostly consistent with minor tensions",
+        "4": "Fully consistent with tensions acknowledged",
+        "5": "Perfect coherence with explicit resolution of value conflicts"
+      }
+    },
+    {
+      "name": "Distinctiveness",
+      "description": "Could clearly distinguish this team from others based on these values",
+      "scoring": {
+        "1": "Could apply to literally any team",
+        "2": "Minimal distinction from generic teams",
+        "3": "Some unique characteristics emerge",
+        "4": "Clear team identity and differentiation",
+        "5": "Unmistakably distinctive team culture"
+      }
+    },
+    {
+      "name": "Conciseness",
+      "description": "Framework is concise and memorable (1-2 pages ideally)",
+      "scoring": {
+        "1": "Too long (>5 pages) or too short (just platitudes)",
+        "2": "Either too verbose or too sparse",
+        "3": "Reasonable length but could be tighter",
+        "4": "Appropriately concise (2-3 pages)",
+        "5": "Perfect length (1-2 pages), highly memorable"
+      }
+    },
+    {
+      "name": "Anti-Pattern Clarity",
+      "description": "Explicitly states what the team does NOT do",
+      "scoring": {
+        "1": "No anti-patterns mentioned",
+        "2": "Vague or generic anti-patterns",
+        "3": "Some specific anti-patterns included",
+        "4": "Clear anti-patterns that set boundaries",
+        "5": "Exceptional anti-patterns that prevent common dysfunctions"
+      }
+    }
+  ],
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Average score ≥ 4.5 (company-wide values should aim for this)",
+      "very_good": "Average score ≥ 4.0 (most alignment frameworks should achieve this)",
+      "good": "Average score ≥ 3.5 (minimum for team-level alignment)",
+      "acceptable": "Average score ≥ 3.0 (workable but needs improvement)",
+      "needs_rework": "Average score < 3.0 (revise before using)"
+    },
+    "scope_guidance": {
+      "team_level": "Team values (< 30 people): aim for ≥ 3.5",
+      "function_level": "Function/department values: aim for ≥ 4.0",
+      "company_level": "Organization-wide values: aim for ≥ 4.5"
+    }
+  },
+  "usage_instructions": "Rate each criterion on 1-5 scale. Calculate average. For team-level alignment, minimum is 3.5. For organization-wide values that will be used in hiring/performance reviews, aim for ≥4.5. Identify lowest-scoring criteria and improve those sections before delivering."
+}

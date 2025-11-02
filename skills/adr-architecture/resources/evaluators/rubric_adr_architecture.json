@@ -1,0 +1,135 @@
+{
+  "name": "Architecture Decision Record Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Context Clarity",
+      "description": "Context section clearly explains WHY this decision is needed, without proposing solutions",
+      "scoring": {
+        "1": "No context or context is vague/unhelpful",
+        "2": "Some context but missing key requirements or constraints",
+        "3": "Context explains situation with main requirements/constraints",
+        "4": "Comprehensive context with background, requirements, and constraints",
+        "5": "Exceptional context that future readers with no knowledge can fully understand"
+      }
+    },
+    {
+      "name": "Decision Specificity",
+      "description": "Decision statement is specific, actionable, and unambiguous",
+      "scoring": {
+        "1": "Vague or no clear decision stated",
+        "2": "Decision stated but lacks specifics (versions, scope, approach)",
+        "3": "Decision is clear with main specifics",
+        "4": "Decision is very specific with technical details and scope",
+        "5": "Exceptionally detailed decision with configuration, versions, scope, and implementation approach"
+      }
+    },
+    {
+      "name": "Alternatives Quality",
+      "description": "Real alternatives documented with honest, balanced pros/cons",
+      "scoring": {
+        "1": "No alternatives or only straw man options",
+        "2": "1-2 alternatives but unfairly presented or minimal analysis",
+        "3": "2-3 alternatives with basic pros/cons",
+        "4": "3+ alternatives with honest, balanced analysis and specific reasons not chosen",
+        "5": "Multiple well-researched alternatives with nuanced trade-offs and fair representation"
+      }
+    },
+    {
+      "name": "Consequence Honesty",
+      "description": "Consequences include both benefits AND drawbacks with realistic assessment",
+      "scoring": {
+        "1": "Only benefits listed or consequences are vague",
+        "2": "Mostly benefits with token mention of downsides",
+        "3": "Balanced benefits and drawbacks but somewhat general",
+        "4": "Honest assessment of benefits, drawbacks, and risks with specifics",
+        "5": "Exceptionally honest and nuanced consequences with quantified trade-offs and mitigation strategies"
+      }
+    },
+    {
+      "name": "Technical Accuracy",
+      "description": "Technical details are accurate, current, and specific",
+      "scoring": {
+        "1": "Technical errors or outdated information",
+        "2": "Some technical details but lacking accuracy or currency",
+        "3": "Technically sound with accurate information",
+        "4": "High technical accuracy with specific versions, configurations, and current best practices",
+        "5": "Exceptional technical depth with precise details, performance characteristics, and expert-level accuracy"
+      }
+    },
+    {
+      "name": "Future Comprehension",
+      "description": "Someone unfamiliar with current context can understand the decision",
+      "scoring": {
+        "1": "Requires insider knowledge to understand",
+        "2": "Some context but many gaps for outsiders",
+        "3": "Mostly understandable with some background",
+        "4": "Clear to future readers with minimal context needed",
+        "5": "Perfectly self-contained; any future reader can fully understand"
+      }
+    },
+    {
+      "name": "Trade-off Transparency",
+      "description": "Trade-offs are explicitly stated and downsides acknowledged",
+      "scoring": {
+        "1": "No acknowledgment of trade-offs or downsides",
+        "2": "Minimal mention of trade-offs",
+        "3": "Trade-offs mentioned but not deeply explored",
+        "4": "Clear articulation of trade-offs and what's being sacrificed",
+        "5": "Exceptional transparency about trade-offs with explicit acceptance of costs"
+      }
+    },
+    {
+      "name": "Structure and Organization",
+      "description": "ADR follows standard structure and is well-organized",
+      "scoring": {
+        "1": "No clear structure or missing major sections",
+        "2": "Basic structure but disorganized or incomplete sections",
+        "3": "Follows standard ADR format with all key sections",
+        "4": "Well-organized with clear sections and good flow",
+        "5": "Exemplary structure with logical flow, clear headings, and easy navigation"
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Decision is implementable; clear what to do next",
+      "scoring": {
+        "1": "Not clear what action to take",
+        "2": "General direction but unclear how to implement",
+        "3": "Clear decision that can be implemented",
+        "4": "Actionable decision with implementation guidance",
+        "5": "Exceptionally actionable with rollout plan, success criteria, and next steps"
+      }
+    },
+    {
+      "name": "Appropriate Scope",
+      "description": "ADR covers one decision at appropriate level of detail",
+      "scoring": {
+        "1": "Too broad (multiple unrelated decisions) or too narrow (trivial)",
+        "2": "Scope issues but decision is identifiable",
+        "3": "Appropriate scope for a single significant decision",
+        "4": "Well-scoped decision with clear boundaries",
+        "5": "Perfect scope; focused on one decision with appropriate detail level"
+      }
+    }
+  ],
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Average score ≥ 4.5 (high-stakes decisions should aim for this)",
+      "very_good": "Average score ≥ 4.0 (most ADRs should achieve this)",
+      "good": "Average score ≥ 3.5 (minimum for acceptance)",
+      "acceptable": "Average score ≥ 3.0 (needs improvement but usable)",
+      "needs_rework": "Average score < 3.0 (should be revised before finalizing)"
+    },
+    "decision_stakes_guidance": {
+      "low_stakes": "Reversible decisions, low cost to change: aim for ≥ 3.5",
+      "medium_stakes": "Some migration cost, affects multiple teams: aim for ≥ 4.0",
+      "high_stakes": "Expensive to reverse, organization-wide impact: aim for ≥ 4.5"
+    }
+  },
+  "usage_instructions": "Rate each criterion independently on 1-5 scale. Calculate average score. For high-stakes decisions (affecting entire organization, expensive to reverse), aim for ≥4.5 average. For medium-stakes decisions, aim for ≥4.0. Minimum acceptable score is 3.5. Identify lowest-scoring criteria and improve those sections before delivering to user."
+}

@@ -1,0 +1,135 @@
+{
+  "name": "Bayesian Reasoning Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Prior Quality",
+      "description": "Prior is based on base rates and reference classes, not just intuition",
+      "scoring": {
+        "1": "No prior stated or purely intuitive guess",
+        "2": "Prior stated but ignores base rates entirely",
+        "3": "Prior considers base rates with some adjustment",
+        "4": "Prior well-grounded in base rates with justified adjustments",
+        "5": "Exceptional prior with multiple reference classes and clear reasoning"
+      }
+    },
+    {
+      "name": "Likelihood Justification",
+      "description": "Likelihoods P(E|H) and P(E|¬H) are estimated with clear reasoning",
+      "scoring": {
+        "1": "No likelihoods or purely guessed",
+        "2": "Likelihoods given but no justification",
+        "3": "Likelihoods have basic reasoning",
+        "4": "Likelihoods well-justified with clear logic",
+        "5": "Exceptional likelihood estimates with empirical grounding or detailed reasoning"
+      }
+    },
+    {
+      "name": "Evidence Diagnosticity",
+      "description": "Evidence meaningfully distinguishes between hypotheses (LR ≠ 1)",
+      "scoring": {
+        "1": "Evidence is not diagnostic at all (LR ≈ 1)",
+        "2": "Evidence is weakly diagnostic (LR = 1-2)",
+        "3": "Evidence is moderately diagnostic (LR = 2-5)",
+        "4": "Evidence is strongly diagnostic (LR = 5-10)",
+        "5": "Evidence is very strongly diagnostic (LR > 10)"
+      }
+    },
+    {
+      "name": "Calculation Correctness",
+      "description": "Bayesian calculation is mathematically correct",
+      "scoring": {
+        "1": "Major calculation errors",
+        "2": "Some calculation errors",
+        "3": "Calculation is correct with minor issues",
+        "4": "Calculation is fully correct",
+        "5": "Perfect calculation with both probability and odds forms shown"
+      }
+    },
+    {
+      "name": "Calibration & Realism",
+      "description": "Posterior is calibrated, not overconfident (avoids extremes without justification)",
+      "scoring": {
+        "1": "Posterior is 0% or 100% without extreme evidence",
+        "2": "Posterior is very extreme (>95% or <5%) with weak evidence",
+        "3": "Posterior is reasonable but might be slightly overconfident",
+        "4": "Well-calibrated posterior with appropriate uncertainty",
+        "5": "Exceptional calibration with explicit confidence bounds"
+      }
+    },
+    {
+      "name": "Assumption Transparency",
+      "description": "Key assumptions and limitations are stated explicitly",
+      "scoring": {
+        "1": "No assumptions stated",
+        "2": "Few assumptions mentioned vaguely",
+        "3": "Key assumptions stated",
+        "4": "Comprehensive assumption documentation",
+        "5": "Exceptional transparency with sensitivity analysis showing assumption impact"
+      }
+    },
+    {
+      "name": "Base Rate Usage",
+      "description": "Analysis uses base rates appropriately (avoids base rate neglect)",
+      "scoring": {
+        "1": "Completely ignores base rates",
+        "2": "Acknowledges base rates but doesn't use them",
+        "3": "Uses base rates for prior",
+        "4": "Properly incorporates base rates with adjustments",
+        "5": "Exceptional use of multiple base rates and reference classes"
+      }
+    },
+    {
+      "name": "Sensitivity Analysis",
+      "description": "Tests how sensitive conclusion is to input assumptions",
+      "scoring": {
+        "1": "No sensitivity analysis",
+        "2": "Minimal sensitivity check",
+        "3": "Basic sensitivity analysis on key inputs",
+        "4": "Comprehensive sensitivity analysis",
+        "5": "Exceptional sensitivity analysis showing robustness or fragility clearly"
+      }
+    },
+    {
+      "name": "Interpretation Quality",
+      "description": "Posterior is interpreted correctly with decision implications",
+      "scoring": {
+        "1": "Misinterprets posterior or no interpretation",
+        "2": "Basic interpretation but lacks context",
+        "3": "Good interpretation with some decision guidance",
+        "4": "Clear interpretation with actionable decision implications",
+        "5": "Exceptional interpretation linking probability to specific actions and thresholds"
+      }
+    },
+    {
+      "name": "Avoidance of Common Errors",
+      "description": "Avoids prosecutor's fallacy, base rate neglect, and other Bayesian errors",
+      "scoring": {
+        "1": "Multiple major errors (confusing P(E|H) with P(H|E), ignoring base rates)",
+        "2": "One major error present",
+        "3": "Mostly avoids common errors",
+        "4": "Cleanly avoids all common errors",
+        "5": "Exceptional awareness with explicit checks against common errors"
+      }
+    }
+  ],
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Average score ≥ 4.5 (publication quality)",
+      "very_good": "Average score ≥ 4.0 (most forecasts should aim for this)",
+      "good": "Average score ≥ 3.5 (minimum for important decisions)",
+      "acceptable": "Average score ≥ 3.0 (workable for low-stakes predictions)",
+      "needs_rework": "Average score < 3.0 (redo before using)"
+    },
+    "stakes_guidance": {
+      "low_stakes": "Personal predictions, low-cost decisions: aim for ≥ 3.0",
+      "medium_stakes": "Business decisions, moderate cost: aim for ≥ 3.5",
+      "high_stakes": "Major decisions, high cost of error: aim for ≥ 4.0"
+    }
+  },
+  "usage_instructions": "Rate each criterion on 1-5 scale. Calculate average. For important forecasts or decisions, minimum score is 3.5. For high-stakes decisions where cost of error is high, aim for ≥4.0. Check especially for base rate neglect, prosecutor's fallacy, and overconfidence - these are the most common errors."
+}
