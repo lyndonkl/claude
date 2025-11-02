@@ -1,0 +1,145 @@
+{
+  "name": "Causal Inference & Root Cause Analysis Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Effect Definition Clarity",
+      "description": "Effect/outcome is clearly defined, quantified, and temporally bounded",
+      "scoring": {
+        "1": "Effect vaguely described (e.g., 'things are slow'), no quantification or timeline",
+        "2": "Effect described but lacks quantification or timeline details",
+        "3": "Effect clearly described with either quantification or timeline",
+        "4": "Effect clearly described with quantification and timeline, baseline comparison present",
+        "5": "Effect precisely quantified with magnitude, timeline, baseline, and impact assessment"
+      }
+    },
+    {
+      "name": "Hypothesis Generation",
+      "description": "Multiple competing hypotheses generated systematically (not just confirming first theory)",
+      "scoring": {
+        "1": "Single hypothesis stated without alternatives",
+        "2": "2 hypotheses mentioned, one clearly favored without testing",
+        "3": "3+ hypotheses listed, some testing of alternatives",
+        "4": "Multiple hypotheses systematically generated using techniques (5 Whys, Fishbone, etc.)",
+        "5": "Comprehensive hypothesis generation with proximate/root causes distinguished and confounders identified"
+      }
+    },
+    {
+      "name": "Root Cause Identification",
+      "description": "Distinguishes root cause from proximate causes and symptoms",
+      "scoring": {
+        "1": "Confuses symptom with cause (e.g., 'app crashed because server returned error')",
+        "2": "Identifies proximate cause but claims it as root without deeper investigation",
+        "3": "Distinguishes proximate from root cause, but mechanism unclear",
+        "4": "Clear root cause identified with explanation of why it's root (not symptom)",
+        "5": "Root cause clearly identified with full causal chain from root → proximate → effect"
+      }
+    },
+    {
+      "name": "Causal Model Quality",
+      "description": "Causal relationships mapped with mechanisms, confounders noted",
+      "scoring": {
+        "1": "No causal model, just list of correlations",
+        "2": "Basic cause → effect stated without mechanisms or confounders",
+        "3": "Causal chain sketched, mechanism mentioned but not detailed",
+        "4": "Clear causal chain with mechanisms explained and confounders identified",
+        "5": "Comprehensive causal model with chains, mechanisms, confounders, mediators/moderators mapped"
+      }
+    },
+    {
+      "name": "Temporal Sequence Verification",
+      "description": "Verified that cause precedes effect (necessary for causation)",
+      "scoring": {
+        "1": "No temporal analysis, timeline unclear",
+        "2": "Timeline mentioned but not used to test causation",
+        "3": "Temporal sequence checked for main hypothesis",
+        "4": "Temporal sequence verified for all hypotheses, rules out reverse causation",
+        "5": "Detailed timeline analysis shows cause clearly precedes effect with lag explained"
+      }
+    },
+    {
+      "name": "Counterfactual Testing",
+      "description": "Tests 'what if cause absent?' using control groups, rollbacks, or baseline comparisons",
+      "scoring": {
+        "1": "No counterfactual reasoning",
+        "2": "Counterfactual mentioned but not tested",
+        "3": "Basic counterfactual test (e.g., before/after comparison)",
+        "4": "Strong counterfactual test (e.g., control group, rollback experiment, A/B test)",
+        "5": "Multiple counterfactual tests with consistent results strengthening causal claim"
+      }
+    },
+    {
+      "name": "Mechanism Explanation",
+      "description": "Explains HOW cause produces effect (not just THAT they correlate)",
+      "scoring": {
+        "1": "No mechanism, just correlation stated",
+        "2": "Vague mechanism ('X affects Y somehow')",
+        "3": "Basic mechanism explained ('X causes Y because...')",
+        "4": "Clear mechanism with pathway and intermediate steps",
+        "5": "Detailed mechanism with supporting evidence (logs, metrics, theory) and plausibility assessment"
+      }
+    },
+    {
+      "name": "Confounding Control",
+      "description": "Identifies and controls for confounding variables (third factors causing both X and Y)",
+      "scoring": {
+        "1": "No mention of confounding, assumes correlation = causation",
+        "2": "Aware of confounding but doesn't identify specific confounders",
+        "3": "Identifies 1-2 potential confounders but doesn't control for them",
+        "4": "Identifies confounders and attempts to control (stratification, regression, matching)",
+        "5": "Comprehensive confounder identification with rigorous control methods and sensitivity analysis"
+      }
+    },
+    {
+      "name": "Evidence Quality & Strength",
+      "description": "Uses high-quality evidence (experiments > observational > anecdotes) and assesses strength systematically",
+      "scoring": {
+        "1": "Relies solely on anecdotes or single observations",
+        "2": "Uses weak evidence (cross-sectional correlation) without acknowledging limits",
+        "3": "Uses moderate evidence (longitudinal data, multiple observations)",
+        "4": "Uses strong evidence (quasi-experiments, well-controlled studies) with strength assessed",
+        "5": "Uses highest-quality evidence (RCTs, multiple converging lines of evidence) with Bradford Hill criteria or similar framework"
+      }
+    },
+    {
+      "name": "Confidence & Limitations",
+      "description": "States confidence level with justification, acknowledges alternative explanations and uncertainties",
+      "scoring": {
+        "1": "Overconfident claims without justification, no alternatives considered",
+        "2": "States conclusion without confidence level or uncertainty",
+        "3": "Mentions confidence level and 1 limitation",
+        "4": "States justified confidence level, acknowledges alternatives and key limitations",
+        "5": "Explicit confidence assessment with justification, comprehensive limitations, alternative explanations evaluated, unresolved uncertainties noted"
+      }
+    }
+  ],
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Average score ≥ 4.5 (publication-quality causal analysis)",
+      "very_good": "Average score ≥ 4.0 (high-stakes decisions - major product/engineering changes)",
+      "good": "Average score ≥ 3.5 (medium-stakes decisions - feature launches, incident postmortems)",
+      "acceptable": "Average score ≥ 3.0 (low-stakes decisions - exploratory analysis, hypothesis generation)",
+      "needs_rework": "Average score < 3.0 (insufficient for decision-making, redo analysis)"
+    },
+    "stakes_guidance": {
+      "low_stakes": "Exploratory root cause analysis, hypothesis generation: aim for ≥ 3.0",
+      "medium_stakes": "Incident postmortems, feature failure analysis, process improvements: aim for ≥ 3.5",
+      "high_stakes": "Major architectural decisions, safety-critical systems, policy evaluation: aim for ≥ 4.0"
+    }
+  },
+  "common_failure_modes": [
+    "Correlation-causation fallacy: Assuming X causes Y just because they correlate",
+    "Post hoc ergo propter hoc: 'After this, therefore because of this' - temporal sequence ≠ causation",
+    "Stopping at proximate cause: Identifying immediate trigger without tracing to root",
+    "Cherry-picking evidence: Only considering evidence that confirms initial hypothesis",
+    "Ignoring confounders: Not considering third variables that cause both X and Y",
+    "No mechanism: Claiming causation without explaining how X produces Y",
+    "Reverse causation: Assuming X causes Y when actually Y causes X",
+    "Single-case fallacy: Generalizing from one observation without testing consistency"
+  ],
+  "usage_instructions": "Rate each criterion on 1-5 scale. Calculate average. For important decisions (postmortems, product changes), minimum score is 3.5. For high-stakes decisions (infrastructure, safety, policy), aim for ≥4.0. Red flags: score <3 on Temporal Sequence, Counterfactual Testing, or Mechanism Explanation means causal claim is weak. Red flag on Confounding Control means correlation may be spurious."
+}
