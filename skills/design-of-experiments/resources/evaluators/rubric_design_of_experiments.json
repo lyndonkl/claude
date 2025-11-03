@@ -1,0 +1,307 @@
+{
+  "criteria": [
+    {
+      "name": "Objective Definition & Context",
+      "description": "Is the experiment objective clearly defined with goal, success criteria, and constraints?",
+      "scoring": {
+        "1": "Vague objective. Goal unclear (not specified if screening/optimization/RSM/robust). Success criteria missing or unmeasurable. Constraints not documented. Insufficient context for experiment design.",
+        "3": "Objective stated but lacks specificity. Goal identified (screening/optimization/etc.) but success criteria qualitative. Some constraints mentioned (run budget, time) but not all. Context provided but gaps remain.",
+        "5": "Exemplary objective definition. Specific goal (screening X factors to Y critical ones, optimize for Z metric, map response surface, robust design against noise). Quantified success criteria (e.g., 'reduce defects < 2%'). All constraints documented (max runs, time, budget, resources). Clear context and rationale."
+      }
+    },
+    {
+      "name": "Factor Selection & Specification",
+      "description": "Are factors comprehensive, well-justified, with appropriate levels and ranges?",
+      "scoring": {
+        "1": "Incomplete factor list. Missing obvious important factors. No rationale for inclusion/exclusion. Levels not specified or inappropriate ranges (too narrow, outside feasible region). Factor types (control/noise) not distinguished.",
+        "3": "Factors identified but selection rationale brief. Levels specified but ranges may be suboptimal. Some justification for factor choice. Control vs noise distinction present but may be incomplete. Minor gaps in factor coverage.",
+        "5": "Comprehensive factor identification with explicit rationale for each. Levels span meaningful ranges based on domain knowledge, literature, or constraints. Control vs noise factors clearly distinguished. Excluded factors documented with reason. Factor table complete (name, type, levels, units, rationale)."
+      }
+    },
+    {
+      "name": "Response Variable Definition",
+      "description": "Are response variables objective, measurable, and aligned with experiment objective?",
+      "scoring": {
+        "1": "Response poorly defined. Measurement method unspecified or subjective. Target direction unclear (maximize/minimize/hit target). No justification for response choice. Multiple responses without tradeoff consideration.",
+        "3": "Response defined but measurement details limited. Method specified but reproducibility questionable. Target direction stated. Single response or multiple without explicit tradeoff strategy. Adequate for purpose.",
+        "5": "Precise response definition with objective, quantitative measurement protocol. Reproducible measurement method specified. Target clear (max/min/target value with tolerance). Multiple responses include tradeoff analysis or desirability function. Response choice well-justified relative to objective."
+      }
+    },
+    {
+      "name": "Design Type Selection & Appropriateness",
+      "description": "Is the experimental design appropriate for the objective, factor count, and constraints?",
+      "scoring": {
+        "1": "Design type missing or inappropriate. Full factorial for 8+ factors (wasteful). Plackett-Burman for optimization (ignores interactions). No justification for design choice. Design structure incorrect (not orthogonal, unbalanced).",
+        "3": "Design type appropriate but suboptimal. Reasonable for objective and factor count. Resolution adequate (e.g., Resolution IV for screening with some interactions). Minor inefficiencies. Justification brief. Design structure mostly correct.",
+        "5": "Optimal design selection with clear rationale. Efficient for objective: Plackett-Burman/fractional factorial for screening, full factorial/RSM for optimization, CCD/Box-Behnken for response surface, Taguchi for robust design. Resolution justified. Design structure correct (orthogonal, balanced, appropriate run count). Confounding documented."
+      }
+    },
+    {
+      "name": "Randomization & Blocking",
+      "description": "Is randomization properly planned? Is blocking used appropriately for nuisance variables?",
+      "scoring": {
+        "1": "No randomization plan or randomization ignored (runs in convenient order). Blocking needed but not used (runs span days/batches/operators without control). Time-order confounding risk. Method for randomization not specified.",
+        "3": "Randomization mentioned but method not detailed. Blocking used if obvious (e.g., runs span 2 days → 2 blocks) but may miss subtler nuisance variables. Partial randomization (e.g., constrained by hard-to-change factors without split-plot acknowledgment).",
+        "5": "Complete randomization plan with specific method (random number generator, software). Run order documented in design matrix. Blocking strategy addresses all major nuisance variables (day, batch, operator, machine). Split-plot design used if factors have different change difficulty. Randomization within blocks documented."
+      }
+    },
+    {
+      "name": "Replication & Center Points",
+      "description": "Is replication planned to estimate error? Are center points included to detect curvature?",
+      "scoring": {
+        "1": "No replication. No center points (for continuous factors). Cannot estimate pure error or detect curvature. Single run per design point with no variance estimation strategy.",
+        "3": "Some replication: center points present (2-3 replicates) OR partial design replication. Can estimate error but power may be limited. Replication adequate for basic analysis but not robust. Center points may be insufficient (< 3).",
+        "5": "Appropriate replication strategy: 3-5 center point replicates for continuous factors, plus optional full design replication (2-3x) for critical experiments. Replication justified by power analysis. Pure error estimate enables lack-of-fit test. Center points detect curvature for follow-up RSM."
+      }
+    },
+    {
+      "name": "Sample Size & Statistical Power",
+      "description": "Is the design adequately powered to detect meaningful effects?",
+      "scoring": {
+        "1": "No power analysis. Run count arbitrary or based solely on convenience. Underpowered (Type II error risk > 0.5). Insufficient runs to estimate all effects in model (degrees of freedom deficit). Effect size not specified.",
+        "3": "Informal power consideration (rule of thumb, pilot data). Run count reasonable for factor count. Likely adequate to detect large effects (> 1.5σ) but may miss smaller meaningful effects. Effect size and noise variance roughly estimated.",
+        "5": "Formal power analysis conducted. Minimum detectable effect size specified based on practical significance. Noise variance estimated from historical data, pilot runs, or domain knowledge. Run count justified to achieve power ≥ 0.80 (β ≤ 0.20) at α = 0.05. Degrees of freedom adequate for model estimation and error testing."
+      }
+    },
+    {
+      "name": "Execution Protocol & Measurement",
+      "description": "Is the execution protocol detailed, standardized, and reproducible?",
+      "scoring": {
+        "1": "No protocol or very high-level only. Factor settings not translated to actual units/procedures. Measurement method vague. No quality controls. Timeline missing. Protocol not reproducible by independent experimenter.",
+        "3": "Protocol present with key steps. Factor settings specified in actual units. Measurement method outlined but some details missing. Basic quality controls (calibration mentioned). Timeline present. Mostly reproducible but some ambiguity.",
+        "5": "Detailed step-by-step protocol. Factor settings precisely specified with units and tolerances. Measurement method fully detailed (instrument, procedure, recording). Quality controls comprehensive (calibration, stability checks, outlier handling). Realistic timeline with contingency. Protocol reproducible by independent party without clarification."
+      }
+    },
+    {
+      "name": "Analysis Plan & Decision Criteria",
+      "description": "Is the analysis approach pre-specified with clear decision criteria?",
+      "scoring": {
+        "1": "No analysis plan. Statistical methods not specified. Significance level not stated. Decision criteria vague or missing. No plan for residual diagnostics. Risk of p-hacking (data-driven analysis choices).",
+        "3": "Basic analysis plan: main effects, ANOVA mentioned. Significance level stated (α = 0.05). Decision criteria present but qualitative. Residual checks mentioned but not detailed. Some pre-specification but room for ad-hoc choices.",
+        "5": "Comprehensive pre-specified analysis plan. Methods detailed: effect estimation, ANOVA, regression model form, graphical analysis (main effects, interaction plots, Pareto charts). Significance level and decision criteria quantified. Residual diagnostics specified (normality, constant variance, independence tests). Follow-up strategy if assumptions violated (transformations, robust methods). Prevents p-hacking."
+      }
+    },
+    {
+      "name": "Assumptions, Limitations & Risk Mitigation",
+      "description": "Are key assumptions stated explicitly? Are limitations and risks acknowledged with mitigation?",
+      "scoring": {
+        "1": "Assumptions not documented. Limitations not acknowledged. Risks ignored. No contingency plans. Design presented as if no uncertainty. Sparsity-of-effects assumed without justification in screening designs.",
+        "3": "Key assumptions mentioned (linearity, interaction structure, variance homogeneity). Some limitations noted (design resolution, factor range). Risks identified but mitigation incomplete. Assumptions mostly reasonable but not fully justified.",
+        "5": "All critical assumptions explicitly stated and justified: effect linearity, interaction sparsity (if assumed), process stability, measurement precision, independence. Limitations clearly documented: confounding structure in fractional designs, extrapolation boundaries, measurement limits. Risks identified with mitigation strategies (e.g., confirmation runs, fold-over if confounding ambiguous). Assumptions testable via diagnostics."
+      }
+    }
+  ],
+  "minimum_score": 3.5,
+  "guidance_by_experiment_type": {
+    "Screening (8+ factors)": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Design Type Selection & Appropriateness",
+        "Factor Selection & Specification",
+        "Assumptions, Limitations & Risk Mitigation"
+      ],
+      "recommended_designs": [
+        "Plackett-Burman (12, 16, 20 runs)",
+        "Fractional Factorial Resolution III-IV (2^(k-p) with k-p ≥ 4)",
+        "Definitive Screening Designs (3-column designs for k factors in 2k+1 runs)"
+      ],
+      "common_pitfalls": [
+        "Using full factorial (2^k runs explode for k > 5)",
+        "Ignoring that main effects confounded with 2-way interactions (sparsity assumption critical)",
+        "Not planning fold-over or follow-up design if confounding becomes problematic",
+        "Insufficient factor coverage (missing important variables)"
+      ],
+      "quality_indicators": {
+        "excellent": "Efficient design (12-24 runs for 8-15 factors), sparsity assumption justified, clear ranking of factors by effect size, shortlist for follow-up (top 3-5 factors identified)",
+        "sufficient": "Adequate design for factor count, main effects estimated, Pareto chart produced, factors ranked",
+        "insufficient": "Design inefficient (too many or too few runs), confounding not understood, no clear factor prioritization"
+      }
+    },
+    "Optimization (2-5 factors)": {
+      "target_score": 4.2,
+      "focus_criteria": [
+        "Design Type Selection & Appropriateness",
+        "Randomization & Blocking",
+        "Analysis Plan & Decision Criteria"
+      ],
+      "recommended_designs": [
+        "Full Factorial 2^k (k ≤ 5)",
+        "Fractional Factorial Resolution V (2^(k-1) with k ≤ 6)",
+        "Add center points (3-5) to detect curvature for RSM follow-up"
+      ],
+      "common_pitfalls": [
+        "Choosing Resolution III design (main effects confounded with 2-way interactions)",
+        "No center points → cannot detect curvature or estimate pure error",
+        "Ignoring interaction plots (may show strong interactions that change optimal settings)",
+        "Not randomizing run order (time trends confound with factor effects)"
+      ],
+      "quality_indicators": {
+        "excellent": "Resolution V design, 3-5 center points, randomized, interactions estimated, optimal settings identified with confidence intervals, confirmation runs planned",
+        "sufficient": "Resolution IV design, center points present, main effects and some interactions clear, optimum estimated",
+        "insufficient": "Low resolution, no center points, interactions not estimable, optimum uncertain"
+      }
+    },
+    "Response Surface (curvature mapping)": {
+      "target_score": 4.5,
+      "focus_criteria": [
+        "Design Type Selection & Appropriateness",
+        "Replication & Center Points",
+        "Analysis Plan & Decision Criteria"
+      ],
+      "recommended_designs": [
+        "Central Composite Design (CCD): 2^k + 2k + 3-5 center points",
+        "Box-Behnken Design (safer if extremes problematic)",
+        "Ensure rotatability (α = (2^k)^0.25 for CCD) or face-centered (α=1)"
+      ],
+      "common_pitfalls": [
+        "Using factorial design only (cannot fit quadratic, misses curvature)",
+        "Insufficient center points (< 3) → poor pure error estimate",
+        "Not checking rotatability → prediction variance uneven across design space",
+        "Extrapolating beyond design region (local approximation only)"
+      ],
+      "quality_indicators": {
+        "excellent": "CCD or Box-Behnken, 3-5 center points, quadratic model fitted, stationary point identified (max/min/saddle), contour plots, sensitivity analysis, confirmation runs at optimum",
+        "sufficient": "Appropriate RSM design, quadratic model, optimum estimated, contour plot",
+        "insufficient": "Linear model only, no curvature detection, optimum not characterized, no graphical visualization"
+      }
+    },
+    "Robust Design (Taguchi)": {
+      "target_score": 4.3,
+      "focus_criteria": [
+        "Factor Selection & Specification",
+        "Design Type Selection & Appropriateness",
+        "Analysis Plan & Decision Criteria"
+      ],
+      "recommended_designs": [
+        "Inner-outer array: L8/L12/L16 inner (control factors) × L4 outer (noise factors)",
+        "Calculate SNR (signal-to-noise ratio) for each inner run",
+        "Two-step optimization: (1) maximize SNR, (2) adjust mean to target"
+      ],
+      "common_pitfalls": [
+        "Not distinguishing control factors (settable in production) from noise factors (uncontrollable variation)",
+        "Using only mean response (ignores variance/robustness objective)",
+        "Choosing SNR metric that doesn't match objective (larger-better vs smaller-better vs target)",
+        "Too many noise factors (outer array size explodes)"
+      ],
+      "quality_indicators": {
+        "excellent": "Control and noise factors clearly distinguished, appropriate SNR metric, inner-outer array crossed correctly, two-step optimization yields settings robust to noise, confirmation under varied noise conditions",
+        "sufficient": "Inner-outer array used, SNR calculated, robust settings identified, some confirmation",
+        "insufficient": "No noise factors considered, only mean optimization, robustness not validated, SNR metric wrong"
+      }
+    },
+    "Sequential Experimentation": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Objective Definition & Context",
+        "Design Type Selection & Appropriateness",
+        "Analysis Plan & Decision Criteria"
+      ],
+      "recommended_approach": [
+        "Stage 1: Screening (Plackett-Burman, 12-16 runs) → identify 3-5 factors",
+        "Stage 2: Steepest ascent (4-6 runs) → move toward optimal region",
+        "Stage 3: Factorial optimization (2^k, 8-16 runs) → estimate interactions",
+        "Stage 4: RSM refinement (CCD, 15-20 runs) → find true optimum",
+        "Stage 5: Confirmation (3-5 runs) → validate"
+      ],
+      "common_pitfalls": [
+        "Trying one-shot full design (wasteful if many factors, high uncertainty)",
+        "Skipping steepest ascent (factorial centered at wrong region)",
+        "Not updating factor ranges between stages (RSM far from optimum)",
+        "No confirmation runs (model not validated)"
+      ],
+      "quality_indicators": {
+        "excellent": "Multi-stage plan specified upfront, decision rules for progression (e.g., 'if curvature detected, add RSM'), factor ranges updated based on learnings, confirmation at end, total runs < 50% of one-shot approach",
+        "sufficient": "Sequential stages planned, some adaptivity, confirmation included",
+        "insufficient": "Single-stage only, no follow-up strategy, confirmation missing, inefficient run count"
+      }
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (2-4 factors, well-understood process)": {
+      "target_score": 3.8,
+      "sufficient_depth": "Full factorial or Resolution V fractional. Randomization and center points. ANOVA and main effects/interaction plots. Optimal settings with 90% CI. Confirmation runs.",
+      "key_requirements": [
+        "Complete factor table with levels and rationale",
+        "Design matrix with randomized run order",
+        "Analysis plan: ANOVA, interaction plots, optimal settings",
+        "3-5 center points for curvature detection",
+        "Confirmation runs (3+) at optimum"
+      ]
+    },
+    "Moderate (5-8 factors, some uncertainty)": {
+      "target_score": 4.0,
+      "sufficient_depth": "Fractional factorial (Resolution IV-V) or screening design. Randomization and blocking if needed. Power analysis for run count. Potential follow-up RSM if curvature detected. Residual diagnostics.",
+      "key_requirements": [
+        "Power analysis justifying run count",
+        "Confounding structure documented (for fractional designs)",
+        "Randomization and blocking plan",
+        "Pre-specified analysis (effects, ANOVA, model form)",
+        "Residual diagnostics (normality, constant variance, independence)",
+        "Follow-up strategy (fold-over, RSM, confirmation)"
+      ]
+    },
+    "Complex (8+ factors, high uncertainty, constraints)": {
+      "target_score": 4.2,
+      "sufficient_depth": "Multi-stage sequential strategy or optimal design (D-optimal) for constraints. Screening → optimization → RSM → confirmation. Comprehensive assumptions, limitations, risk mitigation. Advanced analysis (canonical, desirability functions, transformations).",
+      "key_requirements": [
+        "Sequential experimentation plan (screening → optimization → RSM)",
+        "Optimal design if irregular constraints (D-optimal, mixture designs, split-plot)",
+        "Power analysis at each stage",
+        "Comprehensive assumptions and limitations documented",
+        "Risk mitigation strategies (fold-over, blocking, replication)",
+        "Advanced analysis techniques (canonical analysis, response surface equations, multi-response optimization)",
+        "Confirmation and validation strategy"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "One-Factor-At-a-Time (OFAT) approach",
+      "symptom": "Proposal to vary factors sequentially: test Factor A at low/high while others fixed, then Factor B, etc.",
+      "detection": "Look for phrases like 'test each factor individually', 'change one variable at a time', 'hold all others constant'",
+      "fix": "Explain factorial designs test multiple factors simultaneously with fewer runs and reveal interactions. Example: 3 factors OFAT = 6 runs (2 per factor), misses interactions. 2^3 factorial = 8 runs, estimates main effects + all interactions."
+    },
+    {
+      "failure": "Ignoring randomization",
+      "symptom": "Runs executed in 'convenient' order (all low levels first, then high) or grouped by factor level. No mention of randomization in protocol.",
+      "detection": "Design matrix lacks 'Run Order' column or run order = design point order (1,2,3,...). Phrase 'run in order listed' or 'group by factor A level'.",
+      "fix": "Emphasize randomization eliminates time-order bias, learning effects, drift. Provide method: assign random numbers to each run, sort by random number = execution order. Exception: hard-to-change factors require split-plot design."
+    },
+    {
+      "failure": "No center points or replication",
+      "symptom": "Design has single run per design point, no center (0,0,0) replicates. Cannot estimate pure error or detect curvature.",
+      "detection": "Design matrix for continuous factors has no runs at center point. No mention of replication strategy.",
+      "fix": "Always add 3-5 center point replicates for continuous factors. Enables pure error estimate (test lack-of-fit), detects curvature (signals need for RSM follow-up), improves power."
+    },
+    {
+      "failure": "Underpowered design",
+      "symptom": "Very few runs relative to factors. Risk of missing important effects (high Type II error). No power analysis or effect size justification.",
+      "detection": "Run count < 2*(# factors). No mention of minimum detectable effect. Noise variance unknown or ignored.",
+      "fix": "Conduct power analysis. Specify minimum meaningful effect (δ). Estimate noise (σ) from pilot data. Calculate required n for power ≥ 0.80. Use standard designs (Plackett-Burman for screening, 2^k factorial for optimization) rather than arbitrary small sample."
+    },
+    {
+      "failure": "Wrong design type for objective",
+      "symptom": "Screening with full factorial (wasteful), optimization with Plackett-Burman (ignores interactions), curvature with factorial only (cannot fit quadratic).",
+      "detection": "Check alignment: Screening → Plackett-Burman/fractional factorial. Optimization → full factorial/Resolution V. Response surface → CCD/Box-Behnken. Robust → Taguchi inner-outer.",
+      "fix": "Match design to objective. Screening: minimize runs, identify vital few (Plackett-Burman). Optimization: estimate interactions (full/fractional factorial). RSM: fit curvature (CCD/Box-Behnken). Robust: control vs noise factors (inner-outer array)."
+    },
+    {
+      "failure": "Confounding not understood",
+      "symptom": "Fractional factorial used but confounding structure not documented. Claim 'main effects estimated' without noting confounding with 2-way interactions (Resolution III).",
+      "detection": "Design resolution not stated. No defining relation or alias structure. Resolution III design used for optimization (interactions matter).",
+      "fix": "Document confounding. State defining relation (e.g., I=ABCD). List aliases (e.g., A confounded with BCD). Choose Resolution ≥ IV if interactions important. Plan fold-over if confounding becomes problematic."
+    },
+    {
+      "failure": "No analysis plan (risk of p-hacking)",
+      "symptom": "Analysis approach vague ('will analyze data'), no pre-specified model, no decision criteria. Statistical tests chosen after seeing data.",
+      "detection": "Analysis section missing or very brief. No significance level stated. Model form not specified. Phrases like 'explore data', 'see what's significant'.",
+      "fix": "Pre-specify analysis before data collection. State model form (linear: Y ~ A + B + AB, quadratic: Y ~ A + B + A^2 + B^2 + AB). Set α (typically 0.05). Define decision criteria (effects with p < 0.05 considered significant). Specify diagnostics (residual plots, normality test)."
+    },
+    {
+      "failure": "Extrapolating beyond design region",
+      "symptom": "Recommending factor settings outside tested ranges based on model predictions. Claiming optimum at edge or outside design space.",
+      "detection": "Optimal settings include factor values < low level or > high level tested. Phrases like 'model predicts even better results at [extreme value]'.",
+      "fix": "Response surface models are local approximations. Only trust predictions within tested region (interpolation). If optimum appears outside, run steepest ascent to move toward new region, then new RSM centered there. Do not extrapolate."
+    }
+  ]
+}

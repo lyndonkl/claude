@@ -1,0 +1,291 @@
+{
+  "criteria": [
+    {
+      "name": "Debate Framing & Context",
+      "description": "Is the debate topic clearly defined with both positions, binary framing justification, and context?",
+      "scoring": {
+        "1": "Vague topic. Positions not clearly distinguished. No explanation of why binary. Context missing or superficial. Stakes unclear.",
+        "3": "Topic stated but could be more specific. Positions identified but may lack precision. Binary framing mentioned but not deeply explored. Some context provided. Stakes partially clear.",
+        "5": "Precise topic definition. Both positions clearly articulated with concise statements. Binary framing explained (resource constraint, timing, architecture lock-in, cultural values, or zero-sum perception). Rich context: stakeholders, constraints, deadline, impact. Stakes crystal clear."
+      }
+    },
+    {
+      "name": "Steelman Quality - Position A",
+      "description": "Is Position A presented in its strongest, most charitable form?",
+      "scoring": {
+        "1": "Strawman or weak representation. Arguments cherry-picked or misrepresented. Underlying principle not identified. Tradeoffs ignored or minimized. Adherent would not recognize as fair.",
+        "3": "Decent representation but could be stronger. Principle identified but may be surface-level. Arguments present but not in strongest form. Tradeoffs mentioned but not fully explored. Adherent might quibble with details.",
+        "5": "Exemplary steelman. Underlying principle clearly articulated (speed, quality, freedom, safety, equity, efficiency, etc.). Best 3-5 arguments presented with evidence/examples. Legitimate tradeoffs explicitly acknowledged. Adherent would say 'yes, that's exactly why we support this position.'"
+      }
+    },
+    {
+      "name": "Steelman Quality - Position B",
+      "description": "Is Position B presented in its strongest, most charitable form?",
+      "scoring": {
+        "1": "Strawman or weak representation. Arguments cherry-picked or misrepresented. Underlying principle not identified. Tradeoffs ignored or minimized. Adherent would not recognize as fair.",
+        "3": "Decent representation but could be stronger. Principle identified but may be surface-level. Arguments present but not in strongest form. Tradeoffs mentioned but not fully explored. Adherent might quibble with details.",
+        "5": "Exemplary steelman. Underlying principle clearly articulated. Best 3-5 arguments presented with evidence/examples. Legitimate tradeoffs explicitly acknowledged. Adherent would say 'yes, that's exactly why we support this position.'"
+      }
+    },
+    {
+      "name": "Steelman Symmetry",
+      "description": "Are both positions given equal charitable treatment and depth of analysis?",
+      "scoring": {
+        "1": "Asymmetric treatment. One position clearly favored (longer, stronger arguments, tradeoffs downplayed). Other position treated superficially or uncharitably. Bias obvious.",
+        "3": "Mostly symmetric but minor imbalances. One position may have slightly more detail or stronger arguments. Not egregious but noticeable. Effort toward fairness evident.",
+        "5": "Perfect symmetry in treatment. Both positions get equal depth, charity, and rigor. Similar length, argument strength, tradeoff acknowledgment. Neutral observer couldn't detect analyst's preference from steelmans alone. If asymmetry exists, it's acknowledged explicitly (e.g., 'Position A has stronger empirical support but Position B raises valid normative concerns')."
+      }
+    },
+    {
+      "name": "Principle Identification",
+      "description": "Are underlying principles (values, goals) identified vs surface preferences?",
+      "scoring": {
+        "1": "Principles not identified. Analysis stays at surface level ('Position A wants X, Position B wants Y'). No exploration of WHY they want X/Y. Values implicit or missing.",
+        "3": "Principles mentioned but not deeply explored. May identify one principle per position but miss deeper values or terminal vs instrumental distinction. Partial insight into motivations.",
+        "5": "Deep principle identification. Clearly distinguishes terminal principles (ends: freedom, wellbeing, fairness) vs instrumental (means: speed, cost, consistency). Explains WHY each position values what it does. Identifies where principles genuinely conflict vs where apparent conflict masks false dichotomy."
+      }
+    },
+    {
+      "name": "Tradeoff Matrix Quality",
+      "description": "Is the tradeoff matrix comprehensive, multi-dimensional, and quantitative where possible?",
+      "scoring": {
+        "1": "No tradeoff matrix or very sparse. Single-dimension comparison. No quantification. Best/worst cases missing. Risks not identified.",
+        "3": "Tradeoff matrix present but limited. 2-4 dimensions compared. Some quantification (cost, time) but mostly qualitative. Best/worst cases mentioned. Primary risks identified but not comprehensively.",
+        "5": "Comprehensive tradeoff matrix. 5+ dimensions (principle alignment, speed, quality, cost, flexibility, risk, etc.). Quantitative where possible ($ cost, timeline, metrics). Best case and worst case for each position articulated. Primary risks for each position and synthesis clearly identified. Matrix reveals insights about the tradeoff structure."
+      }
+    },
+    {
+      "name": "Synthesis Quality - Transcendence",
+      "description": "Does synthesis transcend the binary (not just compromise) with higher-order principle?",
+      "scoring": {
+        "1": "No synthesis or mushy middle ('do a little of both'). 50/50 split with no principled rationale. Compromise, not transcendence. No higher-order principle identified.",
+        "3": "Synthesis present but may be compromise-adjacent. Some principled thinking but not fully transcendent. Higher-order principle mentioned but not deeply developed. May lean toward one position with minor adjustments rather than true synthesis.",
+        "5": "Exemplary synthesis that genuinely transcends binary. Higher-order principle clearly articulated (meta-goal both positions serve). Explains how synthesis preserves core value of Position A AND core value of Position B. Uses advanced pattern (temporal, conditional, dimensional separation, reframe, compensating controls). Not split-the-difference—creates new value. Adherents of both positions can see their values represented."
+      }
+    },
+    {
+      "name": "New Tradeoffs - Explicit & Honest",
+      "description": "Are the new tradeoffs of synthesis vs pure positions explicitly stated?",
+      "scoring": {
+        "1": "New tradeoffs ignored. Synthesis presented as 'best of both worlds with no downsides'. No acknowledgment of costs vs pure Position A or B. Unrealistic or naive.",
+        "3": "New tradeoffs mentioned but not fully explored. Some costs identified but may downplay them. Acknowledges synthesis isn't perfect but doesn't deeply analyze what's sacrificed.",
+        "5": "Brutally honest about new tradeoffs. Explicitly states: (1) What synthesis sacrifices vs pure Position A, (2) What it sacrifices vs pure Position B, (3) New challenges synthesis introduces. Decision criteria provided: when to use synthesis vs when pure positions are better. No pretense that synthesis is universally superior."
+      }
+    },
+    {
+      "name": "Empirical-Normative Separation",
+      "description": "Are factual questions separated from value questions? Are empirical cruxes identified?",
+      "scoring": {
+        "1": "Empirical and normative questions conflated. Treats value judgments as facts or vice versa. No identification of which claims are testable vs which require philosophical resolution.",
+        "3": "Some awareness of empirical vs normative distinction. May identify a few factual cruxes. Separation present but not systematic. Could be clearer about which disagreements are about facts vs values.",
+        "5": "Crisp separation of empirical questions (resolvable with evidence) from normative questions (value judgments). Identifies empirical cruxes explicitly ('if we had data showing X, would Position A change?'). Synthesis approach is conditional on empirical findings where appropriate. Value conflicts resolved at principle level."
+      }
+    },
+    {
+      "name": "Implementation & Validation",
+      "description": "Does output include actionable recommendations, success criteria, and reassessment triggers?",
+      "scoring": {
+        "1": "No implementation guidance. Analysis ends with synthesis description. No success criteria or metrics. No plan for validation or reassessment. Purely theoretical.",
+        "3": "Basic implementation steps provided. Some success criteria mentioned but may be vague. Partial guidance on validation. Reassessment triggers missing or unclear. Somewhat actionable.",
+        "5": "Comprehensive implementation plan with specific steps. Clear success criteria (quantitative metrics, qualitative signals). Validation approach defined (how to test if synthesis working). Reassessment triggers specified (conditions that would make you revisit or switch approaches). Fully actionable and testable."
+      }
+    }
+  ],
+  "minimum_score": 3.5,
+  "guidance_by_debate_type": {
+    "Strategic/Business Decisions": {
+      "target_score": 4.2,
+      "focus_criteria": [
+        "Principle Identification",
+        "Tradeoff Matrix Quality",
+        "Synthesis Quality - Transcendence"
+      ],
+      "common_debates": [
+        "Growth vs profitability",
+        "Build vs buy",
+        "Centralization vs decentralization",
+        "Exploration vs exploitation",
+        "First-mover vs fast-follower",
+        "Differentiation vs cost leadership"
+      ],
+      "quality_indicators": {
+        "excellent": "Synthesis identifies higher-order business principle (e.g., capital efficiency, sustainable competitive advantage, optionality preservation). Tradeoff matrix includes quantitative analysis ($ cost, timeline, risk probability). Decision criteria specify market conditions or thresholds where pure positions dominate.",
+        "sufficient": "Both positions steelmanned with business rationale. Tradeoffs identified (financial, competitive, operational). Synthesis provides actionable approach with some conditionality.",
+        "insufficient": "Surface-level 'pros and cons'. No deep principle identification. Synthesis is vague ('balance growth and profitability') without specifics. Missing quantitative analysis."
+      }
+    },
+    "Technical/Engineering Decisions": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Steelman Quality - Position A",
+        "Steelman Quality - Position B",
+        "Empirical-Normative Separation"
+      ],
+      "common_debates": [
+        "Monolith vs microservices",
+        "SQL vs NoSQL",
+        "Build vs integrate third-party",
+        "Static vs dynamic typing",
+        "Sync vs async patterns",
+        "Normalized vs denormalized data"
+      ],
+      "quality_indicators": {
+        "excellent": "Steelmans include technical specifics (performance characteristics, scaling properties, failure modes). Empirical questions separated ('Does this pattern actually improve latency?' testable). Synthesis addresses technical constraints and provides migration path or hybrid architecture with clear boundaries.",
+        "sufficient": "Both technical approaches explained with rationale. Tradeoffs cover performance, maintainability, complexity. Synthesis is technically sound with some specifics.",
+        "insufficient": "Superficial technical understanding. Arguments based on hype or dogma rather than engineering principles. Synthesis lacks technical detail or is infeasible given constraints."
+      }
+    },
+    "Policy/Governance Debates": {
+      "target_score": 4.3,
+      "focus_criteria": [
+        "Principle Identification",
+        "Empirical-Normative Separation",
+        "Synthesis Quality - Transcendence"
+      ],
+      "common_debates": [
+        "Privacy vs security",
+        "Freedom vs safety",
+        "Efficiency vs equity",
+        "Regulation vs free market",
+        "Individual rights vs collective welfare",
+        "Transparency vs confidentiality"
+      ],
+      "quality_indicators": {
+        "excellent": "Terminal principles clearly identified (freedom, welfare, fairness, security as ends not means). Empirical questions isolated (e.g., 'Do backdoors actually improve security?' vs 'Should we value privacy or security more?'). Synthesis addresses power dynamics if present. Handles edge cases and second-order effects. Acknowledges pluralistic values.",
+        "sufficient": "Both positions presented with philosophical grounding. Value conflicts acknowledged. Synthesis attempts to honor both principles with some tradeoffs.",
+        "insufficient": "Treats value questions as resolvable via evidence. Ignores one side's core principle. Synthesis favors one position without acknowledging this is value judgment not logical necessity. Misses power dynamics."
+      }
+    },
+    "Product/Design Decisions": {
+      "target_score": 3.8,
+      "focus_criteria": [
+        "Tradeoff Matrix Quality",
+        "Synthesis Quality - Transcendence",
+        "Implementation & Validation"
+      ],
+      "common_debates": [
+        "Simple vs powerful",
+        "Consistency vs flexibility",
+        "Mobile-first vs desktop-first",
+        "Opinionated vs configurable",
+        "Accessibility vs aesthetics",
+        "Guided flows vs free exploration"
+      ],
+      "quality_indicators": {
+        "excellent": "Tradeoff matrix considers user segments (novice vs power users), use cases (frequency, complexity), and metrics (usability, satisfaction, task completion). Synthesis often uses dimensional separation (simple by default, power mode available) or progressive disclosure. Implementation includes A/B test plan or user research validation.",
+        "sufficient": "Both design philosophies explained with user impact. Tradeoffs cover usability, complexity, accessibility. Synthesis provides concrete design approach with some user-centricity.",
+        "insufficient": "Arguments based on designer preference not user needs. No consideration of different user segments. Synthesis lacks specificity or testability. No validation plan."
+      }
+    },
+    "Team/Process Debates": {
+      "target_score": 3.9,
+      "focus_criteria": [
+        "Steelman Symmetry",
+        "Synthesis Quality - Transcendence",
+        "Implementation & Validation"
+      ],
+      "common_debates": [
+        "Autonomy vs alignment",
+        "Speed vs quality",
+        "Consensus vs decisive leadership",
+        "Planning vs emergent strategy",
+        "Standardization vs customization",
+        "Individual vs collective accountability"
+      ],
+      "quality_indicators": {
+        "excellent": "Symmetry critical—team debates often have power dynamics and advocates. Synthesis addresses cultural fit, change management, and feedback loops. Implementation specifies who does what, how decisions escalate, how to measure success (cycle time, quality metrics, team satisfaction).",
+        "sufficient": "Both approaches considered fairly. Tradeoffs include team dynamics and culture. Synthesis is concrete with roles and processes. Some implementation detail.",
+        "insufficient": "One approach dismissed as 'old way' or 'too slow'. Ignores team context (size, maturity, domain). Synthesis vague ('find the right balance') without specifics."
+      }
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Binary, Clear Principles)": {
+      "target_score": 3.8,
+      "sufficient_depth": "Both positions steelmanned with underlying principles. Tradeoff matrix with 3-5 dimensions. Synthesis uses one of five common patterns (temporal, conditional, dimensional, higher-order, compensating). New tradeoffs stated. Decision criteria for when to use synthesis vs pure positions.",
+      "key_requirements": [
+        "Charitable steelmans (adherents would agree)",
+        "Principle identification (not just surface preferences)",
+        "Tradeoff matrix (quantitative where possible)",
+        "Synthesis pattern applied (not just compromise)",
+        "New tradeoffs explicitly acknowledged",
+        "Decision criteria (when synthesis appropriate)"
+      ]
+    },
+    "Moderate (Multi-dimensional, Some Complexity)": {
+      "target_score": 4.0,
+      "sufficient_depth": "Steelmans use Toulmin model (claim, data, warrant, backing, qualifier, rebuttal). Principle mapping distinguishes terminal vs instrumental values. Tradeoff matrix multi-dimensional (5+ dimensions). Synthesis addresses empirical cruxes and normative conflicts separately. Validation plan includes adversarial testing.",
+      "key_requirements": [
+        "Toulmin-enhanced steelmans (warrants explicit, qualifiers included)",
+        "Terminal vs instrumental principle distinction",
+        "Multi-dimensional tradeoff matrix (5+ dimensions, quantitative)",
+        "Empirical-normative separation",
+        "Synthesis with advanced pattern (may combine multiple patterns)",
+        "Adversarial testing or edge case analysis for validation"
+      ]
+    },
+    "Complex (Multi-party, Nested, Power Dynamics)": {
+      "target_score": 4.2,
+      "sufficient_depth": "Multi-party synthesis (pairwise or principle clustering). Nested dialectics if positions are themselves syntheses. Power dynamics made explicit and addressed in synthesis. Empirical cruxes identified with conditional synthesis. Unintended consequences analyzed. Stability testing (does synthesis collapse under pressure?). Reassessment triggers specified.",
+      "key_requirements": [
+        "Multi-party dialectics handled systematically (not just 'winner' of pairwise)",
+        "Nested dialectics resolved at meta-level if applicable",
+        "Power dynamics explicit (who benefits, material stakes, structural issues)",
+        "Empirical questions separated with conditional synthesis based on evidence",
+        "Second-order effects and unintended consequences analyzed",
+        "Synthesis stability testing (edge cases, perverse incentives, long-term dynamics)",
+        "Monitoring and reassessment triggers (when to revisit decision)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Strawmanning (weak representation of positions)",
+      "symptom": "Arguments cherry-picked, misrepresented, or presented in weakest form. Phrases like 'Position A naively believes...' or 'Position B ignores...' without charity. Tradeoffs hidden or minimized.",
+      "detection": "Ask: 'Would someone who holds this position recognize this as fair?' If answer is no or maybe, it's a strawman. Check for asymmetry—one position gets strong arguments, other gets weak.",
+      "fix": "Re-read position from advocate's perspective. Find strongest arguments and best evidence. Present version that advocate would agree with. Use Toulmin model: identify warrants, backing, and qualifiers. Acknowledge legitimate tradeoffs explicitly."
+    },
+    {
+      "failure": "False dichotomy not questioned",
+      "symptom": "Binary framing accepted without scrutiny. Analysis proceeds directly to steelmanning A vs B without asking 'is this actually a binary choice?' Synthesis stays within A-B space rather than exploring option C/D/E.",
+      "detection": "Check debate framing section. Does it ask WHY this is framed as binary? Does it question if binary is real or manufactured? Does synthesis explore outside A-B space?",
+      "fix": "Add 'False dichotomy check' step. Ask: 'Are A and B mutually exclusive? Can we do both (temporal, conditional, dimensional separation)? Are there option C/D/E we're ignoring?' Challenge the premise before synthesizing."
+    },
+    {
+      "failure": "Synthesis is mushy middle (compromise, not transcendence)",
+      "symptom": "Synthesis is 'do a little of both' or 50/50 split without principled rationale. No higher-order principle identified. Phrases like 'balance A and B' or 'find the right mix' without specifics. Doesn't explain why synthesis is better than pure positions.",
+      "detection": "Check if synthesis specifies HOW it preserves each position's core value. Does it identify higher-order principle? Does it use a synthesis pattern (temporal, conditional, dimensional, reframe, compensating controls)? If answers are vague, it's mushy middle.",
+      "fix": "Identify higher-order principle (meta-goal both positions serve). Choose synthesis pattern: temporal (sequence), conditional (context-dependent), dimensional (orthogonal axes), reframe (better tactic for shared goal), or compensating controls (lean + safeguard). Be specific about structure, not just 'balance.'"
+    },
+    {
+      "failure": "New tradeoffs ignored or hidden",
+      "symptom": "Synthesis presented as 'best of both worlds' with no downsides. No acknowledgment of what's sacrificed vs pure Position A or B. Analysis stops after synthesis description without discussing costs.",
+      "detection": "Look for explicit section on 'New Tradeoffs' or 'What Synthesis Sacrifices'. If missing or superficial ('minor inconvenience'), this failure is present.",
+      "fix": "Be brutally honest. Add section: (1) What synthesis sacrifices vs pure Position A, (2) What it sacrifices vs pure Position B, (3) New challenges synthesis introduces. Provide decision criteria: when pure positions are better than synthesis."
+    },
+    {
+      "failure": "Empirical and normative questions conflated",
+      "symptom": "Treating value judgments as facts ('Position A is clearly better') or vice versa ('this is just a matter of opinion' when empirical evidence exists). No separation of testable claims from philosophical claims.",
+      "detection": "Check if debate involves mix of factual and value questions. Are empirical cruxes identified ('if data showed X, would position change')? Are value conflicts resolved via principle-level reasoning?",
+      "fix": "Separate explicitly: (1) Empirical questions (what IS, testable with evidence), (2) Normative questions (what SHOULD BE, require value judgments). Identify cruxes for empirical claims. Resolve normative conflicts via principle identification and higher-order synthesis. Make synthesis conditional on empirical findings where appropriate."
+    },
+    {
+      "failure": "Steelman asymmetry (bias toward one position)",
+      "symptom": "One position gets much more depth, stronger arguments, charitable interpretation. Other position treated superficially or uncharitably. Length imbalance, tradeoff minimization for favored position.",
+      "detection": "Compare word count, argument strength, tradeoff acknowledgment for Position A vs B. Neutral observer shouldn't detect analyst's preference from steelmans alone. If obvious which position analyst prefers, asymmetry exists.",
+      "fix": "Review both steelmans side-by-side. Ensure equal length, depth, charity. If one position truly has weaker arguments or evidence, acknowledge this explicitly AFTER steelmanning both fairly. Can still lean toward stronger position in synthesis, but not in steelmanning phase."
+    },
+    {
+      "failure": "No implementation or validation plan",
+      "symptom": "Analysis is purely theoretical. Ends with synthesis description. No guidance on how to execute, measure success, or validate if working. No reassessment triggers.",
+      "detection": "Check for implementation steps, success criteria, metrics, validation approach, reassessment triggers. If missing or vague ('monitor and adjust'), this failure is present.",
+      "fix": "Add: (1) Implementation—specific steps to execute synthesis, (2) Success criteria—quantitative metrics and qualitative signals, (3) Validation—how to test if synthesis working (experiments, measurements), (4) Reassessment triggers—conditions that would make you switch approaches. Make it actionable."
+    },
+    {
+      "failure": "Power dynamics ignored",
+      "symptom": "Debate involves parties with different power, resources, or incentives, but analysis treats as pure idea conflict. No mention of who benefits materially, asymmetric stakes, or structural issues. Synthesis doesn't address power imbalance.",
+      "detection": "Ask: Do parties have different power? Are there conflicts of interest (one position benefits advocate materially)? Are stakes symmetric? If power dynamics present but not acknowledged, this failure exists.",
+      "fix": "Make power dynamics explicit: who benefits from each position, material stakes, historical power imbalances. Steelman arguments independent of advocate motives. If synthesis leans toward powerful party, include safeguards for less powerful (e.g., portable benefits, collective bargaining, classification thresholds). Address structural issues, not just ideas."
+    }
+  ]
+}
