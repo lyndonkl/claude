@@ -1,0 +1,313 @@
+{
+  "criteria": [
+    {
+      "name": "Flavor Architecture & Balance",
+      "description": "Is the flavor profile well-balanced across salt, acid, fat, heat, sweet, bitter, umami, and aroma?",
+      "scoring": {
+        "1": "Single-dimensional flavor. No balance attempted. Missing key elements (e.g., no acid to balance richness, no salt depth). Tastes flat or overwhelming in one dimension.",
+        "3": "Basic balance attempted. Salt and acid present but may not be fully integrated. Some flavor elements considered. Could be more nuanced or layered.",
+        "5": "Exemplary balance: salt at multiple stages, acid brightens without dominating, fat carries aroma, umami provides depth, texture provides contrast. Flavors build in layers (baseline → season → enrich → contrast → finish). Each element supports others."
+      }
+    },
+    {
+      "name": "Technique Execution & Precision",
+      "description": "Are cooking techniques properly executed with attention to timing, temperature, and sensory cues?",
+      "scoring": {
+        "1": "Poor technique execution. Overcooking, under-seasoning, or improper heat control evident. No use of thermometer or sensory checkpoints. Timing haphazard.",
+        "3": "Adequate technique. Basic execution (searing, sautéing) performed but may lack refinement. Some attention to temperature and timing. Could use more precision or sensory awareness.",
+        "5": "Professional technique execution. Proper searing (high heat, dry surface, crust development), accurate temperature control (thermometer used, pull temps correct), sensory checkpoints applied (smell, color, sound, texture). Timing orchestrated for multi-component dishes. Resting, carryover cooking understood."
+      }
+    },
+    {
+      "name": "Texture & Contrast",
+      "description": "Does the dish incorporate textural variety and contrast (crispy/creamy, hot/cold, soft/chewy)?",
+      "scoring": {
+        "1": "Single texture throughout. No contrast (all soft, all mushy). Monotonous mouthfeel. No consideration of textural elements.",
+        "3": "Some textural variety. One contrast present (e.g., crispy topping on soft base). Could be more intentional or pronounced.",
+        "5": "Deliberate textural architecture: at least one clear contrast (crispy shallots on creamy soup, crunchy slaw with tender meat, hot protein with cold sauce). Multiple textures create sensory excitement. Textural elements added at proper time (crispy elements at end to preserve crunch)."
+      }
+    },
+    {
+      "name": "Science & Rationale",
+      "description": "Is the cooking approach grounded in food science with clear explanations of why techniques work?",
+      "scoring": {
+        "1": "No scientific rationale provided. Instructions are rote steps without explanation. No understanding of Maillard, protein denaturation, emulsification, or other key concepts.",
+        "3": "Basic science mentioned. Some explanations for techniques (e.g., 'sear for crust'). Could go deeper into mechanisms (why protein denatures, how emulsions form).",
+        "5": "Comprehensive scientific grounding: Maillard reaction explained (temp, dry surface, browning), protein denaturation stages (120-180°F), emulsification technique (slow oil addition, emulsifier role), starch gelatinization, carryover cooking. Science informs technique choices and troubleshooting."
+      }
+    },
+    {
+      "name": "Seasoning Strategy",
+      "description": "Is seasoning (salt, acid, fat) applied strategically at multiple stages, not just at the end?",
+      "scoring": {
+        "1": "Single-stage seasoning (only at end). Undersalted or oversalted. No acid balance. Fat not used to carry flavor. No tasting and adjustment protocol.",
+        "3": "Basic seasoning strategy. Salt added at beginning and end. Acid or fat considered. Some tasting, but could be more systematic.",
+        "5": "Multi-stage seasoning: salt proteins before cooking (dry brine or 30+ min ahead), season aromatics, season sauce throughout, finish with flaky salt. Acid added at end to brighten. Fat used to carry aroma (toast spices in oil). Taste-and-adjust protocol followed (small increments, taste, repeat)."
+      }
+    },
+    {
+      "name": "Mise en Place & Workflow",
+      "description": "Is proper mise en place practiced with organized prep, timing, and execution flow?",
+      "scoring": {
+        "1": "No mise en place. Ingredients not prepped before cooking starts. Scrambling to chop mid-sauté. Poor timing (components not ready simultaneously). Disorganized workflow.",
+        "3": "Basic mise en place. Most ingredients prepped ahead, but some gaps. Timing mostly works out. Could be more organized or efficient.",
+        "5": "Professional mise en place discipline: all ingredients prepped and arranged in cooking order before heat applied, timing backwards-planned from service time, multitasking and orchestration evident (oven and stovetop used efficiently), holding strategies for components, last-minute tasks clearly identified."
+      }
+    },
+    {
+      "name": "Plating & Presentation",
+      "description": "Is the dish plated with attention to color, height, negative space, and visual appeal?",
+      "scoring": {
+        "1": "No plating consideration. Food dumped on plate. Overcrowded, no negative space. Dirty rim. No garnish or finish. Visually unappealing.",
+        "3": "Basic plating. Components arranged, not dumped. Some attention to color or placement. Clean rim. Could use more height, negative space, or intentional garnish.",
+        "5": "Intentional plating: color contrast (green herb on brown protein), height built (not flat), negative space (clean rim, not overcrowded), odd numbers (3 or 5 elements), restraint (hero ingredient showcased), finishing touches (flaky salt, oil drizzle, fresh herb at end)."
+      }
+    },
+    {
+      "name": "Cultural Context & Authenticity",
+      "description": "Is cultural context provided when relevant, with respect for traditional techniques and flavors?",
+      "scoring": {
+        "1": "No cultural context. Techniques or ingredients used without understanding origin or significance. Inauthentic or disrespectful adaptations. Food stripped of story.",
+        "3": "Basic cultural awareness. Origin mentioned. Some traditional techniques acknowledged. Could provide more depth or context.",
+        "5": "Rich cultural context: origin of dish or technique explained, traditional approach honored, variations across regions noted, cultural significance shared (when dish is eaten, what it represents). Adaptations made thoughtfully with awareness of trade-offs. Food treated as story and connection, not just flavor."
+      }
+    },
+    {
+      "name": "Troubleshooting & Problem-Solving",
+      "description": "Are clear troubleshooting strategies provided for common problems (too salty, flat, broken sauce)?",
+      "scoring": {
+        "1": "No troubleshooting guidance. If something goes wrong, no recovery strategy. Doesn't anticipate common problems. No diagnostic framework.",
+        "3": "Basic troubleshooting. Some common problems addressed (e.g., 'add lemon if flat'). Could be more systematic or comprehensive in problem diagnosis and correction.",
+        "5": "Comprehensive troubleshooting framework: diagnostic tree for flavor imbalances (salt → acid → fat → umami sequence), corrective actions with ratios (½ tsp acid, 1-2 Tbsp butter), emulsion rescue techniques, burnt vs. charred distinction, sauce breaking recovery. Prevention strategies included."
+      }
+    },
+    {
+      "name": "Substitutions & Adaptability",
+      "description": "Are ingredient substitutions and adaptations provided for dietary needs, pantry constraints, or preferences?",
+      "scoring": {
+        "1": "No substitutions offered. Rigid recipe. No adaptations for dietary restrictions, missing ingredients, or skill levels. Not accessible.",
+        "3": "Basic substitutions mentioned. Some alternatives for key ingredients. Could offer more options or explain impact of substitutions on flavor/texture.",
+        "5": "Flexible and adaptable: comprehensive substitutions with ratios (butter → olive oil at 75% amount, garlic powder ⅛ tsp per clove), dietary adaptations (dairy-free, gluten-free options), scaling guidance (up and down), skill-level modifications (shortcuts for weeknights, advanced techniques for enthusiasts). Impact of substitutions explained (flavor, texture differences)."
+      }
+    }
+  ],
+  "minimum_score": 3.5,
+  "guidance_by_cooking_type": {
+    "Recipe Creation": {
+      "target_score": 4.2,
+      "focus_criteria": [
+        "Flavor Architecture & Balance",
+        "Technique Execution & Precision",
+        "Seasoning Strategy"
+      ],
+      "key_requirements": [
+        "Complete mise en place list with prep notes",
+        "Multi-stage seasoning (not just end)",
+        "Sensory cues + precision temps/times",
+        "Flavor balance across salt/acid/fat/umami",
+        "At least one texture contrast",
+        "Troubleshooting guidance included",
+        "Substitutions for key ingredients"
+      ],
+      "common_pitfalls": [
+        "Single-stage seasoning (only salting at end)",
+        "No sensory checkpoints (only times, no 'golden brown and fragrant')",
+        "Missing texture contrast (all soft or all crunchy)",
+        "No troubleshooting (what if too salty, flat, overcooked?)",
+        "Rigid recipe (no substitutions or adaptations)"
+      ]
+    },
+    "Technique Teaching": {
+      "target_score": 4.3,
+      "focus_criteria": [
+        "Technique Execution & Precision",
+        "Science & Rationale",
+        "Troubleshooting & Problem-Solving"
+      ],
+      "key_requirements": [
+        "Explain WHY technique matters (principle before steps)",
+        "Food science grounded (Maillard, denaturation, emulsification)",
+        "Step-by-step with sensory cues at each stage",
+        "Common mistakes identified with prevention strategies",
+        "Practice progression (beginner → intermediate → advanced)",
+        "Related techniques noted (when to use which)"
+      ],
+      "common_pitfalls": [
+        "Steps without rationale ('do this because I said so')",
+        "No sensory cues (only temps, no visual/aroma/sound indicators)",
+        "Missing common mistakes section (learners repeat same errors)",
+        "No practice progression (thrown into deep end)",
+        "Technique taught in isolation (no connection to broader cooking)"
+      ]
+    },
+    "Flavor Troubleshooting": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Flavor Architecture & Balance",
+        "Troubleshooting & Problem-Solving",
+        "Seasoning Strategy"
+      ],
+      "key_requirements": [
+        "Diagnostic framework (identify primary imbalance first)",
+        "Corrective actions with specific amounts (½ tsp acid, 1-2 Tbsp butter)",
+        "Prioritized fixes (Priority 1, 2, 3 sequence)",
+        "Explanation of why correction works (acid masks salt, fat softens)",
+        "Prevention strategy for future (salt at multiple stages, taste as you go)",
+        "Salvage strategies if beyond fixing (repurpose, dilute, companion pairing)"
+      ],
+      "common_pitfalls": [
+        "Vague corrections ('add more seasoning' without specifics)",
+        "No diagnostic framework (throwing random fixes at problem)",
+        "Missing prevention guidance (doesn't help avoid problem next time)",
+        "No salvage strategy (when dish is beyond fixing)",
+        "Ignoring multiple imbalances (only addressing salt, missing acid/fat)"
+      ]
+    },
+    "Menu Planning": {
+      "target_score": 3.9,
+      "focus_criteria": [
+        "Flavor Architecture & Balance",
+        "Texture & Contrast",
+        "Mise en Place & Workflow"
+      ],
+      "key_requirements": [
+        "Flavor progression across courses (light → heavy, acid → rich → sweet)",
+        "Texture variety (alternate crispy, creamy, tender, crunchy)",
+        "Temperature variety (cold → hot → hot → cold)",
+        "Cooking method diversity (raw, sautéed, braised, baked)",
+        "Timing plan (backwards from service time)",
+        "Prep schedule (day before, morning of, 2h before, last minute)",
+        "Holding strategies and contingency plans"
+      ],
+      "common_pitfalls": [
+        "No flavor progression (all heavy, or all rich, or no acid breaks)",
+        "Texture repetition (everything soft, or everything crispy)",
+        "Poor timing (everything needs oven simultaneously)",
+        "No prep schedule (scrambling at service time)",
+        "Missing contingency plans (no backup if dish fails)"
+      ]
+    },
+    "Cultural Cooking": {
+      "target_score": 4.1,
+      "focus_criteria": [
+        "Cultural Context & Authenticity",
+        "Flavor Architecture & Balance",
+        "Technique Execution & Precision"
+      ],
+      "key_requirements": [
+        "Origin and cultural significance explained",
+        "Traditional techniques honored and explained",
+        "Regional variations noted",
+        "Flavor philosophy of cuisine (Thai balance, Japanese umami, French refinement)",
+        "Key ingredients and their roles (fish sauce in Thai, dashi in Japanese)",
+        "Respectful adaptations (if substitutions needed, acknowledge trade-offs)",
+        "Food as story (when eaten, what it represents)"
+      ],
+      "common_pitfalls": [
+        "No cultural context (technique without origin or significance)",
+        "Inauthentic fusion (random mixing without understanding)",
+        "Ignoring traditional methods (shortcuts that lose essence)",
+        "Missing regional variations (cuisine treated as monolithic)",
+        "Substitutions without acknowledgment (authenticity claimed incorrectly)"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Beginner)": {
+      "target_score": 3.5,
+      "characteristics": "1-2 techniques, 30 min or less, 5-10 ingredients, forgiving (hard to ruin), minimal equipment",
+      "focus": "Core technique execution (searing, sautéing), basic flavor balance (salt + acid + fat), one texture contrast, mise en place practice",
+      "examples": "Pan-seared chicken breast with lemon butter sauce, simple vinaigrette salad, roasted vegetables, pasta with garlic oil",
+      "scoring_priorities": [
+        "Technique Execution (proper heat, sensory cues)",
+        "Seasoning Strategy (multi-stage salting)",
+        "Troubleshooting (basic fixes for common problems)"
+      ]
+    },
+    "Moderate (Intermediate)": {
+      "target_score": 4.0,
+      "characteristics": "3-4 techniques, 45-90 min, 10-15 ingredients, some precision required, timing coordination needed",
+      "focus": "Multi-component dishes (protein + sauce + side), flavor layering (aromatics → seasoning → enriching), texture contrasts (2+), orchestration of timing",
+      "examples": "Pan-seared steak with pan sauce and roasted vegetables, risotto with sautéed mushrooms, braised chicken thighs with wine sauce",
+      "scoring_priorities": [
+        "Flavor Architecture (layered, balanced across elements)",
+        "Mise en Place & Workflow (timing coordination)",
+        "Texture & Contrast (intentional variety)"
+      ]
+    },
+    "Complex (Advanced)": {
+      "target_score": 4.3,
+      "characteristics": "5+ techniques, 2-4 hours or multi-day, 15+ ingredients, precision critical, advanced methods (sous vide, fermentation, emulsions)",
+      "focus": "Advanced techniques (emulsions, braising, confit), complex flavor profiles (5+ elements balanced), multi-course orchestration, plating finesse, cultural authenticity",
+      "examples": "Duck confit with orange gastrique and roasted root vegetables, beef Wellington, multi-course tasting menu, mole sauce from scratch",
+      "scoring_priorities": [
+        "Science & Rationale (deep understanding of mechanisms)",
+        "Cultural Context (authenticity and respect)",
+        "Plating & Presentation (restaurant-quality finesse)",
+        "All criteria should score 4+ for complex dishes"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Single-stage seasoning (only at end)",
+      "symptom": "Dish tastes flat despite adding salt at end. Protein bland on inside. Sauce flavor sits 'on top' rather than integrated.",
+      "detection": "Check when salt is added. If only at end, that's the issue. Ask: 'Did you salt the protein before cooking? Did you season the aromatics?'",
+      "fix": "Multi-stage seasoning: (1) Salt proteins 30+ min before cooking (or dry brine), (2) season aromatics as they cook, (3) season sauce throughout cooking, (4) finish with flaky salt for texture. Salt penetrates over time, so early salting = deeper flavor."
+    },
+    {
+      "failure": "No texture contrast (monotonous mouthfeel)",
+      "symptom": "Dish is one texture throughout: all soft (mashed potatoes + braised meat + creamy sauce), all crunchy, or all mushy. Boring to eat despite good flavor.",
+      "detection": "Assess textures in dish. Is there variety? Crispy/creamy, hot/cold, soft/chewy, smooth/chunky contrasts present?",
+      "fix": "Add contrasting element: crispy shallots on creamy soup, toasted nuts on soft vegetables, crusty bread with tender braise, cold crème fraîche on hot soup, crunchy slaw with soft pulled pork. Add crispy elements at end to preserve crunch."
+    },
+    {
+      "failure": "Overcooking protein (dry, tough meat)",
+      "symptom": "Chicken breast dry, steak gray throughout, fish falling apart. Overcooked beyond target temp.",
+      "detection": "Check if thermometer used. What pull temp? Was carryover cooking (5-10°F rise) accounted for? Visual cues alone are unreliable.",
+      "fix": "Use instant-read thermometer. Pull 5-10°F below target: chicken breast 150-155°F (carries to 160°F), steak 125-130°F for medium-rare, fish 120-125°F. Rest protein 5-10 min (tented with foil). Prevent: Dry brine (salt 6-24h ahead) helps retain moisture."
+    },
+    {
+      "failure": "Flat flavor despite salt (missing acid or umami)",
+      "symptom": "Dish adequately salted but still tastes flat, one-dimensional, or boring. No brightness or depth.",
+      "detection": "Salt present, but dish lacks excitement? Likely missing acid (lemon, vinegar) or umami (parmesan, soy, mushroom, tomato). Ask: 'Is there acid to brighten? Umami for depth?'",
+      "fix": "Add acid first (½ tsp lemon juice or vinegar), taste. If still flat, add umami (1 Tbsp parmesan, ½ tsp soy sauce, or 1 tsp tomato paste). Fresh herbs or citrus zest also add aroma (perception of flavor)."
+    },
+    {
+      "failure": "Broken emulsion (sauce separates or curdles)",
+      "symptom": "Vinaigrette separates into oil and vinegar layers. Hollandaise curdles. Butter sauce breaks into greasy pool. Mayo turns to liquid.",
+      "detection": "Sauce looks separated, greasy, or curdled rather than smooth and cohesive. Did oil get added too fast? Was heat too high (hollandaise)? Was it over-whisked?",
+      "fix": "Rescue: Start with fresh emulsifier in clean bowl (egg yolk for hollandaise/mayo, mustard for vinaigrette). Slowly whisk broken sauce back in (dropwise at first, then faster). For butter sauce: lower heat, add cold butter gradually. Prevention: Add fat slowly, don't overheat."
+    },
+    {
+      "failure": "Overcrowding pan (steaming instead of searing)",
+      "symptom": "Protein gray and steamed rather than golden-brown seared. No crust, no fond in pan. Mushrooms release water and become soggy.",
+      "detection": "Check pan: Are items touching each other with no space? Is there steam visible? Food releases liquid and doesn't brown.",
+      "fix": "Leave space between items (at least ½ inch). Cook in batches if needed. Ensure pan is hot before adding food (water droplet test: droplet should sizzle and evaporate in 2-3 sec). Pat protein dry before searing. Use large pan or multiple pans for batch cooking."
+    },
+    {
+      "failure": "Poor mise en place (scrambling mid-cook)",
+      "symptom": "Chopping garlic while onions burn. Measuring spices while sauce reduces too much. Ingredients not ready when needed. High-heat cooking becomes chaotic.",
+      "detection": "Is cook scrambling to prep mid-execution? Are things burning or overcooking while other tasks are completed?",
+      "fix": "Prep all ingredients before heat is applied: dice all vegetables, measure all spices, prepare all aromatics, bring proteins to room temp. Arrange in cooking order (left to right). Read recipe completely before starting. For high-heat cooking (stir-fry, searing), absolutely everything must be prepped first."
+    },
+    {
+      "failure": "No carryover cooking consideration (overshooting target temp)",
+      "symptom": "Pulled protein at target temp (e.g., 130°F for medium-rare), but after resting it's 140°F (medium). Overshot doneness.",
+      "detection": "Check what temp protein was pulled vs. final temp after resting. Was it pulled at target or 5-10°F below?",
+      "fix": "Pull 5-10°F below target temp: steak at 125-130°F for 135°F final (medium-rare), chicken at 150-155°F for 160°F final. Larger/thicker proteins have more carryover (10°F), smaller have less (5°F). Rest 5-10 min for steaks/chops, 10-20 min for roasts. Temp continues to rise during rest."
+    },
+    {
+      "failure": "Dirty rim or overcrowded plate (poor plating)",
+      "symptom": "Sauce drips on rim, food overcrowded with no negative space, flat presentation (no height), messy appearance. Looks institutional or careless.",
+      "detection": "Look at plate: Is rim clean? Is there negative space (1-inch border)? Is there height, or is everything flat? Too many elements crowded?",
+      "fix": "Clean rim with damp towel before service. Leave 1-inch negative space around food. Build height (stack or lean components). Use odd numbers (3 or 5 items, not even). Restraint: showcase hero ingredient, don't overcrowd. Color contrast (green herb on brown meat). Finish with flaky salt, oil drizzle, fresh herb."
+    },
+    {
+      "failure": "Ignoring cultural context (technique without understanding)",
+      "symptom": "Cuisine treated as recipe collection without understanding flavor philosophy. Inauthentic 'fusion' without respect for traditions. Missing cultural significance.",
+      "detection": "Is origin explained? Traditional techniques honored? Regional variations noted? Or is it just 'Asian-inspired' or 'Mexican-style' without depth?",
+      "fix": "Provide cultural context: where dish originates, traditional techniques (and why they matter), flavor philosophy of cuisine (Thai balance sweet/sour/salty/spicy, Japanese umami layering). Note regional variations. If adapting, acknowledge trade-offs. Treat food as story, not just flavor."
+    }
+  ]
+}
