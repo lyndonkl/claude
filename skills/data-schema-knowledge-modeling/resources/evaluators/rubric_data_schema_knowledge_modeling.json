@@ -1,0 +1,282 @@
+{
+  "criteria": [
+    {
+      "name": "Entity Identification & Completeness",
+      "description": "Are all domain entities identified? Each with clear purpose, distinct identity, and no redundancy?",
+      "scoring": {
+        "1": "Missing critical entities. Entities poorly defined or overlapping. No clear distinction between entities and attributes.",
+        "2": "Some entities identified but gaps in coverage. Some entity purposes unclear. Minor redundancy.",
+        "3": "Most entities identified with clear purposes. Reasonable coverage. Entities generally distinct.",
+        "4": "All required entities identified with clear, documented purposes. Good examples provided. No redundancy.",
+        "5": "Complete entity coverage validated against all use cases. Each entity has purpose, examples, lifecycle documented. Entity vs value object distinction clear. No overlap or redundancy."
+      }
+    },
+    {
+      "name": "Attribute Definition Quality",
+      "description": "Are attributes complete with appropriate data types, nullability, and constraints?",
+      "scoring": {
+        "1": "Attributes missing or poorly typed. Wrong data types (e.g., money as VARCHAR). Nullability ignored.",
+        "2": "Basic attributes present but some types questionable. Nullability inconsistent. Some constraints missing.",
+        "3": "Attributes defined with reasonable types. Nullability specified. Core constraints present.",
+        "4": "All attributes well-typed (DECIMAL for money, proper VARCHAR lengths). Nullability correctly specified. Constraints documented.",
+        "5": "Comprehensive attribute definitions with justification for types, nullability, defaults, and constraints. Audit fields (createdAt, updatedAt) included where appropriate. No technical debt."
+      }
+    },
+    {
+      "name": "Relationship Modeling Accuracy",
+      "description": "Are relationships correctly identified with proper cardinality, optionality, and implementation?",
+      "scoring": {
+        "1": "Relationships missing or incorrect. Cardinality wrong. M:N modeled without junction table.",
+        "2": "Some relationships identified but cardinality questionable. Missing junction tables or unclear optionality.",
+        "3": "Most relationships mapped with cardinality. Junction tables for M:N. Optionality specified.",
+        "4": "All relationships correctly modeled. Proper cardinality (1:1, 1:N, M:N). Junction tables where needed. Clear optionality.",
+        "5": "Comprehensive relationship documentation with bidirectional naming, implementation details (FKs, ON DELETE actions), and validation that relationships support all use cases. Complex patterns (polymorphic, hierarchical) correctly handled."
+      }
+    },
+    {
+      "name": "Constraint & Invariant Specification",
+      "description": "Are business rules enforced via constraints? Are domain invariants documented and validated?",
+      "scoring": {
+        "1": "No constraints beyond primary keys. Business rules not documented. Invariants missing.",
+        "2": "Basic constraints (NOT NULL, UNIQUE) present but business rules not enforced. Invariants mentioned but not validated.",
+        "3": "Good constraint coverage (PK, FK, UNIQUE, NOT NULL). Some business rules enforced. Invariants documented.",
+        "4": "Comprehensive constraints including CHECK constraints for business rules. All invariants documented with enforcement strategy.",
+        "5": "All constraints documented with rationale. Domain invariants clearly stated and enforced via DB constraints where possible, application logic where not. Validation strategy for complex multi-table invariants. Examples of enforcement code provided."
+      }
+    },
+    {
+      "name": "Normalization & Data Integrity",
+      "description": "Is schema properly normalized (or deliberately denormalized with rationale)?",
+      "scoring": {
+        "1": "Severe normalization violations. Redundant data. Update anomalies likely.",
+        "2": "Some normalization but violations present (partial or transitive dependencies). Some redundancy.",
+        "3": "Generally normalized to 2NF-3NF. Minimal redundancy. Rationale for exceptions provided.",
+        "4": "Proper normalization to 3NF. Any denormalization documented with performance justification. No update anomalies.",
+        "5": "Exemplary normalization with clear explanation of level achieved (1NF/2NF/3NF/BCNF). Strategic denormalization only where measured performance gains justify it. Trade-offs explicitly documented. No data integrity risks."
+      }
+    },
+    {
+      "name": "Use Case Coverage & Validation",
+      "description": "Does schema support all required use cases? Can all queries be answered?",
+      "scoring": {
+        "1": "Schema doesn't support core use cases. Critical queries impossible or require workarounds.",
+        "2": "Supports some use cases but gaps exist. Some queries difficult or inefficient.",
+        "3": "Supports most use cases. Required queries possible though some may be complex.",
+        "4": "All use cases supported. Validation checklist shows each use case can be satisfied. Query paths identified.",
+        "5": "Comprehensive validation against all use cases with example queries. Indexes planned for performance. Edge cases considered. Future use cases accommodated by design."
+      }
+    },
+    {
+      "name": "Technology Appropriateness",
+      "description": "Is the schema type (relational, document, graph) appropriate for the domain?",
+      "scoring": {
+        "1": "Wrong technology choice (e.g., relational for graph problem, or vice versa). Implementation doesn't match paradigm.",
+        "2": "Technology choice questionable. Implementation awkward for chosen paradigm.",
+        "3": "Reasonable technology choice. Implementation follows paradigm conventions.",
+        "4": "Good technology choice with justification. Implementation leverages paradigm strengths.",
+        "5": "Optimal technology choice with clear rationale comparing alternatives. Implementation exemplifies paradigm best practices. Schema leverages technology-specific features appropriately (e.g., JSONB in PostgreSQL, graph traversal in Neo4j)."
+      }
+    },
+    {
+      "name": "Documentation Quality & Clarity",
+      "description": "Is schema well-documented with ERD, implementation code, and clear explanations?",
+      "scoring": {
+        "1": "Minimal documentation. No diagram. Entity definitions incomplete.",
+        "2": "Basic documentation present but gaps. Diagram missing or unclear. Some entities poorly explained.",
+        "3": "Good documentation with most sections complete. Diagram present. Entities explained.",
+        "4": "Comprehensive documentation following template. ERD clear. All entities, relationships, constraints documented. Implementation code provided.",
+        "5": "Exemplary documentation that could serve as reference. ERD/diagram clear and complete. All sections filled thoroughly. Implementation code (SQL DDL / JSON Schema / Cypher) executable. Examples aid understanding. Could be handed to developer for immediate implementation."
+      }
+    },
+    {
+      "name": "Evolution & Migration Strategy",
+      "description": "Is there a plan for schema changes? Migration path from existing systems considered?",
+      "scoring": {
+        "1": "No evolution strategy. If migration, no plan for existing data.",
+        "2": "Evolution mentioned but no concrete strategy. Migration path vague.",
+        "3": "Basic evolution strategy (versioning or backward-compat approach). Migration considered if applicable.",
+        "4": "Clear evolution strategy documented. Migration path defined with phases if migrating from legacy.",
+        "5": "Comprehensive evolution strategy with versioning, backward-compatibility approach, and detailed migration plan if applicable. Rollback strategy considered. Zero-downtime deployment approach specified. Future extensibility designed in."
+      }
+    },
+    {
+      "name": "Advanced Pattern Application",
+      "description": "Are advanced patterns (temporal, hierarchies, polymorphic) correctly applied when needed?",
+      "scoring": {
+        "1": "Complex patterns needed but missing or incorrectly implemented.",
+        "2": "Attempted advanced patterns but implementation flawed or overly complex.",
+        "3": "Advanced patterns applied where needed with reasonable implementation.",
+        "4": "Advanced patterns correctly implemented with good trade-off decisions (e.g., hierarchy approach chosen based on use case).",
+        "5": "Sophisticated pattern usage with clear rationale for choices. Temporal modeling, hierarchies, polymorphic associations, or graph patterns implemented optimally for domain. Trade-offs explicit and justified."
+      }
+    }
+  ],
+  "schema_type_guidance": {
+    "Relational (SQL)": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Normalization & Data Integrity",
+        "Constraint & Invariant Specification",
+        "Relationship Modeling Accuracy"
+      ],
+      "key_patterns": [
+        "Proper normalization (3NF typical)",
+        "Foreign key relationships with CASCADE/RESTRICT",
+        "CHECK constraints for business rules",
+        "Junction tables for M:N relationships"
+      ]
+    },
+    "Document/NoSQL": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Entity Identification & Completeness",
+        "Use Case Coverage & Validation",
+        "Technology Appropriateness"
+      ],
+      "key_patterns": [
+        "Embed vs reference decision documented",
+        "Denormalization for read performance justified",
+        "Document structure matches query patterns",
+        "JSON schema validation if available"
+      ]
+    },
+    "Graph Database": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Relationship Modeling Accuracy",
+        "Technology Appropriateness",
+        "Advanced Pattern Application"
+      ],
+      "key_patterns": [
+        "Nodes for entities, edges for relationships",
+        "Properties on edges for context",
+        "Traversal patterns optimized (< 3 hops typical)",
+        "Index on frequently filtered properties"
+      ]
+    },
+    "Data Warehouse (OLAP)": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Use Case Coverage & Validation",
+        "Normalization & Data Integrity",
+        "Technology Appropriateness"
+      ],
+      "key_patterns": [
+        "Star or snowflake schema",
+        "Fact tables with foreign keys to dimensions",
+        "Dimensional attributes denormalized",
+        "Slowly changing dimensions handled"
+      ]
+    }
+  },
+  "domain_complexity_guidance": {
+    "Simple Domain (< 10 entities, straightforward relationships)": {
+      "target_score": 3.0,
+      "acceptable_shortcuts": [
+        "ERD can be simple text diagram",
+        "Fewer implementation details needed",
+        "Basic constraints sufficient"
+      ],
+      "key_quality_gates": [
+        "All entities identified",
+        "Relationships correct",
+        "Supports use cases"
+      ]
+    },
+    "Standard Domain (10-30 entities, moderate complexity)": {
+      "target_score": 3.5,
+      "required_elements": [
+        "Complete entity definitions",
+        "ERD diagram",
+        "All relationships mapped",
+        "Constraints documented",
+        "Implementation code (DDL/schema)"
+      ],
+      "key_quality_gates": [
+        "All 10 criteria evaluated",
+        "Minimum score of 3 on each",
+        "Average ≥ 3.5"
+      ]
+    },
+    "Complex Domain (30+ entities, hierarchies, temporal, polymorphic)": {
+      "target_score": 4.0,
+      "required_elements": [
+        "Comprehensive documentation",
+        "Multiple diagrams (ERD + detail views)",
+        "Advanced pattern usage documented",
+        "Migration strategy if applicable",
+        "Performance considerations",
+        "Example queries for complex patterns"
+      ],
+      "key_quality_gates": [
+        "All 10 criteria evaluated",
+        "Minimum score of 3.5 on each",
+        "Average ≥ 4.0",
+        "Score 5 on Advanced Pattern Application"
+      ]
+    }
+  },
+  "common_failure_modes": {
+    "1. God Entities": {
+      "symptom": "User table with 50+ attributes, or single entity handling multiple concerns",
+      "why_it_fails": "Violates single responsibility, hard to query, update anomalies",
+      "fix": "Extract related concerns into separate entities (UserProfile, UserPreferences, UserAddress)",
+      "related_criteria": ["Entity Identification & Completeness", "Normalization & Data Integrity"]
+    },
+    "2. Missing Junction Tables": {
+      "symptom": "Attempting M:N relationship with direct foreign keys or comma-separated IDs",
+      "why_it_fails": "Can't properly model M:N, violates 1NF, query complexity",
+      "fix": "Always use junction table with composite primary key for M:N relationships",
+      "related_criteria": ["Relationship Modeling Accuracy", "Normalization & Data Integrity"]
+    },
+    "3. Wrong Data Types": {
+      "symptom": "Money as FLOAT, dates as VARCHAR, booleans as CHAR(1)",
+      "why_it_fails": "Precision loss (money), format inconsistency (dates), unclear semantics (booleans)",
+      "fix": "Use DECIMAL for money, DATE/TIMESTAMP for dates, BOOLEAN for flags",
+      "related_criteria": ["Attribute Definition Quality"]
+    },
+    "4. No Constraints": {
+      "symptom": "Business rules in documentation but not enforced in schema",
+      "why_it_fails": "Application bugs can corrupt data, no database-level guarantees",
+      "fix": "Use CHECK constraints, NOT NULL, UNIQUE, FK constraints to enforce rules",
+      "related_criteria": ["Constraint & Invariant Specification"]
+    },
+    "5. Premature Denormalization": {
+      "symptom": "Duplicating data for \"performance\" without measuring",
+      "why_it_fails": "Update anomalies, data inconsistency, wasted effort if not bottleneck",
+      "fix": "Normalize first (3NF), denormalize only after profiling shows actual bottleneck",
+      "related_criteria": ["Normalization & Data Integrity", "Use Case Coverage & Validation"]
+    },
+    "6. Ignoring Use Cases": {
+      "symptom": "Schema designed in isolation, doesn't support required queries",
+      "why_it_fails": "Schema can't answer business questions, requires redesign",
+      "fix": "Validate schema against ALL use cases. Write example queries to verify.",
+      "related_criteria": ["Use Case Coverage & Validation"]
+    },
+    "7. Modeling Implementation": {
+      "symptom": "Entities like \"UserSession\", \"Cache\", \"Queue\" in domain model",
+      "why_it_fails": "Confuses domain concepts with technical infrastructure",
+      "fix": "Model real-world domain entities only. Infrastructure is separate concern.",
+      "related_criteria": ["Entity Identification & Completeness", "Technology Appropriateness"]
+    },
+    "8. No Evolution Strategy": {
+      "symptom": "Can't change schema without breaking production",
+      "why_it_fails": "Schema ossifies, can't adapt to business changes",
+      "fix": "Plan for evolution: versioning, backward-compat changes, or expand-contract migrations",
+      "related_criteria": ["Evolution & Migration Strategy"]
+    }
+  },
+  "scale": {
+    "description": "Each criterion scored 1-5",
+    "min_score": 1,
+    "max_score": 5,
+    "passing_threshold": 3.5,
+    "excellence_threshold": 4.5
+  },
+  "usage_notes": {
+    "when_to_score": "After completing schema design, before delivering to user",
+    "minimum_standard": "Average score ≥ 3.5 across all criteria (standard domain). Simple domains: ≥ 3.0. Complex domains: ≥ 4.0.",
+    "how_to_improve": "If scoring < threshold, identify lowest-scoring criteria and iterate. Common fixes: add missing entities, specify constraints, validate against use cases, improve documentation.",
+    "self_assessment": "Score honestly. Schema flaws are expensive to fix in production. Better to iterate now."
+  }
+}
