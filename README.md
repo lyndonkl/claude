@@ -175,8 +175,6 @@ Skill Progress:
 
 **In Development**: 39 skills remaining from standard collection
 
-See [COMPLETED-SKILLS.md](/scratchpad/COMPLETED-SKILLS.md) for detailed progress tracking.
-
 ## Key Features
 
 ### Quality Standards
@@ -226,8 +224,6 @@ When creating or refining skills:
 ## Resources
 
 - [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code/)
-- [Skill Refinement Instructions](/scratchpad/SKILL-REFINEMENT-INSTRUCTIONS.md)
-- [Workflow Pattern Guide](/scratchpad/workflow-pattern.md)
 
 ## License
 
