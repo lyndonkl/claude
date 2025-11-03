@@ -1,0 +1,248 @@
+{
+  "criteria": [
+    {
+      "name": "Proposal Definition & Context",
+      "description": "Is the proposal clearly defined with stakes, constraints, and decision timeline?",
+      "scoring": {
+        "1": "Vague proposal definition. Stakes unclear or not documented. No timeline, no decision-maker identified. Insufficient context for meaningful red team.",
+        "3": "Proposal defined but lacks specificity. Stakes mentioned but not quantified. Timeline present but may be unrealistic. Some context gaps.",
+        "5": "Exemplary proposal definition. Specific, actionable proposal with clear scope. Stakes quantified (upside/downside/reversibility). Timeline realistic with decision-maker identified. Constraints documented. Sufficient context for adversarial analysis."
+      }
+    },
+    {
+      "name": "Adversarial Role Selection",
+      "description": "Are adversarial roles appropriately chosen to expose blind spots for this specific proposal?",
+      "scoring": {
+        "1": "Generic roles not tailored to proposal (e.g., same 3 roles for every analysis). Missing critical perspectives. Roles have overlapping concerns, no diversity of viewpoint.",
+        "3": "Roles are reasonable but may not be optimal for proposal type. 3-5 roles selected. Some critical perspectives may be missing. Roles have some overlap but provide different angles.",
+        "5": "Optimal role selection. 3-5 roles specifically chosen to expose blind spots for this proposal. All critical perspectives covered (security, ops, customer, legal, etc. as appropriate). Roles have distinct, non-overlapping concerns. Rationale provided for role choices."
+      }
+    },
+    {
+      "name": "Critique Quality & Depth",
+      "description": "Are critiques specific, realistic (steelman not strawman), and adversarial?",
+      "scoring": {
+        "1": "Critiques are vague, strawman arguments, or superficial. No specific failure modes identified. Critiques confirm bias rather than challenge assumptions. Groupthink evident.",
+        "3": "Critiques are specific to components but may lack depth. Some realistic challenges raised. Mix of steelman and strawman arguments. Adversarial tone present but may not fully expose vulnerabilities.",
+        "5": "Exemplary critique quality. Specific, realistic failure modes identified. Steelman arguments (strongest version of critique). Genuinely adversarial (surfaces blind spots, challenges assumptions). For each role: what could go wrong, questionable assumptions, missing elements, stress scenarios addressed."
+      }
+    },
+    {
+      "name": "Risk Assessment Rigor",
+      "description": "Are risks assessed with severity, likelihood, and scoring methodology? Is prioritization data-driven?",
+      "scoring": {
+        "1": "No risk scoring. All risks treated as equal priority. Severity/likelihood not assessed or purely subjective with no rationale.",
+        "3": "Risks scored with severity and likelihood but ratings may be subjective or inconsistent. Risk score calculated (S×L). Some prioritization present but may not be rigorous. Showstoppers identified.",
+        "5": "Rigorous risk assessment. All risks scored with severity (1-5) and likelihood (1-5) with clear rationale. Risk score (S×L) calculated correctly. Prioritization into categories (Showstopper ≥15, High Priority 10-14, Monitor 5-9, Accept <5). Showstoppers clearly flagged and justified."
+      }
+    },
+    {
+      "name": "Mitigation Appropriateness",
+      "description": "Are mitigations specific, actionable, and matched to risk severity?",
+      "scoring": {
+        "1": "Vague mitigations ('be careful', 'think about it'). No concrete actions. Mitigations don't address root cause. Showstoppers not mitigated.",
+        "3": "Mitigations are specific but may lack implementation detail. Mitigation strategy stated (revise, safeguard, accept, delay). Showstoppers addressed but plan may be incomplete. Some mitigations may not match risk severity.",
+        "5": "Exemplary mitigations. Specific, actionable recommendations with clear strategy (revise proposal, add safeguards, reduce scope, contingency plan, gather data, accept with monitoring, delay/cancel). All showstoppers have concrete mitigation with owner and deadline. Mitigations proportional to risk severity. Expected impact quantified where possible."
+      }
+    },
+    {
+      "name": "Argumentation Validity (Steelman vs Strawman)",
+      "description": "Are critiques evaluated for validity using structured argumentation? Are strawman arguments identified and filtered?",
+      "scoring": {
+        "1": "No evaluation of critique validity. Strawman arguments accepted as valid. Weak critiques (no data, illogical warrants) treated same as strong critiques.",
+        "3": "Some attempt to evaluate critique validity. Toulmin model components mentioned (claim, data, warrant) but not systematically applied. Some strawman arguments filtered but others may remain.",
+        "5": "Rigorous argumentation analysis. Toulmin model applied (claim, data, warrant, backing, qualifier, rebuttal). Strong critiques clearly distinguished from strawman arguments. Rebuttals structured (accept, refine, reject with counter-evidence). Only valid critiques inform final recommendations."
+      }
+    },
+    {
+      "name": "Facilitation Quality (if group exercise)",
+      "description": "If red team involved facilitated session, was defensiveness managed, intensity calibrated, and airtime balanced?",
+      "scoring": {
+        "1": "Facilitation absent or poor. Defensive responses shut down critique. HiPPO effect (highest-paid person dominates). Hostile tone or groupthink prevails. No synthesis or structure.",
+        "3": "Facilitation present but uneven. Some defensive responses managed. Intensity mostly appropriate but may be too soft or too aggressive. Airtime somewhat balanced. Some synthesis of findings.",
+        "5": "Exemplary facilitation. Defensive responses skillfully redirected (Socratic questioning, 'Yes and...'). Adversarial intensity calibrated to team culture (escalating approach). Airtime balanced (quiet voices heard). Strategic use of silence, parking lot, synthesis. Session stayed focused and constructive. If async (Delphi), anonymization and iteration done correctly."
+      }
+    },
+    {
+      "name": "Consensus Building",
+      "description": "If multi-stakeholder, was alignment achieved on showstoppers and mitigations? Were disagreements documented?",
+      "scoring": {
+        "1": "No consensus process. Stakeholder concerns ignored. Disagreements not documented. Decision appears one-sided.",
+        "3": "Some consensus process. Stakeholder concerns acknowledged. Agreement on some showstoppers but others may be unresolved. Dissent mentioned but may not be fully documented.",
+        "5": "Robust consensus building. All stakeholder perspectives acknowledged. Shared goals identified. Showstoppers negotiated to consensus (or decision-maker adjudicated with rationale). Remaining disagreements explicitly documented with stakeholder positions. Transparent process."
+      }
+    },
+    {
+      "name": "Assumption & Rebuttal Documentation",
+      "description": "Are assumptions surfaced and tested? Are rebuttals to critiques documented?",
+      "scoring": {
+        "1": "Assumptions implicit, not documented. Rebuttals absent (all critiques accepted without question) or dismissive ('you're wrong').",
+        "3": "Some assumptions surfaced. Rebuttals present for some critiques but may lack counter-evidence. Assumption testing may be superficial.",
+        "5": "Comprehensive assumption surfacing. For each key claim: 'What must be true for this to work?' Assumptions tested (validated or flagged as unvalidated). Rebuttals structured with counter-data and counter-warrant for rejected critiques. Accepted critiques acknowledged and added to mitigation plan."
+      }
+    },
+    {
+      "name": "Communication & Deliverable Quality",
+      "description": "Is red team analysis clear, structured, and actionable? Does deliverable enable decision-making?",
+      "scoring": {
+        "1": "Deliverable is confusing, unstructured, or missing. Findings are unclear. No clear recommendation (proceed/delay/cancel). Decision-maker cannot act on analysis.",
+        "3": "Deliverable is present and somewhat structured. Findings are documented but may require effort to understand. Recommendation present but may lack justification. Sufficient for decision-making with clarification.",
+        "5": "Exemplary deliverable. Clear structure (proposal definition, roles, critiques, risk assessment, mitigations, revised proposal, recommendation). Findings are evidence-based and understandable. Recommendation explicit (Proceed / Proceed with caution / Delay / Cancel) with clear rationale. Decision-maker can confidently act on analysis. Appropriate level of detail for audience."
+      }
+    }
+  ],
+  "minimum_score": 3.5,
+  "guidance_by_proposal_type": {
+    "Product/Feature Launch": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Adversarial Role Selection",
+        "Critique Quality & Depth",
+        "Risk Assessment Rigor"
+      ],
+      "recommended_roles": [
+        "Customer/User (adoption, friction)",
+        "Operations (reliability, maintenance)",
+        "Competitor (market response)",
+        "Legal/Privacy (compliance)"
+      ],
+      "common_pitfalls": [
+        "Missing customer adoption risk (assuming if you build it, they will come)",
+        "Underestimating operational burden post-launch",
+        "Not considering competitive response or timing"
+      ]
+    },
+    "Technical/Architecture Decision": {
+      "target_score": 4.2,
+      "focus_criteria": [
+        "Adversarial Role Selection",
+        "Critique Quality & Depth",
+        "Mitigation Appropriateness"
+      ],
+      "recommended_roles": [
+        "Security (attack vectors)",
+        "Operations (operability, debugging)",
+        "Engineer (technical debt, complexity)",
+        "Long-term Thinker (future costs, scalability)"
+      ],
+      "common_pitfalls": [
+        "Missing security implications of architectural choice",
+        "Not considering operational complexity (monitoring, debugging, incident response)",
+        "Underestimating technical debt accumulation"
+      ]
+    },
+    "Strategy/Business Decision": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Critique Quality & Depth",
+        "Risk Assessment Rigor",
+        "Assumption & Rebuttal Documentation"
+      ],
+      "recommended_roles": [
+        "Competitor (market response)",
+        "Finance (ROI assumptions, hidden costs)",
+        "Contrarian (challenge core assumptions)",
+        "Long-term Thinker (second-order effects)"
+      ],
+      "common_pitfalls": [
+        "Optimistic ROI projections not stress-tested",
+        "Missing second-order effects (what happens after the obvious first-order outcome)",
+        "Not questioning core assumptions about market or customer behavior"
+      ]
+    },
+    "Policy/Process Change": {
+      "target_score": 3.8,
+      "focus_criteria": [
+        "Adversarial Role Selection",
+        "Consensus Building",
+        "Communication & Deliverable Quality"
+      ],
+      "recommended_roles": [
+        "Affected User (workflow disruption)",
+        "Operations (enforcement burden)",
+        "Legal/Compliance (regulatory risk)",
+        "Investigative Journalist (PR risk)"
+      ],
+      "common_pitfalls": [
+        "Not considering impact on affected users' workflows",
+        "Assuming policy will be followed without enforcement mechanism",
+        "Missing PR or reputational risk if policy becomes public"
+      ]
+    },
+    "Security/Safety Initiative": {
+      "target_score": 4.5,
+      "focus_criteria": [
+        "Critique Quality & Depth",
+        "Risk Assessment Rigor",
+        "Argumentation Validity (Steelman vs Strawman)"
+      ],
+      "recommended_roles": [
+        "Malicious Actor (attack vectors)",
+        "Operations (false positives, operational burden)",
+        "Affected User (friction, usability)",
+        "Regulator (compliance)"
+      ],
+      "common_pitfalls": [
+        "Strawman attacks (unrealistic threat models)",
+        "Missing usability/friction trade-offs (security so burdensome it's bypassed)",
+        "Not considering adversarial adaptation (attacker evolves to bypass control)"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Low stakes, reversible, single stakeholder, clear success criteria)": {
+      "target_score": 3.5,
+      "sufficient_depth": "3 adversarial roles. Basic critique framework (what could go wrong, questionable assumptions). Risk assessment with severity/likelihood. Mitigation for showstoppers only. Lightweight process (template.md sufficient)."
+    },
+    "Moderate (Medium stakes, partially reversible, multiple stakeholders, some uncertainty)": {
+      "target_score": 3.8,
+      "sufficient_depth": "4-5 adversarial roles covering key perspectives. Comprehensive critique (failure modes, assumptions, gaps, stress scenarios). Risk assessment with prioritization matrix. Mitigations for showstoppers and high-priority risks. Structured argumentation to filter strawman. Stakeholder alignment on key risks."
+    },
+    "Complex (High stakes, irreversible or costly to reverse, many stakeholders, high uncertainty, strategic importance)": {
+      "target_score": 4.2,
+      "sufficient_depth": "5+ adversarial roles, may use advanced techniques (pre-mortem, wargaming, tabletop). Rigorous critique with multiple rounds. Full risk assessment with sensitivity analysis. Attack trees or FMEA if security/safety critical. Toulmin model for all critiques. Facilitated session with calibrated intensity. Consensus building process with documented dissent. Comprehensive deliverable with revised proposal."
+    }
+  },
+  "common_failure_modes": {
+    "1. Red Team as Rubber Stamp": {
+      "symptom": "Critiques are superficial, confirm existing bias, no real challenges raised. Groupthink persists.",
+      "detection": "All critiques are minor. No showstoppers identified. Proposal unchanged after red team.",
+      "fix": "Choose truly adversarial roles. Use pre-mortem or attack trees to force critical thinking. Bring in external red team if internal team too aligned. Calibrate intensity upward."
+    },
+    "2. Strawman Arguments Dominate": {
+      "symptom": "Critiques are unrealistic, extreme scenarios, or not applicable to proposal.",
+      "detection": "Proposer easily dismisses all critiques as 'not realistic'. No valid concerns surfaced.",
+      "fix": "Apply Toulmin model. Require data and backing for each critique. Filter out critiques with no evidence or illogical warrants. Focus on steelman (strongest version of argument)."
+    },
+    "3. Defensive Shutdown": {
+      "symptom": "Team rejects all critiques, hostility emerges, session becomes unproductive.",
+      "detection": "Eye-rolling, dismissive language ('we already thought of that'), personal attacks, participants disengage.",
+      "fix": "Recalibrate adversarial intensity downward. Use 'Yes, and...' framing. Reaffirm purpose (improve proposal, not attack people). Facilitator redirects defensive responses with Socratic questioning."
+    },
+    "4. Analysis Paralysis": {
+      "symptom": "Red team drags on for weeks, endless critique rounds, no decision.",
+      "detection": "Stakeholders losing patience. 'When will we decide?' Critique list grows but no prioritization.",
+      "fix": "Time-box red team (half-day to 1-day max). Focus on showstoppers only. Use risk matrix to prioritize. Decision-maker sets cutoff: 'We decide by [date] with info we have.'"
+    },
+    "5. Missing Critical Perspectives": {
+      "symptom": "Red team identifies some risks but misses key blind spot that later causes failure.",
+      "detection": "Post-failure retrospective reveals 'we should have had [role X] in red team.'",
+      "fix": "Systematically identify who has most to lose from proposal. Include those roles. Use role selection guide (template.md) to avoid generic role choices."
+    },
+    "6. No Follow-Through on Mitigations": {
+      "symptom": "Great red team analysis, mitigations documented, but none implemented.",
+      "detection": "Months later, proposal proceeds unchanged. Mitigations never actioned.",
+      "fix": "Assign owner and deadline to each showstopper mitigation. Track in project plan. Decision-maker blocks proceed decision until showstoppers addressed. Document acceptance if risk knowingly taken."
+    },
+    "7. Vague Risk Assessment": {
+      "symptom": "Risks identified but not scored or prioritized. 'Everything is high risk.'",
+      "detection": "Cannot answer 'which risks are most critical?' All risks treated equally.",
+      "fix": "Apply severity × likelihood matrix rigorously. Score all risks 1-5 on both dimensions. Calculate risk score. Categorize (Showstopper/High/Monitor/Accept). Focus mitigation effort on highest scores."
+    },
+    "8. HiPPO Effect (Highest-Paid Person's Opinion)": {
+      "symptom": "Senior leader's opinion dominates, other perspectives suppressed.",
+      "detection": "All critiques align with leader's known position. Dissenting views not voiced.",
+      "fix": "Use anonymous brainstorming (pre-mortem, written critiques before discussion). Delphi method for async consensus. Facilitator explicitly solicits quiet voices. Leader speaks last, not first."
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "criteria": [
+    {
+      "name": "Decision Framing & Context",
+      "description": "Is the decision clearly defined with all viable alternatives identified?",
+      "scoring": {
+        "1": "Decision is vague or ill-defined. Alternatives are incomplete or include non-comparable options. No stakeholder identification.",
+        "3": "Decision is stated but lacks specificity. Most alternatives listed but may be missing key options. Stakeholders mentioned generally.",
+        "5": "Exemplary framing. Decision is specific and unambiguous. All viable alternatives identified (including 'do nothing' if relevant). Must-have requirements separated from criteria. Stakeholders clearly identified with their priorities noted."
+      }
+    },
+    {
+      "name": "Criteria Quality & Coverage",
+      "description": "Are criteria well-chosen, measurable, independent, and comprehensive?",
+      "scoring": {
+        "1": "Criteria are vague, redundant, or missing key factors. Too many (>10) or too few (<3). No clear definitions.",
+        "3": "Criteria cover main factors but may have some redundancy or gaps. 4-8 criteria with basic definitions. Some differentiation between options.",
+        "5": "Exemplary criteria selection. 4-7 criteria that are measurable, independent, relevant, and differentiate between options. Each criterion has clear definition and measurement approach. No redundancy. Captures all important trade-offs."
+      }
+    },
+    {
+      "name": "Weighting Appropriateness",
+      "description": "Do criterion weights reflect true priorities and sum to 100%?",
+      "scoring": {
+        "1": "Weights don't sum to 100%, are arbitrary, or clearly misaligned with stated priorities. No rationale provided.",
+        "3": "Weights sum to 100% and are reasonable but may lack explicit justification. Some alignment with priorities.",
+        "5": "Exemplary weighting. Weights sum to 100%, clearly reflect stakeholder priorities, and have documented rationale (pairwise comparison, swing weighting, or stakeholder averaging). Weight distribution makes sense for decision type."
+      }
+    },
+    {
+      "name": "Scoring Rigor & Data Quality",
+      "description": "Are scores based on data or defensible judgments with documented sources?",
+      "scoring": {
+        "1": "Scores appear to be wild guesses with no justification. No data sources. Inconsistent scale usage.",
+        "3": "Mix of data-driven and subjective scores. Some sources documented. Mostly consistent 1-10 scale. Some assumptions noted.",
+        "5": "Exemplary scoring rigor. Objective criteria backed by real data (quotes, benchmarks, measurements). Subjective criteria have clear anchors/definitions. All assumptions and data sources documented. Consistent 1-10 scale usage."
+      }
+    },
+    {
+      "name": "Calculation Accuracy",
+      "description": "Are weighted scores calculated correctly and presented clearly?",
+      "scoring": {
+        "1": "Calculation errors present. Weights don't match stated percentages. Formula mistakes. Unclear presentation.",
+        "3": "Calculations are mostly correct with minor issues. Weighted scores shown but presentation could be clearer.",
+        "5": "Perfect calculations. Weighted scores = Σ(score × weight) for each option. Table clearly shows raw scores, weights (as percentages), weighted scores, and totals. Ranking is correct."
+      }
+    },
+    {
+      "name": "Sensitivity Analysis",
+      "description": "Is decision robustness assessed (close calls, weight sensitivity, score uncertainty)?",
+      "scoring": {
+        "1": "No sensitivity analysis. Winner declared without checking if decision is robust.",
+        "3": "Basic sensitivity noted (e.g., 'close call' mentioned) but not systematically analyzed.",
+        "5": "Thorough sensitivity analysis. Identifies close calls (<10% margin). Tests weight sensitivity (would swapping weights flip decision?). Notes which scores are most uncertain. Assesses decision robustness and flags fragile decisions."
+      }
+    },
+    {
+      "name": "Recommendation Quality",
+      "description": "Is recommendation clear with rationale, trade-offs, and confidence level?",
+      "scoring": {
+        "1": "No clear recommendation or just states winner without rationale. No trade-off discussion.",
+        "3": "Recommendation stated with basic rationale. Some trade-offs mentioned. Confidence level implied but not stated.",
+        "5": "Exemplary recommendation. Clear winner with score. Explains WHY winner prevails (which criteria drive decision). Acknowledges trade-offs (where winner scores lower). States confidence level based on margin and sensitivity. Suggests next steps."
+      }
+    },
+    {
+      "name": "Assumption & Limitation Documentation",
+      "description": "Are key assumptions, uncertainties, and limitations explicitly stated?",
+      "scoring": {
+        "1": "No assumptions documented. Presents results as facts without acknowledging uncertainty or limitations.",
+        "3": "Some assumptions mentioned. Acknowledges uncertainty exists but not comprehensive.",
+        "5": "All key assumptions explicitly documented. Uncertainties flagged (which scores are guesses vs data). Limitations noted (e.g., 'cost estimates are preliminary', 'performance benchmarks unavailable'). Reader understands confidence bounds."
+      }
+    },
+    {
+      "name": "Stakeholder Alignment",
+      "description": "For group decisions, are different stakeholder priorities surfaced and addressed?",
+      "scoring": {
+        "1": "Single set of weights/scores presented as if universal. No acknowledgment of stakeholder differences.",
+        "3": "Stakeholder differences mentioned but not systematically addressed. Single averaged view presented.",
+        "5": "Stakeholder differences explicitly surfaced. If priorities diverge, shows impact (e.g., 'Under engineering priorities, A wins; under sales priorities, B wins'). Facilitates alignment or escalates decision appropriately."
+      }
+    },
+    {
+      "name": "Communication & Presentation",
+      "description": "Is matrix table clear, readable, and appropriately formatted?",
+      "scoring": {
+        "1": "Matrix is confusing, poorly formatted, or missing key elements (weights, totals). Hard to interpret.",
+        "3": "Matrix is readable with minor formatting issues. Weights and totals shown but could be clearer.",
+        "5": "Exemplary presentation. Table is clean and scannable. Column headers show criteria names AND weights (%). Weighted scores shown (not just raw scores). Winner visually highlighted. Assumptions and next steps clearly stated."
+      }
+    }
+  ],
+  "minimum_score": 3.5,
+  "guidance_by_decision_type": {
+    "Technology Selection (tools, platforms, vendors)": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Criteria Quality & Coverage",
+        "Scoring Rigor & Data Quality",
+        "Sensitivity Analysis"
+      ],
+      "common_pitfalls": [
+        "Missing 'Total Cost of Ownership' as criterion (not just upfront cost)",
+        "Ignoring integration complexity or vendor lock-in risk",
+        "Not scoring 'do nothing / keep current solution' as baseline"
+      ]
+    },
+    "Strategic Choices (market entry, partnerships, positioning)": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Decision Framing & Context",
+        "Weighting Appropriateness",
+        "Stakeholder Alignment"
+      ],
+      "common_pitfalls": [
+        "Weighting short-term metrics too heavily over strategic fit",
+        "Not including reversibility / optionality as criterion",
+        "Ignoring stakeholder misalignment on priorities"
+      ]
+    },
+    "Vendor / Supplier Evaluation": {
+      "target_score": 3.8,
+      "focus_criteria": [
+        "Criteria Quality & Coverage",
+        "Scoring Rigor & Data Quality",
+        "Assumption & Limitation Documentation"
+      ],
+      "common_pitfalls": [
+        "Relying on vendor-provided data without validation",
+        "Not including 'vendor financial health' or 'support SLA' criteria",
+        "Missing contract terms (pricing lock, exit clauses) as criterion"
+      ]
+    },
+    "Feature Prioritization": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Weighting Appropriateness",
+        "Scoring Rigor & Data Quality",
+        "Sensitivity Analysis"
+      ],
+      "common_pitfalls": [
+        "Not including 'effort' or 'technical risk' as criteria",
+        "Scoring 'user impact' without user research data",
+        "Ignoring dependencies between features"
+      ]
+    },
+    "Hiring Decisions": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Criteria Quality & Coverage",
+        "Scoring Rigor & Data Quality",
+        "Assumption & Limitation Documentation"
+      ],
+      "common_pitfalls": [
+        "Criteria too vague (e.g., 'culture fit' without definition)",
+        "Interviewer bias in scores (need calibration)",
+        "Not documenting what good vs poor looks like for each criterion"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (3-4 alternatives, clear criteria, aligned stakeholders)": {
+      "target_score": 3.5,
+      "sufficient_rigor": "Basic weighting (direct allocation), data-driven scores where possible, simple sensitivity check (margin analysis)"
+    },
+    "Moderate (5-7 alternatives, some subjectivity, minor disagreement)": {
+      "target_score": 3.8,
+      "sufficient_rigor": "Structured weighting (rank-order or pairwise), documented scoring rationale, sensitivity analysis on close calls"
+    },
+    "Complex (8+ alternatives, high subjectivity, stakeholder conflict)": {
+      "target_score": 4.2,
+      "sufficient_rigor": "Advanced weighting (AHP, swing), score calibration/normalization, Monte Carlo or scenario sensitivity, stakeholder convergence process (Delphi, NGT)"
+    }
+  },
+  "common_failure_modes": {
+    "1. Post-Rationalization": {
+      "symptom": "Weights or scores appear engineered to justify pre-made decision",
+      "detection": "Oddly specific weights (37%), generous scores for preferred option, stakeholders admit 'we already know the answer'",
+      "prevention": "Assign weights BEFORE scoring alternatives. Use blind facilitation. Ask: 'If matrix contradicts gut, do we trust it?'"
+    },
+    "2. Garbage In, Garbage Out": {
+      "symptom": "All scores are guesses with no data backing",
+      "detection": "Cannot answer 'where did this score come from?', scores assigned in <5 min, all round numbers (5, 7, 8)",
+      "prevention": "Require data sources for objective criteria. Define scoring anchors for subjective criteria. Flag uncertainties."
+    },
+    "3. Analysis Paralysis": {
+      "symptom": "Endless refinement, never deciding",
+      "detection": ">10 criteria, winner changes 3+ times, 'just one more round' requests",
+      "prevention": "Set decision deadline. Cap criteria at 5-7. Use satisficing rule: 'Any option >7.0 is acceptable.'"
+    },
+    "4. Criterion Soup": {
+      "symptom": "Overlapping, redundant, or conflicting criteria",
+      "detection": "Two criteria always score the same, scorer confusion ('how is this different?')",
+      "prevention": "Independence test: Can option score high on A but low on B? If no, merge them. Write clear definitions."
+    },
+    "5. Ignoring Sensitivity": {
+      "symptom": "Winner declared without robustness check",
+      "detection": "No mention of margin, close calls, or what would flip decision",
+      "prevention": "Always report margin. Test: 'If we swapped top 2 weights, does winner change?' Flag fragile decisions."
+    },
+    "6. Stakeholder Misalignment": {
+      "symptom": "Different stakeholders have different priorities but single matrix presented",
+      "detection": "Engineering wants A, sales wants B, but matrix 'proves' one is right",
+      "prevention": "Surface weight differences. Show 'under X priorities, A wins; under Y priorities, B wins.' Escalate if needed."
+    },
+    "7. Missing 'Do Nothing'": {
+      "symptom": "Only evaluating new alternatives, forgetting status quo is an option",
+      "detection": "All alternatives are new changes, no baseline comparison",
+      "prevention": "Always include current state / do nothing as an option to evaluate if change is worth it."
+    },
+    "8. False Precision": {
+      "symptom": "Scores to 2 decimals when underlying data is rough guess",
+      "detection": "Weighted total: 7.342 but scores are subjective estimates",
+      "prevention": "Match precision to confidence. Rough guesses → round to 0.5. Data-driven → decimals OK."
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "criteria": [
+    {
+      "name": "Decomposition Completeness & Granularity",
+      "description": "Are all major components identified at appropriate granularity?",
+      "scoring": {
+        "1": "Decomposition too shallow (2-3 components still very complex) or too deep (50+ atomic parts, overwhelming). Major components missing.",
+        "3": "Most major components identified. Granularity mostly appropriate but some components too coarse or too fine. Minor gaps in coverage.",
+        "5": "Complete decomposition. All major components identified. Granularity is appropriate (3-8 components per level, atomic components clearly marked). Decomposition depth justified with rationale."
+      }
+    },
+    {
+      "name": "Decomposition Strategy Alignment",
+      "description": "Is decomposition strategy (functional, structural, data flow, temporal, cost) appropriate for system type and goal?",
+      "scoring": {
+        "1": "Inconsistent strategy (mixing functional/structural randomly). Wrong strategy for system type (e.g., functional decomposition for architectural analysis).",
+        "3": "Strategy is stated and mostly consistent. Reasonable fit for system type but may not be optimal for goal.",
+        "5": "Exemplary strategy selection. Decomposition approach clearly matches system type and goal. Strategy is consistently applied. Alternative strategies considered and rationale provided."
+      }
+    },
+    {
+      "name": "Relationship Mapping Accuracy",
+      "description": "Are component relationships (dependencies, data flow, control flow) correctly identified and documented?",
+      "scoring": {
+        "1": "Critical relationships missing. Relationship types unclear or mislabeled. No distinction between dependency, data flow, control flow.",
+        "3": "Major relationships documented. Types mostly correct. Some implicit or transitive dependencies may be missing. Critical path identified but may have gaps.",
+        "5": "Comprehensive relationship mapping. All critical relationships documented with correct types (dependency, data flow, control, temporal, resource sharing). Critical path clearly identified. Dependency graph is accurate and complete."
+      }
+    },
+    {
+      "name": "Property Measurement Rigor",
+      "description": "Are component properties (latency, cost, complexity, etc.) measured or estimated with documented sources?",
+      "scoring": {
+        "1": "All properties are guesses with no rationale. No data sources. Properties relevant to goal not measured.",
+        "3": "Mix of measured and estimated properties. Some data sources documented. Key properties addressed but may lack precision.",
+        "5": "Rigorous property measurement. Quantitative properties backed by measurements (profiling, logs, benchmarks). Qualitative properties have clear anchors/definitions. All data sources and estimation rationale documented. Focus on goal-relevant properties."
+      }
+    },
+    {
+      "name": "Critical Component Identification",
+      "description": "Are bottlenecks, single points of failure, or highest-impact components correctly identified?",
+      "scoring": {
+        "1": "Critical components not identified or identification is clearly wrong. No analysis of which components drive system behavior.",
+        "3": "Critical components identified but analysis is superficial. Bottleneck stated but not validated with data. Some impact components may be missed.",
+        "5": "Exemplary critical component analysis. Bottlenecks identified with evidence (critical path analysis, property measurements). Single points of failure surfaced. Impact ranking of components is data-driven and validated."
+      }
+    },
+    {
+      "name": "Reconstruction Pattern Selection",
+      "description": "Is reconstruction approach (bottleneck ID, simplification, reordering, parallelization, substitution, etc.) appropriate for goal?",
+      "scoring": {
+        "1": "Reconstruction pattern doesn't match goal (e.g., simplification when goal is performance). No clear reconstruction approach.",
+        "3": "Reconstruction pattern stated and reasonable for goal. Pattern applied but may not be optimal. Alternative approaches not considered.",
+        "5": "Optimal reconstruction pattern selected. Clear rationale for why this pattern over alternatives. Pattern is systematically applied. Multiple patterns combined if appropriate (e.g., reordering + parallelization)."
+      }
+    },
+    {
+      "name": "Recommendation Specificity & Impact",
+      "description": "Are recommendations specific, actionable, and quantify expected impact?",
+      "scoring": {
+        "1": "Recommendations vague ('optimize component B'). No expected impact quantified. Not actionable.",
+        "3": "Recommendations are specific to components but lack implementation detail. Expected impact stated but not quantified or poorly estimated.",
+        "5": "Exemplary recommendations. Specific changes to make (WHAT, HOW, WHY). Expected impact quantified with confidence level ('reduce latency by 800ms, 67% improvement, high confidence'). Implementation approach outlined. Risks and mitigations noted."
+      }
+    },
+    {
+      "name": "Assumption & Constraint Documentation",
+      "description": "Are key assumptions, constraints, and limitations explicitly stated?",
+      "scoring": {
+        "1": "No assumptions documented. Ignores stated constraints. Recommends impossible changes.",
+        "3": "Some assumptions mentioned. Constraints acknowledged but may not be fully respected in recommendations.",
+        "5": "All key assumptions explicitly documented. Constraints clearly stated and respected. Uncertainties flagged (which properties are estimates vs measurements). Recommendations validated against constraints."
+      }
+    },
+    {
+      "name": "Analysis Depth Appropriate to Complexity",
+      "description": "Is analysis depth proportional to system complexity and goal criticality?",
+      "scoring": {
+        "1": "Over-analysis of simple system (50+ components for 3-part system) or under-analysis of complex system (single-level decomposition of multi-tier architecture).",
+        "3": "Analysis depth is reasonable but may go deeper than needed in some areas or miss depth in critical areas.",
+        "5": "Analysis depth perfectly calibrated. Simple systems get lightweight analysis. Complex/critical systems get rigorous decomposition, dependency analysis, and critical path. Depth focused on goal-relevant areas."
+      }
+    },
+    {
+      "name": "Communication Clarity",
+      "description": "Is decomposition visualizable, analysis clear, and recommendations understandable?",
+      "scoring": {
+        "1": "Decomposition is confusing, inconsistent notation. Analysis findings are unclear. Recommendations lack structure.",
+        "3": "Decomposition is documented but hard to visualize. Analysis findings are present but require effort to understand. Recommendations are structured.",
+        "5": "Exemplary communication. Decomposition is easily visualizable (hierarchy or diagram could be drawn). Analysis findings are evidence-based and clear. Recommendations are well-structured with priority, rationale, impact. Technical level appropriate for audience."
+      }
+    }
+  ],
+  "minimum_score": 3.5,
+  "guidance_by_system_type": {
+    "Software Architecture (microservices, APIs, databases)": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Decomposition Strategy Alignment",
+        "Relationship Mapping Accuracy",
+        "Critical Component Identification"
+      ],
+      "recommended_strategy": "Structural decomposition (services, layers, data stores). Focus on dependency graph, critical path for latency.",
+      "common_pitfalls": [
+        "Missing implicit runtime dependencies (service discovery, config)",
+        "Not decomposing database into query types (reads vs writes)",
+        "Ignoring async patterns (message queues, event streams)"
+      ]
+    },
+    "Business Processes (workflows, operations)": {
+      "target_score": 3.8,
+      "focus_criteria": [
+        "Decomposition Completeness & Granularity",
+        "Relationship Mapping Accuracy",
+        "Recommendation Specificity & Impact"
+      ],
+      "recommended_strategy": "Functional or temporal decomposition (steps, decision points, handoffs). Focus on cycle time, bottlenecks.",
+      "common_pitfalls": [
+        "Missing decision points and branching logic",
+        "Not identifying manual handoffs (often bottlenecks)",
+        "Ignoring exception/error paths"
+      ]
+    },
+    "Performance Optimization (latency, throughput)": {
+      "target_score": 4.2,
+      "focus_criteria": [
+        "Property Measurement Rigor",
+        "Critical Component Identification",
+        "Reconstruction Pattern Selection"
+      ],
+      "recommended_strategy": "Data flow or structural decomposition. Measure latency/throughput per component. Critical path analysis (PERT/CPM).",
+      "common_pitfalls": [
+        "Using estimated latencies instead of measured (profiling)",
+        "Missing parallelization opportunities (independent components)",
+        "Optimizing non-critical path components"
+      ]
+    },
+    "Cost Optimization (cloud spend, resource allocation)": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Decomposition Completeness & Granularity",
+        "Property Measurement Rigor",
+        "Recommendation Specificity & Impact"
+      ],
+      "recommended_strategy": "Cost/resource decomposition (by service, resource type, usage pattern). Identify highest cost drivers.",
+      "common_pitfalls": [
+        "Missing indirect costs (maintenance, opportunity cost)",
+        "Not decomposing by usage pattern (peak vs baseline)",
+        "Recommending cost cuts that break functionality"
+      ]
+    },
+    "Problem Decomposition (complex tasks)": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Decomposition Completeness & Granularity",
+        "Relationship Mapping Accuracy",
+        "Analysis Depth Appropriate to Complexity"
+      ],
+      "recommended_strategy": "Functional decomposition (sub-problems, dependencies). Identify blockers and parallelizable work.",
+      "common_pitfalls": [
+        "Decomposition too shallow (still stuck on complex sub-problems)",
+        "Missing dependencies between sub-problems",
+        "Not identifying which sub-problems are blockers"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (3-5 components, clear relationships, straightforward goal)": {
+      "target_score": 3.5,
+      "sufficient_depth": "1-2 level decomposition. Basic relationship mapping. Measured properties where available, estimated otherwise. Simple bottleneck identification."
+    },
+    "Moderate (6-10 components, some hidden dependencies, multi-objective goal)": {
+      "target_score": 3.8,
+      "sufficient_depth": "2-3 level decomposition. Comprehensive relationship mapping with dependency graph. Measured properties for critical components. Critical path analysis. Sensitivity analysis on key assumptions."
+    },
+    "Complex (>10 components, complex interactions, strategic importance)": {
+      "target_score": 4.2,
+      "sufficient_depth": "3+ level hierarchical decomposition. Full dependency graph with SCCs, topological ordering. Rigorous property measurement (profiling, benchmarking). PERT/CPM critical path. Optimization algorithms (greedy, dynamic programming). Failure mode analysis (FMEA)."
+    }
+  },
+  "common_failure_modes": {
+    "1. Decomposition Mismatch": {
+      "symptom": "Using wrong decomposition strategy for system type (e.g., temporal decomposition for architecture)",
+      "detection": "Decomposition feels forced, components don't map cleanly, hard to identify relationships",
+      "fix": "Restart with different strategy. Functional for processes, structural for architecture, data flow for pipelines."
+    },
+    "2. Missing Critical Relationships": {
+      "symptom": "Components seem independent but system has cascading failures or hidden dependencies",
+      "detection": "Recommendations ignore dependency ripple effects, stakeholder says 'but X depends on Y'",
+      "fix": "Trace data and control flow systematically. Validate dependency graph with stakeholders or code analysis tools."
+    },
+    "3. Unmeasured Bottlenecks": {
+      "symptom": "Bottleneck identified by intuition, not data. Or wrong bottleneck due to poor estimates.",
+      "detection": "'Component B seems slow' without measurements. Optimization of B doesn't improve overall system.",
+      "fix": "Profile, measure, benchmark. Build critical path from measured data, not guesses."
+    },
+    "4. Vague Recommendations": {
+      "symptom": "Recommendations like 'optimize component B' or 'improve performance' without specifics",
+      "detection": "Engineer reads recommendation and asks 'how?'. No implementation path forward.",
+      "fix": "Make recommendations concrete: WHAT to change, HOW to change it (approach), WHY (evidence from analysis), IMPACT (quantified)."
+    },
+    "5. Analysis Paralysis": {
+      "symptom": "Decomposition goes 5+ levels deep, 100+ components, no actionable insights",
+      "detection": "Spending weeks on decomposition, no recommendations yet. Stakeholders losing patience.",
+      "fix": "Set decomposition depth limit. Focus on goal-relevant areas. Stop when further decomposition doesn't help recommendations."
+    },
+    "6. Ignoring Constraints": {
+      "symptom": "Recommendations that violate stated constraints (can't change legacy system, budget limit, compliance)",
+      "detection": "Stakeholder rejects all recommendations as 'impossible given our constraints'",
+      "fix": "Document constraints upfront. Validate all recommendations against constraints before finalizing."
+    },
+    "7. No Impact Quantification": {
+      "symptom": "Can't answer 'how much better will this be?' for recommendations",
+      "detection": "Recommendations lack numbers. Can't prioritize by ROI.",
+      "fix": "Estimate expected impact from component properties. 'Removing 1.2s component should reduce total by ~40% (1.2/3.0)'. Provide confidence level."
+    },
+    "8. Over-Optimization of Non-Critical Path": {
+      "symptom": "Optimizing components that aren't bottlenecks, wasting effort",
+      "detection": "After optimization, system performance unchanged or minimal improvement",
+      "fix": "Identify critical path first. Only optimize components on critical path. Measure improvement after each change."
+    }
+  }
+}
