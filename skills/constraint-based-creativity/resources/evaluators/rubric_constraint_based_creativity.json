@@ -1,0 +1,289 @@
+{
+  "criteria": [
+    {
+      "name": "Constraint Integrity",
+      "description": "Are constraints clearly defined, rigorously enforced, and genuinely respected throughout the process?",
+      "scoring": {
+        "1": "Constraints poorly defined or ignored. Ideas violate stated constraints. No evidence of enforcement.",
+        "2": "Constraints defined but loosely enforced. Some ideas 'bend' rules. Inconsistent application.",
+        "3": "Constraints clearly defined and mostly enforced. Occasional flexibility but generally respected.",
+        "4": "Constraints rigorously enforced. All top solutions fully respect constraints. Clear rationale for each constraint.",
+        "5": "Exemplary constraint discipline. Constraints treated as hard rules, not suggestions. Rationale explains WHY each constraint unlocks creativity. Enforcement explicit."
+      }
+    },
+    {
+      "name": "Constraint-Creativity Causality",
+      "description": "Can you explain HOW the constraint drove the creative solution? Would this solution exist without the constraint?",
+      "scoring": {
+        "1": "No causality explained. Solution could exist in unconstrained brainstorming. Constraint seems arbitrary.",
+        "2": "Weak causality. Constraint mentioned but connection to solution unclear. Seems like regular brainstorming with constraints added after.",
+        "3": "Moderate causality. Can see how constraint influenced solution, but solution might exist without it.",
+        "4": "Strong causality. Clear explanation of how constraint unlocked this specific solution. Unlikely to exist without constraint.",
+        "5": "Exemplary causality. Detailed explanation of thinking pattern broken, unexpected angle revealed, and why solution is impossible in unconstrained brainstorming. Constraint-creativity link is explicit and compelling."
+      }
+    },
+    {
+      "name": "Idea Volume & Process Rigor",
+      "description": "Was sufficient volume generated (20+ ideas)? Were 'failed' ideas documented? Was quantity prioritized before quality?",
+      "scoring": {
+        "1": "Minimal ideas (< 5). No documentation of process. Appears to have evaluated while generating (quality-first approach).",
+        "2": "Low volume (5-10 ideas). Some process notes. Evaluation may have started too early.",
+        "3": "Adequate volume (10-20 ideas). Process documented. Some failed ideas captured. Mostly quantity-first.",
+        "4": "Good volume (20-30 ideas). Failed ideas documented with insights. Clear quantity-first approach. Process includes timestamps or rounds.",
+        "5": "Exceptional volume (30+ ideas). Comprehensive documentation of all ideas including failures. Explicit insights from failed attempts. Timeboxed generation rounds. Volume metrics tracked."
+      }
+    },
+    {
+      "name": "Solution Novelty",
+      "description": "Are solutions novel and differentiated, or incremental variations of existing approaches?",
+      "scoring": {
+        "1": "Derivative. Solutions are essentially same as existing approaches with minor tweaks.",
+        "2": "Incremental. Solutions are improvements but not fundamentally different.",
+        "3": "Fresh. Solutions have interesting twists that make them distinctive.",
+        "4": "Novel. Solutions take unexpected angles that competitors aren't pursuing.",
+        "5": "Breakthrough. Solutions are completely unexpected, highly differentiated, and clearly constraint-driven. Competitors would be surprised by these approaches."
+      }
+    },
+    {
+      "name": "Problem-Solution Fit",
+      "description": "Do solutions actually solve the original creative challenge? Do they meet success criteria?",
+      "scoring": {
+        "1": "Poor fit. Solutions don't address the original problem or miss key success criteria.",
+        "2": "Partial fit. Solutions address some aspects but miss others. Success criteria partially met.",
+        "3": "Adequate fit. Solutions address the problem and meet most success criteria.",
+        "4": "Strong fit. Solutions fully address problem and meet all stated success criteria.",
+        "5": "Exceptional fit. Solutions exceed success criteria and address unstated needs. Problem-solution alignment is obvious and well-explained."
+      }
+    },
+    {
+      "name": "Actionability & Implementation Detail",
+      "description": "Can solutions be executed? Are there concrete next steps, timelines, and resource requirements?",
+      "scoring": {
+        "1": "Purely conceptual. No implementation details. Cannot execute without extensive additional planning.",
+        "2": "Vague actionability. Some implementation hints but missing key details (timeline, resources, steps).",
+        "3": "Actionable. Solutions include basic implementation notes and next steps.",
+        "4": "Highly actionable. Detailed implementation plans with timeline, resource allocation, and execution steps.",
+        "5": "Immediately executable. Comprehensive implementation plans with timeline, budget breakdown, success metrics, risk mitigation, and first actions clearly defined. Could start executing today."
+      }
+    },
+    {
+      "name": "Strategic Constraint Design",
+      "description": "Were constraints strategically chosen to counter the creative block? Is there clear rationale for each constraint?",
+      "scoring": {
+        "1": "Arbitrary constraints. No clear connection to the creative challenge. Constraints seem random.",
+        "2": "Loosely related constraints. Some connection to problem but not strategic.",
+        "3": "Relevant constraints. Clear connection to creative challenge. Rationale provided.",
+        "4": "Strategic constraints. Deliberately chosen to counter diagnosed creative block. Rationale explains connection.",
+        "5": "Exemplary constraint strategy. Diagnosed creative block type explicitly. Constraints specifically designed to counter that block. Rationale explains not just WHAT constraints but WHY these specific ones unlock creativity for this specific challenge."
+      }
+    },
+    {
+      "name": "Constraint Tightness (Sweet Spot)",
+      "description": "Are constraints tight enough to force creativity but not so tight they cause paralysis?",
+      "scoring": {
+        "1": "Too loose (no creative tension) OR too tight (paralysis, zero ideas). Missed the sweet spot entirely.",
+        "2": "Somewhat off. Either didn't force much creativity OR made ideation very difficult.",
+        "3": "Adequate tightness. Constraints forced some rethinking. Generated ideas with effort.",
+        "4": "Good tightness. Constraints created productive struggle. Breakthrough zone reached.",
+        "5": "Perfect tightness. Constraints forced radical creativity without paralysis. Clear evidence of being in the 'breakthrough zone'. May have used constraint escalation to find sweet spot."
+      }
+    },
+    {
+      "name": "Risk Honesty & Limitation Acknowledgment",
+      "description": "Are risks, limitations, and potential failures honestly acknowledged?",
+      "scoring": {
+        "1": "No risk acknowledgment. Solutions presented as perfect with no downsides.",
+        "2": "Minimal risk acknowledgment. Obvious limitations ignored or glossed over.",
+        "3": "Adequate risk honesty. Key risks identified. Limitations mentioned.",
+        "4": "Strong risk honesty. Comprehensive risk assessment. Limitations clearly stated. Some mitigation strategies.",
+        "5": "Exemplary honesty. Detailed risk analysis including: execution risks, assumption risks, constraint violation risks, and market risks. Limitations honestly acknowledged. Mitigation strategies for each major risk. Failure modes considered."
+      }
+    },
+    {
+      "name": "Documentation & Explanation Quality",
+      "description": "Is the constraint-based-creativity.md file complete, well-organized, and clearly explained?",
+      "scoring": {
+        "1": "Incomplete documentation. Missing key sections. Unclear explanations.",
+        "2": "Basic documentation. Most sections present but thin on details. Some unclear areas.",
+        "3": "Good documentation. All sections completed. Clear explanations. Organized logically.",
+        "4": "Excellent documentation. Comprehensive coverage of all sections. Clear explanations with examples. Well-organized.",
+        "5": "Exemplary documentation. Complete, detailed, well-organized file. Includes all required sections: problem, context, constraints with rationale, all ideas generated, insights from failures, top solutions with causality explanations, evaluation, breakthrough explanation, next steps. Could serve as template for others."
+      }
+    }
+  ],
+  "constraint_type_guidance": {
+    "Resource Constraints (budget, time, team)": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Constraint-Creativity Causality",
+        "Solution Novelty",
+        "Strategic Constraint Design"
+      ],
+      "key_patterns": [
+        "Solutions should make limitation a feature, not just work within it",
+        "Look for 'resource inversion' - turning scarcity into advantage",
+        "Efficiency innovations often emerge from resource constraints"
+      ]
+    },
+    "Format/Medium Constraints (length, platform, style)": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Constraint Integrity",
+        "Idea Volume & Process Rigor",
+        "Solution Novelty"
+      ],
+      "key_patterns": [
+        "Format constraints should force different communication patterns",
+        "High volume generation important (many ways to adapt to format)",
+        "Look for creative use of the constrained medium"
+      ]
+    },
+    "Rule-Based Constraints (forbidden/required elements)": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Constraint Integrity",
+        "Constraint-Creativity Causality",
+        "Constraint Tightness"
+      ],
+      "key_patterns": [
+        "Rule constraints are easiest to 'cheat' - verify rigorous enforcement",
+        "Should force creative workarounds (that's the point)",
+        "Tightness is critical - too loose has no effect, too tight causes paralysis"
+      ]
+    },
+    "Technical Constraints (performance, compatibility, dependencies)": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Actionability & Implementation Detail",
+        "Problem-Solution Fit",
+        "Risk Honesty"
+      ],
+      "key_patterns": [
+        "Technical constraints often reveal elegant solutions",
+        "Implementation details are critical for technical solutions",
+        "Trade-offs must be explicitly acknowledged"
+      ]
+    },
+    "Perspective/Audience Constraints (point of view, target audience)": {
+      "target_score": 3.5,
+      "focus_criteria": [
+        "Solution Novelty",
+        "Constraint-Creativity Causality",
+        "Strategic Constraint Design"
+      ],
+      "key_patterns": [
+        "Perspective shift should reveal new angles on problem",
+        "Look for reframing, not just translation",
+        "Audience constraints work best when forcing empathy shift"
+      ]
+    }
+  },
+  "challenge_complexity_guidance": {
+    "Simple Challenge (clear problem, straightforward constraints)": {
+      "target_score": 3.0,
+      "acceptable_shortcuts": [
+        "Lower idea volume acceptable (15+ instead of 20+)",
+        "Single constraint sufficient",
+        "Less detailed implementation plans"
+      ],
+      "key_quality_gates": [
+        "Constraint integrity still required",
+        "Causality must be clear",
+        "Solution must be actionable"
+      ]
+    },
+    "Standard Challenge (typical creative block, standard constraints)": {
+      "target_score": 3.5,
+      "required_elements": [
+        "20+ ideas generated",
+        "1-2 strategic constraints",
+        "Clear causality explanation",
+        "Implementation plan with timeline"
+      ],
+      "key_quality_gates": [
+        "All 10 criteria evaluated",
+        "Minimum score of 3 on each criterion",
+        "Average ≥ 3.5"
+      ]
+    },
+    "Complex Challenge (multi-faceted problem, multiple constraints)": {
+      "target_score": 4.0,
+      "required_elements": [
+        "30+ ideas across constraint combinations",
+        "2-3 strategic constraints with interaction effects",
+        "Detailed causality explanation for each constraint",
+        "Comprehensive implementation plan with risk mitigation",
+        "Constraint escalation or combination documented"
+      ],
+      "key_quality_gates": [
+        "All 10 criteria evaluated",
+        "Minimum score of 3.5 on each criterion",
+        "Average ≥ 4.0",
+        "Exceptional scores (5) on Causality and Strategic Design"
+      ]
+    }
+  },
+  "common_failure_modes": {
+    "1. Bending Constraints": {
+      "symptom": "Ideas violate constraints with justifications like 'close enough' or 'in spirit'",
+      "why_it_fails": "Defeats the purpose. Breakthrough ideas come from rigorous constraint enforcement.",
+      "fix": "Reject any idea that violates constraints, even slightly. The difficulty is the point.",
+      "related_criteria": ["Constraint Integrity", "Constraint Tightness"]
+    },
+    "2. Incremental Ideas": {
+      "symptom": "Solutions are slight variations of existing approaches, not fundamentally different",
+      "why_it_fails": "Constraint-based creativity should produce novel solutions, not optimizations.",
+      "fix": "Use novelty assessment (5-point scale). If scoring < 4, keep generating. Ask: 'Would this exist in unconstrained brainstorming?'",
+      "related_criteria": ["Solution Novelty", "Constraint-Creativity Causality"]
+    },
+    "3. Over-Constraining": {
+      "symptom": "Zero ideas generated, complete paralysis, frustration",
+      "why_it_fails": "Too many constraints or too-tight constraints prevent any ideation.",
+      "fix": "Reduce to 1-2 constraints maximum. Use constraint escalation to find sweet spot (start loose, progressively tighten).",
+      "related_criteria": ["Constraint Tightness", "Idea Volume & Process Rigor"]
+    },
+    "4. Arbitrary Constraints": {
+      "symptom": "Constraints have no clear connection to the creative block or challenge",
+      "why_it_fails": "Random constraints don't unlock creativity, they just add busywork.",
+      "fix": "Diagnose creative block first (abundance paralysis, pattern fixation, etc.). Choose constraints that counter that specific block.",
+      "related_criteria": ["Strategic Constraint Design", "Constraint-Creativity Causality"]
+    },
+    "5. Skipping Volume Phase": {
+      "symptom": "Only 3-5 ideas generated before evaluating and refining",
+      "why_it_fails": "Breakthrough ideas rarely appear in first few attempts. Need quantity to find quality.",
+      "fix": "Force minimum 20 ideas before ANY evaluation. Set timer and don't stop early. Document all ideas including 'bad' ones.",
+      "related_criteria": ["Idea Volume & Process Rigor", "Solution Novelty"]
+    },
+    "6. Missing Causality": {
+      "symptom": "Cannot explain how constraint drove the creativity. Solution could exist without constraint.",
+      "why_it_fails": "If constraint didn't drive the solution, it's not constraint-based creativity - it's regular brainstorming with constraints added after.",
+      "fix": "For each top solution, explicitly answer: 'Would this exist in unconstrained brainstorming? Why/why not?' If answer is 'yes', keep generating.",
+      "related_criteria": ["Constraint-Creativity Causality", "Strategic Constraint Design"]
+    },
+    "7. Conceptual Without Actionable": {
+      "symptom": "Solutions are interesting ideas but lack implementation details, timeline, resources",
+      "why_it_fails": "Creativity without execution is just daydreaming. Need actionable plans.",
+      "fix": "Add implementation section to each top solution: What are the first 3 actions? Timeline? Budget? Success metrics? If can't answer, solution is too conceptual.",
+      "related_criteria": ["Actionability & Implementation Detail", "Problem-Solution Fit"]
+    },
+    "8. Ignoring Risks": {
+      "symptom": "Solutions presented as perfect with no acknowledged downsides or risks",
+      "why_it_fails": "All solutions have trade-offs. Ignoring them suggests shallow thinking or overconfidence.",
+      "fix": "For each top solution, explicitly list: execution risks, assumption risks, failure modes, and limitations. If can't identify any risks, look harder.",
+      "related_criteria": ["Risk Honesty & Limitation Acknowledgment", "Actionability & Implementation Detail"]
+    }
+  },
+  "scale": {
+    "description": "Each criterion scored 1-5",
+    "min_score": 1,
+    "max_score": 5,
+    "passing_threshold": 3.5,
+    "excellence_threshold": 4.5
+  },
+  "usage_notes": {
+    "when_to_score": "After generating all ideas and selecting top solutions, before delivering to user",
+    "minimum_standard": "Average score ≥ 3.5 across all criteria (standard challenge). Simple challenges: ≥ 3.0. Complex challenges: ≥ 4.0.",
+    "how_to_improve": "If scoring < threshold, identify lowest-scoring criteria and iterate on those specific areas before delivering",
+    "self_assessment": "Score yourself honestly. This rubric is for quality assurance, not for impressing the user. Better to iterate now than deliver weak constraint-based creativity."
+  }
+}
