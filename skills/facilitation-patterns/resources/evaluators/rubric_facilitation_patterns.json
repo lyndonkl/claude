@@ -1,0 +1,256 @@
+{
+  "criteria": [
+    {
+      "name": "Objective Clarity",
+      "1": "No clear objective stated, purpose vague ('let's discuss X'), participants unclear why they're there or what success looks like",
+      "3": "Objective stated but not specific ('make a decision on priorities'), success criteria mentioned but not measurable",
+      "5": "Crystal clear objective ('By end of session, we will have decided top 5 Q2 features with rationale'), specific success criteria, communicated upfront to all participants"
+    },
+    {
+      "name": "Pattern Appropriateness",
+      "1": "Wrong pattern for objective (brainstorm format for decision-making need, or decision workshop for alignment need), mismatch with group size or time",
+      "3": "Pattern generally fits objective, some mismatch (e.g., too much time for simple decision, or not enough for complex alignment)",
+      "5": "Pattern perfectly matched to objective, group size, and time available. Diverge-converge flow appropriate. Format serves outcome."
+    },
+    {
+      "name": "Agenda Design Quality",
+      "1": "No written agenda, or agenda is just topic list with no time boxes or activities specified",
+      "3": "Agenda with time boxes and activities, some flow issues (e.g., no breaks for 2+ hours, or premature convergence), buffer time missing",
+      "5": "Well-designed agenda: time-boxed activities in logical flow (diverge → converge), breaks every 60-90min, buffer time (10-15%), energy arc considered, decision method specified upfront"
+    },
+    {
+      "name": "Participation Balance",
+      "1": "2-3 people dominate entire session, many participants silent throughout, no techniques used to ensure equal participation",
+      "3": "Some participation techniques used (round robin mentioned, or breakouts), but still imbalance (some very vocal, some silent)",
+      "5": "Balanced participation achieved through deliberate techniques (silent writing, 1-2-4-All, round robin, breakouts), quiet voices explicitly invited, dominators managed respectfully, participation tracked and adjusted"
+    },
+    {
+      "name": "Time Management",
+      "1": "No time tracking, activities run wildly over (30min becomes 60min), session ends late with agenda incomplete, no buffer",
+      "3": "Time boxes set but not enforced strictly, some activities run over, session ends 10-15min late, facilitator aware but doesn't cut",
+      "5": "Ruthless time management: visible timer, warnings given ('5 min left'), activities cut if over time, buffer used for overruns, session ends on time with all key outcomes achieved"
+    },
+    {
+      "name": "Decision Clarity",
+      "1": "No clear decision made or decision method not specified, participants leave confused about what was decided, no documentation",
+      "3": "Decision made but rationale unclear, or decision method not communicated upfront, some confusion about finality ('Did we decide or just discuss?')",
+      "5": "Decision method specified upfront (consensus, vote, advisory), decision made and documented with clear rationale, participants aligned on outcome, no ambiguity about what was decided or who's accountable"
+    },
+    {
+      "name": "Difficult Dynamics Handling",
+      "1": "Difficult dynamics ignored (dominators dominate, conflict avoided, tangents unchecked, low energy pushed through)",
+      "3": "Some dynamics addressed (parking lot used for tangents, one intervention for dominators), but not consistently managed",
+      "5": "Proactive and skilled handling: dominators respectfully limited (round robin, time limits), silent participants invited gently, conflict surfaced and managed constructively, tangents parking-lotted, energy monitored and breaks/energizers used as needed"
+    },
+    {
+      "name": "Output Capture",
+      "1": "No outputs documented, or only in facilitator's head, participants leave without clear record of decisions/action items",
+      "3": "Basic notes taken (scribe or facilitator), decisions and action items captured but unstructured or unclear ownership",
+      "5": "Structured output capture: visible board during session (everyone sees same thing), clear documentation of decisions (what, why, who, when), action items with owners and due dates, parking lot tracked, notes shared within 24 hours"
+    },
+    {
+      "name": "Psychological Safety",
+      "1": "Unsafe environment: ideas dismissed, people interrupted frequently, power dynamics unchecked (boss dominates), no ground rules",
+      "3": "Some safety established (ground rules mentioned, occasional intervention to protect space), but lapses occur (interruptions happen, hierarchy still visible)",
+      "5": "Strong psychological safety: ground rules set and enforced (no interruptions, challenge ideas not people), power dynamics actively managed (boss speaks last, anonymous input available), all contributions valued, critique deferred during divergence, facilitator protects dissent"
+    },
+    {
+      "name": "Follow-up and Closure",
+      "1": "Session ends abruptly ('we're out of time, see you next week'), no summary, no next steps, no action items, participants confused about follow-up",
+      "3": "Brief closing (summary of key points, some action items mentioned), but next steps unclear or owners not assigned",
+      "5": "Strong closure: outcomes summarized clearly, action items documented with owners and due dates, parking lot items addressed (who owns, when addressed), next session scheduled if needed, appreciation expressed, feedback gathered (optional), notes sent within 24 hours"
+    }
+  ],
+  "guidance_by_type": {
+    "Divergent Brainstorm": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Pattern Appropriateness (≥4): Diverge-converge flow (generate first, evaluate second), defer judgment during brainstorm",
+        "Participation Balance (≥5): Silent writing or individual brainstorm first (prevents groupthink), round robin or parallel contribution",
+        "Psychological Safety (≥5): 'No bad ideas' during divergence, critique deferred, wild ideas encouraged",
+        "Output Capture (≥4): All ideas captured on visible board (sticky notes, Mural), clustered by themes, top ideas prioritized (dot voting)"
+      ],
+      "common_pitfalls": [
+        "Critiquing ideas during generation (kills creativity, premature convergence)",
+        "Verbal brainstorm only (loud voices dominate, groupthink, fewer ideas than silent writing)",
+        "No synthesis step (100 ideas but no clustering or prioritization → participants overwhelmed)"
+      ]
+    },
+    "Convergent Decision Workshop": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Objective Clarity (≥5): Specific decision to be made stated upfront, criteria for decision clear",
+        "Decision Clarity (≥5): Decision method announced before discussion (consensus, vote, advisory), decision documented with rationale",
+        "Participation Balance (≥4): Breakouts or structured discussion (not just open debate), all voices on decision",
+        "Difficult Dynamics (≥4): Conflict managed (surface different views, clarify trade-offs, avoid premature closure)"
+      ],
+      "common_pitfalls": [
+        "No decision method specified (people think consensus but facilitator decides → frustration)",
+        "Premature decision (first option sounds good, don't explore alternatives → regret later)",
+        "Fake consensus (people nod but privately disagree → decision doesn't stick)"
+      ]
+    },
+    "Alignment Session": {
+      "target_score": 3.9,
+      "key_requirements": [
+        "Objective Clarity (≥5): Explicit alignment goal (on vision, strategy, plan), what 'aligned' looks like defined",
+        "Participation Balance (≥5): Small groups to surface concerns, report back, everyone's understanding checked (not just presentation)",
+        "Psychological Safety (≥5): Safe to voice misalignment, concerns, or confusion. No pressure to fake agreement.",
+        "Output Capture (≥4): Documented shared understanding, assumptions, commitments, misalignments to address"
+      ],
+      "common_pitfalls": [
+        "One-way presentation (speaker presents, no discussion → people nod but don't truly align)",
+        "Fake alignment (people say 'sounds good' to end meeting, but privately don't buy in)",
+        "No check for understanding (assume alignment because no one objected → misunderstandings surface later)"
+      ]
+    },
+    "Retrospective": {
+      "target_score": 4.1,
+      "key_requirements": [
+        "Pattern Appropriateness (≥4): Retro format (set stage → gather data → insights → actions → close), not just 'what went wrong' complaint session",
+        "Psychological Safety (≥5): Blameless (focus on systems, not people), Vegas rule if sensitive, safe to critique process",
+        "Decision Clarity (≥5): 2-3 actionable improvements with owners and dates (not 10 vague 'let's do better'), commitments clear",
+        "Follow-up (≥5): Action items tracked in sprint/project backlog, reviewed in next retro (accountability loop)"
+      ],
+      "common_pitfalls": [
+        "Blame culture (naming people, 'X should have...') → retro becomes unsafe, people stop sharing",
+        "No actions (discussion but no commitments → same issues repeat next sprint)",
+        "Too many actions (10 improvements → none get done, better to focus on 2-3 high-impact)"
+      ]
+    },
+    "Design Sprint": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Pattern Appropriateness (≥5): 5-day flow (Understand → Diverge → Decide → Prototype → Test), strict time-boxing, right people (decision-maker present)",
+        "Agenda Design (≥5): Detailed hour-by-hour agenda for all 5 days, breaks scheduled, energizers planned for low-energy moments",
+        "Time Management (≥5): Ruthless time-boxing (activities end on time even if incomplete), decision-maker breaks ties quickly (no long debates)",
+        "Output Capture (≥5): Prototype built by Day 4, user testing completed Day 5, insights documented, go/no-go decision made"
+      ],
+      "common_pitfalls": [
+        "Decision-maker not present (can't make calls, sprint stalls on decisions)",
+        "Extending activities (violates sprint discipline, burns time needed for prototype and testing)",
+        "No real users for testing (testing with team → confirmation bias, not real validation)"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple": {
+      "target_score": 3.5,
+      "description": "Short session (30-60 min), small group (3-7 people), simple objective (standup, quick decision, tactical sync)",
+      "key_requirements": [
+        "Objective Clarity (≥4): Clear, specific outcome for short session",
+        "Pattern Appropriateness (≥3): Simple format (round robin, quick discussion, vote if needed)",
+        "Time Management (≥4): Strict time-box (don't let 30min become 60min)",
+        "Output Capture (≥3): Key decisions and action items documented (even if just bullet points in chat)"
+      ],
+      "time_estimate": "10-30 min prep, 30-60 min session, 10 min notes",
+      "examples": [
+        "Daily standup (15 min, round robin updates)",
+        "Quick decision (30 min, present options, vote, decide)",
+        "Team sync (60 min, updates + 1-2 discussion topics)"
+      ]
+    },
+    "Standard": {
+      "target_score": 4.0,
+      "description": "Medium session (1-2 hours), standard group (6-12 people), clear objective (brainstorm, decision workshop, retrospective)",
+      "key_requirements": [
+        "Objective Clarity (≥5): Specific outcome, success criteria, communicated upfront",
+        "Pattern Appropriateness (≥4): Pattern matches objective (diverge-converge for brainstorm, decision format for choices)",
+        "Agenda Design (≥4): Time-boxed activities, breaks if 90+ min, decision method specified",
+        "Participation Balance (≥4): Techniques to ensure equal participation (silent writing, breakouts, round robin)",
+        "Time Management (≥4): Activities time-boxed, session ends on time",
+        "Decision Clarity (≥5): Decisions documented, action items with owners",
+        "Follow-up (≥4): Notes shared within 24 hours"
+      ],
+      "time_estimate": "1-2 hours prep (agenda, materials), 1-2 hour session, 30 min notes/follow-up",
+      "examples": [
+        "Brainstorm session (60 min, generate 30+ ideas, prioritize top 10)",
+        "Decision workshop (90 min, assess options, vote, decide)",
+        "Sprint retrospective (60-90 min, gather data, insights, 2-3 improvements)"
+      ]
+    },
+    "Complex": {
+      "target_score": 4.3,
+      "description": "Long session (half-day to multi-day), large or diverse group (10-30 people), complex objective (alignment, strategy, design sprint)",
+      "key_requirements": [
+        "Objective Clarity (≥5): Multi-layered objective broken into sub-goals, success criteria for each phase",
+        "Pattern Appropriateness (≥5): Sophisticated pattern (design sprint 5-day flow, alignment session with breakouts and synthesis), adapted to context",
+        "Agenda Design (≥5): Detailed hour-by-hour agenda, energy arc designed (hard thinking mid-session, breaks every 60-90min, energizers planned), contingency time",
+        "Participation Balance (≥5): Multiple techniques (breakouts, silent writing, fishbowl, 1-2-4-All), active management of dynamics",
+        "Time Management (≥5): Ruthless time-boxing across days, facilitator cuts activities to preserve critical outcomes",
+        "Difficult Dynamics (≥5): Proactive handling (power dynamics managed, conflict addressed, energy monitored constantly)",
+        "Psychological Safety (≥5): Ground rules enforced, dissent protected, anonymous channels available",
+        "Output Capture (≥5): Structured documentation (decisions, rationale, assumptions, commitments, parking lot), multiple formats (visual board + written notes), shared same day",
+        "Follow-up (≥5): Clear next steps, accountability structure, follow-up sessions scheduled"
+      ],
+      "time_estimate": "4-8 hours prep (detailed agenda, materials, logistics, stakeholder alignment), half-day to 5 days facilitation, 2-4 hours synthesis and notes",
+      "examples": [
+        "Strategy offsite (2 days, 15-20 people, align on vision and 12-month plan)",
+        "Design sprint (5 days, 5-7 people, prototype and test solution to high-uncertainty problem)",
+        "Multi-stakeholder alignment (half-day, 20-30 people, build shared understanding of roadmap)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "No agenda or vague objective",
+      "symptom": "Session starts with 'Let's discuss X', participants unclear on purpose, meeting drifts across topics, ends without clear outcome",
+      "detection": "Ask 'What's the specific outcome we need by end of session?' If no clear answer → no objective. If no written agenda → drift likely.",
+      "fix": "Before session: Write specific objective ('By end, we will have [outcome]'), design time-boxed agenda with activities, share with participants. Start session by stating objective and agenda."
+    },
+    {
+      "failure": "Wrong pattern for objective",
+      "symptom": "Brainstorm format used for decision-making (generates ideas but no decision), or decision format for alignment need (forces choice before shared understanding)",
+      "detection": "Mismatch between stated objective and pattern used. Objective says 'align on vision' but session is 1-hour presentation → wrong pattern.",
+      "fix": "Match pattern to objective: Divergent (generate ideas), Convergent (decide), Alignment (shared understanding), Retro (reflect & improve). See Pattern Selection Guide."
+    },
+    {
+      "failure": "Premature convergence (critique during brainstorm)",
+      "symptom": "During idea generation, people say 'That won't work because...' or 'We tried that before', kills creativity, yields safe/obvious ideas",
+      "detection": "If evaluation happens during divergence (simultaneous generation + critique) → premature convergence. Fewer ideas generated than potential.",
+      "fix": "Separate divergence and convergence: 'First, we generate all ideas with no judgment (10 min). Then, we evaluate (20 min).' Use silent writing (harder to critique). Enforce 'defer judgment' ground rule."
+    },
+    {
+      "failure": "Participation imbalance (dominators + silent participants)",
+      "symptom": "Same 2-3 people talk entire session, others silent or only contribute when directly asked, facilitator doesn't intervene",
+      "detection": "Track speaking time. If 3 people speak 80% of the time and 7 people speak 20% → imbalance. Exit surveys show 'didn't feel heard.'",
+      "fix": "Use participation techniques: Silent writing (everyone contributes in parallel), round robin (everyone speaks), breakouts (small groups safer for quiet folks), direct invites ('We haven't heard from [name]'). Set ground rule: 'Step up, step back.'"
+    },
+    {
+      "failure": "No time management (activities run wildly over)",
+      "symptom": "30-min activity becomes 60 min, facilitator lets discussion continue ('This is valuable, let's keep going'), session runs 30+ min late, agenda incomplete",
+      "detection": "Lack of visible timer, no time warnings given, facilitator doesn't cut activities even when over time, participants complain session runs long.",
+      "fix": "Set visible timer for all activities, give warnings ('5 min left'), ruthlessly cut when time expires (even if incomplete), add 10-15% buffer in agenda, prioritize critical outcomes (cut nice-to-haves if needed)."
+    },
+    {
+      "failure": "Decision ambiguity (unclear what was decided or how)",
+      "symptom": "Session ends, participants leave confused ('Did we decide or just discuss?', 'Who's making final call?'), no documentation, week later people have different understanding",
+      "detection": "Ask participants 'What was decided?' If answers vary → ambiguity. If no written record → will be forgotten or disputed.",
+      "fix": "Announce decision method upfront ('We'll vote after discussion and I'll make final call'). At decision point, state clearly: 'Here's what we decided: [X]. Rationale: [Y]. Next steps: [Z].' Document and share immediately."
+    },
+    {
+      "failure": "Ignoring difficult dynamics",
+      "symptom": "Dominators dominate unchecked, conflict avoided (tension visible but not addressed), tangents pursued for 20 min, low energy ignored (people glazed over but session continues)",
+      "detection": "Facilitator doesn't intervene when dynamics dysfunctional. Body language shows disengagement. Post-session feedback mentions dynamics issues.",
+      "fix": "Proactively manage dynamics: Intervene when one person dominates (round robin, invite others), surface conflict ('I hear two views, let's understand both'), parking lot tangents, take breaks when energy drops, use energizers."
+    },
+    {
+      "failure": "No output capture (decisions and action items not documented)",
+      "symptom": "Session happens, valuable discussion, but no notes taken or only in facilitator's head, participants leave without clear record, week later people ask 'What did we decide?'",
+      "detection": "No visible board during session, no scribe assigned, no shared doc with outputs, notes not sent after session.",
+      "fix": "Assign scribe (not facilitator), use visible board (everyone sees same thing during session), structure outputs (decisions, action items with owners and dates, parking lot), share notes within 24 hours."
+    },
+    {
+      "failure": "Psychological safety lacking",
+      "symptom": "Ideas dismissed quickly ('That's dumb'), people interrupted frequently, boss dominates (others defer), no one voices dissent (everyone nods but privately disagrees)",
+      "detection": "Low participation, fake consensus, exit feedback says 'didn't feel safe to share', hierarchy clearly visible.",
+      "fix": "Set ground rules (no interruptions, challenge ideas not people, Vegas rule), manage power dynamics (boss speaks last, anonymous input available), protect dissent (Thank dissenter: 'Appreciate different view'), defer critique during divergence."
+    },
+    {
+      "failure": "Poor closure (session ends abruptly with no summary or next steps)",
+      "symptom": "Facilitator says 'We're out of time, thanks everyone' at end, no summary of outcomes, no action items, no next steps, participants leave confused",
+      "detection": "Last 5-10 min not reserved for closing, no structured close in agenda, participants ask 'What are next steps?' and no clear answer.",
+      "fix": "Reserve 5-10 min for closing (build into agenda), summarize outcomes ('Here's what we decided/learned/committed to'), clarify action items (who, what, when), address parking lot, express appreciation, send notes within 24 hours."
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "criteria": [
+    {
+      "name": "CAC Calculation Completeness",
+      "description": "Fully-loaded CAC includes all S&M costs (salaries, tools, overhead). Channel-level breakdown provided.",
+      "scale": {
+        "1": "Missing major costs (e.g., sales salaries). No channel breakdown. CAC severely underestimated.",
+        "3": "Most costs included. Channel breakdown present but incomplete. CAC reasonably accurate.",
+        "5": "Fully-loaded CAC with all costs itemized. Detailed channel-level breakdown. Time-period matching correct."
+      }
+    },
+    {
+      "name": "LTV Methodology Rigor",
+      "description": "LTV calculated using cohort data, not averages. Conservative assumptions, observed retention used.",
+      "scale": {
+        "1": "LTV based on average retention or unrealistic assumptions (e.g., 5-year LTV with 1 month data). No cohort analysis.",
+        "3": "LTV uses cohort data for some periods. Assumptions stated but may be optimistic. Retention curves shown.",
+        "5": "LTV from observed cohort retention. Conservative extrapolation. Multiple cohorts compared. Time horizon justified."
+      }
+    },
+    {
+      "name": "Contribution Margin Accuracy",
+      "description": "Contribution margin includes only variable costs (COGS, hosting, fees, support per unit). Fixed costs excluded.",
+      "scale": {
+        "1": "Margin calculation includes fixed costs or omits major variable costs. Inaccurate gross margin.",
+        "3": "Most variable costs included. Some minor costs may be missing. Margin calculation mostly correct.",
+        "5": "All variable costs identified and quantified. Fixed costs correctly excluded. Margin breakdown clear and accurate."
+      }
+    },
+    {
+      "name": "Cohort Analysis Depth",
+      "description": "Retention tracked by cohort (month/channel/segment). Trends analyzed. Cohorts compared.",
+      "scale": {
+        "1": "No cohort analysis. Metrics blended across all customers. No retention curves shown.",
+        "3": "Basic cohort table present. Some cohorts tracked. Trends mentioned but not deeply analyzed.",
+        "5": "Detailed cohort tables by month and channel. Retention trends analyzed. Cohort comparisons with insights drawn."
+      }
+    },
+    {
+      "name": "Ratio Interpretation",
+      "description": "LTV/CAC ratio interpreted with context (benchmarks, stage, industry). Payback period considered alongside ratio.",
+      "scale": {
+        "1": "Ratio calculated but not interpreted. No benchmarks provided. Payback period ignored.",
+        "3": "Ratio interpreted with general benchmarks. Payback mentioned. Some context (stage, industry) considered.",
+        "5": "Ratio interpreted with stage-appropriate benchmarks. Payback period analyzed. Combined assessment (ratio + payback) informs recommendations."
+      }
+    },
+    {
+      "name": "Channel-Level Analysis",
+      "description": "CAC, LTV, and ratios broken down by acquisition channel. Best/worst channels identified.",
+      "scale": {
+        "1": "Blended metrics only. No channel breakdown. Cannot identify which channels are profitable.",
+        "3": "Some channel breakdown provided. Major channels identified. Analysis present but incomplete.",
+        "5": "Comprehensive channel-level CAC and LTV. All channels compared. Clear identification of best/worst performers with actionable insights."
+      }
+    },
+    {
+      "name": "Sensitivity Analysis",
+      "description": "Key assumptions tested (churn, ARPU, CAC, margin). Impact on ratios quantified.",
+      "scale": {
+        "1": "No sensitivity analysis. Assumptions not tested. Single-point estimates only.",
+        "3": "Basic sensitivity on 1-2 variables. Impact direction noted but not quantified. Limited scenarios.",
+        "5": "Comprehensive sensitivity on key variables (churn, ARPU, CAC, margin). Multiple scenarios. Impact quantified. Breakeven thresholds identified."
+      }
+    },
+    {
+      "name": "Retention vs. Acquisition Balance",
+      "description": "Analysis recognizes retention impact on LTV. Recommendations balance reducing CAC with improving retention.",
+      "scale": {
+        "1": "Focus solely on CAC reduction. Retention improvements not considered. No churn analysis.",
+        "3": "Both CAC and retention mentioned. Some churn analysis. Balance between acquisition and retention somewhat considered.",
+        "5": "Clear recognition that retention drives LTV. Churn impact quantified. Recommendations prioritize retention improvements over pure CAC reduction where appropriate."
+      }
+    },
+    {
+      "name": "Business Model Appropriateness",
+      "description": "Analysis matches business model (subscription, transactional, marketplace, freemium, enterprise). Metrics and benchmarks appropriate.",
+      "scale": {
+        "1": "Generic analysis not tailored to business model. Wrong metrics or formulas used. Inappropriate benchmarks.",
+        "3": "Analysis somewhat tailored to business model. Mostly correct metrics. Benchmarks generally appropriate.",
+        "5": "Analysis fully customized to business model. Correct metrics (MRR/ARR for SaaS, AOV for ecommerce, GMV/take rate for marketplace). Stage and industry-appropriate benchmarks."
+      }
+    },
+    {
+      "name": "Actionability of Recommendations",
+      "description": "Clear, specific recommendations on pricing, channels, retention, and growth based on unit economics. Action items with owners/timelines.",
+      "scale": {
+        "1": "Vague or generic recommendations. No specific actions. Cannot implement recommendations.",
+        "3": "Recommendations provided but somewhat generic. Some specific actions. Implementation path unclear.",
+        "5": "Specific, actionable recommendations (e.g., 'increase price by $10', 'pause paid social', 'implement onboarding checklist'). Clear priorities. Implementation steps outlined."
+      }
+    }
+  ],
+  "guidance_by_type": {
+    "SaaS Subscription": {
+      "target_score": 4.2,
+      "key_criteria": ["LTV Methodology Rigor", "Cohort Analysis Depth", "Retention vs. Acquisition Balance"],
+      "common_pitfalls": ["Ignoring churn impact", "Not tracking NRR", "Vanity LTV with insufficient data"],
+      "specific_guidance": "Focus on monthly churn, cohort retention curves, ARPU trends, and NRR. Payback <12 months critical for SaaS."
+    },
+    "E-commerce / Transactional": {
+      "target_score": 3.9,
+      "key_criteria": ["Contribution Margin Accuracy", "Channel-Level Analysis", "CAC Calculation Completeness"],
+      "common_pitfalls": ["Missing shipping/fulfillment costs", "Not tracking repeat purchase rate", "Blending one-time and repeat customers"],
+      "specific_guidance": "Track AOV, purchase frequency, repeat rate separately from first purchase. Include all COGS, shipping, and payment fees in margin calculation."
+    },
+    "Marketplace / Platform": {
+      "target_score": 4.0,
+      "key_criteria": ["Business Model Appropriateness", "Channel-Level Analysis", "LTV Methodology Rigor"],
+      "common_pitfalls": ["Not analyzing supply and demand sides separately", "Ignoring take rate compression risk", "Missing network effects in projections"],
+      "specific_guidance": "Analyze both sides of marketplace. Track GMV per user, take rate, liquidity. Consider network effects on retention and growth."
+    },
+    "Freemium / PLG": {
+      "target_score": 4.1,
+      "key_criteria": ["LTV Methodology Rigor", "Cohort Analysis Depth", "Channel-Level Analysis"],
+      "common_pitfalls": ["Not separating free and paid user economics", "Ignoring free user costs", "Overstating viral coefficient"],
+      "specific_guidance": "Calculate blended LTV accounting for free user costs and conversion rates. Track free-to-paid conversion by cohort. Measure viral coefficient and payback for organic vs. paid channels."
+    },
+    "Enterprise / High-Touch Sales": {
+      "target_score": 4.3,
+      "key_criteria": ["CAC Calculation Completeness", "LTV Methodology Rigor", "Ratio Interpretation"],
+      "common_pitfalls": ["Excluding sales team costs from CAC", "Not accounting for long sales cycles in lag", "Ignoring expansion revenue (NRR)"],
+      "specific_guidance": "Include full sales team costs (salaries, tools, overhead). Account for 3-12 month sales cycle lag. Track NRR >110% as key metric. ACV and contract length critical for LTV."
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Single Product, Early Stage)": {
+      "target_score": 3.5,
+      "focus_areas": ["CAC Calculation Completeness", "LTV Methodology Rigor", "Ratio Interpretation"],
+      "acceptable_shortcuts": ["Limited cohort data (3-6 months)", "Simplified channel analysis", "Basic sensitivity (1-2 variables)"],
+      "specific_guidance": "Focus on getting CAC and LTV directionally correct. Use simple LTV formula with conservative churn estimate. Aim for LTV/CAC >2:1 minimum."
+    },
+    "Standard (Multi-Channel, Growth Stage)": {
+      "target_score": 4.0,
+      "focus_areas": ["Channel-Level Analysis", "Cohort Analysis Depth", "Sensitivity Analysis"],
+      "acceptable_shortcuts": ["Quarterly vs. monthly cohorts acceptable", "Limited multi-product analysis"],
+      "specific_guidance": "Full channel breakdown required. 6-12 months cohort data expected. Sensitivity on churn, CAC, ARPU. Target LTV/CAC >3:1, payback <12 months."
+    },
+    "Complex (Multi-Product, Mature)": {
+      "target_score": 4.5,
+      "focus_areas": ["All criteria", "Advanced metrics (NRR, CAC efficiency, cohort trends)"],
+      "acceptable_shortcuts": ["None - comprehensive analysis expected"],
+      "specific_guidance": "Full cohort analysis by product, channel, segment. NRR >110% expected. CAC efficiency (Magic Number >1.0). Multi-year LTV projections with sensitivity. Target LTV/CAC >4:1, payback <6 months."
+    }
+  },
+  "common_failure_modes": [
+    {
+      "name": "Underestimated CAC",
+      "symptom": "CAC excludes sales salaries, tools, or overhead. Only includes ad spend.",
+      "detection": "Check if CAC = ad spend ÷ customers. Ask: 'Are sales team costs included?'",
+      "fix": "Add all S&M costs. Include salaries, benefits, tools, overhead allocation. Recalculate fully-loaded CAC."
+    },
+    {
+      "name": "Vanity LTV",
+      "symptom": "LTV projects 3-5 years out with only 1-3 months of retention data. Unrealistic assumptions.",
+      "detection": "Check cohort data availability. If LTV >> observed revenue, likely vanity LTV.",
+      "fix": "Use only observed retention data. For new products, cap LTV projection at 12-18 months max. Be conservative."
+    },
+    {
+      "name": "Blended Metrics",
+      "symptom": "Single blended CAC and LTV. No breakdown by channel or cohort. Hides poor-performing channels.",
+      "detection": "Ask: 'What is CAC and LTV by channel?' If not available, blended metrics likely.",
+      "fix": "Break down CAC and LTV by acquisition channel. Identify best and worst performers. Optimize spend accordingly."
+    },
+    {
+      "name": "Ignoring Churn",
+      "symptom": "LTV assumes customers stay forever or uses unrealistically low churn. No cohort retention curves.",
+      "detection": "Check if churn rate stated. If LTV formula doesn't include churn or lifetime, likely ignored.",
+      "fix": "Calculate churn from cohort data. Use retention curves to project LTV. Test sensitivity to churn changes."
+    },
+    {
+      "name": "Fixed Costs in Margin",
+      "symptom": "Contribution margin includes fixed costs (engineering, rent, admin). Margin too low.",
+      "detection": "Review margin calculation. If <40% for software or <20% for ecommerce, may include fixed costs.",
+      "fix": "Exclude fixed costs. Include only variable costs that scale with each unit (COGS, hosting per user, support per customer, payment fees)."
+    },
+    {
+      "name": "No Cohort Analysis",
+      "symptom": "Metrics averaged across all customers. No retention curves. Cannot see if newer cohorts perform better/worse.",
+      "detection": "Ask: 'How does retention differ by cohort?' If not tracked, no cohort analysis.",
+      "fix": "Build cohort retention table. Track M0, M1, M3, M6, M12 retention by acquisition month. Identify trends."
+    },
+    {
+      "name": "Payback Period Ignored",
+      "symptom": "High LTV/CAC ratio celebrated, but payback >18 months. Cash burn high, growth unsustainable.",
+      "detection": "Check payback calculation. If not mentioned, likely ignored.",
+      "fix": "Calculate payback = CAC ÷ (monthly revenue × margin). If >12-18 months, growth will strain cash. Consider raising capital or improving payback."
+    },
+    {
+      "name": "No Sensitivity Analysis",
+      "symptom": "Single-point estimates. No testing of assumptions. Fragile economics if assumptions wrong.",
+      "detection": "Ask: 'What if churn increases 2%?' If impact unknown, no sensitivity analysis.",
+      "fix": "Test churn +/- 1-2%, ARPU +/- 10-20%, CAC +/- 10-20%. Quantify impact on LTV/CAC ratio. Identify breakeven thresholds."
+    },
+    {
+      "name": "Wrong Business Model Metrics",
+      "symptom": "Using SaaS metrics (MRR, churn) for transactional business. Or marketplace metrics for subscription business. Confusion.",
+      "detection": "Check if metrics match business model. SaaS should have MRR/ARR/churn. Ecommerce should have AOV/frequency. Marketplace should have GMV/take rate.",
+      "fix": "Use business-model-appropriate metrics. SaaS: ARPU, churn, NRR. Transactional: AOV, purchase frequency. Marketplace: GMV, take rate, liquidity."
+    },
+    {
+      "name": "No Actionable Recommendations",
+      "symptom": "Analysis ends with metrics. No recommendations on pricing, channels, retention, or growth strategy.",
+      "detection": "Check if recommendations section exists. If analysis only reports metrics without actions, non-actionable.",
+      "fix": "Provide specific recommendations: pricing changes, channel allocation, retention improvements, growth pace. Tie recommendations directly to unit economics findings."
+    }
+  ],
+  "minimum_standard": 3.5,
+  "target_score": 4.0,
+  "excellence_threshold": 4.5
+}
