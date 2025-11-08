@@ -1,0 +1,211 @@
+{
+  "criteria": [
+    {
+      "name": "80/20 Identification",
+      "description": "Vital few (top 20% tasks) clearly identified based on impact. Forced ranking applied, not everything marked important.",
+      "scale": {
+        "1": "No prioritization. All tasks treated equally. No 80/20 analysis performed.",
+        "3": "Some prioritization present. Top tasks identified but not rigorously ranked. 80/20 attempted but incomplete.",
+        "5": "Clear force ranking of tasks. Top 20% identified with impact justification. Explicit distinction between vital few and trivial many."
+      }
+    },
+    {
+      "name": "Deep Work Block Design",
+      "description": "Focus blocks properly configured with clear outcomes, appropriate duration (25/90/120min), and distraction elimination.",
+      "scale": {
+        "1": "No focus blocks scheduled. Open-ended work time. No distraction management plan.",
+        "3": "Some focus time scheduled but vague outcomes. Duration reasonable. Basic distraction awareness.",
+        "5": "Specific focus blocks with clear outcomes per session. Duration matches task type (25min Pomodoro, 90min deep work). Comprehensive distraction elimination (Slack off, phone away, timer set)."
+      }
+    },
+    {
+      "name": "Timeboxing Discipline",
+      "description": "Time blocks have start AND end times. Duration chosen intentionally. Parkinson's Law applied (constrained time forces focus).",
+      "scale": {
+        "1": "No timeboxes. Open-ended work periods. No time constraints applied.",
+        "3": "Some timeboxes present with start times. End times sometimes missing. Duration somewhat intentional.",
+        "5": "All blocks have start and end times. Duration strategically chosen (shorter for procrastination, longer for deep work). Parkinson's Law consciously leveraged."
+      }
+    },
+    {
+      "name": "Energy-Task Alignment",
+      "description": "High-impact work scheduled during peak energy hours. Low-energy periods used for admin/meetings. Energy patterns considered.",
+      "scale": {
+        "1": "No energy consideration. Important work scheduled randomly. Deep work during low-energy troughs.",
+        "3": "Some energy awareness. Peak hours sometimes protected for important work. Pattern somewhat followed.",
+        "5": "Peak energy hours (typically mornings) reserved for deep work on vital few. Low-energy periods (post-lunch) for admin/meetings. Energy pattern explicitly tracked and honored."
+      }
+    },
+    {
+      "name": "Task Batching",
+      "description": "Similar low-cognitive tasks grouped to minimize context-switching. Email, meetings, admin batched into dedicated blocks.",
+      "scale": {
+        "1": "No batching. Context-switching constantly (email checked throughout day, meetings scattered). High fragmentation.",
+        "3": "Some batching attempted. Email checked at set times (but >2x/day). Some meeting clustering.",
+        "5": "Comprehensive batching: email 2x/day max (e.g., 11am, 4pm), meetings clustered (Tue/Thu afternoons), admin batched (Fri afternoons). Minimal context-switching."
+      }
+    },
+    {
+      "name": "Break Scheduling",
+      "description": "Breaks explicitly scheduled between focus blocks (10-15min per 90min work). Not skipped. Recovery prioritized.",
+      "scale": {
+        "1": "No breaks scheduled. Work continuously for hours. Breaks treated as optional/skipped.",
+        "3": "Some breaks acknowledged but not rigorously scheduled. Sometimes skipped when 'busy'.",
+        "5": "Breaks explicitly timeboxed (10-15min per 90min block). Non-negotiable. Walk/stretch/disconnect enforced. Hard stop at end-of-day (e.g., 5pm)."
+      }
+    },
+    {
+      "name": "Weekly Time Allocation",
+      "description": "80% of focus time allocated to vital few (top 20% tasks). Minimal time on low-impact work. Realistic buffer (20% unscheduled).",
+      "scale": {
+        "1": "Time spread evenly across all tasks. No clear allocation to priorities. Over-scheduled (100%+ of capacity).",
+        "3": "Some focus time on priorities but <80%. Time allocation somewhat aligned with impact. Buffer minimal (<10%).",
+        "5": "80%+ of focus time explicitly allocated to vital few. Low-impact work batched/minimized. 20% buffer time for unexpected issues and overflow."
+      }
+    },
+    {
+      "name": "Distraction Elimination Plan",
+      "description": "Specific actions to eliminate distractions during focus blocks. Slack/email closed, phone away, notifications off, environment controlled.",
+      "scale": {
+        "1": "No distraction plan. Work with all apps open, phone nearby, notifications on. Constant interruptions accepted.",
+        "3": "Some distraction awareness. Phone on silent, Slack DND sometimes. Incomplete elimination.",
+        "5": "Comprehensive elimination: Slack/email quit (not minimized), phone in different room or airplane mode, notifications disabled, browser tabs closed, timer set, environment optimized (headphones, door closed)."
+      }
+    },
+    {
+      "name": "Focus Quality Tracking",
+      "description": "Focus blocks tracked for completion and quality. Interruptions logged. Weekly review to identify patterns and improve.",
+      "scale": {
+        "1": "No tracking. No data on focus quality. No review of what worked/didn't.",
+        "3": "Basic tracking (blocks completed). Some awareness of quality. Informal review.",
+        "5": "Detailed tracking: blocks completed, quality rating (1-5), distractions counted, patterns analyzed. Weekly review with specific adjustments for next week."
+      }
+    },
+    {
+      "name": "Execution Realism",
+      "description": "Schedule is realistic, not aspirational. Under-schedules rather than over-commits. Achievable daily deep work hours (2-4 hrs max).",
+      "scale": {
+        "1": "Unrealistic schedule (8+ hours deep work/day, no buffer, back-to-back blocks). Consistently fails to execute.",
+        "3": "Somewhat realistic. Occasional overcommitment. Deep work 4-5 hours scheduled (upper limit).",
+        "5": "Highly realistic: 2-4 hours deep work max per day (sustainable). Buffer time included. Under-schedules to over-deliver. Consistently executable."
+      }
+    }
+  ],
+  "guidance_by_type": {
+    "Knowledge Worker (Individual Contributor)": {
+      "target_score": 4.0,
+      "key_criteria": ["80/20 Identification", "Deep Work Block Design", "Energy-Task Alignment"],
+      "common_pitfalls": ["No protected deep work time", "Meetings scattered throughout day", "Peak hours wasted on email/admin"],
+      "specific_guidance": "Protect mornings (9am-12pm) for deep work. Batch meetings Tue/Thu afternoons. Limit email to 2x/day. Track focus blocks completed per week (target: 10-15 blocks)."
+    },
+    "Manager": {
+      "target_score": 3.5,
+      "key_criteria": ["Task Batching", "Energy-Task Alignment", "Weekly Time Allocation"],
+      "common_pitfalls": ["Calendar completely filled with meetings", "No buffer time", "Reactive all day"],
+      "specific_guidance": "Manager's schedule requires more meetings, but still need focus time. Block 3-5 hours/week for strategic work (planning, thinking, writing). Batch meetings, keep some mornings clear."
+    },
+    "Creative/Technical (Engineer, Designer, Writer)": {
+      "target_score": 4.3,
+      "key_criteria": ["Deep Work Block Design", "Distraction Elimination Plan", "Focus Quality Tracking"],
+      "common_pitfalls": ["Context-switching between tasks", "No full mornings of uninterrupted time", "Checking Slack every 10 min"],
+      "specific_guidance": "Makers need half-day blocks minimum. Schedule 2-3 deep work blocks (90-120min each) per day. Eliminate ALL distractions. Track quality rigorously. Aim for 15-20 hours deep work per week."
+    },
+    "Entrepreneur/Freelancer": {
+      "target_score": 4.0,
+      "key_criteria": ["80/20 Identification", "Timeboxing Discipline", "Execution Realism"],
+      "common_pitfalls": ["Everything feels urgent/important", "No boundaries (work evenings/weekends)", "Reactive to client requests"],
+      "specific_guidance": "80/20 critical when no boss setting priorities. Ruthlessly identify vital few. Set hard boundaries (no work after 5pm). Batch client communication (office hours model). Track focus blocks to ensure strategic work happens."
+    },
+    "Student/Researcher": {
+      "target_score": 4.2,
+      "key_criteria": ["Deep Work Block Design", "Energy-Task Alignment", "Break Scheduling"],
+      "common_pitfalls": ["All-nighters before deadlines", "No structured study schedule", "Multitasking with social media"],
+      "specific_guidance": "Schedule deep work during peak hours (typically mornings). 90-min study blocks with 15-min breaks. NO all-nighters (destroys focus for days). Track Pomodoros completed. Build focus stamina progressively."
+    }
+  },
+  "guidance_by_complexity": {
+    "Beginner (Building Focus Habit)": {
+      "target_score": 3.0,
+      "focus_areas": ["Timeboxing Discipline", "Distraction Elimination Plan", "Break Scheduling"],
+      "acceptable_shortcuts": ["Start with 25-min Pomodoros", "2-3 focus blocks per day", "Basic 80/20 (top 3 priorities)"],
+      "specific_guidance": "Start small. 25-min Pomodoros 2x/day for first 2 weeks. Build to 50-min, then 90-min over 4-6 weeks. Track completion, not perfection. Use timer religiously."
+    },
+    "Intermediate (Consistent Focus Practice)": {
+      "target_score": 4.0,
+      "focus_areas": ["80/20 Identification", "Energy-Task Alignment", "Task Batching"],
+      "acceptable_shortcuts": ["Weekly planning instead of daily", "Informal energy tracking"],
+      "specific_guidance": "90-min deep work blocks standard. 2-3 blocks per day sustainable. Weekly 80/20 planning (Sunday/Monday). Energy patterns tracked. Email batched 2x/day. Meetings clustered."
+    },
+    "Advanced (Optimized Productivity System)": {
+      "target_score": 4.5,
+      "focus_areas": ["All criteria", "Focus Quality Tracking", "Execution Realism"],
+      "acceptable_shortcuts": ["None - comprehensive system expected"],
+      "specific_guidance": "Consistent 15-20 hours deep work per week. Rigorous tracking (quality, distractions, patterns). Weekly review with data-driven adjustments. Energy optimization mastered. Maker's schedule (half-day blocks). Strategic quitting of low-value commitments."
+    }
+  },
+  "common_failure_modes": [
+    {
+      "name": "No Real Deep Work Time",
+      "symptom": "Calendar full of meetings. 'Focus time' blocked but constantly interrupted. No uninterrupted 90-min blocks.",
+      "detection": "Count uninterrupted 90-min blocks per week. If <3, no real deep work happening.",
+      "fix": "Protect mornings (9am-12pm) Mon-Wed for deep work. Decline meetings during this time. Batch meetings Tue/Thu afternoons. Communicate boundaries to team."
+    },
+    {
+      "name": "Everything Is Important",
+      "symptom": "All tasks marked high priority. No clear 80/20. Time spread evenly across everything.",
+      "detection": "Ask: 'If you could only work 10 hours this week, what would you do?' If answer is unclear, 80/20 not done.",
+      "fix": "Force rank all tasks 1 to N (no ties). Top 20% = vital few. Bottom 80% = delegate, defer, batch, or eliminate. Be ruthless."
+    },
+    {
+      "name": "Peak Hours on Trivial Work",
+      "symptom": "Checking email at 9am (peak energy). Deep work scheduled for 3pm (post-lunch crash). Energy misalignment.",
+      "detection": "Review calendar: What happens 9am-12pm? If meetings/email/admin, peak hours wasted.",
+      "fix": "Reserve 9am-12pm for deep work ONLY. Move email to 11am and 4pm. Schedule meetings/admin for afternoon trough (2-4pm)."
+    },
+    {
+      "name": "Skipping Breaks",
+      "symptom": "'I'll break after I finish this.' Works 3-4 hours straight without break. Quality degrades, burnout risk.",
+      "detection": "Track breaks taken vs. scheduled. If <50% of breaks taken, skipping is habitual.",
+      "fix": "Set timer alarm for break time. Stand up when alarm rings (not 'just 5 more min'). Walk away from desk. Treat breaks as non-negotiable as meetings."
+    },
+    {
+      "name": "Context-Switching Hell",
+      "symptom": "Checking email every 20 min. Slack pings all day. Jump between tasks constantly. No batching.",
+      "detection": "Count context switches per day (task changes, app switches). If >20, fragmentation high.",
+      "fix": "Batch email 2x/day max (11am, 4pm). Quit Slack during focus blocks. Single-task during timeboxes. Batch similar tasks (code reviews, admin)."
+    },
+    {
+      "name": "Unrealistic Overcommitment",
+      "symptom": "Schedule 8+ hours deep work per day. No buffer time. Consistently fails to complete planned blocks.",
+      "detection": "Compare planned vs. actual focus blocks completed. If <60% completion, over-scheduled.",
+      "fix": "Cap deep work at 3-4 hours per day (sustainable). Schedule 20% buffer time. Under-promise, over-deliver. Be realistic about interruptions."
+    },
+    {
+      "name": "No Distraction Elimination",
+      "symptom": "Work with Slack open, phone nearby, notifications on. 'Quick checks' destroy focus. Email tab always open.",
+      "detection": "Track interruptions during focus block. If >2 per 90-min block, distractions not eliminated.",
+      "fix": "QUIT Slack/email (not minimize). Phone in different room or airplane mode. Close all tabs except work. Notifications off. Use timer. No exceptions."
+    },
+    {
+      "name": "Ignoring Energy Patterns",
+      "symptom": "Schedule deep work whenever there's time, regardless of energy. Force focus during low-energy troughs.",
+      "detection": "Ask: 'When do you feel most alert?' If deep work not scheduled then, energy ignored.",
+      "fix": "Track energy 1-5 rating every 2 hours for 1 week. Identify peak (typically 9am-12pm). Schedule ALL deep work during peak. Use trough for admin/meetings only."
+    },
+    {
+      "name": "Pomodoro Forever (Not Progressing)",
+      "symptom": "Still using 25-min Pomodoros after months. Never builds to 90-min deep work capacity.",
+      "detection": "Check focus block duration. If still 25-min after 4+ weeks, not progressing.",
+      "fix": "Progressive training: Week 1-2 (25min), Week 3-4 (50min), Week 5+ (90min). Push capacity gradually. Build deep work stamina."
+    },
+    {
+      "name": "No Tracking or Review",
+      "symptom": "No data on focus quality, blocks completed, or what works. Flying blind week-to-week.",
+      "detection": "Ask: 'How many focus blocks completed last week? What was average quality?' If no answer, no tracking.",
+      "fix": "Simple log: Date, duration, task, quality (1-5), distractions. Review weekly. Identify patterns (best days, worst interruptions). Adjust next week based on data."
+    }
+  ],
+  "minimum_standard": 3.5,
+  "target_score": 4.0,
+  "excellence_threshold": 4.5
+}
