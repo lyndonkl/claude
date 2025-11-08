@@ -4,7 +4,7 @@ A comprehensive collection of production-ready skills for Claude Code, covering 
 
 ## Overview
 
-This repository contains **24 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **25 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -24,7 +24,7 @@ This repository contains **24 skills** designed to enhance Claude Code's capabil
 
 **environmental-scanning-foresight** - Anticipate change through PESTLE analysis, weak signal detection, scenario planning (2x2 matrix), cross-impact analysis, and signposts for early warning systems.
 
-**expected-value** *(coming soon)* - Expected value calculations for decision-making under uncertainty.
+**expected-value** - Rational decision-making under uncertainty through probability-weighted outcomes (EV = Σ p×v). Covers scenario identification, probability estimation (base rates, triangulation, calibration), payoff quantification (NPV, non-monetary factors), decision trees (fold-back induction, optionality), expected utility for risk aversion, sensitivity analysis, and bias mitigation (overconfidence, sunk costs, tail risk neglect).
 
 ### 💡 Problem Solving & Analysis
 

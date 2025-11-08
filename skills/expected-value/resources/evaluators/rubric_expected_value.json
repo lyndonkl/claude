@@ -1,0 +1,261 @@
+{
+  "criteria": [
+    {
+      "name": "Scenario Completeness",
+      "1": "Only 1-2 scenarios considered (best case or base case only), missing tail risk or critical scenarios, outcomes not mutually exclusive or exhaustive",
+      "3": "3-4 scenarios covering best/base/worst cases, mostly exhaustive, some overlap or gaps",
+      "5": "Comprehensive scenario set (4-6 outcomes), exhaustive and mutually exclusive, covers full range including tail risks, explicit check that probabilities sum to 1.0"
+    },
+    {
+      "name": "Probability Calibration",
+      "1": "Gut-feel probabilities with no grounding, no base rates or reference classes used, probabilities arbitrary or don't sum to 1.0",
+      "3": "Probabilities estimated using 1-2 methods (inside view or expert judgment), some grounding in data or reference classes, sum to 1.0",
+      "5": "Probabilities triangulated using multiple methods (base rates, inside view, expert judgment, data/models), weighted reconciliation across methods, explicit confidence ranges, historical calibration checked"
+    },
+    {
+      "name": "Payoff Quantification",
+      "1": "Vague payoffs ('good' vs 'bad'), no dollar amounts or quantification, non-monetary factors ignored, no time value of money",
+      "3": "Payoffs quantified in dollars for monetary components, rough estimates for non-monetary (time, reputation), NPV mentioned if multi-period",
+      "5": "Comprehensive payoff quantification: monetary (revenue, costs, opportunity cost) with NPV for multi-period (discount rate justified), non-monetary (time, reputation, learning, strategic) converted to $ or utility, uncertainty expressed (ranges or distributions)"
+    },
+    {
+      "name": "EV Calculation Accuracy",
+      "1": "No formal EV calculation, 'seems like good idea', or calculation errors (wrong formula, arithmetic mistakes, probabilities don't sum to 1.0)",
+      "3": "EV calculated correctly (Σ p×v), shown for all alternatives, comparison table present, minor errors",
+      "5": "EV calculated correctly with full transparency (table showing outcomes, probabilities, payoffs, p×v for each), variance and standard deviation computed (risk measures), coefficient of variation for risk-adjusted comparison, all calculations verified"
+    },
+    {
+      "name": "Sensitivity Analysis",
+      "1": "No sensitivity analysis, assumes point estimates are certain, no breakeven analysis",
+      "3": "One-way sensitivity for 1-2 key variables, breakeven calculation (at what probability does decision flip?), some scenario analysis",
+      "5": "Comprehensive sensitivity: one-way for all key variables, tornado diagram (ranked by impact), scenario analysis (optimistic/base/pessimistic), breakeven probabilities, identifies which assumptions matter most, robustness of decision across scenarios"
+    },
+    {
+      "name": "Risk Adjustment",
+      "1": "No consideration of risk aversion, assumes maximize EV regardless of stakes, one-shot high-stakes decision treated as repeated bet",
+      "3": "Risk profile mentioned (one-shot vs repeated, risk-averse vs neutral), some adjustment for risk (prefer lower variance option if EVs close)",
+      "5": "Explicit risk adjustment: utility function specified if risk-averse, expected utility (EU) calculated in addition to EV, certainty equivalent and risk premium computed, decision maker profile assessed (one-shot/repeated, stakes, risk tolerance), recommendation accounts for both EV and risk"
+    },
+    {
+      "name": "Decision Tree Use (if sequential)",
+      "1": "Sequential decision treated as simultaneous (ignores optionality), no fold-back induction, optimal strategy not found",
+      "3": "Decision tree drawn for sequential decisions, fold-back induction attempted, optimal strategy identified, some errors in calculation",
+      "5": "Decision tree correctly structured (decision nodes, chance nodes, terminal payoffs), fold-back induction performed correctly, optimal strategy clearly stated (which choices at each decision point), value of information (EVPI) calculated if relevant, optionality value quantified"
+    },
+    {
+      "name": "Bias Mitigation",
+      "1": "Probabilities show clear biases (overconfidence, anchoring, availability), sunk costs included in forward-looking EV, no acknowledgment of bias risk",
+      "3": "Biases mentioned (overconfidence, anchoring), some mitigation (use base rates, triangulate estimates), sunk costs excluded from EV",
+      "5": "Comprehensive bias mitigation: probabilities calibrated (base rates used, confidence ranges specified, multiple methods triangulate), anchoring avoided (independent estimates before seeing others), availability bias checked (not overweighting vivid examples), sunk costs explicitly excluded, tail risks not rounded to zero, uncertainty expressed (no false precision)"
+    },
+    {
+      "name": "Non-Monetary Factors",
+      "1": "Only monetary payoffs considered, strategic value / learning / reputation ignored or mentioned as afterthought without quantification",
+      "3": "Non-monetary factors mentioned qualitatively (strategic value, learning), rough $ equivalents or scoring (1-10), incorporated into final recommendation",
+      "5": "Non-monetary factors systematically quantified: time (hours × rate), reputation (CLV impact, premium pricing), learning (option value of skills), strategic positioning (market share × profit), morale (productivity impact), either converted to $ or incorporated via multi-attribute utility, weighting justified"
+    },
+    {
+      "name": "Recommendation Clarity",
+      "1": "No clear recommendation, presents EV but doesn't say which option to choose, recommendation contradicts EV without explanation",
+      "3": "Recommendation stated (choose Alt X), rationale references EV and risk, some explanation of factors beyond EV",
+      "5": "Clear, actionable recommendation with full rationale: highest EV alternative identified, risk considerations explained (EU if risk-averse), non-monetary factors weighted in, contingencies specified (if Outcome Y occurs, we'll pivot to...), sensitivity and robustness discussed, confidence level stated, next steps / action plan provided"
+    }
+  ],
+  "guidance_by_type": {
+    "Investment Decision": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Payoff Quantification (≥4): NPV calculated with justified discount rate (WACC, hurdle rate), multi-period cash flows discounted",
+        "Probability Calibration (≥4): Base rates from similar investments, triangulation across methods",
+        "Risk Adjustment (≥4): One-shot high-stakes → expected utility, certainty equivalent, risk premium calculated",
+        "Sensitivity Analysis (≥4): IRR, payback period, breakeven analysis, scenario stress tests"
+      ],
+      "common_pitfalls": [
+        "Ignoring time value of money (using nominal cash flows without discounting)",
+        "Optimism bias (probabilities skewed toward success)",
+        "Sunk cost fallacy (including past investments in forward-looking EV)"
+      ]
+    },
+    "Product / Feature Launch": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Scenario Completeness (≥4): Best (viral success), base (expected adoption), worst (flop), partial success scenarios",
+        "Non-Monetary Factors (≥4): Learning value (customer insights), strategic positioning (competitive response), brand impact",
+        "Sensitivity Analysis (≥4): Adoption rate, willingness to pay, churn rate, development cost overruns",
+        "Decision Tree (≥3 if staged): Pilot → measure → decide to scale or kill"
+      ],
+      "common_pitfalls": [
+        "Ignoring opportunity cost (what else could team build?)",
+        "Treating as pure monetary decision (missing strategic / learning value)",
+        "Binary framing (launch or don't) when staged rollout is option"
+      ]
+    },
+    "Resource Allocation (Portfolio)": {
+      "target_score": 4.1,
+      "key_requirements": [
+        "EV Calculation (≥5): EV computed for each project, ranked by EV, marginal vs. total EV if budget constrained",
+        "Risk Adjustment (≥4): Portfolio variance (correlation between projects), diversification benefit, risk-return frontier",
+        "Sensitivity Analysis (≥4): How does ranking change if key assumptions vary? Robust winners vs. fragile",
+        "Non-Monetary Factors (≥4): Strategic balance (explore vs exploit), team capacity, dependency sequencing"
+      ],
+      "common_pitfalls": [
+        "Assuming independence (projects often correlated, especially in downturn)",
+        "Ignoring constraints (budget, team capacity, sequencing dependencies)",
+        "Marginal analysis error (choosing projects by EV/cost ratio when should use knapsack optimization)"
+      ]
+    },
+    "Sequential Decision (Decision Tree)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Decision Tree Use (≥5): Correctly structured tree, fold-back induction, optimal strategy, value of optionality",
+        "Scenario Completeness (≥4): All branches labeled with probabilities and payoffs, paths to terminal nodes complete",
+        "Sensitivity Analysis (≥4): Value of information (EVPI), when to stop vs continue, option value quantified",
+        "Risk Adjustment (≥3): Risk aversion may favor stopping early (take certain intermediate payoff vs gamble on later stages)"
+      ],
+      "common_pitfalls": [
+        "Ignoring optionality (treating as upfront all-or-nothing decision)",
+        "Not working backwards (trying to solve forward instead of fold-back induction)",
+        "Forgetting to subtract costs at each decision node (costs are sunk for later nodes)"
+      ]
+    },
+    "Competitive / Game-Theoretic": {
+      "target_score": 3.9,
+      "key_requirements": [
+        "Probability Calibration (≥4): Estimate opponent's strategy probabilities (beliefs or mixed strategy), justify via game theory or behavioral model",
+        "Payoff Quantification (≥4): Payoff matrix (your payoff for each combination of strategies), account for opponent's response",
+        "Sensitivity Analysis (≥4): How does optimal strategy change if opponent's probabilities shift? Robust strategies (good across many opponent behaviors)",
+        "Recommendation (≥4): Nash equilibrium identified if relevant, best response given beliefs, contingency if opponent deviates"
+      ],
+      "common_pitfalls": [
+        "Assuming rational opponent (real opponents may be irrational, vindictive, or mistaken)",
+        "Ignoring signaling / credibility (opponent may learn from your choice, affecting their future strategy)",
+        "Static analysis (in repeated games, cooperation / retaliation dynamics matter)"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple": {
+      "target_score": 3.5,
+      "description": "2 alternatives, 3-4 discrete scenarios per alternative, monetary payoffs, single-period, no sequential decisions",
+      "key_requirements": [
+        "Scenario Completeness (≥3): Best, base, worst cases identified, probabilities sum to 1.0",
+        "Probability Calibration (≥3): At least one grounding method (base rates or inside view or expert judgment)",
+        "Payoff Quantification (≥3): Monetary payoffs in dollars, rough estimates acceptable",
+        "EV Calculation (≥5): Correct formula, transparent table, comparison across alternatives",
+        "Sensitivity Analysis (≥3): Breakeven probability calculated",
+        "Recommendation (≥4): Clear choice with rationale"
+      ],
+      "time_estimate": "1-3 hours",
+      "examples": [
+        "Accept job offer ($120k certain) vs stay ($100k + 20% chance of promotion to $140k)",
+        "Buy insurance ($5k premium) vs risk loss (5% chance of -$80k repair)",
+        "Launch feature (60% success $100k, 40% fail -$20k) vs don't launch ($0)"
+      ]
+    },
+    "Standard": {
+      "target_score": 4.0,
+      "description": "3-4 alternatives, 4-6 scenarios per alternative, monetary + non-monetary payoffs, multi-period (NPV), sensitivity analysis, may be sequential",
+      "key_requirements": [
+        "Scenario Completeness (≥4): Comprehensive scenarios including tail risks, explicit exhaustiveness check",
+        "Probability Calibration (≥4): Multiple methods (base rates, inside view, experts, data), triangulation, confidence ranges",
+        "Payoff Quantification (≥4): NPV for multi-period, non-monetary factors quantified (time, reputation, learning)",
+        "EV Calculation (≥5): Correct with variance/std dev, coefficient of variation for risk comparison",
+        "Sensitivity Analysis (≥4): One-way for key variables, tornado diagram, scenario analysis, breakeven",
+        "Risk Adjustment (≥4): Utility function if risk-averse, EU calculated, risk premium",
+        "Bias Mitigation (≥4): Base rates used, sunk costs excluded, tail risks not ignored",
+        "Recommendation (≥5): Clear choice, full rationale (EV + risk + strategic), contingencies, confidence"
+      ],
+      "time_estimate": "6-12 hours",
+      "examples": [
+        "Invest in project A (high risk, high return) vs B (low risk, low return) vs C (medium) with NPV",
+        "Product roadmap: Feature X vs Y vs Z, multi-period revenue, strategic value, team capacity",
+        "Market expansion: Enter country A vs B vs wait, staged rollout (pilot → scale), learning value"
+      ]
+    },
+    "Complex": {
+      "target_score": 4.3,
+      "description": "5+ alternatives, continuous distributions (Monte Carlo), sequential multi-stage decisions (decision tree), game-theoretic interactions, portfolio optimization, high-stakes",
+      "key_requirements": [
+        "Scenario Completeness (≥5): Continuous distributions or 6+ discrete scenarios, Monte Carlo simulation if appropriate",
+        "Probability Calibration (≥5): Rigorous triangulation, data-driven models, historical calibration checked, explicit uncertainty quantification",
+        "Payoff Quantification (≥5): Comprehensive monetary + non-monetary, NPV with justified discount rate, option value / real options analysis",
+        "EV Calculation (≥5): Monte Carlo or decision tree with fold-back induction, variance/correlation if portfolio, percentile outputs (5th-95th)",
+        "Sensitivity Analysis (≥5): Comprehensive tornado, scenario stress tests, value of information (EVPI), robustness analysis",
+        "Risk Adjustment (≥5): Expected utility with calibrated utility function, certainty equivalent, risk-return frontier if portfolio, loss aversion (Prospect Theory)",
+        "Decision Tree (≥5 if sequential): Multi-stage tree, optimal strategy, optionality value, stopping rules",
+        "Bias Mitigation (≥5): Full calibration protocol, independent probability estimates, outside view anchored, no tail risk neglect",
+        "Non-Monetary Factors (≥5): Multi-attribute utility or systematic $ conversion, strategic value quantified",
+        "Recommendation (≥5): Detailed action plan, contingencies, monitoring plan (what metrics to track, triggers for pivot)"
+      ],
+      "time_estimate": "20-40 hours, specialized expertise",
+      "examples": [
+        "Venture portfolio allocation: Optimize across 10 startups with correlated downside risk, different stages (seed/A/B)",
+        "Pharmaceutical R&D: Phase I/II/III sequential decision tree, option to stop or continue, EVPI for clinical trial",
+        "Competitive pricing: Game-theoretic analysis (your price vs competitor's response), Nash equilibrium, signaling",
+        "Major capital investment: Monte Carlo NPV with uncertain demand, costs, timeline; real options (defer, expand, abandon)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Incomplete scenarios (missing tail risk)",
+      "symptom": "Only best/base/worst cases, no intermediate scenarios, tail risks (low prob, high impact) not modeled or rounded to zero",
+      "detection": "Ask 'What else could happen? What's the 1% worst case?' Check if probabilities leave room for tail (p_best + p_base + p_worst < 1.0 → missing scenarios).",
+      "fix": "Add 4th-6th scenarios (partial success, catastrophic failure, unexpected upside). Explicitly model tail risks even if low probability (0.1% × -$10M = -$10k EV, material)."
+    },
+    {
+      "failure": "Gut-feel probabilities with no calibration",
+      "symptom": "Probabilities like '70%' with no justification, no base rates, no reference to similar situations, overconfidence (80% when should be 60%)",
+      "detection": "Ask 'Where does 70% come from? What's the reference class? How often are you right when you say 70%?' If no answer → gut-feel.",
+      "fix": "Use base rates (historical frequency in similar cases), inside view (decompose into factors), expert judgment (average multiple experts), data/models. Triangulate. Widen ranges if uncertain."
+    },
+    {
+      "failure": "Ignoring time value of money",
+      "symptom": "Multi-period cash flows treated as equivalent (Year 1 revenue and Year 5 revenue added directly without discounting), no NPV calculation",
+      "detection": "Check if payoffs occur over multiple periods. If yes and no discounting → ignoring time value.",
+      "fix": "Discount future cash flows to present value: NPV = Σ (CF_t / (1+r)^t). Justify discount rate (WACC, risk-free + risk premium). Use NPV in EV calculation."
+    },
+    {
+      "failure": "Sunk cost fallacy",
+      "symptom": "'We've already spent $1M, can't stop now' → includes past costs in forward-looking EV, escalation of commitment",
+      "detection": "Check if past costs mentioned in recommendation ('We've invested so much'). If yes → sunk cost fallacy.",
+      "fix": "Sunk costs are sunk. Only future costs and benefits matter for decision. EV = future payoff - future cost. Ignore past investments."
+    },
+    {
+      "failure": "No risk adjustment for one-shot high-stakes decisions",
+      "symptom": "Recommendation to 'maximize EV' for decision that could bankrupt (bet life savings), no mention of risk aversion or utility",
+      "detection": "Ask 'Is this decision repeated or one-shot? Can we afford to lose?' If one-shot high-stakes and only EV considered → missing risk adjustment.",
+      "fix": "Use expected utility (EU) instead of EV. Specify utility function (U(x) = √x or log(x) for risk aversion). Calculate EU, certainty equivalent, risk premium. Recommendation: Choose based on EU, not just EV."
+    },
+    {
+      "failure": "Ignoring optionality in sequential decisions",
+      "symptom": "Sequential decision (pilot → scale) treated as upfront all-or-nothing choice, no decision tree, no fold-back induction, value of learning not quantified",
+      "detection": "Ask 'Can we stop/pivot/wait for more info?' If yes but not modeled → ignoring optionality.",
+      "fix": "Build decision tree with decision nodes (choose) and chance nodes (uncertain outcomes). Fold-back induction to find optimal strategy (when to stop, continue, pivot). Quantify option value."
+    },
+    {
+      "failure": "False precision in probabilities",
+      "symptom": "'Probability = 67.32%' when estimate is rough guess, no uncertainty expressed, point estimates treated as certain",
+      "detection": "Ask 'How certain are you? Could this be 60% or 75%?' If wide range but point estimate given → false precision.",
+      "fix": "Express uncertainty: probability range (60-75%), confidence intervals, distributions. Don't pretend more precision than you have. Sensitivity analysis shows impact of uncertainty."
+    },
+    {
+      "failure": "Anchoring bias in probability estimation",
+      "symptom": "First estimate (or number mentioned) biases final estimate, adjust insufficiently from anchor ('Is success rate > 50%?' → estimate ends up ~50% even if should be 20%)",
+      "detection": "Compare independent estimates (before/after seeing anchor). If large shift toward anchor → anchoring bias.",
+      "fix": "Generate independent estimate before seeing others' numbers. Use base rates as anchor (better anchor than arbitrary number). Triangulate across multiple methods."
+    },
+    {
+      "failure": "Ignoring non-monetary factors",
+      "symptom": "Only dollar payoffs considered, strategic value / learning / reputation mentioned as afterthought but not quantified or weighted in decision",
+      "detection": "Check if non-monetary factors listed but EV calculation only uses $. If yes → ignored in quantitative analysis.",
+      "fix": "Quantify non-monetary: time (hours × rate), reputation (CLV impact), learning (option value), strategic (market share × profit). Convert to $ or use multi-attribute utility with weights."
+    },
+    {
+      "failure": "No sensitivity analysis (decision fragile to assumptions)",
+      "symptom": "Single EV calculation, no 'what-if' analysis, don't know how decision changes if assumptions vary, breakeven not calculated",
+      "detection": "Ask 'At what probability does decision flip? What if payoff is 30% lower?' If no answer → no sensitivity.",
+      "fix": "One-way sensitivity (vary each variable), tornado diagram (rank by impact), scenario analysis (optimistic/base/pessimistic), breakeven calculations. Identify robust vs. fragile decisions."
+    }
+  ]
+}
