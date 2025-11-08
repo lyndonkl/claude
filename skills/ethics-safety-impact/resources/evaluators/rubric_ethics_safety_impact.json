@@ -1,0 +1,255 @@
+{
+  "criteria": [
+    {
+      "name": "Stakeholder Identification",
+      "1": "Only obvious stakeholders identified, vulnerable groups missing, no power/voice analysis",
+      "3": "Primary stakeholders identified, some vulnerable groups noted, basic power analysis",
+      "5": "Comprehensive stakeholder map (primary, secondary, societal), vulnerable groups prioritized with specific risk factors, power/voice dynamics analyzed, intersectionality considered"
+    },
+    {
+      "name": "Harm Analysis Depth",
+      "1": "Surface-level harms only, no mechanism analysis, severity/likelihood guessed",
+      "3": "Multiple harms identified with mechanisms, severity/likelihood scored, some second-order effects",
+      "5": "Comprehensive harm catalog across types (physical, psychological, economic, social, autonomy, privacy), mechanisms explained, severity/likelihood justified, second-order effects (feedback loops, accumulation, normalization, precedent) analyzed"
+    },
+    {
+      "name": "Benefit Analysis Balance",
+      "1": "Only harms or only benefits listed, no distribution analysis, rose-colored or overly negative",
+      "3": "Both harms and benefits identified, some distribution analysis (who gets what)",
+      "5": "Balanced harm/benefit analysis, distribution clearly specified (universal, subset, vulnerable groups), magnitude and timeline assessed, tradeoffs acknowledged"
+    },
+    {
+      "name": "Fairness Assessment",
+      "1": "No fairness analysis, assumes equal treatment = fairness, no metrics",
+      "3": "Outcome disparities measured for some groups, fairness concern noted, basic mitigation proposed",
+      "5": "Rigorous fairness analysis (outcome, treatment, access fairness), quantitative metrics (disparate impact ratio, error rates by group), intersectional analysis, appropriate fairness definition chosen for context"
+    },
+    {
+      "name": "Risk Prioritization",
+      "1": "No prioritization or arbitrary, all harms treated equally, no severity/likelihood scoring",
+      "3": "Risk matrix used, severity and likelihood scored, high-risk harms identified",
+      "5": "Rigorous risk prioritization (5x5 matrix), severity/likelihood justified with evidence/precedent, color-coded priorities, focus on red/orange (high-risk) harms, considers vulnerable group concentration"
+    },
+    {
+      "name": "Mitigation Design",
+      "1": "No mitigations or vague promises, reactive only, no ownership or timeline",
+      "3": "Mitigations proposed for key harms, some specificity, owners/timelines mentioned",
+      "5": "Specific mitigations for all high-priority harms, type specified (prevent/reduce/detect/respond/safeguard), effectiveness assessed, cost/tradeoffs acknowledged, owners assigned, timelines set, residual risk calculated"
+    },
+    {
+      "name": "Monitoring & Metrics",
+      "1": "No monitoring plan, intentions stated without measurement, no metrics defined",
+      "3": "Some metrics defined, monitoring frequency mentioned, thresholds set",
+      "5": "Comprehensive monitoring framework (outcome metrics disaggregated by group, leading indicators, qualitative feedback), specific thresholds for concern, escalation protocol (yellow/orange/red alerts), review cadence set, accountability clear"
+    },
+    {
+      "name": "Transparency & Recourse",
+      "1": "No mechanisms for affected parties to contest or understand decisions, opacity accepted",
+      "3": "Some explainability mentioned, appeals process exists, basic transparency",
+      "5": "Clear transparency (decisions explained in plain language, limitations disclosed), robust recourse (appeals with human review, overturn process, redress for harm), audit trails for investigation, accessible to affected groups"
+    },
+    {
+      "name": "Stakeholder Participation",
+      "1": "No involvement of affected groups, internal team only, no external input",
+      "3": "Some user research or feedback collection, affected groups consulted",
+      "5": "Meaningful participation of vulnerable/affected groups (advisory boards, co-design, participatory audits), diverse team conducting assessment, external review (ethics board, independent audit), ongoing consultation not one-time"
+    },
+    {
+      "name": "Proportionality & Precaution",
+      "1": "Assumes go-ahead, burden on critics to prove harm, move fast and apologize later",
+      "3": "Some precaution for high-risk features, staged rollout considered, mitigation before launch",
+      "5": "Precautionary principle applied (mitigate before launch for irreversible harms), proportional response (higher stakes = more safeguards), staged rollout with kill switches, burden on proponents to demonstrate safety, continuous monitoring post-launch"
+    }
+  ],
+  "guidance_by_type": {
+    "Algorithm Fairness Audit": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Fairness Assessment (score ≥5): Quantitative metrics (disparate impact, equalized odds, calibration), disaggregated by protected groups",
+        "Harm Analysis: Disparate impact, feedback loops, opacity, inability to contest",
+        "Mitigation Design: Debiasing techniques, fairness constraints, explainability, human review for edge cases",
+        "Monitoring: Bias dashboard with real-time metrics by group, drift detection, periodic audits"
+      ],
+      "common_pitfalls": [
+        "Assuming colorblindness = fairness (need to collect/analyze demographic data)",
+        "Only checking one fairness metric (tradeoffs exist, choose appropriate for context)",
+        "Not testing for intersectionality (race × gender unique harms)"
+      ]
+    },
+    "Data Privacy & Consent": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Stakeholder Identification: Data subjects, vulnerable groups (children, marginalized)",
+        "Harm Analysis: Privacy violations, surveillance, breaches, secondary use, re-identification",
+        "Mitigation Design: Data minimization, anonymization/differential privacy, granular consent, encryption, user controls",
+        "Monitoring: Breach incidents, access logs, consent withdrawals, data requests (GDPR)"
+      ],
+      "common_pitfalls": [
+        "Privacy theater (consent mandatory for service = not meaningful choice)",
+        "De-identification without considering linkage attacks",
+        "Not providing genuine user controls (export, delete)"
+      ]
+    },
+    "Content Moderation & Free Expression": {
+      "target_score": 3.9,
+      "key_requirements": [
+        "Stakeholder Identification: Creators, viewers, vulnerable groups (harassment targets), society (information integrity)",
+        "Harm Analysis: Over-moderation (silencing marginalized voices), under-moderation (harassment, misinfo), inconsistent enforcement",
+        "Fairness Assessment: Error rates by group, differential enforcement across languages/regions, cultural context",
+        "Mitigation: Clear policies, appeals with human review, diverse moderators, transparency reports"
+      ],
+      "common_pitfalls": [
+        "Optimizing for engagement without ethical constraints (amplifies outrage)",
+        "Not accounting for cultural context (policies designed for US applied globally)",
+        "Transparency without accountability (reports without action)"
+      ]
+    },
+    "Accessibility & Inclusive Design": {
+      "target_score": 4.1,
+      "key_requirements": [
+        "Stakeholder Identification: People with disabilities (visual, auditory, motor, cognitive), elderly, low-literacy, low-bandwidth",
+        "Harm Analysis: Exclusion, degraded experience, safety risks (cannot access critical features)",
+        "Mitigation: WCAG AA/AAA compliance, assistive technology testing, keyboard navigation, alt text, plain language, multi-language",
+        "Monitoring: Accessibility test coverage, feedback from disability communities, task completion rates across abilities"
+      ],
+      "common_pitfalls": [
+        "Accessibility as afterthought (retrofit harder than design-in)",
+        "Testing only with non-disabled users or automated tools (miss real user experience)",
+        "Meeting minimum standards without usability (technically compliant but unusable)"
+      ]
+    },
+    "Safety-Critical Systems": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Harm Analysis: Physical harm (injury, death), psychological trauma, property damage, cascade failures",
+        "Risk Prioritization: FMEA or Fault Tree Analysis, worst-case scenario planning, single points of failure identified",
+        "Mitigation: Redundancy, fail-safes, human oversight, rigorous testing (stress, chaos, adversarial), incident response",
+        "Monitoring: Error rates, near-miss incidents, safety metrics (adverse events), compliance audits, real-time alerts"
+      ],
+      "common_pitfalls": [
+        "Underestimating tail risks (low probability high impact events dismissed)",
+        "Assuming technical safety alone (ignoring human factors, socio-technical risks)",
+        "No graceful degradation (system fails completely rather than degraded mode)"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple/Low-Risk": {
+      "target_score": 3.5,
+      "description": "Limited scope, low stakes, reversible, small user base, no vulnerable groups primary users",
+      "key_requirements": [
+        "Stakeholder Identification (≥3): Primary stakeholders clear, consider if any vulnerable groups affected",
+        "Harm Analysis (≥3): Key harms identified with mechanisms, severity/likelihood scored",
+        "Mitigation (≥3): Mitigations for high-risk harms, owners assigned",
+        "Monitoring (≥3): Basic metrics, thresholds, review schedule"
+      ],
+      "time_estimate": "4-8 hours",
+      "examples": [
+        "UI redesign for internal tool (low external impact)",
+        "Feature flag for optional enhancement (user opt-in)",
+        "Non-sensitive data analytics (no PII)"
+      ]
+    },
+    "Moderate/Medium-Risk": {
+      "target_score": 4.0,
+      "description": "Broader scope, moderate stakes, affects diverse users, some vulnerable groups, decisions partially reversible",
+      "key_requirements": [
+        "Comprehensive stakeholder map with vulnerable group prioritization",
+        "Harm/benefit analysis across types, second-order effects considered",
+        "Fairness assessment if algorithmic or differential impact likely",
+        "Risk prioritization with justification, focus on red/orange harms",
+        "Specific mitigations with effectiveness/tradeoffs, residual risk assessed",
+        "Monitoring with disaggregated metrics, escalation protocol, staged rollout"
+      ],
+      "time_estimate": "12-20 hours, stakeholder consultation",
+      "examples": [
+        "New user-facing feature with personalization",
+        "Policy change affecting large user base",
+        "Data collection expansion with privacy implications"
+      ]
+    },
+    "Complex/High-Risk": {
+      "target_score": 4.3,
+      "description": "System-level impact, high stakes, irreversible harm possible, vulnerable groups primary, algorithmic/high-sensitivity decisions",
+      "key_requirements": [
+        "Deep stakeholder analysis with intersectionality, power dynamics, meaningful participation",
+        "Comprehensive harm analysis (all types), second-order and long-term effects, feedback loops",
+        "Rigorous fairness assessment with quantitative metrics, appropriate fairness definitions",
+        "FMEA or Fault Tree Analysis for safety-critical, worst-case scenarios",
+        "Prevent/reduce mitigations (not just detect/respond), redundancy, fail-safes, kill switches",
+        "Real-time monitoring, bias dashboards, participatory audits, external review",
+        "Precautionary principle (prove safety before launch), staged rollout, continuous oversight"
+      ],
+      "time_estimate": "40-80 hours, ethics board review, external audit",
+      "examples": [
+        "Algorithmic hiring/lending/admissions decisions",
+        "Medical AI diagnosis or treatment recommendations",
+        "Content moderation at scale affecting speech",
+        "Surveillance or sensitive data processing",
+        "Features targeting children or vulnerable populations"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Missing vulnerable groups",
+      "symptom": "Assessment claims 'no vulnerable groups affected' or only lists obvious majority stakeholders",
+      "detection": "Checklist vulnerable categories (children, elderly, disabled, racial minorities, low-income, LGBTQ+, etc.) - if none apply, likely oversight",
+      "fix": "Explicitly consider each vulnerable category, intersectionality, indirect effects. If truly none affected, document reasoning."
+    },
+    {
+      "failure": "Assuming equal treatment = fairness",
+      "symptom": "'We treat everyone the same' stated as fairness defense, no disparate impact analysis, colorblind approach",
+      "detection": "No quantitative fairness metrics, no disaggregation by protected group, claims of neutrality without evidence",
+      "fix": "Collect demographic data (with consent), measure outcomes by group, assess disparate impact. Equal treatment of unequal groups can perpetuate inequality."
+    },
+    {
+      "failure": "Reactive mitigation only",
+      "symptom": "Mitigations are appeals/redress after harm, no prevention, 'we'll fix it if problems arise', move fast and break things",
+      "detection": "No design changes to prevent harm, only detection/response mechanisms, no staged rollout or testing with affected groups",
+      "fix": "Prioritize prevent/reduce mitigations, build safeguards into design, test with diverse users before launch, staged rollout with monitoring, kill switches."
+    },
+    {
+      "failure": "No monitoring or vague metrics",
+      "symptom": "Monitoring section says 'we will track metrics' without specifying which, or 'user feedback' without thresholds",
+      "detection": "No specific metrics named, no thresholds for concern, no disaggregation by group, no escalation triggers",
+      "fix": "Define precise metrics (what, how measured, from what data), baseline and target values, thresholds that trigger action, disaggregate by protected groups, assign monitoring owner."
+    },
+    {
+      "failure": "Ignoring second-order effects",
+      "symptom": "Only immediate/obvious harms listed, no consideration of feedback loops, normalization, precedent, accumulation",
+      "detection": "Ask 'What happens next? If this harms Group X, does that create conditions for more harm? Does this normalize a practice? Enable future worse behavior?'",
+      "fix": "Explicitly analyze: Feedback loops (harm → disadvantage → more harm), Accumulation (small harms compound), Normalization (practice becomes standard), Precedent (what does this enable?)"
+    },
+    {
+      "failure": "No transparency or recourse",
+      "symptom": "Decisions not explained to affected parties, no appeals process, opacity justified as 'proprietary' or 'too complex'",
+      "detection": "Assessment doesn't mention explainability, appeals, audit trails, or dismisses as infeasible",
+      "fix": "Build in transparency (explain decisions in plain language, disclose limitations), appeals with human review, audit trails for investigation. Opacity often masks bias or risk."
+    },
+    {
+      "failure": "Sampling bias in testing",
+      "symptom": "Testing only with employees, privileged users, English speakers; diverse users not represented",
+      "detection": "Test group demographics described as 'internal team', 'beta users' without diversity analysis",
+      "fix": "Recruit testers from affected populations, especially vulnerable groups most at risk. Compensate for their time. Test across devices, languages, abilities, contexts."
+    },
+    {
+      "failure": "False precision in risk scores",
+      "symptom": "Severity and likelihood scored without justification, numbers seem arbitrary, no evidence or precedent cited",
+      "detection": "Risk scores provided but no explanation why 'Severity=4' vs 'Severity=3', no reference to similar incidents",
+      "fix": "Ground severity/likelihood in evidence: Historical incidents, expert judgment, user research, industry benchmarks. If uncertain, use ranges. Document reasoning."
+    },
+    {
+      "failure": "Privacy-fairness tradeoff ignored",
+      "symptom": "Claims 'we don't collect race/gender to protect privacy' but also no fairness audit, or collects data but no strong protections",
+      "detection": "Either no demographic data AND no fairness analysis, OR demographic data collected without access controls/purpose limitation",
+      "fix": "Balance: Collect minimal demographic data necessary for fairness auditing (with consent, strong access controls, aggregate-only reporting, differential privacy). Can't audit bias without data."
+    },
+    {
+      "failure": "One-time assessment, no updates",
+      "symptom": "Assessment completed at launch, no plan for ongoing monitoring, assumes static system",
+      "detection": "No review schedule, no drift detection, no process for updating assessment as system evolves",
+      "fix": "Continuous monitoring (daily/weekly/monthly/quarterly depending on risk), scenario validation (are harms emerging as predicted?), update assessment when system changes, feedback loop to strategy."
+    }
+  ]
+}

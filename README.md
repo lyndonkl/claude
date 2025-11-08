@@ -4,7 +4,7 @@ A comprehensive collection of production-ready skills for Claude Code, covering 
 
 ## Overview
 
-This repository contains **21 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **24 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -21,6 +21,8 @@ This repository contains **21 skills** designed to enhance Claude Code's capabil
 **bayesian-reasoning-calibration** - Probabilistic reasoning with prior/posterior updates, Bayes theorem application, and calibration techniques for reducing overconfidence.
 
 **alignment-values-north-star** - Strategic alignment framework connecting daily decisions to core values and long-term vision using north star metrics and principle mapping.
+
+**environmental-scanning-foresight** - Anticipate change through PESTLE analysis, weak signal detection, scenario planning (2x2 matrix), cross-impact analysis, and signposts for early warning systems.
 
 **expected-value** *(coming soon)* - Expected value calculations for decision-making under uncertainty.
 
@@ -40,7 +42,7 @@ This repository contains **21 skills** designed to enhance Claude Code's capabil
 
 **design-of-experiments** - Plan rigorous experiments using factorial designs, response surface methodology, Taguchi methods, and statistical power analysis.
 
-**domain-research-health-science** *(coming soon)* - Specialized research methods for health and science domains.
+**domain-research-health-science** - Formulate clinical research questions (PICOT framework), evaluate evidence quality using GRADE certainty ratings, systematic bias assessment (Cochrane RoB 2, ROBINS-I, QUADAS-2), and conduct systematic reviews with meta-analysis.
 
 ### 🗣️ Dialogue & Deliberation
 
@@ -86,7 +88,13 @@ This repository contains **21 skills** designed to enhance Claude Code's capabil
 
 **chain-estimation-decision-storytelling** - Fermi estimation → decision recommendation → compelling narrative for presenting quantitative insights.
 
-**estimation-fermi** *(coming soon)* - Fermi estimation techniques for order-of-magnitude calculations.
+**estimation-fermi** - Order-of-magnitude estimation via decomposition (top-down, bottom-up, rate×time), bounding techniques, triangulation, and anchoring for market sizing, resource planning, and feasibility checks.
+
+### 🛡️ Ethics & Evaluation
+
+**ethics-safety-impact** - Systematic ethical assessment using stakeholder mapping, fairness metrics (demographic parity, equalized odds, calibration), harm/benefit analysis with risk scoring, privacy-preserving techniques (differential privacy, k-anonymity), and comprehensive monitoring frameworks for responsible AI and product development.
+
+**evaluation-rubrics** - Design reliable evaluation rubrics with explicit criteria, appropriate scales (1-5, qualitative, binary), observable descriptors, inter-rater reliability measurement (Kappa ≥0.70), calibration techniques, bias mitigation (halo, central tendency), and weighted scoring for consistent quality assessment.
 
 ### 🍳 Specialized Domains
 
