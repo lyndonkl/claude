@@ -1,0 +1,253 @@
+{
+  "criteria": [
+    {
+      "name": "Criteria Clarity",
+      "1": "Criteria vague or subjective (e.g., 'good work', 'shows effort'), no definitions, overlapping dimensions",
+      "3": "Criteria defined but some ambiguity, mostly distinct dimensions, some examples provided",
+      "5": "Criteria crystal clear with precise definitions, completely distinct non-overlapping dimensions, explicit boundaries (what is/isn't included), examples for each criterion"
+    },
+    {
+      "name": "Scale Appropriateness",
+      "1": "Scale granularity mismatched to context (10-point scale for subjective judgment or 3-point for fine distinctions), inconsistent level labels",
+      "3": "Scale granularity reasonable, levels labeled consistently, appropriate for most criteria",
+      "5": "Scale granularity perfectly matched to observable differences and evaluator expertise, level labels clear and consistent (numeric + qualitative), forced-choice or neutral middle justified by context"
+    },
+    {
+      "name": "Descriptor Specificity",
+      "1": "Descriptors use subjective language ('excellent', 'creative', 'professional'), no observable features, comparative only ('better than', 'more')",
+      "3": "Descriptors mostly observable, some quantification (numbers, counts), some comparative language, parallel structure attempted",
+      "5": "Descriptors 100% observable and measurable (could two reviewers score consistently), quantified where possible (specific numbers, percentages), parallel structure across levels (same aspects at each level), concrete examples or anchors provided"
+    },
+    {
+      "name": "Observability",
+      "1": "Criteria require mind-reading or assumptions about process ('worked hard', 'creative thinking'), no evidence trail",
+      "3": "Most criteria observable from artifact, some behavioral indicators, evidence trail for key criteria",
+      "5": "All criteria directly observable from artifact or documented process, behavioral indicators specified, clear evidence trail (where to look, what counts), two reviewers could independently verify"
+    },
+    {
+      "name": "Inter-Rater Reliability Plan",
+      "1": "No calibration plan, no IRR measurement, assumes reviewers will 'just know', no anchors",
+      "3": "Basic calibration mentioned, some anchors or examples, IRR measurement method identified",
+      "5": "Comprehensive calibration plan (pre/during/post steps), specific IRR target (e.g., Kappa ≥0.70), anchor examples at each level for each criterion, ongoing calibration schedule (quarterly), discrepancy resolution protocol"
+    },
+    {
+      "name": "Comprehensiveness",
+      "1": "Missing critical quality dimensions, <3 criteria (too sparse) or >12 criteria (too complex), no coverage of must-haves",
+      "3": "Covers main quality dimensions, 4-8 criteria, may miss some edge cases or secondary aspects",
+      "5": "Comprehensive coverage of all important quality dimensions (product, process, impact as relevant), 4-8 criteria (balanced coverage vs. usability), addresses must-haves and quality gradations, no hidden expectations"
+    },
+    {
+      "name": "Actionability",
+      "1": "Descriptors don't guide improvement (says 'poor' but not what's wrong), no feedback mechanism, evaluatees don't see rubric until scored",
+      "3": "Descriptors somewhat actionable, feedback template exists, rubric shared before evaluation",
+      "5": "Descriptors explicitly actionable (clear what to change to improve level), feedback template tied to criteria with strengths/improvements, rubric shared upfront so evaluatees can self-assess, examples show what 'good' looks like"
+    },
+    {
+      "name": "Weighting Justification",
+      "1": "All criteria weighted equally despite different importance, or weights arbitrary (no justification), critical criteria not flagged",
+      "3": "Some criteria weighted or flagged as critical, basic justification provided, threshold mentioned",
+      "5": "Weighting system explicit and justified (multiplicative or percentage), critical criteria have thresholds (must score ≥X to pass), compensatory vs. non-compensatory trade-offs acknowledged, scoring calculation clear"
+    },
+    {
+      "name": "Bias Mitigation",
+      "1": "No acknowledgment of potential biases (halo, leniency, central tendency, anchoring), no mitigation strategies",
+      "3": "Bias types mentioned, some mitigation (e.g., randomize order, blind scoring), training mentioned",
+      "5": "Comprehensive bias mitigation: Halo (vertical scoring, blind scoring), central tendency (even-number scale or anchors), leniency/severity (calibration, normalization), order effects (randomization), explicit reviewer training, audit plan for detecting bias"
+    },
+    {
+      "name": "Usability",
+      "1": "Rubric overly complex (takes >30 min to score one item), no guidance for reviewers, format hard to use (wall of text)",
+      "3": "Reasonable time to use (<15 min per item), basic reviewer guidance, clear format (table or structured)",
+      "5": "Efficient to use (target time specified and achievable, <10 min for simple rubrics), comprehensive reviewer guidance (instructions, training materials, FAQs), format optimized for use (table, clear layout, easy to reference), accessible to both evaluators and evaluatees"
+    }
+  ],
+  "guidance_by_type": {
+    "Analytic Rubric": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Descriptor Specificity (score ≥5): Each criterion × level cell has observable descriptor, parallel structure across levels",
+        "Comprehensiveness (≥4): 4-8 criteria covering key quality dimensions without overlap",
+        "Observability (≥5): All criteria measurable from artifact, two reviewers could score consistently",
+        "Inter-Rater Reliability Plan (≥4): Calibration sessions, anchors, IRR measurement (Kappa ≥0.70 target)"
+      ],
+      "common_pitfalls": [
+        "Too many criteria (>10) → time-consuming, overwhelming",
+        "Overlapping criteria ('Clarity' and 'Organization' conflated)",
+        "Descriptors use comparative language only ('better than Level 3') without absolute description"
+      ]
+    },
+    "Holistic Rubric": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Descriptor Specificity (≥4): Each level integrates multiple criteria, clear gestalt description, concrete examples",
+        "Comprehensiveness (≥3): All important quality aspects mentioned in descriptors (even if not separate criteria)",
+        "Observability (≥4): Overall judgment observable, descriptors reference concrete features",
+        "Inter-Rater Reliability Plan (≥4): Critical for holistic (lower IRR expected), extensive calibration, many anchors"
+      ],
+      "common_pitfalls": [
+        "Descriptors too vague ('excellent overall quality') without specifics",
+        "No examples or anchors (reviewers have widely different standards)",
+        "Lower IRR than analytic (expect Kappa 0.60-0.70, not 0.80+)"
+      ]
+    },
+    "Single-Point Rubric": {
+      "target_score": 3.7,
+      "key_requirements": [
+        "Descriptor Specificity (≥4): 'Meets standard' descriptor crystal clear, observable, quantified",
+        "Comprehensiveness (≥4): All critical quality dimensions listed as criteria",
+        "Actionability (≥5): Strengths/concerns space encourages specific feedback, not just checkmarks",
+        "Usability (≥5): Fast to use, less intimidating than analytic, encourages dialogue"
+      ],
+      "common_pitfalls": [
+        "'Meets standard' too vague (what exactly is the standard?)",
+        "Used as checklist (just check yes/no) rather than noting specific strengths/concerns",
+        "No guidance for what 'exceeds' or 'below' means (reviewers inconsistent)"
+      ]
+    },
+    "Checklist": {
+      "target_score": 3.5,
+      "key_requirements": [
+        "Descriptor Specificity (≥5): Each item binary, observable, verifiable (yes/no clear)",
+        "Comprehensiveness (≥5): All must-haves listed, nothing critical missing",
+        "Observability (≥5): 100% verifiable (can literally check off each item)",
+        "Usability (≥5): Fast to use, unambiguous, minimal judgment required"
+      ],
+      "common_pitfalls": [
+        "Items require judgment ('code is clean') → not truly binary",
+        "Missing critical items (assumes 'everyone knows' but not documented)",
+        "Used alone for quality assessment (checklists ensure minimums, don't capture quality gradations)"
+      ]
+    },
+    "Standards-Based Rubric": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Criteria Clarity (≥5): Criteria explicitly tied to learning objectives/competencies/standards",
+        "Descriptor Specificity (≥5): Levels represent mastery progression (Novice/Competent/Expert with clear differences)",
+        "Comprehensiveness (≥5): All relevant standards/competencies covered, none missing",
+        "Actionability (≥5): Descriptors show developmental path, clear how to progress from one level to next"
+      ],
+      "common_pitfalls": [
+        "Standards not clearly defined (rubric references 'Standard 3.2' but doesn't explain what it is)",
+        "Levels don't represent true developmental progression (arbitrary distinctions)",
+        "Rubric divorced from instruction (students never taught what's in rubric)"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple Rubric": {
+      "target_score": 3.5,
+      "description": "3-5 criteria, 3-4 scale levels, straightforward domain, single evaluator or small team",
+      "key_requirements": [
+        "Criteria Clarity (≥3): Criteria defined, mostly distinct, examples for key criteria",
+        "Descriptor Specificity (≥3): Observable language, some quantification, basic parallel structure",
+        "Observability (≥3): Criteria observable from artifact, reasonable agreement expected",
+        "Usability (≥4): Fast to create and use, minimal training needed, <5 min to score"
+      ],
+      "time_estimate": "2-4 hours to develop, 1 hour calibration",
+      "examples": [
+        "Internal code review (3 criteria: Correctness, Readability, Tests)",
+        "Student homework (4 criteria: Completeness, Accuracy, Clarity, Timeliness)",
+        "Design critique (3 criteria: Visual hierarchy, Consistency, Accessibility basics)"
+      ]
+    },
+    "Standard Rubric": {
+      "target_score": 4.0,
+      "description": "5-7 criteria, 4-5 scale levels, moderate complexity, multiple evaluators, some stakes",
+      "key_requirements": [
+        "Criteria Clarity (≥4): Precise definitions, distinct dimensions, boundaries explicit, examples for all criteria",
+        "Descriptor Specificity (≥4): Observable and quantified, parallel structure, concrete examples at each level",
+        "Inter-Rater Reliability Plan (≥4): Calibration sessions (3-5 samples), IRR measurement (Kappa ≥0.70), anchors at all levels",
+        "Bias Mitigation (≥3): Acknowledge key biases (halo, central tendency), basic mitigation (randomize, calibration)",
+        "Actionability (≥4): Clear feedback mechanism, rubric shared upfront, descriptors guide improvement"
+      ],
+      "time_estimate": "6-10 hours to develop, 2-3 calibration sessions",
+      "examples": [
+        "Essay grading (6 criteria: Argument, Evidence, Organization, Clarity, Mechanics, Originality)",
+        "Product launch review (5 criteria: User value, Technical quality, Market fit, Risk mitigation, Metrics)",
+        "Vendor selection (7 criteria: Functionality, Cost, Support, Integration, Scalability, Security, Track record)"
+      ]
+    },
+    "Complex Rubric": {
+      "target_score": 4.3,
+      "description": "6-10 criteria, 5-10 scale levels, high complexity/novelty, many evaluators, high stakes, need for consistency and defensibility",
+      "key_requirements": [
+        "Criteria Clarity (≥5): Crystal clear definitions, completely distinct, explicit boundaries, comprehensive examples",
+        "Descriptor Specificity (≥5): 100% observable/measurable, fully quantified, perfect parallel structure, anchors at all levels",
+        "Observability (≥5): All criteria independently verifiable, evidence trail documented, IRR target >80%",
+        "Inter-Rater Reliability Plan (≥5): Extensive calibration (5+ sessions), IRR measurement (Kappa or ICC), ongoing calibration schedule (quarterly), discrepancy protocol, anchor library",
+        "Weighting Justification (≥5): Explicit weighting or thresholds, justified by context, compensatory vs. non-compensatory clear",
+        "Bias Mitigation (≥5): Comprehensive mitigation for all bias types, reviewer training program, audit plan, normalization procedures",
+        "Actionability (≥5): Detailed feedback template, rubric shapes instruction/preparation, multiple examples of work at each level"
+      ],
+      "time_estimate": "15-25 hours to develop, 5-8 calibration sessions, ongoing maintenance",
+      "examples": [
+        "Grant proposal review (10 criteria across significance, innovation, approach, team, environment)",
+        "Hiring rubric (8 criteria: Technical skills, Problem-solving, Communication, Culture fit, Leadership, Growth mindset, Domain expertise, References)",
+        "Clinical competency assessment (9 criteria across knowledge, skills, attitudes, professionalism)",
+        "Algorithmic fairness audit rubric (7 criteria: Accuracy, Disparate impact, Equalized odds, Calibration, Explainability, Recourse, Monitoring)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Subjective criteria without operationalization",
+      "symptom": "Criteria like 'creativity', 'professionalism', 'good attitude', 'shows effort' without observable indicators",
+      "detection": "Ask 'Could two reviewers score this consistently without discussing?' If no → subjective",
+      "fix": "Define observable behaviors: 'Creativity = uses 2+ techniques not taught, novel combination'. Test with calibration samples."
+    },
+    {
+      "failure": "Overlapping criteria inflating scores",
+      "symptom": "Criteria like 'Clarity' and 'Organization' or 'Quality' and 'Professionalism' that measure same underlying dimension",
+      "detection": "High correlation between criteria scores (always move together), difficulty explaining difference between criteria",
+      "fix": "Define explicit boundaries ('Clarity = language. Organization = structure.'), combine overlapping criteria, or split into distinct fine-grained criteria"
+    },
+    {
+      "failure": "Descriptors use only comparative language",
+      "symptom": "Level 4 described as 'better than Level 3', 'more sophisticated than Level 2', without absolute description of what Level 4 IS",
+      "detection": "Read descriptor for Level 4 alone (without seeing other levels). Is it clear what constitutes Level 4? If no → comparative only.",
+      "fix": "Write absolute descriptors: 'Level 4 = Zero bugs, meets all 5 requirements, performance <100ms'. Each level stands alone."
+    },
+    {
+      "failure": "Scale granularity mismatched to observable differences",
+      "symptom": "10-point scale for subjective judgment (reviewers can't distinguish 7 vs 8), or 3-point scale for objective dimensions with clear gradations",
+      "detection": "Low IRR (reviewers disagree), or reviewers never use parts of scale (everyone scores 6-8 on 10-point scale)",
+      "fix": "Match granularity to real observable differences. If can only distinguish 'poor/adequate/good', use 3-point. If 5 clear levels, use 5-point. Test with calibration."
+    },
+    {
+      "failure": "No parallel structure across levels",
+      "symptom": "Level 5 mentions A, B, C. Level 3 mentions D, E. Level 1 mentions F. Can't compare what changes between levels.",
+      "detection": "Try to explain what someone must improve to go from Level 3 → Level 4. If unclear → no parallel structure.",
+      "fix": "Create table with dimensions (columns) and levels (rows). Ensure each dimension addressed at each level. E.g., 'Variable names | Comments | Complexity' assessed at all 5 levels."
+    },
+    {
+      "failure": "Hidden expectations not in rubric",
+      "symptom": "Reviewers penalize for things not mentioned in rubric (e.g., rubric doesn't mention formatting but reviewer scores down for poor formatting)",
+      "detection": "Compare rubric criteria to actual feedback given. Feedback mentions dimensions not in rubric → hidden expectations.",
+      "fix": "Make all expectations explicit. If it matters enough to penalize, include it. If not in rubric, don't penalize (can suggest, but doesn't affect score)."
+    },
+    {
+      "failure": "No calibration or IRR measurement",
+      "symptom": "Rubric deployed without testing if reviewers score consistently, no anchor examples, no calibration sessions, 'we trust our reviewers'",
+      "detection": "Ask 'What's the Kappa or ICC?' If answer is blank stare → no IRR measurement.",
+      "fix": "Before full deployment: Select 3-5 samples, have all reviewers score independently, calculate IRR (Kappa, ICC), discuss discrepancies, refine rubric, re-test. Target: Kappa ≥0.70 or ICC ≥0.75."
+    },
+    {
+      "failure": "Central tendency bias (everyone scores 3/5)",
+      "symptom": "Distribution of scores heavily clustered around middle (80% of scores are 3 on 1-5 scale), extremes (1 or 5) almost never used",
+      "detection": "Plot score distribution. If normal curve centered on middle with narrow spread → central tendency bias.",
+      "fix": "Even-number scale (1-4, no middle), anchor examples at extremes (show what 1 and 5 look like), forced distribution (controversial), calibration sessions where reviewers practice using full range."
+    },
+    {
+      "failure": "Weighting doesn't reflect importance",
+      "symptom": "All criteria weighted equally (or no weights) despite some being critical (Security) and others nice-to-have (Code style), or high Style score can compensate for low Security",
+      "detection": "Ask 'If Security=1 but all other criteria=5, should this pass?' If no, but rubric allows it → weighting problem.",
+      "fix": "Explicitly weight critical criteria (Security ×3, Style ×1) OR use thresholds (must score ≥4 on Security to pass, regardless of other scores). Document rationale."
+    },
+    {
+      "failure": "Rubric not shared with evaluatees upfront",
+      "symptom": "Rubric used only by reviewers, evaluatees see rubric for first time when scored, can't self-assess or prepare",
+      "detection": "Ask evaluatees 'Did you see the rubric before submitting work?' If no → transparency problem.",
+      "fix": "Share rubric when assignment/project given. Rubric serves as guide and quality standard, not just grading tool. Provide anchor examples so people know what 'good' looks like."
+    }
+  ]
+}
