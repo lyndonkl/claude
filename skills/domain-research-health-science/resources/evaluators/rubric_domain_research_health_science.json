@@ -1,0 +1,309 @@
+{
+  "criteria": [
+    {
+      "name": "PICOT Question Formulation",
+      "description": "Is the research question precisely formulated using PICOT framework (Population, Intervention, Comparator, Outcome, Timeframe)?",
+      "scoring": {
+        "1": "Vague question without clear PICOT structure. Missing critical elements (no comparator specified, outcomes undefined, population too broad 'adults' without condition/setting). Question unanswerable as stated.",
+        "3": "Basic PICOT present but incomplete. Population defined but setting/severity missing, intervention specified but dose/duration unclear, outcomes listed but measurement instruments/timepoints undefined. Partially answerable.",
+        "5": "Complete, precise PICOT: Population with demographics/condition/severity/setting specified, Intervention with dose/duration/delivery details, explicit Comparator, Outcomes with measurement instruments/timepoints/MCID if known, Timeframe justified. Creates answerable, focused research question."
+      }
+    },
+    {
+      "name": "Study Design Appropriateness",
+      "description": "Is the study design matched to the research question type (RCT for therapy, cohort for prognosis, cross-sectional for diagnosis)?",
+      "scoring": {
+        "1": "Inappropriate design for question type. Using case series for therapy question, case-control for diagnosis (inflates accuracy), or cross-sectional for prognosis (no temporal sequence). Design cannot answer question.",
+        "3": "Acceptable design but not optimal. Using cohort when RCT feasible for therapy, retrospective cohort when prospective possible. Design can answer question but with more bias/uncertainty.",
+        "5": "Optimal design for question type: RCT for therapy (if ethical/feasible), cross-sectional with consecutive enrollment for diagnosis, prospective cohort for prognosis, large observational for rare harms. Design minimizes bias and provides strongest evidence."
+      }
+    },
+    {
+      "name": "Risk of Bias Assessment",
+      "description": "Is bias systematically assessed using validated tools (Cochrane RoB 2, ROBINS-I, QUADAS-2) rather than subjective judgment?",
+      "scoring": {
+        "1": "No bias assessment or subjective 'looks good' judgment. Ignoring obvious biases (open-label with subjective outcomes, 30% loss to follow-up, industry-funded without scrutiny). Uncritical acceptance of published findings.",
+        "3": "Basic bias assessment using appropriate tool but incomplete. Assessing randomization and blinding but missing attrition or selective reporting domains. Recognizing some biases but not systematically evaluating all domains.",
+        "5": "Comprehensive, systematic bias assessment: Appropriate tool for study design (RoB 2 for RCT, ROBINS-I for observational, QUADAS-2 for diagnostic), all domains assessed (randomization, blinding, incomplete data, selective reporting, confounding), judgments supported with evidence, overall risk categorized (low/some concerns/high)."
+      }
+    },
+    {
+      "name": "Outcome Prioritization",
+      "description": "Are patient-important outcomes (mortality, morbidity, QoL, function) prioritized over surrogate endpoints (biomarkers, lab values)?",
+      "scoring": {
+        "1": "Surrogate outcomes as primary without validation. Using biomarkers (HbA1c, bone density, PVCs) without demonstrating relationship to patient outcomes. Ignoring mortality/morbidity/QoL entirely. Claiming benefit based on surrogate alone.",
+        "3": "Mix of patient-important and surrogate outcomes. Patient-important outcomes included but not clearly prioritized. Surrogates used but relationship to clinical outcomes mentioned. Some outcomes rated by importance (critical vs important).",
+        "5": "Patient-important outcomes prioritized: Mortality, morbidity, symptoms, function, QoL rated as critical (7-9). Surrogates included only if validated relationship exists. Outcome hierarchy explicit (critical/important/not important). MCID specified for continuous outcomes."
+      }
+    },
+    {
+      "name": "GRADE Certainty Assessment",
+      "description": "Is certainty of evidence rated using GRADE framework (high/moderate/low/very low) considering study limitations, inconsistency, indirectness, imprecision, publication bias?",
+      "scoring": {
+        "1": "No certainty rating or conflating study design with certainty ('it's an RCT so it's high quality'). Ignoring serious bias, heterogeneity, or imprecision. Overconfident claims not supported by evidence quality.",
+        "3": "Basic GRADE assessment but incomplete. Downgrading for bias but missing inconsistency/indirectness/imprecision. Starting certainty correct (RCTs high, observational low) but not systematically applying all downgrade/upgrade criteria.",
+        "5": "Rigorous GRADE assessment: Starting certainty appropriate, all five downgrade domains assessed (bias, inconsistency, indirectness, imprecision, publication bias), upgrade factors considered for observational (large effect, dose-response, confounding), final certainty (⊕⊕⊕⊕ high to ⊕○○○ very low) explicitly stated with justification."
+      }
+    },
+    {
+      "name": "Statistical Interpretation",
+      "description": "Are statistical results interpreted correctly, distinguishing statistical significance from clinical importance, and reporting absolute effects alongside relative effects?",
+      "scoring": {
+        "1": "Confusing statistical significance with clinical importance. Claiming clinically meaningful based on p<0.05 alone when effect below MCID. Reporting only relative risk without absolute effects. Misinterpreting confidence intervals or p-values.",
+        "3": "Basic statistical interpretation. Reporting p-values and confidence intervals correctly. Mentioning both relative and absolute effects but not emphasizing clinical importance. Some comparison to MCID but not systematic.",
+        "5": "Sophisticated statistical interpretation: Comparing effect size to MCID (not just p-value), reporting absolute effects (risk difference, NNT/NNH) alongside relative (RR, OR), interpreting confidence intervals (precision, includes/excludes benefit), distinguishing statistical significance from clinical importance, noting when statistically significant but clinically trivial."
+      }
+    },
+    {
+      "name": "Heterogeneity & Consistency",
+      "description": "For evidence synthesis, is heterogeneity (I², visual inspection) assessed and explained? Are inconsistent findings explored rather than ignored?",
+      "scoring": {
+        "1": "Ignoring substantial heterogeneity (I²>75%). Pooling studies with opposite directions of effect. No exploration of why studies differ. Presenting pooled estimate without acknowledging uncertainty from inconsistency.",
+        "3": "Acknowledging heterogeneity (I² reported) but limited exploration. Noting inconsistency but not conducting subgroup analysis or meta-regression. Downgrading GRADE for inconsistency but not identifying source.",
+        "5": "Comprehensive heterogeneity assessment: I² calculated, forest plot inspected for outliers, sources explored (subgroup analysis by population/intervention/setting/risk of bias, or meta-regression if ≥10 studies), inconsistency explained or acknowledged as unexplained, GRADE downgraded appropriately, decision whether to pool or not justified."
+      }
+    },
+    {
+      "name": "Applicability & External Validity",
+      "description": "Is applicability to target population/setting assessed? Are differences between study population and clinical question population considered?",
+      "scoring": {
+        "1": "No applicability assessment. Directly extrapolating from highly selected trial population (tertiary center, strict exclusions, supervised delivery) to general population without considering differences. Ignoring PICO mismatch.",
+        "3": "Basic applicability mentioned. Noting trial population differs from target but not specifying how. Acknowledging setting differences (trial vs real-world) without assessing impact on generalizability.",
+        "5": "Rigorous applicability assessment: PICO match evaluated (are study patients similar to target?), setting differences assessed (tertiary vs primary care, supervised vs unsupervised), intervention feasibility in target setting considered, indirectness noted if substantial (and GRADE downgraded), patient values/preferences incorporated, limitations to generalizability explicitly stated."
+      }
+    },
+    {
+      "name": "Bias from Conflicts of Interest",
+      "description": "Are conflicts of interest (funding source, author COI) assessed and considered when interpreting evidence?",
+      "scoring": {
+        "1": "No COI assessment. Accepting industry-funded trials uncritically. Ignoring potential for selective outcome reporting, favorable comparator choice, or statistical manipulation. Not checking for unpublished negative trials from same sponsor.",
+        "3": "Noting funding source but limited critical appraisal. Mentioning industry sponsorship but not assessing impact on study design/outcomes/reporting. Acknowledging COI exists but not incorporating into bias assessment.",
+        "5": "Critical COI assessment: Funding source identified for all studies, author COI checked, potential for bias from industry sponsorship assessed (outcome selection, favorable comparator, selective reporting), preference for independent or government-funded studies noted, unpublished trials searched (trial registries), manufacturer-submitted evidence treated with appropriate skepticism."
+      }
+    },
+    {
+      "name": "Evidence Synthesis & Clarity",
+      "description": "Is evidence clearly synthesized into actionable summary? Are key findings, certainty, clinical interpretation, and evidence gaps communicated effectively?",
+      "scoring": {
+        "1": "Unclear summary. Presenting study-by-study without synthesis. No overall conclusion. Missing certainty ratings or clinical interpretation. User left to figure out implications themselves. No mention of evidence gaps or next steps.",
+        "3": "Basic synthesis. Key findings summarized but lacking detail. Certainty mentioned but not linked to specific outcomes. Some clinical interpretation but vague ('may be beneficial'). Evidence gaps noted briefly.",
+        "5": "Exemplary synthesis: Evidence profile/summary of findings table linking outcomes to certainty ratings and effect estimates (absolute + relative), clinical interpretation clear (balance of benefits/harms, strength of recommendation), applicability to target population stated, evidence gaps and research needs identified, next steps actionable (e.g., 'recommend intervention' or 'insufficient evidence, conduct trial')."
+      }
+    }
+  ],
+  "minimum_score": 3.5,
+  "guidance_by_research_type": {
+    "Therapy/Intervention Question": {
+      "target_score": 4.2,
+      "focus_criteria": [
+        "Study Design Appropriateness",
+        "Risk of Bias Assessment",
+        "GRADE Certainty Assessment"
+      ],
+      "key_requirements": [
+        "RCT preferred (or justify why cohort used if RCT not feasible)",
+        "Cochrane RoB 2 applied to all RCTs (5 domains assessed)",
+        "Patient-important outcomes (mortality, QoL, morbidity) as primary",
+        "GRADE certainty rated for each critical outcome",
+        "Absolute effects reported (NNT calculated)",
+        "Applicability assessed (can trial results generalize?)",
+        "Conflicts of interest noted and assessed"
+      ],
+      "common_pitfalls": [
+        "Treating all RCTs as high quality without bias assessment",
+        "Using surrogate outcomes (biomarkers) without validation",
+        "Ignoring absolute effects, reporting only relative risk",
+        "Not accounting for heterogeneity in meta-analysis (I²>50%)",
+        "Extrapolating from highly selected trial population without considering applicability"
+      ]
+    },
+    "Diagnostic Accuracy Question": {
+      "target_score": 4.1,
+      "focus_criteria": [
+        "PICOT Question Formulation",
+        "Study Design Appropriateness",
+        "Risk of Bias Assessment"
+      ],
+      "key_requirements": [
+        "PICOT specifies suspected condition, index test, reference standard, target accuracy",
+        "Cross-sectional design with consecutive enrollment (avoid case-control)",
+        "QUADAS-2 bias assessment (patient selection, index test, reference standard, flow/timing)",
+        "Sensitivity, specificity, predictive values, likelihood ratios reported",
+        "Reference standard must correctly classify condition (gold standard)",
+        "Spectrum of disease severity represented (not just severe cases)",
+        "Blinding of index test interpretation to reference standard results"
+      ],
+      "common_pitfalls": [
+        "Case-control design (inflates sensitivity/specificity by selecting extremes)",
+        "Differential verification bias (different reference standards for positive vs negative index tests)",
+        "Spectrum bias (only testing in severe cases, overstating accuracy)",
+        "Unblinded index test interpretation (knowing reference standard results)",
+        "Partial verification (not all patients get reference standard)"
+      ]
+    },
+    "Prognosis/Prediction Question": {
+      "target_score": 4.0,
+      "focus_criteria": [
+        "Study Design Appropriateness",
+        "Risk of Bias Assessment",
+        "Applicability & External Validity"
+      ],
+      "key_requirements": [
+        "Prospective cohort design (follow from exposure/risk factor to outcome)",
+        "Inception cohort (patients enrolled at similar point in disease course)",
+        "ROBINS-I or PROBAST (for prediction models) bias assessment",
+        "Sufficient follow-up to observe outcomes (time-to-event analysis)",
+        "Hazard ratios, incidence rates, or risk prediction performance (C-statistic, calibration) reported",
+        "Confounding assessed and adjusted (multivariable models)",
+        "Validation in external cohort if prediction model"
+      ],
+      "common_pitfalls": [
+        "Retrospective design with recall bias for exposures",
+        "Case-control design (cannot estimate incidence or cumulative risk)",
+        "Incomplete follow-up or differential loss (biased estimates)",
+        "Overfitting prediction models (too many predictors for events, no validation)",
+        "Reporting only crude estimates without adjusting for confounding"
+      ]
+    },
+    "Systematic Review/Meta-Analysis": {
+      "target_score": 4.3,
+      "focus_criteria": [
+        "Risk of Bias Assessment",
+        "Heterogeneity & Consistency",
+        "GRADE Certainty Assessment"
+      ],
+      "key_requirements": [
+        "Protocol pre-registered (PROSPERO) with pre-specified outcomes",
+        "Comprehensive search (multiple databases, trial registries, grey literature)",
+        "Duplicate screening/extraction (two reviewers independently)",
+        "Bias assessment for all included studies (RoB 2 or ROBINS-I)",
+        "Heterogeneity assessed (I², Cochran's Q, forest plot inspection)",
+        "Subgroup analysis or meta-regression to explain heterogeneity (if warranted)",
+        "GRADE certainty for all critical outcomes in summary of findings table",
+        "Publication bias assessed (funnel plot if ≥10 studies, trial registry search)"
+      ],
+      "common_pitfalls": [
+        "No protocol or post-hoc outcome changes (selective reporting)",
+        "Incomplete search (only MEDLINE, no trial registries or grey literature)",
+        "Single reviewer screening (bias in study selection)",
+        "Pooling studies with substantial heterogeneity (I²>75%) without exploring sources",
+        "Not assessing publication bias (missing negative trials)",
+        "No GRADE assessment (certainty unclear)",
+        "Mixing different populations/interventions inappropriately"
+      ]
+    },
+    "Harm/Safety Assessment": {
+      "target_score": 3.9,
+      "focus_criteria": [
+        "Study Design Appropriateness",
+        "Outcome Prioritization",
+        "Statistical Interpretation"
+      ],
+      "key_requirements": [
+        "RCT for common harms (>1% incidence), observational for rare harms (larger sample, longer follow-up)",
+        "Serious adverse events, discontinuations, organ-specific toxicity as key outcomes",
+        "Long-term follow-up for delayed harms (not just trial duration)",
+        "Confounding by indication assessed for observational studies",
+        "Absolute risk increase and NNH (number needed to harm) calculated",
+        "Multiple sources (RCTs + observational + pharmacovigilance) synthesized",
+        "Dose-response relationship explored if exposure varies"
+      ],
+      "common_pitfalls": [
+        "Relying only on RCTs for rare harms (inadequate power/duration)",
+        "Confounding by indication in observational studies (sicker patients get treatment, appear to do worse)",
+        "Not reporting absolute risk (only relative risk, hard to interpret clinical importance)",
+        "Missing long-term harms (trials too short, no post-market surveillance)",
+        "Dismissing harms as 'not statistically significant' when CI wide and includes important harm"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Single Study Appraisal)": {
+      "target_score": 3.5,
+      "characteristics": "Appraising single published RCT or cohort study. Clear PICOT, straightforward outcomes, no complex statistics. Goal: Determine if findings apply to clinical question.",
+      "focus": "PICOT match assessment, bias assessment with appropriate tool, outcome prioritization (patient-important vs surrogate), basic statistical interpretation (RR, CI, p-value), applicability to target population.",
+      "examples": "Evaluating RCT of new diabetes drug vs standard for mortality, assessing cohort study of statin use and cardiovascular outcomes, appraising diagnostic accuracy study of troponin for MI.",
+      "scoring_priorities": [
+        "PICOT Question Formulation (score ≥4 to ensure clear match)",
+        "Risk of Bias Assessment (score ≥4 using appropriate tool)",
+        "Outcome Prioritization (score ≥3 to prioritize patient-important outcomes)",
+        "Applicability (score ≥3 to assess if results generalize)"
+      ]
+    },
+    "Moderate (Evidence Synthesis for Guidelines)": {
+      "target_score": 4.0,
+      "characteristics": "Synthesizing 5-15 studies on single PICOT question. Moderate heterogeneity (I²=30-60%). GRADE assessment needed. Goal: Create evidence summary for guideline recommendation.",
+      "focus": "GRADE certainty rating for each critical outcome, heterogeneity assessment and explanation (subgroup analysis), applicability to guideline target population, balance of benefits/harms, conflicts of interest in included studies.",
+      "examples": "Synthesizing RCTs of anticoagulation for atrial fibrillation, evaluating diagnostic accuracy studies for D-dimer in PE, assessing observational studies of screening colonoscopy.",
+      "scoring_priorities": [
+        "GRADE Certainty Assessment (score ≥4 to rigorously rate evidence)",
+        "Heterogeneity & Consistency (score ≥4 to explore sources)",
+        "Evidence Synthesis & Clarity (score ≥4 for actionable summary)",
+        "All criteria should score ≥3 for moderate complexity"
+      ]
+    },
+    "Complex (Comprehensive Systematic Review)": {
+      "target_score": 4.3,
+      "characteristics": "Full systematic review with meta-analysis. 20+ studies, substantial heterogeneity (I²>60%), multiple outcomes and subgroups, publication bias likely. Goal: Definitive evidence synthesis.",
+      "focus": "Comprehensive search and selection (multiple databases, grey literature), duplicate review processes, bias assessment for all studies, heterogeneity exploration (subgroup, meta-regression), publication bias assessment (funnel plot, trial registry search), GRADE for all critical outcomes, detailed evidence profile.",
+      "examples": "Cochrane systematic review of antihypertensives for CVD, network meta-analysis of diabetes drugs, systematic review for HTA (reimbursement decision).",
+      "scoring_priorities": [
+        "All criteria should score ≥4 for complex systematic reviews",
+        "Risk of Bias Assessment must be comprehensive (score 5)",
+        "Heterogeneity & Consistency must be rigorously explored (score ≥4)",
+        "GRADE Certainty Assessment must be detailed for all outcomes (score 5)",
+        "Conflicts of Interest assessment critical (score ≥4)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Vague PICOT question (unanswerable)",
+      "symptom": "Research question like 'Does drug X work for disease Y?' without specifying population (severity, setting), comparator (vs what?), specific outcomes (mortality? symptoms? biomarker?), or timeframe. Can't design study or search literature with this question.",
+      "detection": "Check if all five PICOT elements are precisely specified. Ask: Can I design a study from this question? Can I search databases? Are inclusion criteria clear?",
+      "fix": "Specify each PICOT element: Population (age, severity, comorbidities, setting), Intervention (dose, duration, delivery), Comparator (placebo, standard care, or alternative), Outcome (patient-important endpoints with measurement instruments and MCID if known), Timeframe (follow-up duration justified). Example: 'In adults >65 with HFrEF (EF<40%) in primary care, does dapagliflozin 10mg daily vs standard ACEi+BB reduce all-cause mortality (primary) and HF hospitalizations (secondary) over 12 months?'"
+    },
+    {
+      "failure": "Using surrogate outcomes without validation",
+      "symptom": "Claiming benefit based on biomarker changes (HbA1c reduction, bone density increase, arrhythmia suppression) without demonstrating impact on patient outcomes (microvascular complications, fractures, mortality). Assuming surrogate = patient outcome.",
+      "detection": "Check if outcomes are patient-important (mortality, morbidity, symptoms, function, QoL) or surrogates (lab values, imaging, biomarkers). If surrogates used, check if validated relationship to patient outcomes has been established.",
+      "fix": "Prioritize patient-important outcomes. If surrogate necessary (patient outcome requires decades of follow-up), explicitly state surrogate status and limitations. Only accept surrogates with demonstrated relationship to patient outcomes (e.g., blood pressure for stroke, LDL for MI after statin trials, but NOT HbA1c for complications after intensive glycemic control showed harms). Example correction: 'Drug reduces HbA1c by 1% (surrogate outcome, GRADE: moderate) but impact on microvascular complications unknown (no patient-important outcome data available).'"
+    },
+    {
+      "failure": "Ignoring risk of bias in RCTs",
+      "symptom": "Treating all RCTs as high quality without systematic bias assessment. Missing problems like inadequate randomization (alternation, predictable sequence), lack of blinding with subjective outcomes (pain, QoL), high attrition (>20% loss to follow-up, differential between groups), or selective outcome reporting (protocol shows 10 outcomes, paper reports 3).",
+      "detection": "Check if Cochrane RoB 2 tool applied with all 5 domains assessed (randomization, deviations, missing data, outcome measurement, selective reporting). Look for justification for each domain judgment (low risk / some concerns / high risk).",
+      "fix": "Apply Cochrane RoB 2 systematically to all RCTs. Assess: (1) Randomization process (computer-generated sequence? allocation concealment?), (2) Deviations from interventions (blinding? protocol adherence?), (3) Missing outcome data (<5% loss? ITT analysis?), (4) Outcome measurement (blinded assessors? validated instruments?), (5) Selective reporting (protocol available? all outcomes reported?). If any domain high risk → overall high risk. Downgrade GRADE certainty if serious risk of bias. Example: 'Open-label trial with subjective QoL outcome and no blinding of assessors → High risk of bias (Domain 4: measurement of outcome) → Downgrade GRADE from High to Moderate for QoL outcome.'"
+    },
+    {
+      "failure": "Confusing statistical significance with clinical importance",
+      "symptom": "Claiming clinically meaningful benefit based solely on p<0.05, even when effect size is below minimal clinically important difference (MCID). Example: 'Pain reduced by 3 points on 0-100 VAS, p=0.001' (statistically significant) but MCID for pain is 10-15 points (clinically trivial change).",
+      "detection": "Check if MCID comparison made. Look for absolute effect sizes (mean difference, risk difference, NNT) alongside p-values. Verify effect exceeds MCID for continuous outcomes, or absolute risk reduction is clinically meaningful for binary outcomes.",
+      "fix": "Always compare effect size to MCID for continuous outcomes, or calculate absolute effects for binary outcomes. Report: (1) Statistical significance (p-value, CI), (2) Effect size (MD, RR, RD), (3) Clinical importance comparison (does MD exceed MCID? is NNT reasonable?). Example correction: 'Pain reduced by 3 points (95% CI 2-4, p<0.001) which is statistically significant but below MCID of 10 points for VAS pain. Effect is statistically significant but clinically trivial.' Or for positive finding: 'QoL improved by 8 points (95% CI 5-11, p<0.001), exceeding MCID of 5 points for KCCQ. Effect is both statistically significant and clinically meaningful.'"
+    },
+    {
+      "failure": "Not exploring heterogeneity in meta-analysis",
+      "symptom": "Presenting pooled estimate from meta-analysis with I²=70% (substantial heterogeneity) without investigating why studies differ. Studies show opposite directions of effect (some positive, some negative) yet pooled together. No subgroup analysis or sensitivity analysis conducted.",
+      "detection": "Check I² statistic. If I²>50%, look for explanation of heterogeneity (subgroup analysis by population, intervention dose, setting, risk of bias) or justification for not pooling. Visually inspect forest plot for outliers or opposite directions.",
+      "fix": "Assess heterogeneity: Calculate I² and Cochran's Q. If I²>50%, explore sources before pooling. Conduct pre-specified subgroup analyses (e.g., by population severity, intervention dose, setting) or meta-regression if ≥10 studies. If I²>75% and unexplained, consider not pooling (narrative synthesis instead). Downgrade GRADE for inconsistency if heterogeneity unexplained. Example: 'Pooled RR 0.80 (95% CI 0.70-0.91) but I²=65% indicating substantial heterogeneity. Subgroup analysis by disease severity: Moderate disease RR 0.70 (I²=20%), Severe disease RR 0.95 (I²=10%, p for interaction=0.03). Heterogeneity explained by severity. Downgrade GRADE by 1 level for initial inconsistency.'"
+    },
+    {
+      "failure": "Poor applicability assessment (over-extrapolation)",
+      "symptom": "Directly applying trial results from highly selected population (tertiary center, strict exclusions, age 18-65 only, no comorbidities) to general practice (community setting, elderly, multiple comorbidities, less supervised). Ignoring PICO mismatch between study and target population.",
+      "detection": "Compare study population characteristics to target population. Check: Are patients similar (age, disease severity, comorbidities)? Is setting similar (tertiary vs primary care)? Is intervention delivered similarly (supervised daily vs real-world adherence)? Are outcomes same priority?",
+      "fix": "Explicitly assess PICO match. Identify differences between study and target population: (1) Population (study: age 40-65, no diabetes, EF 30-40% in cardiology clinic vs target: age >70, diabetes common, EF 20-50% in primary care), (2) Intervention (study: supervised daily dosing in trial vs target: patient self-administered with variable adherence), (3) Outcome (study: CV mortality vs target: all-cause mortality + QoL more relevant). Downgrade GRADE for indirectness if substantial PICO mismatch. State limitations: 'Trial included younger patients without diabetes in cardiology clinics with supervised dosing. Uncertain if results apply to elderly primary care patients with comorbidities and lower adherence. Downgrade GRADE by 1 level for indirectness.'"
+    },
+    {
+      "failure": "Accepting industry-funded evidence uncritically",
+      "symptom": "Manufacturer-sponsored trial showing benefit for their drug, no independent replication, selective outcome reporting (protocol registered cardiovascular death but paper reports composite of death/hospitalization to boost event rate), no mention of conflicts of interest in appraisal.",
+      "detection": "Check funding source. If industry-funded, assess: Are outcomes pre-specified in protocol? Are all outcomes from protocol reported? Is comparator chosen to favor new drug (underdosed standard)? Are unpublished negative trials available (search ClinicalTrials.gov)? Is statistical analysis independent or done by sponsor?",
+      "fix": "Critical assessment of industry-funded studies: (1) Identify funding source and author COI, (2) Compare protocol to publication (outcome switching? selective reporting?), (3) Assess comparator appropriateness (is standard care dosed optimally?), (4) Search for unpublished trials from same sponsor (ClinicalTrials.gov, regulatory submissions), (5) Prefer independent systematic reviews over manufacturer meta-analyses, (6) Downgrade GRADE if serious publication bias suspected (funnel asymmetry, missing trials). Example: 'Five trials from manufacturer show benefit (RR 0.75), but ClinicalTrials.gov lists two unpublished trials (outcomes not posted). Funnel plot shows asymmetry (Egger p=0.04). Downgrade GRADE by 1 level for publication bias. Independent systematic review needed.'"
+    },
+    {
+      "failure": "No GRADE certainty rating (unclear confidence in evidence)",
+      "symptom": "Evidence synthesis presented without rating certainty (high/moderate/low/very low). User doesn't know how confident to be in findings. Recommendations made without linking to evidence quality.",
+      "detection": "Check if GRADE certainty explicitly stated for each critical outcome. Look for ⊕⊕⊕⊕ (high), ⊕⊕⊕○ (moderate), ⊕⊕○○ (low), ⊕○○○ (very low) symbols or verbal equivalent. Verify downgrade/upgrade factors explained.",
+      "fix": "Apply GRADE systematically: (1) Start with RCTs at High certainty, observational at Low, (2) Assess five downgrade domains (risk of bias, inconsistency, indirectness, imprecision, publication bias) - serious = -1 level, very serious = -2 levels, (3) Consider upgrades for observational (large effect RR>2 or <0.5, dose-response, all plausible confounders would reduce effect), (4) Assign final certainty (High/Moderate/Low/Very Low), (5) Create evidence profile or summary of findings table linking outcomes to certainty. Example: 'Mortality: 5 RCTs, low risk of bias, I²=10% (consistent), direct PICO match, CI excludes no effect (precise), no publication bias detected → GRADE: ⊕⊕⊕⊕ High certainty. QoL: 3 RCTs, high risk of bias (unblinded), I²=60% (inconsistent) → Downgrade by 2 levels → GRADE: ⊕⊕○○ Low certainty.'"
+    }
+  ]
+}

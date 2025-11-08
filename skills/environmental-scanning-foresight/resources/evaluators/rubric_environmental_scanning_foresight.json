@@ -1,0 +1,235 @@
+{
+  "criteria": [
+    {
+      "name": "PESTLE Comprehensiveness",
+      "1": "Scans only 1-2 PESTLE dimensions, significant blind spots, cherry-picks domains",
+      "3": "Covers 4-5 PESTLE dimensions systematically, minor gaps, reasonable source diversity",
+      "5": "Comprehensive scan across all 6 PESTLE dimensions, diverse credible sources, systematic coverage with geographic/temporal breadth"
+    },
+    {
+      "name": "Weak Signal Validation",
+      "1": "Treats all anomalies as weak signals without validation, single sources, unclear amplification path",
+      "3": "Validates signals using credibility + evidence criteria, plausibility assessed, some supporting evidence",
+      "5": "Rigorous validation (source credibility, multiple confirmations, plausible amplification mechanism, significant impact if scaled), clear path from weak to mainstream"
+    },
+    {
+      "name": "Scenario Plausibility",
+      "1": "Scenarios are predictions/wishes rather than plausible futures, inconsistent logic, implausible combinations",
+      "3": "Scenarios are plausible and internally consistent, span reasonable range of outcomes, based on critical uncertainties",
+      "5": "Scenarios are distinct, plausible, internally consistent, span full range of critical uncertainties, include predetermined elements, challenge assumptions, vivid narratives"
+    },
+    {
+      "name": "Cross-Impact Mapping",
+      "1": "Trends treated in isolation, no interaction analysis, misses reinforcing/offsetting dynamics",
+      "3": "Some interaction analysis, identifies key reinforcing or offsetting trends, distinguishes high/low impact",
+      "5": "Comprehensive cross-impact matrix, reinforcing/offsetting/cascading relationships mapped, feedback loops identified, critical uncertainties vs predetermined elements distinguished"
+    },
+    {
+      "name": "Signpost Quality",
+      "1": "Signposts are lagging indicators, vague thresholds, unobservable or unmeasurable",
+      "3": "Signposts are leading indicators with specific thresholds, observable, monitoring plan defined",
+      "5": "Signposts are leading (6-12+ month lead time), specific quantitative thresholds, observable data sources identified, update frequency set, action triggers pre-committed, graduated alerts"
+    },
+    {
+      "name": "Source Credibility",
+      "1": "Relies on single source type or low-credibility sources, no validation, echo chamber",
+      "3": "Mixes primary/secondary sources, includes credible sources (government, research, industry), some diversity",
+      "5": "Source diversity across primary/secondary/edge, balances credibility vs novelty, geographic breadth, temporal depth, actively seeks disconfirming evidence"
+    },
+    {
+      "name": "Strategic Implications",
+      "1": "No connection to decisions, analysis without recommendations, unclear actionability",
+      "3": "Strategic implications identified for key scenarios, connects to business decisions, some actionability",
+      "5": "Clear strategic implications for each scenario, no-regrets moves identified, hedges specified, decision triggers defined, robust across scenarios, actionable recommendations"
+    },
+    {
+      "name": "Uncertainty Management",
+      "1": "Treats uncertainties as predictions, assigns false precision, ignores ranges and confidence",
+      "3": "Distinguishes high/low uncertainty, acknowledges unknowns, uses scenarios to span range",
+      "5": "Explicit uncertainty quantification (high impact + high uncertainty = critical, high impact + low uncertainty = predetermined), wild cards acknowledged, confidence calibrated, avoids false precision"
+    },
+    {
+      "name": "Temporal Scope",
+      "1": "Time horizon mismatched to questions (too short/long), snapshots without trend analysis, recency bias",
+      "3": "Appropriate time horizon (1-2yr, 3-5yr, or 5-10yr based on need), some historical context, trends tracked",
+      "5": "Time horizon matched to strategic planning cycle, historical patterns analyzed (10-20yr lookback), trend trajectories projected, inflection points identified, milestones defined"
+    },
+    {
+      "name": "Update Mechanism",
+      "1": "One-time scan, no monitoring plan, static scenarios, stale data",
+      "3": "Monitoring cadence defined (quarterly/annual), some plan for updates, signposts tracked",
+      "5": "Comprehensive update plan (daily/weekly/monthly/quarterly/annual by indicator type), scenario validation process, scan refinement based on new signals, feedback loop to strategy"
+    }
+  ],
+  "guidance_by_type": {
+    "Industry Disruption Scanning": {
+      "target_score": 4.1,
+      "key_requirements": [
+        "Technology trends (PESTLE-T) comprehensive with patent/startup/VC data",
+        "Weak signals from edge sources (startups, research labs, adjacent fields)",
+        "Scenarios focus on disruption speed (rapid vs gradual) and winning model (incumbent vs entrant)",
+        "Signposts track technology readiness (TRL progression), adoption curves, incumbent response"
+      ],
+      "common_pitfalls": [
+        "Overweighting hype cycles, treating all startups as weak signals",
+        "Ignoring economic/social barriers to adoption",
+        "Linear extrapolation of exponential tech trends"
+      ]
+    },
+    "Regulatory & Policy Foresight": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Political & Legal dimensions (PESTLE-P,L) prioritized with legislative tracking",
+        "Weak signals from pilot programs, consultations, lead jurisdictions",
+        "Scenarios span stringency (light vs heavy) and speed (gradual vs sudden)",
+        "Signposts track proposals, stakeholder positions, enforcement patterns"
+      ],
+      "common_pitfalls": [
+        "Assuming current policy trajectory continues unchanged",
+        "Missing cross-border regulatory arbitrage opportunities",
+        "Ignoring industry lobbying and capture dynamics"
+      ]
+    },
+    "Market Evolution & Consumer Trends": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Social & Economic dimensions (PESTLE-S,E) deep, demographics and values shifts",
+        "Weak signals from subcultures, Gen Z behavior, influencer/creator economy",
+        "Scenarios explore value proposition evolution, channel dominance, price sensitivity",
+        "Signposts track early adopter behavior, sentiment, spending patterns"
+      ],
+      "common_pitfalls": [
+        "Overgeneralizing from small samples or vocal minorities",
+        "Confusing stated preferences with revealed behavior",
+        "Anchoring to recent trends (recency bias)"
+      ]
+    },
+    "Geopolitical & Macro Risk": {
+      "target_score": 3.9,
+      "key_requirements": [
+        "Political & Economic dimensions (PESTLE-P,E) comprehensive, global scope",
+        "Weak signals from diplomatic incidents, capital flows, social unrest indicators",
+        "Scenarios span geopolitical alignment (cooperation vs fragmentation), economic regime (growth vs stagnation)",
+        "Signposts track leading indicators (yields, commodity prices, policy shifts)"
+      ],
+      "common_pitfalls": [
+        "Home-country bias in geopolitical analysis",
+        "Treating low-probability tail risks as negligible",
+        "Missing second-order effects and contagion"
+      ]
+    },
+    "Climate & Sustainability Foresight": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Environmental dimension (PESTLE-E) deep with climate models, plus Political/Legal for policy",
+        "Weak signals from physical anomalies, stranded asset warnings, investor ESG shifts",
+        "Scenarios span transition speed (orderly vs disorderly), policy stringency, physical impacts",
+        "Signposts track carbon pricing, renewable cost curves, extreme weather frequency, commitments"
+      ],
+      "common_pitfalls": [
+        "Underestimating physical risks or transition risks",
+        "Ignoring just transition and social equity dimensions",
+        "Linear climate projections ignoring tipping points"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple/Focused Scan": {
+      "target_score": 3.5,
+      "description": "Single domain or narrow question, limited geographic scope, short time horizon (1-2yr)",
+      "key_requirements": [
+        "3-4 PESTLE dimensions covered (focus on most relevant)",
+        "2-3 validated weak signals from credible sources",
+        "2-3 simple scenarios (baseline, upside, downside)",
+        "3-5 leading signposts with clear thresholds"
+      ],
+      "time_estimate": "8-12 hours"
+    },
+    "Moderate/Strategic Planning": {
+      "target_score": 4.0,
+      "description": "Multi-domain scan, regional/national scope, medium time horizon (3-5yr)",
+      "key_requirements": [
+        "All 6 PESTLE dimensions systematically covered",
+        "5-8 validated weak signals with amplification paths assessed",
+        "3-4 scenarios (2x2 matrix method) with narratives and implications",
+        "8-12 signposts with graduated alerts (yellow/orange/red)",
+        "Cross-impact analysis identifying feedback loops"
+      ],
+      "time_estimate": "20-30 hours initial, 4-6 hours/quarter updates"
+    },
+    "Complex/Comprehensive Foresight": {
+      "target_score": 4.3,
+      "description": "System-level scan, global scope, long time horizon (5-10yr), high stakes",
+      "key_requirements": [
+        "PESTLE comprehensive with geographic breadth and temporal depth (10yr+ lookback)",
+        "10+ validated weak signals from edge sources, expert panels (Delphi)",
+        "4 scenarios with wild cards, advanced methods (backcasting, morphological analysis)",
+        "15+ signposts with real-time monitoring, dashboards, automated alerts",
+        "Cross-impact with system dynamics modeling, sensitivity analysis"
+      ],
+      "time_estimate": "40-60 hours initial, facilitated workshops, 8-12 hours/quarter updates"
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Confirmation bias scanning",
+      "symptom": "All sources support existing strategy, no disconfirming evidence, echo chamber",
+      "detection": "Check source diversity, political/ideological spectrum, opposing views absent",
+      "fix": "Actively seek contrarian sources, assign devil's advocate, scan opposing geographies/sectors"
+    },
+    {
+      "failure": "Weak signal inflation",
+      "symptom": "Every anomaly labeled weak signal, no validation, dozens of signals without prioritization",
+      "detection": "Weak signals lack credibility assessment, supporting evidence, or plausibility analysis",
+      "fix": "Apply validation framework rigorously (credibility + evidence + plausibility + impact), prioritize top 5-10"
+    },
+    {
+      "failure": "Scenarios as predictions",
+      "symptom": "Probabilities assigned to scenarios, betting on one scenario, scenarios converge",
+      "detection": "Language like 'most likely scenario', resource allocation to single scenario, lack of hedges",
+      "fix": "Frame scenarios as 'what if' not 'what will', test strategy robustness across all, identify no-regrets moves"
+    },
+    {
+      "failure": "Linear extrapolation",
+      "symptom": "Trends projected unchanged, ignores saturation/reversal/inflection, recent past = future",
+      "detection": "Exponential trends extended indefinitely, no consideration of limits or feedback",
+      "fix": "Analyze historical patterns for cycles, identify saturation limits, map feedback loops, consider discontinuities"
+    },
+    {
+      "failure": "Lagging signposts",
+      "symptom": "Signposts are outcome measures (market share, GDP) not leading indicators",
+      "detection": "Indicators move after trend materializes, no advance warning, reactive not proactive",
+      "fix": "Identify indicators with 6-12+ month lead time (permits not prices, proposals not laws, VC not revenue)"
+    },
+    {
+      "failure": "PESTLE cherry-picking",
+      "symptom": "Only 2-3 PESTLE dimensions scanned, missing entire domains, blind spots",
+      "detection": "Environmental or Legal dimensions absent, geographic scope limited to home market",
+      "fix": "Systematically cover all 6 PESTLE, even if some seem less relevant (surprises come from blind spots)"
+    },
+    {
+      "failure": "Stale scenarios",
+      "symptom": "Scenarios created once and never updated, signposts not monitored, strategy unchanged despite shifts",
+      "detection": "Scenario document >2 years old, no monitoring cadence, environmental shifts ignored",
+      "fix": "Quarterly signpost reviews, annual scenario validation, trigger-based updates when thresholds crossed"
+    },
+    {
+      "failure": "Analysis paralysis",
+      "symptom": "Endless scanning without synthesis, hundreds of trends tracked, no strategic implications",
+      "detection": "Reports are data dumps not decision memos, no clear recommendations, 'more research needed'",
+      "fix": "Time-box scanning (80/20 rule), focus on critical uncertainties, prioritize actionability over comprehensiveness"
+    },
+    {
+      "failure": "Missing cross-impacts",
+      "symptom": "Trends analyzed in isolation, interaction effects ignored, surprised by feedback loops",
+      "detection": "No cross-impact matrix, reinforcing/offsetting dynamics not mapped, additive not multiplicative thinking",
+      "fix": "Create interaction matrix, identify feedback loops (A→B→C→A), distinguish critical uncertainties from predetermined"
+    },
+    {
+      "failure": "Ignoring wild cards",
+      "symptom": "Focus only on likely scenarios, low-probability high-impact events dismissed, no contingencies",
+      "detection": "Scenarios all moderate outcomes, no discussion of tail risks or black swans, no resilience planning",
+      "fix": "Explicitly list wild cards (pandemic, breakthrough, collapse), create contingency for high-impact events, stress-test strategy"
+    }
+  ]
+}

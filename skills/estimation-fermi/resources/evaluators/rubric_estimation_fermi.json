@@ -1,0 +1,256 @@
+{
+  "criteria": [
+    {
+      "name": "Question Clarification",
+      "1": "Question vague, units missing, scope undefined, decision context unclear",
+      "3": "Question restated with units, scope bounded, decision context mentioned",
+      "5": "Question precise and unambiguous, units specified, scope clearly defined, decision context and required precision explicit"
+    },
+    {
+      "name": "Decomposition Quality",
+      "1": "No decomposition or single wild guess, components not estimable, unclear how they combine",
+      "3": "Logical decomposition into 2-3 levels, components mostly estimable, formula clear",
+      "5": "Elegant decomposition (3-5 levels), all components independently estimable from knowledge/experience, path from components to answer transparent"
+    },
+    {
+      "name": "Assumptions Explicit",
+      "1": "Assumptions unstated, black-box numbers with no justification, cannot be challenged",
+      "3": "Major assumptions stated, some justification provided, most can be identified and questioned",
+      "5": "All assumptions explicitly stated, fully justified with anchors/sources, sensitivity noted, easily challenged and refined"
+    },
+    {
+      "name": "Anchoring",
+      "1": "Components based on guesses not anchored in any known quantities, no sources cited",
+      "3": "Most components anchored in known data (population, benchmarks, personal experience), some sources mentioned",
+      "5": "All components grounded in credible anchors (data, benchmarks, analogies, first principles), sources cited, confidence levels assessed"
+    },
+    {
+      "name": "Bounding",
+      "1": "No bounds provided, single point estimate only, no sense of uncertainty range",
+      "3": "Upper and lower bounds calculated, range assessed (factor of X), some scenario analysis",
+      "5": "Rigorous bounds via optimistic/pessimistic scenarios, range quantified, decision sensitivity assessed (does decision change across range?), constraints checked"
+    },
+    {
+      "name": "Calculation Correctness",
+      "1": "Math errors, units don't match, formula incorrect, compounding mistakes",
+      "3": "Math generally correct, units mostly consistent, formula works, minor errors possible",
+      "5": "Math accurate, dimensional analysis verified (units cancel correctly), formula logic sound, calculation transparent and reproducible"
+    },
+    {
+      "name": "Sanity Checking",
+      "1": "No validation, answer not compared to reality, obvious errors not caught",
+      "3": "Some sanity checks (order of magnitude comparison, gut check), major errors would be caught",
+      "5": "Comprehensive validation (dimensional analysis, reality comparison, extreme case testing, derived metrics consistency, gut check), implausible results flagged and investigated"
+    },
+    {
+      "name": "Triangulation",
+      "1": "Single approach only, no alternate path, cannot validate estimate",
+      "3": "Attempted alternate decomposition, comparison made, discrepancies noted",
+      "5": "Multiple independent paths (top-down vs bottom-up, supply vs demand), estimates within factor of 3, reconciliation of differences, confidence increased by agreement"
+    },
+    {
+      "name": "Precision Appropriate",
+      "1": "False precision (8.372M when uncertainty is ±10×), or uselessly vague (\"a lot\"), wrong significant figures",
+      "3": "Rounded to 1-2 significant figures, order of magnitude clear, some uncertainty acknowledged",
+      "5": "Precision matches uncertainty (1 sig fig for ±3×, 2 sig figs for ±30%), expressed as range when appropriate, confidence intervals calibrated, avoids false precision trap"
+    },
+    {
+      "name": "Decision Actionability",
+      "1": "Estimate disconnected from decision, no recommendation, unclear how to use result",
+      "3": "Connection to decision mentioned, some implication for action, directionally useful",
+      "5": "Clear decision implication (go/no-go, prioritize/deprioritize), threshold analysis (if >X then Y), sensitivity to key assumptions identified, actionable recommendation based on estimate and uncertainty"
+    }
+  ],
+  "guidance_by_type": {
+    "Market Sizing (TAM/SAM/SOM)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Top-down decomposition (population → filters → addressable → price), components estimable from census/industry data",
+        "Anchors: Population figures, market penetration rates, pricing from comparables, industry reports",
+        "Bounds: Optimistic (high penetration, premium price) vs Pessimistic (low penetration, discount price)",
+        "Triangulation: Cross-check against public company revenues in space, VC market estimates, bottom-up from customer count",
+        "Sanity check: Compare to GDP (market can't exceed consumer spending), check per-capita figures"
+      ],
+      "common_pitfalls": [
+        "Confusing TAM (total addressable) with SAM (serviceable) or SOM (obtainable)",
+        "Overestimating willingness to pay (assume most won't pay)",
+        "Not accounting for competition (you won't get 100% share)"
+      ]
+    },
+    "Infrastructure Capacity": {
+      "target_score": 4.1,
+      "key_requirements": [
+        "Decomposition: Users → Actions per user → Resources per action → Overhead/utilization",
+        "Anchors: Similar systems (Instagram scale), known limits (AWS instance capacity), load testing data, utilization factors (70-80% not 100%)",
+        "Bounds: Peak load (Black Friday, viral event) vs Average, Growth trajectory (2× vs 10× per year)",
+        "Triangulation: Top-down from users vs Bottom-up from server capacity, cost validation (does $/user make sense?)",
+        "Sanity check: Cost per user < LTV, compare to public cloud bills of similar companies"
+      ],
+      "common_pitfalls": [
+        "Assuming 100% utilization (real systems: 70-80% for headroom)",
+        "Forgetting overhead (databases, load balancers, redundancy)",
+        "Linear scaling assumptions (ignoring caching, batching gains)"
+      ]
+    },
+    "Financial Projections": {
+      "target_score": 3.9,
+      "key_requirements": [
+        "Decomposition: Revenue (customers × conversion × ARPU), Costs (COGS + CAC + R&D + G&A)",
+        "Anchors: Cohort data (historical conversion), industry benchmarks (CAC/LTV ratios, SaaS metrics), comparable company metrics",
+        "Bounds: Bull case (high growth, efficient scaling) vs Bear case (slow growth, rising costs)",
+        "Triangulation: Build cohort model vs top-down market share model, cross-check margins with industry",
+        "Sanity check: Growth follows S-curve not exponential forever, margins approach industry norms at scale, rule of 40"
+      ],
+      "common_pitfalls": [
+        "Assuming exponential growth continues indefinitely",
+        "Not accounting for churn (especially in SaaS)",
+        "Ignoring seasonality or cyclicality"
+      ]
+    },
+    "Resource Planning (Headcount/Budget)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Decomposition: Work to be done (features, tickets, customers) → Productivity per person → Overhead (meetings, vacation, ramp)",
+        "Anchors: Team velocity (story points/sprint), industry ratios (support agents per 1000 customers), hiring timelines",
+        "Bounds: Experienced team (high productivity, low ramp) vs New team (learning curve, attrition)",
+        "Triangulation: Bottom-up from roadmap vs Top-down from revenue per employee benchmark",
+        "Sanity check: Headcount vs revenue growth (should correlate), compare to peer companies at similar scale"
+      ],
+      "common_pitfalls": [
+        "Not accounting for ramp time (new hires take 3-6 months to full productivity)",
+        "Ignoring overhead (meetings, hiring, training consume 20-30% of time)",
+        "Underestimating hiring pipeline (offer to start date 1-3 months)"
+      ]
+    },
+    "Impact Assessment": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Decomposition: Total impact = Units affected × Impact per unit × Duration, account for baseline and counterfactual",
+        "Anchors: Emission factors (kg CO2/kWh), conversion rates (program → behavior change), precedent studies with measured effects",
+        "Bounds: Conservative (low adoption, small effect) vs Optimistic (high adoption, large effect)",
+        "Triangulation: Top-down (total population × penetration) vs Bottom-up (measured cases × scale factor)",
+        "Sanity check: Impact should scale linearly or sub-linearly (diminishing returns), compare to similar interventions"
+      ],
+      "common_pitfalls": [
+        "Not accounting for counterfactual (what would have happened anyway)",
+        "Ignoring adoption rates (not everyone participates)",
+        "Linear extrapolation when effects have diminishing returns"
+      ]
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple Question (1-2 levels)": {
+      "target_score": 3.5,
+      "description": "Single decomposition (A × B), components directly estimable, low uncertainty",
+      "key_requirements": [
+        "Clear decomposition (2-3 components), formula transparent",
+        "Components anchored in known quantities or personal experience",
+        "Basic bounds (±2-3×), sanity check against reality",
+        "Single approach sufficient if well-validated"
+      ],
+      "time_estimate": "3-5 minutes",
+      "examples": [
+        "Annual revenue from daily revenue (revenue/day × 365)",
+        "Customers served per year (customers/day × 250 workdays)",
+        "Storage needed (users × data per user)"
+      ]
+    },
+    "Moderate Question (3-4 levels)": {
+      "target_score": 4.0,
+      "description": "Multi-level decomposition, some uncertainty in components, decision depends on order of magnitude",
+      "key_requirements": [
+        "Logical 3-4 level decomposition, all components independently estimable",
+        "Assumptions explicit, anchored in data or benchmarks",
+        "Bounds calculated (optimistic/pessimistic scenarios), range assessed",
+        "Triangulation via alternate path, estimates within factor of 3",
+        "Comprehensive sanity checks (units, reality comparison, derived metrics)"
+      ],
+      "time_estimate": "10-15 minutes",
+      "examples": [
+        "Market sizing (population → segment → addressable → price)",
+        "Server capacity needed (users → requests → compute)",
+        "Headcount planning (work → productivity → overhead)"
+      ]
+    },
+    "Complex Question (5+ levels)": {
+      "target_score": 4.3,
+      "description": "Deep decomposition tree, high uncertainty, decision sensitive to assumptions, requires triangulation",
+      "key_requirements": [
+        "Sophisticated decomposition (5+ levels or multiple parallel paths), components validated independently",
+        "All assumptions stated and justified, sensitivity analysis (which matter most?)",
+        "Rigorous bounding (scenario analysis, constraint checking), decision sensitivity assessed",
+        "Multiple triangulation paths (top-down/bottom-up, supply/demand), cross-validation with public data",
+        "Extensive sanity checking (dimensional analysis, extreme cases, internal consistency)",
+        "Uncertainty quantified (confidence intervals), precision matched to uncertainty"
+      ],
+      "time_estimate": "20-30 minutes",
+      "examples": [
+        "Multi-year financial model (revenue streams × growth × costs × scenarios)",
+        "Climate impact assessment (emissions × multiple sources × counterfactual × time horizon)",
+        "Large infrastructure sizing (users × behavior × compute × storage × network × redundancy)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Missing units or unit errors",
+      "symptom": "Mixing per-day with per-year, confusing millions and billions, currency not specified, units don't cancel in formula",
+      "detection": "Dimensional analysis fails (units don't match), or derived metrics nonsensical (revenue per employee = $5)",
+      "fix": "Always write units next to every number, verify dimensional analysis (units cancel to expected final unit), convert all to common time basis before combining"
+    },
+    {
+      "failure": "Unstated assumptions",
+      "symptom": "Numbers appear without justification, reader cannot challenge or refine estimate, black-box calculation",
+      "detection": "Ask 'Why this number?' and no answer is provided in documentation",
+      "fix": "For each component, explicitly state assumption and anchor (e.g., 'Assuming 250 workdays/year', 'Based on industry benchmark of 3% conversion')"
+    },
+    {
+      "failure": "False precision",
+      "symptom": "8.372M when uncertainty is ±5×, or $47,293 when components are rough guesses",
+      "detection": "More than 2 significant figures, or precision implies certainty mismatched to actual uncertainty",
+      "fix": "Round to 1-2 significant figures matching uncertainty (±3× → 1 sig fig, ±30% → 2 sig figs), express as range when uncertainty high"
+    },
+    {
+      "failure": "No bounds or sanity checks",
+      "symptom": "Single point estimate, no validation, implausible result not caught (market size exceeds GDP, growth >100%/year sustained)",
+      "detection": "Estimate seems wrong intuitively but no mechanism to validate, or obviously violates constraints",
+      "fix": "Always calculate bounds (optimistic/pessimistic), compare to known comparables, check extreme cases, verify doesn't violate physics/economics"
+    },
+    {
+      "failure": "Decomposition not estimable",
+      "symptom": "Components still too complex ('estimate market size' → 'estimate demand' is not progress), or circular (define A in terms of B, B in terms of A)",
+      "detection": "Ask 'Can I estimate this component from knowledge/data?' If no, decomposition incomplete",
+      "fix": "Decompose until each component answerable from: known data, personal experience, analogous comparison, or first principles"
+    },
+    {
+      "failure": "Anchoring bias",
+      "symptom": "Estimate heavily influenced by first number heard, even if irrelevant ('Is it $10M?' causes you to anchor near $10M)",
+      "detection": "Estimate changes significantly based on arbitrary starting point provided",
+      "fix": "Generate independent estimate before seeing any suggested numbers, then compare and justify any convergence"
+    },
+    {
+      "failure": "Double-counting",
+      "symptom": "Same quantity included twice in formula (counting businesses AND employees when businesses already includes employee count)",
+      "detection": "Draw decomposition tree visually - if same box appears twice in different branches, likely double-counted",
+      "fix": "Clearly define what each component includes and excludes, ensure mutually exclusive and collectively exhaustive (MECE)"
+    },
+    {
+      "failure": "No triangulation",
+      "symptom": "Single path only, cannot validate estimate, reader must trust decomposition is correct",
+      "detection": "Only one approach provided, no alternate path or comparison to known data",
+      "fix": "Re-estimate via different decomposition (top-down vs bottom-up, supply vs demand), check if within factor of 3, cross-validate with public data when available"
+    },
+    {
+      "failure": "Ignoring utilization/efficiency",
+      "symptom": "Assuming 100% capacity (servers always at max, people work 40hr with zero meetings/vacation, factories run 24/7 with no downtime)",
+      "detection": "Capacity estimates seem too high compared to real systems",
+      "fix": "Apply realistic utilization factors (servers 70-80%, people 60-70% after meetings/overhead, factories 80-90% after maintenance)"
+    },
+    {
+      "failure": "Linear extrapolation errors",
+      "symptom": "Assuming linear when exponential (tech adoption), or exponential when logistic (growth eventually saturates)",
+      "detection": "Projections violate constraints (market share >100%, growth continues at 100%/year for decades)",
+      "fix": "Check if relationship is truly linear, apply appropriate growth curve (exponential for early adoption, S-curve for saturation, linear for steady-state)"
+    }
+  ]
+}
