@@ -1,0 +1,211 @@
+{
+  "criteria": [
+    {
+      "name": "Heuristic Appropriateness",
+      "description": "Heuristic type (recognition, take-the-best, satisficing, fast & frugal tree) matches decision context and environment stability.",
+      "scale": {
+        "1": "Wrong heuristic type chosen. Using recognition in adversarial environment or satisficing for novel high-stakes decisions.",
+        "3": "Heuristic type reasonable but suboptimal. Some mismatch between heuristic and context.",
+        "5": "Perfect match: Heuristic type suits decision frequency, time pressure, stakes, and environment stability. Ecological rationality demonstrated."
+      }
+    },
+    {
+      "name": "Checklist Focus (Killer Items Only)",
+      "description": "Checklist contains only critical steps (often skipped AND serious consequences if missed). Not comprehensive list of all steps.",
+      "scale": {
+        "1": "Checklist too long (>15 items) or includes trivial steps. Comprehensive but unusable.",
+        "3": "Some critical items present but includes non-critical steps. Length 10-15 items.",
+        "5": "Focused on 5-9 killer items only. Each item meets criteria: often skipped, serious consequences, not obvious. Concise and actionable."
+      }
+    },
+    {
+      "name": "Format Alignment (READ-DO vs DO-CONFIRM)",
+      "description": "Checklist format matches user expertise level. READ-DO for novices/unfamiliar, DO-CONFIRM for experts/routine.",
+      "scale": {
+        "1": "Format mismatch: READ-DO for experts (resistance), or DO-CONFIRM for novices (high error rate).",
+        "3": "Format generally appropriate but could be optimized for specific user/context.",
+        "5": "Perfect format match: READ-DO for novices/high-stakes/unfamiliar, DO-CONFIRM for experts/routine. Clear rationale provided."
+      }
+    },
+    {
+      "name": "Heuristic Validation",
+      "description": "Heuristic tested on historical data (≥30 cases) or validated through A/B testing. Accuracy measured (target ≥80%).",
+      "scale": {
+        "1": "No validation. Heuristic assumed to work without testing. No accuracy measurement.",
+        "3": "Informal validation on small sample (<30 cases). Some accuracy data but incomplete.",
+        "5": "Rigorous validation: ≥30 historical cases tested, or A/B test run. Accuracy ≥80% demonstrated. Compared to baseline/alternative methods."
+      }
+    },
+    {
+      "name": "Checklist Error Reduction",
+      "description": "Checklist effectiveness measured through before/after error rates. Target ≥50% error reduction demonstrated or projected.",
+      "scale": {
+        "1": "No measurement of checklist effectiveness. Error rates not tracked.",
+        "3": "Some error tracking. Before/after comparison attempted but incomplete data.",
+        "5": "Clear error rate measurement: before vs. after checklist. ≥50% reduction demonstrated or realistic projection based on similar cases."
+      }
+    },
+    {
+      "name": "Threshold Calibration (Satisficing)",
+      "description": "For satisficing heuristics, threshold set based on search costs, time pressure, and past outcomes. Adaptive adjustment specified.",
+      "scale": {
+        "1": "Threshold arbitrary or missing. No rationale for 'good enough' level.",
+        "3": "Threshold set but rationale weak. Some consideration of costs/benefits.",
+        "5": "Well-calibrated threshold: based on search costs, time value, historical data. Adaptive rule specified (lower if no options, raise if too many)."
+      }
+    },
+    {
+      "name": "Bias Awareness and Mitigation",
+      "description": "Recognizes when heuristics susceptible to biases (availability, representativeness, anchoring). Mitigation strategies included.",
+      "scale": {
+        "1": "No bias awareness. Heuristic presented as universally valid without limitations.",
+        "3": "Some bias awareness mentioned but mitigation weak or missing.",
+        "5": "Clear identification of bias risks (availability, representativeness, anchoring). Specific mitigations: use base rates, blind evaluation, external anchors."
+      }
+    },
+    {
+      "name": "Exception Handling",
+      "description": "Heuristics include clear exceptions (when NOT to use). Checklists specify pause points and killer items (blocking conditions).",
+      "scale": {
+        "1": "No exceptions specified. Rule presented as universal. No blocking conditions in checklist.",
+        "3": "Some exceptions mentioned but incomplete. Pause points present but killer items unclear.",
+        "5": "Comprehensive exceptions: contexts where heuristic fails (novel, high-stakes, adversarial). Checklist has clear pause points and ⚠ killer items blocking proceed."
+      }
+    },
+    {
+      "name": "Cue Validity (Take-the-Best)",
+      "description": "For take-the-best heuristics, cue validity documented (how often criterion predicts outcome, target >70%). Single most predictive cue identified.",
+      "scale": {
+        "1": "Cue chosen arbitrarily. No validity data. May not be most predictive criterion.",
+        "3": "Cue seems reasonable but validity not measured. Assumption it's most predictive.",
+        "5": "Cue validity rigorously measured (>70%). Compared to alternative cues. Confirmed as most predictive criterion through data."
+      }
+    },
+    {
+      "name": "Iteration and Refinement Plan",
+      "description": "Plan for monitoring heuristic/checklist performance and refining based on outcomes. Triggers for adjustment specified.",
+      "scale": {
+        "1": "No refinement plan. Set-it-and-forget-it approach. No monitoring of outcomes.",
+        "3": "Informal plan to review periodically. No specific triggers or metrics.",
+        "5": "Detailed refinement plan: metrics tracked (accuracy, error rate), review frequency (quarterly), triggers for adjustment (accuracy <80%, error rate >X%). Iterative improvement process."
+      }
+    }
+  ],
+  "guidance_by_type": {
+    "Hiring/Recruitment Decisions": {
+      "target_score": 4.0,
+      "key_criteria": ["Heuristic Appropriateness", "Threshold Calibration (Satisficing)", "Bias Awareness and Mitigation"],
+      "common_pitfalls": ["Representativeness bias (looks like successful hire)", "Anchoring on first candidate", "No validation against historical hires"],
+      "specific_guidance": "Use satisficing with clear thresholds (technical ≥75%, culture ≥7/10). Test on past hires (did threshold predict success?). Mitigate representativeness bias with blind evaluation and base rates."
+    },
+    "Operational Procedures (Deployment, Surgery, Aviation)": {
+      "target_score": 4.5,
+      "key_criteria": ["Checklist Focus (Killer Items Only)", "Format Alignment", "Checklist Error Reduction"],
+      "common_pitfalls": ["Checklist too long (>15 items, gets skipped)", "Wrong format for users", "No error rate measurement"],
+      "specific_guidance": "Focus on 5-9 killer items. Use READ-DO for unfamiliar/high-stakes, DO-CONFIRM for routine. Measure error rates before/after, target ≥50% reduction. Add forcing functions for critical steps."
+    },
+    "Customer Triage/Routing": {
+      "target_score": 3.8,
+      "key_criteria": ["Heuristic Appropriateness", "Exception Handling", "Iteration and Refinement Plan"],
+      "common_pitfalls": ["Fast & frugal tree too complex (>3 levels)", "No exceptions for edge cases", "Not adapting as customer base evolves"],
+      "specific_guidance": "Use fast & frugal tree (2-3 binary questions max). Define clear routing rules. Track misrouted cases, refine tree quarterly. Add exceptions for VIPs, escalations."
+    },
+    "Investment/Resource Allocation": {
+      "target_score": 4.2,
+      "key_criteria": ["Cue Validity (Take-the-Best)", "Heuristic Validation", "Bias Awareness and Mitigation"],
+      "common_pitfalls": ["Availability bias (recent successes over-weighted)", "Confirmation bias (seek supporting evidence only)", "No backtest on historical cases"],
+      "specific_guidance": "Use take-the-best with validated cue (founder track record, market size). Test on ≥30 past investments, accuracy ≥75%. Mitigate availability bias with base rates, sunk cost fallacy with future-value focus."
+    },
+    "Emergency/Time-Critical Decisions": {
+      "target_score": 3.7,
+      "key_criteria": ["Heuristic Appropriateness", "Exception Handling", "Format Alignment"],
+      "common_pitfalls": ["Heuristic too slow (defeats purpose of quick decision)", "No exceptions for novel emergencies", "Checklist too long for urgent situations"],
+      "specific_guidance": "Use recognition or satisficing for speed. Keep checklist to 3-5 critical items. Define clear exceptions ('if novel situation, escalate to expert'). Practice drills to build muscle memory."
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Routine, Low Stakes)": {
+      "target_score": 3.5,
+      "focus_areas": ["Heuristic Appropriateness", "Checklist Focus", "Format Alignment"],
+      "acceptable_shortcuts": ["Informal validation (spot checks)", "Shorter checklists (3-5 items)", "Basic exception list"],
+      "specific_guidance": "Simple satisficing or recognition heuristic. Short checklist (3-5 items). DO-CONFIRM format for routine tasks. Informal validation acceptable if low stakes."
+    },
+    "Standard (Moderate Stakes, Some Complexity)": {
+      "target_score": 4.0,
+      "focus_areas": ["Heuristic Validation", "Checklist Error Reduction", "Bias Awareness and Mitigation"],
+      "acceptable_shortcuts": ["Validation on smaller sample (20-30 cases)", "Informal error tracking"],
+      "specific_guidance": "Validate heuristic on ≥20 cases, accuracy ≥75%. Track error rates before/after checklist. Identify 1-2 key biases and mitigations. Checklists 5-7 items."
+    },
+    "Complex (High Stakes, Multiple Factors)": {
+      "target_score": 4.5,
+      "focus_areas": ["All criteria", "Rigorous validation", "Continuous refinement"],
+      "acceptable_shortcuts": ["None - comprehensive analysis required"],
+      "specific_guidance": "Rigorous validation: ≥30 cases, A/B testing, accuracy ≥80%. Comprehensive bias mitigation. Error reduction ≥50% measured. Forcing functions for critical steps. Quarterly refinement. All exceptions documented."
+    }
+  },
+  "common_failure_modes": [
+    {
+      "name": "Checklist Too Long",
+      "symptom": "Checklist >15 items, includes trivial steps. Users skip or ignore.",
+      "detection": "Low adoption rate (<50% of users complete). Items frequently unchecked.",
+      "fix": "Ruthlessly cut to 5-9 killer items only. Ask: 'Is this often skipped? Serious consequences if missed? Not obvious?' If no to any, remove."
+    },
+    {
+      "name": "Wrong Heuristic for Context",
+      "symptom": "Using recognition heuristic in adversarial environment (advertising), or satisficing for novel high-stakes decision.",
+      "detection": "Heuristic accuracy <60%, or major failures in novel contexts.",
+      "fix": "Match heuristic to environment: stable → recognition/take-the-best, uncertain → satisficing, novel → full analysis. Add exceptions for edge cases."
+    },
+    {
+      "name": "No Validation",
+      "symptom": "Heuristic assumed to work without testing. No accuracy data. Checklist deployed without error rate measurement.",
+      "detection": "Ask: 'How often does this rule work?' If no data, no validation.",
+      "fix": "Test heuristic on ≥30 historical cases. Measure accuracy (target ≥80%). For checklists, track error rates before/after (target ≥50% reduction)."
+    },
+    {
+      "name": "Ignoring Base Rates",
+      "symptom": "Using representativeness or availability heuristics without checking actual frequencies. Recent vivid event over-weighted.",
+      "detection": "Compare heuristic prediction to base rate. If large discrepancy, bias present.",
+      "fix": "Always check base rates first. 'Customer from X looks risky' → Check: 'What % of X customers actually default?' Use data, not anecdotes."
+    },
+    {
+      "name": "Format Mismatch (Expert vs. Novice)",
+      "symptom": "Forcing experts into READ-DO creates resistance and abandonment. Novices with DO-CONFIRM make errors.",
+      "detection": "User feedback: 'Too tedious' (experts) or 'Still making mistakes' (novices).",
+      "fix": "Match format to expertise: Novices/unfamiliar → READ-DO, Experts/routine → DO-CONFIRM. Let experts flow, then confirm."
+    },
+    {
+      "name": "Satisficing Threshold Uncalibrated",
+      "symptom": "Threshold too high (analysis paralysis, no options qualify) or too low (poor decisions).",
+      "detection": "Search budget exhausted with no options (too high), or many poor outcomes (too low).",
+      "fix": "Calibrate based on search costs and past outcomes. Adaptive rule: lower after K searches if no options, raise if too many qualify."
+    },
+    {
+      "name": "No Exceptions Specified",
+      "symptom": "Heuristic presented as universal law. Applied blindly to novel or adversarial contexts where it fails.",
+      "detection": "Major failures in contexts different from training data.",
+      "fix": "Define clear exceptions: 'Use heuristic EXCEPT when [novel/high-stakes/adversarial/legally sensitive].' Document failure modes."
+    },
+    {
+      "name": "Cue Not Most Predictive",
+      "symptom": "Take-the-best uses convenient cue, not most valid cue. Accuracy suffers.",
+      "detection": "Heuristic accuracy <75%. Other cues perform better in backtests.",
+      "fix": "Test multiple cues, rank by validity (% of time cue predicts outcome correctly). Use highest-validity cue, ignore others."
+    },
+    {
+      "name": "Checklist as Blame Shield",
+      "symptom": "'I followed checklist, not my fault.' Boxes checked without thinking. False sense of security.",
+      "detection": "Errors still occur despite checklist completion. Users mechanically checking boxes.",
+      "fix": "Emphasize checklist augments judgment, doesn't replace it. Add forcing functions for critical items (can't proceed unless done). Challenge-response for high-stakes."
+    },
+    {
+      "name": "No Refinement Plan",
+      "symptom": "Set-it-and-forget-it. Heuristic/checklist not updated as environment changes. Accuracy degrades over time.",
+      "detection": "Heuristic accuracy declining. Checklist error rate creeping back up.",
+      "fix": "Quarterly review: Re-validate heuristic on recent cases. Track error rates. Adjust thresholds, add exceptions, update checklist items based on data."
+    }
+  ],
+  "minimum_standard": 3.5,
+  "target_score": 4.0,
+  "excellence_threshold": 4.5
+}
