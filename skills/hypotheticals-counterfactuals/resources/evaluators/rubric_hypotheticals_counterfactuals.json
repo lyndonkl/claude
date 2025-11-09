@@ -1,0 +1,211 @@
+{
+  "criteria": [
+    {
+      "name": "Scenario Plausibility",
+      "description": "Scenarios are possible given current knowledge, not fantasy. Counterfactuals were realistic alternatives at decision time.",
+      "scale": {
+        "1": "Implausible scenarios (magic, impossible foreknowledge). Counterfactuals couldn't have been chosen at the time.",
+        "3": "Mostly plausible but some unrealistic assumptions. Counterfactuals stretch believability.",
+        "5": "All scenarios plausible given what was/is known. Counterfactuals were genuine alternatives available at decision time."
+      }
+    },
+    {
+      "name": "Minimal Rewrite Principle (Counterfactuals)",
+      "description": "Counterfactuals change as little as possible to isolate causal factor. Not multiple changes bundled together.",
+      "scale": {
+        "1": "Many factors changed simultaneously. Can't tell which caused different outcome. 'What if X AND Y AND Z...'",
+        "3": "Some attempt at isolation but still multiple changes. Primary factor identified but confounded.",
+        "5": "Perfect isolation: single factor changed, all else held constant. Causal factor clearly identified."
+      }
+    },
+    {
+      "name": "Causal Mechanism Specification",
+      "description": "Explains HOW change leads to different outcome. Not just stating result but tracing causal chain.",
+      "scale": {
+        "1": "No mechanism specified. Just outcome stated ('sales would be higher') without explanation.",
+        "3": "Partial mechanism. Some causal steps identified but incomplete chain.",
+        "5": "Complete causal chain: initial change → immediate effect → secondary effects → final outcome. Each step explained."
+      }
+    },
+    {
+      "name": "Probability Calibration",
+      "description": "Scenarios assigned probabilities based on evidence, base rates, analogies. Not all weighted equally.",
+      "scale": {
+        "1": "No probabilities assigned, or all scenarios treated as equally likely. No base rate consideration.",
+        "3": "Rough probabilities assigned but weak justification. Some consideration of likelihood.",
+        "5": "Well-calibrated probabilities using base rates, analogies, expert judgment. Sum to 100%. Clear reasoning for each."
+      }
+    },
+    {
+      "name": "Pre-Mortem Rigor",
+      "description": "For pre-mortems: follows 6-step process, generates novel failure modes specific to context, not just generic risks.",
+      "scale": {
+        "1": "Generic risk list copied from elsewhere. Hindsight bias ('obvious' failures). No structured process.",
+        "3": "Some specific risks but mixed with generic ones. Process partially followed.",
+        "5": "Rigorous 6-step process: silent brainstorm, round-robin, voting, mitigations. Context-specific failure modes identified."
+      }
+    },
+    {
+      "name": "Action Extraction",
+      "description": "Clear extraction of common actions, hedges, options, and decision points from scenarios. Not just stories.",
+      "scale": {
+        "1": "Scenarios developed but no actions extracted. 'Interesting stories' with no operational implications.",
+        "3": "Some actions identified but incomplete. Missing hedges or options.",
+        "5": "Comprehensive action plan: common actions (all scenarios), hedges (downside), options (upside), decision triggers clearly specified."
+      }
+    },
+    {
+      "name": "Leading Indicator Quality",
+      "description": "Indicators are observable, early (6+ months advance), and actionable. Clear thresholds defined.",
+      "scale": {
+        "1": "No indicators, or lagging indicators (show scenario after it's happened). No thresholds.",
+        "3": "Some leading indicators but vague thresholds or not truly early signals.",
+        "5": "High-quality leading indicators: observable metrics, 6+ months advance notice, clear thresholds, trigger specific actions."
+      }
+    },
+    {
+      "name": "Scenario Diversity",
+      "description": "Scenarios are qualitatively different, not just magnitude variations. Cover meaningful range of futures.",
+      "scale": {
+        "1": "Scenarios differ only in magnitude (10% growth vs 15% vs 20%). Basically same story.",
+        "3": "Some qualitative differences but scenarios too similar or narrow range.",
+        "5": "Meaningfully different scenarios: qualitative distinctions, broad range captured, distinct strategic implications for each."
+      }
+    },
+    {
+      "name": "Bias Avoidance (Hindsight/Confirmation)",
+      "description": "Avoids hindsight bias in counterfactuals, confirmation bias in scenario selection, anchoring on current trends.",
+      "scale": {
+        "1": "Strong hindsight bias ('we should have known'). Only scenarios confirming current view. Anchored on status quo.",
+        "3": "Some bias awareness but incomplete mitigation. Mostly avoids obvious biases.",
+        "5": "Rigorous bias mitigation: re-inhabits decision context, considers disconfirming scenarios, challenges assumptions, uses base rates."
+      }
+    },
+    {
+      "name": "Monitoring and Adaptation Plan",
+      "description": "Defined monitoring cadence (quarterly), indicator tracking, scenario probability updates, adaptation triggers.",
+      "scale": {
+        "1": "No monitoring plan. Set-it-and-forget-it scenarios. No updates planned.",
+        "3": "Informal plan to review occasionally. No specific cadence or triggers.",
+        "5": "Detailed monitoring: quarterly reviews, indicator dashboard, probability updates, clear adaptation triggers and owner."
+      }
+    }
+  ],
+  "guidance_by_type": {
+    "Strategic Planning (1-3 year horizon)": {
+      "target_score": 4.2,
+      "key_criteria": ["Scenario Diversity", "Probability Calibration", "Action Extraction"],
+      "common_pitfalls": ["Too narrow scenario range", "No hedges against downside", "Monitoring plan missing"],
+      "specific_guidance": "Use three-scenario framework (optimistic/baseline/pessimistic) or 2×2 matrix. Assign probabilities (optimistic 15-30%, baseline 40-60%, pessimistic 15-30%). Extract common actions that work across all scenarios, plus hedges for downside. Quarterly monitoring."
+    },
+    "Pre-Mortem (Project Risk Identification)": {
+      "target_score": 4.0,
+      "key_criteria": ["Pre-Mortem Rigor", "Action Extraction", "Bias Avoidance"],
+      "common_pitfalls": ["Generic risks (not context-specific)", "Hindsight bias ('obvious' failures)", "No mitigations assigned"],
+      "specific_guidance": "Follow 6-step process rigorously. Silent brainstorm 5-10 min to prevent groupthink. Generate context-specific failure modes. Vote on top 5-7 risks. Assign mitigation owner and deadline for each."
+    },
+    "Counterfactual Learning (Post-Decision Analysis)": {
+      "target_score": 3.8,
+      "key_criteria": ["Minimal Rewrite Principle", "Causal Mechanism Specification", "Bias Avoidance"],
+      "common_pitfalls": ["Changing multiple factors (can't isolate cause)", "No causal mechanism (just outcome)", "Hindsight bias ('knew it all along')"],
+      "specific_guidance": "Change single factor, hold all else constant. Trace complete causal chain (change → immediate effect → secondary effects → outcome). Re-inhabit decision context to avoid hindsight. Use base rates and analogies to estimate counterfactual probability."
+    },
+    "Stress Testing (Decision Robustness)": {
+      "target_score": 4.0,
+      "key_criteria": ["Scenario Diversity", "Causal Mechanism Specification", "Action Extraction"],
+      "common_pitfalls": ["Only optimistic/pessimistic (no black swan)", "No mechanism for how extremes occur", "Decision not actually tested"],
+      "specific_guidance": "Test decision against optimistic, pessimistic, AND black swan scenarios. Specify HOW extreme outcomes occur. Ask 'Does decision still hold?' for each scenario. Extract hedges to protect against downside extremes."
+    },
+    "Assumption Reversal (Innovation/Pivots)": {
+      "target_score": 3.5,
+      "key_criteria": ["Scenario Plausibility", "Action Extraction", "Bias Avoidance"],
+      "common_pitfalls": ["Reversed assumptions implausible", "Interesting but no experiments", "Confirmation bias (only reverse convenient assumptions)"],
+      "specific_guidance": "Reverse core assumptions ('customers want more features' → 'want fewer'). Test plausibility (could reversal be true?). Design small experiments to test reversal. Challenge assumptions that support current strategy, not just peripheral ones."
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Routine Decisions, Short-Term)": {
+      "target_score": 3.5,
+      "focus_areas": ["Scenario Plausibility", "Causal Mechanism Specification", "Action Extraction"],
+      "acceptable_shortcuts": ["Informal probabilities", "Two scenarios instead of three", "Simple pre-mortem (no voting)"],
+      "specific_guidance": "Quick pre-mortem (30 min) or simple counterfactual analysis. Two scenarios (optimistic/pessimistic). Extract 2-3 key actions. Informal monitoring acceptable."
+    },
+    "Standard (Strategic Decisions, 1-2 year horizon)": {
+      "target_score": 4.0,
+      "focus_areas": ["Probability Calibration", "Scenario Diversity", "Leading Indicator Quality", "Monitoring and Adaptation"],
+      "acceptable_shortcuts": ["Three scenarios (not full 2×2 matrix)", "Quarterly vs monthly monitoring"],
+      "specific_guidance": "Three-scenario framework with probabilities. Extract common actions, hedges, options. Define 5-7 leading indicators. Quarterly scenario reviews and updates. Assign owners for monitoring."
+    },
+    "Complex (High Stakes, Multi-Year, High Uncertainty)": {
+      "target_score": 4.5,
+      "focus_areas": ["All criteria", "Rigorous validation", "Comprehensive monitoring"],
+      "acceptable_shortcuts": ["None - full rigor required"],
+      "specific_guidance": "Full 2×2 scenario matrix or cone of uncertainty. Rigorous probability calibration using base rates and expert judgment. Comprehensive pre-mortem with cross-functional team. Leading indicators with clear thresholds and decision triggers. Monthly monitoring, quarterly deep reviews. All mitigations assigned with owners and deadlines."
+    }
+  },
+  "common_failure_modes": [
+    {
+      "name": "Implausible Counterfactuals (Fantasy)",
+      "symptom": "Counterfactuals require magic, impossible foreknowledge, or weren't real options at decision time. 'What if we had known pandemic was coming?'",
+      "detection": "Ask: 'Could a reasonable decision-maker have chosen this alternative given information available then?' If no, implausible.",
+      "fix": "Restrict to alternatives actually available at decision time. Use 'what was on the table?' test. Avoid hindsight-dependent counterfactuals."
+    },
+    {
+      "name": "Multiple Changes (Can't Isolate Cause)",
+      "symptom": "Counterfactual changes many factors: 'What if we had raised $3M AND launched EU AND hired different CEO...' Can't tell which mattered.",
+      "detection": "Count changes. If >1 factor changed, causal isolation violated.",
+      "fix": "Minimal rewrite: change ONE factor, hold all else constant. Want to test funding? Change funding only. Want to test geography? Change geography only."
+    },
+    {
+      "name": "No Causal Mechanism",
+      "symptom": "Outcome stated without explanation. 'Sales would be 2× higher' but no WHY or HOW.",
+      "detection": "Ask 'How does change lead to outcome?' If answer vague or missing, no mechanism.",
+      "fix": "Trace causal chain: initial change → immediate effect → secondary effects → final outcome. Each step must be explained with logic or evidence."
+    },
+    {
+      "name": "Scenarios Too Similar",
+      "symptom": "Three scenarios differ only in magnitude (10% growth vs 15% vs 20%). Same story, different numbers.",
+      "detection": "Read scenarios. Do they describe qualitatively different worlds? If no, too similar.",
+      "fix": "Make scenarios qualitatively distinct. Different drivers, different strategic implications. Use 2×2 matrix to force diversity via two independent uncertainties."
+    },
+    {
+      "name": "No Probabilities Assigned",
+      "symptom": "All scenarios treated as equally likely, or no probabilities given. Implies 33% each for three scenarios regardless of plausibility.",
+      "detection": "Check if probabilities assigned and justified. If missing or all equal, red flag.",
+      "fix": "Assign probabilities using base rates, analogies, expert judgment. Baseline typically 40-60%, optimistic/pessimistic 15-30% each. Justify each estimate."
+    },
+    {
+      "name": "Hindsight Bias in Counterfactuals",
+      "symptom": "'Obviously we should have done X' - outcome seems inevitable in retrospect. Overconfidence counterfactual would have succeeded.",
+      "detection": "Ask: 'Was outcome predictable given information at decision time?' If reasoning depends on information learned after, hindsight bias.",
+      "fix": "Re-inhabit decision context: what was known/unknown then? What uncertainty existed? Acknowledge alternative could have failed too. Use base rates to calibrate confidence."
+    },
+    {
+      "name": "Generic Pre-Mortem Risks",
+      "symptom": "Pre-mortem lists generic risks ('ran out of money', 'competition', 'tech didn't work') not specific to this project.",
+      "detection": "Could these risks apply to any project? If yes, too generic.",
+      "fix": "Push for context-specific failure modes. What's unique about THIS project? What specific technical challenges? Which specific competitors? What particular market risks?"
+    },
+    {
+      "name": "Scenarios Without Actions",
+      "symptom": "Interesting stories developed but no operational implications. 'So what should we do?' question unanswered.",
+      "detection": "Read scenario analysis. Is there action plan with common actions, hedges, options? If no, incomplete.",
+      "fix": "Always end with action extraction: (1) Common actions (all scenarios), (2) Hedges (downside protection), (3) Options (upside preparation), (4) Leading indicators (monitoring)."
+    },
+    {
+      "name": "Lagging Indicators (Not Leading)",
+      "symptom": "Indicators show scenario after it's happened. 'Revenue collapse' indicates pessimistic scenario, but too late to act.",
+      "detection": "Ask: 'Does this indicator give 6+ months advance notice?' If no, it's lagging.",
+      "fix": "Find early signals: regulatory votes (before law passed), competitor funding rounds (before product launched), adoption rate trends (before market share shift). Leading indicators are predictive, not reactive."
+    },
+    {
+      "name": "No Monitoring Plan",
+      "symptom": "Scenarios developed, actions defined, then filed away. No one tracking which scenario unfolding or updating probabilities.",
+      "detection": "Ask: 'Who monitors? How often? What triggers update?' If no answers, no plan.",
+      "fix": "Define: (1) Owner responsible for monitoring, (2) Cadence (monthly/quarterly reviews), (3) Indicator dashboard, (4) Decision triggers ('If X crosses threshold Y, then action Z'), (5) Scenario probability update process."
+    }
+  ],
+  "minimum_standard": 3.5,
+  "target_score": 4.0,
+  "excellence_threshold": 4.5
+}

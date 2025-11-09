@@ -4,7 +4,7 @@ A comprehensive collection of production-ready skills for Claude Code, covering 
 
 ## Overview
 
-This repository contains **28 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **30 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -25,6 +25,10 @@ This repository contains **28 skills** designed to enhance Claude Code's capabil
 **environmental-scanning-foresight** - Anticipate change through PESTLE analysis, weak signal detection, scenario planning (2x2 matrix), cross-impact analysis, and signposts for early warning systems.
 
 **expected-value** - Rational decision-making under uncertainty through probability-weighted outcomes (EV = Σ p×v). Covers scenario identification, probability estimation (base rates, triangulation, calibration), payoff quantification (NPV, non-monetary factors), decision trees (fold-back induction, optionality), expected utility for risk aversion, sensitivity analysis, and bias mitigation (overconfidence, sunk costs, tail risk neglect).
+
+**heuristics-and-checklists** - Practical decision-making through mental shortcuts (heuristics) and systematic error prevention (checklists). Design fast & frugal heuristics (recognition, take-the-best, satisficing), create effective checklists (5-9 killer items, READ-DO vs DO-CONFIRM formats), validate rules empirically (≥80% accuracy target), and mitigate cognitive biases (availability, representativeness, anchoring). Covers aviation, surgical, and software deployment checklists with proven 60-80% error reduction.
+
+**hypotheticals-counterfactuals** - Explore alternative scenarios and test assumptions through "what if" thinking. Use counterfactual reasoning (backward-looking: "what would have happened if?") to understand causality and learn from decisions. Apply scenario planning (forward-looking: optimistic/baseline/pessimistic futures, 2×2 matrices) to prepare for uncertainty. Conduct rigorous pre-mortems (6-step process: imagine failure, identify causes, vote on risks, assign mitigations). Extract common actions, hedges, and options from scenarios. Define leading indicators with clear thresholds for monitoring which future unfolds. Covers minimal rewrite principle, causal mechanism specification, probability calibration, and stress testing decisions.
 
 ### 💡 Problem Solving & Analysis
 
@@ -186,12 +190,12 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 21 skills
-- ✓ 19 refined skills from standard collection
+**Production Ready**: 30 skills
+- ✓ 28 refined skills from standard collection
 - ✓ 1 original skill (writer)
 - ✓ 1 custom skill (chef-assistant)
 
-**In Development**: 39 skills remaining from standard collection
+**In Development**: 28 skills remaining from standard collection
 
 ## Key Features
 
@@ -259,4 +263,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 21 production-ready skills | Active development | Last updated: 2025-11-03
+**Status**: 30 production-ready skills | Active development | Last updated: 2025-11-09
