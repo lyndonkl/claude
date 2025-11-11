@@ -1,0 +1,216 @@
+{
+  "skill_name": "kill-criteria-exit-ramps",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Upfront Definition",
+      "description": "Kill criteria defined before launch, not after emotional/financial investment",
+      "ratings": {
+        "1": "No kill criteria defined, or defined after project started",
+        "3": "Kill criteria defined at launch but not formally documented or signed",
+        "5": "Kill criteria defined in PRD before launch, signed by stakeholders, formally documented"
+      }
+    },
+    {
+      "name": "Objectivity",
+      "description": "Criteria use quantifiable metrics and thresholds, not subjective judgment",
+      "ratings": {
+        "1": "Subjective criteria (e.g., 'team feels it's not working', 'low adoption')",
+        "3": "Mix of quantitative and qualitative criteria, some ambiguity",
+        "5": "Fully objective criteria with specific numbers (e.g., '<10% conversion after 6 months', 'CAC >$200 for 3 months')"
+      }
+    },
+    {
+      "name": "Decision Rights",
+      "description": "Clear assignment of who makes kill decision, with escalation path",
+      "ratings": {
+        "1": "No clear decision-maker, 'team decides' or unclear ownership",
+        "3": "Decision-maker named but no escalation path or override process",
+        "5": "Specific person named as decision authority, clear escalation path, override process with limits"
+      }
+    },
+    {
+      "name": "No Goalpost Moving",
+      "description": "Kill criteria remain fixed; changes require formal justification and re-approval",
+      "ratings": {
+        "1": "Criteria change informally when approached, goalposts move frequently",
+        "3": "Criteria mostly stable but some informal adjustments without documentation",
+        "5": "Criteria fixed at launch, changes require written justification + senior approval + new document"
+      }
+    },
+    {
+      "name": "Sunk Cost Avoidance",
+      "description": "Decision based on future value, not past investment; uses pre-mortem inversion",
+      "ratings": {
+        "1": "Heavy focus on sunk costs ('invested too much to quit'), no counterfactual analysis",
+        "3": "Acknowledges sunk costs but also considers future, limited use of inversion techniques",
+        "5": "Explicitly uses pre-mortem inversion ('would we start this today?'), focuses only on future value"
+      }
+    },
+    {
+      "name": "Execution Speed",
+      "description": "Kill decision executed quickly (wind-down within 1 month), avoiding zombie projects",
+      "ratings": {
+        "1": "Projects linger for 3+ months after kill decision, zombie projects exist",
+        "3": "Wind-down takes 1-2 months, some delays but eventual completion",
+        "5": "Wind-down plan executed within 1 month: team reallocated, resources freed, postmortem completed"
+      }
+    },
+    {
+      "name": "Opportunity Cost Consideration",
+      "description": "Evaluates best alternative use of resources, quantifies opportunity cost",
+      "ratings": {
+        "1": "No consideration of alternatives, 'finish what we started' mentality",
+        "3": "Mentions alternatives informally but no quantification or comparison",
+        "5": "Explicitly compares current project to top 3 alternatives, quantifies EV/Cost ratio for each"
+      }
+    },
+    {
+      "name": "Portfolio Thinking",
+      "description": "Projects ranked and managed as portfolio, bottom performers killed to free resources",
+      "ratings": {
+        "1": "Projects evaluated individually, no portfolio ranking or rebalancing",
+        "3": "Informal portfolio view but no systematic ranking or kill threshold",
+        "5": "Quarterly portfolio ranking with explicit methodology, kill threshold (e.g., bottom 30%), active rebalancing"
+      }
+    },
+    {
+      "name": "Postmortem Culture",
+      "description": "Blameless postmortems conducted within 2 weeks, learnings shared, killing normalized",
+      "ratings": {
+        "1": "No postmortems, or blame-focused, killed projects hidden or stigmatized",
+        "3": "Postmortems occur but sometimes delayed, limited sharing, some stigma remains",
+        "5": "Blameless postmortems within 2 weeks, documented and shared widely, killing celebrated as discipline"
+      }
+    },
+    {
+      "name": "Wind-Down Planning",
+      "description": "Detailed wind-down plan prepared upfront, includes communication, reallocation, customer transition",
+      "ratings": {
+        "1": "No wind-down plan, ad-hoc execution when kill triggered, customers/team surprised",
+        "3": "Basic wind-down plan exists but incomplete (missing communication or customer transition)",
+        "5": "Comprehensive wind-down plan with communication timeline, team reallocation, customer transition, postmortem schedule"
+      }
+    }
+  ],
+  "guidance_by_type": [
+    {
+      "type": "New Product Launch",
+      "focus_areas": ["Upfront Definition", "Objectivity", "Decision Rights", "Wind-Down Planning"],
+      "target_score": "≥4.0",
+      "rationale": "New products carry high uncertainty. Strong upfront kill criteria and wind-down planning prevent prolonged resource drain if product-market fit not achieved."
+    },
+    {
+      "type": "Feature Development",
+      "focus_areas": ["Objectivity", "Execution Speed", "Opportunity Cost Consideration"],
+      "target_score": "≥3.5",
+      "rationale": "Features compete for engineering resources. Clear metrics, fast kill decisions, and opportunity cost analysis ensure resources flow to highest-impact features."
+    },
+    {
+      "type": "R&D / Experiments",
+      "focus_areas": ["Upfront Definition", "Sunk Cost Avoidance", "Postmortem Culture"],
+      "target_score": "≥4.0",
+      "rationale": "Experiments should have clear success/failure criteria upfront. Avoid sunk cost trap for failed experiments; learn systematically via postmortems."
+    },
+    {
+      "type": "Portfolio Management",
+      "focus_areas": ["Portfolio Thinking", "Opportunity Cost Consideration", "No Goalpost Moving"],
+      "target_score": "≥4.5",
+      "rationale": "Managing multiple projects requires disciplined ranking, rebalancing, and adherence to kill criteria. Portfolio optimization depends on killing bottom performers."
+    },
+    {
+      "type": "Organizational Change",
+      "focus_areas": ["Postmortem Culture", "Decision Rights", "Wind-Down Planning"],
+      "target_score": "≥3.5",
+      "rationale": "Building culture around disciplined stopping requires clear governance, blameless learning, and smooth wind-downs that preserve team morale."
+    }
+  ],
+  "guidance_by_complexity": [
+    {
+      "complexity": "Simple (single feature/experiment)",
+      "target_score": "≥3.5",
+      "priority_criteria": ["Objectivity", "Upfront Definition", "Execution Speed"],
+      "notes": "Focus on clear metrics defined upfront and fast execution. Complexity is low enough that informal decision rights acceptable."
+    },
+    {
+      "complexity": "Moderate (product/initiative with team of 3-10)",
+      "target_score": "≥4.0",
+      "priority_criteria": ["Upfront Definition", "Decision Rights", "Sunk Cost Avoidance", "Wind-Down Planning"],
+      "notes": "Requires formal kill criteria document, named decision-maker, and detailed wind-down plan. Team size creates reallocation complexity."
+    },
+    {
+      "complexity": "Complex (portfolio of 5+ projects, or multi-year initiatives)",
+      "target_score": "≥4.5",
+      "priority_criteria": ["Portfolio Thinking", "No Goalpost Moving", "Opportunity Cost Consideration", "Postmortem Culture"],
+      "notes": "Demands systematic portfolio management with quarterly rebalancing, strict adherence to criteria, opportunity cost analysis, and strong learning culture."
+    }
+  ],
+  "common_failure_modes": [
+    {
+      "name": "Moving Goalposts",
+      "symptom": "When kill criteria approached, team extends timeline or lowers bar ('let's give it another 3 months')",
+      "detection": "Compare current criteria to original PRD; check for informal changes without re-approval",
+      "fix": "Lock criteria at launch with sign-off; require written justification + senior approval for any changes"
+    },
+    {
+      "name": "Sunk Cost Justification",
+      "symptom": "'We've invested $2M/18 months, can't quit now' even though future prospects poor",
+      "detection": "Listen for past-focused language ('invested', 'spent', 'too far to stop'); absence of opportunity cost analysis",
+      "fix": "Apply pre-mortem inversion: 'If starting today with $0, would we do this?' Focus only on future value."
+    },
+    {
+      "name": "Subjective Criteria",
+      "symptom": "Debates over whether 'low engagement' or 'poor adoption' triggers kill, no clear threshold",
+      "detection": "Two people evaluating same data reach different conclusions; criteria use qualitative terms",
+      "fix": "Quantify all criteria with specific numbers and dates (e.g., '<10% weekly active after 6 months')"
+    },
+    {
+      "name": "Committee Decision-Making",
+      "symptom": "'Team decides' or 'we'll discuss' leads to paralysis, no one willing to make tough call",
+      "detection": "Kill decision delayed for weeks/months despite criteria met; multiple meetings with no resolution",
+      "fix": "Assign single decision-maker by name in kill criteria doc; decision-maker accountable for timely call"
+    },
+    {
+      "name": "Zombie Projects",
+      "symptom": "Projects linger in 'wind-down' for 3+ months, still consuming resources (time, attention, budget)",
+      "detection": "Check wind-down duration; team members still partially allocated; infrastructure still running",
+      "fix": "Set hard deadline for wind-down (1 month max); track completion; reallocate team immediately"
+    },
+    {
+      "name": "Portfolio Inertia",
+      "symptom": "Same projects continue year over year without reevaluation; no projects killed despite poor performance",
+      "detection": "Portfolio composition unchanged for 2+ quarters; no active rebalancing or kill decisions",
+      "fix": "Implement quarterly portfolio ranking; define kill threshold (bottom 20-30%); actively rebalance"
+    },
+    {
+      "name": "No Postmortem",
+      "symptom": "Killed projects immediately forgotten; no documentation of learnings; repeat same mistakes",
+      "detection": "No postmortem docs; team can't articulate what went wrong; same failure patterns in new projects",
+      "fix": "Require postmortem within 2 weeks of kill; document and share learnings; track pattern across projects"
+    },
+    {
+      "name": "Stigma Around Killing",
+      "symptom": "Teams reluctant to propose kill; PMs hide struggles; 'failure' language used; career concerns",
+      "detection": "Projects linger past kill criteria; escalations delayed; teams defensive in reviews",
+      "fix": "Leadership celebrates disciplined stopping; share kill decisions transparently; reward early recognition"
+    },
+    {
+      "name": "After-the-Fact Criteria",
+      "symptom": "Kill criteria defined after project launched; criteria adjusted to match current performance",
+      "detection": "No kill criteria in original PRD; criteria added months into project; retroactive documentation",
+      "fix": "Make kill criteria mandatory in PRD template; gate project approval on criteria definition; sign-off required"
+    },
+    {
+      "name": "Ignoring Opportunity Cost",
+      "symptom": "Continue project because 'almost done' even though resources could create more value elsewhere",
+      "detection": "'80% complete' or 'just need to finish' justifications; no comparison to alternative uses",
+      "fix": "Quantify opportunity cost; rank portfolio by EV/Cost ratio; kill if better alternatives exist regardless of completion"
+    }
+  ],
+  "overall_guidance": {
+    "excellent": "Score ≥4.5: Exemplary discipline around stopping. Clear upfront criteria, objective metrics, decisive execution, portfolio thinking, strong learning culture. Organization skilled at capital allocation through disciplined killing.",
+    "good": "Score 3.5-4.4: Solid kill criteria and execution. Some areas for improvement (portfolio thinking, speed, or culture) but core discipline exists. Most projects have clear criteria and timely decisions.",
+    "needs_improvement": "Score <3.5: Significant gaps. Likely suffering from sunk cost fallacy, zombie projects, moved goalposts, or stigma around killing. Risk of prolonged resource drain on underperformers.",
+    "key_principle": "The hardest and most valuable skill is knowing when to quit. Organizations that kill projects decisively outperform those that let them linger. Sunk costs are irrelevant; only future value and opportunity cost matter."
+  }
+}
