@@ -1,0 +1,13 @@
+{
+  "name": "thinking-frameworks-marketplace",
+  "owner": {
+    "name": "Kushal D'Souza",
+    "email": "kushal.lyndon.dsouza@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "thinking-frameworks-skills",
+      "source": "./"
+    }
+  ]
+}
