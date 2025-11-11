@@ -1,5 +1,7 @@
 # Claude Code Skills Collection
 
+> **Claude Code Plugin Available** — Install all 33 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
@@ -118,12 +120,28 @@ This repository contains **33 skills** designed to enhance Claude Code's capabil
 
 ## Installation
 
-### Using with Claude Code
+### Option 1: Install as Plugin (Recommended)
+
+Install the entire skills collection as a Claude Code plugin:
+
+1. Add the marketplace in Claude Code:
+   ```
+   /plugin marketplace add lyndonkl/claude
+   ```
+
+2. Install the plugin:
+   ```
+   /plugin install thinking-frameworks-skills
+   ```
+
+All 33 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+
+### Option 2: Manual Installation
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/claude-skills.git
-   cd claude-skills
+   git clone https://github.com/lyndonkl/claude.git
+   cd claude
    ```
 
 2. Copy skills to your Claude Code skills directory:
