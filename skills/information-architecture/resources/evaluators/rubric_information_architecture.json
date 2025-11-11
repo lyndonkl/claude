@@ -1,0 +1,211 @@
+{
+  "criteria": [
+    {
+      "name": "User Research Validation",
+      "description": "IA decisions based on user research (card sorting, tree testing, interviews), not assumptions or opinions.",
+      "scale": {
+        "1": "No user research. IA based on stakeholder opinions, org chart, or assumptions about users.",
+        "3": "Some user research (5-10 participants) but limited scope or informal methods.",
+        "5": "Rigorous user research: card sorting (15-30 users), tree testing (20-50 users), validated with real users before implementation."
+      }
+    },
+    {
+      "name": "Mental Model Alignment",
+      "description": "Navigation matches user mental models and vocabulary, not internal company jargon or org structure.",
+      "scale": {
+        "1": "Labels use internal jargon, org chart structure, or vague terms ('Solutions', 'Services'). Users confused.",
+        "3": "Mix of user-friendly and internal terms. Some alignment with user mental models.",
+        "5": "Labels match user vocabulary from research. Task-based or user-goal oriented. Clear mental model alignment."
+      }
+    },
+    {
+      "name": "Taxonomy Quality (MECE)",
+      "description": "Categories are mutually exclusive, collectively exhaustive. Clear, non-overlapping structure.",
+      "scale": {
+        "1": "Categories overlap significantly. Gaps in coverage. Items fit multiple places or nowhere.",
+        "3": "Mostly MECE but some overlaps or gaps. Most items have clear home.",
+        "5": "Perfect MECE: every item has exactly one primary home, no gaps, no overlaps. Faceted where appropriate."
+      }
+    },
+    {
+      "name": "Navigation Depth & Breadth",
+      "description": "Optimal depth (3-4 levels) and breadth (5-9 items per level). Not too flat or too deep.",
+      "scale": {
+        "1": "Too flat (>12 top-level items, overwhelming) OR too deep (>5 levels, users lost). Poor balance.",
+        "3": "Acceptable depth/breadth but some levels have <3 or >12 items. Room for optimization.",
+        "5": "Optimal: 3-4 levels deep, 5-9 items per level. Balanced hierarchy, manageable choices at each level."
+      }
+    },
+    {
+      "name": "Information Scent",
+      "description": "Clear labels, trigger words, descriptive breadcrumbs guide users. Strong predictive cues.",
+      "scale": {
+        "1": "Vague labels ('Resources', 'Other'), no breadcrumbs, users guess. Weak scent.",
+        "3": "Some clear labels but inconsistent. Breadcrumbs present but could be more descriptive.",
+        "5": "Strong scent: specific labels, user trigger words, descriptive breadcrumbs, preview text. Users click confidently."
+      }
+    },
+    {
+      "name": "Findability Metrics",
+      "description": "Measurable findability: time to find, success rate, search vs browse balance.",
+      "scale": {
+        "1": "No metrics tracked. Unknown if users can find content.",
+        "3": "Some metrics tracked (analytics, basic usability) but incomplete or informal.",
+        "5": "Comprehensive metrics: tree test ≥70% success, time to find <30 sec (simple) / <2 min (complex), 40-60% search/browse balance."
+      }
+    },
+    {
+      "name": "Tree Testing Validation",
+      "description": "Navigation structure validated with tree testing before implementation.",
+      "scale": {
+        "1": "No tree testing. Built navigation without validation.",
+        "3": "Informal tree testing (5-10 users) or partial testing (only some tasks).",
+        "5": "Rigorous tree testing: 20-50 users, 8-12 tasks, ≥70% success rate, <1.5× directness, iterated based on results."
+      }
+    },
+    {
+      "name": "Multiple Access Paths",
+      "description": "Users can find content via navigation, search, filters, tags, related links. Supports different strategies.",
+      "scale": {
+        "1": "Only one access method (browse-only or search-only). Single path to content.",
+        "3": "Two access methods (browse + search) but limited. No filters, tags, or related links.",
+        "5": "Multiple paths: browse, search, faceted filters, tags, breadcrumbs, related links. Supports searchers and browsers."
+      }
+    },
+    {
+      "name": "Scalability & Evolution",
+      "description": "Structure designed for growth. Handles 10× content without breaking. Governance plan exists.",
+      "scale": {
+        "1": "Structure works for current size but breaks at scale. No governance. No plan for growth.",
+        "3": "Some consideration for scale. Ad-hoc governance. Will need significant rework as content grows.",
+        "5": "Designed for scale: faceted for large sets, versioned taxonomy, governance framework (roles, processes, metrics), evolution plan."
+      }
+    },
+    {
+      "name": "Progressive Disclosure",
+      "description": "Starts simple, reveals complexity on-demand. Hub-and-spoke, collapsed sections, tiered navigation.",
+      "scale": {
+        "1": "Everything visible at once (overwhelming) OR everything hidden (users can't discover).",
+        "3": "Some progressive disclosure but inconsistent or incomplete.",
+        "5": "Well-designed progressive disclosure: hub-and-spoke for guides, collapsed sections for long nav, contextual secondary nav."
+      }
+    }
+  ],
+  "guidance_by_type": {
+    "E-commerce Navigation": {
+      "target_score": 4.2,
+      "key_criteria": ["Taxonomy Quality (MECE)", "Multiple Access Paths", "Findability Metrics"],
+      "common_pitfalls": ["Too many top-level categories", "No faceted filters", "Search vs browse not balanced"],
+      "specific_guidance": "Use faceted navigation (Category × Price × Brand × Rating). Card sort with 20+ customers to understand grouping preferences. Tree test with 'Find product under $X in Y category' tasks. Track search vs browse ratio (target 40-60% each). Provide multiple paths: browse categories, search, filter, sort."
+    },
+    "Documentation IA": {
+      "target_score": 4.0,
+      "key_criteria": ["Mental Model Alignment", "Progressive Disclosure", "Information Scent"],
+      "common_pitfalls": ["Feature-based (not task-based)", "Too deep nesting", "No 'Getting Started' hub"],
+      "specific_guidance": "Structure by user tasks ('How do I...?') not features. Hub-and-spoke: 'Getting Started' hub with 5-7 clear entry points. 3-4 levels max. Breadcrumbs show path. Related links for discovery. Search with code snippet results. Tree test with 'Find how to do X' tasks (≥80% success)."
+    },
+    "Content-Heavy Website": {
+      "target_score": 3.8,
+      "key_criteria": ["User Research Validation", "Taxonomy Quality (MECE)", "Scalability & Evolution"],
+      "common_pitfalls": ["No content audit", "Overlapping categories", "No governance"],
+      "specific_guidance": "Start with content audit: inventory all content, identify duplicates/gaps. Open card sort (20-30 users) to discover categories. MECE taxonomy design. Tree test (30-50 users, 10-12 tasks). Plan for 3× content growth. Establish governance: taxonomy owner, quarterly reviews, tag moderation."
+    },
+    "SaaS Product Navigation": {
+      "target_score": 4.0,
+      "key_criteria": ["Mental Model Alignment", "Navigation Depth & Breadth", "Information Scent"],
+      "common_pitfalls": ["Internal jargon", "Org chart structure", "'Modules' label"],
+      "specific_guidance": "Card sort with active users (not stakeholders). Rename internal terms to user language: 'Widgets' → 'Reports', 'Modules' → 'Features'. Task-based labels: 'Create Report', 'Share Dashboard'. Flat structure (2-3 levels). Contextual help. Tree test with 'Where would you do X?' tasks. Iterate until ≥75% success."
+    },
+    "Intranet / Knowledge Base": {
+      "target_score": 3.5,
+      "key_criteria": ["Findability Metrics", "Multiple Access Paths", "Scalability & Evolution"],
+      "common_pitfalls": ["Outdated content", "Weak search", "No metadata schema"],
+      "specific_guidance": "Content audit: remove 40%+ outdated, merge duplicates. Closed card sort with employees to validate categories. Hybrid approach: browse by department + robust search + best bets for common queries. Metadata schema: author, last updated, audience, content type, tags. Governance: content owners responsible for freshness."
+      }
+  },
+  "guidance_by_complexity": {
+    "Simple (<100 items, clear structure)": {
+      "target_score": 3.5,
+      "focus_areas": ["Mental Model Alignment", "Navigation Depth & Breadth", "Information Scent"],
+      "acceptable_shortcuts": ["Informal card sort (10 users)", "Simple tree test (10 users, 5 tasks)", "Basic analytics"],
+      "specific_guidance": "Flat structure (1-2 levels). Simple categories. Informal user research acceptable (10 users). Basic tree test (5 tasks, ≥70% success). Monitor with analytics (bounce rate, time on site)."
+    },
+    "Standard (100-1000 items, moderate complexity)": {
+      "target_score": 4.0,
+      "focus_areas": ["User Research Validation", "Taxonomy Quality (MECE)", "Tree Testing Validation", "Findability Metrics"],
+      "acceptable_shortcuts": ["Card sort with 15 users (not 30)", "Tree test with 20 users (not 50)"],
+      "specific_guidance": "Card sort (15-20 users). MECE taxonomy (3-4 levels, 5-9 items per level). Tree test (20-30 users, 8-10 tasks, ≥70% success, ≤1.5× directness). Multiple access paths (browse + search). Track findability metrics (time to find, success rate, search/browse ratio)."
+    },
+    "Complex (>1000 items, high complexity)": {
+      "target_score": 4.5,
+      "focus_areas": ["All criteria", "Rigorous validation", "Comprehensive metrics"],
+      "acceptable_shortcuts": ["None - full rigor required"],
+      "specific_guidance": "Full content audit. Card sort (30 users). Faceted navigation (orthogonal facets). MECE taxonomy + controlled vocabulary. Tree test (50 users, 12 tasks, ≥75% success). Multiple access paths (browse, search, filters, tags, related links). Comprehensive metrics dashboard. Governance framework (taxonomy owner, quarterly reviews, versioning, deprecation process)."
+    }
+  },
+  "common_failure_modes": [
+    {
+      "name": "Org Chart Navigation",
+      "symptom": "Navigation structured by company departments (Sales, Marketing, Engineering) not user tasks or mental models.",
+      "detection": "Tree test shows low success (<50%). Users say 'I don't know what department handles this.' Card sort reveals users group differently than org structure.",
+      "fix": "Restructure by user tasks or goals. Card sort with users to discover natural groupings. Rename categories to user-facing labels: 'For Developers' not 'Engineering Department'."
+    },
+    {
+      "name": "No User Research",
+      "symptom": "IA designed by stakeholders or designers based on opinions, not user data. 'I think users will understand...'",
+      "detection": "No card sort, tree test, or user interviews conducted. Decisions justified by 'makes sense to me' not data.",
+      "fix": "Conduct card sorting (20-30 users) to understand mental models. Tree test (20-50 users) to validate proposed structure before building. Iterate based on results."
+    },
+    {
+      "name": "Too Deep Hierarchy",
+      "symptom": "Navigation 5-6+ levels deep. Users need 6+ clicks to reach content. Users get lost, high abandonment.",
+      "detection": "Tree test shows low directness (>2.5×). Analytics shows high bounce rate on intermediate pages. Users complain 'can't find anything'.",
+      "fix": "Flatten structure: 3-4 levels max. Add faceted filters or search to shortcut hierarchy. Use progressive disclosure (hub-and-spoke) instead of deep nesting."
+    },
+    {
+      "name": "Vague Labels",
+      "symptom": "Labels like 'Resources', 'Solutions', 'Services' — users don't know what's inside. Weak information scent.",
+      "detection": "Tree test shows users clicking multiple categories before finding content (low directness). Card sort shows users rename these categories to more specific terms.",
+      "fix": "Use specific, descriptive labels. 'Code Samples' not 'Resources'. 'API Documentation' not 'Solutions'. Test labels with tree testing. Match user vocabulary from card sort."
+    },
+    {
+      "name": "Non-MECE Taxonomy",
+      "symptom": "Items fit multiple categories OR don't fit anywhere. Overlap and gaps.",
+      "detection": "Content audit shows many items marked 'belongs in multiple places'. Users confused where to look. Card sort shows weak clustering (<50% agreement).",
+      "fix": "Redesign taxonomy to be mutually exclusive (no overlap) and collectively exhaustive (no gaps). Use faceted classification for items with multiple attributes. One primary location + facets/tags for cross-category access."
+    },
+    {
+      "name": "No Tree Testing",
+      "symptom": "Built navigation structure without validating users can find content. Launch reveals users struggle.",
+      "detection": "Live site shows low task success, high bounce rate, users complain 'can't find X'. No pre-launch validation done.",
+      "fix": "Always tree test before building. 20-50 users, 8-12 tasks. Target ≥70% success, ≤1.5× directness. Iterate until targets met. Saves rework post-launch."
+    },
+    {
+      "name": "Single Access Path",
+      "symptom": "Only browse (no search) OR only search (no browse). Users with different strategies struggle.",
+      "detection": "Analytics shows 90%+ use search (navigation broken) OR 90%+ browse (search broken). Users complain 'I can't browse' or 'search doesn't work'.",
+      "fix": "Provide multiple paths: browse (navigation), search, faceted filters, tags, breadcrumbs, related links. Support both 'searchers' (know what they want) and 'browsers' (exploring)."
+    },
+    {
+      "name": "Doesn't Scale",
+      "symptom": "Structure works for 100 items but breaks at 1000. Categories become massive, overwhelming.",
+      "detection": "One category has 60%+ of items. Users complain 'too much content'. Search becomes only viable path.",
+      "fix": "Design for scale upfront. Use faceted navigation for large sets. Split large categories into subcategories. Plan for 10× growth. Establish governance to evolve taxonomy as content grows."
+    },
+    {
+      "name": "No Governance",
+      "symptom": "Taxonomy degrades over time. Content in 'Other', empty categories, inconsistent tagging.",
+      "detection": ">10% content in 'Other' or 'Uncategorized'. Empty categories exist. User-generated tags have synonyms, typos, noise.",
+      "fix": "Establish governance framework: taxonomy owner, content owners, quarterly reviews. Monitor metrics (% in 'Other', empty categories, tag quality). Process for adding/removing categories, merging tags."
+    },
+    {
+      "name": "No Progressive Disclosure",
+      "symptom": "Everything visible at once (overwhelming mega-menu) OR everything hidden (users can't discover).",
+      "detection": "Users complain 'too much information' (overwhelming) OR 'I didn't know that existed' (hidden). Low engagement with deep content.",
+      "fix": "Progressive disclosure: hub-and-spoke for guides (overview → details), collapsed sections in navigation (expand on click), tiered navigation (primary always visible, secondary contextual)."
+    }
+  ],
+  "minimum_standard": 3.5,
+  "target_score": 4.0,
+  "excellence_threshold": 4.5
+}

@@ -4,7 +4,7 @@ A comprehensive collection of production-ready skills for Claude Code, covering 
 
 ## Overview
 
-This repository contains **30 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **33 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -30,6 +30,8 @@ This repository contains **30 skills** designed to enhance Claude Code's capabil
 
 **hypotheticals-counterfactuals** - Explore alternative scenarios and test assumptions through "what if" thinking. Use counterfactual reasoning (backward-looking: "what would have happened if?") to understand causality and learn from decisions. Apply scenario planning (forward-looking: optimistic/baseline/pessimistic futures, 2×2 matrices) to prepare for uncertainty. Conduct rigorous pre-mortems (6-step process: imagine failure, identify causes, vote on risks, assign mitigations). Extract common actions, hedges, and options from scenarios. Define leading indicators with clear thresholds for monitoring which future unfolds. Covers minimal rewrite principle, causal mechanism specification, probability calibration, and stress testing decisions.
 
+**kill-criteria-exit-ramps** - Define objective stopping rules for projects to avoid sunk cost fallacy and optimize resource allocation. Set upfront kill criteria (quantifiable metrics, time horizons, decision authority) before emotional/financial investment. Design go/no-go gates for milestone-based evaluation with increasing investment stages. Apply pivot vs. kill framework (customer pain validation, learning rate, burn rate sustainability, opportunity cost analysis). Manage project portfolios with quarterly ranking (EV/Cost ratio), systematic rebalancing, and bottom 20-30% kill threshold. Execute disciplined wind-downs (1 month max) with team reallocation, customer transition, and blameless postmortems. Use pre-mortem inversion ("would we start this today?") to overcome sunk cost bias. Normalize killing projects as capital allocation discipline. Covers behavioral economics of stopping, real options analysis, Bayesian updating for kill probability, and organizational culture change.
+
 ### 💡 Problem Solving & Analysis
 
 **decomposition-reconstruction** - Break complex problems into components, analyze independently, then reconstruct with understanding of interactions and emergent properties.
@@ -38,7 +40,7 @@ This repository contains **30 skills** designed to enhance Claude Code's capabil
 
 **abstraction-concrete-examples** - Move fluidly between abstract concepts and concrete examples to clarify thinking, test understanding, and communicate effectively.
 
-**layered-reasoning** *(coming soon)* - Multi-level reasoning across different abstraction layers.
+**layered-reasoning** - Structure thinking across multiple abstraction levels (30K ft strategic → 3K ft tactical → 300 ft operational). Maintain consistency: lower layers implement upper layers, upper layers constrain lower layers. Design 3-5 layer hierarchies for system architecture, strategic planning, or cross-audience communication (CEO/manager/engineer). Validate upward consistency (ops implement tactics, tactics achieve strategy), downward consistency (strategy executable with tactics), and lateral consistency (no same-layer contradictions). Propagate changes bidirectionally (strategic shifts cascade down, operational constraints escalate up). Detect emergent properties from bottom-up patterns (Conway's Law, unintended consequences). Translate appropriately for each audience's abstraction level. Covers layer design principles, formal consistency checking, emergence recognition, abstraction gap sizing (3-10 elements per layer), and explicit layer contracts.
 
 ### 🔬 Research & Discovery
 
@@ -78,7 +80,7 @@ This repository contains **30 skills** designed to enhance Claude Code's capabil
 
 **chain-spec-risk-metrics** - Progressive refinement from specification → risk analysis → success metrics with cross-validation at each stage.
 
-**information-architecture** *(coming soon)* - Organize information for findability and usability.
+**information-architecture** - Organize, structure, and label content for digital products to maximize findability and usability. Conduct card sorting (open, closed, hybrid) with 15-30 users to understand mental models, create MECE taxonomies (mutually exclusive, collectively exhaustive), design faceted navigation for large content sets, and validate structure with tree testing (≥70% success rate, ≤1.5× directness). Optimize navigation depth (3-4 levels, 5-9 items per level), strengthen information scent (clear labels, trigger words, breadcrumbs), and provide multiple access paths (browse, search, filters, tags). Includes content audit templates, sitemap design, metadata schemas, and governance frameworks. Covers e-commerce, documentation, SaaS, and knowledge base IA patterns.
 
 ### 📝 Communication & Documentation
 
@@ -190,12 +192,12 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 30 skills
-- ✓ 28 refined skills from standard collection
+**Production Ready**: 33 skills
+- ✓ 31 refined skills from standard collection
 - ✓ 1 original skill (writer)
 - ✓ 1 custom skill (chef-assistant)
 
-**In Development**: 28 skills remaining from standard collection
+**In Development**: 25 skills remaining from standard collection
 
 ## Key Features
 
@@ -263,4 +265,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 30 production-ready skills | Active development | Last updated: 2025-11-09
+**Status**: 33 production-ready skills | Active development | Last updated: 2025-11-10

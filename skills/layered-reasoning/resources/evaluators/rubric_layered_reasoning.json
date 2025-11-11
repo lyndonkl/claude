@@ -1,0 +1,216 @@
+{
+  "skill_name": "layered-reasoning",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Layer Independence",
+      "description": "Each layer is independently useful without requiring other layers to make sense",
+      "ratings": {
+        "1": "Layers tightly coupled, can't understand one without seeing all others",
+        "3": "Layers mostly independent but some concepts leak between layers",
+        "5": "Each layer fully modular: strategic useful to executives, tactical to managers, operational to engineers independently"
+      }
+    },
+    {
+      "name": "Appropriate Number of Layers",
+      "description": "Uses 3-5 layers optimally; not too few (loses nuance) or too many (overhead)",
+      "ratings": {
+        "1": "Too few (<3) or too many (>5) layers; either oversimplified or excessively complex",
+        "3": "Acceptable number of layers but some redundancy or gaps between levels",
+        "5": "Optimal 3-5 layers, each clearly named with distinct role and appropriate abstraction gap"
+      }
+    },
+    {
+      "name": "Upward Consistency",
+      "description": "Operations implement tactics, tactics achieve strategy (bottom-up validation)",
+      "ratings": {
+        "1": "Operations don't implement tactics, or tactics don't achieve strategy; significant gaps or orphans",
+        "3": "Most operations map to tactics and tactics to strategy, but some orphans or unclear mappings",
+        "5": "Complete upward consistency: every operation implements a tactic, every tactic achieves strategic principle"
+      }
+    },
+    {
+      "name": "Downward Consistency",
+      "description": "Strategy can be executed with chosen tactics, tactics implementable operationally",
+      "ratings": {
+        "1": "Strategy infeasible with tactics, or tactics can't be implemented; missing critical tactics/operations",
+        "3": "Strategy mostly achievable but some gaps in tactics or operations; feasibility concerns",
+        "5": "Complete downward consistency: strategy achievable with tactics, tactics implementable with available resources/skills"
+      }
+    },
+    {
+      "name": "Lateral Consistency",
+      "description": "No contradictions among parallel choices at same layer (e.g., tactics don't conflict)",
+      "ratings": {
+        "1": "Multiple contradictions at same layer (e.g., conflicting tactics or incompatible operations)",
+        "3": "Mostly consistent but some tension between parallel choices requiring tradeoffs",
+        "5": "Full lateral consistency: all parallel choices compatible or explicitly prioritized with clear tradeoffs"
+      }
+    },
+    {
+      "name": "Abstraction Gap Size",
+      "description": "Each layer translates to 3-10 elements at layer below; not too large (confusing) or too small (redundant)",
+      "ratings": {
+        "1": "Abstraction gaps inappropriate: jumps too large (>20 elements) or too small (<2 elements)",
+        "3": "Acceptable gaps but some layers have irregular expansion (e.g., 1→30 or 1→1)",
+        "5": "Optimal gaps: each strategic element → 3-10 tactical, each tactical → 3-10 operational"
+      }
+    },
+    {
+      "name": "Bidirectional Propagation",
+      "description": "Changes propagate both top-down (strategy → ops) and bottom-up (constraints → strategy)",
+      "ratings": {
+        "1": "One-way only: strategy changes don't update ops, or operational constraints ignored at strategic layer",
+        "3": "Bidirectional but incomplete: some changes propagated, others missed or delayed",
+        "5": "Full bidirectional propagation: strategic changes cascade down, operational constraints escalate up with clarification"
+      }
+    },
+    {
+      "name": "Emergence Recognition",
+      "description": "Bottom-up patterns identified and strategic implications recognized",
+      "ratings": {
+        "1": "No emergence detection; unintended consequences surprise stakeholders; reactive only",
+        "3": "Some emergence recognized post-hoc but not systematically monitored; pattern recognition ad-hoc",
+        "5": "Proactive emergence detection: operational behavior monitored, patterns identified, strategic implications assessed"
+      }
+    },
+    {
+      "name": "Clear Layer Contracts",
+      "description": "Explicit dependencies and requirements documented between layers",
+      "ratings": {
+        "1": "Implicit contracts; unclear what each layer requires from others or guarantees upward",
+        "3": "Contracts partially documented but some assumptions implicit or dependencies unclear",
+        "5": "Explicit contracts: strategic invariants clear, tactical requirements documented, operational guarantees specified"
+      }
+    },
+    {
+      "name": "Communication Translation",
+      "description": "Content translated appropriately for different audiences at different abstraction levels",
+      "ratings": {
+        "1": "Same content for all audiences; executives get operational details or engineers get only strategy",
+        "3": "Some translation but inconsistent; occasional abstraction mismatches for audience",
+        "5": "Perfect translation: executives get strategic view, managers tactical, engineers operational; all maintain causal links"
+      }
+    }
+  ],
+  "guidance_by_type": [
+    {
+      "type": "System Architecture",
+      "focus_areas": ["Layer Independence", "Upward Consistency", "Clear Layer Contracts"],
+      "target_score": "≥4.0",
+      "rationale": "Architectural layers must be independently useful and implement each other consistently. Contracts prevent integration failures."
+    },
+    {
+      "type": "Strategic Planning",
+      "focus_areas": ["Downward Consistency", "Bidirectional Propagation", "Communication Translation"],
+      "target_score": "≥4.0",
+      "rationale": "Strategy must be executable (downward) and responsive to operational reality (upward). Translation ensures stakeholder alignment."
+    },
+    {
+      "type": "Organizational Design",
+      "focus_areas": ["Emergence Recognition", "Bidirectional Propagation", "Lateral Consistency"],
+      "target_score": "≥3.5",
+      "rationale": "Org changes create emergent behavior (Conway's Law). Lateral consistency prevents conflicting policies across departments."
+    },
+    {
+      "type": "Technical Explanation",
+      "focus_areas": ["Communication Translation", "Abstraction Gap Size", "Layer Independence"],
+      "target_score": "≥4.0",
+      "rationale": "Explanations at different depths require appropriate abstraction gaps and clear translation without losing coherence."
+    },
+    {
+      "type": "Product Development",
+      "focus_areas": ["Upward Consistency", "Downward Consistency", "Emergence Recognition"],
+      "target_score": "≥3.5",
+      "rationale": "Product vision must translate to executable features (down) and user feedback must inform strategy (up via emergence)."
+    }
+  ],
+  "guidance_by_complexity": [
+    {
+      "complexity": "Simple (3 layers, single domain)",
+      "target_score": "≥3.5",
+      "priority_criteria": ["Upward Consistency", "Downward Consistency", "Appropriate Number of Layers"],
+      "notes": "Focus on basic consistency checks. Three layers (strategy/tactics/ops) sufficient. Independence less critical for simple domains."
+    },
+    {
+      "complexity": "Moderate (4 layers or cross-functional)",
+      "target_score": "≥4.0",
+      "priority_criteria": ["Upward Consistency", "Downward Consistency", "Lateral Consistency", "Communication Translation"],
+      "notes": "Cross-functional requires strong translation between audiences. Lateral consistency critical when multiple teams involved."
+    },
+    {
+      "complexity": "Complex (5 layers, multi-domain, large org)",
+      "target_score": "≥4.5",
+      "priority_criteria": ["All criteria essential", "Bidirectional Propagation", "Emergence Recognition", "Clear Layer Contracts"],
+      "notes": "Large scale demands formal contracts, systematic emergence detection, and rigorous bidirectional propagation to maintain alignment."
+    }
+  ],
+  "common_failure_modes": [
+    {
+      "name": "Layer Skipping",
+      "symptom": "Jump directly from strategy to operations without tactical layer (e.g., 'We need to scale' → 'Deploy Kubernetes')",
+      "detection": "Gap in reasoning: no intermediate 'what' layer between 'why' (strategy) and 'how' (operations)",
+      "fix": "Insert tactical layer: 'Scale' (why) → 'Container orchestration' (what) → 'Deploy Kubernetes' (how)"
+    },
+    {
+      "name": "Tight Coupling",
+      "symptom": "Can't understand strategic layer without seeing code, or operational layer without re-deriving strategy",
+      "detection": "Stakeholders can't consume single layer independently; requires full context to make sense",
+      "fix": "Make each layer standalone: strategic principles clear without ops, operations executable without strategy rederivation"
+    },
+    {
+      "name": "Too Many Layers",
+      "symptom": "6+ layers with redundant distinctions (Vision, Mission, Strategy, Goals, Objectives, Tactics, Tasks, Subtasks...)",
+      "detection": "People debate which layer something belongs to; layers blur together; can't clearly name each layer's role",
+      "fix": "Consolidate to 3-5 layers by merging redundant levels (e.g., Goals + Objectives → single Tactical layer)"
+    },
+    {
+      "name": "Orphan Operations",
+      "symptom": "Operations that don't implement any tactic (e.g., 'Cache user data unencrypted' when tactics are all about security)",
+      "detection": "Trace operation upward: which tactic does it implement? If answer is 'none', it's an orphan",
+      "fix": "Either add tactic it implements (revealing implicit strategy) or remove operation (violates strategy)"
+    },
+    {
+      "name": "Infeasible Strategy",
+      "symptom": "Strategic principle can't be achieved with available tactics/operations (e.g., 'Sub-second latency globally' but no CDN tactics)",
+      "detection": "Downward trace from strategy: can we execute this with chosen tactics? Do we have operations to implement?",
+      "fix": "Either add missing tactics/operations or refine strategy to acknowledge constraints ('Sub-second in primary regions')"
+    },
+    {
+      "name": "Lateral Contradictions",
+      "symptom": "Parallel tactics conflict (e.g., 'Microservices for independence' + 'Shared database for simplicity' → incompatible)",
+      "detection": "Pairwise comparison of all choices at same layer: do any contradict or compete for resources?",
+      "fix": "Resolve by prioritizing based on strategic importance or refining to make compatible (regional databases)"
+    },
+    {
+      "name": "One-Way Propagation",
+      "symptom": "Strategy changes but operations don't update, or operational constraints discovered but strategy unchanged",
+      "detection": "Strategic shift announced but teams still executing old tactics; or performance issues known but strategy still claims 'sub-second'",
+      "fix": "Implement bidirectional propagation: cascade strategic changes down, escalate operational constraints up for clarification"
+    },
+    {
+      "name": "Missed Emergence",
+      "symptom": "Unintended consequences surprise stakeholders (e.g., microservices slowed delivery due to coordination overhead - Conway's Law)",
+      "detection": "Operational behavior doesn't match tactical expectations; patterns emerge that weren't designed",
+      "fix": "Monitor operational metrics, identify emerging tactical patterns, recognize strategic implications, adjust strategy if needed"
+    },
+    {
+      "name": "Wrong Abstraction for Audience",
+      "symptom": "Presenting operational details to executives (AWS regions) or only strategic vision to engineers ('we need to scale')",
+      "detection": "Audience confused, asks for different level of detail, or can't take action based on info provided",
+      "fix": "Translate to appropriate layer: executives get strategic (why/outcomes), engineers get operational (how/tech stack)"
+    },
+    {
+      "name": "Implicit Layer Contracts",
+      "symptom": "Unclear what each layer requires from others; integration failures when layers don't meet unstated assumptions",
+      "detection": "Frequent misalignment discovered late; 'I thought tactical layer X meant Y' disagreements",
+      "fix": "Document explicit contracts: strategic invariants, tactical requirements, operational guarantees at each layer boundary"
+    }
+  ],
+  "overall_guidance": {
+    "excellent": "Score ≥4.5: Exemplary layered reasoning. Clear, independent layers (3-5) with full consistency (upward/downward/lateral). Bidirectional propagation maintains alignment. Emergence proactively detected. Communication perfectly translated for all audiences.",
+    "good": "Score 3.5-4.4: Solid layered reasoning. Mostly consistent layers with some minor gaps. Bidirectional propagation exists but could be more systematic. Good translation for primary audiences.",
+    "needs_improvement": "Score <3.5: Significant gaps. Layer skipping, tight coupling, contradictions, one-way propagation, or missed emergence. Communication confuses audiences with wrong abstraction level.",
+    "key_principle": "Layered reasoning maintains consistency: lower layers implement upper layers, upper layers constrain lower layers. Good layers are independently useful, appropriately numerous (3-5), and bidirectionally propagate changes."
+  }
+}
