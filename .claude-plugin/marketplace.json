@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "thinking-frameworks-skills",
-      "source": "."
+      "source": "./"
     }
   ]
 }
