@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 33 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 34 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **33 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **34 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -74,6 +74,8 @@ This repository contains **33 skills** designed to enhance Claude Code's capabil
 
 **code-data-analysis-scaffolds** - Generate code scaffolds for data analysis, visualization, and statistical testing across Python, R, and SQL.
 
+**mapping-visualization-scaffolds** - Create visual maps that make relationships, dependencies, and structures explicit through diagrams, concept maps, and architectural blueprints. Choose from 5 visualization formats (List, Tree, Network Graph, Layered Diagram, Swimlane) based on complexity. Use for system architecture diagrams, concept maps, dependency graphs, process flows, organizational charts, and knowledge taxonomies. Includes format selection guidance, node/relationship documentation templates, and 8-criteria quality rubric.
+
 **metrics-tree** *(coming soon)* - Decompose high-level metrics into actionable sub-metrics.
 
 ### 🏗️ Architecture & Design
@@ -134,7 +136,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 33 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 34 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -210,12 +212,12 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 33 skills
-- ✓ 31 refined skills from standard collection
+**Production Ready**: 34 skills
+- ✓ 32 refined skills from standard collection
 - ✓ 1 original skill (writer)
 - ✓ 1 custom skill (chef-assistant)
 
-**In Development**: 25 skills remaining from standard collection
+**In Development**: 24 skills remaining from standard collection
 
 ## Key Features
 
@@ -283,4 +285,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 33 production-ready skills | Active development | Last updated: 2025-11-10
+**Status**: 34 production-ready skills | Active development | Last updated: 2025-11-12

@@ -1,0 +1,128 @@
+{
+  "criteria": [
+    {
+      "name": "Completeness",
+      "description": "All critical nodes and relationships are identified and documented",
+      "levels": {
+        "5": "All critical nodes present, all significant relationships documented, appropriate groupings/layers defined, legend provided if needed, metadata complete",
+        "4": "Most critical nodes and relationships present, minor gaps in groupings or metadata, legend present if needed",
+        "3": "Key nodes and relationships present but some secondary elements missing, groupings incomplete, metadata partially complete",
+        "2": "Several critical nodes or relationships missing, groupings absent or unclear, metadata sparse",
+        "1": "Major gaps in nodes/relationships, no groupings, minimal or no metadata"
+      }
+    },
+    {
+      "name": "Clarity",
+      "description": "The visualization is understandable, well-organized, and uses consistent notation",
+      "levels": {
+        "5": "Crystal clear visualization, consistent naming/notation throughout, logical organization, no ambiguity in relationships, directionality explicit",
+        "4": "Clear visualization with minor inconsistencies, mostly logical organization, directionality usually clear",
+        "3": "Generally clear but some confusing elements, some notation inconsistencies, directionality sometimes ambiguous",
+        "2": "Difficult to follow in places, inconsistent notation, unclear directionality, poor organization",
+        "1": "Confusing or incomprehensible, no clear notation system, directionality absent"
+      }
+    },
+    {
+      "name": "Accuracy",
+      "description": "Relationships and dependencies are correctly identified and represented",
+      "levels": {
+        "5": "All relationships accurately represent reality, correct directionality, relationship types properly labeled, no errors",
+        "4": "Relationships mostly accurate, minor errors in directionality or labeling, types generally correct",
+        "3": "Some inaccurate relationships, occasional errors in directionality, relationship types sometimes incorrect",
+        "2": "Multiple inaccurate relationships, frequent errors, relationship types often wrong",
+        "1": "Many inaccurate or incorrect relationships, unreliable representation"
+      }
+    },
+    {
+      "name": "Format Appropriateness",
+      "description": "The chosen visualization format matches the complexity and nature of the system",
+      "levels": {
+        "5": "Perfect format choice for the relationship patterns, complexity level appropriate, scalable structure, right level of detail",
+        "4": "Good format choice with minor suboptimal aspects, generally appropriate complexity and detail",
+        "3": "Acceptable format but could be better, some mismatch between format and content, detail level inconsistent",
+        "2": "Poor format choice for the content, significant mismatch, wrong complexity level, inappropriate detail",
+        "1": "Completely inappropriate format, impossible to follow, wrong complexity level"
+      }
+    },
+    {
+      "name": "Scoping",
+      "description": "Clear boundaries defined, appropriate level of detail, purpose explicitly stated",
+      "levels": {
+        "5": "Clear purpose statement, explicit scope boundaries (what's in/out), appropriate detail level for audience, constraints stated",
+        "4": "Purpose stated, scope mostly clear, generally appropriate detail level, most constraints noted",
+        "3": "Purpose vague or implicit, scope somewhat unclear, detail level sometimes inappropriate, few constraints stated",
+        "2": "Purpose unclear, scope poorly defined, detail level often wrong, constraints not stated",
+        "1": "No clear purpose, undefined scope, inappropriate detail level, no constraints"
+      }
+    },
+    {
+      "name": "Visual Organization",
+      "description": "Layout facilitates understanding, uses grouping effectively, avoids visual clutter",
+      "levels": {
+        "5": "Excellent layout, effective use of grouping/layering, clean visual hierarchy, no 'hairball' effect, scannable at a glance",
+        "4": "Good layout with minor issues, grouping mostly effective, generally scannable, minimal clutter",
+        "3": "Acceptable layout but could improve, grouping present but weak, somewhat cluttered, harder to scan",
+        "2": "Poor layout, ineffective grouping, cluttered visualization, difficult to scan, confusing structure",
+        "1": "Chaotic layout, no effective grouping, severe clutter, impossible to scan, no structure"
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "The map enables decisions, understanding, or actions based on insights",
+      "levels": {
+        "5": "Clearly enables specific decisions/actions, insights explicitly highlighted, critical paths/bottlenecks identified, recommendations provided",
+        "4": "Enables decisions with some interpretation, key insights noted, some critical elements highlighted",
+        "3": "Somewhat useful for decisions but requires significant interpretation, few insights noted, limited highlighting",
+        "2": "Difficult to derive actions from the map, insights not highlighted, unclear what to do with it",
+        "1": "Provides no actionable value, no insights, unclear purpose or application"
+      }
+    },
+    {
+      "name": "Documentation Quality",
+      "description": "Adequate descriptions, legend provided if needed, assumptions/limitations stated",
+      "levels": {
+        "5": "Comprehensive node/relationship descriptions, legend present if >3 types, assumptions stated, limitations noted, insights documented",
+        "4": "Good descriptions, legend present if needed, most assumptions stated, some limitations noted",
+        "3": "Basic descriptions, legend missing when needed, few assumptions stated, limitations not noted",
+        "2": "Sparse descriptions, no legend when needed, assumptions not stated, no limitations noted",
+        "1": "Minimal or no descriptions, no legend, no documentation of assumptions or limitations"
+      }
+    }
+  ],
+  "scale": 5,
+  "passing_threshold": 3.5,
+  "scoring_guidance": {
+    "overall_minimum": "Average score must be ≥ 3.5 across all criteria",
+    "critical_criteria": [
+      "Completeness",
+      "Accuracy",
+      "Clarity"
+    ],
+    "critical_threshold": "Critical criteria must each be ≥ 3.0 (even if average is ≥ 3.5)",
+    "improvement_priority": "If below threshold, prioritize improvements in order: Completeness → Accuracy → Clarity → Format Appropriateness → others"
+  },
+  "common_failure_modes": [
+    "Too many nodes (>50) without splitting into multiple focused maps",
+    "Hairball diagram with crossing lines and unclear relationships",
+    "Inconsistent notation or naming conventions",
+    "Missing critical dependencies or relationships",
+    "Wrong format choice (e.g., tree diagram for network, list for complex graph)",
+    "No grouping/layering for complex systems (>20 nodes)",
+    "Ambiguous directionality (unclear which way relationships flow)",
+    "No legend when multiple relationship types present",
+    "Mixing abstraction levels in single map",
+    "Undefined scope or purpose"
+  ],
+  "excellence_indicators": [
+    "Target audience can understand without explanation",
+    "Critical paths or bottlenecks visually highlighted",
+    "Appropriate grouping reduces visual complexity",
+    "Consistent notation throughout",
+    "Clear purpose and scope stated upfront",
+    "Insights section highlights key findings",
+    "Multiple visualization formats considered, best one chosen",
+    "Scalable structure (can add nodes without breaking layout)",
+    "Validation with stakeholders or SMEs completed",
+    "Legend present when needed, absent when not"
+  ]
+}
