@@ -87,11 +87,11 @@ Ask user about their goal: What system/concept needs mapping? Who's the audience
 
 **Step 2: Identify nodes and relationships**
 
-List all key elements (nodes) and their connections (relationships). Identify hierarchy levels, dependency types, and grouping criteria. Use [resources/template.md](resources/template.md) to structure your thinking.
+List all key elements (nodes) and their connections (relationships). Identify hierarchy levels, dependency types, and grouping criteria. For simple cases (< 20 nodes), use [resources/template.md](resources/template.md). For complex systems (50+ nodes) or collaborative sessions, see [resources/methodology.md](resources/methodology.md) for advanced strategies.
 
 **Step 3: Choose visualization approach**
 
-Select format based on complexity: Simple lists for < 10 nodes, tree diagrams for hierarchies, network graphs for complex relationships, or layered diagrams for systems. See [Common Patterns](#common-patterns) for guidance.
+Select format based on complexity: Simple lists for < 10 nodes, tree diagrams for hierarchies, network graphs for complex relationships, or layered diagrams for systems. For large-scale systems or multi-map hierarchies, consult [resources/methodology.md](resources/methodology.md) for mapping strategies and tool selection. See [Common Patterns](#common-patterns) for guidance.
 
 **Step 4: Create the map**
 
