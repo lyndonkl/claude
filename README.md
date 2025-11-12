@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 34 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 35 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **34 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **35 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -106,9 +106,11 @@ This repository contains **34 skills** designed to enhance Claude Code's capabil
 
 **facilitation-patterns** - Design and run productive group sessions (meetings, workshops, brainstorms, retrospectives) using proven facilitation patterns. Select appropriate formats (divergent brainstorm, convergent decision, alignment session), design time-boxed agendas with diverge-converge flow, manage participation dynamics (round robin, silent writing, breakouts), handle difficult situations (dominators, conflict, tangents), and apply decision-making methods (consensus, consent, vote, advisory). Includes remote and hybrid facilitation techniques.
 
-### ⏱️ Productivity & Focus
+### ⏱️ Productivity & Learning
 
 **focus-timeboxing-8020** - Manage attention and maximize high-impact work through 80/20 principle (identify vital few tasks), timeboxing (Pomodoro 25min, deep work 90-120min blocks), and energy management. Design distraction-free focus blocks, batch similar tasks (email 2×/day, meeting blocks), match work intensity to energy levels (peak hours for deep work, trough for admin), and use Parkinson's Law (time constraints force decisions). Includes weekly/daily planning templates, execution discipline techniques, and progressive focus training.
+
+**memory-retrieval-learning** - Create evidence-based learning plans for durable knowledge retention using spaced repetition (1-3-7-14-30 day intervals), retrieval practice (active recall over passive review), and interleaving. Design study schedules with realistic time estimates (1.5x buffer, 0.7 consistency factor), choose retrieval methods by material type (flashcards for facts, practice problems for procedures, mock tests for exams), track retention metrics (target ≥70%), and adjust based on performance. Covers exam prep (certifications, medical boards, bar exam), language learning, technology skill acquisition, and professional development. Includes diagnostic framework for plateaus, motivation strategies (implementation intentions, temptation bundling), and long-term maintenance schedules.
 
 ### 🛡️ Ethics & Evaluation
 
@@ -136,7 +138,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 34 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 35 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -212,12 +214,12 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 34 skills
-- ✓ 32 refined skills from standard collection
+**Production Ready**: 35 skills
+- ✓ 33 refined skills from standard collection
 - ✓ 1 original skill (writer)
 - ✓ 1 custom skill (chef-assistant)
 
-**In Development**: 24 skills remaining from standard collection
+**In Development**: 23 skills remaining from standard collection
 
 ## Key Features
 
@@ -285,4 +287,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 34 production-ready skills | Active development | Last updated: 2025-11-12
+**Status**: 35 production-ready skills | Active development | Last updated: 2025-11-12
