@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 37 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 38 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **37 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **38 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -66,7 +66,7 @@ This repository contains **37 skills** designed to enhance Claude Code's capabil
 
 **constraint-based-creativity** - Generate creative solutions by systematically applying constraints (remove, combine, extreme, reverse) to force novel thinking.
 
-**morphological-analysis-triz** *(coming soon)* - Systematic innovation using morphological boxes and TRIZ principles.
+**morphological-analysis-triz** - Systematic innovation through morphological analysis (parameter-option matrices) and TRIZ (Theory of Inventive Problem Solving). Build morphological boxes with 3-7 independent parameters and 2-5 options each to explore design space systematically, generating and evaluating configurations. Resolve technical contradictions (improve parameter A worsens parameter B) using 40 inventive principles and contradiction matrix: common trade-offs include speed vs precision, strength vs weight, cost vs quality, capacity vs size. Apply principles through creative adaptation (segmentation, taking out, nesting, asymmetry, dynamics, feedback, intermediary, self-service). Covers trends of technical evolution (mono-bi-poly, micro-level transition, increasing dynamism), substance-field analysis for modeling interactions, ARIZ algorithm for complex problems, combining MA+TRIZ for multi-parameter systems with contradictions, and adapting TRIZ to software/services (weight→code size, segmentation→microservices). Includes all 40 principles with detailed examples, contradiction matrix guidance, configuration evaluation frameworks, and feasibility assessment. Use for product design, engineering solutions, process optimization, and identifying patent opportunities.
 
 ### 📊 Data & Modeling
 
@@ -140,7 +140,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 37 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 38 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
