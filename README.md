@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 34 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 40 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **34 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **40 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -44,6 +44,8 @@ This repository contains **34 skills** designed to enhance Claude Code's capabil
 
 **layered-reasoning** - Structure thinking across multiple abstraction levels (30K ft strategic → 3K ft tactical → 300 ft operational). Maintain consistency: lower layers implement upper layers, upper layers constrain lower layers. Design 3-5 layer hierarchies for system architecture, strategic planning, or cross-audience communication (CEO/manager/engineer). Validate upward consistency (ops implement tactics, tactics achieve strategy), downward consistency (strategy executable with tactics), and lateral consistency (no same-layer contradictions). Propagate changes bidirectionally (strategic shifts cascade down, operational constraints escalate up). Detect emergent properties from bottom-up patterns (Conway's Law, unintended consequences). Translate appropriately for each audience's abstraction level. Covers layer design principles, formal consistency checking, emergence recognition, abstraction gap sizing (3-10 elements per layer), and explicit layer contracts.
 
+**negative-contrastive-framing** - Define concepts and quality criteria by showing what they're NOT—use anti-goals, near-miss examples, and failure patterns to clarify fuzzy boundaries where positive definitions alone are ambiguous. Generate 3-5 anti-goals (true opposites), 5-10 instructive near-misses (examples that almost pass but fail on single dimension), and common failure patterns with detection heuristics and prevention guards. Create contrast matrices varying dimensions systematically to explore boundary space (clear pass, borderline pass, borderline fail, clear fail). Operationalize fuzzy criteria into testable decision rules through contrast insights. Apply boundary mapping to find exact pass/fail thresholds for continuous dimensions. Build failure taxonomies (by severity, type, detection difficulty) with root cause analysis and prevention strategies. Use for teaching by counterexample (revealing misconceptions through near-misses), setting design guardrails (code quality anti-patterns, UX violations), defining evaluation criteria (what disqualifies candidates), preventing common mistakes (QA checklists), and requirements clarification (disambiguating similar concepts). Covers engineering (maintainable code, test quality), design (intuitive interfaces, accessibility), communication (clear writing, audience fit), and strategy (market positioning, brand identity). Near-misses are most valuable when genuinely close calls that isolate single failing dimension.
+
 ### 🔬 Research & Discovery
 
 **discovery-interviews-surveys** - Design and conduct user research using jobs-to-be-done interviews, surveys, thematic coding, and statistical analysis while avoiding bias.
@@ -66,7 +68,7 @@ This repository contains **34 skills** designed to enhance Claude Code's capabil
 
 **constraint-based-creativity** - Generate creative solutions by systematically applying constraints (remove, combine, extreme, reverse) to force novel thinking.
 
-**morphological-analysis-triz** *(coming soon)* - Systematic innovation using morphological boxes and TRIZ principles.
+**morphological-analysis-triz** - Systematic innovation through morphological analysis (parameter-option matrices) and TRIZ (Theory of Inventive Problem Solving). Build morphological boxes with 3-7 independent parameters and 2-5 options each to explore design space systematically, generating and evaluating configurations. Resolve technical contradictions (improve parameter A worsens parameter B) using 40 inventive principles and contradiction matrix: common trade-offs include speed vs precision, strength vs weight, cost vs quality, capacity vs size. Apply principles through creative adaptation (segmentation, taking out, nesting, asymmetry, dynamics, feedback, intermediary, self-service). Covers trends of technical evolution (mono-bi-poly, micro-level transition, increasing dynamism), substance-field analysis for modeling interactions, ARIZ algorithm for complex problems, combining MA+TRIZ for multi-parameter systems with contradictions, and adapting TRIZ to software/services (weight→code size, segmentation→microservices). Includes all 40 principles with detailed examples, contradiction matrix guidance, configuration evaluation frameworks, and feasibility assessment. Use for product design, engineering solutions, process optimization, and identifying patent opportunities.
 
 ### 📊 Data & Modeling
 
@@ -76,7 +78,7 @@ This repository contains **34 skills** designed to enhance Claude Code's capabil
 
 **mapping-visualization-scaffolds** - Create visual maps that make relationships, dependencies, and structures explicit through diagrams, concept maps, and architectural blueprints. Choose from 5 visualization formats (List, Tree, Network Graph, Layered Diagram, Swimlane) based on complexity. Use for system architecture diagrams, concept maps, dependency graphs, process flows, organizational charts, and knowledge taxonomies. Includes format selection guidance, node/relationship documentation templates, and 8-criteria quality rubric.
 
-**metrics-tree** *(coming soon)* - Decompose high-level metrics into actionable sub-metrics.
+**metrics-tree** - Decompose North Star metrics into actionable sub-metrics, leading indicators, and prioritized experiments. Apply decomposition methods (additive, multiplicative, funnel, cohort) to break down business metrics (WAU, GMV, MRR, revenue) into 3-5 input metrics (L2), map to specific user behaviors (L3 action metrics), identify early signals that predict North Star movement (leading indicators with timing and correlation strength), and prioritize experiments using ICE framework (Impact × Confidence × Ease). Covers North Star selection criteria (value delivery, business model alignment, actionability), causal relationship validation, multi-sided marketplace metrics (dual trees with balance metrics), counter-metrics and guardrails (quality, gaming prevention), network effects and viral loops (K-factor, network density), and stage-appropriate metrics (pre-PMF retention focus, growth-stage efficiency). Includes comprehensive guidance by business model (SaaS, marketplace, e-commerce, social, mobile), advanced techniques (propensity scoring, cohort clustering, inflection point analysis), and production-ready output templates.
 
 ### 🏗️ Architecture & Design
 
@@ -106,9 +108,15 @@ This repository contains **34 skills** designed to enhance Claude Code's capabil
 
 **facilitation-patterns** - Design and run productive group sessions (meetings, workshops, brainstorms, retrospectives) using proven facilitation patterns. Select appropriate formats (divergent brainstorm, convergent decision, alignment session), design time-boxed agendas with diverge-converge flow, manage participation dynamics (round robin, silent writing, breakouts), handle difficult situations (dominators, conflict, tangents), and apply decision-making methods (consensus, consent, vote, advisory). Includes remote and hybrid facilitation techniques.
 
-### ⏱️ Productivity & Focus
+**negotiation-alignment-governance** - Create explicit stakeholder alignment through decision rights frameworks (RACI/DACI/RAPID), working agreements, and conflict resolution protocols. Map stakeholders by power-interest to plan engagement (manage closely, keep satisfied, keep informed, monitor). Apply principled negotiation (Harvard Method): separate people from problem, focus on interests not positions, generate mutual-gain options, use objective criteria. Develop BATNA (Best Alternative To Negotiated Agreement) and analyze ZOPA (Zone of Possible Agreement) for strategic positioning. Establish unambiguous decision authority (exactly one Accountable/Approver per decision), specific working agreements (observable communication norms, response times, quality standards), and 3-level conflict resolution (direct dialogue → mediation → escalation with disagree-and-commit). Use advanced governance patterns: federated (central standards + local autonomy), rotating leadership, bounded delegation, tiered decisions (fast/reversible vs slow/irreversible), dual authority (opportunity + risk checks). Apply conflict mediation techniques (active listening, interest-based problem solving, reframing, finding common ground, caucusing), facilitation patterns (structured dialogue, decision methods, timeboxing), and multi-party negotiation strategies. Covers cross-functional coordination, org restructures, partnerships, distributed teams, and product/engineering alignment. Includes stakeholder mapping templates, negotiation preparation frameworks, governance sustainability mechanisms (quarterly reviews, metrics, triggers), and coalition-building strategies.
+
+### ⏱️ Productivity & Learning
 
 **focus-timeboxing-8020** - Manage attention and maximize high-impact work through 80/20 principle (identify vital few tasks), timeboxing (Pomodoro 25min, deep work 90-120min blocks), and energy management. Design distraction-free focus blocks, batch similar tasks (email 2×/day, meeting blocks), match work intensity to energy levels (peak hours for deep work, trough for admin), and use Parkinson's Law (time constraints force decisions). Includes weekly/daily planning templates, execution discipline techniques, and progressive focus training.
+
+**memory-retrieval-learning** - Create evidence-based learning plans for durable knowledge retention using spaced repetition (1-3-7-14-30 day intervals), retrieval practice (active recall over passive review), and interleaving. Design study schedules with realistic time estimates (1.5x buffer, 0.7 consistency factor), choose retrieval methods by material type (flashcards for facts, practice problems for procedures, mock tests for exams), track retention metrics (target ≥70%), and adjust based on performance. Covers exam prep (certifications, medical boards, bar exam), language learning, technology skill acquisition, and professional development. Includes diagnostic framework for plateaus, motivation strategies (implementation intentions, temptation bundling), and long-term maintenance schedules.
+
+**meta-prompt-engineering** - Transform vague prompts into reliable, structured prompts that produce consistent outputs through explicit roles, task decomposition, constraints, and quality checks. Apply role specification patterns (Expert/Assistant/Critic/Creator), break tasks into 3-7 clear steps with deliverables, define format/length/tone/content constraints, add self-evaluation criteria with fix instructions, and test for ≥80% consistency across runs. Use advanced patterns for complex cases: chain-of-thought with verification (5-step Understand→Plan→Execute→Verify→Present), self-consistency ensemble (3 independent solutions), least-to-most prompting (simple→complex), constitutional AI safety checks, and anti-hallucination layering. Includes iterative refinement protocol, A/B testing framework, prompt debugging taxonomy, multi-prompt workflows (sequential chaining, self-refinement loops), domain adaptation checklist, production deployment guide (versioning, monitoring, graceful degradation), and cost-quality tradeoff analysis. Covers code generation, content writing, data analysis, research synthesis, and creative tasks with domain-specific quality criteria.
 
 ### 🛡️ Ethics & Evaluation
 
@@ -136,7 +144,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 34 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 40 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -212,12 +220,12 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 34 skills
-- ✓ 32 refined skills from standard collection
+**Production Ready**: 35 skills
+- ✓ 33 refined skills from standard collection
 - ✓ 1 original skill (writer)
 - ✓ 1 custom skill (chef-assistant)
 
-**In Development**: 24 skills remaining from standard collection
+**In Development**: 23 skills remaining from standard collection
 
 ## Key Features
 
@@ -285,4 +293,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 34 production-ready skills | Active development | Last updated: 2025-11-12
+**Status**: 35 production-ready skills | Active development | Last updated: 2025-11-12

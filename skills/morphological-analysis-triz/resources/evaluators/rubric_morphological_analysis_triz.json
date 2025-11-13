@@ -1,0 +1,289 @@
+{
+  "name": "Morphological Analysis & TRIZ Evaluator",
+  "description": "Evaluate systematic innovation work using morphological analysis (parameter-option exploration) and TRIZ (contradiction resolution). Assess completeness, rigor, inventiveness, and feasibility of solutions.",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "name": "Parameter Selection (Morphological)",
+      "description": "Evaluates quality of parameters chosen for morphological box - independence, completeness, essentiality",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Poor parameter selection",
+          "description": "Parameters are dependent (choosing one forces another), redundant, or missing critical dimensions. <3 parameters or >7 parameters making analysis unmanageable."
+        },
+        "2": {
+          "label": "Weak parameters",
+          "description": "Some parameters are reasonable but significant dependencies exist, or key dimensions are missing. 3-7 parameters but some are trivial or redundant."
+        },
+        "3": {
+          "label": "Acceptable parameters",
+          "description": "3-7 parameters that are mostly independent and cover major dimensions. Some minor dependencies or missing dimensions acceptable. Parameters are relevant to problem."
+        },
+        "4": {
+          "label": "Good parameters",
+          "description": "3-7 parameters that are independent, essential (each meaningfully affects solution), and collectively cover solution space. Clear rationale for each parameter. Minor gaps acceptable."
+        },
+        "5": {
+          "label": "Excellent parameters",
+          "description": "3-7 parameters that are provably independent (changing one doesn't force changes in others), essential (each significantly affects objectives), complete (cover all major dimensions), with clear justification for inclusion/exclusion. Optimal granularity."
+        }
+      }
+    },
+    {
+      "name": "Option Generation (Morphological)",
+      "description": "Evaluates quality and completeness of options listed for each parameter",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Inadequate options",
+          "description": "Only 1 option per parameter (no alternatives), or options are not mutually exclusive (overlap significantly), or critical options missing."
+        },
+        "2": {
+          "label": "Limited options",
+          "description": "2-5 options per parameter but missing obvious alternatives, or options are too similar, or some overlap. Range is narrow."
+        },
+        "3": {
+          "label": "Reasonable options",
+          "description": "2-5 options per parameter covering reasonable range. Options are mostly distinct and mutually exclusive. May miss some edge cases or innovative options."
+        },
+        "4": {
+          "label": "Comprehensive options",
+          "description": "2-5 well-chosen options per parameter covering full practical range. Options are distinct, mutually exclusive, and include current state plus alternatives. Good mix of conventional and novel."
+        },
+        "5": {
+          "label": "Optimal options",
+          "description": "2-5 options per parameter that span the design space optimally - not too narrow (missing possibilities) or too broad (impractical). Includes creative/non-obvious options. Clear rationale for each option and why range is appropriate."
+        }
+      }
+    },
+    {
+      "name": "Configuration Evaluation (Morphological)",
+      "description": "Evaluates how well promising configurations were identified and evaluated from morphological box",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No evaluation",
+          "description": "Morphological box created but no configurations generated or evaluated. Just lists parameters without exploring combinations."
+        },
+        "2": {
+          "label": "Minimal evaluation",
+          "description": "1-2 configurations identified without clear rationale. No systematic exploration or comparison. Feasibility not assessed."
+        },
+        "3": {
+          "label": "Basic evaluation",
+          "description": "3-5 configurations identified with some reasoning. Basic feasibility check and pros/cons listed. Comparison is qualitative only."
+        },
+        "4": {
+          "label": "Systematic evaluation",
+          "description": "5-10 promising configurations identified with clear selection criteria. Infeasible combinations eliminated with justification. Configurations scored on key objectives. Top 3-5 selected."
+        },
+        "5": {
+          "label": "Rigorous evaluation",
+          "description": "Comprehensive exploration with 5-10+ configurations spanning solution space. Systematic scoring matrix with weighted objectives. Infeasible combinations documented with reasons. Clusters of similar configs identified. Clear winner with quantified rationale. Sensitivity analysis performed."
+        }
+      }
+    },
+    {
+      "name": "Contradiction Identification (TRIZ)",
+      "description": "Evaluates how clearly and accurately technical contradictions are stated",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No contradiction identified",
+          "description": "Problem stated but no contradiction identified, or problem is not actually a contradiction (just an optimization or constraint)."
+        },
+        "2": {
+          "label": "Vague contradiction",
+          "description": "Contradiction mentioned but poorly defined. Unclear which parameters conflict or why. Example: 'need better performance and lower cost' without specificity."
+        },
+        "3": {
+          "label": "Basic contradiction",
+          "description": "Contradiction stated with improving and worsening parameters identified. Correct format ('improve X worsens Y') but mapping to TRIZ 39 parameters may be imprecise or missing."
+        },
+        "4": {
+          "label": "Clear contradiction",
+          "description": "Contradiction clearly stated with specific improving and worsening parameters. Correctly mapped to TRIZ 39 parameters. Physical/technical reason for trade-off explained. Verifiable as real contradiction."
+        },
+        "5": {
+          "label": "Precise contradiction",
+          "description": "Contradiction precisely formulated with quantified parameters (e.g., 'increase strength from X to Y MPa worsens weight from A to B kg'). Correctly mapped to TRIZ parameters. Physical mechanism of trade-off explained. Evidence that traditional approaches require compromise. Multiple contradictions identified and prioritized if applicable."
+        }
+      }
+    },
+    {
+      "name": "TRIZ Principle Application",
+      "description": "Evaluates how effectively TRIZ inventive principles are applied to resolve contradictions",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No principles applied",
+          "description": "TRIZ principles listed but not applied to specific problem. No solution concepts generated."
+        },
+        "2": {
+          "label": "Superficial application",
+          "description": "1-2 principles applied literally without adaptation. Solutions are generic or don't actually resolve contradiction. Principles may be inappropriate for this contradiction."
+        },
+        "3": {
+          "label": "Basic application",
+          "description": "2-3 principles applied with some adaptation to problem. Solution concepts generated but may not fully eliminate trade-off. Principles are from recommended list (contradiction matrix)."
+        },
+        "4": {
+          "label": "Effective application",
+          "description": "3-4 principles from contradiction matrix applied creatively. Multiple solution concepts per principle. Solutions address contradiction and are technically feasible. Some principles combined for stronger solutions."
+        },
+        "5": {
+          "label": "Masterful application",
+          "description": "3-5 principles applied with deep adaptation and creativity. Solutions are novel, non-obvious, and fully resolve contradiction (improve A without worsening B, or improve both). Principles combined synergistically. Solutions validated against physical constraints. Evidence that contradiction is eliminated, not just mitigated."
+        }
+      }
+    },
+    {
+      "name": "Solution Inventiveness",
+      "description": "Evaluates novelty and creativity of solutions - do they represent true innovation or just conventional approaches?",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "No novelty",
+          "description": "Solutions are existing/obvious approaches. No departure from conventional thinking. Could have been generated without TRIZ."
+        },
+        "2": {
+          "label": "Minor novelty",
+          "description": "Solutions are mostly conventional with small tweaks. Incremental improvements only. Similar to existing solutions in field."
+        },
+        "3": {
+          "label": "Moderate novelty",
+          "description": "Solutions combine existing ideas in new ways or adapt proven approaches from other fields. Some inventive steps. May have patentability."
+        },
+        "4": {
+          "label": "Significant novelty",
+          "description": "Solutions are non-obvious and represent genuine innovation. Apply TRIZ principles in unexpected ways. Likely patentable. Break from conventional approaches in field."
+        },
+        "5": {
+          "label": "Breakthrough innovation",
+          "description": "Solutions are highly novel, potentially disruptive, opening new possibilities not previously considered. Elegant resolution of contradiction that seems obvious in hindsight but wasn't before. High patent potential. Could redefine category."
+        }
+      }
+    },
+    {
+      "name": "Technical Feasibility",
+      "description": "Evaluates whether solutions are actually implementable given current technology and constraints",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Infeasible",
+          "description": "Solutions violate physical laws, require unavailable technology, or are completely impractical given constraints (cost, time, resources)."
+        },
+        "2": {
+          "label": "Highly uncertain",
+          "description": "Solutions are theoretically possible but require major breakthroughs or are at edge of current capabilities. Very high risk. Costs/timelines unknown."
+        },
+        "3": {
+          "label": "Challenging but possible",
+          "description": "Solutions are achievable with current technology but require significant development effort, specialized expertise, or high investment. Risks identified. Feasibility demonstrated for similar problems."
+        },
+        "4": {
+          "label": "Practical",
+          "description": "Solutions are implementable with available technology and within constraints. Clear path from concept to prototype. Risks are manageable. Similar approaches proven in adjacent fields."
+        },
+        "5": {
+          "label": "Readily implementable",
+          "description": "Solutions can be implemented quickly with existing technology, materials, and processes. Low technical risk. Clear implementation plan. Costs and timelines estimated. Prototyping straightforward."
+        }
+      }
+    },
+    {
+      "name": "Overall Completeness",
+      "description": "Evaluates whether all necessary components of morphological/TRIZ analysis are present and well-integrated",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Incomplete",
+          "description": "Missing major components (morphological box incomplete, no TRIZ principles applied, no solution concepts, etc.). Analysis cannot be used for decision-making."
+        },
+        "2": {
+          "label": "Partially complete",
+          "description": "Major components present but underdeveloped. Morphological box exists but shallow evaluation. TRIZ principles listed but poorly applied. Limited solution concepts."
+        },
+        "3": {
+          "label": "Mostly complete",
+          "description": "All major components present (parameters, options, configurations, contradictions, principles, solutions) but some lack depth or integration. Can be used for decisions with additional work."
+        },
+        "4": {
+          "label": "Complete",
+          "description": "All components well-developed. Morphological analysis is thorough. TRIZ contradictions clearly stated and principles applied. Multiple solution concepts. Evaluation criteria applied. Integration between MA and TRIZ (if both used). Ready for decision-making."
+        },
+        "5": {
+          "label": "Comprehensive",
+          "description": "Exceptional completeness and integration. Morphological analysis spans full design space systematically. All contradictions identified and addressed with TRIZ. Rich solution concepts (10+). Rigorous evaluation. Clear recommendations with rationale. Documentation enables replication and future refinement. Next steps defined."
+        }
+      }
+    }
+  ],
+  "guidance": {
+    "by_method": {
+      "morphological_only": {
+        "focus": "Emphasize parameter selection, option generation, and configuration evaluation. TRIZ criteria not applicable.",
+        "typical_scores": "Parameter selection and option generation weighted most heavily. Configuration evaluation distinguishes good from excellent.",
+        "common_issues": "Too many or too few parameters, dependent parameters, insufficient option variety, no systematic evaluation"
+      },
+      "triz_only": {
+        "focus": "Emphasize contradiction identification, principle application, and solution inventiveness. Morphological criteria not applicable.",
+        "typical_scores": "Contradiction clarity and principle application are most critical. Inventiveness distinguishes good from excellent.",
+        "common_issues": "Vague contradictions, literal principle application, no adaptation, solutions don't actually resolve contradiction"
+      },
+      "combined_ma_triz": {
+        "focus": "Evaluate both morphological exploration and TRIZ contradiction resolution. Integration between methods is key.",
+        "typical_scores": "All criteria apply. Integration shown by: MA reveals contradictions, TRIZ resolves contradictions in configs.",
+        "common_issues": "Methods used separately without integration, contradictions in configs not addressed, MA too shallow to reveal trade-offs"
+      }
+    },
+    "by_domain": {
+      "physical_product": {
+        "parameter_examples": "Materials, manufacturing method, form factor, power source, control interface",
+        "contradiction_examples": "Strength vs weight, speed vs precision, durability vs cost, capacity vs size",
+        "triz_application": "40 principles apply directly. Use physical fields (mechanical, thermal, electromagnetic).",
+        "feasibility_focus": "Material properties, manufacturing capabilities, physical constraints"
+      },
+      "software_digital": {
+        "parameter_examples": "Architecture, data storage, interface, deployment, authentication",
+        "contradiction_examples": "Speed vs memory, features vs simplicity, security vs usability, scalability vs cost",
+        "triz_application": "Principles are metaphorical. Translate: weight→code size, segmentation→modularization, fields→abstractions.",
+        "feasibility_focus": "Technology stack maturity, development effort, performance characteristics"
+      },
+      "service_process": {
+        "parameter_examples": "Delivery channel, pricing model, timing, customization, support level",
+        "contradiction_examples": "Quality vs throughput, personalization vs efficiency, convenience vs cost, speed vs accuracy",
+        "triz_application": "Highly metaphorical. Substances→people/materials, fields→interactions/information flows.",
+        "feasibility_focus": "Operational capacity, training requirements, cost structure, customer acceptance"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "parameters_not_independent": "Choosing option A for parameter 1 forces specific choice in parameter 2. Fix: Redefine parameters or merge dependent ones.",
+    "too_many_parameters": ">7 parameters creates exponential explosion (5^8 = 390,625 configs). Fix: Combine or eliminate less critical parameters.",
+    "options_overlap": "Options are not mutually exclusive (e.g., 'small', 'medium-small', 'medium'). Fix: Define clear boundaries or use different parameter.",
+    "no_evaluation": "Morphological box created but no configurations explored. Fix: Generate 5-10 promising combinations and evaluate.",
+    "contradiction_not_real": "Stated contradiction is actually budget/political constraint, not physical/technical. Fix: Verify improving A truly worsens B with current approaches.",
+    "principles_not_adapted": "TRIZ principles applied literally without translation to problem context. Fix: Use principles as metaphors, adapt creatively.",
+    "solution_doesnt_resolve": "Solution concept doesn't actually eliminate trade-off, just shifts it. Fix: Verify both parameters improve (or one improves with no worsening).",
+    "unfeasible_solutions": "Creative solutions that violate constraints or require impossible technology. Fix: Ground-truth against current capabilities."
+  },
+  "excellence_indicators": [
+    "Parameters are provably independent (tested by varying one while holding others constant)",
+    "Options span full practical design space without gaps or excessive breadth",
+    "10+ configurations evaluated systematically with scored comparison matrix",
+    "Contradictions are quantified (specific values for improving/worsening parameters)",
+    "3-5 TRIZ principles applied with multiple creative adaptations per principle",
+    "Solutions are non-obvious, patentable, and demonstrably resolve contradictions",
+    "Feasibility validated through analysis or analogous examples from other fields",
+    "Integration between methods: morphological analysis identifies contradictions, TRIZ resolves them",
+    "Clear recommendations with ranked alternatives and implementation roadmap",
+    "Documentation enables replication and extension by others"
+  ],
+  "evaluation_notes": {
+    "scoring": "Calculate weighted average across applicable criteria. For morphological-only, exclude TRIZ criteria. For TRIZ-only, exclude morphological criteria. Minimum passing score: 3.0 (basic quality). Production-ready target: 3.5+. Excellence threshold: 4.2+.",
+    "context": "Adjust expectations based on problem complexity and domain. Physical products should score higher on feasibility (proven physics). Software/services may score lower on feasibility (unproven approaches acceptable). Breakthrough innovations may score lower on feasibility but higher on inventiveness.",
+    "iteration": "Low scores indicate specific improvement areas. Prioritize fixing contradiction clarity and parameter independence first (highest impact). Then improve principle application and evaluation rigor. Iterate based on prototyping/testing results."
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "name": "Metrics Tree Evaluator",
+  "description": "Evaluate metrics trees for North Star selection, decomposition quality, causal clarity, and actionability. Assess whether the metrics tree will drive effective decision-making and experimentation.",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "name": "North Star Selection",
+      "description": "Evaluates whether the chosen North Star metric appropriately captures value and business success",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "Poor North Star choice",
+          "description": "Vanity metric (registered users, pageviews) that doesn't reflect value delivered or business health. Not actionable or measurable."
+        },
+        "2": {
+          "label": "Weak North Star",
+          "description": "Metric somewhat related to value but indirect or lagging. Example: Revenue for early-stage product (reflects pricing not product-market fit)."
+        },
+        "3": {
+          "label": "Acceptable North Star",
+          "description": "Metric captures some value but missing key criteria. For example, measures usage but not business model alignment, or actionable but not predictive of revenue."
+        },
+        "4": {
+          "label": "Good North Star",
+          "description": "Metric captures value delivered to customers, is measurable and actionable, but relationship to business success could be stronger or rationale could be clearer."
+        },
+        "5": {
+          "label": "Excellent North Star",
+          "description": "Metric perfectly captures value delivered to customers, predicts business success (revenue/retention), is measurable and actionable by teams. Clear rationale provided. Examples: Slack's 'teams sending 100+ messages/week', Airbnb's 'nights booked'."
+        }
+      }
+    },
+    {
+      "name": "Decomposition Completeness",
+      "description": "Evaluates whether North Star is fully decomposed into mutually exclusive, collectively exhaustive drivers",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No decomposition",
+          "description": "North Star stated but not broken down into component drivers. No input metrics (L2)."
+        },
+        "2": {
+          "label": "Incomplete decomposition",
+          "description": "1-2 input metrics identified but major drivers missing. Components overlap (not mutually exclusive) or gaps exist (not collectively exhaustive)."
+        },
+        "3": {
+          "label": "Basic decomposition",
+          "description": "3-5 input metrics cover major drivers but some gaps or overlaps exist. Mathematical relationship unclear (additive vs multiplicative)."
+        },
+        "4": {
+          "label": "Complete decomposition",
+          "description": "3-5 input metrics are mutually exclusive and collectively exhaustive. Clear mathematical relationship (e.g., sum or product). Minor gaps acceptable."
+        },
+        "5": {
+          "label": "Rigorous decomposition",
+          "description": "3-5 input metrics provably decompose North Star with explicit formula. MECE (mutually exclusive, collectively exhaustive). Each input can be owned by a team. Validated with data that components sum/multiply to North Star."
+        }
+      }
+    },
+    {
+      "name": "Causal Clarity",
+      "description": "Evaluates whether causal relationships between metrics are clearly specified and validated",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No causal reasoning",
+          "description": "Metrics listed without explaining how they relate to each other or to North Star."
+        },
+        "2": {
+          "label": "Assumed causation",
+          "description": "Relationships implied but not validated. Possible confusion between correlation and causation. Direction unclear (does A cause B or B cause A?)."
+        },
+        "3": {
+          "label": "Plausible causation",
+          "description": "Causal relationships stated with reasoning but not validated with data. Direction clear. Lag times not specified."
+        },
+        "4": {
+          "label": "Validated causation",
+          "description": "Causal relationships supported by correlation data or past experiments. Direction and approximate lag times specified. Some relationships tested."
+        },
+        "5": {
+          "label": "Proven causation",
+          "description": "Causal relationships validated through experiments or strong observational data (cohort analysis, regression). Effect sizes quantified (e.g., 10% increase in X → 5% increase in Y). Lag times specified. Confounds controlled."
+        }
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Evaluates whether metrics can actually be moved by teams through specific actions",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Not actionable",
+          "description": "Metrics are outcomes outside team control (market conditions, competitor actions) or too abstract to act on."
+        },
+        "2": {
+          "label": "Weakly actionable",
+          "description": "Metrics are high-level (e.g., 'engagement') without specific user behaviors identified. Teams unsure what to do."
+        },
+        "3": {
+          "label": "Moderately actionable",
+          "description": "Some action metrics (L3) identified but not comprehensive. Clear which metrics each team owns but specific actions to move them are vague."
+        },
+        "4": {
+          "label": "Actionable",
+          "description": "Action metrics (L3) specified as concrete user behaviors for each input metric. Teams know what actions to encourage. Current rates measured."
+        },
+        "5": {
+          "label": "Highly actionable",
+          "description": "Action metrics are specific, observable behaviors with clear measurement (events tracked). Each input metric has 3-5 actions identified. Teams have explicit experiments to test moving actions. Ownership clear."
+        }
+      }
+    },
+    {
+      "name": "Leading Indicator Quality",
+      "description": "Evaluates whether true leading indicators are identified that predict North Star movement",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No leading indicators",
+          "description": "Only lagging indicators provided (same time or after North Star changes)."
+        },
+        "2": {
+          "label": "Weak leading indicators",
+          "description": "Indicators proposed but timing unclear (do they actually predict?) or correlation weak/untested."
+        },
+        "3": {
+          "label": "Plausible leading indicators",
+          "description": "2-3 indicators identified that logically should predict North Star. Timing estimates provided but not validated. Correlation not measured."
+        },
+        "4": {
+          "label": "Validated leading indicators",
+          "description": "2-3 leading indicators with timing specified (e.g., 'predicts 7-day retention') and correlation measured (r > 0.6). Tested on historical data."
+        },
+        "5": {
+          "label": "High-quality leading indicators",
+          "description": "2-4 leading indicators with proven predictive power (r > 0.7), clear timing (days/weeks ahead), and actionable (teams can move them). Includes propensity models or cohort analysis showing predictive strength."
+        }
+      }
+    },
+    {
+      "name": "Prioritization Rigor",
+      "description": "Evaluates whether experiments and opportunities are prioritized using sound reasoning",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No prioritization",
+          "description": "Metrics and experiments listed without ranking or rationale."
+        },
+        "2": {
+          "label": "Subjective prioritization",
+          "description": "Ranking provided but based on gut feel or opinion without framework or data."
+        },
+        "3": {
+          "label": "Framework-based prioritization",
+          "description": "ICE or RICE framework applied but scores are estimates without data support. Top 3 experiments identified."
+        },
+        "4": {
+          "label": "Data-informed prioritization",
+          "description": "ICE/RICE scores based on historical data or analysis. Impact estimates grounded in past experiments or correlations. Top 1-3 experiments have clear hypotheses and success criteria."
+        },
+        "5": {
+          "label": "Rigorous prioritization",
+          "description": "ICE/RICE scores validated with data. Tradeoffs considered (e.g., impact vs effort, short-term vs long-term). Sensitivity analysis performed (\"what if impact is half?\"). Top experiments have quantified hypotheses, clear metrics, and decision criteria. Portfolio approach if multiple experiments."
+        }
+      }
+    },
+    {
+      "name": "Guardrails & Counter-Metrics",
+      "description": "Evaluates whether risks, tradeoffs, and negative externalities are considered",
+      "weight": 0.9,
+      "scale": {
+        "1": {
+          "label": "No risk consideration",
+          "description": "Only positive metrics. No mention of potential downsides, gaming, or tradeoffs."
+        },
+        "2": {
+          "label": "Risks mentioned",
+          "description": "Potential issues noted but no concrete counter-metrics or guardrails defined."
+        },
+        "3": {
+          "label": "Some guardrails",
+          "description": "1-2 counter-metrics identified (e.g., quality, satisfaction) but no thresholds set. Tradeoffs acknowledged but not quantified."
+        },
+        "4": {
+          "label": "Clear guardrails",
+          "description": "2-4 counter-metrics with minimum acceptable thresholds (e.g., NPS must stay ≥40). Gaming risks identified. Monitoring plan included."
+        },
+        "5": {
+          "label": "Comprehensive risk framework",
+          "description": "Counter-metrics for each major risk (quality, trust, satisfaction, ecosystem health). Guardrail thresholds set based on data or policy. Gaming prevention mechanisms specified. Tradeoff analysis included (e.g., short-term growth vs long-term retention)."
+        }
+      }
+    },
+    {
+      "name": "Overall Usefulness",
+      "description": "Evaluates whether the metrics tree will effectively guide decision-making and experimentation",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Not useful",
+          "description": "Missing critical components or so flawed that teams cannot use it for decisions."
+        },
+        "2": {
+          "label": "Limited usefulness",
+          "description": "Provides some structure but too many gaps, unclear relationships, or impractical to implement."
+        },
+        "3": {
+          "label": "Moderately useful",
+          "description": "Covers basics (North Star, input metrics, some actions) but lacks depth in actionability or prioritization. Teams can use it with significant additional work."
+        },
+        "4": {
+          "label": "Useful",
+          "description": "Complete metrics tree with clear structure. Teams can identify what to measure, understand relationships, and select experiments. Minor improvements needed."
+        },
+        "5": {
+          "label": "Highly useful",
+          "description": "Decision-ready artifact. Teams can immediately use it to align on goals, prioritize experiments, instrument dashboards, and make metric-driven decisions. Well-documented assumptions and data gaps. Review cadence specified."
+        }
+      }
+    }
+  ],
+  "guidance": {
+    "by_business_model": {
+      "saas_subscription": {
+        "north_star_options": "MRR, WAU/MAU for engaged users, Net Revenue Retention (NRR) for mature",
+        "key_inputs": "New users, retained users, expansion revenue, churn",
+        "leading_indicators": "Activation rate, feature adoption, usage frequency, product qualified leads (PQLs)",
+        "guardrails": "Customer satisfaction (NPS/CSAT), support ticket volume, technical reliability"
+      },
+      "marketplace": {
+        "north_star_options": "GMV, successful transactions, nights booked (supply × demand balanced metric)",
+        "key_inputs": "Supply-side (active suppliers), demand-side (buyers/searches), match rate/liquidity",
+        "leading_indicators": "New supplier activation, buyer intent signals, supply utilization rate",
+        "guardrails": "Supply/demand balance ratio, trust/safety metrics, quality scores"
+      },
+      "ecommerce": {
+        "north_star_options": "Revenue, orders per customer, customer LTV",
+        "key_inputs": "Traffic, conversion rate, AOV, repeat purchase rate",
+        "leading_indicators": "Add-to-cart rate, wishlist additions, email engagement, product page depth",
+        "guardrails": "Return rate, customer satisfaction, shipping time, product quality ratings"
+      },
+      "social_content": {
+        "north_star_options": "Engaged time, content created and consumed, network density (connections per user)",
+        "key_inputs": "Content creation rate, content consumption, social interactions, retention",
+        "leading_indicators": "Profile completion, first content post, first social interaction, 7-day activation",
+        "guardrails": "Content quality, user wellbeing, toxicity/moderation metrics, creator retention"
+      },
+      "mobile_app": {
+        "north_star_options": "DAU (for high-frequency) or WAU (for moderate-frequency), session frequency × duration",
+        "key_inputs": "New installs, activated users, retained users, resurrected users",
+        "leading_indicators": "Day 1 retention, tutorial completion, push notification opt-in, first core action",
+        "guardrails": "App rating, uninstall rate, crash-free rate, user-reported satisfaction"
+      }
+    },
+    "by_stage": {
+      "pre_pmf": {
+        "focus": "Finding product-market fit through retention and satisfaction signals",
+        "north_star": "Week-over-week retention (>40% is strong signal)",
+        "key_metrics": "Retention curves, NPS, 'very disappointed' score (>40%), organic usage frequency",
+        "experiments": "Rapid iteration on core value prop, onboarding, early activation"
+      },
+      "post_pmf_pre_scale": {
+        "focus": "Validating unit economics and early growth loops",
+        "north_star": "New activated users per week or month",
+        "key_metrics": "LTV/CAC ratio (>3), payback period (<12 months), month-over-month growth (>10%)",
+        "experiments": "Channel optimization, conversion funnel improvements, early retention tactics"
+      },
+      "growth": {
+        "focus": "Efficient scaling of acquisition, activation, and retention",
+        "north_star": "Revenue, ARR, or transaction volume",
+        "key_metrics": "Net revenue retention (>100%), magic number (>0.75), efficient growth",
+        "experiments": "Systematic A/B testing, multi-channel optimization, retention programs, expansion revenue"
+      },
+      "maturity": {
+        "focus": "Profitability, market share, operational efficiency",
+        "north_star": "Free cash flow, EBITDA, or market share",
+        "key_metrics": "Operating margin (>20%), customer concentration, competitive position",
+        "experiments": "Operational efficiency, new market expansion, product line extension, M&A"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "vanity_north_star": "Chose metric that looks good but doesn't reflect value (total registered users, app downloads). Fix: Select metric tied to usage and business model.",
+    "incomplete_decomposition": "Input metrics don't fully explain North Star. Missing key drivers. Fix: Validate that inputs sum/multiply to North Star mathematically.",
+    "correlation_not_causation": "Assumed causation without validation. Metrics move together but one doesn't cause the other. Fix: Run experiments or use causal inference methods.",
+    "not_actionable": "Metrics are outcomes without clear actions. Teams don't know what to do. Fix: Add action metrics (L3) as specific user behaviors.",
+    "no_leading_indicators": "Only lagging metrics that react slowly. Can't make proactive decisions. Fix: Find early signals through cohort analysis or propensity modeling.",
+    "ignoring_tradeoffs": "Optimizing one metric hurts another. No guardrails set. Fix: Add counter-metrics with minimum thresholds.",
+    "gaming_risk": "Metric can be easily gamed without delivering real value. Fix: Add quality signals and combination metrics.",
+    "no_prioritization": "Too many metrics to focus on. No clear experiments. Fix: Use ICE/RICE framework to rank top 1-3 experiments."
+  },
+  "excellence_indicators": [
+    "North Star clearly captures value delivered to customers and predicts business success with explicit rationale",
+    "Decomposition is provably MECE (mutually exclusive, collectively exhaustive) with mathematical formula",
+    "Causal relationships validated through experiments or strong observational data with effect sizes quantified",
+    "Each input metric has 3-5 specific action metrics (observable user behaviors) with measurement defined",
+    "2-4 leading indicators identified with proven predictive power (r > 0.7) and clear timing",
+    "Top 1-3 experiments prioritized using data-informed ICE/RICE scores with quantified hypotheses",
+    "Counter-metrics and guardrails defined for major risks (quality, gaming, ecosystem health) with thresholds",
+    "Assumptions documented, data gaps identified, review cadence specified",
+    "Metrics tree diagram clearly shows relationships and hierarchy",
+    "Decision-ready artifact that teams can immediately use for alignment and experimentation"
+  ],
+  "evaluation_notes": {
+    "scoring": "Calculate weighted average across all criteria. Minimum passing score: 3.0 (basic quality). Production-ready target: 3.5+. Excellence threshold: 4.2+.",
+    "context": "Adjust expectations based on business stage, data availability, and complexity. Early-stage with limited data may score 3.0-3.5 and be acceptable. Growth-stage with resources should target 4.0+.",
+    "iteration": "Low scores indicate specific improvement areas. Prioritize fixing North Star selection and causal clarity first (highest weights), then improve actionability and prioritization. Revalidate after changes."
+  }
+}

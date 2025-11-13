@@ -1,0 +1,300 @@
+{
+  "name": "Negotiation Alignment Governance Evaluator",
+  "description": "Evaluate quality of stakeholder alignment frameworks—assessing decision rights clarity, working agreements specificity, conflict resolution protocols, and governance sustainability.",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "name": "Decision Rights Clarity",
+      "description": "Evaluates whether decision authority is unambiguous with exactly one Accountable/Approver per decision",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "Ambiguous or missing",
+          "description": "Decision rights not defined, or multiple people believe they're Accountable/Approver. No RACI/DACI/RAPID matrix. Unclear who decides what."
+        },
+        "2": {
+          "label": "Partial clarity",
+          "description": "Some decisions have clear owner but many ambiguous. RACI/DACI present but has multiple Accountable roles, or doesn't cover key decisions. Consulted vs Informed unclear."
+        },
+        "3": {
+          "label": "Basic clarity",
+          "description": "Decision rights defined for most key decisions. One Accountable/Approver per decision. RACI/DACI covers major decisions. Some minor gaps or ambiguities remain."
+        },
+        "4": {
+          "label": "Clear decision rights",
+          "description": "All key decisions have exactly one clear owner. RACI/DACI/RAPID comprehensively covers decision space. Consulted vs Informed well-defined. Scope of each decision type clear."
+        },
+        "5": {
+          "label": "Unambiguous governance",
+          "description": "Complete decision rights framework with zero ambiguity. One Accountable/Approver per decision (rigorously enforced). All decision types covered with clear scope boundaries. Edge cases explicitly addressed. Decision rights tested against real scenarios."
+        }
+      }
+    },
+    {
+      "name": "Stakeholder Coverage",
+      "description": "Evaluates whether all relevant stakeholders are identified and appropriately engaged",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Incomplete stakeholder mapping",
+          "description": "Missing key stakeholders. No stakeholder analysis. Unclear who cares about what. High-power stakeholders ignored."
+        },
+        "2": {
+          "label": "Partial stakeholder coverage",
+          "description": "Some stakeholders identified but significant gaps. Limited analysis of interests/concerns. Engagement strategy missing or generic."
+        },
+        "3": {
+          "label": "Reasonable stakeholder coverage",
+          "description": "Most key stakeholders identified. Basic power-interest mapping. Engagement strategy defined for high-power/high-interest stakeholders. Some minor stakeholders may be missing."
+        },
+        "4": {
+          "label": "Comprehensive stakeholder coverage",
+          "description": "All relevant stakeholders identified with power-interest analysis. Interests, concerns, and positions documented. Engagement strategy tailored per quadrant (manage closely, keep satisfied, keep informed, monitor)."
+        },
+        "5": {
+          "label": "Strategic stakeholder management",
+          "description": "Complete stakeholder ecosystem mapped including indirect stakeholders. Power-interest analysis with influence patterns and coalition potential. Proactive engagement plans with specific actions, frequency, and success metrics. Stakeholder relationships managed dynamically."
+        }
+      }
+    },
+    {
+      "name": "Working Agreement Specificity",
+      "description": "Evaluates whether working agreements are specific, observable, and actionable (not vague)",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "Vague or missing",
+          "description": "No working agreements, or agreements are platitudes ('communicate well,' 'be respectful'). Not observable or actionable."
+        },
+        "2": {
+          "label": "Generic agreements",
+          "description": "Working agreements present but generic. Example: 'Respond quickly to messages' without defining 'quickly.' Hard to verify adherence."
+        },
+        "3": {
+          "label": "Somewhat specific",
+          "description": "Working agreements have some specificity. Example: 'Respond to Slack within 24 hours for normal requests.' Observable but may lack edge case handling."
+        },
+        "4": {
+          "label": "Specific and actionable",
+          "description": "Working agreements are observable and measurable. Example: 'Respond to Slack: Urgent (<2h), Normal (<24h), FYI (no response needed).' Clear communication norms, decision-making protocols, quality standards. Behavioral expectations explicit."
+        },
+        "5": {
+          "label": "Operationally precise",
+          "description": "Working agreements are unambiguous and testable. All norms (communication, decision-making, quality, escalation) have clear criteria. Examples provided. Edge cases addressed. Compliance measurable. Consequences for violation defined."
+        }
+      }
+    },
+    {
+      "name": "Conflict Resolution Protocols",
+      "description": "Evaluates whether conflict resolution process is clear with escalation paths",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No conflict resolution process",
+          "description": "No protocol for handling disagreements. Conflicts escalate chaotically or are swept under rug. No escalation path."
+        },
+        "2": {
+          "label": "Ad-hoc conflict handling",
+          "description": "Vague guidance like 'talk it out' or 'escalate to manager.' No structured process. Escalation path unclear or too aggressive (goes straight to top)."
+        },
+        "3": {
+          "label": "Basic conflict protocol",
+          "description": "3-level process defined: direct dialogue, mediation, escalation. Escalation path identified. Some guidance on techniques (e.g., focus on interests)."
+        },
+        "4": {
+          "label": "Clear conflict resolution",
+          "description": "Structured 3-level process with specific techniques per level. Escalation criteria defined (when to move to next level). Deciders identified per decision type. Disagree-and-commit protocol. Psychological safety emphasized."
+        },
+        "5": {
+          "label": "Comprehensive conflict system",
+          "description": "Robust conflict resolution with detailed facilitation techniques, mediator neutrality requirements, caucusing guidelines, interest-based problem solving steps. Multiple escalation paths per decision type. Conflict resolution principles documented (separate people from problem, objective criteria). Training plan for mediators. Conflict metrics tracked."
+        }
+      }
+    },
+    {
+      "name": "Governance Sustainability",
+      "description": "Evaluates whether framework includes review cadence and maintenance mechanisms",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Static framework",
+          "description": "No review or update mechanism. Governance treated as one-time exercise. No adaptation as context changes."
+        },
+        "2": {
+          "label": "Vague maintenance",
+          "description": "Mentions 'review periodically' but no specific cadence or triggers. No metrics to track effectiveness."
+        },
+        "3": {
+          "label": "Basic maintenance plan",
+          "description": "Review cadence defined (e.g., quarterly). Triggers for ad-hoc review identified (org change, recurring conflicts). Basic metrics (decision velocity, escalation rate)."
+        },
+        "4": {
+          "label": "Sustainable governance",
+          "description": "Quarterly review cadence with clear triggers (org change, new stakeholders, recurring conflicts, declining decision velocity). Metrics tracked (decision velocity, time to resolve conflicts, adherence to working agreements). Stakeholder feedback mechanisms. Update process defined."
+        },
+        "5": {
+          "label": "Dynamic governance system",
+          "description": "Comprehensive maintenance with multiple review cycles (quarterly formal, monthly check-ins). Detailed metrics dashboard (decision velocity by type, escalation frequency, conflict resolution time, stakeholder satisfaction, shadow governance incidents). Continuous improvement process with retrospectives. Governance health indicators with alerts. Training and onboarding for new stakeholders. Documentation versioning."
+        }
+      }
+    },
+    {
+      "name": "Negotiation Sophistication",
+      "description": "Evaluates use of negotiation techniques (BATNA, interests vs positions, objective criteria, options generation)",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Positional bargaining",
+          "description": "Purely positional (I want X, you want Y, let's split difference). No analysis of interests, BATNA, or objective criteria. Win-lose framing."
+        },
+        "2": {
+          "label": "Basic negotiation",
+          "description": "Some attempt to understand interests but mostly positional. BATNA not explicitly developed. Limited option generation. Few objective criteria used."
+        },
+        "3": {
+          "label": "Principled negotiation basics",
+          "description": "Separates people from problem. Identifies interests behind positions. Some option generation. Uses some objective criteria. BATNA considered."
+        },
+        "4": {
+          "label": "Sophisticated negotiation",
+          "description": "Clear application of principled negotiation: interests articulated, BATNA explicitly developed, creative options generated for mutual gain, objective criteria proposed and used, ZOPA analysis. Techniques like bundling, phased approaches, low-cost/high-value trades."
+        },
+        "5": {
+          "label": "Expert-level negotiation",
+          "description": "Masterful application of negotiation theory. BATNA rigorously developed and used strategically. Deep interests uncovered through skilled questioning. Extensive option generation with creative packaging. Objective criteria researched and agreed upfront. ZOPA explicitly analyzed. Coalition building and multi-party dynamics managed. Power-interest mapping informs strategy. Documented negotiation preparation and post-negotiation analysis."
+        }
+      }
+    },
+    {
+      "name": "Facilitation Quality",
+      "description": "Evaluates whether framework was created through inclusive facilitation or imposed top-down",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Top-down imposition",
+          "description": "Framework dictated without stakeholder input. No buy-in. Likely to be ignored or create resistance."
+        },
+        "2": {
+          "label": "Limited stakeholder input",
+          "description": "Some consultation but major stakeholders not engaged. Framework feels imposed. Mixed buy-in."
+        },
+        "3": {
+          "label": "Consultative development",
+          "description": "Key stakeholders consulted during development. Input gathered and incorporated. Reasonable buy-in from most parties."
+        },
+        "4": {
+          "label": "Collaborative development",
+          "description": "Framework co-created with stakeholders through structured facilitation. All key parties involved in defining decision rights, working agreements, conflict protocols. Strong buy-in. Explicit consent obtained."
+        },
+        "5": {
+          "label": "Expert facilitation",
+          "description": "Framework developed through skilled facilitation using proven techniques (structured dialogue, round robin, silent writing, gradient of agreement). Psychological safety maintained. All voices heard. Power dynamics managed. Conflicts surfaced and resolved during creation. Unanimous or near-unanimous consent. Strong ownership and commitment from all parties."
+        }
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Evaluates whether framework can be immediately implemented and enforced",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Theoretical only",
+          "description": "Framework interesting but not implementable. No connection to how work actually gets done. Will be ignored."
+        },
+        "2": {
+          "label": "Partially actionable",
+          "description": "Some elements actionable but missing implementation details. Example: RACI defined but no process for using it. No consequences for violations."
+        },
+        "3": {
+          "label": "Basically actionable",
+          "description": "Framework can be implemented with some effort. Roles clear, processes defined, escalation paths identified. May need additional tools or training."
+        },
+        "4": {
+          "label": "Immediately actionable",
+          "description": "Framework ready to implement. Decision rights operationalized (people know what they decide), working agreements observable (can check adherence), conflict protocols stepwise (anyone can follow), escalation paths specified. Consequences for violations defined."
+        },
+        "5": {
+          "label": "Operationally complete",
+          "description": "Framework is production-ready with implementation plan, training materials, communication templates, decision logging tools, conflict resolution scripts, adherence checklists, metrics dashboards, review meeting agendas. Can be deployed immediately with high confidence. Enforcement mechanisms clear and fair."
+        }
+      }
+    }
+  ],
+  "guidance": {
+    "by_context": {
+      "new_team_forming": {
+        "focus": "Prioritize working agreements specificity (1.5x weight) and facilitation quality. Need strong buy-in from start.",
+        "typical_scores": "Working agreements and facilitation should be 4+. Decision rights can start at 3 and evolve.",
+        "red_flags": "Top-down imposition, vague agreements ('be respectful'), no conflict protocol"
+      },
+      "org_restructure": {
+        "focus": "Prioritize decision rights clarity (1.5x weight) and stakeholder coverage. Authority is being redefined.",
+        "typical_scores": "Decision rights and stakeholder coverage should be 4+. Conflict resolution 3+ minimum.",
+        "red_flags": "Ambiguous decision rights, missing stakeholders, no escalation for contested decisions"
+      },
+      "cross_functional_initiative": {
+        "focus": "Prioritize stakeholder coverage, conflict resolution, and negotiation sophistication. Many parties with different goals.",
+        "typical_scores": "Stakeholder coverage 4+, conflict resolution 4+, negotiation 3+.",
+        "red_flags": "Missing key stakeholders, no conflict protocol, positional bargaining"
+      },
+      "partnership_joint_venture": {
+        "focus": "Prioritize negotiation sophistication, decision rights clarity, and governance sustainability. Long-term relationship.",
+        "typical_scores": "Negotiation 4+, decision rights 4+, sustainability 4+.",
+        "red_flags": "Weak BATNA analysis, ambiguous decision rights, no review cadence"
+      }
+    },
+    "by_organization_type": {
+      "startup": {
+        "decision_rights": "Start simple (DACI for key decisions). Avoid over-process.",
+        "working_agreements": "Focus on communication norms and decision speed. Keep lightweight.",
+        "conflict_resolution": "Direct dialogue + founder arbitration. Formal mediation overkill.",
+        "sustainability": "Monthly check-ins (quarterly too slow). Expect frequent updates."
+      },
+      "corporate": {
+        "decision_rights": "Comprehensive RACI/RAPID. Document thoroughly for compliance/audit.",
+        "working_agreements": "Formal and detailed. Cross-reference policies.",
+        "conflict_resolution": "Full 3-level process with documented mediators. Legal/HR involvement.",
+        "sustainability": "Quarterly formal reviews. Metrics dashboard. Training programs."
+      },
+      "distributed_remote": {
+        "decision_rights": "Advice process or DACI. Avoid synchronous approvals.",
+        "working_agreements": "Async-first communication. Documentation over meetings. Timezone consideration.",
+        "conflict_resolution": "Written conflict protocols. Asynchronous mediation possible. Video for sensitive issues.",
+        "sustainability": "Monthly remote check-ins. Monitor shadow governance (decisions in DMs)."
+      },
+      "nonprofit_community": {
+        "decision_rights": "Consent-based or consensus. Avoid hierarchical.",
+        "working_agreements": "Emphasize inclusivity and accessibility. Multiple communication channels.",
+        "conflict_resolution": "Restorative justice approach. Community mediation.",
+        "sustainability": "Community retrospectives. Governance co-owned by members."
+      }
+    }
+  },
+  "common_failure_modes": {
+    "multiple_accountable": "More than one Accountable/Approver per decision diffuses responsibility. Fix: Designate exactly ONE person as decider.",
+    "everyone_consulted": "Consulting everyone on everything creates decision paralysis. Fix: Limit Consulted role to those with essential expertise/impact.",
+    "vague_agreements": "Generic agreements like 'communicate well' are unenforceable. Fix: Make observable ('respond to Slack in 24h').",
+    "no_escalation_path": "Conflicts fester without clear escalation. Fix: Define 3-level protocol (dialogue, mediation, escalation) with deciders.",
+    "shadow_governance": "Official RACI ignored, real decisions made informally. Fix: Ensure framework reflects actual decision-making. Review and update.",
+    "static_framework": "Governance never updated as context changes. Fix: Quarterly reviews with explicit triggers for ad-hoc updates.",
+    "top_down_imposition": "Framework dictated without buy-in. Fix: Co-create with stakeholders through facilitation.",
+    "positional_bargaining": "Pure position-taking without exploring interests or options. Fix: Apply principled negotiation (interests, BATNA, objective criteria)."
+  },
+  "excellence_indicators": [
+    "Exactly one Accountable/Approver per decision (rigorously enforced)",
+    "All key stakeholders mapped with power-interest analysis and tailored engagement",
+    "Working agreements are specific, observable, and measurable",
+    "3-level conflict resolution process with clear escalation criteria and deciders",
+    "Quarterly review cadence with metrics (decision velocity, escalation rate, adherence)",
+    "Principled negotiation applied: BATNA developed, interests articulated, options generated, objective criteria used",
+    "Framework co-created through structured facilitation with stakeholder buy-in",
+    "Immediately actionable with clear implementation steps and enforcement mechanisms",
+    "Sustainability mechanisms: review triggers, metrics dashboard, feedback loops, continuous improvement",
+    "Documentation complete: decision logs, conflict records, governance versions, training materials"
+  ],
+  "evaluation_notes": {
+    "scoring": "Calculate weighted average across all criteria. Minimum passing score: 3.0 (basic quality). Production-ready target: 3.5+. Excellence threshold: 4.2+. For new team formation, weight working agreements at 1.5x. For org restructure, weight decision rights clarity at 1.5x.",
+    "context": "Adjust expectations by organization type. Startups can have lighter processes (3+ on sustainability OK). Corporates need comprehensive documentation (4+ on all criteria). Distributed teams must prioritize async protocols. Nonprofits should use consent-based frameworks.",
+    "iteration": "Low scores indicate specific improvement areas. Priority order: 1) Fix decision rights ambiguity (highest ROI—eliminates most conflicts), 2) Clarify working agreements (make specific/observable), 3) Establish conflict protocols (prevent escalation), 4) Set review cadence (prevent decay), 5) Improve negotiation sophistication (better outcomes)."
+  }
+}

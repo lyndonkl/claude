@@ -1,0 +1,201 @@
+{
+  "criteria": [
+    {
+      "name": "Goal Clarity",
+      "description": "Learning objectives, timeline, and success criteria are specific and measurable",
+      "levels": {
+        "5": "Crystal clear goals with quantifiable success criteria, realistic timeline with buffer, daily time commitment specified and sustainable, current and target level defined",
+        "4": "Clear goals with mostly quantifiable criteria, reasonable timeline, daily time specified, minor gaps in clarity",
+        "3": "Goals stated but somewhat vague, timeline exists but may be unrealistic, daily time mentioned but questionable sustainability",
+        "2": "Vague goals, unclear timeline, daily time not specified or clearly unsustainable",
+        "1": "No clear goals, no timeline, no time commitment specified"
+      }
+    },
+    {
+      "name": "Material Breakdown",
+      "description": "Content chunked into learnable units with realistic hour estimates and priorities",
+      "levels": {
+        "5": "All material broken into appropriate chunks (30-90 min each), hour estimates include 1.5x buffer, priorities assigned (High/Med/Low), prerequisites identified",
+        "4": "Good chunking with minor sizing issues, hour estimates mostly realistic, priorities mostly assigned, some prerequisites noted",
+        "3": "Material broken down but chunk sizes inconsistent, estimates present but no buffer, priorities partially assigned",
+        "2": "Poor chunking (too large or too granular), unrealistic estimates, no priorities, missing major material",
+        "1": "No meaningful breakdown, no estimates, no structure"
+      }
+    },
+    {
+      "name": "Spaced Repetition",
+      "description": "Review schedule uses evidence-based spacing intervals (not cramming)",
+      "levels": {
+        "5": "Clear spaced repetition schedule with intervals at 1-3-7-14-30 days, review cycles documented with specific dates/methods, interleaving included, covers full timeline",
+        "4": "Spaced repetition used with mostly appropriate intervals, review cycles planned, some interleaving, minor gaps in timeline coverage",
+        "3": "Some spacing in reviews but intervals not optimal, review cycles exist but poorly defined, little interleaving, gaps in coverage",
+        "2": "Minimal spacing, still mostly massed practice, reviews poorly planned, no interleaving",
+        "1": "Pure cramming/massed practice, no spacing, no review plan"
+      }
+    },
+    {
+      "name": "Retrieval Practice",
+      "description": "Active recall methods prioritized over passive review",
+      "levels": {
+        "5": "Specific retrieval methods for each material type (flashcards, practice problems, self-quizzing, mock tests), tools identified, frequency specified, no passive techniques",
+        "4": "Retrieval methods specified for most material types, tools mostly identified, frequencies noted, minimal passive techniques",
+        "3": "Some retrieval methods noted but not comprehensive, tools vaguely mentioned, frequencies unclear, mix of active and passive",
+        "2": "Mostly passive techniques (re-reading, highlighting), minimal retrieval practice, tools not specified",
+        "1": "All passive techniques, no active recall, no testing"
+      }
+    },
+    {
+      "name": "Schedule Realism",
+      "description": "Time estimates and daily commitments are achievable and sustainable",
+      "levels": {
+        "5": "Total hours calculated with formulas, 1.5x buffer included, consistency factor (0.7) applied, daily time is sustainable (15min-4hr range), contingency plans for falling behind",
+        "4": "Hours estimated with some buffer, consistency considered, daily time mostly sustainable, some contingency planning",
+        "3": "Hours estimated but minimal buffer, consistency not explicitly considered, daily time on edge of sustainable, weak contingency plans",
+        "2": "Unrealistic time estimates, no buffer, heroic daily commitments, no contingency plans",
+        "1": "No realistic planning, assumes perfect conditions, unsustainable commitments"
+      }
+    },
+    {
+      "name": "Progress Tracking",
+      "description": "System in place to measure retention and adjust schedule based on performance",
+      "levels": {
+        "5": "Clear tracking method (tool specified), retention metrics defined (target ≥70%), adjustment rules documented (what to do if <60% or >90%), study log template provided",
+        "4": "Tracking method specified, retention target noted, some adjustment guidance, log format exists",
+        "3": "Tracking mentioned but method vague, retention target unclear, minimal adjustment guidance",
+        "2": "Tracking is hours-only (not retention), no adjustment rules, no clear system",
+        "1": "No tracking system, no measurement of retention or progress"
+      }
+    },
+    {
+      "name": "Evidence-Based Techniques",
+      "description": "Plan incorporates cognitive science principles (spacing, testing, interleaving, elaboration)",
+      "levels": {
+        "5": "Uses all 4 key techniques: spaced repetition with proper intervals, retrieval practice prioritized, interleaving across topics, elaboration/connection to prior knowledge",
+        "4": "Uses 3/4 key techniques consistently, one is weak or missing",
+        "3": "Uses 2/4 techniques, others missing or poorly implemented",
+        "2": "Uses 1/4 technique only, mostly ignores learning science",
+        "1": "Ignores all evidence-based techniques, uses counterproductive methods"
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Plan is immediately executable with clear next steps",
+      "levels": {
+        "5": "Can start tomorrow with clear first task, review schedule has specific dates, tools/resources identified and accessible, success criteria observable, weekly milestones defined",
+        "4": "Can start soon with minor clarifications needed, schedule mostly specific, resources mostly identified, criteria mostly observable",
+        "3": "Requires some preparation to start, schedule has dates but gaps, some resources missing, criteria somewhat vague",
+        "2": "Unclear how to start, schedule lacks specificity, resources not identified, criteria not measurable",
+        "1": "Cannot execute, no concrete steps, no schedule, no resources, no measurable outcomes"
+      }
+    }
+  ],
+  "scale": 5,
+  "passing_threshold": 3.5,
+  "scoring_guidance": {
+    "overall_minimum": "Average score must be ≥ 3.5 across all criteria",
+    "critical_criteria": [
+      "Spaced Repetition",
+      "Retrieval Practice",
+      "Schedule Realism"
+    ],
+    "critical_threshold": "Critical criteria must each be ≥ 3.0 (even if average is ≥ 3.5)",
+    "improvement_priority": "If below threshold, prioritize: Spaced Repetition → Retrieval Practice → Schedule Realism → others"
+  },
+  "common_failure_modes": [
+    "Cramming plan (massed practice) instead of spaced repetition",
+    "Passive techniques (highlighting, re-reading) instead of retrieval practice",
+    "Heroic time commitments (4+ hours daily for months) without realistic buffer",
+    "No tracking system or only tracking hours (not retention)",
+    "Blocking by topic (all unit 1, then all unit 2) instead of interleaving",
+    "Vague goals without measurable success criteria",
+    "No material breakdown or unrealistic chunk sizes",
+    "Review schedule doesn't cover full timeline (runs out of time)",
+    "No contingency plans for falling behind or burnout",
+    "Tools not specified (just 'use flashcards' without naming Anki, etc)"
+  ],
+  "excellence_indicators": [
+    "Spaced repetition intervals match evidence (1-3-7-14-30 days)",
+    "Retrieval practice methods specific to each material type",
+    "Total hours calculated with formulas and 1.5x buffer",
+    "Consistency factor (0.7) applied to daily schedule",
+    "Retention metrics tracked with adjustment rules (if <60%, shorten intervals)",
+    "Interleaving built into review schedule",
+    "Mock tests scheduled at 30%, 60%, 90% completion",
+    "Contingency plans for falling behind, low retention, and burnout",
+    "Tools explicitly named (Anki, spreadsheet, bullet journal)",
+    "Success criteria are SMART (Specific, Measurable, Achievable, Relevant, Time-bound)"
+  ],
+  "guidance_by_timeline": {
+    "short_term_1-4_weeks": {
+      "focus": "Intensive daily practice with frequent short reviews",
+      "target_scores": {
+        "SpacedRepetition": "≥4 (use 1-2-4-8 day intervals for short timeline)",
+        "RetrievalPractice": "≥4 (multiple daily retrieval sessions)",
+        "ScheduleRealism": "≥3 (can be intensive for short period)"
+      },
+      "common_issues": "Not enough time for proper spacing (can't fit 5 review cycles), need compressed schedule"
+    },
+    "medium_term_1-6_months": {
+      "focus": "Balanced new learning and reviews, sustainable daily practice",
+      "target_scores": {
+        "SpacedRepetition": "≥4 (full 1-3-7-14-30 day cycle)",
+        "RetrievalPractice": "≥4 (variety of methods)",
+        "ScheduleRealism": "≥4 (must be sustainable for months)"
+      },
+      "common_issues": "Review load peaks around weeks 4-8, can feel overwhelming if not planned"
+    },
+    "long_term_6+_months": {
+      "focus": "Maintenance and prevention of forgetting, gradual skill building",
+      "target_scores": {
+        "SpacedRepetition": "≥4 (may extend to 60-90 day intervals)",
+        "RetrievalPractice": "≥4 (varied to prevent boredom)",
+        "ScheduleRealism": "≥5 (sustainability is critical, burnout risk)"
+      },
+      "common_issues": "Motivation decay over long timeline, need progress milestones and rewards"
+    }
+  },
+  "guidance_by_material_type": {
+    "factual_memory_vocab_dates_names": {
+      "best_methods": "Flashcards (Anki), spaced repetition software, mnemonics",
+      "target_scores": {
+        "RetrievalPractice": "≥4 (flashcards are ideal for facts)",
+        "SpacedRepetition": "≥5 (SRS algorithms handle spacing automatically)"
+      },
+      "red_flags": "Using lists/highlighting instead of flashcards, no SRS tool"
+    },
+    "procedural_skills_math_coding_procedures": {
+      "best_methods": "Practice problems, worked examples, progressive difficulty",
+      "target_scores": {
+        "RetrievalPractice": "≥4 (must actually solve problems)",
+        "Interleaving": "≥4 (mix problem types, don't block)"
+      },
+      "red_flags": "Only reading solutions, blocking by problem type, no hands-on practice"
+    },
+    "conceptual_understanding_theory_models": {
+      "best_methods": "Self-explanation, concept mapping, teach-back method",
+      "target_scores": {
+        "RetrievalPractice": "≥4 (explain from memory)",
+        "Elaboration": "≥4 (connect to prior knowledge)"
+      },
+      "red_flags": "Passive re-reading, no self-testing, can't explain in own words"
+    },
+    "exam_prep_certification_bar_boards": {
+      "best_methods": "Mock exams, mixed practice, timed conditions",
+      "target_scores": {
+        "RetrievalPractice": "≥5 (mock tests are critical)",
+        "SpacedRepetition": "≥4 (review weak areas)",
+        "ProgressTracking": "≥5 (must track mock scores)"
+      },
+      "red_flags": "No mock exams, cramming in final week, not tracking weak areas"
+    },
+    "language_learning": {
+      "best_methods": "Flashcards (vocab), conversation practice, immersion, interleaved grammar/vocab",
+      "target_scores": {
+        "RetrievalPractice": "≥4 (active production, not just recognition)",
+        "SpacedRepetition": "≥5 (vocabulary review is continuous)",
+        "Application": "≥4 (must use language, not just study)"
+      },
+      "red_flags": "Only studying grammar rules, no speaking practice, pure vocabulary without context"
+    }
+  }
+}
