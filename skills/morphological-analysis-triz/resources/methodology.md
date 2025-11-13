@@ -1,17 +1,5 @@
 # Morphological Analysis & TRIZ Methodology
 
-**When to use this methodology:** You've used [template.md](template.md) and need advanced techniques for:
-- Leveraging trends of technical evolution for future-proofing
-- Modeling complex interactions with substance-field analysis
-- Systematic TRIZ problem-solving with ARIZ algorithm
-- Combining morphological analysis with TRIZ for complex systems
-- Resolving multiple contradictions simultaneously
-- Applying TRIZ to non-technical domains (business, software, services)
-
-**If your problem is straightforward:** Use [template.md](template.md) directly. This methodology is for complex innovation challenges.
-
----
-
 ## Table of Contents
 1. [Trends of Technical Evolution](#1-trends-of-technical-evolution)
 2. [Substance-Field Analysis](#2-substance-field-analysis)
