@@ -1,4 +1,3 @@
----
 # Postmortem Template
 
 ## Table of Contents
