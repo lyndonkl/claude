@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 38 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 39 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **38 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **39 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -43,6 +43,8 @@ This repository contains **38 skills** designed to enhance Claude Code's capabil
 **abstraction-concrete-examples** - Move fluidly between abstract concepts and concrete examples to clarify thinking, test understanding, and communicate effectively.
 
 **layered-reasoning** - Structure thinking across multiple abstraction levels (30K ft strategic → 3K ft tactical → 300 ft operational). Maintain consistency: lower layers implement upper layers, upper layers constrain lower layers. Design 3-5 layer hierarchies for system architecture, strategic planning, or cross-audience communication (CEO/manager/engineer). Validate upward consistency (ops implement tactics, tactics achieve strategy), downward consistency (strategy executable with tactics), and lateral consistency (no same-layer contradictions). Propagate changes bidirectionally (strategic shifts cascade down, operational constraints escalate up). Detect emergent properties from bottom-up patterns (Conway's Law, unintended consequences). Translate appropriately for each audience's abstraction level. Covers layer design principles, formal consistency checking, emergence recognition, abstraction gap sizing (3-10 elements per layer), and explicit layer contracts.
+
+**negative-contrastive-framing** - Define concepts and quality criteria by showing what they're NOT—use anti-goals, near-miss examples, and failure patterns to clarify fuzzy boundaries where positive definitions alone are ambiguous. Generate 3-5 anti-goals (true opposites), 5-10 instructive near-misses (examples that almost pass but fail on single dimension), and common failure patterns with detection heuristics and prevention guards. Create contrast matrices varying dimensions systematically to explore boundary space (clear pass, borderline pass, borderline fail, clear fail). Operationalize fuzzy criteria into testable decision rules through contrast insights. Apply boundary mapping to find exact pass/fail thresholds for continuous dimensions. Build failure taxonomies (by severity, type, detection difficulty) with root cause analysis and prevention strategies. Use for teaching by counterexample (revealing misconceptions through near-misses), setting design guardrails (code quality anti-patterns, UX violations), defining evaluation criteria (what disqualifies candidates), preventing common mistakes (QA checklists), and requirements clarification (disambiguating similar concepts). Covers engineering (maintainable code, test quality), design (intuitive interfaces, accessibility), communication (clear writing, audience fit), and strategy (market positioning, brand identity). Near-misses are most valuable when genuinely close calls that isolate single failing dimension.
 
 ### 🔬 Research & Discovery
 
@@ -140,7 +142,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 38 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 39 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 

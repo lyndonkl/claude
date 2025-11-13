@@ -1,0 +1,298 @@
+{
+  "name": "Negative Contrastive Framing Evaluator",
+  "description": "Evaluate quality of negative contrastive framing—assessing anti-goals, near-misses, failure patterns, and how well negative examples clarify boundaries and criteria.",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "name": "Anti-Goal Quality",
+      "description": "Evaluates quality of anti-goals (opposite of desired outcomes) - do they represent true opposites and clarify boundaries?",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No or weak anti-goals",
+          "description": "Anti-goals missing, too vague, or just bad versions of goal (not true opposites). Example: For 'fast code,' anti-goal is 'slow code' without specificity."
+        },
+        "2": {
+          "label": "Basic anti-goals",
+          "description": "2-3 anti-goals listed but generic or obvious. Limited insight into boundaries. Example: Anti-goals are extreme cases everyone already knows to avoid."
+        },
+        "3": {
+          "label": "Clear anti-goals",
+          "description": "3-5 anti-goals that represent different dimensions of failure. Each has clear explanation of why it's opposite. Provides reasonable boundary clarification."
+        },
+        "4": {
+          "label": "Insightful anti-goals",
+          "description": "3-5 well-chosen anti-goals spanning key failure dimensions. Each reveals something non-obvious about what makes goal work. Anti-goals are specific and instructive."
+        },
+        "5": {
+          "label": "Exceptional anti-goals",
+          "description": "Anti-goals comprehensively span opposition space, reveal subtle aspects of goal, include surprising/counterintuitive opposites. Explanations show deep understanding of what makes goal succeed."
+        }
+      }
+    },
+    {
+      "name": "Near-Miss Quality",
+      "description": "Evaluates quality of near-miss examples - are they genuinely close calls that fail on specific dimensions?",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "No near-misses or obviously bad examples",
+          "description": "Near-misses missing, or examples are clearly bad (not 'near'). Example: For 'good UX,' showing completely broken interface as near-miss."
+        },
+        "2": {
+          "label": "Weak near-misses",
+          "description": "1-3 examples labeled as near-misses but not genuinely close. Fail on multiple dimensions (can't isolate lesson). Not instructive."
+        },
+        "3": {
+          "label": "Genuine near-misses",
+          "description": "3-5 examples that are genuinely close to passing. Each fails on identifiable dimension. Somewhat instructive but explanations could be deeper."
+        },
+        "4": {
+          "label": "Instructive near-misses",
+          "description": "5-10 well-chosen near-misses that fool initial judgment. Each isolates specific failing dimension. Explanations clarify why failure occurs and what dimension matters. Reveals subtleties in criteria."
+        },
+        "5": {
+          "label": "Exemplary near-misses",
+          "description": "10+ near-misses that systematically cover boundary space. Each is plausible mistake someone would make. Failures isolate single dimensions. Explanations reveal non-obvious criteria and provide 'aha' moments. Build pattern recognition."
+        }
+      }
+    },
+    {
+      "name": "Failure Pattern Identification",
+      "description": "Evaluates identification and documentation of common failure patterns with detection and prevention guidance",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No failure patterns",
+          "description": "Failure patterns not identified or just list of bad examples without pattern recognition. No actionable guidance."
+        },
+        "2": {
+          "label": "Basic failure listing",
+          "description": "2-3 failure modes listed but not organized into patterns. Minimal detection or prevention guidance. Example: Lists failures without explaining commonality."
+        },
+        "3": {
+          "label": "Identified patterns",
+          "description": "3-5 failure patterns identified and named. Basic detection heuristics and prevention guidance. Patterns are recognizable. Reasonable actionability."
+        },
+        "4": {
+          "label": "Comprehensive patterns",
+          "description": "5-7 failure patterns well-documented with: pattern name, description, why it fails, how to detect, how to prevent, examples. Patterns are memorable and actionable. Create practical guards."
+        },
+        "5": {
+          "label": "Systematic failure taxonomy",
+          "description": "7+ failure patterns organized into taxonomy (by severity, type, detection difficulty). Each pattern thoroughly documented with root causes, detection methods, prevention guards, and examples. Patterns are reusable across contexts. Creates comprehensive quality checklist."
+        }
+      }
+    },
+    {
+      "name": "Contrast Analysis Depth",
+      "description": "Evaluates depth of analysis - are contrasts just listed, or is there analysis of why examples fail and what dimensions matter?",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No analysis",
+          "description": "Negative examples listed without explanation of why they fail or what dimensions they violate. Just 'good' vs 'bad' with no insight."
+        },
+        "2": {
+          "label": "Surface analysis",
+          "description": "Brief explanations of why examples fail but lacks depth. Doesn't identify specific dimensions. Example: 'This fails because it's bad' without explaining what aspect fails."
+        },
+        "3": {
+          "label": "Dimensional identification",
+          "description": "Identifies key dimensions (3-5) and explains which dimensions each negative example violates. Basic contrast analysis showing what differs between pass and fail."
+        },
+        "4": {
+          "label": "Deep contrast analysis",
+          "description": "Thorough analysis of contrasts revealing subtle differences. Identifies necessary vs sufficient conditions. Explains interactions between dimensions. Uses contrast matrix or boundary mapping. Clarifies ambiguous cases."
+        },
+        "5": {
+          "label": "Revelatory analysis",
+          "description": "Exceptional depth of analysis that reveals non-obvious criteria invisible in positive definition alone. Multi-dimensional analysis showing dimension interactions, compensation effects, thresholds. Operationalizes fuzzy criteria through contrast insights. Handles ambiguous boundary cases explicitly."
+        }
+      }
+    },
+    {
+      "name": "Decision Criteria Operationalization",
+      "description": "Evaluates whether analysis translates into clear, testable decision criteria for determining pass/fail",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No operationalization",
+          "description": "Criteria remain fuzzy after analysis. No clear pass/fail rules. Can't apply criteria consistently to new examples."
+        },
+        "2": {
+          "label": "Vague criteria",
+          "description": "Some attempt at criteria but still subjective. Example: 'Should be intuitive' without defining what makes something intuitive. Hard to test."
+        },
+        "3": {
+          "label": "Basic operationalization",
+          "description": "Decision criteria stated with reasonable clarity. Pass/fail conditions identified. Somewhat testable but may require judgment in edge cases. Example: Checklist with 3-5 items."
+        },
+        "4": {
+          "label": "Clear operational criteria",
+          "description": "Decision criteria are testable and specific. Clear pass conditions and disqualifiers. Handles edge cases explicitly. Provides detection heuristics. Can be applied consistently. Example: Measurable thresholds, specific checklist, ambiguous cases addressed."
+        },
+        "5": {
+          "label": "Rigorous operationalization",
+          "description": "Criteria fully operationalized with objective tests, thresholds, and decision rules. Handles all edge cases and ambiguous middle ground explicitly. Provides guards/checks that can be automated or consistently applied. Criteria are falsifiable and have been validated. Inter-rater reliability would be high."
+        }
+      }
+    },
+    {
+      "name": "Boundary Completeness",
+      "description": "Evaluates whether negative examples comprehensively cover the boundary space or leave gaps",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Incomplete coverage",
+          "description": "Negative examples only cover obvious failure modes. Major gaps in boundary space. Missing entire categories of near-misses or failure patterns."
+        },
+        "2": {
+          "label": "Limited coverage",
+          "description": "Covers some failure modes but significant gaps remain. Examples cluster in one area of boundary space. Doesn't systematically vary dimensions."
+        },
+        "3": {
+          "label": "Reasonable coverage",
+          "description": "Covers major failure modes and most common near-misses. Some gaps in boundary space acceptable. Examples span multiple dimensions. Representative but not exhaustive."
+        },
+        "4": {
+          "label": "Comprehensive coverage",
+          "description": "Systematically covers boundary space. Negative examples span all key dimensions. Includes obvious and subtle failures. Near-misses cover single-dimension failures across each critical dimension. Few gaps."
+        },
+        "5": {
+          "label": "Exhaustive coverage",
+          "description": "Complete, systematic coverage of boundary space using techniques like contrast matrices or boundary mapping. Negative examples span full spectrum from clear pass to clear fail. All combinations of dimensional failures represented. Explicitly identifies any remaining ambiguous cases. No significant gaps."
+        }
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Evaluates whether framework provides actionable guards, checklists, or heuristics for preventing failures",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Not actionable",
+          "description": "Analysis interesting but provides no practical guidance for applying criteria or preventing failures. No guards, checklists, or heuristics."
+        },
+        "2": {
+          "label": "Minimally actionable",
+          "description": "Some guidance but vague or hard to apply. Example: 'Watch out for pattern X' without detection method or prevention strategy."
+        },
+        "3": {
+          "label": "Reasonably actionable",
+          "description": "Provides basic checklist or guards. Can be applied with some effort. Example: Prevention checklist with 3-5 items, basic detection heuristics for failure patterns."
+        },
+        "4": {
+          "label": "Highly actionable",
+          "description": "Comprehensive prevention checklist, detection heuristics for each failure pattern, and clear decision criteria. Can be immediately applied in practice. Example: Specific guards, red flags to watch for, step-by-step evaluation process."
+        },
+        "5": {
+          "label": "Immediately implementable",
+          "description": "Complete action framework with: prevention checklist, detection heuristics, decision flowchart, measurement criteria, and examples for calibration. Could be automated or implemented as process. Teams can apply consistently with minimal training."
+        }
+      }
+    },
+    {
+      "name": "Instructiveness",
+      "description": "Evaluates whether negative examples reveal insights not obvious from positive definition alone",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Not instructive",
+          "description": "Negative examples obvious or redundant with positive definition. Don't reveal anything new. Example: For 'fast code,' showing extremely slow code as negative (already implied)."
+        },
+        "2": {
+          "label": "Minimally instructive",
+          "description": "Some insights but mostly confirming what positive definition already implies. Near-misses are weak. Little 'aha' value."
+        },
+        "3": {
+          "label": "Reasonably instructive",
+          "description": "Negative examples clarify boundaries and reveal some non-obvious aspects of criteria. Near-misses show trade-offs or subtle requirements. Adds value beyond positive definition."
+        },
+        "4": {
+          "label": "Highly instructive",
+          "description": "Negative examples reveal important subtleties invisible in positive definition. Near-misses create 'aha' moments. Analysis articulates implicit criteria. Significantly deepens understanding of concept."
+        },
+        "5": {
+          "label": "Transformatively instructive",
+          "description": "Negative examples fundamentally reshape understanding of concept. Near-misses reveal surprising requirements or common misconceptions. Analysis makes previously fuzzy criteria explicit and operational. Reader gains ability to recognize patterns they couldn't see before. Teaching value exceptional."
+        }
+      }
+    }
+  ],
+  "guidance": {
+    "by_application": {
+      "teaching": {
+        "focus": "Prioritize near-miss quality and instructiveness. Weight near-misses heavily (1.5x). Use examples that reveal common student misconceptions.",
+        "typical_scores": "Near-miss quality and instructiveness should be 4+. Other criteria can be 3+.",
+        "red_flags": "Near-misses are obviously bad (not close calls), examples don't build pattern recognition, no connection to common errors"
+      },
+      "decision_criteria": {
+        "focus": "Prioritize operationalization and actionability. Must translate into clear pass/fail rules.",
+        "typical_scores": "Operationalization and actionability should be 4+. Boundary completeness 3+.",
+        "red_flags": "Criteria remain fuzzy, no clear decision rules, can't consistently apply to new examples"
+      },
+      "quality_control": {
+        "focus": "Prioritize failure patterns and boundary completeness. Need systematic coverage and prevention guards.",
+        "typical_scores": "Failure patterns and boundary completeness should be 4+. Actionability 4+.",
+        "red_flags": "Missing common failure modes, no prevention checklist, can't systematically check quality"
+      },
+      "requirements_clarification": {
+        "focus": "Prioritize contrast analysis depth and boundary completeness. Need to expose ambiguities.",
+        "typical_scores": "Contrast analysis and boundary completeness should be 4+. Near-miss quality 3+.",
+        "red_flags": "Ambiguous cases not addressed, boundary gaps, unclear which edge cases pass/fail"
+      }
+    },
+    "by_domain": {
+      "engineering": {
+        "anti_goal_examples": "Unmaintainable code, tight coupling, unclear naming, no tests",
+        "near_miss_examples": "Well-commented spaghetti code, over-engineered simple solution, premature optimization",
+        "failure_patterns": "God objects, leaky abstractions, magic numbers, exception swallowing",
+        "operationalization": "Cyclomatic complexity thresholds, test coverage %, linter rules"
+      },
+      "design": {
+        "anti_goal_examples": "Unusable interface, inaccessible design, inconsistent patterns",
+        "near_miss_examples": "Beautiful but non-intuitive, feature-complete but overwhelming, accessible but unappealing",
+        "failure_patterns": "Form over function, hidden affordances, inconsistent mental models",
+        "operationalization": "Task completion rates, time on task, user satisfaction scores, accessibility audits"
+      },
+      "communication": {
+        "anti_goal_examples": "Incomprehensible writing, audience mismatch, missing context",
+        "near_miss_examples": "Technically accurate but inaccessible, comprehensive but unclear structure, engaging but inaccurate",
+        "failure_patterns": "Jargon overload, buried lede, assumed context, passive voice abuse",
+        "operationalization": "Reading level scores, comprehension tests, jargon ratio, example density"
+      },
+      "strategy": {
+        "anti_goal_examples": "Wrong market, misaligned resources, unsustainable model",
+        "near_miss_examples": "Good strategy but bad timing, right market but wrong positioning, strong execution of wrong plan",
+        "failure_patterns": "Strategy-execution gap, resource mismatch, underestimating competition",
+        "operationalization": "Market criteria checklist, resource requirements, success metrics, kill criteria"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "strawman_negatives": "Negative examples are unrealistically bad, creating false sense of understanding. Fix: Use realistic failures people actually make.",
+    "missing_near_misses": "Only showing clear passes and clear fails, no instructive close calls. Fix: Generate examples that fail on single dimension.",
+    "no_analysis": "Listing negatives without explaining why they fail or what dimension matters. Fix: Add dimension analysis and contrast insights.",
+    "incomplete_coverage": "Examples cluster in one area, missing other failure modes. Fix: Systematically vary dimensions using contrast matrix.",
+    "fuzzy_criteria": "After analysis, still can't apply criteria consistently to new examples. Fix: Operationalize criteria with testable conditions.",
+    "not_actionable": "Interesting analysis but no practical guards or prevention checklist. Fix: Extract actionable heuristics and detection methods."
+  },
+  "excellence_indicators": [
+    "Near-misses are genuinely close calls that fool initial judgment (not obviously bad)",
+    "Each near-miss isolates failure on single dimension (teaches specific lesson)",
+    "Failure patterns are memorable, recognizable, and common (not rare edge cases)",
+    "Contrast analysis reveals criteria invisible in positive definition alone",
+    "Decision criteria are operationalized with testable conditions or measurable thresholds",
+    "Boundary space systematically covered using contrast matrix or dimension variation",
+    "Actionable guards/checklist provided that can be immediately implemented",
+    "Examples span full spectrum: clear pass, borderline pass, borderline fail, clear fail",
+    "Ambiguous middle ground explicitly addressed with context-dependent rules",
+    "Framework has high teaching value - builds pattern recognition skills"
+  ],
+  "evaluation_notes": {
+    "scoring": "Calculate weighted average across all criteria. Minimum passing score: 3.0 (basic quality). Production-ready target: 3.5+. Excellence threshold: 4.2+. For teaching applications, weight near-miss quality and instructiveness at 1.5x.",
+    "context": "Adjust expectations by application. Teaching requires exceptional near-misses (4+). Decision criteria requires strong operationalization (4+). Quality control requires comprehensive failure patterns (4+). Requirements clarification requires thorough boundary coverage (4+).",
+    "iteration": "Low scores indicate specific improvement areas. Priority order: 1) Improve near-miss quality (highest ROI), 2) Add contrast analysis depth, 3) Operationalize criteria, 4) Expand boundary coverage, 5) Create actionable guards. Near-misses are most valuable—invest effort there first."
+  }
+}
