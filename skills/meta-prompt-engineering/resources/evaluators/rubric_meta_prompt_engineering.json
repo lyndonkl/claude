@@ -1,0 +1,284 @@
+{
+  "name": "Meta Prompt Engineering Evaluator",
+  "description": "Evaluate engineered prompts for clarity, structure, constraints, and reliability. Assess whether prompts will produce consistent, high-quality outputs that meet specified requirements.",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "name": "Role Definition",
+      "description": "Evaluates clarity and appropriateness of role/persona specification",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No role specified",
+          "description": "Prompt lacks any role, persona, or expertise definition. Output perspective is unclear."
+        },
+        "2": {
+          "label": "Vague role",
+          "description": "Generic role mentioned ('expert', 'assistant') without domain specificity or expertise detail."
+        },
+        "3": {
+          "label": "Basic role",
+          "description": "Role specified with domain (e.g., 'software engineer') but lacks expertise level, audience, or priorities."
+        },
+        "4": {
+          "label": "Clear role",
+          "description": "Specific role with expertise and audience defined (e.g., 'Senior security architect for healthcare systems'). Priorities implicit."
+        },
+        "5": {
+          "label": "Comprehensive role",
+          "description": "Detailed role with expertise, audience, and explicit priorities/values. Role directly shapes output quality (e.g., 'Senior security architect for healthcare systems prioritizing HIPAA compliance and patient data protection')."
+        }
+      }
+    },
+    {
+      "name": "Task Decomposition",
+      "description": "Evaluates how well complex tasks are broken into clear, actionable steps",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No structure",
+          "description": "Single undifferentiated instruction. No breakdown or sequence."
+        },
+        "2": {
+          "label": "Minimal structure",
+          "description": "Vague steps without clear sequence or deliverables (e.g., 'analyze then recommend')."
+        },
+        "3": {
+          "label": "Basic steps",
+          "description": "3-7 numbered steps with action verbs, but deliverables or success criteria unclear."
+        },
+        "4": {
+          "label": "Clear steps",
+          "description": "3-7 numbered steps with clear deliverables for each. Sequence logical, dependencies apparent."
+        },
+        "5": {
+          "label": "Detailed decomposition",
+          "description": "3-7 numbered steps with explicit deliverables, success criteria, and expected format. Follows appropriate pattern (sequential/parallel/iterative)."
+        }
+      }
+    },
+    {
+      "name": "Constraint Specificity",
+      "description": "Evaluates how explicitly format, length, tone, and content requirements are stated",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No constraints",
+          "description": "No format, length, tone, or content requirements specified. Output unpredictable."
+        },
+        "2": {
+          "label": "Vague constraints",
+          "description": "Generic requirements ('be professional', 'not too long') without measurable criteria."
+        },
+        "3": {
+          "label": "Some constraints",
+          "description": "2-3 constraint types specified (e.g., length + tone) but lack precision (e.g., 'approximately 500 words')."
+        },
+        "4": {
+          "label": "Clear constraints",
+          "description": "Format, length, tone, and content constraints specified with measurable criteria (e.g., '500-750 words, professional tone for executives, must include 3 examples')."
+        },
+        "5": {
+          "label": "Comprehensive constraints",
+          "description": "All relevant constraints explicitly defined: format (structure), length (ranges per section), tone (audience-specific), content (must include/avoid lists). Constraints prevent known failure modes."
+        }
+      }
+    },
+    {
+      "name": "Output Format Clarity",
+      "description": "Evaluates how clearly the expected output structure is specified",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No format specified",
+          "description": "Output structure completely undefined. Could be paragraph, list, JSON, etc."
+        },
+        "2": {
+          "label": "Format mentioned",
+          "description": "Format type mentioned (e.g., 'JSON', 'markdown') but structure not defined."
+        },
+        "3": {
+          "label": "Basic structure",
+          "description": "High-level sections defined (e.g., 'Introduction, Body, Conclusion') without detailed format."
+        },
+        "4": {
+          "label": "Clear structure",
+          "description": "Explicit structure with section names and content types (e.g., '## Analysis (2-3 paragraphs), ## Recommendations (bulleted list)')."
+        },
+        "5": {
+          "label": "Template provided",
+          "description": "Complete output template or example showing exact structure, formatting, and content expectations. Easy to pattern-match."
+        }
+      }
+    },
+    {
+      "name": "Quality Checks",
+      "description": "Evaluates self-evaluation criteria and verification mechanisms",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "No quality checks",
+          "description": "No verification, validation, or self-evaluation criteria included."
+        },
+        "2": {
+          "label": "Generic checks",
+          "description": "Vague quality requirements ('ensure quality', 'check for errors') without specific criteria."
+        },
+        "3": {
+          "label": "Basic checklist",
+          "description": "3-5 checkable items but criteria subjective or unmeasurable (e.g., 'Output is good quality')."
+        },
+        "4": {
+          "label": "Specific checks",
+          "description": "3-5 specific, measurable checks with verification methods (e.g., 'Word count 500-750: count words')."
+        },
+        "5": {
+          "label": "Comprehensive verification",
+          "description": "3-5 specific checks with test methods AND fix instructions. Checks prevent known failure modes (hallucination, bias, format errors). Includes revision requirement if checks fail."
+        }
+      }
+    },
+    {
+      "name": "Consistency & Testability",
+      "description": "Evaluates whether prompt design supports reliable, repeatable outputs",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Highly variable",
+          "description": "Underspecified prompt will produce inconsistent outputs across runs. No testing consideration."
+        },
+        "2": {
+          "label": "Somewhat variable",
+          "description": "Some structure but missing key constraints. Likely 40-60% consistency across runs."
+        },
+        "3": {
+          "label": "Moderately consistent",
+          "description": "Structure and constraints should produce ~60-80% consistency. Not explicitly tested."
+        },
+        "4": {
+          "label": "High consistency expected",
+          "description": "Clear structure, constraints, and format should produce >80% consistency. Testing protocol mentioned."
+        },
+        "5": {
+          "label": "Validated consistency",
+          "description": "Prompt explicitly tested 5-10 times with documented consistency metrics (length variance, format compliance, quality ratings). Refined based on failure patterns."
+        }
+      }
+    },
+    {
+      "name": "Failure Mode Prevention",
+      "description": "Evaluates whether prompt addresses common failure modes",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No prevention",
+          "description": "Prompt vulnerable to common issues: hallucination, bias, unsafe content, format inconsistency."
+        },
+        "2": {
+          "label": "Minimal prevention",
+          "description": "One failure mode addressed (e.g., 'avoid bias') but without specific mechanism."
+        },
+        "3": {
+          "label": "Some prevention",
+          "description": "2-3 failure modes addressed with general instructions (e.g., 'cite sources', 'be unbiased')."
+        },
+        "4": {
+          "label": "Good prevention",
+          "description": "3-4 failure modes explicitly prevented with specific mechanisms (e.g., 'If uncertain, say I don't know', 'Include citations in (Author, Year) format')."
+        },
+        "5": {
+          "label": "Comprehensive prevention",
+          "description": "All relevant failure modes addressed: hallucination (uncertainty expression), bias (multiple perspectives), unsafe content (explicit prohibitions), inconsistency (format template). Mechanisms are specific and verifiable."
+        }
+      }
+    },
+    {
+      "name": "Overall Completeness",
+      "description": "Evaluates whether all necessary components are present and integrated",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "Incomplete",
+          "description": "Missing 3+ major components (role, steps, constraints, format, checks)."
+        },
+        "2": {
+          "label": "Partially complete",
+          "description": "Missing 2 major components or multiple components are underdeveloped."
+        },
+        "3": {
+          "label": "Mostly complete",
+          "description": "All major components present but 1-2 need more detail. Components not well-integrated."
+        },
+        "4": {
+          "label": "Complete",
+          "description": "All major components (role, task steps, constraints, format, quality checks) present with adequate detail. Good integration."
+        },
+        "5": {
+          "label": "Comprehensive",
+          "description": "All components present with excellent detail and integration. Includes examples, edge case handling, and testing validation. Ready for production use."
+        }
+      }
+    }
+  ],
+  "guidance": {
+    "by_prompt_type": {
+      "code_generation": {
+        "focus": "Emphasize error handling, test coverage, security constraints, and style guide compliance in quality checks.",
+        "common_issues": "Missing edge case requirements, no security vulnerability checks, unclear testing expectations"
+      },
+      "content_writing": {
+        "focus": "Emphasize tone/audience definition, length constraints, structural requirements (hook/body/conclusion), and SEO if relevant.",
+        "common_issues": "Vague audience definition, no length limits, missing content requirements (examples, citations)"
+      },
+      "data_analysis": {
+        "focus": "Emphasize methodology specification, visualization requirements, statistical rigor, and actionable insights.",
+        "common_issues": "No statistical significance criteria, unclear visualization expectations, missing business context"
+      },
+      "creative_tasks": {
+        "focus": "Balance specificity with creative freedom. Use few-shot examples. Emphasize style and tone over rigid structure.",
+        "common_issues": "Over-specification killing creativity, no style examples, missing target audience"
+      },
+      "research_synthesis": {
+        "focus": "Emphasize source quality, citation format, claim verification, and uncertainty expression.",
+        "common_issues": "No anti-hallucination checks, missing citation requirements, unclear evidence standards"
+      }
+    },
+    "by_complexity": {
+      "simple_tasks": {
+        "threshold": "Single-step tasks, clear inputs/outputs",
+        "recommendation": "Focus on output format and 1-2 key quality checks. Role may be optional. Target score: ≥3.5"
+      },
+      "moderate_tasks": {
+        "threshold": "2-4 steps, some ambiguity, multiple outputs",
+        "recommendation": "Include role, numbered steps, format template, and 3-4 quality checks. Target score: ≥4.0"
+      },
+      "complex_tasks": {
+        "threshold": "5+ steps, high ambiguity, multi-dimensional outputs, critical use case",
+        "recommendation": "Full template with role/priorities, detailed decomposition, comprehensive constraints, 5+ quality checks, examples, testing protocol. Target score: ≥4.5"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "inconsistent_outputs": "Missing output format template or underspecified constraints. Add explicit structure.",
+    "wrong_length": "No length constraints or ranges too vague. Specify min-max per section.",
+    "wrong_tone": "Audience not defined or tone not specified. Add target audience and formality level.",
+    "hallucination": "No uncertainty expression required. Add 'If uncertain, say so' and fact-checking requirements.",
+    "missing_information": "Required elements not explicit. List 'Must include: [elements]'.",
+    "poor_reasoning": "No intermediate steps required. Add chain-of-thought or show-work requirement."
+  },
+  "excellence_indicators": [
+    "Prompt has been tested 5-10 times with documented consistency >80%",
+    "Quality checks directly address known failure modes from testing",
+    "Output format includes complete template or detailed example",
+    "Task decomposition follows appropriate pattern (sequential/parallel/iterative) for the problem type",
+    "Constraints are balanced (specific where needed, flexible where appropriate)",
+    "Role and priorities are tailored to specific domain and audience",
+    "Examples provided for complex or nuanced output formats",
+    "Refinement history shows iteration based on actual failures"
+  ],
+  "evaluation_notes": {
+    "scoring": "Calculate weighted average across all criteria. Minimum passing score: 3.0 (basic quality). Production-ready target: 4.0+. Excellence threshold: 4.5+.",
+    "context": "Adjust expectations based on prompt complexity and use case criticality. Simple one-off prompts may score 3.5-4.0 and be adequate. Production prompts for critical systems should target 4.5+.",
+    "iteration": "Low scores indicate specific areas for refinement. Focus on lowest-scoring criteria first. Retest after changes."
+  }
+}

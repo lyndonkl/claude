@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 35 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 36 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **35 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **36 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -112,6 +112,8 @@ This repository contains **35 skills** designed to enhance Claude Code's capabil
 
 **memory-retrieval-learning** - Create evidence-based learning plans for durable knowledge retention using spaced repetition (1-3-7-14-30 day intervals), retrieval practice (active recall over passive review), and interleaving. Design study schedules with realistic time estimates (1.5x buffer, 0.7 consistency factor), choose retrieval methods by material type (flashcards for facts, practice problems for procedures, mock tests for exams), track retention metrics (target ≥70%), and adjust based on performance. Covers exam prep (certifications, medical boards, bar exam), language learning, technology skill acquisition, and professional development. Includes diagnostic framework for plateaus, motivation strategies (implementation intentions, temptation bundling), and long-term maintenance schedules.
 
+**meta-prompt-engineering** - Transform vague prompts into reliable, structured prompts that produce consistent outputs through explicit roles, task decomposition, constraints, and quality checks. Apply role specification patterns (Expert/Assistant/Critic/Creator), break tasks into 3-7 clear steps with deliverables, define format/length/tone/content constraints, add self-evaluation criteria with fix instructions, and test for ≥80% consistency across runs. Use advanced patterns for complex cases: chain-of-thought with verification (5-step Understand→Plan→Execute→Verify→Present), self-consistency ensemble (3 independent solutions), least-to-most prompting (simple→complex), constitutional AI safety checks, and anti-hallucination layering. Includes iterative refinement protocol, A/B testing framework, prompt debugging taxonomy, multi-prompt workflows (sequential chaining, self-refinement loops), domain adaptation checklist, production deployment guide (versioning, monitoring, graceful degradation), and cost-quality tradeoff analysis. Covers code generation, content writing, data analysis, research synthesis, and creative tasks with domain-specific quality criteria.
+
 ### 🛡️ Ethics & Evaluation
 
 **ethics-safety-impact** - Systematic ethical assessment using stakeholder mapping, fairness metrics (demographic parity, equalized odds, calibration), harm/benefit analysis with risk scoring, privacy-preserving techniques (differential privacy, k-anonymity), and comprehensive monitoring frameworks for responsible AI and product development.
@@ -138,7 +140,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 35 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 36 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
