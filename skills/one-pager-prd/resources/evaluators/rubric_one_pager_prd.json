@@ -1,0 +1,292 @@
+{
+  "name": "One-Pager PRD Evaluator",
+  "description": "Evaluate quality of one-pagers and PRDs (Product Requirement Documents)—assessing problem clarity, solution feasibility, metric quality, scope definition, and stakeholder alignment.",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "name": "Problem Clarity & Validation",
+      "description": "Evaluates whether problem is specific, user-focused, validated with evidence, and quantified",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "Vague or missing problem",
+          "description": "Problem not stated, or too vague ('improve UX'). No evidence. Not user-focused (describes internal goal not user pain)."
+        },
+        "2": {
+          "label": "Generic problem statement",
+          "description": "Problem stated but generic. Limited evidence (assumptions not data). Impact not quantified. Unclear which user segment affected."
+        },
+        "3": {
+          "label": "Clear problem with some validation",
+          "description": "Problem is specific with user segment identified. Some evidence provided (1-2 data points). Impact partially quantified. 'Why now' mentioned."
+        },
+        "4": {
+          "label": "Well-validated problem",
+          "description": "Problem is specific and user-focused. Multiple evidence sources (user interviews, analytics, support tickets). Impact quantified (how many users, frequency, severity). Clear 'why now' rationale. User pain articulated with examples."
+        },
+        "5": {
+          "label": "Exceptional problem framing",
+          "description": "Problem framed using Jobs-to-be-Done or similar framework. Comprehensive validation (5+ user interviews, analytics with baselines, competitive analysis). Impact deeply quantified (revenue loss, churn risk, time wasted). Root cause analysis (5 Whys). Clear user quotes and examples. Validated as top 3 pain point for segment."
+        }
+      }
+    },
+    {
+      "name": "Solution Clarity",
+      "description": "Evaluates whether solution is clearly described without over-specifying, and is appropriate for problem",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No solution or unclear",
+          "description": "Solution not described, or so vague it's meaningless. Can't tell what's being built."
+        },
+        "2": {
+          "label": "Vague solution",
+          "description": "Solution described at high level but lacks detail. Hard to visualize what user would experience. Key flows not described."
+        },
+        "3": {
+          "label": "Clear high-level solution",
+          "description": "Solution is understandable. High-level approach clear. Key user flows described (happy path). Not over-specified (leaves room for design/eng). Appropriate for problem scale."
+        },
+        "4": {
+          "label": "Well-articulated solution",
+          "description": "Solution clearly explained with user perspective ('user does X, system does Y'). Multiple flows covered (happy path, alternatives, errors). Right level of detail (what not how). Mockups or examples provided. Edge cases considered."
+        },
+        "5": {
+          "label": "Exceptional solution clarity",
+          "description": "Solution crystal clear with concrete examples. User flows comprehensively documented. Alternatives considered with pros/cons. Edge cases and error handling explicit. Visual aids (mockups, flow diagrams). Non-functional requirements stated (performance, security, accessibility). Phasing plan for complex solutions."
+        }
+      }
+    },
+    {
+      "name": "User Understanding",
+      "description": "Evaluates whether users are well-defined with personas, use cases, and segment sizing",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "No user definition",
+          "description": "Users not identified or just 'users' (generic). No personas, use cases, or segmentation."
+        },
+        "2": {
+          "label": "Generic users",
+          "description": "Users mentioned but vaguely defined. Personas are stereotypes without depth. Use cases are hypothetical not validated."
+        },
+        "3": {
+          "label": "Users defined with basic segmentation",
+          "description": "Primary user persona identified with basic details. 1-2 use cases described. Some segmentation (% of users, frequency). User goals stated."
+        },
+        "4": {
+          "label": "Well-defined user personas",
+          "description": "Primary and secondary personas with details (role, goals, pain points, technical proficiency). 2-3 realistic use cases with context. Segmentation data (% of total users, usage frequency, value to business). User quotes or examples."
+        },
+        "5": {
+          "label": "Deep user insights",
+          "description": "Rich personas based on research (interviews, analytics). Personas include motivations, constraints, current workarounds. 3-5 validated use cases with triggers and expected outcomes. Segmentation with sizing (TAM), engagement metrics, and business value per segment. Jobs-to-be-done framing. Multiple user journeys mapped."
+        }
+      }
+    },
+    {
+      "name": "Metrics & Success Criteria",
+      "description": "Evaluates whether metrics are measurable, have baselines + targets, and include leading indicators",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "No metrics or unmeasurable",
+          "description": "No success metrics, or metrics are vague ('improve UX', 'increase engagement'). No way to measure objectively."
+        },
+        "2": {
+          "label": "Vague metrics",
+          "description": "Metrics stated but not measurable. Example: 'users should be happier.' No baselines or targets. No timeline."
+        },
+        "3": {
+          "label": "Measurable metrics with targets",
+          "description": "1-2 metrics that are measurable (quantifiable). Targets defined. Timeline stated. Baseline mentioned. SMART-ish (Specific, Measurable, Achievable, Relevant, Time-bound)."
+        },
+        "4": {
+          "label": "Well-defined success criteria",
+          "description": "Primary and secondary metrics clearly defined. Baselines with current state. Specific targets with timeline. Measurement approach specified. Mix of leading (early signals) and lagging (final outcomes) indicators. Metrics tied to business goals."
+        },
+        "5": {
+          "label": "Comprehensive metrics framework",
+          "description": "Metrics tree connecting feature metrics to North Star. Primary metric (1) with 2-3 secondary metrics. All SMART (Specific, Measurable, Achievable, Relevant, Time-bound). Clear baselines from analytics. Ambitious but realistic targets. Leading indicators for early feedback (week 1, month 1). Lagging indicators for outcomes (quarter 1). Measurement plan with tools/dashboards. Success criteria for launch vs post-launch."
+        }
+      }
+    },
+    {
+      "name": "Scope Definition",
+      "description": "Evaluates whether in-scope and out-of-scope boundaries are crisp and MVP is realistic",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "Scope undefined or everything included",
+          "description": "No scope definition, or everything is 'must-have.' No prioritization. Unrealistic scope."
+        },
+        "2": {
+          "label": "Vague scope",
+          "description": "Some scope defined but boundaries unclear. Hard to tell what's in vs out. MVP not differentiated from nice-to-haves."
+        },
+        "3": {
+          "label": "Clear in/out scope",
+          "description": "In-scope and out-of-scope items listed. MVP identified. Some prioritization (must-haves vs should-haves). Scope seems feasible."
+        },
+        "4": {
+          "label": "Well-prioritized scope",
+          "description": "Crisp scope boundaries with explicit in/out lists. MVP clearly defined with rationale. MoSCoW (Must/Should/Could/Won't) or similar prioritization. Out-of-scope items have reasoning (why not now). User flows for MVP documented. Phasing plan (v1, v2) if complex."
+        },
+        "5": {
+          "label": "Rigorous scope management",
+          "description": "Comprehensive scope with MoSCoW + RICE scoring or similar prioritization framework. MVP is shippable and testable (smallest thing that delivers value). V2/v3 roadmap. Each requirement has justification and success criteria. Non-functional requirements explicit (performance, security, scalability). Edge cases addressed with priority (must-handle vs can-defer). Scope validated against timeline and resources."
+        }
+      }
+    },
+    {
+      "name": "Constraints & Risks",
+      "description": "Evaluates whether technical, business, and timeline constraints are acknowledged and risks identified",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No constraints or risks mentioned",
+          "description": "Constraints and risks ignored. Unrealistic optimism. No mention of dependencies, technical debt, or limitations."
+        },
+        "2": {
+          "label": "Constraints mentioned briefly",
+          "description": "Some constraints noted but not detailed. Risks vaguely acknowledged. No mitigation plans."
+        },
+        "3": {
+          "label": "Key constraints identified",
+          "description": "Technical constraints mentioned (dependencies, performance limits). Business constraints noted (budget, timeline). 2-3 major risks identified. Some mitigation ideas."
+        },
+        "4": {
+          "label": "Comprehensive constraints & risks",
+          "description": "Technical constraints detailed (dependencies, technical debt, platform limits). Business constraints clear (budget, resources, timeline). Assumptions stated explicitly. 3-5 risks with impact assessment. Mitigation strategies for each risk. Dependencies mapped with owners and timelines."
+        },
+        "5": {
+          "label": "Rigorous risk management",
+          "description": "All constraint types covered: technical (architecture, performance, security), business (budget, headcount, timeline), legal/compliance. Assumptions documented and validated where possible. Risk register with probability × impact scoring. Mitigation and contingency plans. Dependencies with critical path analysis. Trade-offs explicitly acknowledged (what we're sacrificing for what). Pre-mortem conducted (what could go wrong)."
+        }
+      }
+    },
+    {
+      "name": "Open Questions & Decision-Making",
+      "description": "Evaluates whether unresolved questions are surfaced with owners and deadlines",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No open questions",
+          "description": "Open questions ignored, or author pretends everything is resolved (dangerous). False confidence."
+        },
+        "2": {
+          "label": "Vague open questions",
+          "description": "Questions mentioned but not actionable. No owners or timelines. Example: 'Need to figure out performance' without specifics."
+        },
+        "3": {
+          "label": "Questions identified",
+          "description": "2-3 open questions listed. Reasonably specific. Some have owners or decision timelines."
+        },
+        "4": {
+          "label": "Well-managed open questions",
+          "description": "3-5 open questions with clear framing. Options for each question stated. Decision owner assigned. Deadline for resolution. Prioritized (blocking vs non-blocking). Context for why question matters."
+        },
+        "5": {
+          "label": "Rigorous decision framework",
+          "description": "Open questions comprehensively documented with: specific question, why it matters, options with pros/cons, decision criteria, decision owner (by name/role), deadline aligned to project milestones, blocking vs non-blocking flag. Decisions already made are documented with rationale. Decision log tracks evolution. Shows deep thinking and awareness of unknowns."
+        }
+      }
+    },
+    {
+      "name": "Conciseness & Clarity",
+      "description": "Evaluates whether document is appropriate length (1-2 pages), scannable, and jargon-free",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "Too long or incomprehensible",
+          "description": "Document >5 pages (one-pager) or >10 pages (PRD). Wall of text. Jargon-heavy. Inaccessible."
+        },
+        "2": {
+          "label": "Verbose or hard to scan",
+          "description": "Longer than needed. Long paragraphs without structure. Hard to skim. Some jargon not explained."
+        },
+        "3": {
+          "label": "Appropriate length and mostly clear",
+          "description": "One-pager is ~1 page, PRD is 1-2 pages. Uses bullets and headers. Mostly scannable. Some jargon but generally accessible. Key points findable."
+        },
+        "4": {
+          "label": "Concise and highly scannable",
+          "description": "Appropriate length (1 page one-pager, 1-2 page PRD). Excellent use of formatting (bullets, headers, tables). Pyramid principle (lead with conclusion). Active voice, concrete language. Jargon explained or avoided. Examples liberally used. Can grasp main points in 2-3 min skim."
+        },
+        "5": {
+          "label": "Exemplary clarity",
+          "description": "Maximum information density with minimum words. Every sentence adds value. Perfect formatting for scannability (bullets, bold, tables, visual aids). Pyramid structure throughout (conclusion → support → evidence). No jargon or all explained. Abundant concrete examples. Different stakeholders can extract what they need quickly. Executive summary stands alone. Passes 'grandmother test' (non-expert can understand)."
+        }
+      }
+    }
+  ],
+  "guidance": {
+    "by_document_type": {
+      "one_pager": {
+        "focus": "Prioritize problem clarity (1.5x) and conciseness (1.3x). One-pagers are for quick approval.",
+        "typical_scores": "Problem and conciseness should be 4+. Metrics can be 3+ (less detail OK). Keep to 1 page.",
+        "red_flags": "Over 2 pages, over-specified solution, missing problem validation"
+      },
+      "full_prd": {
+        "focus": "Prioritize solution clarity and scope definition. PRDs are for detailed execution.",
+        "typical_scores": "Solution, scope, and users should be 4+. Metrics 4+. Can be 1-2 pages.",
+        "red_flags": "Vague user flows, scope creep (everything must-have), no edge cases"
+      },
+      "technical_spec": {
+        "focus": "Prioritize constraints & risks and solution clarity. Technical audience.",
+        "typical_scores": "Constraints 4+, solution 4+. Can have more technical detail. Users can be 3+.",
+        "red_flags": "No performance requirements, missing dependencies, unrealistic timeline"
+      },
+      "strategic_initiative": {
+        "focus": "Prioritize problem clarity and metrics (business impact). Executive audience.",
+        "typical_scores": "Problem 4+, metrics 4+ (tie to business outcomes). Solution can be 3+ (high-level OK).",
+        "red_flags": "No business metrics, missing 'why now', solution too detailed for this stage"
+      }
+    },
+    "by_stage": {
+      "ideation": {
+        "expectations": "Problem clarity high (4+), solution can be sketch (3+), metrics directional (3+), scope loose (3+). Purpose: Get alignment to explore further.",
+        "next_steps": "User research, technical spike, design exploration"
+      },
+      "planning": {
+        "expectations": "All criteria 3.5+. Problem validated (4+), solution clear (4+), metrics defined (4+), scope prioritized (4+). Purpose: Detailed planning and resource allocation.",
+        "next_steps": "Engineering kickoff, design mockups, project timeline"
+      },
+      "execution": {
+        "expectations": "All criteria 4+. Living document updated as decisions made. Open questions resolved. Purpose: Execution guide for team.",
+        "next_steps": "Development, testing, iteration based on learnings"
+      },
+      "launch": {
+        "expectations": "All sections complete (4+). Go-to-market plan, success criteria, monitoring dashboard. Purpose: Launch readiness and post-launch tracking.",
+        "next_steps": "Launch, monitor metrics, post-launch review"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "solution_looking_for_problem": "Solution defined before problem validated. Fix: Start with user research, validate problem first.",
+    "vague_problem": "Problem too generic ('improve UX'). Fix: Quantify impact, identify specific user segment, provide evidence.",
+    "over_specified_solution": "PRD specifies UI details, button colors, exact algorithms. Fix: Describe what not how. Leave room for design/eng creativity.",
+    "unmeasurable_metrics": "Metrics like 'user satisfaction' without definition. Fix: Use SMART framework. Define how you'll measure.",
+    "scope_creep": "Everything is must-have for MVP. Fix: Use MoSCoW prioritization. Be ruthless about MVP (minimum VIABLE product).",
+    "no_validation": "Problem and solution are assumptions not validated with users/data. Fix: Interview users, analyze data, check competitors.",
+    "missing_constraints": "No mention of technical debt, dependencies, timeline limits. Fix: Acknowledge reality. List constraints explicitly.",
+    "false_confidence": "No open questions (dangerous). Fix: Surface unknowns. Show you've thought deeply."
+  },
+  "excellence_indicators": [
+    "Problem framed using Jobs-to-be-Done with user quotes and quantified impact",
+    "Solution includes user flows, edge cases, and non-functional requirements",
+    "Users deeply understood with personas, use cases, and segment sizing",
+    "Metrics are SMART with baselines, targets, leading/lagging indicators, and measurement plan",
+    "Scope rigorously prioritized (MoSCoW/RICE) with clear MVP and phasing",
+    "Constraints and risks comprehensively documented with mitigation plans",
+    "Open questions managed with options, owners, deadlines, and blocking status",
+    "Document is concise (1-2 pages), highly scannable, with pyramid structure and examples",
+    "Stakeholder review obtained with feedback incorporated",
+    "Living document updated as decisions made during execution"
+  ],
+  "evaluation_notes": {
+    "scoring": "Calculate weighted average across all criteria. Minimum passing score: 3.0 (basic quality). Production-ready target: 3.5+. Excellence threshold: 4.2+. For one-pagers (quick approval), weight problem clarity and conciseness higher. For full PRDs (execution), weight solution clarity and scope definition higher.",
+    "context": "Adjust expectations by stage. Ideation stage can have looser scope (3+). Planning stage needs all criteria 3.5+. Execution stage needs 4+ across the board. Different audiences need different emphasis: engineering wants technical constraints (4+), business wants metrics and ROI (4+), design wants user flows and personas (4+).",
+    "iteration": "Low scores indicate specific improvement areas. Priority order: 1) Fix vague problem (highest ROI—clarifies entire direction), 2) Validate with evidence (de-risks assumptions), 3) Operationalize metrics (enables measurement), 4) Prioritize scope (prevents scope creep), 5) Surface constraints and open questions (manages risk). Re-score after each iteration."
+  }
+}

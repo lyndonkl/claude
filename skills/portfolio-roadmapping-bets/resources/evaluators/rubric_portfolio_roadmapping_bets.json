@@ -1,0 +1,288 @@
+{
+  "name": "Portfolio Roadmapping Bets Evaluator",
+  "description": "Evaluate quality of portfolio roadmaps and betting frameworks—assessing strategic clarity, bet sizing, horizon sequencing, exit/scale criteria, portfolio balance, dependencies, capacity feasibility, and impact ambition.",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "name": "Strategic Theme Clarity",
+      "description": "Evaluates whether portfolio theme is specific, measurable, time-bound, and inspiring",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "No theme or vague",
+          "description": "No strategic theme, or too vague ('improve product', 'grow business'). No timeline. Not measurable. Random collection of projects."
+        },
+        "2": {
+          "label": "Generic theme",
+          "description": "Theme stated but generic. Missing specifics (target number or timeline unclear). Hard to tell what success looks like. Loosely connected to bets."
+        },
+        "3": {
+          "label": "Clear theme with target",
+          "description": "Theme is specific with measurable target and timeline. Example: 'Grow revenue 3x in 18 months'. Bets mostly align with theme. Purpose clear."
+        },
+        "4": {
+          "label": "Compelling theme with rationale",
+          "description": "Theme is specific, measurable, time-bound, and strategic. Rationale explained (why this goal, why now). Success metrics defined. All bets clearly ladder up to theme. Inspiring to team."
+        },
+        "5": {
+          "label": "Exceptional strategic clarity",
+          "description": "Theme is North Star-aligned with quantified targets, strategic rationale (market opportunity, competitive dynamics), and clear success metrics. Multi-level goals (business, user, team). Bets comprehensively ladder up with impact math shown. Inspires team and aligns stakeholders. Constraints acknowledged (what we're not doing)."
+        }
+      }
+    },
+    {
+      "name": "Bet Sizing & Estimation",
+      "description": "Evaluates whether bets are sized by effort and impact with clear, consistent methodology",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No sizing or inconsistent",
+          "description": "Bets not sized, or effort/impact vague ('big', 'small' without definition). No methodology. Can't compare bets."
+        },
+        "2": {
+          "label": "Vague sizing",
+          "description": "Some bets sized but inconsistent. Effort in different units (days vs weeks vs person-months). Impact qualitative only ('high', 'medium', 'low'). Hard to prioritize."
+        },
+        "3": {
+          "label": "Consistent sizing",
+          "description": "All bets sized with consistent methodology. Effort in S/M/L/XL or person-months. Impact quantified (1x/3x/10x or metric-based). Can compare and prioritize bets."
+        },
+        "4": {
+          "label": "Well-calibrated sizing",
+          "description": "Bets sized using framework (RICE, ICE, effort/impact matrix). Effort includes all functions (eng, design, PM, QA). Impact tied to metrics with baselines. Examples provided. Estimates justified with rationale or historical data."
+        },
+        "5": {
+          "label": "Rigorous estimation",
+          "description": "Comprehensive sizing with RICE or similar framework. Effort broken down by function and phase. Impact quantified with baseline, target, and confidence intervals. Historical calibration (past estimates vs actuals). Ranges provided for uncertainty (best/likely/worst case). Assumptions documented. Comparable bets benchmarked."
+        }
+      }
+    },
+    {
+      "name": "Horizon Sequencing & Dependencies",
+      "description": "Evaluates whether bets are sequenced across horizons with clear dependencies and rationale",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "No sequencing or random",
+          "description": "Bets not assigned to horizons, or random sequencing. No dependencies identified. Unclear what's now vs next vs later."
+        },
+        "2": {
+          "label": "Vague sequencing",
+          "description": "Bets assigned to horizons but rationale unclear. Dependencies mentioned but not mapped. Some bets seem out of order (H2 depends on H1 bet not prioritized)."
+        },
+        "3": {
+          "label": "Clear sequencing with dependencies",
+          "description": "Bets assigned to H1/H2/H3 with rationale. Dependencies identified (technical, learning, strategic, resource). Critical path visible. Sequencing makes sense."
+        },
+        "4": {
+          "label": "Well-sequenced roadmap",
+          "description": "Bets thoughtfully sequenced across horizons. Dependencies explicitly mapped (dependency matrix or diagram). Critical path identified. Sequencing rationale explained (why this before that). Learning-based sequencing (small experiments before large bets). Parallel work streams identified."
+        },
+        "5": {
+          "label": "Optimized sequencing",
+          "description": "Bets sequenced using critical path method or similar. All dependency types mapped (technical, learning, strategic, resource). Parallel paths identified to minimize timeline. Sequencing heuristics applied (dependencies first, learn before scaling, quick wins early, long bets start early). Mitigation for critical path risks. Phasing plan for complex bets. Shows deep thinking about execution order."
+        }
+      }
+    },
+    {
+      "name": "Exit & Scale Criteria",
+      "description": "Evaluates whether bets have clear, measurable exit (kill) and scale (double-down) criteria",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "No criteria",
+          "description": "Exit and scale criteria missing. No decision framework for when to kill or double-down. 'We'll see how it goes' mentality."
+        },
+        "2": {
+          "label": "Vague criteria",
+          "description": "Some criteria mentioned but vague ('if it works', 'if users like it'). Not measurable. No timelines. Unclear decision points."
+        },
+        "3": {
+          "label": "Clear criteria for most bets",
+          "description": "Exit and scale criteria defined for most bets. Metrics specified. Timelines provided. Decision points clear. Some criteria measurable."
+        },
+        "4": {
+          "label": "Well-defined criteria",
+          "description": "Exit and scale criteria for all bets. Criteria are SMART (specific, measurable, achievable, relevant, time-bound). Examples: 'Exit if adoption <5% after 60 days', 'Scale if engagement >50% and NPS >70'. Thresholds justified with baselines or benchmarks. Decision owner specified."
+        },
+        "5": {
+          "label": "Rigorous decision framework",
+          "description": "Comprehensive exit/scale criteria for all bets. Criteria tied to North Star metric. Multiple criteria types (time-based, metric-based, cost-based, strategic). Staged funding model (milestones with go/no-go decisions). Thresholds calibrated with baselines, benchmarks, and risk tolerance. Decision process documented. Shows discipline and learning mindset (celebrate killing losers)."
+        }
+      }
+    },
+    {
+      "name": "Portfolio Balance",
+      "description": "Evaluates whether portfolio is balanced across risk profiles, horizons, and bet sizes",
+      "weight": 1.3,
+      "scale": {
+        "1": {
+          "label": "Imbalanced or unchecked",
+          "description": "Portfolio balance not considered. All bets one type (all core or all moonshots). All one size (all small or all large). No mix."
+        },
+        "2": {
+          "label": "Some balance awareness",
+          "description": "Portfolio balance mentioned but not quantified. No target distribution. Actual distribution unclear. Imbalanced (>80% one type, >70% one horizon, >60% one size)."
+        },
+        "3": {
+          "label": "Balanced with targets",
+          "description": "Portfolio balance targets defined (e.g., 70% core / 20% adjacent / 10% transformational). Actual distribution calculated. Mostly balanced. Some mix across horizons and sizes."
+        },
+        "4": {
+          "label": "Well-balanced portfolio",
+          "description": "Portfolio balanced across multiple dimensions: risk (70/20/10 core/adjacent/transformational), horizons (50/30/20 H1/H2/H3), sizes (mix of S/M/L/XL). Target and actual distribution shown. Balance rationale explained (why 70/20/10 for this context). Adjustments made to rebalance if needed."
+        },
+        "5": {
+          "label": "Comprehensively balanced",
+          "description": "Portfolio rigorously balanced using frameworks (McKinsey Three Horizons, barbell strategy, risk-return diversification). Multiple balance checks: risk distribution, horizon distribution, size distribution, cycle time distribution (fast/medium/slow). Context-specific targets (startup vs enterprise vs scale-up). Balance validated against strategic goals and risk tolerance. Trade-offs acknowledged. Shows sophisticated portfolio thinking."
+        }
+      }
+    },
+    {
+      "name": "Capacity Feasibility",
+      "description": "Evaluates whether total effort is realistic given team capacity and constraints",
+      "weight": 1.2,
+      "scale": {
+        "1": {
+          "label": "Capacity ignored",
+          "description": "No capacity analysis. Effort totals unknown. Likely overcommitted (more bets than team can handle). Unrealistic roadmap."
+        },
+        "2": {
+          "label": "Vague capacity check",
+          "description": "Capacity mentioned but not quantified. Effort totals rough or missing. Unclear if feasible. Team likely overcommitted or underutilized."
+        },
+        "3": {
+          "label": "Capacity-constrained",
+          "description": "Total effort calculated per horizon. Capacity quantified (person-months available). Effort ≤ capacity. Feasibility checked. Some slack for unknowns."
+        },
+        "4": {
+          "label": "Realistic capacity planning",
+          "description": "Capacity by function (eng, design, PM, QA). Effort allocated accordingly. Utilization target set (≤80% for 20% slack). Effort totals ≤ capacity × 0.8. Contingency for unknowns, vacations, attrition. Overcommitment risks identified."
+        },
+        "5": {
+          "label": "Sophisticated resource planning",
+          "description": "Capacity planning by function, by horizon, by skill set. Utilization targets justified (80% for mature teams, 60% for new teams). Effort includes all work types (feature dev, tech debt, ops, learning). Dependency on external teams or vendors factored in. Hiring plan aligned to roadmap (if scaling team). Risk scenarios modeled (what if 2 people leave, what if key bet slips). Shows deep understanding of execution realities."
+        }
+      }
+    },
+    {
+      "name": "Impact Ambition & Alignment",
+      "description": "Evaluates whether portfolio impact ladders up to strategic theme with risk adjustment",
+      "weight": 1.1,
+      "scale": {
+        "1": {
+          "label": "No impact analysis",
+          "description": "Portfolio impact not calculated. Unclear if bets ladder up to theme. No connection between bet impacts and strategic goal."
+        },
+        "2": {
+          "label": "Vague impact",
+          "description": "Impact mentioned but not quantified. Hard to tell if portfolio achieves theme. No risk adjustment. Optimistic assumptions."
+        },
+        "3": {
+          "label": "Impact quantified",
+          "description": "Total portfolio impact calculated (sum of all bet impacts). Compared to strategic goal. Bets generally aligned to theme. Some risk adjustment (not assuming 100% success)."
+        },
+        "4": {
+          "label": "Impact ladders up with risk adjustment",
+          "description": "Portfolio impact comprehensively calculated. Risk-adjusted (assume 50% success rate or similar). Expected impact ≥ strategic goal. Impact math shown (Bet A: 1.5x, Bet B: 2x → Total: 3.5x if all succeed → Expected: 1.75x at 50% success). Gaps identified and addressed."
+        },
+        "5": {
+          "label": "Rigorous impact modeling",
+          "description": "Portfolio impact modeled with scenarios (best/likely/worst case). Risk-adjusted using historical win rates or confidence scores. Impact tied to North Star metric and business outcomes. Sensitivity analysis (what if key bets fail). Portfolio ambition justified (aggressive but achievable). Gaps between expected impact and strategic goal addressed with additional bets or revised targets. Shows strategic thinking and quantitative rigor."
+        }
+      }
+    },
+    {
+      "name": "Review & Iteration Plan",
+      "description": "Evaluates whether review cadence, criteria, and iteration process are defined",
+      "weight": 1.0,
+      "scale": {
+        "1": {
+          "label": "No review plan",
+          "description": "Review process not mentioned. Roadmap created once, never updated. No iteration framework."
+        },
+        "2": {
+          "label": "Vague review plan",
+          "description": "Review mentioned but cadence unclear. No criteria for what to review. No iteration process (kill/pivot/scale)."
+        },
+        "3": {
+          "label": "Review cadence defined",
+          "description": "Review cadence specified (monthly, quarterly). Review criteria mentioned. Some iteration process (check progress, make adjustments)."
+        },
+        "4": {
+          "label": "Structured review process",
+          "description": "Review cadence by horizon (H1 monthly, H2 quarterly, H3 semi-annually). Review criteria clear (check exit/scale criteria, capacity, dependencies). Iteration framework defined (kill/pivot/persevere/scale). Next review date scheduled."
+        },
+        "5": {
+          "label": "Rigorous review discipline",
+          "description": "Comprehensive review process with cadence, criteria, and iteration framework. Portfolio health metrics tracked (velocity, win rate, impact, balance). Decision framework for kill/pivot/persevere/scale. Version control (track roadmap changes over time). Celebration of learning (reward killing losers, not just shipping). Shows commitment to continuous improvement and adaptive planning."
+        }
+      }
+    }
+  ],
+  "guidance": {
+    "by_portfolio_type": {
+      "product_portfolio": {
+        "focus": "Prioritize bet sizing (1.3x), horizon sequencing (1.3x), and balance (1.3x). Product teams need clear prioritization and feasibility.",
+        "typical_scores": "Bet sizing 4+, sequencing 4+, balance 4+. Impact and criteria can be 3+ (evolving based on experiments).",
+        "red_flags": "All bets in H1 (unrealistic), no exit criteria (sunk cost), imbalanced (all features or all infrastructure)"
+      },
+      "technology_portfolio": {
+        "focus": "Prioritize capacity feasibility (1.3x), dependencies (1.3x), and sequencing (1.3x). Tech work has complex dependencies.",
+        "typical_scores": "Capacity 4+, dependencies 4+, sequencing 4+. Strategic theme can be 3+ (tech goals may be less flashy).",
+        "red_flags": "Dependencies ignored (H2 blocked), capacity overcommitted (100% utilization), no tech debt paydown"
+      },
+      "innovation_portfolio": {
+        "focus": "Prioritize exit/scale criteria (1.3x), balance (1.3x), and impact ambition (1.3x). Innovation requires disciplined experimentation.",
+        "typical_scores": "Exit/scale 4+, balance 4+ (70/20/10), impact 4+. Sequencing can be 3+ (more exploratory).",
+        "red_flags": "No exit criteria (zombie projects), all transformational (too risky), impact below strategic goal"
+      },
+      "marketing_portfolio": {
+        "focus": "Prioritize exit/scale criteria (1.3x), bet sizing (1.3x), and review process (1.3x). Marketing experiments need fast iteration.",
+        "typical_scores": "Exit/scale 4+, bet sizing 4+, review 4+ (monthly). Sequencing can be 3+ (less dependent).",
+        "red_flags": "No exit criteria (continuing failed campaigns), unmeasurable impact, no review cadence"
+      }
+    },
+    "by_portfolio_maturity": {
+      "first_time": {
+        "expectations": "Strategic theme 3+, bet sizing 3+, sequencing 3+. First portfolio roadmap may be rough. Focus: Establish basics.",
+        "next_steps": "Refine sizing methodology, map dependencies, set review cadence"
+      },
+      "established": {
+        "expectations": "All criteria 3.5+. Team has roadmapping experience. Focus: Improve balance, capacity planning, impact alignment.",
+        "next_steps": "Risk-adjust impact, optimize sequencing, track portfolio health metrics"
+      },
+      "advanced": {
+        "expectations": "All criteria 4+. Sophisticated portfolio management. Focus: Continuous improvement, scenario planning, advanced optimization.",
+        "next_steps": "Sensitivity analysis, portfolio health dashboard, predictive modeling"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "vague_theme": "Theme too generic ('improve product'). Fix: Quantify target (3x revenue in 18 months) and tie bets to it.",
+    "everything_h1": "All bets crammed into H1 (wish list). Fix: Capacity-constrain H1 to what's realistic, move rest to H2/H3.",
+    "no_exit_criteria": "No decision points to kill bets. Fix: Set exit criteria upfront (metric + timeline), review monthly, celebrate killing.",
+    "portfolio_imbalanced": "All core (too safe) or all transformational (too risky). Fix: Use 70/20/10 rule, rebalance to targets.",
+    "dependencies_ignored": "H2 bets depend on H1 infrastructure not prioritized. Fix: Map dependencies, prioritize blocking work.",
+    "capacity_overcommitted": "Total effort exceeds team capacity. Fix: Sum effort, compare to capacity, cut scope to ≤80% utilization.",
+    "impact_below_goal": "Portfolio impact below strategic theme even if all succeed. Fix: Add more bets, increase ambition, or revise goal.",
+    "no_review_discipline": "Roadmap created once, never updated. Fix: Set monthly/quarterly review cadence, track progress, iterate."
+  },
+  "excellence_indicators": [
+    "Strategic theme is specific, measurable, time-bound, and inspires team (North Star-aligned)",
+    "All bets sized using consistent methodology (RICE, ICE) with effort and impact quantified",
+    "Bets sequenced across H1/H2/H3 with dependencies explicitly mapped and critical path identified",
+    "Exit and scale criteria defined for all bets with SMART metrics and decision owners",
+    "Portfolio balanced using frameworks (70/20/10 risk, 50/30/20 horizons) with context-specific targets",
+    "Capacity feasibility validated (effort ≤ capacity × 0.8) with contingency for unknowns",
+    "Portfolio impact ladders up to strategic theme with risk adjustment and scenario modeling",
+    "Review cadence defined (H1 monthly, H2 quarterly, H3 semi-annually) with iteration framework (kill/pivot/scale)",
+    "Portfolio health metrics tracked (velocity, win rate, impact, balance) with dashboard",
+    "Stakeholder alignment achieved with clear prioritization and trade-offs documented"
+  ],
+  "evaluation_notes": {
+    "scoring": "Calculate weighted average across all criteria. Minimum passing score: 3.0 (basic quality). Production-ready target: 3.5+. Excellence threshold: 4.2+. For product portfolios, weight bet sizing, sequencing, and balance higher. For tech portfolios, weight capacity, dependencies, and sequencing higher. For innovation portfolios, weight exit/scale criteria, balance, and impact higher.",
+    "context": "Adjust expectations by portfolio maturity. First-time roadmaps can have looser targets (3+). Established teams should hit 3.5+ across the board. Advanced teams should aim for 4+. Different portfolio types need different emphasis: product portfolios need clear prioritization (bet sizing 4+), tech portfolios need dependency management (dependencies 4+), innovation portfolios need disciplined experimentation (exit/scale criteria 4+).",
+    "iteration": "Low scores indicate specific improvement areas. Priority order: 1) Fix vague strategic theme (clarifies direction), 2) Size bets consistently (enables prioritization), 3) Map dependencies (prevents blocking), 4) Set exit/scale criteria (enables learning), 5) Balance portfolio (manages risk), 6) Validate capacity (prevents burnout), 7) Align impact (achieves goal), 8) Establish review cadence (enables iteration). Re-score after each improvement cycle."
+  }
+}

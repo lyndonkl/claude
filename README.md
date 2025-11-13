@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 40 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 43 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **40 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **43 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -33,6 +33,10 @@ This repository contains **40 skills** designed to enhance Claude Code's capabil
 **hypotheticals-counterfactuals** - Explore alternative scenarios and test assumptions through "what if" thinking. Use counterfactual reasoning (backward-looking: "what would have happened if?") to understand causality and learn from decisions. Apply scenario planning (forward-looking: optimistic/baseline/pessimistic futures, 2×2 matrices) to prepare for uncertainty. Conduct rigorous pre-mortems (6-step process: imagine failure, identify causes, vote on risks, assign mitigations). Extract common actions, hedges, and options from scenarios. Define leading indicators with clear thresholds for monitoring which future unfolds. Covers minimal rewrite principle, causal mechanism specification, probability calibration, and stress testing decisions.
 
 **kill-criteria-exit-ramps** - Define objective stopping rules for projects to avoid sunk cost fallacy and optimize resource allocation. Set upfront kill criteria (quantifiable metrics, time horizons, decision authority) before emotional/financial investment. Design go/no-go gates for milestone-based evaluation with increasing investment stages. Apply pivot vs. kill framework (customer pain validation, learning rate, burn rate sustainability, opportunity cost analysis). Manage project portfolios with quarterly ranking (EV/Cost ratio), systematic rebalancing, and bottom 20-30% kill threshold. Execute disciplined wind-downs (1 month max) with team reallocation, customer transition, and blameless postmortems. Use pre-mortem inversion ("would we start this today?") to overcome sunk cost bias. Normalize killing projects as capital allocation discipline. Covers behavioral economics of stopping, real options analysis, Bayesian updating for kill probability, and organizational culture change.
+
+**portfolio-roadmapping-bets** - Strategic portfolio roadmapping across time horizons (H1/H2/H3: Now/Next/Later) with disciplined betting framework. Size bets by effort (S/M/L/XL) and impact (1x/3x/10x), sequence across horizons with dependency mapping, set exit/scale criteria for kill or double-down decisions, and balance portfolio using 70-20-10 rule (core/adjacent/transformational). Apply McKinsey Three Horizons, RICE/ICE scoring, critical path analysis, and staged funding models. Validate capacity feasibility (effort ≤ 80% capacity), ensure impact ladders to strategic theme with risk adjustment, and establish review cadence (monthly H1, quarterly H2, semi-annual H3) with kill/pivot/persevere/scale framework. Covers horizon planning, bet sizing methodologies, portfolio balancing techniques, dependency sequencing, and portfolio health metrics tracking.
+
+**postmortem** - Blameless postmortem analysis transforming failures into learning. Document timeline with specific timestamps (detection → investigation → resolution), quantify impact across dimensions (users, revenue, SLA, reputation), conduct root cause analysis using 5 Whys or fishbone diagrams to reach systemic issues (not individual blame), define SMART corrective actions (specific, measurable, assigned, realistic, time-bound) using hierarchy of controls (eliminate, substitute, engineering controls, administrative, training). Maintain blameless tone focusing on systems/processes, conduct within 48 hours while memory fresh, track action items to >90% completion, share broadly for organizational learning. Apply to production outages, security incidents, product failures, project misses, or near-misses. Covers blameless culture principles, root cause techniques, corrective action frameworks, incident response patterns, facilitation techniques, and learning metrics.
 
 ### 💡 Problem Solving & Analysis
 
@@ -94,7 +98,7 @@ This repository contains **40 skills** designed to enhance Claude Code's capabil
 
 **writer** - Transform writing into precise, compelling prose using structured revision (Zinsser, King, Pinker), structural architecture (McPhee), and stickiness techniques (SUCCESs framework).
 
-**one-pager-prd** *(coming soon)* - Create concise one-pagers and product requirement documents.
+**one-pager-prd** - Create concise product specifications (1-2 pages) for stakeholder alignment covering problem statement (user pain with quantified impact), solution overview (high-level approach without over-specifying), user personas and use cases, SMART metrics (baselines + targets, leading/lagging indicators), scope boundaries (MVP vs future, in/out explicit), constraints and assumptions, and open questions. Apply problem framing techniques: Jobs-to-be-Done ("When I [situation], I want to [motivation], so I can [outcome]"), 5 Whys root cause analysis, problem statement formula with evidence (interviews, analytics, support tickets). Use metric trees to decompose North Star into actionable sub-metrics. Apply scope prioritization: MoSCoW (Must/Should/Could/Won't), RICE scoring (Reach × Impact × Confidence / Effort), Kano model (basic/performance/delight needs), value-effort matrix. Write for clarity using pyramid principle (lead with conclusion), active voice, concrete language, abundant examples, scannable formatting (bullets, headers, tables). Manage stakeholders by tailoring content (engineering: constraints/dependencies, design: flows/personas, business: impact/ROI, legal: compliance). Apply user story mapping to visualize journey and slice features vertically. Includes one-pager template (1 page, bullets, quick approval) and full PRD template (1-2 pages, detailed requirements, execution guide). Covers feature proposals, new products, technical initiatives, platform projects, internal tools, strategic initiatives. For B2B (emphasize ROI, security, integrations), B2C (emphasize delight, viral potential), enterprise (emphasize compliance, customization).
 
 ### 🎯 Estimation & Forecasting
 
@@ -144,7 +148,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 40 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 43 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
