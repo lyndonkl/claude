@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 39 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 40 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **39 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **40 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -108,6 +108,8 @@ This repository contains **39 skills** designed to enhance Claude Code's capabil
 
 **facilitation-patterns** - Design and run productive group sessions (meetings, workshops, brainstorms, retrospectives) using proven facilitation patterns. Select appropriate formats (divergent brainstorm, convergent decision, alignment session), design time-boxed agendas with diverge-converge flow, manage participation dynamics (round robin, silent writing, breakouts), handle difficult situations (dominators, conflict, tangents), and apply decision-making methods (consensus, consent, vote, advisory). Includes remote and hybrid facilitation techniques.
 
+**negotiation-alignment-governance** - Create explicit stakeholder alignment through decision rights frameworks (RACI/DACI/RAPID), working agreements, and conflict resolution protocols. Map stakeholders by power-interest to plan engagement (manage closely, keep satisfied, keep informed, monitor). Apply principled negotiation (Harvard Method): separate people from problem, focus on interests not positions, generate mutual-gain options, use objective criteria. Develop BATNA (Best Alternative To Negotiated Agreement) and analyze ZOPA (Zone of Possible Agreement) for strategic positioning. Establish unambiguous decision authority (exactly one Accountable/Approver per decision), specific working agreements (observable communication norms, response times, quality standards), and 3-level conflict resolution (direct dialogue → mediation → escalation with disagree-and-commit). Use advanced governance patterns: federated (central standards + local autonomy), rotating leadership, bounded delegation, tiered decisions (fast/reversible vs slow/irreversible), dual authority (opportunity + risk checks). Apply conflict mediation techniques (active listening, interest-based problem solving, reframing, finding common ground, caucusing), facilitation patterns (structured dialogue, decision methods, timeboxing), and multi-party negotiation strategies. Covers cross-functional coordination, org restructures, partnerships, distributed teams, and product/engineering alignment. Includes stakeholder mapping templates, negotiation preparation frameworks, governance sustainability mechanisms (quarterly reviews, metrics, triggers), and coalition-building strategies.
+
 ### ⏱️ Productivity & Learning
 
 **focus-timeboxing-8020** - Manage attention and maximize high-impact work through 80/20 principle (identify vital few tasks), timeboxing (Pomodoro 25min, deep work 90-120min blocks), and energy management. Design distraction-free focus blocks, batch similar tasks (email 2×/day, meeting blocks), match work intensity to energy levels (peak hours for deep work, trough for admin), and use Parkinson's Law (time constraints force decisions). Includes weekly/daily planning templates, execution discipline techniques, and progressive focus training.
@@ -142,7 +144,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 39 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 40 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
