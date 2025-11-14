@@ -1,0 +1,202 @@
+{
+  "name": "Socratic Teaching Scaffolds Evaluator",
+  "description": "Evaluates teaching sessions for diagnostic quality, question ladder design, scaffolding appropriateness, misconception correction, and transfer validation",
+  "criteria": [
+    {
+      "name": "Diagnostic Depth & Accuracy",
+      "weight": 1.4,
+      "scale": {
+        "1": "No diagnostic questions, assumes learner knowledge, starts teaching without assessment",
+        "2": "Basic questions ('Do you know X?') but no misconception probing, surface-level assessment",
+        "3": "Asks 3-5 diagnostic questions, identifies some gaps but misses misconceptions, reasonable baseline assessment",
+        "4": "Thorough diagnostic (5+ questions), identifies knowledge gaps and 1-2 misconceptions, assesses starting scaffolding level",
+        "5": "Exemplary: Deep diagnostic with mental model elicitation (concept mapping, predict-observe-explain, analogical reasoning probes), identifies specific misconceptions with evidence (not assumptions), maps prerequisite knowledge dependencies, determines precise ZPD starting point, documents learner's current mental model explicitly (even if flawed), tests at multiple Bloom levels (recall, application, analysis)"
+      }
+    },
+    {
+      "name": "Question Ladder Quality",
+      "weight": 1.5,
+      "scale": {
+        "1": "No progression, random questions, or just direct explanation (not Socratic at all)",
+        "2": "Questions exist but don't build on each other, no clear path from current to target understanding",
+        "3": "Basic progression (5-7 questions) from simple to complex, some logical flow but jumps in difficulty",
+        "4": "Clear progression (8-10 questions) from concrete to abstract, logical building, addresses identified gaps",
+        "5": "Exemplary: Comprehensive ladder (10+ questions) with explicit structure: concrete foundation (Steps 1-2 with analogy/real-world), pattern recognition (Steps 3-4), formalization (Steps 5-6 with terminology), edge cases (Steps 7-8), transfer (Steps 9-10 to novel context). Each question has clear purpose (not Socratic theater), builds on previous responses, branches based on learner answers, targets identified misconceptions specifically, includes both convergent (one right answer) and divergent (explore reasoning) questions"
+      }
+    },
+    {
+      "name": "Scaffolding Appropriateness & Fading",
+      "weight": 1.5,
+      "scale": {
+        "1": "No scaffolding (sink or swim) or constant full scaffolding (never fades), one-size-fits-all approach",
+        "2": "Some scaffolding but wrong level (too much for competent learner or too little when stuck), no adjustment based on responses",
+        "3": "Appropriate starting level (Level 3-4), some fading as learner succeeds but not systematic",
+        "4": "Starts at correct scaffolding level for learner's ZPD, fades progressively (Level 5→4→3), adjusts based on struggle signals",
+        "5": "Exemplary: Precise scaffolding calibration (starts at level matching diagnostic assessment, not defaulting to Level 5), explicit fading protocol (success → down one level, struggle >2min → up one level), tracks scaffolding per sub-concept (not global), uses cognitive apprenticeship progression (modeling → coaching → scaffolding → articulation → reflection → exploration), provides multiple scaffolding types (hints, partial examples, analogies, worked examples), monitors for optimal challenge (productive struggle vs frustration), makes scaffolding temporary and explicit ('I'm helping now, but you'll do this alone soon')"
+      }
+    },
+    {
+      "name": "Misconception Correction Rigor",
+      "weight": 1.4,
+      "scale": {
+        "1": "Misconceptions ignored or corrected by assertion ('No, it's actually X'), no exploration of why misconception exists",
+        "2": "Misconceptions mentioned but not deeply addressed, single counterexample without checking if correction stuck",
+        "3": "Addresses 1-2 misconceptions with prediction-observation-explanation, some follow-up but no persistence check",
+        "4": "Corrects misconceptions through contradiction (predict based on misconception → show actual outcome → guide to correct model), verifies correction with new examples",
+        "5": "Exemplary: Systematic misconception protocol for each identified error: (1) acknowledge without judgment, (2) elicit explicit prediction based on misconception, (3) show contradiction with actual outcome, (4) guide discovery of correct model through questions (not assertion), (5) reinforce with 2-3 new examples applying corrected understanding, (6) spaced retrieval later in session to check persistence (not just surface compliance). For deep misconceptions: builds correct model from scratch before dismantling wrong one, provides multiple diverse counterexamples (not dismissible as 'special cases'), uses role reversal ('How would you correct someone who thinks [misconception]?'), contextualizes historically if relevant"
+      }
+    },
+    {
+      "name": "Transfer & Deep Understanding Validation",
+      "weight": 1.3,
+      "scale": {
+        "1": "No transfer testing, only asks learner to repeat back what was taught, accepts memorization as understanding",
+        "2": "Tests with problem identical to examples (procedural recall only), no novel application",
+        "3": "Tests with modified problem (near transfer), asks for explanation in learner's words, some validation",
+        "4": "Tests near and far transfer (novel domain with analogous structure), asks for multi-level explanation (ELI5 and technical), validates understanding",
+        "5": "Exemplary: Comprehensive transfer validation across multiple dimensions: (1) Near transfer (same domain, similar problem), (2) Modified transfer (adapted problem), (3) Far transfer (different domain, analogous structure), (4) Creative transfer (novel synthesis). Feynman test: can explain at multiple levels (child, peer, expert, teacher handling misconceptions). Bloom's validation: tests remember, understand, apply, analyze, evaluate, create. Teaching test: 'How would you teach this to someone else? What would they find confusing?' Checks that all identified misconceptions are eliminated (not just ignored). Provides next learning steps with clear success criteria"
+      }
+    },
+    {
+      "name": "Zone of Proximal Development (ZPD) Calibration",
+      "weight": 1.3,
+      "scale": {
+        "1": "Consistently too easy (learner bored) or too hard (learner frustrated), no adjustment to learner signals",
+        "2": "Occasionally in ZPD but often above or below, slow to recognize struggle vs boredom",
+        "3": "Generally in ZPD, recognizes struggle and adjusts but may take 2-3 cycles, some frustration occurs",
+        "4": "Maintains ZPD well, quickly adjusts when learner stuck or bored (within 1-2 minutes), optimal challenge most of session",
+        "5": "Exemplary: Precise ZPD maintenance with explicit signal monitoring: Below ZPD (boredom, quick correct answers without thought → skip ahead, increase complexity), Optimal ZPD (engaged struggle, eventual success with hints → maintain current level), Above ZPD (frustration, wild guesses, giving up → increase scaffolding, break into smaller steps). Adjusts within 30 seconds of detecting signal change. Starts conservatively (more scaffolding) then fades aggressively. Dynamic per-concept calibration (concept A may be in ZPD while concept B needs more scaffolding). Makes ZPD explicit: 'This should be challenging but doable. Tell me if it's too easy or too hard.'"
+      }
+    },
+    {
+      "name": "Question Purpose & Authenticity",
+      "weight": 1.2,
+      "scale": {
+        "1": "Questions are guessing game ('What am I thinking?'), fishing for specific teacher-desired answer, no genuine inquiry",
+        "2": "Some purposeful questions but many are filler, learner often guessing rather than reasoning",
+        "3": "Most questions have clear purpose, but occasionally slips into guess-the-answer mode, generally authentic inquiry",
+        "4": "All questions purposeful (advance understanding or reveal misconception), honors learner's reasoning even when different from expected path",
+        "5": "Exemplary: Every question has explicit purpose (diagnostic, pattern recognition, formalization, edge case exploration, transfer testing), never guessing game (if learner's reasoning is sound but reaches different conclusion, explores their path), provides thinking time (30 seconds minimum, doesn't rush to hint), explores multiple valid approaches when they exist, acknowledges when learner's solution is better/different, asks meta-cognitive questions ('Why is this question important?' 'How would we know if we understood?'), balances convergent (one right answer) and divergent (explore reasoning) questions, models uncertainty ('I'm not sure. Let's think it through together.')"
+      }
+    },
+    {
+      "name": "Actionability & Learning Continuity",
+      "weight": 1.1,
+      "scale": {
+        "1": "Session ends abruptly, no summary or next steps, unclear what learner should do to solidify learning",
+        "2": "Vague next steps ('keep practicing'), no concrete recommendations, no assessment of what to review",
+        "3": "Provides summary and general next steps (practice problems), some guidance on what to focus on",
+        "4": "Clear summary of key insights, specific practice recommendations, identifies concepts needing more work",
+        "5": "Exemplary: Comprehensive learning continuity plan: (1) Session summary highlighting key insights discovered (not just facts learned), (2) Identified remaining gaps or concepts needing reinforcement, (3) Specific practice recommendations (with problem types, not just 'practice more'), (4) Spaced retrieval schedule (review in 1 day, 3 days, 7 days), (5) Success criteria for next session ('You'll know you've mastered this when you can [specific task]'), (6) Resources for self-directed learning (if applicable), (7) Session notes documenting what worked well, what to adjust, follow-up needed. For asynchronous materials: includes self-check with rich feedback, progressive hint revelation, question bank with varied types (recall, application, analysis, misconception checks)"
+      }
+    }
+  ],
+  "guidance": {
+    "by_learner_level": {
+      "novice": {
+        "focus": "Concrete examples, heavy scaffolding (Level 4-5), basic vocabulary, frequent validation, avoid overwhelming",
+        "diagnostic": "Assume minimal prior knowledge, focus on foundational misconceptions (correlation vs causation, common confusions)",
+        "scaffolding": "Start Level 5 (full modeling), fade slowly, many worked examples, explicit think-aloud",
+        "validation": "Near transfer only, ask for explanation in simplest terms (ELI5 level)",
+        "typical_score": "Aim for 3.5-4.0 (solid teaching with appropriate novice support)"
+      },
+      "intermediate": {
+        "focus": "Pattern recognition, moderate scaffolding (Level 3-4), introduce formal terminology, edge cases",
+        "diagnostic": "Test for domain-specific misconceptions, assess prerequisite knowledge boundaries",
+        "scaffolding": "Start Level 3-4 (coached/guided), fade to independent practice, mix worked and partial examples",
+        "validation": "Near and far transfer, multi-level explanations (peer and expert levels), analysis questions",
+        "typical_score": "Aim for 4.0-4.5 (good teaching with appropriate intermediate challenge)"
+      },
+      "advanced": {
+        "focus": "Deep principles, minimal scaffolding (Level 1-2), nuanced edge cases, creative transfer",
+        "diagnostic": "Probe for subtle misconceptions, test boundary understanding, assess meta-cognitive awareness",
+        "scaffolding": "Start Level 2-3 (independent with feedback), fade to transfer (teach others), mostly questions",
+        "validation": "Far transfer and creative synthesis, teaching test, Bloom Level 5-6 (evaluate, create)",
+        "typical_score": "Aim for 4.5-5.0 (excellent teaching with deep validation and transfer)"
+      }
+    },
+    "by_topic_complexity": {
+      "concrete_procedural": {
+        "examples": "Tool usage, algorithm implementation, step-by-step procedures",
+        "question_focus": "Code tracing, step-by-step walkthrough, 'What happens next?'",
+        "scaffolding": "Worked examples → partial examples → independent practice",
+        "validation": "Near transfer (similar procedures), can perform without hints",
+        "common_pitfalls": "Over-scaffolding (doesn't fade), teaching memorization not understanding"
+      },
+      "abstract_conceptual": {
+        "examples": "Recursion, object-oriented design, quantum mechanics, philosophical concepts",
+        "question_focus": "Concrete analogies first, pattern recognition, formalization, edge cases",
+        "scaffolding": "Build from concrete to abstract, use multiple analogies, think-aloud modeling",
+        "validation": "Far transfer (recognize pattern in new domain), multi-level explanations (ELI5 to expert)",
+        "common_pitfalls": "Starting too abstract, single analogy (doesn't generalize), skipping concrete foundation"
+      },
+      "misconception_heavy": {
+        "examples": "Statistics (correlation vs causation), physics (force vs acceleration), programming (references vs values)",
+        "question_focus": "Prediction-observation-explanation, multiple counterexamples, 'Why does [surprising case] happen?'",
+        "scaffolding": "Build correct model from scratch (don't just attack wrong model), spaced retrieval checks",
+        "validation": "Misconception elimination verified with novel test cases, persistence checks (spaced retrieval)",
+        "common_pitfalls": "Single correction (misconception returns), assertion instead of discovery, no persistence check"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "guessing_game": {
+      "symptom": "Teacher asks questions until learner guesses 'correct' answer, then moves on. Feels like 'What am I thinking?' rather than genuine discovery.",
+      "root_cause": "Teacher has specific answer in mind, doesn't honor learner's reasoning process, rushes to confirmation",
+      "fix": "Ask 'How would you figure this out?' not 'What's the answer?' Honor alternative reasoning paths. If learner's logic is sound but conclusion differs, explore their path. Provide thinking time (30 seconds minimum)."
+    },
+    "no_scaffolding_adjustment": {
+      "symptom": "Same level of support throughout session regardless of learner success or struggle. Either constant full scaffolding or constant independence.",
+      "root_cause": "Not monitoring learner signals (boredom, productive struggle, frustration). One-size-fits-all approach.",
+      "fix": "Explicitly track scaffolding level per concept. Success signal → fade down one level. Struggle >2min → increase one level. Monitor for ZPD signals (too easy, optimal, too hard)."
+    },
+    "misconception_assertion": {
+      "symptom": "When misconception appears, teacher says 'No, it's actually X' without exploring why learner thought otherwise.",
+      "root_cause": "Treating misconception as simple error rather than coherent (but incorrect) mental model",
+      "fix": "Use prediction-observation-explanation protocol: Get explicit prediction based on misconception → Show contradiction → Guide discovery of correct model through questions. Verify with new examples and spaced retrieval."
+    },
+    "no_transfer_validation": {
+      "symptom": "Session ends when learner can repeat back explanation or solve identical problem. No testing with novel cases.",
+      "root_cause": "Mistaking procedural recall for understanding. Not testing if learner can transfer to new contexts.",
+      "fix": "Always test transfer: Near (similar problem), Far (analogous structure in different domain). Feynman test (explain at multiple levels). Teaching test ('How would you teach this? What would be confusing?')."
+    },
+    "starting_too_abstract": {
+      "symptom": "Jumps to formal definitions and technical terms before building intuitive understanding. Learner nods but doesn't truly get it.",
+      "root_cause": "Expertise blind spot—teacher forgets what's hard for beginners. Assumes intuitions that need to be built.",
+      "fix": "Always start concrete (real-world analogy, simple example). Build pattern recognition. Only then formalize with terminology. Progression: Concrete → Pattern → Formal → Edge Cases → Transfer."
+    },
+    "insufficient_diagnostic": {
+      "symptom": "Starts teaching without assessing learner's current understanding. Wastes time on things they already know or assumes knowledge they don't have.",
+      "root_cause": "Impatience to start 'teaching'. Assumes baseline knowledge level.",
+      "fix": "Always start with 3-5 diagnostic questions: What do you know about X? Can you give example of Y? What do you think Z means? How would you approach [problem]? Use answers to identify gaps and misconceptions."
+    },
+    "persistent_misconception_ignored": {
+      "symptom": "Misconception corrected once, seems fixed, but returns later when learner is under time pressure or in new context.",
+      "root_cause": "Surface compliance (learner says 'right' answer) vs deep mental model change. Single correction insufficient for deep misconceptions.",
+      "fix": "Spaced retrieval checks (test same misconception days later in different context). For deep misconceptions: build correct model from scratch, provide 3-5 diverse counterexamples (not dismissible as 'special cases'), use role reversal ('How would you correct someone with this misconception?')."
+    },
+    "no_next_steps": {
+      "symptom": "Session ends abruptly after learner 'gets it'. No guidance on how to solidify learning or what to practice.",
+      "root_cause": "Treating session as one-off rather than part of learning journey. No learning continuity planning.",
+      "fix": "End every session with: (1) Summary of key insights, (2) Specific practice recommendations (problem types, not just 'practice more'), (3) Spaced retrieval schedule (review in 1, 3, 7 days), (4) Success criteria for mastery ('You'll know you've mastered this when...')."
+    }
+  },
+  "excellence_indicators": [
+    "Diagnostic reveals specific misconceptions with evidence (not assumptions)",
+    "Question ladder has clear structure (concrete → pattern → formal → edge → transfer)",
+    "Every question has explicit purpose (not Socratic theater or guessing game)",
+    "Scaffolding starts at appropriate level (based on diagnostic, not defaulting to full modeling)",
+    "Scaffolding fades systematically as competence grows (tracks per concept)",
+    "Misconceptions corrected through contradiction and discovery (not assertion)",
+    "Multiple counterexamples for deep misconceptions (not dismissible as special cases)",
+    "Spaced retrieval checks for persistent misconceptions (verification, not single correction)",
+    "ZPD maintained (learner engaged in productive struggle, neither bored nor frustrated)",
+    "Transfer validated at multiple levels (near, far, creative synthesis)",
+    "Feynman test passed (can explain at child, peer, expert, and teacher levels)",
+    "Teaching test passed ('How would you teach this? What would confuse learners?')",
+    "All identified misconceptions verified eliminated with novel test cases",
+    "Honors learner's alternative reasoning paths (not just fishing for teacher's answer)",
+    "Provides learning continuity (summary, practice plan, spaced review, success criteria)",
+    "Session would produce durable understanding (not just procedural recall)"
+  ]
+}
