@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 43 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 44 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **43 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **44 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -37,6 +37,8 @@ This repository contains **43 skills** designed to enhance Claude Code's capabil
 **portfolio-roadmapping-bets** - Strategic portfolio roadmapping across time horizons (H1/H2/H3: Now/Next/Later) with disciplined betting framework. Size bets by effort (S/M/L/XL) and impact (1x/3x/10x), sequence across horizons with dependency mapping, set exit/scale criteria for kill or double-down decisions, and balance portfolio using 70-20-10 rule (core/adjacent/transformational). Apply McKinsey Three Horizons, RICE/ICE scoring, critical path analysis, and staged funding models. Validate capacity feasibility (effort ≤ 80% capacity), ensure impact ladders to strategic theme with risk adjustment, and establish review cadence (monthly H1, quarterly H2, semi-annual H3) with kill/pivot/persevere/scale framework. Covers horizon planning, bet sizing methodologies, portfolio balancing techniques, dependency sequencing, and portfolio health metrics tracking.
 
 **postmortem** - Blameless postmortem analysis transforming failures into learning. Document timeline with specific timestamps (detection → investigation → resolution), quantify impact across dimensions (users, revenue, SLA, reputation), conduct root cause analysis using 5 Whys or fishbone diagrams to reach systemic issues (not individual blame), define SMART corrective actions (specific, measurable, assigned, realistic, time-bound) using hierarchy of controls (eliminate, substitute, engineering controls, administrative, training). Maintain blameless tone focusing on systems/processes, conduct within 48 hours while memory fresh, track action items to >90% completion, share broadly for organizational learning. Apply to production outages, security incidents, product failures, project misses, or near-misses. Covers blameless culture principles, root cause techniques, corrective action frameworks, incident response patterns, facilitation techniques, and learning metrics.
+
+**prioritization-effort-impact** - Transform overwhelming backlogs into actionable priorities using 2x2 effort-impact matrix (Quick Wins, Big Bets, Fill-Ins, Time Sinks). Score items on effort (1-5: time, complexity, risk, dependencies) and impact (1-5: users, business value, strategic alignment, user pain) with diverse stakeholder input (engineering estimates effort, product/sales estimate impact). Plot on matrix to identify Quick Wins (high impact, low effort - do first) vs Time Sinks (low impact, high effort - avoid). Sequence roadmap: Quick Wins first (build momentum), Big Bets second (strategic impact), Fill-Ins opportunistically, reject Time Sinks with clear rationale. Apply calibration techniques (reference examples, silent voting, forced ranking), validate with data (usage analytics, user surveys, NPS drivers), and plan capacity with 20-30% buffer. Alternative frameworks include RICE (Reach × Impact × Confidence / Effort), MoSCoW (Must/Should/Could/Won't), ICE scoring, Kano model, and cost of delay. Covers advanced scoring methodologies, stakeholder alignment techniques, roadmap optimization, dependency mapping, and common pitfalls (optimism bias, HIPPO pressure, scope creep).
 
 ### 💡 Problem Solving & Analysis
 
@@ -148,7 +150,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 43 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 44 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
