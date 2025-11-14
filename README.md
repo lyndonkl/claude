@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 44 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 45 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **44 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **45 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -39,6 +39,8 @@ This repository contains **44 skills** designed to enhance Claude Code's capabil
 **postmortem** - Blameless postmortem analysis transforming failures into learning. Document timeline with specific timestamps (detection → investigation → resolution), quantify impact across dimensions (users, revenue, SLA, reputation), conduct root cause analysis using 5 Whys or fishbone diagrams to reach systemic issues (not individual blame), define SMART corrective actions (specific, measurable, assigned, realistic, time-bound) using hierarchy of controls (eliminate, substitute, engineering controls, administrative, training). Maintain blameless tone focusing on systems/processes, conduct within 48 hours while memory fresh, track action items to >90% completion, share broadly for organizational learning. Apply to production outages, security incidents, product failures, project misses, or near-misses. Covers blameless culture principles, root cause techniques, corrective action frameworks, incident response patterns, facilitation techniques, and learning metrics.
 
 **prioritization-effort-impact** - Transform overwhelming backlogs into actionable priorities using 2x2 effort-impact matrix (Quick Wins, Big Bets, Fill-Ins, Time Sinks). Score items on effort (1-5: time, complexity, risk, dependencies) and impact (1-5: users, business value, strategic alignment, user pain) with diverse stakeholder input (engineering estimates effort, product/sales estimate impact). Plot on matrix to identify Quick Wins (high impact, low effort - do first) vs Time Sinks (low impact, high effort - avoid). Sequence roadmap: Quick Wins first (build momentum), Big Bets second (strategic impact), Fill-Ins opportunistically, reject Time Sinks with clear rationale. Apply calibration techniques (reference examples, silent voting, forced ranking), validate with data (usage analytics, user surveys, NPS drivers), and plan capacity with 20-30% buffer. Alternative frameworks include RICE (Reach × Impact × Confidence / Effort), MoSCoW (Must/Should/Could/Won't), ICE scoring, Kano model, and cost of delay. Covers advanced scoring methodologies, stakeholder alignment techniques, roadmap optimization, dependency mapping, and common pitfalls (optimism bias, HIPPO pressure, scope creep).
+
+**project-risk-register** - Proactively identify, assess, prioritize, and monitor project risks using structured risk register. Score risks on probability×impact (1-5 each, 5×5 matrix = 1-25 risk score) with thresholds: Critical (≥20), High (12-19), Medium (6-11), Low (1-5). For each risk: identify root cause (not symptoms), assign named owner (not "team"), define mitigation (reduce probability before) AND contingency (reduce impact if occurs), set quantifiable triggers for contingency activation. Brainstorm risks across 6 categories (technical, schedule, resource, external, scope, organizational) using structured checklists. Monitor regularly (weekly for active projects, monthly for longer) tracking new/closed risks, score changes with rationale, risk burn-down (total exposure decreasing), and leading indicators. Integrate mitigation actions into project schedule, budget contingency reserves based on Expected Monetary Value (EMV), and use Monte Carlo simulation for probabilistic forecasting (P50/P80/P95 confidence levels). Covers quantitative risk analysis (PERT estimation, sensitivity analysis, tornado diagrams), risk aggregation and correlation, advanced probability estimation (base rates, calibration training, decomposition), decision trees for sequential risks, and organizational risk maturity building.
 
 ### 💡 Problem Solving & Analysis
 
@@ -150,7 +152,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 44 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 45 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
