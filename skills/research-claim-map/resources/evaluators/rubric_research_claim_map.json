@@ -1,0 +1,159 @@
+{
+  "name": "Research Claim Map Evaluator",
+  "description": "Evaluates claim verification for precise claim definition, evidence triangulation, source credibility assessment, and confidence calibration",
+  "criteria": [
+    {
+      "name": "Claim Precision and Testability",
+      "weight": 1.4,
+      "scale": {
+        "1": "Vague claim with undefined terms, no specific metrics, untestable",
+        "2": "Somewhat specific but missing key details (timeframe, scope, or metrics unclear)",
+        "3": "Specific claim with most terms defined, testable with some clarification needed",
+        "4": "Precise claim with numbers/dates/scope, clear terms, fully testable",
+        "5": "Exemplary: Reformulated from vague to specific, key terms defined explicitly, potential ambiguities addressed, claim decomposed into testable sub-claims if complex"
+      }
+    },
+    {
+      "name": "Evidence Triangulation Quality",
+      "weight": 1.5,
+      "scale": {
+        "1": "Single source or only sources agreeing with claim (no contradicting evidence sought)",
+        "2": "Multiple sources but all similar type/origin (not truly independent)",
+        "3": "2-3 independent sources for and against, basic triangulation",
+        "4": "3+ independent sources with different methodologies, both supporting and contradicting evidence gathered",
+        "5": "Exemplary: Systematic triangulation across source types (primary + secondary), methodologies (quantitative + qualitative), perspectives (proponent + skeptic), active search for disconfirming evidence, circular citations identified and excluded"
+      }
+    },
+    {
+      "name": "Source Credibility Assessment",
+      "weight": 1.4,
+      "scale": {
+        "1": "No credibility evaluation or accepted sources at face value",
+        "2": "Basic credibility check (author identified) but no depth (expertise, bias, track record ignored)",
+        "3": "Credibility assessed on 2-3 factors (e.g., expertise and independence) with brief reasoning",
+        "4": "All four factors assessed (expertise, independence, track record, methodology) for each major source with clear reasoning",
+        "5": "Exemplary: Systematic CRAAP test or equivalent, conflicts of interest identified, track record researched (retractions, corrections), methodology transparency evaluated, source bias explicitly noted and accounted for in weighting"
+      }
+    },
+    {
+      "name": "Evidence Quality Rating",
+      "weight": 1.3,
+      "scale": {
+        "1": "No distinction between evidence types (treats social media post = peer-reviewed study)",
+        "2": "Vague quality labels ('good source', 'reliable') without systematic rating",
+        "3": "Evidence categorized (primary/secondary/tertiary) but inconsistently or without justification",
+        "4": "Systematic rating using evidence hierarchy, each source classified with brief rationale",
+        "5": "Exemplary: Evidence rated on multiple dimensions (type, methodology, sample size, recency), quality justification detailed, limitations of even high-quality evidence acknowledged"
+      }
+    },
+    {
+      "name": "Limitations and Gaps Documentation",
+      "weight": 1.3,
+      "scale": {
+        "1": "No limitations noted or only minor caveats mentioned",
+        "2": "Generic limitations ('more research needed') without specifics",
+        "3": "Some limitations noted (missing data or assumptions stated) but incomplete",
+        "4": "Comprehensive limitations: gaps identified, assumptions stated, quality concerns noted, unknowns distinguished from known contradictions",
+        "5": "Exemplary: Systematic gap analysis (what evidence expected but not found), assumptions explicitly tested for sensitivity, distinction made between 'no evidence found' vs 'evidence of absence', suggestions for what would increase confidence"
+      }
+    },
+    {
+      "name": "Confidence Calibration and Reasoning",
+      "weight": 1.4,
+      "scale": {
+        "1": "No confidence level stated or vague ('probably', 'likely')",
+        "2": "Confidence stated but not justified or clearly miscalibrated (100% on weak evidence or 10% on strong)",
+        "3": "Numeric confidence (0-100%) stated with basic reasoning",
+        "4": "Well-calibrated confidence with clear reasoning linking to evidence quality, source credibility, and limitations",
+        "5": "Exemplary: Confidence range provided (not point estimate), reasoning traces from base rates through evidence to posterior, sensitivity analysis shown (confidence under different assumptions), explicit acknowledgment of uncertainty"
+      }
+    },
+    {
+      "name": "Bias Detection and Mitigation",
+      "weight": 1.2,
+      "scale": {
+        "1": "Clear bias (cherry-picked evidence, ignored contradictions, one-sided presentation)",
+        "2": "Unintentional bias (confirmation bias evident, didn't actively seek contradicting evidence)",
+        "3": "Some bias mitigation (acknowledged contradicting evidence, noted potential biases)",
+        "4": "Active bias mitigation (sought disconfirming evidence, considered alternative explanations, acknowledged own potential biases)",
+        "5": "Exemplary: Systematic bias checks (CRAAP test, conflict of interest disclosure), actively argued against own hypothesis, considered base rates to avoid availability/anchoring bias, source framing bias identified and corrected"
+      }
+    },
+    {
+      "name": "Actionable Recommendation",
+      "weight": 1.2,
+      "scale": {
+        "1": "No recommendation or action unclear ('interesting finding', 'needs more study')",
+        "2": "Vague action ('be cautious', 'consider this') without decision guidance",
+        "3": "Basic recommendation (believe/reject/uncertain) but not tied to decision context",
+        "4": "Clear actionable recommendation linked to confidence level and decision context (what to do given uncertainty)",
+        "5": "Exemplary: Recommendation with decision thresholds ('if you need 80%+ confidence to act, don't proceed; if 60% sufficient, proceed with mitigation X'), contingency plans for uncertainty, clear next steps to increase confidence if needed"
+      }
+    }
+  ],
+  "guidance": {
+    "by_claim_type": {
+      "vendor_claims": {
+        "recommended_approach": "Seek independent verification (analysts, customer references, trials), avoid relying solely on vendor sources",
+        "evidence_priority": "Primary (customer data, trials) > Secondary (analyst reports) > Tertiary (vendor press releases)",
+        "red_flags": ["Only vendor sources", "Vague metrics ('up to X%')", "Cherry-picked case studies", "No independent verification"]
+      },
+      "news_claims": {
+        "recommended_approach": "Trace to primary source, check multiple outlets, verify context and framing",
+        "evidence_priority": "Primary sources (official statements, documents) > Secondary (news reports citing primary) > Tertiary (opinion pieces)",
+        "red_flags": ["Single source", "Anonymous claims without corroboration", "Circular reporting (outlets citing each other)", "Out-of-context quotes"]
+      },
+      "research_claims": {
+        "recommended_approach": "Check replication studies, meta-analyses, assess methodology rigor, look for conflicts of interest",
+        "evidence_priority": "RCTs/meta-analyses > Observational studies > Expert opinion",
+        "red_flags": ["Single study", "Small sample", "Conflicts of interest undisclosed", "P-hacking indicators", "Correlation claimed as causation"]
+      },
+      "statistical_claims": {
+        "recommended_approach": "Verify methodology, sample size, confidence intervals, base rates, check for denominators",
+        "evidence_priority": "Transparent methodology with raw data > Summary statistics > Infographics without sources",
+        "red_flags": ["Denominator unclear", "Cherry-picked timeframes", "Correlation ≠ causation", "No confidence intervals", "Misleading visualizations"]
+      }
+    }
+  },
+  "common_failure_modes": {
+    "confirmation_bias": {
+      "symptom": "Only evidence supporting claim found, contradictions ignored or dismissed",
+      "root_cause": "Want claim to be true (motivated reasoning), didn't actively search for disconfirmation",
+      "fix": "Actively search 'why this might be wrong', assign someone to argue against, seek base rates for skepticism"
+    },
+    "authority_bias": {
+      "symptom": "Accepted claim because prestigious source (Nobel Prize, Harvard, Fortune 500) without evaluating evidence",
+      "root_cause": "Heuristic: prestigious source = truth (often valid but not always)",
+      "fix": "Evaluate evidence quality independently, check if expert in this specific domain, verify claim not opinion"
+    },
+    "single_source_overconfidence": {
+      "symptom": "High confidence based on one source, even if high quality",
+      "root_cause": "Didn't triangulate, assumed quality source = truth",
+      "fix": "Require 2-3 independent sources for high confidence, check for replication/corroboration"
+    },
+    "vague_confidence": {
+      "symptom": "Used words ('probably', 'likely', 'seems') instead of numbers (60%, 75%)",
+      "root_cause": "Uncomfortable quantifying uncertainty, didn't calibrate",
+      "fix": "Force numeric confidence (0-100%), use calibration guides, test against base rates"
+    },
+    "missing_limitations": {
+      "symptom": "Conclusion presented without caveats, gaps, or unknowns acknowledged",
+      "root_cause": "Focused on what's known, didn't systematically check for what's unknown",
+      "fix": "Template section for limitations forces documentation, ask 'what would make me more confident?'"
+    }
+  },
+  "excellence_indicators": [
+    "Claim reformulated from vague to specific, testable assertion",
+    "Evidence triangulated: 3+ independent sources, multiple methodologies",
+    "Source credibility systematically assessed: expertise, independence, track record, methodology",
+    "Evidence rated using clear hierarchy: primary > secondary > tertiary",
+    "Contradicting evidence actively sought and fairly presented",
+    "Limitations and gaps comprehensively documented",
+    "Assumptions stated explicitly and tested for sensitivity",
+    "Confidence calibrated numerically (0-100%) with reasoning",
+    "Recommendation actionable and tied to decision context",
+    "Bias mitigation demonstrated (sought disconfirming evidence, checked conflicts of interest)",
+    "Distinction made between 'no evidence found' and 'evidence of absence'",
+    "Sources properly cited with links/references for verification"
+  ]
+}

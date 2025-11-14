@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 46 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 47 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **46 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **47 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -63,6 +63,8 @@ This repository contains **46 skills** designed to enhance Claude Code's capabil
 **design-of-experiments** - Plan rigorous experiments using factorial designs, response surface methodology, Taguchi methods, and statistical power analysis.
 
 **domain-research-health-science** - Formulate clinical research questions (PICOT framework), evaluate evidence quality using GRADE certainty ratings, systematic bias assessment (Cochrane RoB 2, ROBINS-I, QUADAS-2), and conduct systematic reviews with meta-analysis.
+
+**research-claim-map** - Systematically verify claims through evidence triangulation, source credibility assessment (expertise, independence, track record, methodology), and confidence calibration. Rate evidence quality using hierarchy (primary > secondary > tertiary), actively seek contradicting evidence to avoid confirmation bias, document limitations and gaps explicitly, and calibrate numeric confidence levels (0-100%) based on evidence strength. Apply CRAAP test for source verification, GRADE system for evidence synthesis, and Bayesian updating for confidence adjustment. Covers fact-checking workflows, due diligence investigations, academic literature validation, vendor claim verification, and misinformation detection. Use for claims requiring verification before decisions, conflicting evidence evaluation, competitive intelligence, investigative journalism, or any situation demanding rigorous source triangulation and bias mitigation.
 
 ### 🗣️ Dialogue & Deliberation
 
