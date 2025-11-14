@@ -1,0 +1,171 @@
+{
+  "name": "Reviews, Retros & Reflection Evaluator",
+  "description": "Evaluates retrospectives for psychological safety, data-driven insights, actionable outcomes, and continuous improvement focus",
+  "criteria": [
+    {
+      "name": "Psychological Safety and Blamelessness",
+      "weight": 1.4,
+      "scale": {
+        "1": "Blame culture evident (finger pointing, defensiveness, personal attacks)",
+        "2": "Some blame language, people-focused criticism, not fully safe to speak",
+        "3": "Mostly blameless, some slips into people-focus, Prime Directive mentioned but not enforced",
+        "4": "Consistently blameless, systems-focused, Prime Directive established, encourages honest feedback",
+        "5": "Exemplary: Prime Directive explicitly stated and reinforced, completely blameless language, focuses on systems/processes not people, psychological safety actively built (confidentiality, no judgment), dissenting opinions encouraged and valued"
+      }
+    },
+    {
+      "name": "Data Gathering Quality",
+      "weight": 1.3,
+      "scale": {
+        "1": "Vague recollections only ('things were bad'), no concrete data or examples",
+        "2": "Some anecdotes but mostly opinions, missing metrics or specific events",
+        "3": "Mix of data (metrics, events) and sentiment, basic coverage of period",
+        "4": "Comprehensive data: metrics (velocity, bugs, incidents), events (launches, decisions), sentiment (team energy), specific examples",
+        "5": "Exemplary: Rich data from multiple sources (metrics dashboard, timeline of events, team surveys, customer feedback), balanced quantitative and qualitative, patterns identified across data, surprises and wins highlighted"
+      }
+    },
+    {
+      "name": "Insight Generation and Root Cause Analysis",
+      "weight": 1.4,
+      "scale": {
+        "1": "No insights, just list of complaints or surface observations",
+        "2": "Basic observations but no depth, symptoms identified but not root causes",
+        "3": "Some root cause analysis (one level of 'why'), patterns noted, themes identified",
+        "4": "Deep root cause analysis (5 Whys, fishbone, timeline analysis), clear themes with supporting evidence, distinguishes symptoms from causes",
+        "5": "Exemplary: Rigorous root cause techniques applied, patterns across multiple retros identified, systemic issues surfaced (not just immediate causes), surprising insights discovered, connections made between seemingly unrelated items, both process and cultural factors explored"
+      }
+    },
+    {
+      "name": "Action Quality (SMART Criteria)",
+      "weight": 1.5,
+      "scale": {
+        "1": "Vague actions ('improve communication', 'do better'), no specificity or ownership",
+        "2": "Actions stated but missing SMART elements (no owner, deadline, or measurability)",
+        "3": "Actions are mostly SMART but some elements weak (vague success criteria, unrealistic scope)",
+        "4": "All actions are SMART (Specific, Measurable, Assigned, Realistic, Time-bound), clear and achievable",
+        "5": "Exemplary: Actions exceed SMART criteria (addresses root causes not symptoms, team has authority to implement, concrete first steps defined, success criteria binary or numeric, owners present and committed, 1-3 high-impact actions not overwhelming list)"
+      }
+    },
+    {
+      "name": "Participation and Inclusivity",
+      "weight": 1.2,
+      "scale": {
+        "1": "One or two voices dominate, most team silent or absent",
+        "2": "Unbalanced participation, some voices not heard, no facilitation to balance",
+        "3": "Most participate but some imbalance, facilitator makes some effort to include all",
+        "4": "Balanced participation, facilitator actively ensures all voices heard, techniques used (silent brainstorming, round-robin)",
+        "5": "Exemplary: All voices heard and valued, silent/async methods used to balance introverts/extroverts, dominant voices managed tactfully, psychological safety enables honest participation from all, diverse perspectives explicitly sought"
+      }
+    },
+    {
+      "name": "Follow-Up and Accountability",
+      "weight": 1.3,
+      "scale": {
+        "1": "No review of previous actions, no tracking, actions forgotten after retro",
+        "2": "Previous actions mentioned but not tracked, no completion metrics, unclear accountability",
+        "3": "Previous actions reviewed with some status updates, basic tracking, completion rate noted",
+        "4": "Previous actions systematically reviewed (done/in-progress/blocked), completion rate calculated (target >80%), owners accountable, follow-up scheduled",
+        "5": "Exemplary: Action completion tracked across retros (dashboard or log), completion rate >80% achieved, incomplete actions discussed (why? pivot or continue?), follow-up meeting scheduled, retro actions linked to work tracking system, team celebrates completed actions, retro-to-retro learning visible"
+      }
+    },
+    {
+      "name": "Format Appropriateness",
+      "weight": 1.1,
+      "scale": {
+        "1": "Format clearly mismatched (Timeline for 1-week sprint, or no structure at all)",
+        "2": "Generic format used without considering context (always same format regardless of need)",
+        "3": "Format somewhat appropriate but could be better matched to situation",
+        "4": "Format well-matched to context (period length, team needs, goals)",
+        "5": "Exemplary: Format deliberately chosen with rationale (Start/Stop/Continue for action focus, Mad/Sad/Glad for morale, 4Ls for depth, Timeline for complex period), adapted to team preferences and needs, variety across retros to prevent staleness"
+      }
+    },
+    {
+      "name": "Continuous Improvement Focus",
+      "weight": 1.2,
+      "scale": {
+        "1": "Retro feels like venting session with no improvement focus, no actions or same actions every time",
+        "2": "Some improvement intent but actions vague or not followed through, same issues recurring",
+        "3": "Clear improvement focus, some progress on issues, a few recurring themes addressed",
+        "4": "Strong improvement culture, actions tracked and completed, progress visible over time, recurring issues escalated",
+        "5": "Exemplary: Measurable improvement over time (metrics, team health, action completion >80%), retro process itself improves (ROTI scores, format experiments), learning documented and shared, recurring issues systematically addressed or escalated, celebration of progress and wins, team proactively requests retros"
+      }
+    }
+  ],
+  "guidance": {
+    "by_retro_type": {
+      "sprint_retro": {
+        "recommended_format": "Start/Stop/Continue or Mad/Sad/Glad (30-90 min)",
+        "key_focus": "Process improvements, team dynamics, technical practices",
+        "action_targets": "1-3 process improvements, 1 technical improvement",
+        "red_flags": ["Same issues >3 sprints without escalation", "No technical debt actions", ">5 actions (too many)"]
+      },
+      "project_postmortem": {
+        "recommended_format": "4Ls or Timeline (90-120 min)",
+        "key_focus": "Systemic learnings, documentation updates, playbook changes",
+        "action_targets": "Update documentation, refine playbooks, address skill gaps",
+        "red_flags": ["Blame culture (pointing fingers)", "No documentation of learnings", "Missing stakeholder perspectives"]
+      },
+      "weekly_review": {
+        "recommended_format": "Wins/Blockers/Priorities (15-30 min)",
+        "key_focus": "Celebrate wins, remove blockers, align on priorities",
+        "action_targets": "Blocker removal, top 3 priorities clear",
+        "red_flags": ["Skipped regularly (lose habit)", "All blockers, no wins (morale issue)", "Priorities change weekly (chaos)"]
+      },
+      "incident_retro": {
+        "recommended_format": "Timeline + 5 Whys (60 min)",
+        "key_focus": "Blameless analysis, prevention, monitoring improvements",
+        "action_targets": "Incident response process, monitoring/alerting, prevention measures",
+        "red_flags": ["Blame individuals (not systems)", "Stopped at symptom (didn't reach root cause)", "No follow-up on actions (incidents recur)"]
+      }
+    }
+  },
+  "common_failure_modes": {
+    "too_many_actions": {
+      "symptom": ">5 actions generated, <50% completion rate",
+      "root_cause": "Want to fix everything, don't prioritize, unrealistic about capacity",
+      "fix": "Dot vote for top 1-3 high-impact actions, defer others to future retros, track completion rate and adjust"
+    },
+    "vague_actions": {
+      "symptom": "Actions like 'improve communication', 'do better testing' without specifics",
+      "root_cause": "Didn't apply SMART criteria, rushed action planning, facilitator didn't push for specificity",
+      "fix": "Use SMART template explicitly, facilitator role-plays action completion to test specificity ('how exactly would you do this?')"
+    },
+    "blame_culture": {
+      "symptom": "Finger pointing, defensiveness, people stop speaking honestly, same safe topics every retro",
+      "root_cause": "Prime Directive not established, people-focused language, leadership doesn't model blamelessness",
+      "fix": "State Prime Directive explicitly every retro, shift language from 'you' to 'the system', facilitator redirects blame to process, leadership training on blameless culture"
+    },
+    "no_follow_up": {
+      "symptom": "Actions from previous retro ignored, <50% completion, trust erodes, retros feel like theater",
+      "root_cause": "No tracking system, no accountability, actions not integrated into work flow, too ambitious actions",
+      "fix": "Create action tracking dashboard (visible to team), review at start of every retro, integrate actions into sprint/work planning, reduce action count to achievable 1-3"
+    },
+    "same_issues_recurring": {
+      "symptom": "Same problem appears >3 retros with no progress",
+      "root_cause": "Team lacks authority to fix (systemic issue beyond team), actions don't address root cause, leadership not engaged",
+      "fix": "Escalate to leadership with data ('issue X mentioned in last 4 retros, team can't solve alone'), use root cause analysis to go deeper, request organizational support or decision"
+    },
+    "low_participation": {
+      "symptom": "<70% attendance, few people contribute, dominated by 1-2 voices",
+      "root_cause": "Retro not valued (no action follow-through), not psychologically safe, format is stale, poor facilitation",
+      "fix": "Improve action follow-through (builds trust), rotate facilitator, experiment with formats, use silent/async techniques to include all, one-on-ones to understand barriers"
+    }
+  },
+  "excellence_indicators": [
+    "Prime Directive stated explicitly and enforced throughout",
+    "Blameless language consistently used (systems-focused, not people-focused)",
+    "Comprehensive data gathered: metrics + events + sentiment",
+    "Root cause analysis conducted (5 Whys, fishbone, timeline)",
+    "Patterns and themes identified across observations",
+    "1-3 SMART actions generated (not overwhelming)",
+    "Actions address root causes, not just symptoms",
+    "All team members participated (balanced facilitation)",
+    "Previous actions reviewed with >80% completion rate",
+    "Follow-up meeting scheduled for action tracking",
+    "Format appropriate to context and team needs",
+    "Wins celebrated and recognized publicly",
+    "Continuous improvement focus evident (measurable progress over time)",
+    "ROTI score >80% thumbs up (retro itself is valuable)",
+    "Learning documented and shared beyond team when relevant"
+  ]
+}
