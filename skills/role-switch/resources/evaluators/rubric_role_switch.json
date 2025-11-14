@@ -1,0 +1,168 @@
+{
+  "name": "Role Switch Evaluator",
+  "description": "Evaluates role-switch analyses for perspective quality, tension surfacing, synthesis realism, and actionability in multi-stakeholder decision contexts",
+  "criteria": [
+    {
+      "name": "Decision Framing Clarity",
+      "weight": 1.3,
+      "scale": {
+        "1": "Vague decision ('improve things', 'align stakeholders') with no constraints, stakes unclear",
+        "2": "Decision stated but constraints missing (no timeline/budget/scope), why alignment matters not articulated",
+        "3": "Decision clear with some constraints stated, stakes mentioned but impact not quantified",
+        "4": "Specific decision with clear constraints (time, budget, scope), stakes articulated with consequences",
+        "5": "Exemplary: Precise, bounded decision (not open-ended), all constraints explicit (timeline, budget, scope, quality bars), stakes quantified (what happens if wrong, why alignment critical), current state and success criteria defined"
+      }
+    },
+    {
+      "name": "Role Selection Relevance",
+      "weight": 1.4,
+      "scale": {
+        "1": "Roles missing (< 3) or redundant (5 roles with similar perspectives), no rationale for selection",
+        "2": "3-4 roles selected but lack diversity (all internal or all same function), missing key stakeholders with veto power",
+        "3": "3-5 roles with some diversity (eng + PM + user) but missing critical perspectives (e.g., legal for compliance decision), rationale brief",
+        "4": "3-6 roles with clear diversity (different goals, incentives, constraints), key stakeholders included, rationale for inclusion stated",
+        "5": "Exemplary: 3-6 roles selected for maximum perspective diversity (internal + external, different goals/incentives/time horizons/constraints), decision authority and veto holders identified (RACI or power-interest mapping), rationale for inclusion/exclusion explicit, covers critical perspectives without overloading"
+      }
+    },
+    {
+      "name": "Perspective Depth & Authenticity",
+      "weight": 1.5,
+      "scale": {
+        "1": "Shallow stereotypes ('finance wants to cut costs', 'eng wants perfect code'), no specific metrics or fears",
+        "2": "Generic perspectives with broad goals ('sales wants revenue') but no specific metrics, fears, or constraints articulated",
+        "3": "Roles have specific goals and some fears stated, but position vs interest not distinguished, steel-manning weak",
+        "4": "Each role has clear mandate, specific success metrics, genuine fears, constraints, position vs interest distinguished",
+        "5": "Exemplary: Perspectives charitably inhabited (steel-manned, not strawman), specific metrics/KPIs stated (e.g., 'quota is $2M/qtr'), genuine fears articulated (not caricature), constraints explicit (headcount, budget, process, political), position vs interest clearly distinguished (surface demand vs underlying need), what they optimize for and what they'd trade off, incentive structure understood"
+      }
+    },
+    {
+      "name": "Tension & Tradeoff Identification",
+      "weight": 1.5,
+      "scale": {
+        "1": "No tensions surfaced (pretends everyone agrees) or conflicts vague ('some disagreement'), no tradeoffs stated",
+        "2": "Conflicts mentioned but not analyzed (e.g., 'speed vs quality') without specifics on upside/downside of each option",
+        "3": "Tensions identified with general tradeoffs (e.g., 'fast = bugs, slow = quality') but not quantified, who wins/loses not stated",
+        "4": "Clear tensions mapped with explicit tradeoffs (upside/downside for each option), incompatible goals articulated, who wins/loses identified",
+        "5": "Exemplary: Tensions explicitly named (not glossed over), common ground identified (shared goals, mutual fears) before conflicts, tradeoffs articulated with concrete upside/downside for each option (e.g., 'launch in 2 weeks = hit market but 20% bug rate', 'delay 4 weeks = miss competitor but strong quality'), who wins/loses for each option, nature of conflict clear (sequential bottleneck, resource allocation, incompatible goals)"
+      }
+    },
+    {
+      "name": "Synthesis Realism & Quality",
+      "weight": 1.5,
+      "scale": {
+        "1": "No synthesis ('need to align') or wishful thinking ('everyone compromises'), no concrete proposal",
+        "2": "Vague synthesis ('find middle ground', 'balance priorities') without specific resolution or actionable path",
+        "3": "Proposal stated but doesn't address key interests, forced consensus (ignores legitimate conflicts), tradeoffs not acknowledged",
+        "4": "Concrete proposal addressing core interests (not just positions), tradeoffs explicitly accepted, risk mitigation for key fears",
+        "5": "Exemplary: Synthesis is concrete and actionable (not 'find balance'), addresses interests not positions (goes beneath surface demands), how it satisfies each role's core need stated explicitly, tradeoffs acknowledged (who bears cost), sequencing if relevant (do X first, then Y), risk mitigation for top fears, realistic (not forced consensus when power dynamics say otherwise), hybrid/creative options explored (sequential decisions, pilot/experiment, constraints as forcing function)"
+      }
+    },
+    {
+      "name": "Power Dynamics & Decision Authority",
+      "weight": 1.3,
+      "scale": {
+        "1": "Power dynamics ignored (pretends all roles equal), decision authority unclear, no escalation path",
+        "2": "Decision authority mentioned but veto holders not identified, hierarchy not acknowledged, escalation path missing",
+        "3": "Decision owner stated, some acknowledgment of power (e.g., 'CEO has final say') but veto holders and influence not mapped",
+        "4": "Decision authority clear (who has final call), veto holders identified (legal, security, finance), escalation path defined",
+        "5": "Exemplary: Decision authority explicit (RACI or decision rights framework), veto holders identified and addressed first (legal/security/regulatory cannot be overridden by consensus), power-interest mapping or influence mapping (who influences whom), hierarchy acknowledged (manager prerogative vs peer conflict), escalation path defined (3 levels if consensus fails), synthesis respects power dynamics (doesn't assume consensus when autocratic/consultative decision)"
+      }
+    },
+    {
+      "name": "Actionability & Accountability",
+      "weight": 1.2,
+      "scale": {
+        "1": "No next steps, no owners assigned, no timeline, no success metrics",
+        "2": "Vague next steps ('socialize proposal', 'gather feedback') with no owners or deadlines",
+        "3": "Some next steps with owners but no deadlines, success metrics missing or vague ('make stakeholders happy')",
+        "4": "Clear next steps with owners and deadlines, success metrics stated, decision owner and execution owner assigned",
+        "5": "Exemplary: Concrete next steps with owners and deadlines (e.g., 'PM drafts spec - Alice - 2 weeks'), decision owner (final call) and execution owner (drives implementation) assigned, stakeholder communication plan (who updates whom, cadence), success metrics defined (how we know it's working), review timeline (when to reassess), escalation path if implementation stalls"
+      }
+    },
+    {
+      "name": "Multi-Stakeholder Facilitation Readiness",
+      "weight": 1.1,
+      "scale": {
+        "1": "Analysis would not prepare you for stakeholder conversations (perspectives shallow, synthesis unrealistic)",
+        "2": "Some useful insights but missing key perspectives or synthesis weak, would need significant rework before presenting",
+        "3": "Analysis covers main perspectives and proposes path forward, but steel-manning weak or power dynamics ignored",
+        "4": "Analysis prepares well for conversations (perspectives understood, synthesis concrete), minor gaps (e.g., some interests could be deeper)",
+        "5": "Exemplary: Analysis demonstrates deep stakeholder understanding (could present each role's perspective to them and they'd feel heard), synthesis would be credible starting point for alignment meeting, steel-manning strong (strongest version of each viewpoint), pre-work for facilitation clear (what to socialize 1:1 before group meeting), handles impasse scenarios (what if consensus fails), ready to present without major revision"
+      }
+    }
+  ],
+  "guidance": {
+    "by_decision_type": {
+      "product_decisions": {
+        "key_roles": "Engineering (feasibility), Product (value), Design (UX), Users (actual need), Sales (customer asks), Support (operational burden)",
+        "common_tensions": "Speed vs quality, customer requests vs product vision, build vs buy, feature bloat vs simplicity",
+        "synthesis_patterns": "Phased releases (MVP first, full features later), tiered offerings (basic vs premium), build/buy hybrid (core in-house, periphery bought)"
+      },
+      "business_strategy": {
+        "key_roles": "Leadership (vision), Finance (economics), Sales (go-to-market), Operations (execution), Customers (value), Investors (return)",
+        "common_tensions": "Growth vs profitability, short-term vs long-term, organic vs acquisition, premium vs volume",
+        "synthesis_patterns": "Sequential priorities (growth phase then efficiency phase), portfolio approach (multiple bets), experiment to de-risk (pilot before scale)"
+      },
+      "organizational_change": {
+        "key_roles": "Leadership (collaboration), Employees (autonomy), HR (retention), Finance (cost), Managers (productivity)",
+        "common_tensions": "Flexibility vs structure, remote vs in-office, standardization vs customization, speed vs consensus",
+        "synthesis_patterns": "Hybrid models (balance extremes), role-based policies (nuance not one-size), opt-in incentives (voluntary vs mandate), trial periods (data-driven)"
+      },
+      "regulatory_compliance": {
+        "key_roles": "Legal (risk), Compliance (audit), Business (operations), Privacy (data protection), Regulators (public interest), Users (rights)",
+        "common_tensions": "Compliance cost vs business agility, data utility vs privacy, disclosure vs competitive secrecy",
+        "synthesis_patterns": "Regulatory constraints are non-negotiable (find commercial model within constraints), privacy-preserving techniques (differential privacy, aggregation), phased compliance (critical first, nice-to-have later)"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "strawman_perspectives": {
+      "symptom": "Caricatured roles (e.g., 'finance just wants to cut costs', 'eng wants perfect code'), shallow or adversarial framing",
+      "root_cause": "Insufficient empathy, confirmation bias (projecting own view onto others), lack of steel-manning",
+      "fix": "Inhabit perspective charitably (what's strongest version of their argument?), use specific metrics and genuine fears (not stereotypes), distinguish position from interest (surface vs underlying need)"
+    },
+    "forced_consensus": {
+      "symptom": "Synthesis pretends win-win is always possible, ignores legitimate conflicts, avoids naming tradeoffs",
+      "root_cause": "Conflict aversion, wishful thinking, ignoring power dynamics (some roles have veto or final authority)",
+      "fix": "Explicitly name tensions (not gloss over), articulate tradeoffs with who wins/loses, acknowledge when perspectives are incompatible (escalate or experiment, don't force agreement), respect decision authority (consensus not required if autocratic/consultative decision)"
+    },
+    "missing_veto_holders": {
+      "symptom": "Synthesis ignores Legal/Security/Compliance who can block decision regardless of other alignment",
+      "root_cause": "Focusing on loudest voices (e.g., Sales, PM) and missing quiet but critical stakeholders with veto power",
+      "fix": "Identify veto holders (Legal, Security, Compliance, Regulatory), address their constraints first (non-negotiable), map power dynamics (RACI, power-interest matrix) not just vocal stakeholders"
+    },
+    "position_vs_interest_confusion": {
+      "symptom": "Synthesis addresses what stakeholders say they want (positions) not why they want it (interests)",
+      "root_cause": "Taking surface demands at face value, not digging into underlying needs ('I want this feature' vs 'because customers are churning')",
+      "fix": "Ask 'why' 2-3 times to uncover interests, distinguish position (surface demand) from interest (underlying need), synthesize at interest level (often can satisfy interest without meeting position)"
+    },
+    "ignoring_power_dynamics": {
+      "symptom": "Synthesis assumes all perspectives have equal weight, pretends peer consensus when decision is autocratic",
+      "root_cause": "Idealism (how we wish decisions worked) vs realism (how authority and hierarchy actually work)",
+      "fix": "Clarify decision authority (who has final say), acknowledge hierarchy (manager can override), respect veto power (Legal can block), synthesis should reflect power realities not ignore them"
+    },
+    "analysis_replaces_stakeholder_input": {
+      "symptom": "Role-switch treated as substitute for talking to actual stakeholders, no validation of perspective accuracy",
+      "root_cause": "Over-confidence in perspective-taking, avoiding difficult stakeholder conversations",
+      "fix": "Use role-switch to prepare for conversations (not replace them), validate perspectives with actual stakeholders ('did I understand your view correctly?'), flag information asymmetry (some roles have context you lack)"
+    }
+  },
+  "excellence_indicators": [
+    "Decision framing is specific and bounded (not vague), constraints and stakes explicit",
+    "3-6 roles selected with clear diversity (different goals, incentives, constraints, time horizons)",
+    "Decision authority and veto holders identified (RACI or power-interest mapping)",
+    "Each perspective charitably inhabited (steel-manned not strawman), specific metrics and genuine fears",
+    "Position vs interest distinguished for each role (surface demand vs underlying need)",
+    "Common ground identified before conflicts (shared goals, mutual fears)",
+    "Tensions explicitly named with concrete tradeoffs (upside/downside, who wins/loses)",
+    "Synthesis is concrete and actionable (not 'find balance'), addresses interests not positions",
+    "Tradeoffs explicitly accepted (who bears cost, what we're sacrificing)",
+    "Risk mitigation for each role's top fears",
+    "Sequencing if relevant (do X first, then Y), hybrid/creative options explored",
+    "Power dynamics acknowledged (decision authority, veto holders, hierarchy)",
+    "Escalation path defined if consensus fails (3 levels)",
+    "Accountability clear (decision owner, execution owner, stakeholder communication)",
+    "Next steps with owners and deadlines, success metrics defined",
+    "Analysis would prepare you well for actual stakeholder conversations (not theoretical exercise)"
+  ]
+}

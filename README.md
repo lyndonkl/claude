@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 49 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 50 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **49 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **50 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -73,6 +73,8 @@ This repository contains **49 skills** designed to enhance Claude Code's capabil
 **dialectical-mapping-steelmanning** - Present opposing positions in strongest form (steelmanning), map principles using Toulmin model, synthesize via third-way solutions.
 
 **chain-roleplay-debate-synthesis** - Multi-perspective roleplay with expert personas, structured debate, and synthesis across viewpoints for complex decisions.
+
+**role-switch** - Systematically analyze decisions from multiple stakeholder perspectives (eng, PM, legal, user, finance) to uncover blind spots and build alignment. Select 3-6 roles with different goals/incentives/constraints, charitably inhabit each perspective (steel-manning with specific metrics and genuine fears), distinguish position from interest (surface demand vs underlying need), explicitly map tensions and tradeoffs (who wins/loses for each option), and synthesize concrete resolution addressing core interests (not forced consensus). Apply RACI for decision authority, power-interest mapping for stakeholder prioritization, sequential decision-making (phase X satisfies role A, phase Y satisfies role B), hybrid approaches (tiered pricing serves multiple segments), risk mitigation for each role's fears, and escalation paths when consensus fails. Covers build vs buy decisions, feature prioritization, pricing strategy, organizational change, technical migrations, regulatory compliance tradeoffs. Use for stakeholder conflict resolution, cross-functional alignment, pressure-testing proposals, navigating complex tradeoffs, and preparing for multi-party facilitation meetings.
 
 ### 💭 Ideation & Creativity
 
