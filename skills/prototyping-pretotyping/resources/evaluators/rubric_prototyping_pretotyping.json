@@ -1,0 +1,150 @@
+{
+  "name": "Prototyping & Pretotyping Evaluator",
+  "description": "Evaluates prototype experiments for assumption clarity, appropriate fidelity, rigorous measurement, and actionable results",
+  "criteria": [
+    {
+      "name": "Assumption Clarity and Risk Assessment",
+      "weight": 1.4,
+      "scale": {
+        "1": "Vague or missing assumption, no risk assessment",
+        "2": "Assumption stated but not specific, weak risk rationale",
+        "3": "Clear assumption with basic risk assessment (high/medium/low)",
+        "4": "Specific testable assumption with quantified risk (probability × impact)",
+        "5": "Exemplary: Riskiest assumption identified from ranked list, risk score calculated, clear rationale for testing this assumption first"
+      }
+    },
+    {
+      "name": "Fidelity Appropriateness",
+      "weight": 1.4,
+      "scale": {
+        "1": "Severe mismatch (coded prototype for demand question, or pretotype for technical feasibility)",
+        "2": "Overbuilt (higher fidelity than needed) or underbuilt (too low to answer question)",
+        "3": "Appropriate fidelity for most questions, minor mismatch",
+        "4": "Well-matched fidelity with clear rationale for choice",
+        "5": "Exemplary: Fidelity ladder approach (started low, climbed only when validated), cost-benefit analysis for fidelity choice documented"
+      }
+    },
+    {
+      "name": "Success Criteria Definition",
+      "weight": 1.3,
+      "scale": {
+        "1": "No success criteria or vague ('see if users like it')",
+        "2": "Basic criteria but not quantitative, no thresholds",
+        "3": "Quantitative metric stated (e.g., '10% conversion') but no decision rule",
+        "4": "Clear metric with decision thresholds (persevere ≥X, pivot <Y)",
+        "5": "Exemplary: Criteria set before testing (documented), clear decision rule (persevere/pivot/iterate thresholds), benchmarked against industry standards"
+      }
+    },
+    {
+      "name": "User Recruitment Quality",
+      "weight": 1.2,
+      "scale": {
+        "1": "No target user definition or tested with friends/family",
+        "2": "Target defined but convenience sample (not representative)",
+        "3": "Recruited from target segment but small sample (n<5 qualitative, n<50 quantitative)",
+        "4": "Appropriate sample from target segment (n=5-10 qualitative, n=100+ quantitative), screening used",
+        "5": "Exemplary: Target user persona documented, screener questions used, appropriate sample size with statistical justification, diverse sub-segments represented"
+      }
+    },
+    {
+      "name": "Measurement Rigor (Behavior over Opinion)",
+      "weight": 1.3,
+      "scale": {
+        "1": "Only opinions ('users said they liked it'), no behavioral data",
+        "2": "Mix of opinions and weak behavioral signals (page views)",
+        "3": "Behavioral data collected (clicks, task completion) but also relying on opinions",
+        "4": "Strong behavioral focus (conversions, payments, retention), opinions secondary for context",
+        "5": "Exemplary: Pre-commitment signals measured (payments, credit card, waitlist email), behavioral metrics primary, qualitative for understanding why, clear distinction between reliable/unreliable signals"
+      }
+    },
+    {
+      "name": "Build Quality (Minimum Viable for Question)",
+      "weight": 1.1,
+      "scale": {
+        "1": "Severely overbuilt (months on prototype) or unusable (can't test question)",
+        "2": "Overbuilt (weeks when days suffice) or missing key components",
+        "3": "Appropriate build scope, minor overbuilding or gaps",
+        "4": "Minimum build for question, all necessary components present, nothing extra",
+        "5": "Exemplary: Time-boxed build (e.g., 1 week max), clear fake vs real components, disposable mindset (won't ship prototype code), iterated quickly on feedback"
+      }
+    },
+    {
+      "name": "Analysis and Decision Quality",
+      "weight": 1.2,
+      "scale": {
+        "1": "No analysis or decision, or ignored negative results",
+        "2": "Basic analysis but unclear decision (ambiguous results, no action)",
+        "3": "Analysis completed, decision stated (persevere/pivot/iterate) but weak rationale",
+        "4": "Rigorous analysis comparing results to criteria, clear decision with rationale",
+        "5": "Exemplary: Results compared to pre-set criteria, decision follows decision rule, learnings documented, next steps defined (build MVP / test alternative / iterate on X), negative results respected"
+      }
+    },
+    {
+      "name": "Ethical Transparency",
+      "weight": 1.0,
+      "scale": {
+        "1": "Deceptive (fake features advertised as real, charging for non-existent product)",
+        "2": "Misleading (implies fully functional when fake)",
+        "3": "Basic transparency (states 'beta' or 'early access') but could be clearer",
+        "4": "Transparent about limitations ('launching soon', 'early access', 'waitlist')",
+        "5": "Exemplary: Honest framing ('sign up for early access', 'join waitlist to be notified'), users understand they're testing concept, no promises of features that won't be built"
+      }
+    }
+  ],
+  "guidance": {
+    "by_assumption_type": {
+      "demand": {
+        "recommended_method": "Pretotype: Fake door, landing page with sign-up, pre-order",
+        "success_metric": "Conversion rate (visitors → sign-ups/orders), absolute numbers (100+ sign-ups)",
+        "red_flags": ["Using coded prototype (overbuilt)", "Only opinions (survey), no behavior", "Testing with existing customers (not new market)"]
+      },
+      "pricing": {
+        "recommended_method": "Pretotype: Price on landing page, A/B test price tiers, pre-order at target price",
+        "success_metric": "Conversion at target price, revenue collected, willingness to pay distribution",
+        "red_flags": ["Asking 'would you pay $X' (opinions unreliable)", "Testing single price (no comparison)", "Free beta then hoping to charge later (different behavior)"]
+      },
+      "workflow": {
+        "recommended_method": "Paper or clickable prototype (depends on complexity)",
+        "success_metric": "Task completion rate, time on task, error rate, qualitative confusion points",
+        "red_flags": ["Coded prototype (overbuilt for workflow question)", "No task-based testing (just showing screens)", "Sample size <5 (pattern unclear)"]
+      },
+      "feasibility": {
+        "recommended_method": "Coded prototype (technical spike), manual concierge (learn before automating)",
+        "success_metric": "Performance (latency, throughput), cost per transaction, error rate, scalability limit",
+        "red_flags": ["Paper/clickable (can't test technical constraints)", "Not using real data (integration issues hidden)", "No performance benchmarks"]
+      }
+    }
+  },
+  "common_failure_modes": {
+    "overbuilding": {
+      "symptom": "Weeks/months on prototype, or coded when landing page would suffice",
+      "root_cause": "Excitement to build, perfectionism, uncomfortable with 'faking it'",
+      "fix": "Force fidelity ladder (start lowest, justify climbing), time-box builds (e.g., 1 week max)"
+    },
+    "no_success_criteria": {
+      "symptom": "Tested but unclear if validated, moving goalposts after results",
+      "root_cause": "Confirmation bias, didn't think through metrics before",
+      "fix": "Write success criteria doc before building, get stakeholder sign-off, commit to decision rule"
+    },
+    "wrong_users": {
+      "symptom": "Positive test results, market launch flops",
+      "root_cause": "Friends/family (polite), convenience sample (not target segment)",
+      "fix": "Define target persona, screen with qualifying questions, recruit from actual target market"
+    },
+    "opinion_over_behavior": {
+      "symptom": "'Users loved it' but no usage/retention",
+      "root_cause": "Social desirability bias, hypothetical bias",
+      "fix": "Measure behavior (clicks, payments, retention) as primary, use opinions only for context"
+    }
+  },
+  "excellence_indicators": [
+    "Riskiest assumption tested first (ranked by prob wrong × impact)",
+    "Fidelity matched to question (not overbuilt)",
+    "Success criteria set before testing (documented)",
+    "Behavioral metrics measured (conversions, payments, not just opinions)",
+    "Appropriate sample size (n=5-10 qualitative, n=100+ quantitative)",
+    "Clear decision made (persevere/pivot/iterate) based on pre-set criteria",
+    "Learnings documented and shared",
+    "Prototype treated as disposable (won't ship prototype code)"
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "name": "Project Risk Register Evaluator",
+  "description": "Evaluates risk registers for identification completeness, scoring rigor, response planning quality, and monitoring discipline",
+  "criteria": [
+    {
+      "name": "Risk Identification Completeness",
+      "weight": 1.3,
+      "scale": {
+        "1": "Minimal risks identified (<10), single category only, vague descriptions",
+        "2": "Some risks (10-15) but gaps in categories, mix of vague and specific",
+        "3": "Good coverage (15-25 risks) across most categories, mostly specific",
+        "4": "Comprehensive (20-30 risks) across all categories (tech/schedule/resource/external/scope/org), all specific",
+        "5": "Exemplary (25-35 risks) with structured brainstorming evidence, specific root-cause level risks, appropriate granularity, both threats and opportunities identified"
+      }
+    },
+    {
+      "name": "Risk Assessment Rigor",
+      "weight": 1.4,
+      "scale": {
+        "1": "No scoring or arbitrary scores, no rationale, probability/impact conflated",
+        "2": "Basic scoring but clustered (all 6-9), weak rationale, single-person assessment",
+        "3": "Scores differentiated across range, basic rationale, some expert input",
+        "4": "Well-differentiated scores (use full 1-25 range), clear rationale for High/Critical risks, multi-stakeholder input",
+        "5": "Exemplary scoring with calibration evidence (base rates, reference class), detailed rationale for all High/Critical risks, probability/impact assessed independently, bias mitigation techniques used (silent voting, historical data)"
+      }
+    },
+    {
+      "name": "Risk Prioritization and Matrix Visualization",
+      "weight": 1.2,
+      "scale": {
+        "1": "No prioritization or risk matrix, risks listed randomly",
+        "2": "Basic priority labels but no matrix, unclear thresholds",
+        "3": "Risk matrix plotted, priority thresholds defined (Critical/High/Medium/Low), risks categorized",
+        "4": "Clear risk matrix with all risks plotted, priority thresholds explicit (e.g., Critical ≥20), focus on High/Critical risks evident",
+        "5": "Exemplary visualization with risk matrix, priority distribution makes sense for project phase (high uncertainty at start), Critical risks (≥20) escalated, risk profile matches project context"
+      }
+    },
+    {
+      "name": "Risk Response Planning Quality",
+      "weight": 1.4,
+      "scale": {
+        "1": "No response plans, or vague actions like 'monitor closely' with no owners",
+        "2": "Minimal response plans for some High risks, vague actions, no contingencies, teams assigned (not individuals)",
+        "3": "Response plans for High/Critical risks with mitigation OR contingency (not both), named owners, basic specificity",
+        "4": "Strong response plans for High/Critical risks with specific mitigation AND contingency, named owners, deadlines, triggers defined",
+        "5": "Exemplary response plans with SMART mitigation actions (specific, measurable, assigned, realistic, time-bound), detailed contingencies with quantifiable triggers, backup resources identified, investment vs risk reduction justified"
+      }
+    },
+    {
+      "name": "Mitigation vs Contingency Distinction",
+      "weight": 1.1,
+      "scale": {
+        "1": "No distinction between mitigation and contingency, or only one type present",
+        "2": "Some distinction but often confused (contingencies described as mitigations)",
+        "3": "Clear distinction for most risks: mitigation (reduce probability before) vs contingency (reduce impact if occurs)",
+        "4": "Explicit distinction for all High/Critical risks, mitigation targets probability, contingency has activation triggers",
+        "5": "Exemplary distinction with mitigation goals (probability X→Y by date), contingency triggers are specific and measurable, investment in each type justified"
+      }
+    },
+    {
+      "name": "Risk Monitoring and Updates",
+      "weight": 1.2,
+      "scale": {
+        "1": "No monitoring plan, register created once and never updated",
+        "2": "Basic review frequency stated but no evidence of updates, no leading indicators",
+        "3": "Regular reviews (weekly/monthly) with some risk score updates, new/closed risks tracked",
+        "4": "Disciplined monitoring with regular reviews, risk score changes documented with rationale, leading indicators identified for High/Critical risks, trend analysis (improving/stable/deteriorating)",
+        "5": "Exemplary monitoring with review log showing risk evolution, leading indicators tracked with thresholds, risk burn-down chart showing total exposure decreasing, escalation procedures for breaches, lessons learned captured"
+      }
+    },
+    {
+      "name": "Risk Owner Accountability",
+      "weight": 1.1,
+      "scale": {
+        "1": "No risk owners assigned, or generic 'team' ownership",
+        "2": "Some risks have owners but inconsistent, or teams assigned instead of individuals",
+        "3": "Named individuals assigned to most High/Critical risks",
+        "4": "All High/Critical risks have named owners (not teams), owner responsibilities clear (monitor, mitigate, escalate)",
+        "5": "Exemplary ownership with named owners for all High/Critical risks, owner responsibilities explicit, accountability mechanisms (review meetings, status updates), escalation paths defined"
+      }
+    },
+    {
+      "name": "Integration with Project Plan",
+      "weight": 1.0,
+      "scale": {
+        "1": "Risk register separate from project plan, no integration",
+        "2": "Risk register exists but not referenced in project plan or schedule",
+        "3": "Some integration: mitigation actions mentioned in project plan, but not formally scheduled",
+        "4": "Good integration: mitigation actions scheduled in project plan with resources, contingency reserves budgeted",
+        "5": "Exemplary integration: mitigation actions in project schedule with owners and deadlines, risk-adjusted timeline (P50/P80/P95), contingency reserves in budget, risk reviews in milestone gates"
+      }
+    }
+  ],
+  "guidance": {
+    "by_project_phase": {
+      "kickoff": {
+        "typical_risk_profile": "20-40 risks, many at Medium score (uncertainty high), few Critical (pre-mitigation)",
+        "focus": "Comprehensive risk identification across all categories, baseline assessment",
+        "red_flags": ["<10 risks identified (incomplete)", "All risks Critical/High (not calibrated)", "No organizational/external risks (narrow view)"]
+      },
+      "mid_project": {
+        "typical_risk_profile": "15-30 risks, Critical risks mitigated to Medium/Low, new integration/dependency risks emerge",
+        "focus": "Risk evolution tracking, new risks from integration, mitigation progress",
+        "red_flags": ["Risk exposure increasing (mitigation not working)", "Same Critical risks persisting (no progress)", "Risk velocity positive (opening faster than closing)"]
+      },
+      "near_completion": {
+        "typical_risk_profile": "10-20 risks, mostly Low (resolved), few High (deployment, cutover, training)",
+        "focus": "Launch risks, rollback contingencies, final acceptance risks",
+        "red_flags": ["New Critical risks emerging late (missed earlier)", "No rollback/contingency plans", "Risks not decreasing (stuck)"]
+      }
+    },
+    "by_project_type": {
+      "software_migration": {
+        "key_risk_categories": ["Technical (data corruption, downtime, rollback)", "Schedule (dependencies, testing)", "Resource (expertise, vendor)", "Scope (requirements, scope creep)"],
+        "must_have_risks": ["Data migration failures", "Extended downtime", "Rollback complexity", "User adoption", "Performance degradation"],
+        "red_flags": ["No rollback plan", "No pilot migration", "User training missing", "Data backup plan missing"]
+      },
+      "product_launch": {
+        "key_risk_categories": ["External (market demand, competitor)", "Resource (supply chain, manufacturing)", "Schedule (launch timing)", "Scope (feature cuts)"],
+        "must_have_risks": ["Market demand lower than expected", "Competitor launches first", "Supply chain delays", "Pricing miscalculation", "Quality issues"],
+        "red_flags": ["No customer validation", "No competitor analysis", "Single supplier (no backup)", "No go-to-market contingency"]
+      },
+      "organizational_change": {
+        "key_risk_categories": ["Organizational (exec support, resistance)", "Resource (funding, staffing)", "External (regulatory, political)", "Scope (requirements, creep)"],
+        "must_have_risks": ["Employee resistance", "Communication breakdown", "Insufficient training", "Leadership turnover", "Budget cuts"],
+        "red_flags": ["No change management plan", "No stakeholder analysis", "No communication strategy", "No rollback option"]
+      }
+    }
+  },
+  "common_failure_modes": {
+    "too_few_risks": {
+      "symptom": "<10 risks identified",
+      "root_cause": "Incomplete brainstorming, single category focus, not enough time spent",
+      "fix": "Use structured brainstorming by category (technical, schedule, resource, external, scope, org), involve diverse stakeholders, allocate 1-2 hours for risk workshop"
+    },
+    "all_medium_scores": {
+      "symptom": "80%+ of risks scored 6-9 (not differentiated)",
+      "root_cause": "Lack of calibration, avoiding hard choices, consensus-seeking without debate",
+      "fix": "Use reference risks for calibration, force ranking for ties, silent voting to avoid groupthink, use full 1-25 range"
+    },
+    "no_owners": {
+      "symptom": "Risks assigned to 'team' or no owner",
+      "root_cause": "Diffused accountability, avoiding conflict",
+      "fix": "Assign named individuals (not teams) to all High/Critical risks, make ownership explicit in review meetings"
+    },
+    "vague_responses": {
+      "symptom": "Mitigation/contingency plans say 'monitor closely' or 'investigate'",
+      "root_cause": "Lack of specificity, not enough time to plan properly",
+      "fix": "Use SMART criteria (specific, measurable, assigned, realistic, time-bound), define contingency triggers quantitatively"
+    },
+    "stale_register": {
+      "symptom": "Register created at kickoff, never updated",
+      "root_cause": "No review cadence, not integrated into workflow, PM too busy",
+      "fix": "Schedule weekly review for High/Critical risks (15 min), integrate risk review into existing status meetings, use monitoring log template"
+    },
+    "no_contingencies": {
+      "symptom": "Only mitigation plans, no contingencies",
+      "root_cause": "Optimism bias ('mitigation will work'), not understanding mitigation vs contingency",
+      "fix": "Assume some mitigations fail, create backup plans for High/Critical risks, define triggers for contingency activation"
+    }
+  },
+  "excellence_indicators": {
+    "overall": [
+      "20-30 risks identified across all 6 categories",
+      "Risk scores differentiated (use full 1-25 range, not clustered)",
+      "All High/Critical risks have named owners, mitigation, contingency, triggers",
+      "Scoring rationale documented with base rates or historical data",
+      "Risk matrix plotted with priority thresholds explicit",
+      "Regular monitoring with risk evolution tracked (new/closed/changed)",
+      "Mitigation actions scheduled in project plan with deadlines",
+      "Contingency reserves budgeted based on EMV or Monte Carlo",
+      "Risk profile matches project phase (decreasing over time)"
+    ],
+    "quantitative": [
+      "Monte Carlo simulation for timeline/budget forecasting (P50/P80/P95)",
+      "Expected Monetary Value (EMV) calculated for sizing reserves",
+      "Three-point estimation (PERT) for task durations with uncertainty",
+      "Sensitivity analysis (tornado diagram) showing biggest impact drivers",
+      "Risk burn-down chart showing total exposure decreasing over time"
+    ],
+    "organizational": [
+      "Cross-project risk aggregation (portfolio view)",
+      "Lessons learned database referenced for probability calibration",
+      "Risk maturity level ≥3 (managed: regular reviews, tracked mitigation)",
+      "Blameless risk culture (no shooting messenger, proactive identification rewarded)",
+      "Historical risk data tracked (actual vs estimated prob/impact for calibration)"
+    ]
+  }
+}
