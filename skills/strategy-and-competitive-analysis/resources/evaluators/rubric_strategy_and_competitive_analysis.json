@@ -1,0 +1,153 @@
+{
+  "criteria": [
+    {
+      "name": "Diagnosis Quality",
+      "weight": 1.5,
+      "description": "How well does the diagnosis identify the critical strategic challenge?",
+      "levels": {
+        "5": "Diagnosis is specific, evidence-based, identifies root cause (not symptoms), validated with stakeholders. Clearly states THE critical challenge to address with supporting data. Examples: 'CAC ($500) exceeds LTV ($300) in SMB segment due to 60% annual churn' not 'we need to grow'.",
+        "4": "Diagnosis is specific and evidence-based, identifies challenge clearly. May mix some symptoms with root cause but overall direction is clear. Adequate supporting data.",
+        "3": "Diagnosis present but somewhat vague or lists multiple unrelated challenges. Some evidence provided. Example: 'market is competitive and growth is slowing' without deeper root cause analysis.",
+        "2": "Diagnosis is vague, aspirational goal disguised as diagnosis ('want to be market leader'), or lists many symptoms without identifying core challenge. Minimal evidence.",
+        "1": "No clear diagnosis, or diagnosis is completely generic/vague. No evidence. Example: 'we need to improve' or 'market is tough'."
+      }
+    },
+    {
+      "name": "Guiding Policy Strength",
+      "weight": 1.5,
+      "description": "How well does the guiding policy address the diagnosis and create competitive advantage?",
+      "levels": {
+        "5": "Guiding policy directly addresses diagnosis, is directional (not prescriptive actions), explains how it creates competitive advantage, rules things out (says what we WON'T do). Example: 'Vertical specialization in healthcare + product-led growth' (addresses high CAC/churn diagnosis).",
+        "4": "Guiding policy addresses diagnosis and provides clear direction. Explains advantage. May not fully rule things out or may be slightly prescriptive.",
+        "3": "Guiding policy present but generic or weakly connected to diagnosis. Advantage not fully explained. Example: 'focus on customer experience' without specifics.",
+        "2": "Guiding policy is vague platitudes ('be customer-centric, innovative'), doesn't clearly address diagnosis, or contradicts itself.",
+        "1": "No guiding policy, or policy is completely disconnected from diagnosis. Pure aspirational goals ('become market leader')."
+      }
+    },
+    {
+      "name": "Coherent Actions",
+      "weight": 1.4,
+      "description": "Are the proposed actions specific, mutually reinforcing, and aligned with the guiding policy?",
+      "levels": {
+        "5": "3-5 specific actions that support guiding policy, reinforce each other (coherence), no contradictions. Each action has description, owner, timeline, resources. Actions together create more value than independently (synergies).",
+        "4": "3-5 specific actions aligned with guiding policy. Some mutual reinforcement. Mostly complete details (owner, timeline). Minor gaps in coherence.",
+        "3": "Actions present but some are vague, or partially aligned with policy. Limited mutual reinforcement (more like independent initiatives). Some details missing.",
+        "2": "Actions are laundry list of unrelated initiatives, vague ('improve product'), or contradict each other (cost leadership + premium positioning). Many details missing.",
+        "1": "No specific actions, or actions completely disconnect from guiding policy. No coherence."
+      }
+    },
+    {
+      "name": "Competitive Analysis Rigor",
+      "weight": 1.3,
+      "description": "How thorough and insightful is the competitive analysis?",
+      "levels": {
+        "5": "Comprehensive competitive analysis: Porter's 5 Forces applied (if relevant) OR equivalent industry structure analysis. 3-5 key competitors profiled with strengths/weaknesses/strategy inference. Positioning map or landscape clear. Competitive moats identified (ours and theirs). Evidence-based.",
+        "4": "Solid competitive analysis: Key competitors identified and profiled. Industry dynamics understood. Some framework applied (5 Forces, SWOT, positioning). Moats discussed. Minor gaps in depth.",
+        "3": "Basic competitive analysis: Competitors listed with high-level descriptions. Some strengths/weaknesses noted. Limited framework application or superficial. Moats mentioned but not deeply analyzed.",
+        "2": "Minimal competitive analysis: Competitors mentioned but not analyzed. No framework applied. Superficial observations. Moats not discussed.",
+        "1": "No competitive analysis, or purely speculative without evidence."
+      }
+    },
+    {
+      "name": "Strategic Framework Application",
+      "weight": 1.2,
+      "description": "Are appropriate strategic frameworks applied correctly?",
+      "levels": {
+        "5": "Appropriate framework(s) selected for strategic question (e.g., Good Strategy kernel for overall strategy, Porter's 5 Forces for industry analysis, Blue Ocean for positioning, Playing to Win for choices). Framework applied correctly with depth. Integrated insights from multiple frameworks if complex question.",
+        "4": "Appropriate framework selected and applied correctly. Good depth. May use single framework when multi-framework would add value, or minor application gaps.",
+        "3": "Framework applied but choice may not be optimal for question, or application is superficial. Example: Using SWOT when Good Strategy kernel would be better. Framework followed mechanically without deep insights.",
+        "2": "Framework mentioned but not really applied, or wrong framework for question. Checklist approach without analysis.",
+        "1": "No framework applied, or framework completely misapplied."
+      }
+    },
+    {
+      "name": "Evidence and Assumptions",
+      "weight": 1.2,
+      "description": "Is the strategy grounded in evidence? Are assumptions explicit?",
+      "levels": {
+        "5": "Diagnosis and analysis grounded in evidence (customer data, market research, competitive intelligence, financials). Key assumptions stated explicitly with validation plans. Sources cited. Distinguishes facts from hypotheses clearly.",
+        "4": "Good evidence provided for key claims. Assumptions stated. Some citations. Mostly distinguishes facts from hypotheses.",
+        "3": "Some evidence provided but gaps. Assumptions partially stated. Some claims not backed by data. Facts and hypotheses sometimes blurred.",
+        "2": "Minimal evidence. Assumptions implicit or not stated. Many claims unsupported. Largely speculative.",
+        "1": "No evidence. Purely aspirational or wishful thinking. Assumptions not acknowledged."
+      }
+    },
+    {
+      "name": "Competitive Defensibility & Moats",
+      "weight": 1.3,
+      "description": "Does the strategy identify and build sustainable competitive advantages?",
+      "levels": {
+        "5": "Strategy explicitly identifies sustainable competitive advantages (moats): network effects, switching costs, brand, cost advantages, regulatory. Explains how strategy builds/strengthens moats. Addresses why competitors can't easily copy. Considers competitive responses.",
+        "4": "Moats identified and strategy builds on them. Some explanation of defensibility. Competitive response considered.",
+        "3": "Moats mentioned but not central to strategy. Limited discussion of defensibility. Competitive response acknowledged superficially.",
+        "2": "Moats barely mentioned or generic ('we'll be better'). Strategy relies on execution alone without structural advantages. Assumes competitors won't respond.",
+        "1": "No discussion of competitive advantages or moats. Strategy could be easily copied."
+      }
+    },
+    {
+      "name": "Actionability & Implementation",
+      "weight": 1.1,
+      "description": "Can this strategy be executed? Are there clear owners, timelines, metrics, and resource requirements?",
+      "levels": {
+        "5": "Clear action plan: initiatives with owners, timelines, success metrics (baseline + targets), resource requirements, dependencies. Go/no-go decision points defined. Review cadence set. Risks identified with mitigations. Realistic given constraints.",
+        "4": "Good action plan: most initiatives have owners, timelines, metrics. Some resource/dependency details. Risks identified. Mostly realistic.",
+        "3": "Basic action plan: initiatives listed with some details. Many gaps in owners, timelines, metrics, or resources. Limited risk analysis. Partially realistic.",
+        "2": "Vague action plan: initiatives without clear owners or timelines. No metrics or resources specified. Unrealistic given constraints (assumes unlimited resources).",
+        "1": "No action plan, or completely unrealistic. No owners, timelines, metrics, or resources."
+      }
+    }
+  ],
+  "guidance": {
+    "strategic_question_type": {
+      "market_entry": "Prioritize Porter's 5 Forces (criterion: Competitive Analysis Rigor) and clear Where to Play / How to Win choices. Entry barriers and industry attractiveness are critical.",
+      "competitive_response": "Prioritize Competitive Analysis Rigor and Coherent Actions. Need specific competitor analysis (strengths/weaknesses/likely response) and concrete coordinated actions.",
+      "annual_planning": "Prioritize all Good Strategy kernel components (Diagnosis, Guiding Policy, Coherent Actions) equally. Need comprehensive view. Multi-framework approach (SWOT + Good Strategy) typical.",
+      "product_launch": "Prioritize Competitive Defensibility (differentiation, moats) and Actionability (clear go-to-market plan). Blue Ocean Strategy application often valuable.",
+      "turnaround_crisis": "Diagnosis is CRITICAL (weight 2x). Must identify root cause accurately. Guiding Policy must be realistic given constraints. Coherent Actions must be specific and immediate."
+    },
+    "company_stage": {
+      "startup": "Acceptable to have less rigorous Porter's 5 Forces (criterion: Competitive Analysis Rigor can be 3-4). Prioritize Coherent Actions and Actionability (need to execute quickly). Moats can be aspirational (plan to build) vs existing.",
+      "growth": "All criteria equally important. Strategy should balance growth ambitions with competitive realities. Moats should be present or actively building.",
+      "mature": "Prioritize Competitive Analysis Rigor and Competitive Defensibility. Mature companies have established positions, strategy about defending/extending moats. Evidence and data should be comprehensive."
+    },
+    "minimum_thresholds": {
+      "diagnosis_quality": "Must be ≥3. Strategy built on weak diagnosis will fail.",
+      "guiding_policy_strength": "Must be ≥3. Without clear policy, actions won't cohere.",
+      "coherent_actions": "Must be ≥3. Strategy without specific actions is just wishful thinking.",
+      "overall_average": "Must be ≥3.5 across all criteria before delivering."
+    }
+  },
+  "common_failure_modes": {
+    "goals_as_strategy": "Diagnosis: 1-2. User states goals ('grow 50%') as strategy instead of applying Good Strategy kernel. Fix: Re-frame as diagnosis (what's preventing growth?) → guiding policy (approach to address) → coherent actions.",
+    "fluff_and_platitudes": "Guiding Policy: 1-2. Generic statements ('be customer-centric, innovative'). Fix: Demand specificity - what does 'customer-centric' mean in practice? How is it different from competitors?",
+    "laundry_list_actions": "Coherent Actions: 1-2. Unrelated initiatives without coherence. Fix: Ensure all actions support guiding policy and reinforce each other. Remove orphaned actions.",
+    "no_competitive_analysis": "Competitive Analysis Rigor: 1-2. Strategy developed in vacuum without understanding competitors or industry. Fix: Require competitor profiling and Porter's 5 Forces (or equivalent).",
+    "assumptions_not_stated": "Evidence and Assumptions: 1-2. Strategy relies on implicit assumptions. Fix: Explicitly list critical assumptions with validation plans.",
+    "no_moats": "Competitive Defensibility: 1-2. Strategy can be easily copied, no sustainable advantage. Fix: Identify what makes this defensible, why competitors can't copy, what moat it builds.",
+    "vague_actions": "Actionability: 1-2. Actions like 'improve product' without specifics. Fix: Demand owners, timelines, metrics, resources for each action.",
+    "contradictory_strategy": "Coherent Actions: 1-2 or Guiding Policy: 1-2. Actions contradict each other (cost leadership + premium differentiation) or guiding policy contradicts diagnosis. Fix: Force choice - pick ONE strategic direction."
+  },
+  "self_check_questions": [
+    "Diagnosis: Can I explain the core strategic challenge in 2-3 specific sentences without jargon?",
+    "Diagnosis: Is this the root cause or just a symptom? (Use 5 Whys to validate)",
+    "Guiding Policy: Does this directly address the diagnosis? How?",
+    "Guiding Policy: Why is this approach defensible vs competitors? What moat does it build?",
+    "Guiding Policy: What does this rule out? (If 'everything is on the table', policy is too vague)",
+    "Coherent Actions: Do all actions support the guiding policy?",
+    "Coherent Actions: Do actions reinforce each other, or are they independent initiatives?",
+    "Coherent Actions: Are there contradictions? (Can't pursue cost leadership AND premium differentiation)",
+    "Competitive Analysis: Have I profiled 3-5 key competitors with strengths/weaknesses?",
+    "Competitive Analysis: Have I applied Porter's 5 Forces or equivalent industry structure analysis?",
+    "Competitive Analysis: What are our moats? What are competitor moats?",
+    "Frameworks: Did I choose appropriate framework for strategic question? (Good Strategy for overall strategy, 5 Forces for industry, Blue Ocean for positioning, etc.)",
+    "Evidence: Is each key claim backed by evidence (data, customer feedback, market research)?",
+    "Assumptions: Have I stated critical assumptions explicitly? Do I have validation plans?",
+    "Moats: What sustainable competitive advantage does this strategy create? Why can't competitors copy?",
+    "Actionability: Does each action have owner, timeline, success metric, resources?",
+    "Actionability: Are there go/no-go decision points and review cadence?",
+    "Realism: Is this realistic given our constraints (resources, capabilities, time, competition)?",
+    "Competitive Response: What if competitors respond (price war, feature parity, new positioning)? Does strategy hold?",
+    "Overall: Would a skeptical board member approve this strategy, or would they poke holes?"
+  ],
+  "evaluation_notes": "Strategy and competitive analysis quality is assessed across 8 weighted criteria. Diagnosis (1.5x), Guiding Policy (1.5x), and Coherent Actions (1.4x) form the Good Strategy kernel and are weighted highest. Competitive Analysis Rigor (1.3x) and Competitive Defensibility (1.3x) ensure strategy accounts for competitive realities. Strategic Framework Application (1.2x) and Evidence/Assumptions (1.2x) ensure rigor. Actionability (1.1x) ensures executability. Minimum standard: ≥3.5 average across all criteria, with Diagnosis, Guiding Policy, and Coherent Actions all ≥3 individually."
+}

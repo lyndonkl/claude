@@ -1,0 +1,172 @@
+{
+  "name": "Security Threat Model Evaluator",
+  "description": "Evaluates security threat models for architecture clarity, STRIDE coverage, mitigation completeness, risk prioritization, and actionability",
+  "criteria": [
+    {
+      "name": "Architecture & Boundary Mapping",
+      "weight": 1.4,
+      "scale": {
+        "1": "No architecture diagram, components vague ('the server', 'database'), trust boundaries not identified",
+        "2": "Basic diagram but missing external dependencies (third-party services, cloud providers), boundaries mentioned but not analyzed",
+        "3": "Architecture documented with main components, some boundaries identified (user→server, server→DB) but network zones unclear",
+        "4": "Clear architecture diagram, all components with tech stack, trust boundaries marked, network zones (DMZ/VPC/Internet) specified",
+        "5": "Exemplary: Comprehensive architecture (component diagram with ASCII art or visual), all components with specific versions (PostgreSQL 13, Node 16), data flows documented (numbered DF1, DF2...), all trust boundaries explicitly marked and analyzed, network zones clear (public/DMZ/private), external dependencies fully documented (SaaS, APIs, auth providers), authentication methods specified per boundary"
+      }
+    },
+    {
+      "name": "Data Classification Completeness",
+      "weight": 1.3,
+      "scale": {
+        "1": "No data classification, no mention of PII/PHI/PCI, compliance requirements unknown",
+        "2": "Some data elements listed but not classified (sensitive vs public), compliance mentioned vaguely ('we need to be compliant')",
+        "3": "Data classified (internal/confidential) but PII/PHI/PCI not specifically identified, retention/encryption not documented",
+        "4": "All data elements classified (public/internal/confidential/restricted), PII/PHI/PCI identified, compliance requirements stated (GDPR, HIPAA, PCI DSS)",
+        "5": "Exemplary: Comprehensive data inventory with sensitivity classification (4 levels: public/internal/confidential/restricted), specific compliance mapped to data (GDPR for PII, HIPAA for PHI, PCI DSS for payment data), retention policies documented (7 years, until deletion, 90 days), encryption requirements (at rest/in transit/both), data lifecycle (creation, storage, transmission, deletion), data in logs/analytics/backups not forgotten"
+      }
+    },
+    {
+      "name": "STRIDE Coverage & Rigor",
+      "weight": 1.5,
+      "scale": {
+        "1": "STRIDE not applied, or only 1-2 categories checked (e.g., only Spoofing and Tampering), no systematic analysis",
+        "2": "STRIDE mentioned but incomplete (3-4 categories), not applied to all trust boundaries, threats vague ('attacker could break in')",
+        "3": "STRIDE applied to most boundaries with 5-6 categories, some threats identified but likelihood/impact not scored",
+        "4": "STRIDE systematically applied to all trust boundaries (all 6 categories), threats specific (not vague), likelihood and impact scored",
+        "5": "Exemplary: STRIDE comprehensively applied to every trust boundary crossing and critical component (all 6 categories: Spoofing, Tampering, Repudiation, Information Disclosure, DoS, Elevation of Privilege), threats specific with attack scenarios (not 'could be compromised' but 'SQL injection via login form allows data exfiltration'), likelihood scored (1-5 with justification), impact scored (1-5 with business consequence), risk score calculated (likelihood × impact), no categories skipped (addressed Repudiation with audit logging, etc.)"
+      }
+    },
+    {
+      "name": "Mitigation Depth & Defense in Depth",
+      "weight": 1.5,
+      "scale": {
+        "1": "No mitigations proposed, or generic ('use encryption', 'add security'), no distinction between preventive/detective/corrective",
+        "2": "Some mitigations listed but vague ('better validation', 'secure the API'), no implementation details, no monitoring",
+        "3": "Mitigations proposed with some specifics (parameterized queries, HTTPS) but only preventive controls, detective/corrective missing",
+        "4": "Specific mitigations for major threats (preventive controls with implementation), detective controls (monitoring, alerts) included",
+        "5": "Exemplary: Comprehensive defense-in-depth strategy with preventive (TLS 1.2+, parameterized queries, input validation with specific libraries/methods), detective (CloudWatch alarms on failed auth >5/5min, SQL injection attempt logging, geo-impossible travel detection), and corrective controls (incident response plan with RTO/RPO, backup restoration procedures, credential rotation runbooks), mitigations mapped to specific STRIDE threats, implementation details (not 'use MFA' but 'AWS IAM MFA with TOTP, enforced via policy'), monitoring thresholds quantified"
+      }
+    },
+    {
+      "name": "Risk Prioritization & Scoring",
+      "weight": 1.4,
+      "scale": {
+        "1": "No risk prioritization, all threats treated equally, no scoring (likelihood/impact)",
+        "2": "Some threats called 'high priority' but no quantitative scoring, prioritization seems arbitrary",
+        "3": "Basic risk scoring (Low/Med/High) but no multiplication (likelihood × impact), unclear how priorities set",
+        "4": "Risk scores calculated (likelihood × impact = 1-25), threats prioritized by score, top 3-5 risks identified",
+        "5": "Exemplary: Quantitative risk scoring (likelihood 1-5 × impact 1-5 = risk score 1-25), clear thresholds (P0: ≥20, P1: 12-19, P2: 6-11, P3: 1-5), all threats scored and prioritized, top 3-5 critical risks highlighted with action items, residual risk assessed post-mitigation (Medium→Low after controls), accepted risks explicitly documented with rationale (e.g., 'CSRF on read-only GET endpoints accepted, low impact, cost of tokens outweighs risk')"
+      }
+    },
+    {
+      "name": "Actionability & Ownership",
+      "weight": 1.3,
+      "scale": {
+        "1": "No action items, threat model is analysis only with no next steps, no owners assigned",
+        "2": "Vague recommendations ('improve security', 'add monitoring') but no concrete actions, no owners or deadlines",
+        "3": "Some action items with owners but no deadlines, or deadlines without prioritization",
+        "4": "Clear action items with owners and deadlines, prioritized by risk (P0/P1/P2), status tracked (Done/In Progress/TODO)",
+        "5": "Exemplary: Concrete action items (not 'fix SQLi' but 'Manual code review of all SQL queries for parameterized query usage, add automated SQLMap scan to CI/CD'), named owners (Engineering, DevOps, Security with specific people if known), deadlines (2 weeks, 1 month, immediate), prioritized (P0/P1/P2 mapped to risk scores), status indicators (✓ Done, ⚠ Partial, 🔴 TODO, 🟡 In Progress), mitigation status per threat documented, review date set (quarterly or after architecture changes)"
+      }
+    },
+    {
+      "name": "Compliance Alignment",
+      "weight": 1.2,
+      "scale": {
+        "1": "No mention of compliance requirements (GDPR, HIPAA, PCI, SOC 2), unclear if system handles regulated data",
+        "2": "Compliance mentioned but not mapped to threats or mitigations (e.g., 'we're PCI compliant' but no PCI-specific controls documented)",
+        "3": "Compliance requirements identified (GDPR for PII, PCI for payment data) but controls not fully mapped (missing audit logging, encryption gaps)",
+        "4": "Compliance requirements documented, key controls mapped (PCI: no CVV storage, encryption, quarterly scans), audit trail addressed",
+        "5": "Exemplary: All compliance requirements identified and mapped to data/systems (GDPR: consent management, right to deletion, breach notification <72hr; PCI DSS: tokenization, no CVV storage, quarterly ASV scans, annual audit; HIPAA: PHI encryption, access controls, audit logs; SOC 2: change management, access reviews), controls explicitly aligned with compliance frameworks (e.g., 'Encryption at rest (AES-256) satisfies GDPR Article 32, HIPAA 164.312(a)(2)(iv), PCI DSS 3.4'), gaps identified ('need to implement GDPR right-to-delete API')"
+      }
+    },
+    {
+      "name": "Monitoring & Incident Response",
+      "weight": 1.2,
+      "scale": {
+        "1": "No monitoring or alerting defined, no incident response plan, unclear how attacks would be detected",
+        "2": "Generic monitoring mentioned ('we have logs') but no specific alerts, no incident response procedures",
+        "3": "Some monitoring defined (CloudWatch, Datadog) with basic alerts (CPU >80%) but no security-specific alerts (failed auth, SQLi attempts), no IR plan",
+        "4": "Security monitoring with specific alerts (failed login >5/5min, SQLi pattern detected, geo-impossible travel), incident response runbook exists",
+        "5": "Exemplary: Comprehensive detective controls (failed auth monitoring with threshold >5/5min→auto-block IP, SQLi attempt logging→security review, unusual data access→throttle user, privilege escalation→block+review, DDoS detection→Shield activation, backup integrity checks→page on-call), alert thresholds quantified, incident response plans (Database compromise: restore from backup <4hr RTO, rotate creds; DDoS: Shield Advanced + WAF tuning <15min; Credential leak: rotate secrets <1hr, force password resets; Data breach: IR plan + legal notification <72hr GDPR), runbooks tested (quarterly DDoS drill, tabletop data breach exercise), audit log retention (1 year SOC 2), immutable logs (S3 object lock)"
+      }
+    }
+  ],
+  "guidance": {
+    "by_system_type": {
+      "web_application": {
+        "critical_threats": "SQLi (Tampering), XSS (Spoofing), CSRF (Spoofing), session hijacking (Spoofing), IDOR (Elevation of Privilege), information disclosure via errors",
+        "key_boundaries": "User→Web Server (untrusted input), Web Server→Database (SQLi risk), Client→Server (XSS/CSRF), Internal→External APIs (data exfiltration)",
+        "essential_mitigations": "Parameterized queries, CSP headers, CSRF tokens, HttpOnly/Secure cookies, input validation, authorization checks, TLS 1.2+",
+        "compliance_focus": "GDPR (if EU users), PCI DSS (if payment data), SOC 2 (B2B SaaS)"
+      },
+      "mobile_app": {
+        "critical_threats": "Certificate pinning bypass (Tampering), local data theft (Information Disclosure), API key extraction (Information Disclosure), reverse engineering, jailbreak detection bypass",
+        "key_boundaries": "Mobile App→API (certificate pinning), App→Local Storage (encryption), User→App (biometric auth)",
+        "essential_mitigations": "Certificate pinning, ProGuard/R8 obfuscation, Keychain/Keystore, biometric auth, no secrets in code, root/jailbreak detection",
+        "compliance_focus": "GDPR (PII in app), COPPA (if children's app), HIPAA (if health data)"
+      },
+      "cloud_infrastructure": {
+        "critical_threats": "IAM misconfiguration (Elevation of Privilege), public S3 bucket (Information Disclosure), credential theft from metadata (Spoofing), security group override (Tampering), cost attack (DoS)",
+        "key_boundaries": "Internet→API Gateway (DDoS), Service→Service (lateral movement), Service→S3/DB (data access), IAM roles (privilege boundaries)",
+        "essential_mitigations": "Least privilege IAM, IMDSv2, S3 bucket policies (private), security groups, CloudTrail, Config rules, encryption at rest, VPC endpoints",
+        "compliance_focus": "SOC 2 (cloud controls), FedRAMP (government), ISO 27001 (international)"
+      },
+      "api_service": {
+        "critical_threats": "BOLA/IDOR (Elevation of Privilege), API key theft (Spoofing), rate limit bypass (DoS), over-fetching (Information Disclosure), mass assignment (Tampering), OAuth scope creep",
+        "key_boundaries": "Client→API (authentication), API→Database (authorization), API→Third-Party (OAuth)",
+        "essential_mitigations": "API authentication (key/OAuth), authorization per endpoint, rate limiting, field-level permissions (GraphQL), CORS, input validation, audit logging",
+        "compliance_focus": "GDPR (data minimization), HIPAA (if PHI in API), PCI DSS (if payment data)"
+      }
+    }
+  },
+  "common_failure_modes": {
+    "incomplete_stride": {
+      "symptom": "Only 2-3 STRIDE categories applied (usually Spoofing, Tampering, DoS), Repudiation and Information Disclosure skipped",
+      "root_cause": "Not systematically checking all 6 categories for each boundary, assuming 'we don't have repudiation issues' without thinking through audit requirements",
+      "fix": "Create checklist: For each trust boundary, explicitly ask all 6 STRIDE questions. Repudiation → audit logging. Information Disclosure → check logs/errors/backups for PII."
+    },
+    "missing_trust_boundaries": {
+      "symptom": "Only obvious boundary (user→server) analyzed, internal boundaries (server→DB, service→service) missed",
+      "root_cause": "Thinking threats only come from external attackers, not considering lateral movement or insider threats",
+      "fix": "Map all data flows, mark every point where data crosses security domains (authentication change, encryption boundary, network zone, privilege level)"
+    },
+    "vague_mitigations": {
+      "symptom": "Mitigations like 'use encryption', 'add security', 'validate input' without specifics",
+      "root_cause": "Not thinking through implementation details, treating threat model as high-level only",
+      "fix": "Specify: 'TLS 1.2+ enforced via ALB listener policy', 'Joi schema validation on all POST/PUT endpoints', 'AES-256 encryption at rest via RDS setting'"
+    },
+    "no_monitoring": {
+      "symptom": "Only preventive controls (firewalls, encryption), no detective controls (alerts, logging), no incident response",
+      "root_cause": "Assume breach mindset not applied, thinking 'if we prevent, we don't need to detect'",
+      "fix": "For each high-risk threat, define: How would we detect this? What alert fires? Who responds? What's the runbook?"
+    },
+    "compliance_afterthought": {
+      "symptom": "Compliance mentioned but not integrated (e.g., 'we're HIPAA compliant' but no PHI encryption documented, no audit logs)",
+      "root_cause": "Treating compliance as checkbox, not understanding specific technical requirements",
+      "fix": "Map compliance framework to controls: GDPR→consent+deletion+breach notification, PCI→tokenization+encryption+no CVV, HIPAA→PHI encryption+access logs+BAA"
+    },
+    "static_threat_model": {
+      "symptom": "Threat model created once, never updated, doesn't reflect current architecture",
+      "root_cause": "Treating threat model as one-time deliverable, not living document",
+      "fix": "Set review cadence (quarterly or when architecture changes), track threat model version, integrate into change management (new feature = update threat model)"
+    }
+  },
+  "excellence_indicators": [
+    "Architecture diagram clear with all components, data flows numbered, trust boundaries marked",
+    "All data elements classified (sensitivity + compliance), retention and encryption documented",
+    "STRIDE systematically applied to every trust boundary (all 6 categories)",
+    "Threats specific with attack scenarios, not vague ('SQL injection via login form user_id parameter')",
+    "Likelihood and impact scored (1-5), risk score calculated (L×I)",
+    "Mitigations defense-in-depth: preventive + detective + corrective controls",
+    "Mitigations specific with implementation ('Parameterized queries via Sequelize ORM, no raw SQL')",
+    "Monitoring defined with quantified thresholds (>5 failed logins/5min→auto-block IP)",
+    "Incident response plans with RTO/RPO (Database restore <4hr RTO, <24hr RPO)",
+    "Risk prioritization (P0/P1/P2) with top 3-5 critical risks highlighted",
+    "Action items concrete, named owners, deadlines, priority, status tracked",
+    "Compliance requirements mapped to controls (GDPR Article 32→encryption at rest)",
+    "Accepted risks explicitly documented with rationale",
+    "Review date set (quarterly or after major architecture changes)",
+    "Assumptions documented ('Assumes TLS 1.2+ enforced—verify in ALB config')",
+    "Threat model would survive security audit (specific, comprehensive, actionable)"
+  ]
+}
