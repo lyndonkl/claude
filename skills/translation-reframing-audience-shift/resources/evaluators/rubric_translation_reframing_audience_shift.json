@@ -1,0 +1,167 @@
+{
+  "criteria": [
+    {
+      "name": "Semantic Fidelity",
+      "weight": 1.5,
+      "description": "Are core facts, relationships, and implications preserved accurately?",
+      "levels": {
+        "5": "Perfect accuracy: all facts, cause-effect relationships, and implications preserved. Source domain expert would confirm translation is correct. Critical caveats included. Quantification retained (exact or within stated range). No semantic drift from simplification. Verifiable against original.",
+        "4": "Strong accuracy: key facts and relationships preserved, minor details simplified appropriately. Expert would mostly confirm. Important caveats included. Some quantification rounded but within reasonable range (30.2% → 'about 30%'). Minimal semantic drift, documented.",
+        "3": "Acceptable accuracy: core facts correct but some relationships simplified. Expert would note minor issues but agree on main points. Key caveats present, some edge cases omitted. Quantification less precise ('significantly' instead of '30%') but directionally correct. Some semantic drift, still usable.",
+        "2": "Questionable accuracy: facts oversimplified leading to potential misunderstanding. Expert would disagree with some translations. Missing important caveats. Quantification vague or misleading. Semantic drift changes meaning in places. Needs revision.",
+        "1": "Inaccurate: facts distorted, relationships wrong, or implications incorrect. Expert would reject translation. Critical caveats missing. False precision or gross exaggeration. Semantic drift makes it unreliable or misleading."
+      }
+    },
+    {
+      "name": "Audience Expertise Match",
+      "weight": 1.4,
+      "description": "Is content appropriate for target audience's expertise level (not too technical or too simple)?",
+      "levels": {
+        "5": "Perfect calibration: jargon level exactly right for target (explained when unknown, used when understood). Depth matches expertise (novice gets analogies, expert gets precision). Not condescending or confusing. Target would understand without frustration or boredom.",
+        "4": "Good calibration: mostly appropriate depth, minor mismatches (1-2 unexplained terms or slight over-simplification). Target would understand with minimal effort. Slightly too technical or too simple in places but not problematic.",
+        "3": "Acceptable calibration: notable mismatches (several unexplained terms OR talking down). Target would struggle in parts or feel patronized. Expertise assumption off by 1 level (treating intermediate as novice, or novice as intermediate). Still usable with effort.",
+        "2": "Poor calibration: frequently too technical (jargon unexplained, target confused) OR too simple (obvious to target, wastes time). Expertise assumption off by 2 levels. Target likely gives up or feels insulted. Major revision needed.",
+        "1": "Complete mismatch: written for wrong audience entirely. Expert-level content for novice (incomprehensible) OR novice-level for expert (insultingly simple). Target cannot use this."
+      }
+    },
+    {
+      "name": "Goal Alignment",
+      "weight": 1.3,
+      "description": "Does translation address target audience's primary goals and use case?",
+      "levels": {
+        "5": "Perfectly aligned: addresses target's core questions (decision-makers get options/recommendations, implementers get how-to, learners get why/context, stakeholders get impact). Actionable for intended use. Emphasis on what target needs to know, not what source wants to tell.",
+        "4": "Well aligned: addresses primary goals, minor gaps (e.g., action is mostly clear but could be more specific). Target can accomplish their goal with minimal additional work. Emphasis mostly on target's priorities.",
+        "3": "Partially aligned: addresses some goals but misses key aspects (e.g., decision-makers get information but not clear recommendation, implementers get what but not how). Target needs supplemental information. Emphasis mixed between target's and source's priorities.",
+        "2": "Poorly aligned: answers different questions than target needs (e.g., gives background when target needs decision, or gives vision when target needs tactics). Target struggles to extract what they need. Emphasis on source's interests.",
+        "1": "Misaligned: doesn't address target's goals at all. Target cannot accomplish intended purpose with this translation. Completely wrong emphasis or missing critical information for their use case."
+      }
+    },
+    {
+      "name": "Tone & Formality Appropriateness",
+      "weight": 1.2,
+      "description": "Does tone match audience expectations and context (formal/informal, encouraging/neutral, etc.)?",
+      "levels": {
+        "5": "Perfect tone: formality level exactly right for audience and context (professional for executives, casual for internal team, encouraging for learners). Emotional register appropriate (neutral for facts, reassuring for concerns). Perspective (first/second/third person) matches norms. Target would feel tone is respectful and appropriate.",
+        "4": "Good tone: mostly appropriate, minor mismatches (slightly too formal or casual but not jarring). Emotional register mostly right. Target would accept without issue.",
+        "3": "Acceptable tone: noticeable mismatches (e.g., casual when formal expected, or stiff when conversational appropriate). Doesn't offend but feels off. Target would note but overlook.",
+        "2": "Inappropriate tone: clearly wrong (e.g., flippant for serious topic, condescending to audience, overly bureaucratic for friendly context). Target would be put off or annoyed. Detracts from message.",
+        "1": "Offensive tone: disrespectful, condescending, or wildly inappropriate for context. Target would reject message due to tone alone."
+      }
+    },
+    {
+      "name": "Emphasis & Prioritization",
+      "weight": 1.4,
+      "description": "Does translation lead with target's priorities and emphasize what they care about?",
+      "levels": {
+        "5": "Perfect emphasis: leads with target's top priorities in first sentence/paragraph. Key information highlighted (bullets, bold, prominent placement). Secondary details backgrounded. Target can quickly find what matters to them. 'Inverted pyramid' or 'BLUF' structure for busy audiences.",
+        "4": "Good emphasis: priorities mostly correct, minor issues (target's #1 priority in paragraph 2 instead of paragraph 1). Key information emphasized. Some extraneous detail upfront but doesn't obscure main points.",
+        "3": "Acceptable emphasis: priorities somewhat misaligned (target's top concern buried mid-document). Some key information highlighted but inconsistently. Requires skimming to find important parts. Structure makes work for target.",
+        "2": "Poor emphasis: source's priorities dominate (what source finds interesting vs. what target needs). Key information not highlighted or buried. Target must read entire thing to find relevant parts. Wrong structure for audience (exhaustive when summary needed).",
+        "1": "Wrong emphasis: completely backwards priorities (leads with trivia, buries critical information). Target would miss key points. Structure fights against target's goals."
+      }
+    },
+    {
+      "name": "Length & Concision",
+      "weight": 1.1,
+      "description": "Is length appropriate for target's time constraints and medium?",
+      "levels": {
+        "5": "Perfect length: respects target's time (exec summary 1 page, status update 3 bullets, detailed analysis comprehensive). No unnecessary verbosity. Could not be shorter without losing essential content. Medium-appropriate (email skimmable, doc reference-quality, presentation slide-friendly).",
+        "4": "Good length: mostly appropriate, could trim 10-20% without losing value. Fits time constraints. Minor verbosity or could add slight detail. Medium mostly appropriate.",
+        "3": "Acceptable length: noticeable issues (too long for time constraint, or too brief missing key info). 20-30% too verbose or 10-20% too sparse. Medium somewhat mismatched (dense paragraphs in email that should have bullets).",
+        "2": "Poor length: way too long (exec gets 10 pages when they have 5 minutes) or way too brief (implementer gets vague bullets when they need specifics). 50%+ too verbose or 30%+ missing needed content. Medium inappropriate.",
+        "1": "Unusable length: massively too long (target gives up) or far too brief (target cannot act). Completely ignores time constraints or medium norms."
+      }
+    },
+    {
+      "name": "Cultural & Demographic Sensitivity",
+      "weight": 1.2,
+      "description": "Does translation work for target's cultural/demographic context (idioms, references, examples)?",
+      "levels": {
+        "5": "Culturally appropriate: no culture-specific idioms if international audience (or replaced with target-culture equivalents). Examples relatable to target industry/geography/generation. Date formats, units, references fit target norms. Assumptions explicit, not relying on shared context source has but target lacks.",
+        "4": "Mostly appropriate: 1-2 minor cultural references that don't exclude target (e.g., common idiom that's widely understood). Examples mostly relatable. Assumptions mostly explicit.",
+        "3": "Some issues: several culture-specific elements (idioms, references, examples) that may confuse or exclude target. Some unstated assumptions. Target can still use with effort. N/A if source and target are same culture.",
+        "2": "Inappropriate: many culturally specific elements (sports references unknown to target, generation-specific slang, industry jargon from different industry). Heavy unstated assumptions. Target struggles to connect.",
+        "1": "Culturally tone-deaf: riddled with exclusionary references. Assumes target shares source's culture. Target feels excluded or cannot understand due to cultural gap. N/A if source/target same culture."
+      }
+    },
+    {
+      "name": "Structural & Format Quality",
+      "weight": 1.1,
+      "description": "Is structure optimized for target medium and comprehension?",
+      "levels": {
+        "5": "Excellent structure: optimized for medium (email = skimmable with bullets/bold, doc = sections with ToC, presentation = slide-friendly bullets, conversation = natural flow). Headers guide reader. Formatting (bullets, emphasis, white space) aids comprehension. Accessible (clear for non-native speakers if needed).",
+        "4": "Good structure: appropriate for medium, minor improvements possible. Headers present. Formatting mostly helpful. Accessible.",
+        "3": "Acceptable structure: somewhat optimized but issues (email with dense paragraphs, doc without clear sections, presentation with walls of text). Formatting inconsistent. Moderate accessibility issues.",
+        "2": "Poor structure: wrong for medium (presentation that reads like essay, email that requires printing to parse). Headers missing or unhelpful. Formatting hinders (no emphasis, poor spacing). Accessibility problems.",
+        "1": "No structure: wall of text regardless of medium. No headers, bullets, or formatting. Incomprehensible structure. Inaccessible."
+      }
+    },
+    {
+      "name": "Actionability (if applicable)",
+      "weight": 1.3,
+      "description": "If target must act, are next steps clear (who, what, when, how)?",
+      "levels": {
+        "5": "Completely actionable: next steps explicit (what to do, who does it, when/deadline, how/method). Success criteria clear. Resources/links provided. Target can immediately act without follow-up questions. N/A if target doesn't need to act (FYI only).",
+        "4": "Mostly actionable: next steps clear, minor gaps (e.g., 'who' implicit from context, or 'how' partly specified). Target can act with minimal clarification.",
+        "3": "Partially actionable: next steps vague (what is stated but who/when/how unclear). Target needs follow-up to act. Success criteria ambiguous.",
+        "2": "Barely actionable: next steps very vague ('improve X'without specifics). Target unsure what to do. Would need significant clarification.",
+        "1": "Not actionable: no clear next steps despite target needing to act. Target blocked. N/A if this is informational only and no action expected."
+      }
+    },
+    {
+      "name": "Overall Translation Quality",
+      "weight": 1.2,
+      "description": "Holistic assessment: would translation successfully serve its purpose?",
+      "levels": {
+        "5": "Excellent: target would fully understand, find it useful, and accomplish their goal. Source expert confirms accuracy. No significant weaknesses. Sets gold standard.",
+        "4": "Good: target would understand and use successfully with minor issues. Source expert mostly confirms. Small improvements possible but not critical. Solid work.",
+        "3": "Acceptable: target would understand enough to act, but gaps or awkwardness. Source expert has reservations. Notable improvements needed but usable. Passes minimum bar.",
+        "2": "Problematic: target struggles to understand or use effectively. Source expert disagrees with translation choices. Major issues across multiple criteria. Needs significant revision.",
+        "1": "Failed: target cannot understand or use. Source expert rejects as inaccurate. Does not serve purpose. Complete rework needed."
+      }
+    }
+  ],
+  "guidance": {
+    "translation_type": {
+      "technical_to_business": "Prioritize Semantic Fidelity (1.5x), Goal Alignment (1.3x, focus on business value), Emphasis (1.4x, lead with 'so what?'). Expertise Match critical (business audience doesn't know technical terms). Actionability important if seeking approval/decision.",
+      "strategic_to_tactical": "Prioritize Goal Alignment (1.3x, concrete actions), Actionability (1.3x, who/what/when), Emphasis (1.4x, lead with tasks not vision). Length moderate (tactical needs specifics). Semantic Fidelity ensures strategic intent preserved in tactics.",
+      "expert_to_novice": "Prioritize Expertise Match (1.4x, simplify without condescension), Semantic Fidelity (1.5x, accuracy despite simplification), Tone (1.2x, respectful explanation). Use analogies, avoid jargon, test for 'talking down' feel.",
+      "formal_to_informal": "Prioritize Tone (1.2x, casual but not flippant), Structural Quality (1.1x, conversational flow). Semantic Fidelity and Expertise Match still matter. Cultural sensitivity for emoji/slang use.",
+      "long_to_summary": "Prioritize Length (1.1x, ruthless concision), Emphasis (1.4x, inverted pyramid), Semantic Fidelity (1.5x, preserve core despite compression). BLUF structure critical. Test: 'Can target get main point in 30 seconds?'",
+      "internal_to_external": "Prioritize Cultural Sensitivity (1.2x, no company jargon), Tone (1.2x, professional), Semantic Fidelity (1.5x, no leaked confidential info). Remove insider references, explain context.",
+      "cross_cultural": "Prioritize Cultural Sensitivity (1.2x, avoid idioms), Examples relatable to target culture. Tone may need adjustment (direct vs indirect cultures). Date formats, units, references adapted.",
+      "multi_audience": "Create separate translations if goals/expertise differ significantly. Use layered approach if one document must serve all. Ensure no contradictions between versions (semantic fidelity across all)."
+    },
+    "minimum_thresholds": {
+      "critical_criteria": "Semantic Fidelity ≥3 (must be accurate), Expertise Match ≥3 (must be comprehensible), Goal Alignment ≥3 (must be useful). If any <3, translation fundamentally flawed.",
+      "overall_average": "Must be ≥3.5 across applicable criteria before delivering. Higher threshold (≥4.0) for high-stakes translations (safety-critical, legal, financial, executive decisions)."
+    },
+    "weight_interpretation": "Semantic Fidelity (1.5x) and Emphasis (1.4x) are most critical—must be accurate and prioritize target's needs. Expertise Match (1.4x), Goal Alignment (1.3x), Actionability (1.3x), Tone (1.2x), Cultural Sensitivity (1.2x), Overall (1.2x) are highly important. Length (1.1x) and Structure (1.1x) are important but less central."
+  },
+  "common_failure_modes": {
+    "semantic_drift": "Semantic Fidelity: 1-2. Facts become inaccurate through simplification ('reduces risk by 30% if applied within 24 hours' → 'helps reduce risk'). Fix: After each simplification, check against original. Preserve quantification and critical constraints.",
+    "jargon_mismatch": "Expertise Match: 1-2. Too technical (undefined jargon confuses target) or too simple (obvious to target, wastes time). Fix: Profile target expertise (1-5 scale). Define terms at level 1-2, use terms at level 4-5.",
+    "wrong_emphasis": "Emphasis: 1-2. Leads with source's interests not target's needs (engineer excited about algorithm elegance, exec needs ROI). Fix: List target's top 3 priorities BEFORE translating. Lead with those.",
+    "missing_so_what": "Goal Alignment: 2-3. Technical details without business impact ('migrated to Kubernetes' without 'enables auto-scaling, reduces costs 30%'). Fix: Every technical detail must answer 'so what?' from target perspective.",
+    "missing_how": "Goal Alignment + Actionability: 2-3. Strategic vision without tactical translation ('become data-driven' without 'Q1: instrument 10 flows, Q2: train PMs, Q3: weekly metrics review'). Fix: Every goal must specify concrete actions.",
+    "lost_nuance": "Semantic Fidelity: 2-3. Critical caveats omitted for brevity ('works' without 'only under condition X'). Fix: Preserve important qualifications even in summaries. Add 'generally' or 'in most cases' if caveat too detailed for length.",
+    "talking_down": "Tone: 1-2. Condescending to novices ('even you can understand'). Fix: Respectful explanation. Test: 'Would I be insulted if someone explained this to me this way?'",
+    "cultural_assumptions": "Cultural Sensitivity: 1-2. Idioms or references that exclude target (baseball idioms for international, Gen Z slang for Boomers). Fix: Replace with universal equivalents ('home run' → 'big success').",
+    "unverified_accuracy": "Semantic Fidelity: 2-3. Assumes translation is correct without checking. Fix: Test with 'would source domain expert confirm this is accurate?' If uncertain, get expert review or err on side of preserving detail."
+  },
+  "self_check_questions": [
+    "Semantic Fidelity: Would source domain expert confirm this translation is accurate?",
+    "Expertise Match: Is jargon level right for target (explained when unknown, used when understood)?",
+    "Goal Alignment: Does this answer target's core questions (decide/implement/learn)?",
+    "Tone: Is formality and emotional register appropriate for audience and context?",
+    "Emphasis: Do I lead with target's priorities (not source's)?",
+    "Length: Does length respect target's time constraints?",
+    "Cultural: Do idioms/references work for target's culture/generation?",
+    "Structure: Is structure optimized for medium (email/doc/presentation/conversation)?",
+    "Actionability: If target must act, are next steps clear (who/what/when/how)?",
+    "Fidelity Trade-offs: Any simplifications that risk accuracy? Are they justified and documented?",
+    "Back-Translation Test: If I translate this back to source level, does it match original semantics?",
+    "Overall: Would target find this clear, useful, and accurate enough to act on?"
+  ],
+  "evaluation_notes": "Translation quality assessed across 10 weighted criteria. Critical: Semantic Fidelity (1.5x, accuracy preserved), Emphasis (1.4x, leads with target priorities), Expertise Match (1.4x, appropriate depth). Highly important: Goal Alignment (1.3x, addresses target's use case), Actionability (1.3x, clear next steps if needed), Tone (1.2x, matches audience), Cultural Sensitivity (1.2x, works for target's context), Overall (1.2x, holistic success). Important: Length (1.1x, respects time), Structure (1.1x, optimized for medium). Minimum thresholds: Semantic Fidelity ≥3, Expertise Match ≥3, Goal Alignment ≥3 (if any <3, fundamentally flawed). Overall average ≥3.5 for standard work, ≥4.0 for high-stakes. Common failures: semantic drift (facts distorted through simplification), jargon mismatch (too technical or too simple), wrong emphasis (source's priorities not target's), missing 'so what?' (technical without business impact), missing 'how?' (vision without tactics), lost nuance (critical caveats omitted), talking down, cultural assumptions, unverified accuracy. Quality translation preserves semantic accuracy while adapting presentation (tone, depth, emphasis, length, structure) to match target audience expertise, goals, context, and constraints."
+}
