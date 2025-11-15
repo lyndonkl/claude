@@ -1,0 +1,166 @@
+{
+  "criteria": [
+    {
+      "name": "System Boundary Definition",
+      "weight": 1.2,
+      "description": "Is the system boundary clearly defined with pragmatic rationale for inclusion/exclusion?",
+      "levels": {
+        "5": "System boundary explicitly stated (what's in/out), rationale provided (why this scope), pragmatically scoped for intervention (actionable), acknowledges what's excluded and why (external forces, out of control). Boundary is neither too narrow (misses key feedback) nor too broad (unwieldy analysis).",
+        "4": "Boundary clear with rationale. Mostly pragmatic scope. Some acknowledgment of exclusions. Minor boundary issues (slightly too narrow or broad but workable).",
+        "3": "Boundary stated but rationale unclear or weak. Scope may be too narrow (misses important feedback loops) or too broad (includes uncontrollable elements). Limited acknowledgment of exclusions.",
+        "2": "Boundary vague or arbitrary. No clear rationale for inclusion/exclusion. Scope inappropriate (misses critical components or includes irrelevant ones). Exclusions not acknowledged.",
+        "1": "No system boundary defined or completely inappropriate scope. Analysis lacks focus. Unclear what's being analyzed."
+      }
+    },
+    {
+      "name": "Stock-Flow Distinction",
+      "weight": 1.3,
+      "description": "Are stocks (accumulations) and flows (rates of change) correctly identified and distinguished?",
+      "levels": {
+        "5": "Stocks clearly identified as accumulations (nouns: employee count, technical debt, trust). Flows clearly identified as rates of change (verbs: hiring rate, bug introduction rate). Stocks and flows connected (flows change stocks). Units specified (e.g., people, bugs/sprint). No confusion between stocks and flows.",
+        "4": "Stocks and flows mostly distinguished. Connections shown. Units mostly specified. Minor confusion (1-2 misclassifications).",
+        "3": "Some stocks and flows identified but distinctions inconsistent. Some connections shown. Units often missing. Noticeable confusion (treating stocks as flows or vice versa).",
+        "2": "Stocks and flows mixed up frequently. Connections unclear. Units rarely specified. Fundamental confusion (e.g., 'morale is flowing').",
+        "1": "No distinction between stocks and flows or entirely incorrect. Variables listed without understanding accumulation vs. rate."
+      }
+    },
+    {
+      "name": "Feedback Loop Identification",
+      "weight": 1.5,
+      "description": "Are feedback loops (reinforcing and balancing) correctly identified with proper polarity?",
+      "levels": {
+        "5": "At least one reinforcing loop (R) and one balancing loop (B) identified. Loop polarity correct (R = even # of negative links, B = odd # of negative links). Link polarity marked (+ same direction, - opposite direction). Loop effects described (R amplifies change growth/collapse, B resists change seeks goal). Loops labeled (R1, R2, B1, B2) for reference. Interconnections between loops shown.",
+        "4": "R and B loops identified. Polarity mostly correct. Effects described. Loops labeled. Some interconnections shown. Minor polarity errors (1-2 links).",
+        "3": "Loops identified but polarity inconsistent or incorrect. Effects vaguely described. Limited labeling. Interconnections missing or unclear. Loops may be isolated (not showing system structure).",
+        "2": "Loops present but polarity frequently wrong. Effects not described or incorrect (e.g., calling B loop 'reinforcing'). No labeling. Loops disconnected. Fundamental misunderstanding of feedback.",
+        "1": "No feedback loops identified or entirely incorrect. Linear cause-effect thinking only (A→B→C, no feedback)."
+      }
+    },
+    {
+      "name": "Delay Recognition",
+      "weight": 1.2,
+      "description": "Are time delays explicitly noted with estimated duration and impact on system dynamics?",
+      "levels": {
+        "5": "Delays explicitly marked in loops (e.g., [~~] notation or stated). Time lag quantified (not just 'delayed' but '3-6 months', '2 weeks'). Delay types distinguished (physical, information, perception). Impact of delays explained (can cause oscillations, overshoot, impatience leading to premature abandonment). Critical delays highlighted (where they most affect system behavior).",
+        "4": "Delays noted and mostly quantified. Impact explained. Some type distinction. Critical delays identified. Minor gaps (some delays not quantified).",
+        "3": "Delays mentioned but often not quantified ('delayed' without timeframe). Impact vaguely described. No type distinction. Critical vs. non-critical delays not distinguished.",
+        "2": "Delays rarely mentioned or acknowledged. Not quantified. Impact not described. System treated as if cause and effect are immediate.",
+        "1": "No delay recognition. Analysis assumes instantaneous response. Ignores time lag entirely."
+      }
+    },
+    {
+      "name": "System Archetype Recognition",
+      "weight": 1.3,
+      "description": "If system matches a known archetype, is it recognized and leveraged for insights?",
+      "levels": {
+        "5": "System archetype identified if applicable (Fixes That Fail, Shifting Burden, Tragedy of Commons, Limits to Growth, etc.). Archetype-specific dynamics described (how it plays out in this context). Typical failure mode acknowledged ('this archetype usually fails when...'). Archetype-specific high-leverage intervention identified. If no archetype match, explicitly stated (not forced).",
+        "4": "Archetype recognized. Dynamics described. Failure mode noted. Intervention suggested. May slightly force-fit archetype.",
+        "3": "Archetype mentioned but dynamics unclear or generic. Failure mode not described. Intervention not archetype-specific. Some force-fitting.",
+        "2": "Archetype misidentified (wrong pattern) or dynamics misunderstood. Intervention doesn't match archetype. Heavy force-fitting (trying to make system fit archetype when it doesn't).",
+        "1": "No archetype recognition when obvious pattern exists OR archetype mentioned but completely misapplied. N/A if system genuinely doesn't match known archetypes (rare)."
+      }
+    },
+    {
+      "name": "Leverage Point Classification",
+      "weight": 1.5,
+      "description": "Are interventions classified by Meadows' leverage hierarchy and prioritized accordingly?",
+      "levels": {
+        "5": "All candidate interventions listed (not just one idea). Each classified by leverage level (1-12 using Meadows' hierarchy: parameters, buffers, structure, delays, feedback loops, information, rules, self-organization, goals, paradigms). High-leverage interventions (1-7) identified and prioritized over low-leverage (8-12). Rationale for classification clear (why this is a 'goal' vs. 'parameter' intervention). Trade-offs acknowledged (leverage vs. feasibility, impact vs. resistance).",
+        "4": "Multiple interventions listed. Classification by leverage level. High-leverage prioritized. Rationale mostly clear. Trade-offs noted. Minor misclassifications (1-2).",
+        "3": "Some interventions listed but incomplete. Classification attempted but inconsistent or incorrect. High-leverage mentioned but not consistently prioritized. Rationale vague. Trade-offs minimally addressed.",
+        "2": "Few interventions (first idea only). Classification missing or wrong. No prioritization by leverage. Defaults to parameter-tweaking (level 12) without considering higher-leverage points. Trade-offs ignored.",
+        "1": "Single intervention (no alternatives considered) or interventions not classified. No understanding of leverage hierarchy. Only low-leverage interventions (parameters) suggested."
+      }
+    },
+    {
+      "name": "Intervention-Loop Alignment",
+      "weight": 1.4,
+      "description": "Are interventions clearly linked to specific loops and leverage mechanisms explained?",
+      "levels": {
+        "5": "Each intervention explicitly linked to loop it affects (e.g., 'strengthens B1 by adding feedback', 'weakens R2 by removing incentive'). Mechanism explained (how intervention changes loop dynamics). Predicted effect on loop behavior (loop will slow/accelerate, goal will shift). Second-order effects anticipated (intervention affects Loop A, which then affects Loop B). Works with system structure, not against it.",
+        "4": "Interventions linked to loops. Mechanism explained. Predicted effects stated. Some second-order effects noted. Mostly works with structure.",
+        "3": "Some linkage to loops but often vague ('improves the system'). Mechanism unclear. Predicted effects not specific. Second-order effects rarely considered. May work against structure (fighting feedback).",
+        "2": "Interventions disconnected from loop analysis. No mechanism explanation. No predicted effects. Ignores second-order effects. Likely works against system (e.g., pushing parameters when structure needs changing).",
+        "1": "No connection between intervention and system structure. Intervention not informed by feedback loop analysis. Linear thinking ('fix symptom') despite system analysis."
+      }
+    },
+    {
+      "name": "Unintended Consequences Anticipation",
+      "weight": 1.3,
+      "description": "Are potential unintended consequences and system resistance identified and mitigated?",
+      "levels": {
+        "5": "Unintended consequences explicitly anticipated (what else might change?). Traced through other loops in system ('if we change X, loop B will activate and cause Y'). System resistance identified (who/what will push back? compensating loops?). Mitigation strategies for consequences and resistance. Time horizon for consequences (immediate, delayed). Monitoring plan to detect consequences early.",
+        "4": "Consequences anticipated. Traced through some loops. Resistance identified. Some mitigation. Time horizon noted. Monitoring mentioned.",
+        "3": "Consequences mentioned but not thoroughly traced. Resistance vaguely acknowledged. Limited mitigation. Time horizon unclear. Monitoring not specified.",
+        "2": "Consequences barely considered ('should work'). Resistance ignored. No mitigation. No monitoring. Overly optimistic (assumes intervention works as planned without pushback).",
+        "1": "No consideration of unintended consequences or resistance. Assumes linear impact (change X → Y happens, nothing else changes). Ignores system complexity."
+      }
+    },
+    {
+      "name": "Time Horizon Realism",
+      "weight": 1.1,
+      "description": "Are realistic timelines for impact set, accounting for delays and loop dynamics?",
+      "levels": {
+        "5": "Expected timeline for impact stated (short-term, medium-term, long-term). Timeline accounts for delays in system (e.g., 'training impact visible in 3-6 months due to skill development delay'). Distinguishes leading indicators (early signals) from lagging indicators (final outcomes). Warns against premature judgment ('don't expect results before X because delay is Y'). Phased expectations (what happens when).",
+        "4": "Timeline stated. Accounts for major delays. Leading vs. lagging indicators distinguished. Some warnings about premature judgment. Phased expectations.",
+        "3": "Timeline vague ('should improve over time'). Limited delay consideration. Indicators mentioned but not distinguished. No warnings about premature judgment.",
+        "2": "Timeline not specified or unrealistic (expects immediate impact despite delays). Ignores delays. No indicator distinction. Sets up for impatience.",
+        "1": "No time horizon discussion. Assumes immediate impact. Will lead to 'it didn't work' conclusion before delays complete."
+      }
+    },
+    {
+      "name": "Actionability & Implementation Clarity",
+      "weight": 1.2,
+      "description": "Are recommendations specific, actionable, and implementable?",
+      "levels": {
+        "5": "Interventions specific (clear what to do, not vague 'improve X'). Actionable (who does what, when, how). Implementation sequencing provided (Phase 1, 2, 3 or simultaneous). Success metrics defined (how to know it's working). Responsibility assigned or suggested (who owns this). Resource requirements acknowledged (time, budget, authority needed). Feasible given constraints.",
+        "4": "Specific and actionable. Sequencing provided. Metrics defined. Responsibility suggested. Resources acknowledged. Feasible.",
+        "3": "Somewhat specific but gaps ('improve culture' without how). Partially actionable. Limited sequencing. Metrics vague. Responsibility unclear. Feasibility questionable.",
+        "2": "Vague recommendations ('fix the problem', 'align incentives' without specifics). Not actionable (no clear steps). No sequencing, metrics, or ownership. Feasibility ignored.",
+        "1": "No actionable recommendations or so vague they're meaningless ('think systemically'). No implementation guidance."
+      }
+    }
+  ],
+  "guidance": {
+    "complexity": {
+      "simple": "Simple system (3-5 variables, 1-2 clear loops, single domain, no major delays). Target score ≥3.5 average. All criteria ≥3.",
+      "moderate": "Moderate complexity (5-10 variables, 3-5 loops with some nesting, archetype present, noticeable delays). Target score ≥4.0 average. All criteria ≥3.",
+      "complex": "Complex system (10+ variables, many interconnected loops, multiple archetypes, significant delays, multi-stakeholder). Target score ≥4.5 average for excellence. All criteria ≥4."
+    },
+    "minimum_thresholds": {
+      "critical_criteria": "System Boundary (≥3), Stock-Flow Distinction (≥3), Feedback Loop Identification (≥3), Leverage Point Classification (≥3) are CRITICAL. If any < 3, analysis is fundamentally flawed.",
+      "overall_average": "Must be ≥3.5 across all criteria before delivering. Higher threshold (≥4.0) for moderate systems, (≥4.5) for complex systems or high-stakes decisions."
+    },
+    "weight_interpretation": "Criteria weights (1.1x to 1.5x) reflect importance. Feedback Loop Identification (1.5x) and Leverage Point Classification (1.5x) are most critical. Stock-Flow Distinction (1.3x), Archetype Recognition (1.3x), Intervention-Loop Alignment (1.4x), and Unintended Consequences (1.3x) are highly important. Boundary (1.2x), Delay (1.2x), Actionability (1.2x), Time Horizon (1.1x) are important but less central."
+  },
+  "common_failure_modes": {
+    "linear_thinking": "Feedback Loop Identification: 1-2. Analysis is linear (A→B→C) without feedback loops (A→B→C→A). Fix: Ask 'how does C affect A? Is there a loop?'",
+    "parameter_only_interventions": "Leverage Point Classification: 1-2. All interventions are parameter tweaks (increase budget 10%, add 2 people). Fix: Use Meadows' hierarchy. Prioritize levels 1-7 (goals, rules, information, self-organization) over 12 (parameters).",
+    "vague_boundary": "System Boundary: 1-2. Boundary unclear ('the whole company', 'everything related to X'). Fix: Be specific. What components are in? What's out? Why this scope for intervention?",
+    "stock_flow_confusion": "Stock-Flow Distinction: 1-2. Treating stocks as flows ('morale is flowing', 'trust increases') or vice versa. Fix: Stocks are nouns (accumulations measured at a point in time). Flows are verbs (rates measured per time period).",
+    "missing_delays": "Delay Recognition: 1-2. Assumes immediate effect. Impatient conclusions ('tried for a week, didn't work'). Fix: Estimate delays. Quantify ('3-6 months'). Warn about premature abandonment.",
+    "no_unintended_consequences": "Unintended Consequences: 1-2. Assumes intervention works as planned, no side effects. Fix: Trace intervention through all loops. Ask 'what else changes? Who pushes back?'",
+    "isolated_loops": "Feedback Loop Identification: 2-3. Loops identified but disconnected (each loop in isolation, no interaction). Fix: Show how loops interconnect. Which loops modulate or conflict with others?",
+    "wrong_archetype": "Archetype Recognition: 1-2. Force-fits system into archetype that doesn't match. Fix: Archetypes are lenses, not laws. If doesn't fit cleanly, don't force it. Multiple archetypes can coexist.",
+    "intervention_not_linked_to_loops": "Intervention-Loop Alignment: 1-2. Recommendations disconnected from loop analysis. Fix: For each intervention, state which loop it affects and how (strengthens/weakens, changes goal, adds information flow).",
+    "unrealistic_timelines": "Time Horizon: 1-2. Expects immediate results despite delays. Fix: Set phased expectations. Short-term (1-3 mo): X. Medium-term (3-12 mo): Y. Long-term (1+ yr): Z.",
+    "vague_recommendations": "Actionability: 1-2. 'Improve culture', 'align incentives' without specifics. Fix: Make actionable. Who does what by when? How measured? What resources needed?"
+  },
+  "self_check_questions": [
+    "System Boundary: Is it clear what's in/out of the system? Why this boundary?",
+    "Stocks vs. Flows: Can I distinguish accumulations (stocks, nouns) from rates (flows, verbs)?",
+    "Feedback Loops: Have I identified at least one R loop and one B loop? Is polarity correct?",
+    "Delays: Are delays explicitly noted and quantified (not just 'delayed' but '3 months')?",
+    "Archetypes: Does system match a known archetype? If so, which one and how?",
+    "Leverage Points: Are interventions classified by level (1-12)? Are high-leverage (1-7) prioritized?",
+    "Intervention-Loop Link: Can I explain which loop each intervention affects and how?",
+    "Unintended Consequences: What else might change if I intervene? Who/what will resist?",
+    "Time Horizon: When will results be visible, accounting for delays? Am I being realistic?",
+    "Actionability: Are recommendations specific enough to implement (who, what, when, how)?",
+    "Dominant Loop: Which loop drives current behavior? Which will dominate next?",
+    "Trade-offs: Do I acknowledge leverage vs. feasibility trade-offs?",
+    "Second-Order Effects: Have I traced intervention through multiple loops (not just first-order)?",
+    "Overall: Would a systems thinking expert accept this analysis as sound?"
+  ],
+  "evaluation_notes": "Systems Thinking & Leverage quality assessed across 10 weighted criteria. Critical criteria (System Boundary, Stock-Flow, Feedback Loops, Leverage Points) must be ≥3 or analysis is fundamentally flawed. Minimum standard: ≥3.5 average for simple systems, ≥4.0 for moderate, ≥4.5 for complex. Feedback Loop Identification (1.5x) and Leverage Point Classification (1.5x) are highest-weighted criteria. Common failures: linear thinking (no feedback loops), parameter-only interventions (ignoring high-leverage points), missing delays (unrealistic timelines), vague boundaries, stock-flow confusion, no unintended consequence anticipation. Quality analysis distinguishes stocks (accumulations) from flows (rates), identifies R and B loops with correct polarity, classifies interventions by Meadows' hierarchy (1-12), links interventions to specific loops and mechanisms, anticipates second-order effects and resistance, sets realistic timelines accounting for delays, and provides actionable recommendations with clear implementation guidance."
+}
