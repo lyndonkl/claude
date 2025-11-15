@@ -1,0 +1,158 @@
+{
+  "criteria": [
+    {
+      "name": "Chart Selection Appropriateness",
+      "weight": 1.5,
+      "description": "Does the chart type match the question type and data structure?",
+      "levels": {
+        "5": "Perfect match: Chart type directly answers question (trend→line, comparison→bar, distribution→histogram, relationship→scatter, composition→treemap, geographic→map). Data dimensions fit chart (categorical for bar, numerical for scatter, temporal for line). Alternative charts would be clearly inferior. Example: Time series question gets line chart with proper temporal axis.",
+        "4": "Strong match: Chart type appropriate for question. Data fits well. Minor alternatives might work but chosen chart is defensible. Example: Grouped bar instead of slope chart for before/after comparison (both work, slight preference difference).",
+        "3": "Acceptable match: Chart type can answer question but not optimal. Data somewhat fits. Better alternatives exist. Example: Table for trend question (works but line chart would show pattern more clearly).",
+        "2": "Weak match: Chart type poorly suited to question. Data fit is awkward. Clear better alternatives ignored. Example: Pie chart with 8 slices for comparison (hard to compare angles; bar chart much better).",
+        "1": "Mismatch: Chart type doesn't answer question or data structure incompatible. Example: Line chart for categorical data (implies continuity that doesn't exist), or 3D pie chart (distorts values, adds no value)."
+      }
+    },
+    {
+      "name": "Design Quality",
+      "weight": 1.4,
+      "description": "Is the chart well-designed per perceptual best practices and free of chart junk?",
+      "levels": {
+        "5": "Excellent design: Insight-first title (not generic), axes labeled with units, appropriate scale (Y starts at zero for bar/column, appropriate range for line), legend clear or direct labels used, key points annotated (arrows, labels, shading), colorblind-safe palette, no chart junk (3D, gradients, heavy gridlines), non-data ink muted (light gray), white space used effectively, source & timestamp cited. Chart is immediately readable.",
+        "4": "Good design: Most best practices applied. Title insightful, axes labeled, scale appropriate, readable colors, minimal junk. Minor improvements possible (e.g., legend could be direct labels, one annotation missing). Overall professional.",
+        "3": "Acceptable design: Core elements present (title, axes, legend) but generic or incomplete. Scale issues (Y-axis doesn't start at zero for bar), some chart junk (heavy gridlines, unnecessary decorations), colors adequate but not optimized. Readable but not polished.",
+        "2": "Poor design: Missing key elements (unlabeled axes, no title or generic title like 'Chart'), misleading scale (truncated Y-axis exaggerating differences), excessive chart junk (3D, gradients, background images), poor color choices (rainbow palette, low contrast). Readable with effort.",
+        "1": "Unreadable: Critical failures (no axis labels, misleading scale, incomprehensible colors, heavy chart junk obscures data). Chart actively confuses or misleads."
+      }
+    },
+    {
+      "name": "Narrative Quality",
+      "weight": 1.5,
+      "description": "Does the narrative follow Headline → Pattern → Context → Meaning → Action structure effectively?",
+      "levels": {
+        "5": "Excellent narrative: Headline is insight-first one-liner (not generic). Pattern clearly described with specifics (not just 'increased' but 'grew from $2M to $2.6M, 30%'). Context provided (vs target/history/industry). Meaning interpreted (why it matters, implications). Actions recommended (specific, feasible, with owners/timelines if possible). Narrative tells a complete story from observation to action.",
+        "4": "Good narrative: Has all elements (headline, pattern, context, meaning, action) but some less developed. Headline good, pattern described, context provided, meaning stated, actions somewhat specific. Mostly complete story with minor gaps.",
+        "3": "Acceptable narrative: Has most elements but some weak or missing. Headline generic ('Revenue by Month'), pattern described but vague, context minimal (just one comparison), meaning surface-level, actions vague ('we should investigate'). Incomplete story.",
+        "2": "Weak narrative: Missing multiple elements. Headline generic, pattern barely described ('revenue increased'), no context (vs what?), meaning absent (no 'so what?'), actions missing or too vague to execute. More description than narrative.",
+        "1": "No narrative: Just describes chart ('this shows revenue'). No insight headline, no interpretation, no context, no actions. Chart without story."
+      }
+    },
+    {
+      "name": "Insight Clarity",
+      "weight": 1.4,
+      "description": "Is the key insight obvious at a glance? Can a busy reader extract the main takeaway in 5 seconds?",
+      "levels": {
+        "5": "Insight jumps out: Title states the insight ('Revenue Up 30% YoY, Driven by Enterprise'), visual encoding highlights signal (color, annotation, positioning), pattern is unmistakable at a glance. Busy executive can extract takeaway in 5 seconds. Chart does the cognitive work for the reader.",
+        "4": "Insight clear: Title helps ('Revenue Growth Accelerating'), chart design guides eye to key pattern (annotation, color), insight obvious with 10-15 seconds of review. Little cognitive effort required.",
+        "3": "Insight present but requires work: Title generic, pattern visible but not highlighted, reader must scan chart to find signal. Takes 30+ seconds to extract insight. Some cognitive effort needed.",
+        "2": "Insight buried: Title unhelpful, no highlighting, pattern hard to spot among noise, reader must study chart carefully to find signal. Takes 60+ seconds. Significant cognitive effort.",
+        "1": "No clear insight: Unclear what reader should take away. Chart shows data but doesn't guide to conclusion. Reader left to figure it out."
+      }
+    },
+    {
+      "name": "Actionability",
+      "weight": 1.3,
+      "description": "Are next steps clear, specific, and feasible?",
+      "levels": {
+        "5": "Highly actionable: Specific actions recommended (not vague). Has owners/timelines or clear enough to assign. Prioritized (what to do first, second, third). Feasible given context. Monitoring metrics defined. Example: '1. Prioritize: Hire 2 Enterprise AEs by Q1 (Hiring Manager). 2. Investigate: Interview 10 churned SMB customers by Dec 15 (PM). 3. Monitor: Enterprise win rate, SMB churn by plan type.'",
+        "4": "Actionable: Actions specific and clear (who/what/when mostly defined). Feasible. Monitoring mentioned. Slightly less detail but still executable. Example: 'Hire Enterprise AEs, investigate SMB churn through interviews, monitor win rate and churn.'",
+        "3": "Somewhat actionable: Actions identified but vague on details. Feasible direction but needs refinement to execute. Example: 'Focus on Enterprise growth, address SMB churn, track key metrics.' (What does 'focus' mean? Which metrics?)",
+        "2": "Weakly actionable: Actions too vague to execute. No owners/timelines. Not clear what to do. Example: 'We should look into this', 'Consider improvements', 'Monitor the situation.'",
+        "1": "Not actionable: No actions recommended, or actions are infeasible/irrelevant. Ends with observation, no 'what next?'"
+      }
+    },
+    {
+      "name": "Accuracy",
+      "weight": 1.5,
+      "description": "Are data, calculations, and visual encoding accurate and not misleading?",
+      "levels": {
+        "5": "Perfectly accurate: Data source credible and cited. Calculations correct (spot-checked). Visual encoding truthful (no truncated Y-axis on bar chart exaggerating differences, no 3D distorting values). Numbers in narrative match chart. Caveats noted (data quality issues, assumptions, limitations). No misleading elements.",
+        "4": "Accurate: Data credible, calculations correct, visual encoding truthful. Minor presentation choices debatable (e.g., Y-axis range) but not misleading. Numbers match. Most caveats noted.",
+        "3": "Mostly accurate: Data credible, calculations mostly correct (minor rounding), visual encoding slightly questionable (e.g., Y-axis starts at non-zero for line chart, overstates change but not egregiously). Numbers generally match. Some caveats missing.",
+        "2": "Questionable accuracy: Data source unclear, calculations suspect, visual encoding misleading (e.g., truncated Y-axis on bar chart, dual Y-axes with different scales creating false correlation). Numbers don't match between chart and narrative. Caveats absent.",
+        "1": "Inaccurate or misleading: Data errors, wrong calculations, intentionally misleading visual encoding (extreme Y-axis truncation, 3D distortion, cherry-picked data). Actively deceives reader."
+      }
+    },
+    {
+      "name": "Context & Benchmarking",
+      "weight": 1.2,
+      "description": "Does the visualization provide context (vs target, history, industry, expectation)?",
+      "levels": {
+        "5": "Rich context: Multiple comparisons provided (vs target, vs last year, vs industry/competitors, vs expectation/seasonality). Makes absolute numbers meaningful. Example: '$2.6M MRR (vs $2.25M target: +15%, vs Q4 2023: +30%, vs industry avg growth 10%: strong, vs typical Q4 seasonality +15%: exceeded).'",
+        "4": "Good context: 2-3 comparisons provided (e.g., vs target and vs last year). Enough to judge significance. Example: '$2.6M MRR (+15% vs $2.25M target, +30% YoY).'",
+        "3": "Some context: 1 comparison provided (e.g., vs target OR vs last year). Gives some sense of significance but limited. Example: '$2.6M MRR (+15% vs target)' (but no sense of historical trend).",
+        "2": "Minimal context: Vague comparison ('above average', 'growing') without specifics. Doesn't help judge significance much. Example: '$2.6M MRR (up from last quarter)' (by how much?).",
+        "1": "No context: Absolute numbers only ('$2.6M MRR'). No comparison, no sense of whether this is good/bad, improving/declining. Numbers exist in vacuum."
+      }
+    },
+    {
+      "name": "Accessibility",
+      "weight": 1.1,
+      "description": "Is the visualization accessible (colorblind-safe, alt text, sufficient contrast, patterns)?",
+      "levels": {
+        "5": "Fully accessible: Colorblind-safe palette (tested with simulator, or uses blue-orange not red-green). Alt text provided describing insight (not just 'chart'). Sufficient contrast (4.5:1+ for text, distinguishable lines/colors). Patterns in addition to color for critical distinctions (dashed/solid lines, hatched fills). Readable in black & white. Keyboard navigable (if interactive).",
+        "4": "Accessible: Colorblind-safe palette, alt text present, good contrast, mostly readable in B&W. Patterns used for most critical distinctions. Minor improvements possible.",
+        "3": "Somewhat accessible: Colors okay but not tested for colorblindness (uses blue-red, acceptable but not ideal), alt text generic ('chart of revenue'), adequate contrast, readable in B&W with effort. Patterns absent but colors sufficiently distinct.",
+        "2": "Limited accessibility: Red-green palette (problematic for 8% of men), alt text missing or useless ('image'), low contrast (hard to read), not readable in B&W. No patterns, relies solely on color.",
+        "1": "Inaccessible: Red-green critical distinction, no alt text, very low contrast, unreadable in B&W, relies on color alone for all meaning. Excludes colorblind and visually impaired users."
+      }
+    },
+    {
+      "name": "Audience Appropriateness",
+      "weight": 1.2,
+      "description": "Is the visualization tailored to the target audience's expertise, goals, and time constraints?",
+      "levels": {
+        "5": "Perfect fit: Complexity matches audience expertise (simple for execs, detailed for analysts). Addresses audience's primary goal (decision-makers get options/trade-offs, implementers get how-to, learners get understanding). Respects time constraints (execs: 1 screen no scrolling, analysts: drill-downs available). Medium appropriate (dashboard for monitoring, slide for presentation, static image for email).",
+        "4": "Good fit: Mostly tailored. Complexity appropriate, addresses goal, respects time mostly. Minor mismatches (e.g., slightly too detailed for exec, or slightly too simple for analyst).",
+        "3": "Acceptable fit: Somewhat tailored. Complexity okay, addresses goal partially, time constraints somewhat respected. Example: Exec dashboard with 2 screens (should be 1), or analyst dashboard without drill-downs.",
+        "2": "Poor fit: Mismatched. Too complex for audience or too simple. Doesn't address their goal (shows what they don't care about, omits what they do). Disrespects time (exec dashboard with 5 screens requiring scrolling).",
+        "1": "Wrong audience: Completely inappropriate. Technical deep-dive for exec (too complex), or high-level summary for analyst (too simple). Ignores audience goals and constraints."
+      }
+    },
+    {
+      "name": "Overall Visualization Quality",
+      "weight": 1.3,
+      "description": "Holistic assessment: Does this visualization effectively answer the question and drive action?",
+      "levels": {
+        "5": "Exceptional: Chart clearly answers question, insight obvious, narrative compelling, actions clear, design polished, accessible, appropriate for audience. Reader can extract insight in seconds and knows exactly what to do next. Professional-grade work. Example of best practices.",
+        "4": "Strong: Chart answers question well, insight clear, narrative solid, actions specific, design good, mostly accessible, fits audience. Minor improvements possible but overall high quality. Would be confident presenting to stakeholders.",
+        "3": "Adequate: Chart answers question, insight present but requires work to extract, narrative has most elements, actions somewhat vague, design acceptable, accessibility okay, audience fit decent. Gets the job done but not polished. Needs refinement before high-stakes presentation.",
+        "2": "Weak: Chart doesn't clearly answer question, insight buried, narrative incomplete, actions vague, design poor, accessibility limited, audience mismatch. Needs significant rework. Would not present as-is.",
+        "1": "Ineffective: Chart doesn't answer question, no clear insight, no narrative or actions, design problematic, inaccessible, wrong for audience. Does not achieve communication goal. Start over with different approach."
+      }
+    }
+  ],
+  "guidance": {
+    "visualization_context": {
+      "executive_dashboard": "Prioritize Insight Clarity (1.4x, must be obvious in 5 seconds), Narrative Quality (1.5x, lead with headline), Audience Appropriateness (1.2x, simple not complex, 1 screen no scroll). Design (1.4x, clean and polished). Chart Selection (1.5x, simplest chart that works).",
+      "analyst_deep_dive": "Prioritize Accuracy (1.5x, calculations correct, source cited), Chart Selection (1.5x, optimal for question), Design (1.4x, detailed but organized). Actionability (1.3x, investigation paths clear). Accessibility less critical if internal-only.",
+      "stakeholder_report": "Prioritize Narrative Quality (1.5x, complete story), Context (1.2x, multiple benchmarks), Insight Clarity (1.4x, takeaway obvious), Actionability (1.3x, specific next steps), Audience Appropriateness (1.2x, addresses stakeholder goals).",
+      "monitoring_dashboard": "Prioritize Insight Clarity (1.4x, signal obvious at glance), Design (1.4x, traffic lights, bullet charts, scorecard), Accuracy (1.5x, real-time data correct), Actionability (1.3x, alerts trigger actions). Update timestamp critical.",
+      "presentation": "Prioritize Insight Clarity (1.4x, audience sees pattern instantly), Narrative Quality (1.5x, compelling story), Design (1.4x, polished aesthetics), Audience Appropriateness (1.2x, appropriate detail level for room)."
+    },
+    "chart_type_guidance": {
+      "line_chart": "Ensure temporal axis is clear (consistent intervals, labeled), annotate key events, multiple series distinguishable (color + direct labels preferred over legend). For trend questions.",
+      "bar_chart": "Y-axis must start at zero (avoids exaggerating differences). Use horizontal bars for long category names. For comparison questions.",
+      "scatter_plot": "Add regression line if showing correlation. Label outliers. Size/color encode additional dimensions if relevant. For relationship questions.",
+      "pie_chart": "Limit to 2-5 slices (more → use bar chart). Only when part-to-whole is key message. Often bar chart is better choice. For composition questions.",
+      "heatmap": "Use sequential (light→dark) or diverging (blue→white→red) color scale. Sort rows/columns to reveal patterns. For matrix/multivariate questions.",
+      "map": "Choose choropleth (regions) vs bubble (points) based on data. Beware large area bias (Wyoming looks big but low population). For geographic questions.",
+      "dashboard": "F-pattern layout (top-left most important). 5-8 elements max for exec, 10-15 for analyst. Consistent color scheme throughout. For monitoring/overview questions."
+    },
+    "minimum_thresholds": {
+      "critical_criteria": "Chart Selection ≥3 (must match question type), Accuracy ≥3 (must be truthful, not misleading), Insight Clarity ≥3 (must have clear takeaway). If any <3, visualization fundamentally flawed.",
+      "overall_average": "Must be ≥3.5 across applicable criteria before delivering. Higher threshold (≥4.0) for high-stakes presentations (board, exec, external stakeholders).",
+      "accessibility_threshold": "For public-facing or legally required accessible content, Accessibility must be ≥4 (colorblind-safe, alt text, contrast, patterns)."
+    }
+  },
+  "common_failure_modes": {
+    "wrong_chart_type": "Chart Selection: 1-2. Example: Pie chart with 8 slices (angles hard to compare). Fix: Use horizontal bar chart (position on common scale more accurate). Or line chart for categorical data (implies false continuity). Fix: Use bar chart for discrete categories.",
+    "misleading_scale": "Accuracy: 1-2, Design: 1-2. Example: Bar chart with Y-axis starting at 950 instead of 0, exaggerating small differences. Fix: Start Y-axis at zero for bar/column charts. Or dual Y-axes with different scales creating false correlation. Fix: Use small multiples with consistent scales or index to 100.",
+    "no_insight": "Insight Clarity: 1-2, Narrative: 1-2. Example: Title 'Revenue by Month', no annotation, no interpretation. Reader sees chart but doesn't know what to conclude. Fix: Insight-first title ('Revenue Up 30% YoY, Driven by Enterprise'), annotate key patterns, provide narrative (Headline → Pattern → Context → Meaning → Action).",
+    "chart_junk": "Design: 1-2. Example: 3D pie chart with gradients, background image, heavy gridlines. Distorts values, slows comprehension, looks unprofessional. Fix: Remove 3D, gradients, background images. Use 2D chart, muted gridlines (light gray), white space.",
+    "no_context": "Context: 1-2, Narrative: 1-2. Example: '$2.6M revenue' (vs what? good or bad?). Fix: Add benchmark ('$2.6M, +15% vs $2.25M target, +30% YoY, vs industry avg +10%: strong').",
+    "vague_actions": "Actionability: 1-2. Example: 'We should monitor this', 'Consider improvements', 'Look into it'. Too vague to execute. Fix: Specific actions ('Hire 2 Enterprise AEs by Q1 (Hiring Manager), interview 10 churned SMB customers by Dec 15 (PM), monitor Enterprise win rate weekly').",
+    "wrong_audience": "Audience Appropriateness: 1-2. Example: 5-screen dashboard with technical drill-downs for exec (too complex, too long). Or high-level summary for analyst (too simple, no detail). Fix: Tailor complexity and length to audience (exec: 1 screen simple, analyst: 2-3 screens with detail).",
+    "colorblind_issues": "Accessibility: 1-2. Example: Red-green distinction critical but 8% of men are red-green colorblind. Fix: Use blue-orange palette instead, or add patterns (dashed/solid lines, hatched fills) in addition to color.",
+    "no_narrative": "Narrative: 1-2, Actionability: 1-2. Example: Chart with data but no story. Just description ('this shows revenue by month'). Fix: Apply Headline → Pattern → Context → Meaning → Action framework. Tell the story: what happened, why it matters, what to do."
+  }
+}
