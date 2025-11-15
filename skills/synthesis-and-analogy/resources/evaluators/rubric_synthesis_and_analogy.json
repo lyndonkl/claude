@@ -1,0 +1,146 @@
+{
+  "criteria": [
+    {
+      "name": "Source Coverage & Completeness (Synthesis)",
+      "weight": 1.3,
+      "description": "For synthesis: Are all relevant sources included and documented?",
+      "levels": {
+        "5": "All relevant sources systematically included and documented. Source inventory complete with type, key claims, quality assessment. No cherry-picking. Actively seeks disconfirming evidence. Source quality explicitly assessed (high/medium/low). N/A if analogy-only.",
+        "4": "Most relevant sources included. Source inventory mostly complete. Minor sources may be missing. Source quality noted for most. Mostly avoids cherry-picking.",
+        "3": "Major sources included but some gaps. Basic source documentation. Some cherry-picking possible (only confirms pre-existing view). Source quality mentioned inconsistently.",
+        "2": "Significant source gaps. Incomplete documentation. Clear cherry-picking (ignores disconfirming sources). Source quality not assessed.",
+        "1": "Few sources or only sources supporting one view. No systematic documentation. Heavy cherry-picking. Source quality ignored."
+      }
+    },
+    {
+      "name": "Thematic Analysis & Pattern Identification (Synthesis)",
+      "weight": 1.4,
+      "description": "For synthesis: Are themes and patterns identified with evidence?",
+      "levels": {
+        "5": "3-5 major themes identified with frequency counts (X/Y sources mention). Patterns supported by 3+ sources with clear evidence. Distinguishes themes (single topic) from patterns (repeated structure). New insights generated beyond individual sources. N/A if analogy-only.",
+        "4": "Major themes identified with some frequency data. Patterns noted with supporting evidence from multiple sources. Some new insights. Minor distinction issues between themes and patterns.",
+        "3": "Themes identified but minimal frequency data. Patterns claimed without sufficient evidence (maybe 1-2 sources). Limited new insights (mostly summarizes existing sources).",
+        "2": "Vague themes without evidence. Single-source 'patterns' (overgeneralization). No new insights (just combines existing claims without synthesis).",
+        "1": "No thematic analysis or pattern identification. Just lists source claims without integration."
+      }
+    },
+    {
+      "name": "Conflict Resolution (Synthesis)",
+      "weight": 1.2,
+      "description": "For synthesis: Are conflicts between sources explicitly addressed and resolved?",
+      "levels": {
+        "5": "Conflicts between sources explicitly identified. Resolution provided using meta-framework (both right from different perspectives), scope distinction (disagree on scope), temporal distinction (changed over time), OR uncertainty stated (genuinely conflicting). Doesn't force false consensus. N/A if analogy-only or no conflicts.",
+        "4": "Conflicts identified and addressed. Resolution mostly clear. May paper over minor conflicts. Generally avoids false consensus.",
+        "3": "Some conflicts noted but resolution unclear or incomplete. May ignore some disagreements. Partial false consensus.",
+        "2": "Conflicts ignored or dismissed without justification. Forces agreement where genuine disagreement exists. False synthesis.",
+        "1": "Doesn't acknowledge conflicts despite clear disagreements between sources. Presents as if all sources agree."
+      }
+    },
+    {
+      "name": "Structural Mapping Quality (Analogy)",
+      "weight": 1.5,
+      "description": "For analogy: Is the structural mapping between domains explicit and valid?",
+      "levels": {
+        "5": "Explicit mapping table showing entity correspondences (A↔X) and relationship correspondences (A→B maps to X→Y). Maps relational structure, not surface attributes. Multiple interconnected relations mapped (systematicity). Mapping validity tested. N/A if synthesis-only.",
+        "4": "Clear mapping between domains. Mostly relational (some attribute mapping). Several relations mapped. Mapping generally valid.",
+        "3": "Basic mapping provided but may mix relational and attribute-based. Limited relations mapped (1-2). Validity assumed not tested.",
+        "2": "Vague mapping ('A is like X'). Primarily surface/attribute-based ('both are round'). Single relation or unclear. Not validated.",
+        "1": "No explicit mapping or purely surface similarity. No relational structure. Unclear what corresponds to what."
+      }
+    },
+    {
+      "name": "Analogy Depth & Systematicity (Analogy)",
+      "weight": 1.4,
+      "description": "For analogy: Is it a deep (relational) analogy with multiple interconnected mappings?",
+      "levels": {
+        "5": "Deep analogy mapping relational structure (A→B in source maps to X→Y in target with same causal/structural relationship). Systematic: 3+ interconnected relations map. Higher-order relations (relations between relations) map. Not just surface features. N/A if synthesis-only.",
+        "4": "Mostly deep analogy with relational mapping. 2-3 relations mapped with some interconnection. Higher-order relations may be implied.",
+        "3": "Mix of deep and surface. Some relational mapping but also attribute-based. 1-2 relations mapped. Limited interconnection.",
+        "2": "Primarily surface analogy based on attributes ('both process information' - vague). Minimal relational structure. Isolated facts, not interconnected system.",
+        "1": "Pure surface analogy ('both are blue', 'both involve computers'). No relational mapping. Doesn't help understanding."
+      }
+    },
+    {
+      "name": "Productivity & Transferability (Analogy)",
+      "weight": 1.3,
+      "description": "For analogy: Does it generate new predictions or transfer useful insights?",
+      "levels": {
+        "5": "Analogy generates new predictions or insights about target domain not previously obvious. Insights transferred from source are specific and actionable. Testable predictions made. Explains mechanism (not just correlation). N/A if synthesis-only.",
+        "4": "Generates some new insights. Transfer is somewhat actionable. Predictions or explanations provided but may be less specific.",
+        "3": "Limited new insights (mostly restates what's known). Transfer is vague ('could help with X'). No specific predictions.",
+        "2": "No new insights (just restates target in source domain terms without adding understanding). Transfer unclear. No predictions.",
+        "1": "Adds no understanding. Analogy obscures rather than clarifies. Nothing transfers usefully."
+      }
+    },
+    {
+      "name": "Scope Limitations Acknowledged",
+      "weight": 1.2,
+      "description": "For analogy: Are limitations explicitly stated (where analogy breaks down)?",
+      "levels": {
+        "5": "Limitations explicitly and specifically stated: 'Analogy holds for X, Y, Z but breaks down for A, B, C because [reasons].' Knows when to stop pushing analogy. Prevents overextension. CRITICAL for all analogies.",
+        "4": "Limitations noted ('analogy has limits') with some specifics. Generally avoids overextension.",
+        "3": "Generic limitation statement ('no analogy is perfect') without specifics. May push analogy slightly beyond valid scope.",
+        "2": "Minimal acknowledgment of limitations. Overextends analogy. Doesn't specify where it breaks.",
+        "1": "No limitations acknowledged. Treats analogy as if it holds perfectly. Dangerous overextension."
+      }
+    },
+    {
+      "name": "Evidence & Citation Quality",
+      "weight": 1.1,
+      "description": "Are claims supported by evidence? Are sources cited?",
+      "levels": {
+        "5": "All major claims backed by evidence (quotes, data, source citations). Facts distinguished from interpretations ('Source A shows X [fact]. This suggests Y [interpretation]'). Sources properly cited (author, title, date or source #). Evidence strength assessed (high/medium/low confidence).",
+        "4": "Most claims backed by evidence. Sources generally cited. Mostly distinguishes facts from interpretations. Some evidence strength noted.",
+        "3": "Some claims backed by evidence, others asserted. Inconsistent citations. Facts and interpretations sometimes blurred.",
+        "2": "Minimal evidence for claims. Few citations. Assertions presented as facts. Evidence strength not assessed.",
+        "1": "No evidence or citations. Pure assertions. Speculation presented as fact."
+      }
+    }
+  ],
+  "guidance": {
+    "task_type": {
+      "synthesis_only": "Prioritize Source Coverage (1.3x), Thematic Analysis (1.4x), Conflict Resolution (1.2x). Structural Mapping, Analogy Depth, Productivity, and Limitations criteria are N/A (not scored). Focus on comprehensive source integration, pattern identification, and conflict reconciliation.",
+      "analogy_only": "Prioritize Structural Mapping (1.5x), Analogy Depth (1.4x), Productivity (1.3x), Limitations (1.2x). Source Coverage, Thematic Analysis, and Conflict Resolution criteria are N/A (not scored). Focus on deep relational mapping, systematicity, transferable insights, and explicit scope limits.",
+      "both_synthesis_and_analogy": "All criteria apply. Common pattern: synthesize first (identify patterns across sources), then use analogy to explain synthesized insights to audience (map pattern to familiar domain). Both synthesis and analogy work should meet quality standards."
+    },
+    "complexity": {
+      "simple": "Simple synthesis (3-5 similar sources, clear consensus) or simple analogy (familiar domains, obvious mapping). Target score ≥3.5 average. All criteria ≥3.",
+      "moderate": "Moderate complexity (5-10 sources with some conflicts) or moderate analogy (less familiar domain, multiple relations to map). Target score ≥4.0 average. All criteria ≥3.",
+      "complex": "Complex synthesis (10+ sources, significant conflicts, cross-domain/temporal) or complex analogy (abstract domains, higher-order relations, multiple interconnected mappings). Target score ≥4.5 average for excellence. All criteria ≥4."
+    },
+    "minimum_thresholds": {
+      "synthesis": "For synthesis work: Source Coverage ≥3 (must include relevant sources), Thematic Analysis ≥3 (must identify patterns), Conflict Resolution ≥3 if conflicts exist (must address, not ignore), Evidence & Citation ≥3 (must cite sources).",
+      "analogy": "For analogy work: Structural Mapping ≥3 (must have explicit mapping), Analogy Depth ≥3 (must be relational not just surface), Limitations ≥3 (MUST acknowledge where it breaks - critical safety check), Evidence & Citation ≥3 (must ground analogy).",
+      "overall_average": "Must be ≥3.5 across applicable criteria before delivering. Higher threshold (≥4.0) for complex or high-stakes work."
+    }
+  },
+  "common_failure_modes": {
+    "cherry_picking_sources": "Source Coverage: 1-2. Only includes sources supporting pre-existing view, ignores disconfirming evidence. Fix: Systematically search for disconfirming evidence. Include and address it explicitly.",
+    "single_source_pattern": "Thematic Analysis: 1-2. Claims pattern from one source ('X always happens because Source A said so'). Fix: Patterns require 3+ sources. One source = theme or anecdote, not pattern.",
+    "false_synthesis": "Conflict Resolution: 1-2. Forces consensus where genuine disagreement exists. 'All sources agree...' when they don't. Fix: Acknowledge conflicts. Use meta-framework, scope distinction, or state uncertainty.",
+    "surface_analogy": "Analogy Depth: 1-2. Maps surface attributes ('both are blue', 'both process information') not relational structure. Fix: Map relationships (A→B in source corresponds to X→Y in target with same causal pattern).",
+    "no_explicit_mapping": "Structural Mapping: 1-2. Vague 'X is like Y' without stating what corresponds to what. Fix: Create explicit mapping table: Entity A ↔ Entity X, Relation (A→B) ↔ Relation (X→Y).",
+    "analogy_overextension": "Limitations: 1-2. Pushes analogy beyond where it holds. No acknowledgment of where it breaks down. Fix: Explicitly state: 'Analogy holds for [X, Y] but breaks for [A, B] because [reason].'",
+    "no_new_insights": "Thematic Analysis (synthesis) or Productivity (analogy): 1-2. Just summarizes existing sources or restates target in source terms. No value-add. Fix: Ask 'What do we learn from combining sources / mapping domains that wasn't obvious before?'",
+    "mixing_facts_interpretations": "Evidence & Citation: 2-3. Presents interpretations as if they're facts. 'The data proves...' (interpretation) vs 'The data shows...' (fact). Fix: Label clearly: 'Data/Source shows X [fact]. This suggests Y [interpretation].'",
+    "vague_transfer": "Productivity: 2-3. 'This analogy could help with X' (vague). Fix: Specific transfer: 'In source, solution is A. Mapping to target, this becomes B [specific]. Evidence it works: [reasoning].'",
+    "ignoring_conflicts": "Conflict Resolution: 1-2. Sources disagree but analysis ignores it. Presents unified view when sources actually conflict. Fix: Identify conflicts explicitly. Resolve via meta-framework or state uncertainty."
+  },
+  "self_check_questions": [
+    "Synthesis: Have I included all relevant sources or am I cherry-picking?",
+    "Synthesis: Are patterns supported by 3+ sources or am I overgeneralizing from one?",
+    "Synthesis: Have I addressed conflicts between sources or ignored them?",
+    "Synthesis: What new insights emerge from synthesis that weren't in individual sources?",
+    "Analogy: Is my mapping explicit (what corresponds to what) or vague?",
+    "Analogy: Am I mapping relational structure (A→B maps to X→Y) or just surface features ('both are round')?",
+    "Analogy: Do multiple interconnected relations map (systematic) or just one isolated fact?",
+    "Analogy: Does analogy generate new predictions about target domain?",
+    "Analogy: Have I explicitly stated where analogy breaks down (limitations)?",
+    "Both: Are major claims backed by evidence with source citations?",
+    "Both: Do I distinguish facts (what sources say) from interpretations (my analysis)?",
+    "Both: Is this useful and actionable for the audience?",
+    "Both: Am I overconfident (claiming more than evidence supports)?",
+    "Overall: Would a skeptical expert in the domain accept this synthesis/analogy?"
+  ],
+  "evaluation_notes": "Synthesis & Analogy quality assessed across 8 weighted criteria. For synthesis: Source Coverage (1.3x), Thematic Analysis (1.4x), and Conflict Resolution (1.2x) are critical. For analogy: Structural Mapping (1.5x), Analogy Depth (1.4x), Productivity (1.3x), and Limitations (1.2x) are critical. Evidence & Citation (1.1x) applies to both. Criteria marked N/A for irrelevant task types (e.g., Structural Mapping N/A for synthesis-only). Minimum standard: ≥3.5 average across applicable criteria, with all criteria ≥3 individually. Higher threshold (≥4.0) for complex work. Limitations acknowledgment is CRITICAL for analogies to prevent dangerous overextension."
+}
