@@ -1,18 +1,46 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 58 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 59 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **58 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **59 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
 - **Advanced methodologies** for complex scenarios
 - **Evaluation rubrics** with quality criteria and common failure modes
 - **Progressive disclosure** (SKILL.md → template.md → methodology.md)
+
+## Table of Contents
+
+- [Skills by Category](#skills-by-category)
+  - [🧠 Strategic Thinking & Decision Making](#-strategic-thinking--decision-making)
+  - [💡 Problem Solving & Analysis](#-problem-solving--analysis)
+  - [🔬 Research & Discovery](#-research--discovery)
+  - [🗣️ Dialogue & Deliberation](#️-dialogue--deliberation)
+  - [💭 Ideation & Creativity](#-ideation--creativity)
+  - [📊 Data & Modeling](#-data--modeling)
+  - [🏗️ Architecture & Design](#️-architecture--design)
+  - [🔒 Security & Risk](#-security--risk)
+  - [📝 Communication & Documentation](#-communication--documentation)
+  - [🎯 Estimation & Forecasting](#-estimation--forecasting)
+  - [💼 Business & Product Management](#-business--product-management)
+  - [⏱️ Productivity & Learning](#️-productivity--learning)
+  - [🏢 Organizational Design](#-organizational-design)
+  - [🛡️ Ethics & Evaluation](#️-ethics--evaluation)
+  - [🍳 Specialized Domains](#-specialized-domains)
+  - [🛠️ Skill Development & Meta-Tools](#️-skill-development--meta-tools)
+- [Installation](#installation)
+- [Using Skills](#using-skills)
+- [Skill Development Status](#skill-development-status)
+- [Key Features](#key-features)
+- [Contributing](#contributing)
+- [Resources](#resources)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Skills by Category
 
@@ -166,6 +194,10 @@ This repository contains **58 skills** designed to enhance Claude Code's capabil
 
 **chef-assistant** - Expert culinary guide combining technique, food science, flavor architecture (salt/acid/fat/heat), cultural context, and plating. Covers recipe creation, troubleshooting, menu planning, and cooking methods across global cuisines.
 
+### 🛠️ Skill Development & Meta-Tools
+
+**skill-extraction** - Extract reusable skills from documents, methodologies, frameworks, or code files using Adler's analytical reading framework adapted for LLMs. Systematically skim files using boundary reading (first/last N lines), structural extraction (headers/signatures only), and progressive sampling to build mental models without context dilution. Deep-read using section-based chunking, windowing (overlapping 200-line windows for large files), and targeted reading with external notes compression. Extract 10 core components (purpose, triggers, methodology, terms, decision points, quality dimensions, examples, templates, guardrails, resources needed) using structured templates. Map components to skill structure following Claude Code guidelines: YAML description focuses on WHEN (situations/triggers not WHAT functionality), workflow with explicit "Copy this checklist" instructions, topic-specific resource files (reading-strategies.md, file-type-strategies.md, component-extraction.md, context-management.md, skill-structure-guidelines.md) instead of monolithic methodology, and file size limits (SKILL.md <300 lines, resources <500 lines each). Apply context management strategies: never read entire large files, write extracted insights to external notes immediately, use layered summarization (1000→300→100→50 lines across 4 passes), progressive windowing for files >1000 lines, and maintain token budget awareness. Includes file-type-specific strategies for code (API patterns, design decisions, architectures), documentation (process extraction, framework identification), Jupyter notebooks (workflow order, transformation patterns), configuration (conventions, validation rules), and data files (schema, quality patterns). Pattern abstraction techniques generalize domain-specific language to reusable processes while preserving actionability. Covers converting methodologies, frameworks, technical guides, research papers, and procedural documentation into production-ready Claude Code skills with proper progressive disclosure, validation rubrics, and quality standards. Use when user asks to "make this into a skill", "extract skill from file", convert documentation to executable workflows, or when analyzing files for skill-worthiness.
+
 ## Installation
 
 ### Option 1: Install as Plugin (Recommended)
@@ -182,7 +214,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 46 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 59 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -331,4 +363,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 35 production-ready skills | Active development | Last updated: 2025-11-12
+**Status**: 59 production-ready skills | Active development | Last updated: 2025-11-15
