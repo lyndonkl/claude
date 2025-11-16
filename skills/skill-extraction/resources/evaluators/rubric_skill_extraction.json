@@ -1,0 +1,183 @@
+{
+  "name": "Skill Extraction Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Skill-Worthiness",
+      "description": "Content extracted justifies creating a skill (reusable process, recurring problem)",
+      "scoring": {
+        "1": "Not skill-worthy; trivial, single-use, or duplicate content",
+        "2": "Marginally skill-worthy; very narrow application",
+        "3": "Skill-worthy for specific domain; limited broader applicability",
+        "4": "Clearly skill-worthy; solves recurring problems in multiple contexts",
+        "5": "Exceptionally skill-worthy; broadly applicable, fills clear gap"
+      }
+    },
+    {
+      "name": "Extraction Completeness",
+      "description": "All essential components extracted from source material",
+      "scoring": {
+        "1": "Missing critical components (purpose, methodology, or quality criteria)",
+        "2": "Some key components present but incomplete",
+        "3": "Core components extracted; minor gaps acceptable",
+        "4": "Comprehensive extraction of all major components",
+        "5": "Complete extraction including nuances, edge cases, and context"
+      }
+    },
+    {
+      "name": "Workflow Clarity",
+      "description": "Skill workflow is actionable, sequential, and understandable",
+      "scoring": {
+        "1": "Workflow is unclear, missing steps, or non-actionable",
+        "2": "Workflow present but vague or hard to follow",
+        "3": "Clear workflow with actionable steps; some ambiguity",
+        "4": "Very clear workflow; each step well-defined and executable",
+        "5": "Crystal clear workflow with decision points, inputs/outputs explicit"
+      }
+    },
+    {
+      "name": "YAML Description Quality",
+      "description": "Description focuses on WHEN to use (situations/triggers), not WHAT it does",
+      "scoring": {
+        "1": "Describes what skill does, not when to use it",
+        "2": "Mix of what/when; mostly describes functionality",
+        "3": "Mostly situation-based; some what-focused language",
+        "4": "Clearly situation-focused; good trigger identification",
+        "5": "Perfect trigger-based description; user knows exactly when to invoke"
+      }
+    },
+    {
+      "name": "Abstraction Level",
+      "description": "Content appropriately abstracted from source to be reusable",
+      "scoring": {
+        "1": "Too specific to source context; not generalizable",
+        "2": "Somewhat generalized but domain-locked",
+        "3": "Good abstraction; applicable beyond original context",
+        "4": "Well abstracted; domain-agnostic where appropriate",
+        "5": "Perfectly balanced abstraction; specific enough to be actionable, general enough to be reusable"
+      }
+    },
+    {
+      "name": "Resource Organization",
+      "description": "Resources (template, methodology, examples, rubric) are appropriate and well-organized",
+      "scoring": {
+        "1": "Missing required resources or poorly organized",
+        "2": "Basic resources present but incomplete or redundant",
+        "3": "Good resource structure; all required files present",
+        "4": "Excellent organization; progressive disclosure maintained",
+        "5": "Perfect resource architecture; each file serves clear purpose, no redundancy"
+      }
+    },
+    {
+      "name": "Template Utility",
+      "description": "Template (if present) provides clear quick-start value",
+      "scoring": {
+        "1": "No template or template is not useful",
+        "2": "Template present but too vague or complex",
+        "3": "Useful template for straightforward cases",
+        "4": "Excellent template; clear structure and guidance",
+        "5": "Exceptional template; fills-in-the-blank simplicity with smart defaults"
+      }
+    },
+    {
+      "name": "Quality Criteria",
+      "description": "Rubric/quality criteria enable validation of skill outputs",
+      "scoring": {
+        "1": "No quality criteria defined",
+        "2": "Vague quality criteria; hard to assess",
+        "3": "Clear quality criteria covering main dimensions",
+        "4": "Comprehensive criteria; measurable and actionable",
+        "5": "Exceptional criteria; nuanced, revealing, enable continuous improvement"
+      }
+    },
+    {
+      "name": "Distinctness",
+      "description": "Skill is distinct from existing skills; not duplicate or highly overlapping",
+      "scoring": {
+        "1": "Duplicate of existing skill",
+        "2": "Heavy overlap (>70%) with existing skill",
+        "3": "Some overlap but differentiated use cases",
+        "4": "Clearly distinct; unique value proposition",
+        "5": "Completely unique; fills previously unmet need"
+      }
+    },
+    {
+      "name": "Guardrails Quality",
+      "description": "Do/Don't guidance prevents common mistakes and ensures quality",
+      "scoring": {
+        "1": "No guardrails provided",
+        "2": "Minimal or generic guardrails",
+        "3": "Useful guardrails covering main pitfalls",
+        "4": "Comprehensive guardrails; actionable guidance",
+        "5": "Exceptional guardrails; anticipate subtle issues, enable mastery"
+      }
+    },
+    {
+      "name": "Structure Compliance",
+      "description": "Skill follows Claude Code skill structure guidelines",
+      "scoring": {
+        "1": "Does not follow guidelines; major structural issues",
+        "2": "Partially follows guidelines; several violations",
+        "3": "Mostly compliant; minor structural issues",
+        "4": "Fully compliant with all guidelines",
+        "5": "Exemplary structure; could serve as reference example"
+      }
+    },
+    {
+      "name": "Context Efficiency",
+      "description": "Skill respects file size limits and uses progressive disclosure",
+      "scoring": {
+        "1": "Exceeds file size limits; poor token efficiency",
+        "2": "Within limits but inefficient; lots of redundancy",
+        "3": "Good efficiency; respects limits with minor redundancy",
+        "4": "Excellent efficiency; lean, no redundancy",
+        "5": "Optimal efficiency; maximum value per token, perfect progressive disclosure"
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "User can execute workflow independently without guessing",
+      "scoring": {
+        "1": "Cannot execute independently; too many gaps",
+        "2": "Requires significant inference or external knowledge",
+        "3": "Mostly actionable; some ambiguity at decision points",
+        "4": "Fully actionable; all steps executable independently",
+        "5": "Exceptionally actionable; anticipates questions, removes all ambiguity"
+      }
+    },
+    {
+      "name": "Source Fidelity",
+      "description": "Skill accurately represents source methodology without distortion",
+      "scoring": {
+        "1": "Significant distortion or misrepresentation of source",
+        "2": "Some inaccuracies or misinterpretations",
+        "3": "Accurate representation; minor simplifications acceptable",
+        "4": "High fidelity; preserves essential intent and detail",
+        "5": "Perfect fidelity while improving clarity and usability"
+      }
+    }
+  ],
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Average score ≥ 4.5 across all criteria",
+      "very_good": "Average score ≥ 4.0 across all criteria",
+      "good": "Average score ≥ 3.5 across all criteria",
+      "acceptable": "Average score ≥ 3.0 across all criteria",
+      "needs_improvement": "Average score < 3.0"
+    },
+    "minimum_standard": "Average score ≥ 3.5 AND no individual criterion < 3.0"
+  },
+  "usage_instructions": "Rate each criterion independently on 1-5 scale. Calculate average. If average < 3.5 OR any criterion < 3, revise before delivering skill to user. Focus revision on lowest-scoring criteria first.",
+  "pre_delivery_checklist": [
+    "All 14 criteria scored",
+    "Average ≥ 3.5",
+    "No criterion < 3.0",
+    "Skill-worthiness confirmed (criterion 1 ≥ 3)",
+    "Distinctness validated (criterion 9 ≥ 3)",
+    "Structure compliance verified (criterion 11 ≥ 3)"
+  ]
+}
