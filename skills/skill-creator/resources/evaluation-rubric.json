@@ -1,0 +1,94 @@
+{
+  "criteria": [
+    {
+      "name": "Completeness",
+      "description": "Are all required components present (YAML, TOC, Read This First, Workflow checklist, Step details, Resources, Rubric)?",
+      "scores": {
+        "1": "Missing 3+ major components (e.g., no workflow, no resources, no rubric)",
+        "2": "Missing 1-2 major components or several minor elements",
+        "3": "All major components present but some minor elements missing (e.g., one step lacks goal statement)",
+        "4": "All required components present with very minor gaps (e.g., missing one optional section)",
+        "5": "All components fully present and comprehensive, nothing missing"
+      }
+    },
+    {
+      "name": "Clarity",
+      "description": "Are instructions clear, unambiguous, and easy to understand? Is language precise and terminology well-defined?",
+      "scores": {
+        "1": "Instructions are confusing, ambiguous, or contradictory. Unclear what to do.",
+        "2": "Many instructions are vague or require interpretation. Key terms undefined.",
+        "3": "Most instructions are clear but some ambiguity remains. Key terms mostly defined.",
+        "4": "Instructions are clear and precise with minor ambiguity in edge cases only.",
+        "5": "All instructions crystal clear, unambiguous, and precise. All terms well-defined."
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Can this skill be followed step-by-step? Are steps concrete and executable?",
+      "scores": {
+        "1": "Steps are too abstract or theoretical to execute. No clear action guidance.",
+        "2": "Some steps are actionable but many remain too high-level or vague.",
+        "3": "Most steps are actionable with concrete actions, but some need more specificity.",
+        "4": "Nearly all steps provide clear, executable actions with minor gaps.",
+        "5": "All steps are concrete, specific, and immediately executable. Clear action verbs throughout."
+      }
+    },
+    {
+      "name": "Structure & Organization",
+      "description": "Is the skill logically organized? Is navigation easy? Do resource links work correctly?",
+      "scores": {
+        "1": "Disorganized, hard to navigate. No clear structure. Broken or missing links.",
+        "2": "Some organization but flow is unclear. Several broken links or poor organization.",
+        "3": "Logical organization with minor navigation issues. Most links work correctly.",
+        "4": "Well-organized and easy to navigate. All links work. Very minor structural issues.",
+        "5": "Excellently organized with perfect navigation. Logical flow. All links and anchors work perfectly."
+      }
+    },
+    {
+      "name": "Triggers & When to Use",
+      "description": "Is it clear WHEN to use this skill? Are triggers specific and recognizable? Does YAML description focus on WHEN not WHAT?",
+      "scores": {
+        "1": "No clear triggers. YAML description describes WHAT the skill does, not WHEN to use it.",
+        "2": "Vague triggers that are hard to recognize. YAML description partially WHEN-focused.",
+        "3": "Triggers present and somewhat specific. YAML description adequately WHEN-focused.",
+        "4": "Clear, specific triggers that are easy to recognize. YAML description well WHEN-focused.",
+        "5": "Excellent, specific triggers with clear examples. YAML description perfectly WHEN-focused with multiple trigger scenarios."
+      }
+    },
+    {
+      "name": "Resource Quality",
+      "description": "Do resources follow WHY/WHAT structure? Do WHY sections activate context appropriately? Do WHAT sections provide actionable guidance?",
+      "scores": {
+        "1": "Resources don't follow WHY/WHAT structure. Missing critical content.",
+        "2": "Partial WHY/WHAT structure. WHY sections over-explain or under-explain. WHAT sections vague.",
+        "3": "Resources follow WHY/WHAT structure adequately. Some sections could be clearer or more focused.",
+        "4": "Resources follow WHY/WHAT structure well. WHY activates context appropriately. WHAT provides clear guidance.",
+        "5": "Resources perfectly structured with WHY/WHAT. WHY sections perfectly prime context. WHAT sections provide excellent, specific guidance."
+      }
+    },
+    {
+      "name": "User Collaboration",
+      "description": "Are user choice points clearly marked? Are options presented with trade-offs? Does the skill appropriately involve the user in decisions?",
+      "scores": {
+        "1": "No user involvement. Skill makes all decisions or lacks decision points entirely.",
+        "2": "Minimal user involvement. Few choice points. Options not well explained.",
+        "3": "Some user collaboration. Key choice points marked. Options explained adequately.",
+        "4": "Good user collaboration. Most choice points marked. Options presented with clear trade-offs.",
+        "5": "Excellent collaboration. All choice points clearly marked. Options presented with comprehensive trade-off analysis. User empowered to make informed decisions."
+      }
+    },
+    {
+      "name": "File Size Compliance",
+      "description": "Are all files under 500 lines? Is content appropriately distributed across files?",
+      "scores": {
+        "1": "Multiple files significantly over 500 lines (>600 lines)",
+        "2": "One or more files moderately over limit (500-600 lines)",
+        "3": "All files under 500 lines but some are close to limit (450-499)",
+        "4": "All files comfortably under 500 lines (most under 450)",
+        "5": "All files well under 500 lines with good content distribution"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for skill to be considered complete and ready for use. Any individual criterion scoring below 3 requires revision before delivery. After scoring, present results to user with specific improvement suggestions for any criterion scoring below 4."
+}
