@@ -594,7 +594,7 @@ Chart showing correlation between ice cream sales and drowning deaths
 **You've completed the Frameworks path.**
 
 **Options:**
-1. Return to [Path Selection Menu](../skill.md#path-selection-menu) to evaluate designs, get domain guidance, or access quick reference
+1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to evaluate designs, get domain guidance, or access quick reference
 2. Exit if you have what you need
 
 **Recommended next paths:**

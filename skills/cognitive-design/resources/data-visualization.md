@@ -612,7 +612,7 @@ User sees: Full story with future outlook
 **You've completed the Data Visualization path.**
 
 **Options:**
-1. Return to [Path Selection Menu](../skill.md#path-selection-menu) to explore other paths
+1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
 2. Exit if you have what you need
 
 **Recommended next paths:**

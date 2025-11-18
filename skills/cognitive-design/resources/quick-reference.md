@@ -305,6 +305,6 @@ Without quick reference: slowed workflow, inconsistent application, forgetting k
 **You've completed the Quick Reference path.**
 
 **Options:**
-1. Return to [Path Selection Menu](../skill.md#path-selection-menu) to choose another path
+1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to choose another path
 2. Exit if you have what you need
 

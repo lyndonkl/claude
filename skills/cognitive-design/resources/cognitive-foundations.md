@@ -597,7 +597,7 @@ These mappings are culturally learned but widely understood
 **You've completed the Cognitive Foundations path.**
 
 **Options:**
-1. Return to [Path Selection Menu](../skill.md#path-selection-menu) to apply frameworks, evaluate designs, or get domain guidance
+1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to apply frameworks, evaluate designs, or get domain guidance
 2. Exit if you have what you need
 
 **Recommended next paths:**

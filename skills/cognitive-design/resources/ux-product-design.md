@@ -670,7 +670,7 @@ Email: [____________] ← Red border
 **You've completed the UX & Product Design path.**
 
 **Options:**
-1. Return to [Path Selection Menu](../skill.md#path-selection-menu) to explore other paths
+1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
 2. Exit if you have what you need
 
 **Recommended next paths:**
