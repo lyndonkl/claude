@@ -232,13 +232,7 @@ Highlight one for focus if needed
 - Purpose: Deep investigation, not monitoring
 ```
 
-**Example application:**
-```
-Dashboard for e-commerce monitoring:
-Top-left (primary): Today's revenue, conversion rate, active users (large, bold)
-Mid-section (secondary): Revenue by channel, top products, traffic sources (grouped panels)
-Bottom (tertiary): Detailed tables, historical trends (expandable sections)
-```
+**Example:** E-commerce dashboard - Primary KPIs top-left (revenue, conversion, users), secondary metrics mid (channels, products), tertiary bottom (details, history).
 
 ---
 
@@ -246,29 +240,9 @@ Bottom (tertiary): Detailed tables, historical trends (expandable sections)
 
 **Principle:** Use proximity, similarity, and whitespace to show relationships
 
-**Proximity grouping:**
-```
-Related metrics close together with minimal spacing
-Unrelated metrics separated by whitespace (not borders - let whitespace work)
-Panel backgrounds optional but subtle (don't compete with data)
-```
-
-**Similarity grouping:**
-```
-All charts of same type styled consistently
-Color encoding consistent (red = error, green = success throughout)
-Same metrics across panels use same units and scales
-```
-
-**Example application:**
-```
-Traffic panel: Sessions, pageviews, bounce rate (proximity)
-Conversion panel: Conversion rate, revenue, AOV (proximity)
-Error panel: Error count, affected users, avg response time (proximity)
-
-Visual separation: Whitespace between panels (similarity within, distinction between)
-Color consistency: Red bars for errors in all charts (not red sometimes, yellow other times)
-```
+**Proximity:** Related metrics close, unrelated separated by whitespace
+**Similarity:** Consistent styling (same charts styled same way, color encoding consistent)
+**Example:** Traffic panel (sessions, pageviews, bounce), Conversion panel (rate, revenue, AOV) separated by whitespace, red for errors throughout
 
 ---
 
@@ -276,25 +250,7 @@ Color consistency: Red bars for errors in all charts (not red sometimes, yellow 
 
 **Principle:** Limit concurrent visualizations to 4±1 major groups
 
-**Application rule:**
-```
-If dashboard has >15 metrics:
-1. Group into 3-5 categories (e.g., Traffic, Conversions, Errors, Performance)
-2. Each category is one "chunk" in working memory
-3. Within each category, 3-5 metrics max
-4. Total: 9-25 metrics comfortably organized
-```
-
-**Example categorization:**
-```
-Marketing Dashboard:
-Chunk 1: Traffic (3 metrics: sessions, users, bounce rate)
-Chunk 2: Engagement (4 metrics: time on site, pages/session, interactions, shares)
-Chunk 3: Conversions (4 metrics: conversion rate, revenue, AOV, completed goals)
-Chunk 4: Channels (3 metrics: organic, paid, direct traffic)
-
-Total: 4 chunks (fits working memory), 14 metrics (organized, not overwhelming)
-```
+**Application rule:** Group >15 metrics into 3-5 categories, each with 3-5 metrics max = 9-25 metrics organized into 4±1 chunks (fits working memory).
 
 ---
 
@@ -302,26 +258,7 @@ Total: 4 chunks (fits working memory), 14 metrics (organized, not overwhelming)
 
 **Principle:** Use red color ONLY for threshold violations requiring immediate action
 
-**Application rule:**
-```
-Normal state: Gray or neutral colors
-Positive state: Green (optional, don't overuse)
-Alert state: Red (critical only - errors, threshold violations, failures)
-
-Avoid: Red for all negative values (e.g., don't make all decreases red - only critical decreases)
-Why: Overuse causes alert fatigue - everything red = nothing stands out
-```
-
-**Example application:**
-```
-Revenue metric:
-- Down 2% vs yesterday: Gray (normal fluctuation)
-- Down 15% vs yesterday: Red (threshold violation, investigate)
-
-Error rate metric:
-- 0.1% errors: Gray (baseline acceptable)
-- 2.5% errors: Red (threshold exceeded, critical)
-```
+**Application rule:** Normal = gray, alert = red (critical only). Avoid red for all negatives (causes alert fatigue). Example: Revenue down 2% = gray, down 15% = red threshold violation.
 
 ---
 
@@ -329,23 +266,8 @@ Error rate metric:
 
 **Principle:** Remove decorative elements; maximize ink showing actual data
 
-**Elements to remove:**
-```
-❌ Heavy gridlines (use light gray or remove entirely)
-❌ 3D effects (add no information, distort perception)
-❌ Background gradients (compete with data)
-❌ Excessive decimal places (0.00% vs 0%)
-❌ Decorative icons (unless they add information)
-❌ Chart borders (whitespace defines boundaries)
-```
-
-**Elements to keep:**
-```
-✓ Data points, lines, bars (the actual information)
-✓ Minimal axes (just enough to orient)
-✓ Direct labels (instead of legend when possible)
-✓ Meaningful annotations (key events, thresholds)
-```
+**Remove:** Heavy gridlines, 3D effects, gradients, excessive decimals, decorative icons, chart borders
+**Keep:** Data (points/lines/bars), minimal axes, direct labels, meaningful annotations
 
 ---
 
@@ -571,37 +493,5 @@ Test: Can user grasp message without annotations? If not, add guidance
 
 **Application pattern:**
 
-**Section 1 (scroll position 0%):**
-```
-Chart shows: Full trend line 2010-2024
-Annotation visible: "Overall growth trajectory"
-User sees: Big picture
-```
-
-**Section 2 (scroll to ~33%):**
-```
-Chart updates: Highlight 2015-2018 period in color, rest gray
-Annotation visible: "First growth phase after policy change"
-User sees: Specific period in context
-```
-
-**Section 3 (scroll to ~66%):**
-```
-Chart updates: Highlight 2020 dip in red
-Annotation visible: "COVID-19 impact and recovery"
-User sees: Anomaly explained
-```
-
-**Section 4 (scroll to 100%):**
-```
-Chart updates: Full color restored, add projection dotted line
-Annotation visible: "Projected growth based on current trend"
-User sees: Full story with future outlook
-```
-
-**Implementation note:**
-- Keep chart visible throughout scroll (sticky positioning)
-- Smooth transitions between states (not jarring jumps)
-- Allow user to scroll back up (review previous points)
-- Provide "skip to end" option (don't force full scroll)
+**Example progression:** Start with full context (0%) → Highlight specific periods as user scrolls (33%, 66%) → End with full picture + projection (100%). Chart stays visible, smooth transitions, user can scroll back, provide skip option.
 
