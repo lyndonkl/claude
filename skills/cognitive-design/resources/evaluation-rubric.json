@@ -1,0 +1,83 @@
+{
+  "criteria": [
+    {
+      "name": "Completeness",
+      "description": "Are all required components present and comprehensive?",
+      "scores": {
+        "1": "Major components missing - skill has significant gaps in coverage",
+        "2": "Several important components missing or incomplete - limited utility",
+        "3": "Core components present but some supporting elements missing - adequate coverage",
+        "4": "Nearly complete with only minor gaps - good comprehensive coverage",
+        "5": "Exceptionally complete - all core and supporting components present with depth"
+      }
+    },
+    {
+      "name": "Clarity",
+      "description": "Are instructions clear, unambiguous, and easy to understand?",
+      "scores": {
+        "1": "Instructions confusing or ambiguous - difficult to follow",
+        "2": "Some clarity but significant ambiguity remains - requires interpretation",
+        "3": "Generally clear with occasional ambiguity - mostly understandable",
+        "4": "Clear and well-explained with minimal ambiguity - easy to follow",
+        "5": "Crystal clear with excellent explanations and examples - no ambiguity"
+      }
+    },
+    {
+      "name": "Actionability",
+      "description": "Can the skill be followed step-by-step and applied in practice?",
+      "scores": {
+        "1": "Theoretical only - no actionable steps or practical guidance",
+        "2": "Limited actionability - some steps but difficult to apply",
+        "3": "Adequately actionable - can be followed with some effort",
+        "4": "Highly actionable - clear steps and practical application guidance",
+        "5": "Exceptionally actionable - detailed steps, examples, and immediate applicability"
+      }
+    },
+    {
+      "name": "Structure",
+      "description": "Is the skill logically organized with clear navigation?",
+      "scores": {
+        "1": "Poorly organized - difficult to navigate, no clear structure",
+        "2": "Weak organization - some structure but hard to find information",
+        "3": "Adequately organized - logical structure, acceptable navigation",
+        "4": "Well organized - clear structure and easy navigation",
+        "5": "Exceptionally organized - intuitive structure, excellent navigation, linked resources"
+      }
+    },
+    {
+      "name": "Examples",
+      "description": "Are sufficient concrete examples provided to illustrate concepts?",
+      "scores": {
+        "1": "No examples provided - purely theoretical",
+        "2": "Minimal examples - insufficient to illustrate concepts clearly",
+        "3": "Adequate examples - covers main concepts with at least one example each",
+        "4": "Good examples - multiple concrete illustrations across most concepts",
+        "5": "Excellent examples - comprehensive concrete illustrations for all major concepts"
+      }
+    },
+    {
+      "name": "Triggers",
+      "description": "Is 'when to use' clearly defined with specific trigger conditions?",
+      "scores": {
+        "1": "No trigger conditions specified - unclear when to use",
+        "2": "Vague triggers - difficult to know when skill applies",
+        "3": "Adequate triggers - general guidance on when to use",
+        "4": "Clear triggers - specific conditions and scenarios well-defined",
+        "5": "Excellent triggers - comprehensive when/when-not guidance with concrete scenarios"
+      }
+    },
+    {
+      "name": "Cognitive Foundation",
+      "description": "Are cognitive psychology principles well-explained and properly applied?",
+      "scores": {
+        "1": "No cognitive foundation - purely prescriptive rules without explanation",
+        "2": "Weak cognitive foundation - limited explanation of underlying principles",
+        "3": "Adequate cognitive foundation - basic principles explained",
+        "4": "Strong cognitive foundation - principles well-explained with research backing",
+        "5": "Exceptional cognitive foundation - deep principles, research citations, WHY clearly explained"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for skill to be considered production-ready. Scores below 3 in any individual criterion require revision before deployment."
+}
