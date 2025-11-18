@@ -97,12 +97,7 @@ Three complementary frameworks, each suited for different contexts:
 
 **Fix priority:** HIGHEST - without perception, nothing else works
 
-**Example application:**
-```
-Dashboard review:
-❌ Metrics all gray text, 12px, same size
-✓ Primary KPIs 36px bold black, secondary 18px gray
-```
+**Example:** ❌ All metrics gray 12px → ✓ Primary KPIs 36px bold, secondary 18px gray
 
 ---
 
@@ -126,12 +121,7 @@ Dashboard review:
 
 **Fix priority:** HIGH - enables users to understand and navigate
 
-**Example application:**
-```
-Form review:
-❌ 30 fields in sequence, no grouping, inconsistent labels ("Email" vs "E-mail address")
-✓ 4-step wizard, grouped fields, consistent terminology, progress visible
-```
+**Example:** ❌ 30 ungrouped fields, inconsistent labels → ✓ 4-step wizard, grouped fields, consistent terms, progress visible
 
 ---
 
@@ -156,12 +146,7 @@ Form review:
 
 **Why it matters:** Emotional state influences cognitive performance - pleasant affect improves problem-solving, stress narrows attention
 
-**Example application:**
-```
-Onboarding review:
-❌ Dense wall of text, no progress indicator, no encouragement
-✓ Friendly tone, progress bar, checkmarks on completion, "You're almost done!"
-```
+**Example:** ❌ Dense text, no progress, no encouragement → ✓ Friendly tone, progress bar, checkmarks, "You're almost done!"
 
 ---
 
@@ -184,37 +169,17 @@ Onboarding review:
 
 **Fix priority:** MEDIUM-LOW - optimize after foundation, coherence, engagement work
 
-**Example application:**
-```
-Dashboard review:
-❌ Insights hidden in footnotes, "View Details" button same size as "Export PDF"
-✓ Key insight in large text at top, "Take Action" button prominent green, export secondary gray
-```
+**Example:** ❌ Insights in footnotes, equal button sizes → ✓ Key insight top (large), "Take Action" prominent green, export secondary gray
 
 ---
 
 #### Applying the Pyramid
 
 **Process:**
-
-**Step 1: Assess each tier bottom-up**
-- Evaluate Tier 1 (Perceptual) - can users see clearly?
-- Evaluate Tier 2 (Cognitive) - does it make sense?
-- Evaluate Tier 3 (Emotional) - is it pleasant?
-- Evaluate Tier 4 (Behavioral) - does it guide action?
-
-**Step 2: Identify weakest tier**
-- Where are the most failures?
-- Which tier is blocking user success?
-
-**Step 3: Prioritize fixes from foundation up**
-- Fix Tier 1 issues first (perception enables everything)
-- Then Tier 2 (coherence)
-- Then Tier 3 and 4
-
-**Step 4: Re-evaluate**
-- Check that fixes at lower tiers didn't break higher tiers
-- Iterate until all tiers pass
+1. **Assess bottom-up:** Evaluate T1 (see clearly?) → T2 (makes sense?) → T3 (pleasant?) → T4 (guides action?)
+2. **Identify weakest tier:** Where are most failures? Which blocks success?
+3. **Prioritize foundation-up:** Fix T1 first (enables everything), then T2, then T3/T4
+4. **Re-evaluate:** Check fixes don't break higher tiers, iterate until all pass
 
 ---
 
@@ -282,12 +247,7 @@ Dashboard review:
 - No visual hierarchy (don't know what's important)
 - Loading without indicator (appears broken)
 
-**Example application:**
-```
-Dashboard:
-❌ No indication which filters are active
-✓ Active filters shown as visible chips at top
-```
+**Example:** ❌ No active filter indication → ✓ Active filters shown as visible chips at top
 
 ---
 
@@ -306,12 +266,7 @@ Dashboard:
 - Missing context (chart without title/axes labels)
 - Unclear purpose of page/screen
 
-**Example application:**
-```
-Data visualization:
-❌ Chart with no title, axis labels "X" and "Y", no units
-✓ "Q4 Sales by Region (thousands USD)", labeled axes, annotated key events
-```
+**Example:** ❌ No title, axes "X"/"Y", no units → ✓ "Q4 Sales by Region (thousands USD)", labeled axes, annotated events
 
 ---
 
@@ -330,12 +285,7 @@ Data visualization:
 - No guidance on what to do next
 - Unclear consequences ("Are you sure?" without explaining what happens)
 
-**Example application:**
-```
-Form:
-❌ 10 buttons with unclear purposes
-✓ Primary "Continue" button prominent, secondary "Save Draft" gray, "Cancel" text link
-```
+**Example:** ❌ 10 unclear buttons → ✓ Primary "Continue" prominent, secondary "Save Draft" gray, "Cancel" text link
 
 ---
 
@@ -355,12 +305,7 @@ Form:
 - No keyboard access
 - Allowing invalid inputs
 
-**Example application:**
-```
-Button design:
-❌ Flat text label, no visual cue it's interactive
-✓ Raised appearance, hover state, cursor changes to pointer, focus ring for keyboard
-```
+**Example:** ❌ Flat text, no interactive cue → ✓ Raised appearance, hover state, cursor→pointer, focus ring
 
 ---
 
@@ -380,12 +325,7 @@ Button design:
 - Generic errors ("Error occurred" without explanation)
 - Feedback hidden or dismissible before user sees it
 
-**Example application:**
-```
-Form submission:
-❌ Button click → nothing visible → page eventually changes (or doesn't - user unsure if it worked)
-✓ Button click → button shows spinner → success message appears → page transitions with confirmation
-```
+**Example:** ❌ Click → nothing visible → page maybe changes → ✓ Click → spinner → success message → confirmed transition
 
 ---
 
@@ -399,13 +339,12 @@ Form submission:
 4. **Act:** Are controls obvious and accessible?
 5. **Learn:** Will user get immediate, clear feedback?
 
-**Example: Login form using loop**
-
-**Perceive:** Username and password fields visible, labels clear
-**Interpret:** "Log in to your account" heading provides context
-**Decide:** Single "Log in" button obvious, "Forgot password?" link available
-**Act:** Fields have focus states, button looks clickable, Enter key submits
-**Learn:** Spinner appears on submit, success → redirect, error → message next to field with red border
+**Example: Login form**
+- **Perceive:** Fields visible, labels clear
+- **Interpret:** "Log in to your account" heading
+- **Decide:** "Log in" button obvious, "Forgot password?" link
+- **Act:** Focus states, clickable button, Enter submits
+- **Learn:** Spinner on submit, success→redirect, error→message next to field with red border
 
 ---
 
@@ -450,12 +389,7 @@ Form submission:
 
 **Fix:** Validate data quality before designing visualization
 
-**Example:**
-```
-Question: "Are sales improving?"
-❌ Show only last 3 months (where sales happen to be up) hiding 2-year decline
-✓ Show 2-year trend with annotation: "Recent uptick after sustained decline"
-```
+**Example:** "Are sales improving?" ❌ Only last 3 months (hides 2-year decline) → ✓ 2-year trend with annotation: "Recent uptick after sustained decline"
 
 ---
 
@@ -478,12 +412,7 @@ Question: "Are sales improving?"
 
 **Fix:** Match encoding to task using Cleveland & McGill hierarchy
 
-**Example:**
-```
-Task: Compare 6 regional sales values
-❌ Pie chart (angle/area encoding poor for comparison)
-✓ Bar chart (position/length encoding enables precise comparison)
-```
+**Example:** Compare 6 regional sales. ❌ Pie chart (poor angle/area) → ✓ Bar chart (precise position/length)
 
 ---
 
@@ -506,62 +435,23 @@ Task: Compare 6 regional sales values
 
 **Fix:** Add titles, annotations, context; test with target users
 
-**Example:**
-```
-Chart showing correlation between ice cream sales and drowning deaths
-❌ No annotation → viewers conclude causation
-✓ Annotation: "Both increase in summer (common cause), not causally related"
-```
+**Example:** Ice cream sales vs drowning deaths. ❌ No annotation (viewers assume causation) → ✓ "Both increase in summer (common cause), not causally related"
 
 ---
 
 #### Applying the Three-Layer Model
 
 **Process:**
+1. **Validate data:** Check quality, completeness, relevance, outliers, time period, aggregation
+2. **Choose encoding:** Identify task → select chart type matching task + perceptual hierarchy → design axes, colors, labels → maximize data-ink
+3. **Support interpretation:** Add title conveying message → annotate insights → provide context → test with users → clarify misinterpretations
+4. **Iterate:** Fix weak layers, re-validate
 
-**Step 1: Validate data layer**
-- Check data quality, completeness, relevance
-- Investigate outliers
-- Ensure time period representative
-- Verify aggregation appropriate
-
-**Step 2: Choose encoding layer**
-- Identify user task (compare, see trend, find outliers, etc.)
-- Select chart type matching task + perceptual hierarchy
-- Design axes, colors, labels appropriately
-- Maximize data-ink ratio
-
-**Step 3: Support interpretation layer**
-- Add title conveying main message
-- Annotate key insights
-- Provide context (baselines, comparisons)
-- Test with target users
-- Add clarifications for potential misinterpretations
-
-**Step 4: Iterate**
-- Fix any layer showing weakness
-- Re-validate that fixes don't break other layers
-
-**Example: Sales dashboard using model**
-
-**Layer 1 (Data):**
-- Pull complete 2-year sales data
-- Verify data quality (reconcile with finance)
-- Identify 2 outlier months (big sale event) - note in visualization
-
-**Layer 2 (Encoding):**
-- User task: See trend + compare regions
-- Chart: Line chart for trend (position over time), separate colored lines per region
-- Axes: Start y-axis at zero, label units "Sales (thousands USD)", time on x-axis
-- Color: Distinct hues per region (categorical), limit to 5 regions for clarity
-
-**Layer 3 (Interpretation):**
-- Title: "Regional Sales Trends 2023-2024: Overall Growth with West Leading"
-- Annotate outlier months: "Holiday promotion (Nov 2023)", "Product launch (June 2024)"
-- Provide context: Show previous year dotted line as comparison baseline
-- Test with sales team - confirmed they grasp trends correctly
-
-**Result:** Accurate data + appropriate encoding + correct interpretation = insight
+**Example: Sales dashboard**
+- **Data:** Complete 2-year sales, verified quality, identified 2 outlier months (note in viz)
+- **Encoding:** Task = trend + regional comparison. Line chart, distinct hue per region (limit 5), y-axis at zero "Sales (thousands USD)", time on x-axis
+- **Interpretation:** Title "Regional Sales Trends 2023-2024: Overall Growth with West Leading", annotate outliers ("Holiday promo Nov 2023", "Launch June 2024"), show previous year dotted baseline, tested with sales team
+- **Result:** Accurate data + appropriate encoding + correct interpretation = insight
 
 ---
 
