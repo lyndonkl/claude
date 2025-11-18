@@ -66,40 +66,9 @@ This resource covers common design failures that confuse or mislead users - what
 
 #### Common Chartjunk
 
-**Heavy backgrounds:**
-```
-❌ Gradients, textures, images behind charts
-Why problematic: Reduces contrast, competes with data
-Solution: White or light neutral background
-```
-
-**Excessive gridlines:**
-```
-❌ Heavy dark gridlines on every axis interval
-Why problematic: Visual noise, data lost in grid
-Solution: Light gray minimal gridlines or remove entirely, use axis ticks only
-```
-
-**3D effects for decoration:**
-```
-❌ 3D bars, drop shadows, embossed text (when 3D adds no information)
-Why problematic: Distorts perception, adds no data value
-Solution: Flat 2D design, use color/size for emphasis
-```
-
-**Decorative icons replacing data:**
-```
-❌ Cute icons replacing bars (e.g., coffee cups for coffee sales)
-Why problematic: Hard to judge proportion, volume illusion
-Solution: Simple bars, use icons in legend only if needed
-```
-
-**Excessive decorative elements:**
-```
-❌ Borders, ornamental headers, fancy fonts, clip art
-Why problematic: Competes for attention with data
-Solution: Minimal design, focus on data
-```
+**Avoid:** Heavy backgrounds (gradients/textures), excessive gridlines, 3D effects for decoration, decorative icons replacing data, ornamental elements (borders/fancy fonts)
+**Why problematic:** Reduces contrast, creates visual noise, distorts perception, competes with data
+**Solution:** White/light background, minimal gray gridlines, flat 2D design, simple bars, minimal decoration
 
 ---
 
