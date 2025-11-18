@@ -205,28 +205,10 @@ Design for recognition over recall:
 **Definition:** Grouping related information into single meaningful units to overcome working memory limits.
 
 **Application Patterns:**
-
-**Lists:** Break long lists into categorized groups
-```
-❌ 20 ungrouped navigation items
-✓ 5 categories × 4 items each
-```
-
-**Forms:** Group related fields with visual separation
-```
-❌ 30 fields in sequence
-✓ 4-step wizard with grouped fields per step
-```
-
-**Phone numbers:** Already chunked conventionally
-```
-555-123-4567 (3 chunks) vs 5551234567 (10 chunks)
-```
-
-**Dashboards:** Group related metrics
-```
-✓ Traffic metrics panel, Conversion metrics panel, Error metrics panel
-```
+- **Lists:** Break into categories (❌ 20 ungrouped nav items → ✓ 5 categories × 4 items)
+- **Forms:** Group fields (❌ 30 sequential fields → ✓ 4-step wizard with grouped fields)
+- **Phone numbers:** Use conventional chunking (555-123-4567 = 3 chunks vs 5551234567 = 10 chunks)
+- **Dashboards:** Group metrics by category (Traffic panel, Conversion panel, Error panel)
 
 ---
 
@@ -368,50 +350,20 @@ Ensure clear figure-ground distinction:
 #### Task-Encoding Matching
 
 **Match encoding to user task:**
-
-**Compare precise values:**
-→ Use **bar chart** (position/length on common scale)
-→ Avoid pie chart (angle/area much less accurate)
-→ **Why:** Users can judge position/length 5-10x more accurately
-
-**See trend over time:**
-→ Use **line chart** (position along time axis)
-→ **Why:** Continuous line shows temporal progression naturally; slope changes visible
-
-**Understand distribution:**
-→ Use **histogram or box plot**
-→ **Why:** Shape visible (normal, skewed, bimodal); outliers apparent
-
-**Compare part-to-whole:**
-→ Use **stacked bar or treemap**
-→ Avoid pie with >5 slices
-→ **Why:** Difficult to judge angles; tiny slices unreadable
-
-**Find outliers/clusters:**
-→ Use **scatterplot**
-→ **Why:** 2D position enables pattern detection; outliers pop out preattentively
+- **Compare values:** Bar chart (position/length 5-10x more accurate than pie angle/area)
+- **See trend:** Line chart (continuous line shows temporal progression, slope changes visible)
+- **Understand distribution:** Histogram/box plot (shape visible, outliers apparent)
+- **Part-to-whole:** Stacked bar/treemap (avoid pie >5 slices - angles hard to judge)
+- **Find outliers/clusters:** Scatterplot (2D position enables pattern detection)
 
 ---
 
 #### Color Encoding Rules
 
-**Categorical data (types, no inherent order):**
-→ Use **distinct hues** (red, blue, green, yellow - perceptually different)
-→ **Why:** Hue lacks inherent ordering; good for nominal categories
-→ **Limit:** 5-7 distinguishable categories (more becomes muddy)
-
-**Quantitative data (amounts, rankings, temperatures):**
-→ Use **lightness/saturation gradient** (light → dark)
-→ Avoid rainbow spectrum (red→yellow→green→blue)
-→ **Why:** Lightness has natural perceptual ordering (darker = more); rainbow has misleading "peaks" at yellow/cyan
-
-**Diverging data (deviation from center):**
-→ Use **two-hue gradient** through neutral (blue ← gray → orange)
-→ **Why:** Shows direction and magnitude; neutral center for zero/baseline
-
-**Accessible:**
-→ Use **redundant coding** (color + icon + text label)
-→ **Why:** 8% of males colorblind; don't rely on color alone
+- **Categorical:** Distinct hues (red, blue, green). Limit 5-7 categories. Hue lacks ordering.
+- **Quantitative:** Lightness gradient (light→dark). Avoid rainbow (misleading peaks). Darkness = more.
+- **Diverging:** Two-hue gradient through neutral (blue←gray→orange). Shows direction/magnitude.
+- **Accessible:** Redundant coding (color + icon + label). 8% males colorblind.
 
 ---
 
@@ -499,29 +451,11 @@ Design controls to signal their function:
 **Definition:** Relationship between controls and effects that mirrors spatial/conceptual relationships in intuitive way.
 
 **Application Patterns:**
+- **Spatial:** Stove knob layout mirrors burner layout (front-left knob → front-left burner)
+- **Directional:** Volume up = move up, zoom in = pinch outward, scroll down = swipe up (matches physical)
+- **Conceptual:** Green = go/good/success, Red = stop/bad/error (culturally learned, widely understood)
 
-**Spatial mapping:**
-```
-Stove burner knobs arranged in same pattern as burners (front-left knob → front-left burner)
-vs
-Linear row of knobs (requires labels/trial-and-error)
-```
-
-**Directional mapping:**
-```
-Volume up = move up (natural)
-Zoom in = pinch outward (mimics physical spreading)
-Scroll down = swipe up (content moves opposite finger - matches physical paper pushing)
-```
-
-**Conceptual mapping:**
-```
-Green = go/good/success
-Red = stop/bad/error
-These mappings are culturally learned but widely understood
-```
-
-**Application Rule:** Align control layout/direction with effect for instant comprehension
+**Rule:** Align control layout/direction with effect for instant comprehension
 
 ---
 
@@ -529,63 +463,28 @@ These mappings are culturally learned but widely understood
 
 ### Dashboard Design Example
 
-**Problem:** 20 metrics with equal visual weight → cognitive overload
+**Problem:** 20 equal-weight metrics → cognitive overload
 
 **Applied Principles:**
+- **Attention:** 3-4 primary KPIs top-left (large), smaller secondary below, red for violations only
+- **Memory:** Group into 3-4 panels (Traffic, Conversions, Errors) = fits 4±1 chunks
+- **Gestalt:** Proximity (related metrics within panel), similarity (consistent colors), whitespace (panel separation)
+- **Encoding:** Bar charts (comparisons), line charts (trends), avoid pies (poor angle perception)
+- **Mental Models:** Standard chart types, conventional axes (time left-to-right), familiar icons + labels
 
-**Attention (Visual Hierarchy):**
-- Large numbers for 3-4 primary KPIs (top-left per F-pattern)
-- Smaller secondary metrics below
-- Red color for threshold violations only (preattentive salience)
-
-**Memory (Chunking):**
-- Group into 3-4 panels (Traffic, Conversions, Errors)
-- Each panel = 1 chunk in working memory
-
-**Gestalt (Grouping):**
-- Proximity: related metrics within panel
-- Similarity: consistent color coding across charts
-- Whitespace: separation between panels
-
-**Encoding (Chart Selection):**
-- Bar charts for comparisons (position/length)
-- Line charts for trends (position over time)
-- Avoid pie charts (poor angle perception)
-
-**Mental Models (Familiarity):**
-- Standard chart types (no invented visualizations)
-- Conventional axes (time left-to-right)
-- Familiar icons with labels
-
-**Result:** 5-second comprehension instead of 60-second confusion
+**Result:** 5-second comprehension vs 60-second confusion
 
 ---
 
 ### Form Wizard Example
 
-**Problem:** 30-field registration form → 60% abandonment
+**Problem:** 30-field form → 60% abandonment
 
 **Applied Principles:**
+- **Attention:** 4 steps revealed gradually, current step prominent
+- **Memory:** 4-6 fields per step (fits 4±1 capacity), progress indicator visible (externalizes state)
+- **Gestalt:** Related fields grouped (name, address), whitespace between groups
+- **Recognition over Recall:** Show step names ("Personal Info" → "Account" → "Preferences" → "Review"), display entered info in review, enable back navigation
+- **Natural Mapping:** Linear flow left-to-right/top-to-bottom, "Next" button bottom-right consistently
 
-**Attention (Progressive Disclosure):**
-- 4 steps revealed gradually
-- Clear visual hierarchy (current step prominent)
-
-**Memory (Working Memory):**
-- 4-6 fields per step (fits 4±1 capacity)
-- Progress indicator visible (externalizes state)
-
-**Gestalt (Proximity):**
-- Related fields grouped (name fields together, address fields together)
-- Whitespace between groups
-
-**Recognition over Recall:**
-- Show step names ("Personal Info" → "Account" → "Preferences" → "Review")
-- Display previously entered info in review step
-- Enable back navigation
-
-**Natural Mapping:**
-- Linear flow left-to-right or top-to-bottom
-- "Next" button positioned consistently bottom-right
-
-**Result:** 75% completion rate, faster task time
+**Result:** 75% completion, faster task time
