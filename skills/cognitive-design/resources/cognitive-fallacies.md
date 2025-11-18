@@ -517,18 +517,3 @@ Reality: Could be correlation only, common cause, or coincidence
 ✓ Provide access to full dataset when possible
 ```
 
----
-
-## Return to Hub
-
-**You've completed the Cognitive Fallacies path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 3 (Evaluation Tools)** to audit designs for integrity violations
-- **Path 4a (Data Visualization)** for correct chart selection
-- **Path 6 (Quick Reference)** for quick integrity checks
-

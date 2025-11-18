@@ -663,18 +663,3 @@ Email: [____________] ← Red border
 ✓ Change to green checkmark when fixed (positive feedback)
 ```
 
----
-
-## Return to Hub
-
-**You've completed the UX & Product Design path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 1 (Cognitive Foundations)** for deeper understanding of mental models
-- **Path 2 (Frameworks)** to apply Design Feedback Loop to your interfaces
-- **Path 6 (Quick Reference)** for condensed UX heuristics
-

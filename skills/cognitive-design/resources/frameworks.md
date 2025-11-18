@@ -587,17 +587,3 @@ Chart showing correlation between ice cream sales and drowning deaths
 
 **Use multiple frameworks together for complete coverage**
 
----
-
-## Return to Hub
-
-**You've completed the Frameworks path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to evaluate designs, get domain guidance, or access quick reference
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 3 (Evaluation Tools)** to apply frameworks in systematic evaluation
-- **Path 4 (Domain Guidance)** for context-specific application
-

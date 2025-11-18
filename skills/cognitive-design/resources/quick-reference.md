@@ -298,13 +298,3 @@ Without quick reference: slowed workflow, inconsistent application, forgetting k
 **"Why accessible color schemes?"**
 → "8% of males have color vision deficiency. Redundant coding (color + icon + text) ensures all users can perceive information, not just those with typical vision."
 
----
-
-## Return to Hub
-
-**You've completed the Quick Reference path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to choose another path
-2. Exit if you have what you need
-

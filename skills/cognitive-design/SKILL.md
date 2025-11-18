@@ -9,6 +9,10 @@ description: Use when designing visual interfaces, data visualizations, educatio
 
 - [Read This First](#read-this-first)
 - [How to Use This Skill](#how-to-use-this-skill)
+- [Workflows](#workflows)
+  - [New Design Workflow](#new-design-workflow)
+  - [Design Review Workflow](#design-review-workflow)
+  - [Quick Validation Workflow](#quick-validation-workflow)
 - [Path Selection Menu](#path-selection-menu)
   - [Path 1: Understand Cognitive Foundations](#path-1-understand-cognitive-foundations)
   - [Path 2: Apply Design Frameworks](#path-2-apply-design-frameworks)
@@ -93,26 +97,6 @@ You bring domain expertise and context; I provide cognitive science grounding.
 - Understanding of user tasks and context (from user research, stories, or brief)
 - Access to design being created or evaluated
 
-### Typical Session Flows
-
-**For New Design (2-4 hours):**
-1. Start with Path 1 (Cognitive Foundations) or Path 6 (Quick Reference) to orient
-2. Use Path 2 (Frameworks) to structure your design thinking
-3. Apply Path 4 (Domain Guidance) for specific context (dashboard, form, e-learning, etc.)
-4. Evaluate with Path 3 (Evaluation Tools)
-5. Check Path 5 (Common Mistakes) to avoid pitfalls
-6. Iterate based on findings
-
-**For Design Review (30-60 min):**
-1. Jump to Path 3 (Evaluation Tools) for systematic assessment
-2. Reference Path 5 (Common Mistakes) for quick checks
-3. Use Path 6 (Quick Reference) for rapid validation
-4. Note issues and prioritize fixes
-
-**For Quick Validation (5-10 min):**
-1. Path 6 (Quick Reference) for 3-question check
-2. Path 3 (Evaluation Tools) for spot checks if issues found
-
 ### Expected Outcomes
 
 **Immediate:**
@@ -129,6 +113,112 @@ You bring domain expertise and context; I provide cognitive science grounding.
 - Internalized cognitive principles
 - Team shared vocabulary
 - Measurable business impact
+
+---
+
+## Workflows
+
+Choose a workflow based on your current situation:
+
+### New Design Workflow
+
+**Use when:** Creating a new interface, dashboard, visualization, or educational content from scratch
+
+**Time:** 2-4 hours
+
+**Copy this checklist and track your progress:**
+
+```
+New Design Progress:
+- [ ] Step 1: Orient to cognitive principles
+- [ ] Step 2: Structure design thinking with frameworks
+- [ ] Step 3: Apply domain-specific guidance
+- [ ] Step 4: Evaluate design for cognitive alignment
+- [ ] Step 5: Check for common mistakes
+- [ ] Step 6: Iterate based on findings
+```
+
+**Step 1: Orient to cognitive principles**
+
+Start with [Cognitive Foundations](resources/cognitive-foundations.md) for deep understanding of WHY designs work (perception, memory, Gestalt principles) OR use [Quick Reference](resources/quick-reference.md) for rapid orientation (20 core principles, decision rules). Foundations give you theoretical grounding; Quick Reference gets you started faster.
+
+**Step 2: Structure design thinking with frameworks**
+
+Use [Design Frameworks](resources/frameworks.md) to apply systematic approaches: Cognitive Design Pyramid (4-tier quality assessment), Design Feedback Loop (interaction cycles), and Three-Layer Visualization Model (data communication fidelity). These provide repeatable structure for design decisions.
+
+**Step 3: Apply domain-specific guidance**
+
+Choose your domain: [Data Visualization](resources/data-visualization.md) for charts/dashboards, [UX Product Design](resources/ux-product-design.md) for interfaces/apps, [Educational Design](resources/educational-design.md) for e-learning/training, or [Storytelling & Journalism](resources/storytelling-journalism.md) for data journalism/presentations. Apply tailored cognitive principles for your specific context.
+
+**Step 4: Evaluate design for cognitive alignment**
+
+Use [Evaluation Tools](resources/evaluation-tools.md) to assess systematically: Cognitive Design Checklist (8 dimensions including visibility, hierarchy, chunking) and Visualization Audit Framework (4 criteria: Clarity, Efficiency, Integrity, Aesthetics). Identify weaknesses and prioritize fixes.
+
+**Step 5: Check for common mistakes**
+
+Review [Cognitive Fallacies](resources/cognitive-fallacies.md) to prevent failures: chartjunk, truncated axes, 3D distortion, cognitive biases, data integrity violations. Ensure your design avoids misleading patterns.
+
+**Step 6: Iterate based on findings**
+
+Return to domain guidance or frameworks as needed. Fix issues identified in evaluation. Re-evaluate until design passes cognitive alignment criteria (avg score ≥3.5 on rubric).
+
+---
+
+### Design Review Workflow
+
+**Use when:** Evaluating existing designs for cognitive alignment, conducting design critiques, or diagnosing usability issues
+
+**Time:** 30-60 minutes
+
+**Copy this checklist and track your progress:**
+
+```
+Design Review Progress:
+- [ ] Step 1: Systematic assessment with evaluation tools
+- [ ] Step 2: Quick checks for common mistakes
+- [ ] Step 3: Rapid validation against core principles
+- [ ] Step 4: Note issues and prioritize fixes
+```
+
+**Step 1: Systematic assessment with evaluation tools**
+
+Start with [Evaluation Tools](resources/evaluation-tools.md) for comprehensive review: Apply Cognitive Design Checklist (visibility, hierarchy, chunking, simplicity, memory support, feedback, consistency, scanning) and Visualization Audit Framework (score Clarity, Efficiency, Integrity, Aesthetics 1-5). Identify failing dimensions.
+
+**Step 2: Quick checks for common mistakes**
+
+Reference [Cognitive Fallacies](resources/cognitive-fallacies.md) for rapid diagnosis: Look for chartjunk, truncated axes, 3D effects, misleading colors, data integrity violations. These are common culprits in cognitive failures.
+
+**Step 3: Rapid validation against core principles**
+
+Use [Quick Reference](resources/quick-reference.md) for fast validation: Apply 3-question check (Attention? Memory? Clarity?), verify chart selection matches task, check color usage, confirm chunking fits working memory. Catches major issues quickly.
+
+**Step 4: Note issues and prioritize fixes**
+
+Document findings with severity: CRITICAL (integrity violations, accessibility failures), HIGH (clarity/efficiency issues preventing use), MEDIUM (suboptimal patterns, aesthetic issues), LOW (minor optimizations). Prioritize fixes foundation-first (perception → coherence → engagement → behavior).
+
+---
+
+### Quick Validation Workflow
+
+**Use when:** Need rapid go/no-go decision, spot-checking changes, or validating against cognitive basics during active design work
+
+**Time:** 5-10 minutes
+
+**Copy this checklist and track your progress:**
+
+```
+Quick Validation Progress:
+- [ ] Step 1: Three-question rapid check
+- [ ] Step 2: Spot checks if issues found
+```
+
+**Step 1: Three-question rapid check**
+
+Use [Quick Reference](resources/quick-reference.md) and apply: (1) Attention - "Is it obvious what to look at first?" (visual hierarchy clear, primary elements salient, predictable scanning), (2) Memory - "Is user required to remember anything that could be shown?" (state visible, options presented, fits 4±1 chunks), (3) Clarity - "Can someone unfamiliar understand in 5 seconds?" (purpose graspable, no unnecessary decoration, familiar terminology). If all YES → likely cognitively sound.
+
+**Step 2: Spot checks if issues found**
+
+If any question fails, use [Evaluation Tools](resources/evaluation-tools.md) for targeted diagnosis: Failed attention? Check hierarchy and visual salience sections. Failed memory? Check chunking and memory support sections. Failed clarity? Check simplicity and labeling sections. Apply specific fixes from relevant section.
 
 ---
 

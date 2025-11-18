@@ -605,18 +605,3 @@ User sees: Full story with future outlook
 - Allow user to scroll back up (review previous points)
 - Provide "skip to end" option (don't force full scroll)
 
----
-
-## Return to Hub
-
-**You've completed the Data Visualization path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 3 (Evaluation Tools)** to assess your visualizations systematically
-- **Path 5 (Cognitive Fallacies)** to avoid common visualization mistakes
-- **Path 6 (Quick Reference)** for condensed chart selection rules
-

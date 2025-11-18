@@ -422,17 +422,3 @@ Keep:
 ✓ Summaries reinforcing key points
 ```
 
----
-
-## Return to Hub
-
-**You've completed the Educational Design path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 1 (Cognitive Foundations)** for working memory and dual coding details
-- **Path 6 (Quick Reference)** for Mayer's principles summary
-

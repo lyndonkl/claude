@@ -471,18 +471,3 @@ When using metaphor, note where analogy breaks down:
 Prevents overgeneralizing from metaphor
 ```
 
----
-
-## Return to Hub
-
-**You've completed the Storytelling & Journalism path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 4a (Data Visualization)** for chart selection and narrative visualization
-- **Path 5 (Cognitive Fallacies)** to avoid misleading visualizations
-- **Path 3 (Evaluation Tools)** to assess integrity and clarity
-

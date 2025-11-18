@@ -589,18 +589,3 @@ These mappings are culturally learned but widely understood
 - "Next" button positioned consistently bottom-right
 
 **Result:** 75% completion rate, faster task time
-
----
-
-## Return to Hub
-
-**You've completed the Cognitive Foundations path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to apply frameworks, evaluate designs, or get domain guidance
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 2 (Frameworks)** to learn systematic structures for applying these principles
-- **Path 6 (Quick Reference)** for condensed principles summary
-

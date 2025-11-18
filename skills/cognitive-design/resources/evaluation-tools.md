@@ -557,17 +557,3 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - Aesthetics: 4/5 (unchanged)
 - **New Average:** 4.75/5 - Excellent
 
----
-
-## Return to Hub
-
-**You've completed the Evaluation Tools path.**
-
-**Options:**
-1. Return to [Path Selection Menu](../SKILL.md#path-selection-menu) to explore other paths
-2. Exit if you have what you need
-
-**Recommended next paths:**
-- **Path 5 (Cognitive Fallacies)** to learn what to avoid
-- **Path 6 (Quick Reference)** for condensed evaluation heuristics
-
