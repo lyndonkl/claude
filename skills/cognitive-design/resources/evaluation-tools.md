@@ -82,19 +82,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] Is text/content legible? (sufficient size, contrast, line length)
 - [ ] Are interactive elements distinguishable from static content?
 
-**Test method:** Show design to unfamiliar user for 5 seconds, ask what they remember
-- **Pass:** Correctly identify purpose/main message
-- **Fail:** Remember decorative elements or miss key point
-
-**Common failures:**
-- Cluttered layout obscuring main message
-- Poor contrast making text hard to read
-- Everything buried below fold
-
-**Fix priorities:**
-- CRITICAL: Insufficient contrast (accessibility issue)
-- HIGH: Main message not graspable in 5 seconds
-- MEDIUM: Secondary content more prominent than primary
+**Test:** 5-second test (show design, ask what they remember). **Pass:** Identify purpose. **Fail:** Remember decoration or miss point.
+**Common failures:** Cluttered layout, poor contrast, content buried below fold.
+**Fix priorities:** CRITICAL (contrast), HIGH (5-second clarity), MEDIUM (hierarchy)
 
 ---
 
@@ -108,21 +98,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] Does design pass "squint test"? (important elements still visible when blurred)
 - [ ] Are calls-to-action visually prominent?
 
-**Squint Test:**
-1. Blur design (actual squint or Gaussian blur filter)
-2. Can you still identify what's most important?
-   - **Pass:** Hierarchy survives blur
-   - **Fail:** Everything looks same weight when blurred
-
-**Common failures:**
-- Everything same size/weight
-- Primary CTA not visually distinguished
-- Decorative elements more prominent than data
-
-**Fix priorities:**
-- HIGH: Primary content not prominent
-- MEDIUM: Insufficient heading hierarchy
-- LOW: Minor visual weight adjustments
+**Test:** Squint test (blur design). **Pass:** Important elements visible when blurred. **Fail:** Everything same weight.
+**Common failures:** Everything same size, primary CTA not distinguished, decoration more prominent than data.
+**Fix priorities:** HIGH (primary not prominent), MEDIUM (heading hierarchy), LOW (minor adjustments)
 
 ---
 
@@ -136,20 +114,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] Is navigation organized into logical categories? (≤7 top-level items)
 - [ ] Are form fields grouped by relationship? (personal info, account, preferences)
 
-**Counting test:**
-- Count ungrouped items in any section
-- **Pass:** ≤7 items or clear visual grouping into chunks
-- **Fail:** >7 items without grouping (cognitive overload)
-
-**Common failures:**
-- 15+ navigation items in flat list
-- 30-field form without visual grouping
-- Dashboard with 20 equal-weight metrics
-
-**Fix priorities:**
-- CRITICAL: >10 ungrouped items (overwhelming)
-- HIGH: 7-10 items that could be grouped
-- MEDIUM: Existing groups could be clearer
+**Test:** Count ungrouped items. **Pass:** ≤7 items or clear grouping. **Fail:** >7 items ungrouped.
+**Common failures:** 15+ flat navigation, 30-field ungrouped form, 20 equal-weight metrics.
+**Fix priorities:** CRITICAL (>10 ungrouped), HIGH (7-10 ungrouped), MEDIUM (clearer groups)
 
 ---
 
@@ -163,22 +130,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] Are decorative elements eliminated? (chartjunk, unnecessary lines, ornaments)
 - [ ] Is terminology familiar or explained? (no unexplained jargon)
 
-**Audit method:**
-1. Point to each visual element
-2. Ask: "What purpose does this serve?"
-   - If answer is "decoration" or unclear → remove it
-   - **Pass:** Every element justified
-   - **Fail:** Decorative/unexplained elements present
-
-**Common failures:**
-- Chartjunk (3D effects, background images, excessive gridlines)
-- Jargon without definitions
-- Redundant elements
-
-**Fix priorities:**
-- HIGH: Decorative elements competing with data
-- MEDIUM: Unexplained terminology
-- LOW: Minor visual simplification
+**Test:** Point to each element, ask "What purpose?" **Pass:** Every element justified. **Fail:** Decorative/unclear elements.
+**Common failures:** Chartjunk (3D, backgrounds, excess gridlines), jargon, redundant elements.
+**Fix priorities:** HIGH (decoration competing with data), MEDIUM (unexplained terms), LOW (minor simplification)
 
 ---
 
@@ -192,21 +146,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] For multi-step processes, is progress shown? (wizard step X of Y)
 - [ ] Are options presented rather than requiring recall? (dropdowns vs typed commands)
 
-**Test method:**
-- Identify what users must remember
-- Ask: "Could this be shown instead?"
-  - **Pass:** State externalized to interface
-  - **Fail:** Relying on user memory
-
-**Common failures:**
-- No visible indication of active filters
-- Multi-step process without progress indicator
-- Hidden state (users must remember where they are)
-
-**Fix priorities:**
-- CRITICAL: Users getting lost in multi-step flow
-- HIGH: Critical state not visible (active filters, current context)
-- MEDIUM: Minor memory aids (breadcrumbs, tooltips)
+**Test:** Identify what users must remember. Ask "Could this be shown?" **Pass:** State visible. **Fail:** Relying on memory.
+**Common failures:** No active filter indication, no progress indicator, hidden state.
+**Fix priorities:** CRITICAL (lost in flow), HIGH (critical state invisible), MEDIUM (minor memory aids)
 
 ---
 
@@ -221,21 +163,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] Are error messages contextual? (next to problem, not top of page)
 - [ ] Are success confirmations shown? ("Saved", checkmarks)
 
-**Timing test:**
-- Click button/interact with element
-- **Pass:** Visible feedback within 100ms (perceived as immediate)
-- **Fail:** No feedback or delayed >1 second without loading indicator
-
-**Common failures:**
-- No hover states (unclear what's clickable)
-- Form submission without loading indicator
-- Errors at top of page, not next to field
-- No confirmation of successful actions
-
-**Fix priorities:**
-- CRITICAL: No feedback for critical actions (submit, delete)
-- HIGH: Delayed feedback without loading state
-- MEDIUM: Missing hover states
+**Test:** Click/interact. **Pass:** Feedback within 100ms. **Fail:** No feedback or delayed >1s without indicator.
+**Common failures:** No hover states, no loading indicator, errors not contextual, no success confirmation.
+**Fix priorities:** CRITICAL (no feedback for critical actions), HIGH (delayed without loading), MEDIUM (missing hover)
 
 ---
 
@@ -249,21 +179,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] Is color usage consistent? (red = error, green = success throughout)
 - [ ] Are interaction patterns predictable? (click/tap behavior consistent)
 
-**Audit method:**
-1. List all instances of similar elements (all buttons, all error messages)
-2. Check if they're identical or inconsistent
-   - **Pass:** Consistent styling and behavior
-   - **Fail:** Variations without justification
-
-**Common failures:**
-- "Email" in one place, "E-mail address" in another (terminology)
-- Some buttons flat, some raised (visual inconsistency)
-- Red sometimes means error, sometimes negative value (semantic inconsistency)
-
-**Fix priorities:**
-- HIGH: Inconsistent terminology (causes confusion)
-- MEDIUM: Inconsistent visual styling (reduces learnability)
-- LOW: Minor interaction pattern variations
+**Test:** List similar elements, check consistency. **Pass:** Identical styling/behavior. **Fail:** Unjustified variations.
+**Common failures:** Inconsistent terminology ("Email" vs "E-mail"), visual inconsistency (button styles vary), semantic inconsistency (red means error and negative).
+**Fix priorities:** HIGH (terminology), MEDIUM (visual styling), LOW (minor patterns)
 
 ---
 
@@ -277,20 +195,9 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 - [ ] For visual-heavy content, does layout follow Z-pattern? (top-left to top-right, diagonal to bottom-left, then bottom-right)
 - [ ] Are terminal actions positioned bottom-right? (where scanning ends)
 
-**Pattern test:**
-1. Trace expected eye movement (F or Z based on content type)
-2. Does path hit important elements?
-   - **Pass:** Critical elements along natural scanning path
-   - **Fail:** Important content off expected path
-
-**Common failures:**
-- Primary CTA bottom-left (off Z-pattern terminus)
-- Key information buried middle-right (not on F-pattern)
-- Ignoring scanning patterns entirely
-
-**Fix priorities:**
-- MEDIUM: Primary CTA not on expected path
-- LOW: Secondary content optimization
+**Test:** Trace eye movement (F/Z pattern). **Pass:** Critical elements on path. **Fail:** Important content off path.
+**Common failures:** Primary CTA bottom-left (off Z-pattern), key info middle-right (off F-pattern), patterns ignored.
+**Fix priorities:** MEDIUM (CTA off path), LOW (secondary optimization)
 
 ---
 
@@ -468,92 +375,37 @@ Without systematic evaluation: missed cognitive issues, inconsistent quality, us
 
 ### Example 1: Dashboard Review Using Checklist
 
-**Context:** Team dashboard with 20 metrics, users report feeling overwhelmed and missing critical alerts
+**Context:** Team dashboard with 20 metrics, users overwhelmed and missing alerts
 
-**Cognitive Design Checklist Application:**
+**Checklist Results:**
+- ❌ **Visibility:** Too cluttered, 20 equal-weight metrics
+- ❌ **Hierarchy:** Everything same size, alerts not prominent
+- ❌ **Chunking:** 15 ungrouped metrics (exceeds working memory)
+- ❌ **Simplicity:** Chartjunk (gridlines, 3D, gradients)
+- ❌ **Memory:** No active filter indication
+- ✓ **Feedback:** Hover states, loading indicators present
+- ⚠️ **Consistency:** Mostly consistent, minor button variations
+- ❌ **Scanning:** Key KPI bottom-right (off F-pattern)
 
-**1. Visibility:** Can users see core message within seconds?
-- ❌ FAIL: Too cluttered, no clear focal point
-- Issue: 20 metrics all equal weight
+**Fixes:** (1) Reduce to 3-4 primary KPIs top-left, group others. (2) Remove chartjunk, establish hierarchy. (3) Show active filters as chips. (4) Standardize buttons.
 
-**2. Visual Hierarchy:** Can users distinguish primary vs secondary?
-- ❌ FAIL: Everything same size, no hierarchy
-- Issue: Critical alerts look same as minor metrics
-
-**3. Chunking:** Are items grouped into ≤7 clusters?
-- ❌ FAIL: 15 ungrouped metrics in single view
-- Issue: Exceeds working memory capacity
-
-**4. Simplicity:** Every element justified?
-- ❌ FAIL: Excessive gridlines, 3D effects, background gradients
-- Issue: Chartjunk competing with data
-
-**5. Memory Support:** Is state visible?
-- ❌ FAIL: No indication of active filters
-- Issue: Users forget which data subset they're viewing
-
-**6. Feedback:** Immediate responses?
-- ✓ PASS: Hover states, loading indicators present
-
-**7. Consistency:** Patterns maintained?
-- ⚠️ PARTIAL: Mostly consistent but some button styles vary
-
-**8. Scanning Patterns:** Layout leverages F/Z-pattern?
-- ❌ FAIL: Most important KPI bottom-right (off F-pattern)
-
-**Diagnosis:** Multiple failures in visibility, hierarchy, chunking, simplicity, memory support, and scanning patterns
-
-**Fix Priority:**
-1. **CRITICAL:** Reduce to 3-4 primary KPIs top-left, group others (chunking + hierarchy)
-2. **HIGH:** Remove chartjunk, establish clear hierarchy (simplicity + visibility)
-3. **MEDIUM:** Show active filters as visible chips (memory support)
-4. **LOW:** Standardize button styles (consistency)
-
-**Outcome:** After fixes, users grasp status in 5 seconds, report finding alerts immediately
+**Outcome:** Users grasp status in 5 seconds, find alerts immediately
 
 ---
 
 ### Example 2: Bar Chart Audit Using 4 Criteria
 
-**Context:** Sales comparison bar chart for quarterly presentation
+**Context:** Q4 sales bar chart for presentation
 
-**Visualization Audit Application:**
+**Audit Scores:**
+- **Clarity (4/5):** Clear title/labels, direct bar labels. Minor: Could annotate top performer.
+- **Efficiency (5/5):** Optimal position/length encoding, sorted descending, common baseline.
+- **Integrity (2/5 - CRITICAL):** ❌ Y-axis starts at 80 (exaggerates differences), ❌ No historical context.
+- **Aesthetics (4/5):** Clean, professional. Minor: Could use brand colors.
 
-**1. Clarity (Score: 4/5 - Good)**
-- ✓ Title clear: "Q4 Sales by Region"
-- ✓ Direct labels on bars (no legend lookup needed)
-- ✓ Axes labeled with units "Sales (thousands USD)"
-- ⚠️ Minor: Could add annotation for top performer
+**Average:** 3.75/5 (barely passes). **Critical issue:** Integrity <3 unacceptable.
 
-**2. Efficiency (Score: 5/5 - Excellent)**
-- ✓ Bar chart uses position/length encoding (optimal for comparison per Cleveland & McGill)
-- ✓ Sorted descending (easy to identify ranking)
-- ✓ Common baseline enables instant magnitude comparison
+**Fixes:** (1) Start y-axis at zero or add break symbol + "Axis truncated" note. (2) Add Q3 baseline for context. (3) Annotate: "West region led Q4 with 23% increase."
 
-**3. Integrity (Score: 2/5 - NEEDS WORK)**
-- ❌ Y-axis starts at 80 instead of zero → exaggerates differences
-- ✓ Complete data (all regions included)
-- ❌ No historical context (is this good/bad compared to previous quarters?)
-
-**4. Aesthetics (Score: 4/5 - Good)**
-- ✓ Clean design, professional color palette
-- ✓ Appropriate whitespace
-- ⚠️ Minor: Could use brand colors
-
-**Average Score:** (4 + 5 + 2 + 4) / 4 = 3.75 (just above pass threshold)
-
-**Critical Issue:** Integrity score below 3 - UNACCEPTABLE
-
-**Fix Priority:**
-1. **CRITICAL:** Start y-axis at zero (integrity fix)
-   - Alternative if truncation necessary: Add break symbol and explicit note "Axis truncated to show detail"
-2. **HIGH:** Add baseline comparison (e.g., dotted line showing Q3 average) for context
-3. **MEDIUM:** Add annotation: "West region led Q4 with 23% increase over Q3"
-
-**Outcome After Fixes:**
-- Clarity: 5/5 (annotation added)
-- Efficiency: 5/5 (unchanged)
-- Integrity: 5/5 (axis fixed, context added)
-- Aesthetics: 4/5 (unchanged)
-- **New Average:** 4.75/5 - Excellent
+**After fixes:** Clarity 5/5, Efficiency 5/5, Integrity 5/5, Aesthetics 4/5 = **4.75/5 Excellent**
 
