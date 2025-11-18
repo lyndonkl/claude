@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 61 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 62 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **61 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **62 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -138,6 +138,8 @@ This repository contains **61 skills** designed to enhance Claude Code's capabil
 
 **information-architecture** - Organize, structure, and label content for digital products to maximize findability and usability. Conduct card sorting (open, closed, hybrid) with 15-30 users to understand mental models, create MECE taxonomies (mutually exclusive, collectively exhaustive), design faceted navigation for large content sets, and validate structure with tree testing (≥70% success rate, ≤1.5× directness). Optimize navigation depth (3-4 levels, 5-9 items per level), strengthen information scent (clear labels, trigger words, breadcrumbs), and provide multiple access paths (browse, search, filters, tags). Includes content audit templates, sitemap design, metadata schemas, and governance frameworks. Covers e-commerce, documentation, SaaS, and knowledge base IA patterns.
 
+**cognitive-design** - Apply cognitive psychology principles to design interfaces, visualizations, and content that align with how humans perceive, attend, remember, and process information. Ground decisions in perception research (preattentive processing, visual search patterns F/Z, attention spotlight), memory constraints (working memory 4±1 chunks, recognition over recall), Gestalt principles (proximity, similarity, continuity, closure, figure-ground), visual encoding hierarchy (Cleveland & McGill: position > length > angle > area), and mental models (Jakob's Law, affordances, natural mapping). Apply three systematic frameworks: Cognitive Design Pyramid (4-tier quality assessment: perceptual efficiency → cognitive coherence → emotional engagement → behavioral alignment), Design Feedback Loop (5-stage interaction cycle: perceive → interpret → decide → act → learn), and Three-Layer Visualization Model (data quality → visual encoding → cognitive interpretation). Use evaluation checklists across 8 dimensions (visibility, hierarchy, chunking, simplicity, memory support, feedback, consistency, scanning patterns) and 4-criteria visualization audit (clarity, efficiency, integrity, aesthetics with 1-5 scoring). Covers UX/product design (forms, navigation, dashboards, mobile interfaces with standard UI patterns), data visualization (chart selection matching task to perceptual encoding, color theory for categorical/quantitative/diverging data, dashboard design), educational design (chunking lessons, multimedia learning principles, progressive disclosure, scaffolding), storytelling/journalism (narrative arc, cognitive fluency, information scent), and avoiding cognitive fallacies (chartjunk, rainbow colormaps, pie charts for comparison, truncated axes, decoration over data). All resource files under 500 lines for focused reference. Use when designing user interfaces, creating data visualizations, developing educational content, evaluating existing designs for cognitive issues, explaining design rationale with research backing, or teaching design principles.
+
 ### 🔒 Security & Risk
 
 **security-threat-model** - Systematically identify security vulnerabilities, threats, and mitigations for systems handling sensitive data using STRIDE methodology (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege). Map system architecture with trust boundaries (User→App, App→DB, Internal→External, Public→Private), classify data by sensitivity and compliance requirements (PII/PHI/PCI, GDPR/HIPAA/PCI DSS/SOC 2), apply STRIDE to each boundary with likelihood×impact risk scoring (1-25 scale), and define defense-in-depth mitigations (preventive controls block attacks, detective controls identify attacks, corrective controls enable response/recovery). Covers web applications (SQLi, XSS, CSRF, IDOR), mobile apps (certificate pinning, reverse engineering, local data theft), cloud infrastructure (IAM misconfiguration, public S3, credential theft), APIs (BOLA, rate limiting, OAuth), IoT (firmware tampering, network segmentation), enterprise systems, and compliance-critical domains. Includes architecture diagramming, data classification tables, STRIDE analysis per boundary, attack trees for complex threats, DREAD scoring (Damage, Reproducibility, Exploitability, Affected Users, Discoverability), monitoring thresholds, incident response plans with RTO/RPO, risk prioritization matrix, and action items with owners/deadlines. Use for security reviews before launch, compliance audits (PCI, HIPAA, SOC 2), incident investigations, third-party integration assessments, or any system handling credentials, PII, PHI, or financial data.
@@ -214,7 +216,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 61 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 62 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
