@@ -1,12 +1,12 @@
 # Claude Code Skills Collection
 
-> **Claude Code Plugin Available** — Install all 62 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 63 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **62 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **63 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -196,6 +196,8 @@ This repository contains **62 skills** designed to enhance Claude Code's capabil
 
 **chef-assistant** - Expert culinary guide combining technique, food science, flavor architecture (salt/acid/fat/heat), cultural context, and plating. Covers recipe creation, troubleshooting, menu planning, and cooking methods across global cuisines.
 
+**d3-visualization** - Implement custom, interactive data visualizations using D3.js for bar/line/scatter charts, network diagrams, geographic maps, hierarchical layouts (treemap, force simulation), and data-driven animations. Covers selections, data joins, scales (12 types), shape generators, transitions, zoom/pan/drag/brush interactions, and step-by-step workflows for translating visualization designs into working D3 code.
+
 ### 🛠️ Skill Development & Meta-Tools
 
 **skill-creator** - Transform documents containing theoretical knowledge into actionable, reusable Claude Code skills using Mortimer Adler's analytical reading methodology. Apply 6-step progressive workflow with file-based context management to prevent overflow: (1) Inspectional Reading - systematic 10-30 minute skim, classify document type (methodology/framework/tool/theory), assess skill-worthiness using 5 criteria (teachability, generalizability, recurring problem, actionability, completeness) with 1-5 scoring (threshold ≥3.5), get user approval; (2) Structural Analysis - classify content (practical vs theoretical, sequential/categorical/structured/hybrid), state unity in one sentence, enumerate major parts with relationships, define problems solved, validate with user; (3) Component Extraction - choose reading strategy (section-based for <50 pages, windowing for >50 pages, targeted for hybrid), extract 5-15 key terms (vocabulary), 5-10 propositions (principles explaining why it works), arguments (logical sequences becoming workflow steps), and solutions (examples/templates), write section-by-section to workspace file to manage context, synthesize into final extraction; (4) Synthesis & Application - evaluate completeness and logic, identify practical application scenarios across domains, transform propositions into principles, arguments into workflow steps, theory into actionable procedures, define triggers (when/how to use), validate with user; (5) Skill Construction - determine complexity (simple/moderate/complex), plan resource file structure, create SKILL.md with YAML frontmatter (description focuses on WHEN not WHAT), table of contents, "Read This First" section, workflow with explicit "COPY THIS CHECKLIST" instruction, step definitions linking to resources, create resource files with WHY (brief theory for context activation) and WHAT (specific instructions with options/tradeoffs) subsections, create JSON evaluation rubric with 8 criteria (completeness, clarity, actionability, structure, triggers, resource quality, user collaboration, file size) scored 1-5 with threshold ≥3.5, verify all files <500 lines; (6) Validation & Refinement - score skill using rubric, present scores with rationale, identify areas <3 requiring revision, make refinements based on user decision, re-validate. File-based workflow prevents context overflow: each step writes output to `step-N-output.md` and updates `global-context.md`, next step reads both. User collaboration at decision points (proceed/modify after each major step, reading strategy choice, gap handling, workflow validation, structure approval). Components map to skill: Terms → Key Concepts/glossary in resources, Propositions → WHY sections explaining importance, Arguments → WHAT sections + workflow steps, Solutions → Examples/templates/case studies. Use when user has PDF/markdown/research paper/methodology guide containing theory and wants to convert into actionable skill, mentions "create skill from this document", "turn this into a skill", "extract skill from file", or when analyzing documents with frameworks/processes/systematic approaches for skill creation. Covers methodologies, theoretical frameworks, research papers, procedural guides, and systematic approaches requiring transformation from knowledge into executable workflows.
@@ -365,4 +367,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 61 production-ready skills | Active development | Last updated: 2025-11-16
+**Status**: 63 production-ready skills | Active development | Last updated: 2025-11-19

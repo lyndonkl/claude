@@ -1,0 +1,87 @@
+{
+  "skill_name": "d3-visualization",
+  "version": "1.0",
+  "threshold": 3.5,
+  "criteria": [
+    {
+      "name": "Completeness",
+      "weight": 1.5,
+      "description": "Covers full D3 workflow from setup to advanced layouts",
+      "levels": {
+        "5": "Complete coverage: selections, data joins, scales, shapes, layouts, transitions, interactions with examples",
+        "3": "Core concepts covered but missing advanced topics (force layouts, geographic maps) or practical examples",
+        "1": "Incomplete: missing critical concepts like scales or data joins"
+      }
+    },
+    {
+      "name": "Clarity",
+      "weight": 1.4,
+      "description": "Explanations are clear with WHY sections and code examples",
+      "levels": {
+        "5": "Every concept has WHY explanation, clear examples, and common pitfalls documented",
+        "3": "Most concepts explained but some lack context or examples",
+        "1": "Unclear explanations, missing examples, jargon without definitions"
+      }
+    },
+    {
+      "name": "Actionability",
+      "weight": 1.5,
+      "description": "Provides copy-paste templates and step-by-step workflows",
+      "levels": {
+        "5": "Complete code templates for all common charts, step-by-step workflows with checklists",
+        "3": "Some templates and workflows but incomplete or missing key patterns",
+        "1": "Theoretical only, no actionable code or workflows"
+      }
+    },
+    {
+      "name": "Structure",
+      "weight": 1.3,
+      "description": "Organized with clear navigation and progressive learning path",
+      "levels": {
+        "5": "Interactive hub, clear workflows, logical resource organization, all content linked",
+        "3": "Organized but navigation unclear or some content orphaned",
+        "1": "Disorganized, hard to navigate, no clear entry points"
+      }
+    },
+    {
+      "name": "Triggers",
+      "weight": 1.4,
+      "description": "YAML description clearly defines WHEN to use skill",
+      "levels": {
+        "5": "Trigger-focused description with specific use cases, anti-triggers documented",
+        "3": "Some triggers mentioned but vague or missing anti-triggers",
+        "1": "Generic description, unclear when to use"
+      }
+    },
+    {
+      "name": "Resource Quality",
+      "weight": 1.3,
+      "description": "Resources are self-contained, under 500 lines, with WHY/WHAT structure",
+      "levels": {
+        "5": "All resources <500 lines, WHY sections present, no orphaned content",
+        "3": "Some resources over limit or missing WHY sections",
+        "1": "Resources over 500 lines, missing structure"
+      }
+    },
+    {
+      "name": "User Collaboration",
+      "weight": 1.2,
+      "description": "Skill creation involved user at decision points",
+      "levels": {
+        "5": "User approved at each major step, validated structure and scope",
+        "3": "Some user input but limited collaboration",
+        "1": "No user collaboration"
+      }
+    },
+    {
+      "name": "File Size",
+      "weight": 1.4,
+      "description": "All files under size limits",
+      "levels": {
+        "5": "SKILL.md <500 lines, all resources <500 lines",
+        "3": "Some files over limits",
+        "1": "Multiple files significantly over limits"
+      }
+    }
+  ]
+}
