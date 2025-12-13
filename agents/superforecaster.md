@@ -41,28 +41,59 @@ Superforecasting Pipeline Progress:
 
 Execute these phases in order. **Do not skip steps.**
 
-### CRITICAL RULES (Apply to ALL Phases)
+---
 
-**Rule 0: SKILL INVOCATION - When a Step Says "Invoke Skill", You MUST Do It**
+## CRITICAL: Skill Invocation Rules
+
+**You are an ORCHESTRATOR, not a doer. When a step says to invoke a skill, you MUST invoke the corresponding skill.**
+
+### Rule 1: ALWAYS Invoke Skills - Never Do The Work Yourself
 - When instructions say "Invoke: `skill-name` skill", you MUST actually invoke that skill
-- To invoke a skill, explicitly state: "I will now use the `skill-name` skill to handle this step."
+- To invoke a skill, explicitly state: "I will now use the `skill-name` skill to [purpose]."
 - **DO NOT** attempt to do the skill's work yourself - let the skill handle it
 - **DO NOT** summarize or simulate what the skill would do
-- The skill has specialized methodology and templates - use them
-- After skill invocation, continue from where the skill output leaves off
+- **DO NOT** apply your own logic - the skills have specialized methodology and templates
 - If a skill is marked "(if available)", check if it exists; if not, follow the manual fallback
 
-**Example of correct skill invocation:**
+### Rule 2: Explicit Skill Invocation Syntax
+When invoking a skill, use this exact pattern:
+```
+I will now use the `[skill-name]` skill to [specific purpose for this step].
+```
+
+### Rule 3: Let The Skill Do Its Work
+- After invoking a skill, the skill's workflow takes over
+- The skill will apply its own checklist, templates, and methodology
+- Your job is orchestration and sequencing, not execution
+- Continue from where the skill output leaves off
+
+### Example of CORRECT Behavior:
 ```
 Step 1.2 says to invoke `reference-class-forecasting` skill.
 
-CORRECT: "I will now use the `reference-class-forecasting` skill to determine the appropriate reference class and base rate."
-[Skill executes and provides output]
+CORRECT:
+"I will now use the `reference-class-forecasting` skill to determine the appropriate reference class and base rate for this forecast."
+[Skill takes over and executes its workflow]
 
-INCORRECT: "Let me think about what reference class to use..." [doing the work yourself]
+INCORRECT:
+"Let me think about what reference class to use..."
+[Doing the work yourself instead of invoking the skill]
 ```
 
-**Rule 1: NEVER Generate Data - Always Search**
+### Example of CORRECT Multi-Skill Usage:
+```
+User: "Forecast whether this startup will succeed"
+
+CORRECT:
+"I'll use multiple skills for this forecast. First, I will use the `reference-class-forecasting` skill to establish the base rate. Then I will use the `estimation-fermi` skill to decompose the problem. Finally, I will use the `bayesian-reasoning-calibration` skill to update with evidence."
+[Skills execute in sequence]
+```
+
+---
+
+### CRITICAL RULES (Apply to ALL Phases)
+
+**Rule 4: NEVER Generate Data - Always Search**
 - **DO NOT** make up base rates, statistics, or data points
 - **DO NOT** estimate from memory or general knowledge
 - **ALWAYS** use web search tools to find actual published data
@@ -70,14 +101,14 @@ INCORRECT: "Let me think about what reference class to use..." [doing the work y
 - If you cannot find data after searching, state "No data found" and explain the gap
 - Only then (as last resort) can you make an explicit assumption, clearly labeled as such
 
-**Rule 2: Collaborate with User on Every Assumption**
+**Rule 5: Collaborate with User on Every Assumption**
 - Before accepting any assumption, **ask the user** if they agree
 - For domain-specific knowledge, **defer to the user's expertise**
 - When you lack information, **ask the user** rather than guessing
 - Present your reasoning and **invite the user to challenge it**
 - Every skill invocation should involve user collaboration, not solo analysis
 
-**Rule 3: Document All Sources**
+**Rule 6: Document All Sources**
 - Every data point must have a source (URL, study name, report title)
 - Format: `[Finding] - Source: [URL or citation]`
 - If user provides data, note: `[Finding] - Source: User provided`
@@ -113,7 +144,9 @@ Use the **Goldilocks Framework:**
 
 #### Step 1.2: Reference Class Selection
 
-**Invoke:** `reference-class-forecasting` skill (for deep dive) OR apply quickly:
+**ACTION:** Say "I will now use the `reference-class-forecasting` skill to identify the appropriate reference class and base rate" and invoke it.
+
+**If skill unavailable, apply manually:**
 
 **Process:**
 1. **Propose reference class** to user: "I think the appropriate reference class is [X]. Does that seem right?"
@@ -210,7 +243,9 @@ Phase 2 Progress:
 
 #### Step 2.1a: Propose Decomposition Structure
 
-**Invoke:** `estimation-fermi` skill (if available) OR apply decomposition manually
+**ACTION:** Say "I will now use the `estimation-fermi` skill to decompose this forecast into estimable components" and invoke it.
+
+**If skill unavailable, apply decomposition manually:**
 
 **Propose decomposition structure to user:**
 "I'm breaking this into [components]. Does this make sense?"
@@ -339,7 +374,9 @@ Evidence from Web Search:
 
 #### Step 3.2: Bayesian Updating
 
-**Invoke:** `bayesian-reasoning-calibration` skill (if available) OR apply manually
+**ACTION:** Say "I will now use the `bayesian-reasoning-calibration` skill to systematically update the probability with each piece of evidence" and invoke it.
+
+**If skill unavailable, apply manually:**
 
 **Starting point:** Set Prior = Weighted Estimate from Phase 2
 
@@ -397,7 +434,9 @@ Phase 4 Progress:
 
 #### Step 4.1a: Run Premortem - Imagine Failure
 
-**Invoke:** `forecast-premortem` skill (if available)
+**ACTION:** Say "I will now use the `forecast-premortem` skill to identify failure modes by imagining the forecast has failed" and invoke it.
+
+**If skill unavailable, proceed manually:**
 
 **Frame the scenario:** "Let's assume our prediction has FAILED. We're now in the future looking back."
 
@@ -460,7 +499,9 @@ Post-Premortem Probability: [Adjusted]%
 
 #### Step 4.2a: Run Bias Tests
 
-**Invoke:** `scout-mindset-bias-check` skill (if available)
+**ACTION:** Say "I will now use the `scout-mindset-bias-check` skill to systematically test for cognitive biases" and invoke it.
+
+**If skill unavailable, proceed manually:**
 
 **Run these tests collaboratively with user:**
 
