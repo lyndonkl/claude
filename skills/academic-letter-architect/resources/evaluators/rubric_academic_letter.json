@@ -1,0 +1,80 @@
+{
+  "name": "Academic Letter Architect Rubric",
+  "description": "Evaluation criteria for recommendation letter quality",
+  "criteria": [
+    {
+      "name": "Evidence-Based Advocacy",
+      "description": "Quality of specific examples supporting claims about candidate",
+      "weight": 1.2,
+      "scores": {
+        "1": "No specific evidence; only generic adjectives",
+        "2": "Limited evidence; mostly vague descriptions",
+        "3": "Some specific examples but incomplete coverage",
+        "4": "Good evidence with specific achievements and outcomes",
+        "5": "Excellent evidence; concrete examples, quantified achievements, clear impact"
+      }
+    },
+    {
+      "name": "Comparative Statements",
+      "description": "Quality of comparisons providing context for candidate's abilities",
+      "weight": 1.0,
+      "scores": {
+        "1": "No comparative context; reader cannot calibrate claims",
+        "2": "Weak comparisons ('above average', 'one of our better')",
+        "3": "Some comparison but not specific or impactful",
+        "4": "Good comparisons with specific reference class and ranking",
+        "5": "Excellent comparisons; specific percentile/ranking with meaningful context"
+      }
+    },
+    {
+      "name": "Letter Structure",
+      "description": "Adherence to effective letter organization",
+      "weight": 1.0,
+      "scores": {
+        "1": "No clear structure; disorganized content",
+        "2": "Weak structure; missing opening context or closing endorsement",
+        "3": "Adequate structure with all sections present",
+        "4": "Good structure with clear opening, evidence body, strong closing",
+        "5": "Excellent structure; compelling opening, well-organized evidence, powerful closing"
+      }
+    },
+    {
+      "name": "Tone Calibration",
+      "description": "Appropriateness of enthusiasm level and language",
+      "weight": 1.0,
+      "scores": {
+        "1": "Tone undermines candidate (lukewarm language, damning with faint praise)",
+        "2": "Inconsistent tone; enthusiasm unclear",
+        "3": "Adequate tone but not compelling",
+        "4": "Good enthusiastic tone appropriate for US academic context",
+        "5": "Excellent calibrated enthusiasm; genuine, warm, appropriately superlative"
+      }
+    },
+    {
+      "name": "Audience and Context Match",
+      "description": "How well content is tailored to opportunity",
+      "weight": 0.8,
+      "scores": {
+        "1": "Generic letter not tailored to opportunity",
+        "2": "Minimal customization to position/opportunity",
+        "3": "Some tailoring but misses key opportunity requirements",
+        "4": "Good customization addressing position-specific criteria",
+        "5": "Excellent tailoring; content directly addresses opportunity requirements"
+      }
+    },
+    {
+      "name": "Credibility Establishment",
+      "description": "How well writer establishes their authority to recommend",
+      "weight": 0.8,
+      "scores": {
+        "1": "No context about writer's relationship or qualifications",
+        "2": "Vague relationship description; unclear basis for assessment",
+        "3": "Adequate relationship context but could be stronger",
+        "4": "Clear relationship, duration, and capacity for observation",
+        "5": "Compelling credibility; clear authority, deep knowledge of candidate"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for letter to be considered complete. Scores below 3 in 'Evidence-Based Advocacy' or 'Tone Calibration' require revision."
+}

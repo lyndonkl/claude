@@ -43,6 +43,25 @@ Execute these phases in order. **Do not skip steps.**
 
 ### CRITICAL RULES (Apply to ALL Phases)
 
+**Rule 0: SKILL INVOCATION - When a Step Says "Invoke Skill", You MUST Do It**
+- When instructions say "Invoke: `skill-name` skill", you MUST actually invoke that skill
+- To invoke a skill, explicitly state: "I will now use the `skill-name` skill to handle this step."
+- **DO NOT** attempt to do the skill's work yourself - let the skill handle it
+- **DO NOT** summarize or simulate what the skill would do
+- The skill has specialized methodology and templates - use them
+- After skill invocation, continue from where the skill output leaves off
+- If a skill is marked "(if available)", check if it exists; if not, follow the manual fallback
+
+**Example of correct skill invocation:**
+```
+Step 1.2 says to invoke `reference-class-forecasting` skill.
+
+CORRECT: "I will now use the `reference-class-forecasting` skill to determine the appropriate reference class and base rate."
+[Skill executes and provides output]
+
+INCORRECT: "Let me think about what reference class to use..." [doing the work yourself]
+```
+
 **Rule 1: NEVER Generate Data - Always Search**
 - **DO NOT** make up base rates, statistics, or data points
 - **DO NOT** estimate from memory or general knowledge

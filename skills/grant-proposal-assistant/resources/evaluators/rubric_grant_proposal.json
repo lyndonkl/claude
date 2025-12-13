@@ -1,0 +1,80 @@
+{
+  "name": "Grant Proposal Assistant Rubric",
+  "description": "Evaluation criteria for grant proposal review and development quality",
+  "criteria": [
+    {
+      "name": "Hypothesis Clarity",
+      "description": "Quality of central hypothesis identification and evaluation",
+      "weight": 1.2,
+      "scores": {
+        "1": "Fails to identify or evaluate hypothesis; no guidance provided",
+        "2": "Identifies hypothesis but no evaluation of testability or specificity",
+        "3": "Evaluates hypothesis adequately; some improvement suggestions",
+        "4": "Clear evaluation with specific suggestions for strengthening hypothesis",
+        "5": "Comprehensive hypothesis analysis; ensures testable, specific, falsifiable statement"
+      }
+    },
+    {
+      "name": "Significance and Gap Assessment",
+      "description": "Quality of significance section review and gap identification",
+      "weight": 1.0,
+      "scores": {
+        "1": "No assessment of significance or knowledge gap",
+        "2": "Superficial gap review; misses major significance issues",
+        "3": "Adequate review; identifies gap but limited improvement guidance",
+        "4": "Good gap analysis with clear suggestions for strengthening significance",
+        "5": "Excellent significance review; ensures compelling gap and impact statements"
+      }
+    },
+    {
+      "name": "Innovation Evaluation",
+      "description": "Quality of innovation assessment and specificity",
+      "weight": 1.0,
+      "scores": {
+        "1": "No innovation evaluation provided",
+        "2": "Superficial innovation review; accepts vague claims",
+        "3": "Adequate review; identifies generic innovation claims",
+        "4": "Good review with specific suggestions for concrete innovation claims",
+        "5": "Excellent review; ensures specific, defensible innovation with types identified"
+      }
+    },
+    {
+      "name": "Approach/Methods Review",
+      "description": "Quality of experimental approach evaluation",
+      "weight": 1.2,
+      "scores": {
+        "1": "No approach evaluation; methods not assessed",
+        "2": "Superficial methods review; misses major design issues",
+        "3": "Adequate review; identifies some approach weaknesses",
+        "4": "Good review of approach with attention to controls, statistics, pitfalls",
+        "5": "Comprehensive approach review; ensures feasibility, rigor, alternatives"
+      }
+    },
+    {
+      "name": "Specific Aims Structure",
+      "description": "Quality of specific aims page evaluation and guidance",
+      "weight": 1.0,
+      "scores": {
+        "1": "No specific aims review provided",
+        "2": "Superficial aims review; structure issues unaddressed",
+        "3": "Adequate review; identifies main aims structure issues",
+        "4": "Good review ensuring aims are testable and independent",
+        "5": "Excellent aims review; complete structure optimization with specific guidance"
+      }
+    },
+    {
+      "name": "Reviewer Perspective",
+      "description": "Application of reviewer mindset and critique anticipation",
+      "weight": 1.0,
+      "scores": {
+        "1": "No reviewer perspective applied; obvious critique points missed",
+        "2": "Minimal reviewer thinking; misses major potential criticisms",
+        "3": "Some reviewer perspective; anticipates some likely critiques",
+        "4": "Good reviewer simulation; identifies most likely concerns",
+        "5": "Excellent reviewer perspective; anticipates and addresses all likely criticisms"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for review to be considered complete. Scores below 3 in 'Hypothesis Clarity' or 'Approach Review' require revision."
+}

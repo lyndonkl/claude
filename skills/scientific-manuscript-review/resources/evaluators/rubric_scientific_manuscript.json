@@ -1,0 +1,80 @@
+{
+  "name": "Scientific Manuscript Review Rubric",
+  "description": "Evaluation criteria for manuscript review quality",
+  "criteria": [
+    {
+      "name": "Structure and Organization",
+      "description": "How well the review addresses manuscript structure and logical flow",
+      "weight": 1.0,
+      "scores": {
+        "1": "No structural analysis; fails to identify organizational issues",
+        "2": "Superficial structural review; misses major organizational problems",
+        "3": "Adequate structural review; identifies main issues but lacks depth",
+        "4": "Thorough structural review; identifies most issues with clear suggestions",
+        "5": "Comprehensive structural analysis; identifies all issues with specific, actionable fixes"
+      }
+    },
+    {
+      "name": "Scientific Rigor Assessment",
+      "description": "Quality of evaluation of claims, evidence, and scientific logic",
+      "weight": 1.2,
+      "scores": {
+        "1": "No assessment of scientific claims or evidence alignment",
+        "2": "Superficial claims review; misses major overclaiming or logic gaps",
+        "3": "Adequate assessment; identifies some claims-evidence issues",
+        "4": "Good assessment; identifies most claims issues with clear rationale",
+        "5": "Excellent rigorous assessment; all claims audited with evidence mapping"
+      }
+    },
+    {
+      "name": "Language and Clarity Improvements",
+      "description": "Quality of language editing and clarity enhancements",
+      "weight": 1.0,
+      "scores": {
+        "1": "No language improvements offered; errors remain",
+        "2": "Minimal editing; misses significant clarity issues",
+        "3": "Adequate editing; addresses obvious language problems",
+        "4": "Good editing; improves clarity substantially with appropriate style",
+        "5": "Excellent editing; polished, clear prose while preserving author voice"
+      }
+    },
+    {
+      "name": "Section-Specific Guidance",
+      "description": "Quality of advice for Introduction, Results, Discussion sections",
+      "weight": 1.0,
+      "scores": {
+        "1": "No section-specific guidance provided",
+        "2": "Generic advice not tailored to manuscript sections",
+        "3": "Some section-specific guidance but inconsistent across sections",
+        "4": "Good guidance for most sections with specific improvements",
+        "5": "Comprehensive guidance for all sections following best practices"
+      }
+    },
+    {
+      "name": "Actionability of Feedback",
+      "description": "How specific and implementable the suggestions are",
+      "weight": 1.0,
+      "scores": {
+        "1": "Vague feedback; author cannot act on it",
+        "2": "Mostly generic feedback; limited actionability",
+        "3": "Mix of specific and vague feedback",
+        "4": "Mostly specific and actionable feedback with clear next steps",
+        "5": "All feedback specific, actionable, with examples or rewrites provided"
+      }
+    },
+    {
+      "name": "Preservation of Author Voice",
+      "description": "Whether editing preserves original intent and style",
+      "weight": 0.8,
+      "scores": {
+        "1": "Complete rewrite that changes meaning or invents content",
+        "2": "Significant changes to author's meaning or style",
+        "3": "Some changes that alter intended meaning",
+        "4": "Most changes preserve author voice; minor style shifts only",
+        "5": "All changes preserve author voice and intent; improvements without overwriting"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for review to be considered complete. Scores below 3 in 'Scientific Rigor Assessment' or 'Actionability' require revision."
+}

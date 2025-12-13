@@ -1,0 +1,80 @@
+{
+  "name": "Scientific Clarity Checker Rubric",
+  "description": "Evaluation criteria for scientific clarity review quality",
+  "criteria": [
+    {
+      "name": "Claims Identification",
+      "description": "Completeness of claim extraction from document",
+      "weight": 1.0,
+      "scores": {
+        "1": "No claims identified; analysis not performed",
+        "2": "Few claims identified; misses major assertions",
+        "3": "Most major claims identified; some missed",
+        "4": "All major claims identified with clear categorization",
+        "5": "Comprehensive claim extraction including implicit claims"
+      }
+    },
+    {
+      "name": "Claims-Evidence Audit",
+      "description": "Quality of evidence evaluation for each claim",
+      "weight": 1.2,
+      "scores": {
+        "1": "No evidence audit performed",
+        "2": "Superficial audit; doesn't assess evidence quality",
+        "3": "Adequate audit; identifies some unsupported claims",
+        "4": "Good audit with evidence mapping for most claims",
+        "5": "Comprehensive audit; all claims mapped to evidence with quality rating"
+      }
+    },
+    {
+      "name": "Logic Flow Analysis",
+      "description": "Quality of argument structure evaluation",
+      "weight": 1.0,
+      "scores": {
+        "1": "No logic analysis performed",
+        "2": "Superficial; doesn't identify logical gaps or leaps",
+        "3": "Identifies some logic issues but misses others",
+        "4": "Good logic analysis; identifies gaps, leaps, and assumptions",
+        "5": "Comprehensive logic mapping with clear issue identification"
+      }
+    },
+    {
+      "name": "Quantitative Precision Assessment",
+      "description": "Quality of evaluation of quantitative vs. vague language",
+      "weight": 1.0,
+      "scores": {
+        "1": "No precision assessment; vague language unaddressed",
+        "2": "Notes some vague language but inconsistent",
+        "3": "Adequate assessment; flags major precision issues",
+        "4": "Good assessment with specific replacement suggestions",
+        "5": "Comprehensive precision audit with all vague terms flagged and fixes provided"
+      }
+    },
+    {
+      "name": "Hedging Calibration Review",
+      "description": "Quality of hedge-evidence alignment evaluation",
+      "weight": 1.0,
+      "scores": {
+        "1": "No hedging review performed",
+        "2": "Superficial; doesn't identify miscalibration",
+        "3": "Identifies some overclaiming but misses underclaiming",
+        "4": "Good hedging review; flags most miscalibrations",
+        "5": "Comprehensive hedging audit; all claims checked against evidence strength"
+      }
+    },
+    {
+      "name": "Actionable Recommendations",
+      "description": "Quality and specificity of improvement suggestions",
+      "weight": 1.0,
+      "scores": {
+        "1": "No recommendations provided",
+        "2": "Vague recommendations ('improve clarity')",
+        "3": "Some specific recommendations but incomplete",
+        "4": "Good specific recommendations for most issues",
+        "5": "Comprehensive actionable recommendations with example rewrites"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for clarity review to be considered complete. Scores below 3 in 'Claims-Evidence Audit' require revision."
+}
