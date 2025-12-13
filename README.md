@@ -3,13 +3,13 @@
 [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
 
-> **Claude Code Plugin Available** — Install all 63 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 69 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **63 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **69 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -29,6 +29,7 @@ This repository contains **63 skills** designed to enhance Claude Code's capabil
   - [🏗️ Architecture & Design](#️-architecture--design)
   - [🔒 Security & Risk](#-security--risk)
   - [📝 Communication & Documentation](#-communication--documentation)
+  - [🔬 Scientific Writing](#-scientific-writing)
   - [🎯 Estimation & Forecasting](#-estimation--forecasting)
   - [💼 Business & Product Management](#-business--product-management)
   - [⏱️ Productivity & Learning](#️-productivity--learning)
@@ -156,6 +157,20 @@ This repository contains **63 skills** designed to enhance Claude Code's capabil
 **writer** - Transform writing into precise, compelling prose using structured revision (Zinsser, King, Pinker), structural architecture (McPhee), and stickiness techniques (SUCCESs framework).
 
 **one-pager-prd** - Create concise product specifications (1-2 pages) for stakeholder alignment covering problem statement (user pain with quantified impact), solution overview (high-level approach without over-specifying), user personas and use cases, SMART metrics (baselines + targets, leading/lagging indicators), scope boundaries (MVP vs future, in/out explicit), constraints and assumptions, and open questions. Apply problem framing techniques: Jobs-to-be-Done ("When I [situation], I want to [motivation], so I can [outcome]"), 5 Whys root cause analysis, problem statement formula with evidence (interviews, analytics, support tickets). Use metric trees to decompose North Star into actionable sub-metrics. Apply scope prioritization: MoSCoW (Must/Should/Could/Won't), RICE scoring (Reach × Impact × Confidence / Effort), Kano model (basic/performance/delight needs), value-effort matrix. Write for clarity using pyramid principle (lead with conclusion), active voice, concrete language, abundant examples, scannable formatting (bullets, headers, tables). Manage stakeholders by tailoring content (engineering: constraints/dependencies, design: flows/personas, business: impact/ROI, legal: compliance). Apply user story mapping to visualize journey and slice features vertically. Includes one-pager template (1 page, bullets, quick approval) and full PRD template (1-2 pages, detailed requirements, execution guide). Covers feature proposals, new products, technical initiatives, platform projects, internal tools, strategic initiatives. For B2B (emphasize ROI, security, integrations), B2C (emphasize delight, viral potential), enterprise (emphasize compliance, customization).
+
+### 🔬 Scientific Writing
+
+**scientific-manuscript-review** - Review and edit research manuscripts using IMRaD structure (Introduction, Methods, Results, Discussion). Provides section-specific guidance for abstracts, introductions (knowledge gap → research question → hypothesis), methods (reproducibility checklist), results (figure/table integration, statistical reporting), and discussion (interpretation, limitations, future directions). Includes clarity checking for scientific claims, evidence-claim alignment, and appropriate hedging.
+
+**grant-proposal-assistant** - Assist with NIH/NSF grant proposals using established frameworks. Covers Specific Aims page structure (one-page with hook, gap, solution, aims), Research Strategy sections (Significance, Innovation, Approach), and reviewer perspective analysis. Includes templates for R01, R21, R03, and K-series applications with compliance checklists and common pitfall avoidance.
+
+**academic-letter-architect** - Craft compelling academic letters including recommendations, nominations, and references. Provides framework for context gathering (relationship, duration, context), evidence collection (specific achievements with quantification), comparative statements (percentile rankings, peer comparisons), and tone calibration by letter type and career stage.
+
+**scientific-email-polishing** - Polish professional scientific correspondence including cover letters to editors, responses to reviewers, collaboration requests, and conference communications. Covers subject line optimization, tone calibration (formal to collegial), clear ask formulation, and response-to-reviewers strategy (acknowledge, address, explain pattern).
+
+**scientific-clarity-checker** - Cross-cutting scientific logic review for any document type. Audits claims against evidence, checks hedging appropriateness (matches evidence strength), validates terminology consistency, maps argument logic flow, and identifies gaps in mechanistic explanations. Applies to manuscripts, grants, or any scientific writing.
+
+**career-document-architect** - Develop academic career documents including research statements, teaching statements/philosophy, diversity statements, CVs, and biosketches. Covers narrative development (vision + track record), audience analysis (search committee priorities), institutional fit demonstration, and format-specific templates (NIH biosketch, academic CV, faculty application statements).
 
 ### 🎯 Estimation & Forecasting
 
@@ -297,10 +312,11 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 35 skills
+**Production Ready**: 41 skills
 - ✓ 33 refined skills from standard collection
 - ✓ 1 original skill (writer)
 - ✓ 1 custom skill (chef-assistant)
+- ✓ 6 scientific writing skills (manuscript review, grants, letters, emails, clarity, career docs)
 
 **In Development**: 23 skills remaining from standard collection
 
@@ -370,4 +386,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 63 production-ready skills | Active development | Last updated: 2025-11-19
+**Status**: 69 production-ready skills | Active development | Last updated: 2025-12-13
