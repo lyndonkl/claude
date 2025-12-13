@@ -1,0 +1,80 @@
+{
+  "name": "Scientific Email Polishing Rubric",
+  "description": "Evaluation criteria for professional scientific email quality",
+  "criteria": [
+    {
+      "name": "Purpose Clarity",
+      "description": "How clear and identifiable the email's purpose is",
+      "weight": 1.2,
+      "scores": {
+        "1": "No clear purpose; reader confused about what's being asked",
+        "2": "Purpose unclear; buried or implied rather than stated",
+        "3": "Purpose present but could be clearer or more prominent",
+        "4": "Clear purpose stated early; reader knows what email is about",
+        "5": "Crystal clear purpose in first paragraph; impossible to miss"
+      }
+    },
+    {
+      "name": "Explicit Ask/Action",
+      "description": "Quality of the request or desired action",
+      "weight": 1.2,
+      "scores": {
+        "1": "No clear ask; recipient doesn't know what to do",
+        "2": "Vague ask ('let me know'); unclear what's needed",
+        "3": "Ask present but timeline or specifics unclear",
+        "4": "Clear ask with timeline; recipient knows what's needed and when",
+        "5": "Specific, actionable ask with timeline; easy to respond/act"
+      }
+    },
+    {
+      "name": "Tone Appropriateness",
+      "description": "Match between tone and relationship/context",
+      "weight": 1.0,
+      "scores": {
+        "1": "Inappropriate tone (too casual for formal, too stiff for close)",
+        "2": "Tone somewhat off for the relationship or situation",
+        "3": "Acceptable tone but not optimized for context",
+        "4": "Good tone matching relationship and situation",
+        "5": "Perfectly calibrated tone; professional, warm, appropriate"
+      }
+    },
+    {
+      "name": "Context and Structure",
+      "description": "Quality of context-setting and email organization",
+      "weight": 1.0,
+      "scores": {
+        "1": "No context; assumes recipient remembers everything",
+        "2": "Insufficient context; recipient may be confused",
+        "3": "Adequate context but structure could be cleaner",
+        "4": "Good context in opening; well-organized paragraphs",
+        "5": "Excellent context and structure; scannable, logical flow"
+      }
+    },
+    {
+      "name": "Subject Line Quality",
+      "description": "How well subject line previews content",
+      "weight": 0.8,
+      "scores": {
+        "1": "Generic or missing subject line ('Hi', 'Question')",
+        "2": "Vague subject line that doesn't preview content",
+        "3": "Adequate subject line but could be more specific",
+        "4": "Good subject line that clearly indicates purpose",
+        "5": "Excellent subject line; specific, searchable, action-indicating"
+      }
+    },
+    {
+      "name": "Concision",
+      "description": "Appropriate length without unnecessary content",
+      "weight": 0.8,
+      "scores": {
+        "1": "Much too long; walls of text; excessive detail",
+        "2": "Too long; could be significantly shortened",
+        "3": "Acceptable length but some unnecessary content",
+        "4": "Good length; focused content without padding",
+        "5": "Optimal length; every sentence serves a purpose"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for email to be considered polished. Scores below 3 in 'Purpose Clarity' or 'Explicit Ask' require revision."
+}

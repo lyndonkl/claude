@@ -1,0 +1,80 @@
+{
+  "name": "Career Document Architect Rubric",
+  "description": "Evaluation criteria for career document quality (statements, CV, biosketch)",
+  "criteria": [
+    {
+      "name": "Narrative Coherence",
+      "description": "Quality of through-line connecting all elements",
+      "weight": 1.2,
+      "scores": {
+        "1": "No coherent narrative; disjointed content",
+        "2": "Weak narrative; connections between sections unclear",
+        "3": "Adequate narrative but through-line could be stronger",
+        "4": "Good narrative; clear theme connecting past to future",
+        "5": "Excellent coherent narrative; compelling story arc throughout"
+      }
+    },
+    {
+      "name": "Evidence-Based Claims",
+      "description": "Quality of support for assertions about accomplishments",
+      "weight": 1.0,
+      "scores": {
+        "1": "Vague claims without evidence ('I am passionate about')",
+        "2": "Limited evidence; mostly generic descriptions",
+        "3": "Some evidence but not consistently quantified",
+        "4": "Good evidence with specific achievements and outcomes",
+        "5": "Excellent evidence; all claims supported with quantified specifics"
+      }
+    },
+    {
+      "name": "Vision and Future Orientation",
+      "description": "Quality of forward-looking content and research/career vision",
+      "weight": 1.2,
+      "scores": {
+        "1": "No future vision; only past accomplishments",
+        "2": "Vague future plans; lacks specificity",
+        "3": "Some future direction but not compelling",
+        "4": "Good vision with specific future plans",
+        "5": "Compelling vision; clear trajectory with fundable/achievable goals"
+      }
+    },
+    {
+      "name": "Audience and Fit",
+      "description": "Tailoring to audience and institutional context",
+      "weight": 1.0,
+      "scores": {
+        "1": "Generic document not tailored to opportunity",
+        "2": "Minimal customization; mostly boilerplate",
+        "3": "Some tailoring but fit could be stronger",
+        "4": "Good customization addressing institution/opportunity",
+        "5": "Excellent tailoring; content directly addresses audience priorities"
+      }
+    },
+    {
+      "name": "Structure and Format",
+      "description": "Adherence to expected structure and formatting",
+      "weight": 0.8,
+      "scores": {
+        "1": "Wrong format; missing required elements",
+        "2": "Significant structural issues; hard to navigate",
+        "3": "Adequate structure but not optimal",
+        "4": "Good structure following conventions",
+        "5": "Excellent structure; easy to scan, professional appearance"
+      }
+    },
+    {
+      "name": "Impact and Significance",
+      "description": "Quality of impact statements and significance framing",
+      "weight": 1.0,
+      "scores": {
+        "1": "No impact statements; just lists of activities",
+        "2": "Weak impact framing; significance unclear",
+        "3": "Some impact statements but inconsistent",
+        "4": "Good impact framing; clear significance for most items",
+        "5": "Excellent impact statements; clear 'so what' for all content"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be ≥ 3.5 for document to be considered complete. Scores below 3 in 'Narrative Coherence' or 'Vision' require revision."
+}
