@@ -1,0 +1,62 @@
+{
+  "name": "Model Equivariance Audit Quality Rubric",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Test Thoroughness",
+      "weight": 0.25,
+      "levels": {
+        "1": "Only end-to-end test, single input",
+        "2": "Multiple inputs, single transform type",
+        "3": "Multiple inputs and transforms",
+        "4": "Comprehensive with layer-wise analysis",
+        "5": "Full audit including gradients"
+      }
+    },
+    {
+      "name": "Error Analysis",
+      "weight": 0.25,
+      "levels": {
+        "1": "No error quantification",
+        "2": "Single error metric",
+        "3": "Mean and max errors",
+        "4": "Full statistics with relative errors",
+        "5": "Statistical significance analysis"
+      }
+    },
+    {
+      "name": "Issue Diagnosis",
+      "weight": 0.25,
+      "levels": {
+        "1": "Failures not diagnosed",
+        "2": "Generic diagnosis",
+        "3": "Specific layer/component identified",
+        "4": "Root cause analysis",
+        "5": "Complete diagnosis with fix"
+      }
+    },
+    {
+      "name": "Recommendations",
+      "weight": 0.15,
+      "levels": {
+        "1": "No recommendations",
+        "2": "Generic recommendations",
+        "3": "Specific, actionable fixes",
+        "4": "Prioritized fix list",
+        "5": "Fixes with verification plan"
+      }
+    },
+    {
+      "name": "Documentation",
+      "weight": 0.1,
+      "levels": {
+        "1": "No report",
+        "2": "Incomplete report",
+        "3": "Standard report format",
+        "4": "Complete with reproducibility",
+        "5": "Complete with code and artifacts"
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0
+}

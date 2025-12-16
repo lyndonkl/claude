@@ -1,0 +1,62 @@
+{
+  "name": "Equivariant Architecture Quality Rubric",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Group-Architecture Match",
+      "weight": 0.3,
+      "levels": {
+        "1": "Architecture doesn't support the group",
+        "2": "Architecture partially supports group",
+        "3": "Architecture correctly supports group",
+        "4": "Optimal architecture for the group",
+        "5": "Best-in-class architecture with justification"
+      }
+    },
+    {
+      "name": "Layer Design",
+      "weight": 0.25,
+      "levels": {
+        "1": "Layers break equivariance",
+        "2": "Some layers may break equivariance",
+        "3": "All layers preserve equivariance",
+        "4": "Optimal layer choices with rationale",
+        "5": "State-of-the-art layer combinations"
+      }
+    },
+    {
+      "name": "Implementation Guidance",
+      "weight": 0.2,
+      "levels": {
+        "1": "No implementation details",
+        "2": "Library mentioned only",
+        "3": "Library with basic usage",
+        "4": "Complete code skeleton",
+        "5": "Production-ready implementation"
+      }
+    },
+    {
+      "name": "Efficiency Consideration",
+      "weight": 0.15,
+      "levels": {
+        "1": "No efficiency analysis",
+        "2": "Parameter count noted",
+        "3": "Compute/memory trade-offs discussed",
+        "4": "Optimization recommendations",
+        "5": "Full efficiency analysis with alternatives"
+      }
+    },
+    {
+      "name": "Completeness",
+      "weight": 0.1,
+      "levels": {
+        "1": "Major components missing",
+        "2": "Some components missing",
+        "3": "All core components specified",
+        "4": "Complete with training considerations",
+        "5": "Complete with deployment guidance"
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0
+}
