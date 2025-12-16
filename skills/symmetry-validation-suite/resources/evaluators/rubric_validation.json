@@ -1,0 +1,62 @@
+{
+  "name": "Symmetry Validation Quality Rubric",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Test Design",
+      "weight": 0.25,
+      "levels": {
+        "1": "No systematic test design",
+        "2": "Basic tests, insufficient samples",
+        "3": "Proper sample sizes, good coverage",
+        "4": "Comprehensive tests with edge cases",
+        "5": "Statistically rigorous with multiple test types"
+      }
+    },
+    {
+      "name": "Metric Selection",
+      "weight": 0.2,
+      "levels": {
+        "1": "No quantitative metrics",
+        "2": "Single error metric",
+        "3": "Appropriate absolute/relative metrics",
+        "4": "Multiple metrics with thresholds",
+        "5": "Full statistical analysis with confidence"
+      }
+    },
+    {
+      "name": "Result Interpretation",
+      "weight": 0.25,
+      "levels": {
+        "1": "No interpretation of results",
+        "2": "Basic pass/fail only",
+        "3": "Clear interpretation with thresholds",
+        "4": "Nuanced interpretation with recommendations",
+        "5": "Actionable conclusions with alternatives"
+      }
+    },
+    {
+      "name": "Group Structure Verification",
+      "weight": 0.15,
+      "levels": {
+        "1": "No group structure tests",
+        "2": "Identity test only",
+        "3": "Closure and inverse tests",
+        "4": "Full group axiom verification",
+        "5": "Complete with algebraic closure for Lie groups"
+      }
+    },
+    {
+      "name": "Documentation",
+      "weight": 0.15,
+      "levels": {
+        "1": "No documentation",
+        "2": "Results listed without context",
+        "3": "Structured report with all results",
+        "4": "Complete report with methodology",
+        "5": "Reproducible report with code references"
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0
+}

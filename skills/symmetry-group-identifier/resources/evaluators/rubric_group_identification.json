@@ -1,0 +1,51 @@
+{
+  "name": "Group Identification Quality Rubric",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Group Accuracy",
+      "weight": 0.3,
+      "levels": {
+        "1": "Wrong group identified",
+        "2": "Partially correct but incomplete",
+        "3": "Correct group with minor notation issues",
+        "4": "Correct group with proper notation",
+        "5": "Correct group with full mathematical specification"
+      }
+    },
+    {
+      "name": "Combination Logic",
+      "weight": 0.25,
+      "levels": {
+        "1": "Multiple groups not combined",
+        "2": "Groups combined but product type wrong",
+        "3": "Correct product type (direct vs semidirect)",
+        "4": "Correct combination with clear justification",
+        "5": "Complete analysis of group structure"
+      }
+    },
+    {
+      "name": "Property Documentation",
+      "weight": 0.2,
+      "levels": {
+        "1": "No properties listed",
+        "2": "Basic size/dimension noted",
+        "3": "Key properties (compact, abelian, connected)",
+        "4": "Full property analysis with implications",
+        "5": "Properties connected to architecture choices"
+      }
+    },
+    {
+      "name": "Architecture Mapping",
+      "weight": 0.25,
+      "levels": {
+        "1": "No architecture recommendation",
+        "2": "Generic architecture mentioned",
+        "3": "Appropriate architecture family identified",
+        "4": "Specific architecture with library",
+        "5": "Detailed architecture guidance with trade-offs"
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0
+}

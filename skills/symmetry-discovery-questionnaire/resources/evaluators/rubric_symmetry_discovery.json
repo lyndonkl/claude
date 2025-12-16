@@ -1,0 +1,69 @@
+{
+  "name": "Symmetry Discovery Quality Rubric",
+  "version": "1.0",
+  "description": "Evaluates the quality of symmetry discovery process and outputs",
+  "criteria": [
+    {
+      "name": "Domain Understanding",
+      "weight": 0.2,
+      "levels": {
+        "1": "Data type unclear, no domain context gathered",
+        "2": "Basic data type identified, minimal domain context",
+        "3": "Data type and task clearly identified, some domain context",
+        "4": "Comprehensive understanding of data, task, and domain constraints",
+        "5": "Deep domain understanding with relevant physical/mathematical context"
+      }
+    },
+    {
+      "name": "Transformation Coverage",
+      "weight": 0.25,
+      "levels": {
+        "1": "Only one or two transformations considered",
+        "2": "Basic geometric transformations checked",
+        "3": "All relevant geometric transformations systematically tested",
+        "4": "Geometric + structural + domain-specific transformations covered",
+        "5": "Exhaustive coverage including subtle symmetries and combinations"
+      }
+    },
+    {
+      "name": "Evidence Quality",
+      "weight": 0.2,
+      "levels": {
+        "1": "Symmetries claimed without evidence",
+        "2": "Vague reasoning for symmetry claims",
+        "3": "Clear reasoning for each claim with examples",
+        "4": "Strong domain-backed evidence for each symmetry",
+        "5": "Rigorous analysis with counter-examples considered"
+      }
+    },
+    {
+      "name": "Output/Label Analysis",
+      "weight": 0.2,
+      "levels": {
+        "1": "No analysis of how outputs should transform",
+        "2": "Basic invariance/equivariance distinction made",
+        "3": "Clear specification of output behavior for each symmetry",
+        "4": "Detailed output transformation with edge cases considered",
+        "5": "Complete specification including intermediate representations"
+      }
+    },
+    {
+      "name": "Uncertainty Handling",
+      "weight": 0.15,
+      "levels": {
+        "1": "All claims treated as certain with no caveats",
+        "2": "Some uncertainty acknowledged but not detailed",
+        "3": "Confidence levels assigned to each symmetry",
+        "4": "Clear high/medium/low confidence with validation recommendations",
+        "5": "Detailed uncertainty analysis with specific validation steps"
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0,
+  "interpretation": {
+    "1.0-2.0": "Incomplete - restart with more thorough analysis",
+    "2.0-3.0": "Basic - needs improvement before proceeding",
+    "3.0-4.0": "Good - ready for validation phase",
+    "4.0-5.0": "Excellent - comprehensive discovery complete"
+  }
+}

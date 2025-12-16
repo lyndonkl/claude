@@ -3,13 +3,13 @@
 [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
 
-> **Claude Code Plugin Available** — Install all 69 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 74 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **69 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **74 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -26,6 +26,7 @@ This repository contains **69 skills** designed to enhance Claude Code's capabil
   - [🗣️ Dialogue & Deliberation](#️-dialogue--deliberation)
   - [💭 Ideation & Creativity](#-ideation--creativity)
   - [📊 Data & Modeling](#-data--modeling)
+  - [🔷 Geometric Deep Learning](#-geometric-deep-learning)
   - [🏗️ Architecture & Design](#️-architecture--design)
   - [🔒 Security & Risk](#-security--risk)
   - [📝 Communication & Documentation](#-communication--documentation)
@@ -133,6 +134,18 @@ This repository contains **69 skills** designed to enhance Claude Code's capabil
 **mapping-visualization-scaffolds** - Create visual maps that make relationships, dependencies, and structures explicit through diagrams, concept maps, and architectural blueprints. Choose from 5 visualization formats (List, Tree, Network Graph, Layered Diagram, Swimlane) based on complexity. Use for system architecture diagrams, concept maps, dependency graphs, process flows, organizational charts, and knowledge taxonomies. Includes format selection guidance, node/relationship documentation templates, and 8-criteria quality rubric.
 
 **metrics-tree** - Decompose North Star metrics into actionable sub-metrics, leading indicators, and prioritized experiments. Apply decomposition methods (additive, multiplicative, funnel, cohort) to break down business metrics (WAU, GMV, MRR, revenue) into 3-5 input metrics (L2), map to specific user behaviors (L3 action metrics), identify early signals that predict North Star movement (leading indicators with timing and correlation strength), and prioritize experiments using ICE framework (Impact × Confidence × Ease). Covers North Star selection criteria (value delivery, business model alignment, actionability), causal relationship validation, multi-sided marketplace metrics (dual trees with balance metrics), counter-metrics and guardrails (quality, gaming prevention), network effects and viral loops (K-factor, network density), and stage-appropriate metrics (pre-PMF retention focus, growth-stage efficiency). Includes comprehensive guidance by business model (SaaS, marketplace, e-commerce, social, mobile), advanced techniques (propensity scoring, cohort clustering, inflection point analysis), and production-ready output templates.
+
+### 🔷 Geometric Deep Learning
+
+**symmetry-discovery-questionnaire** - Discover hidden symmetries in ML data through collaborative domain analysis. Guides users through coordinate system analysis, transformation testing, and physical constraint identification to uncover what symmetries (translation, rotation, reflection, permutation) their model should respect. Works for images, 3D data, molecules, graphs, time series, and physics simulations. Based on Visual Group Theory principles.
+
+**symmetry-group-identifier** - Map identified symmetries to mathematical groups for architecture design. Provides taxonomy of cyclic groups (Cₙ), dihedral groups (Dₙ), symmetric groups (Sₙ), and Lie groups (SO(2), SO(3), SE(3), E(3)). Covers group combinations (direct and semidirect products), property analysis, and architecture family recommendations.
+
+**symmetry-validation-suite** - Empirically test whether hypothesized symmetries hold in data or models. Provides protocols for invariance testing, equivariance testing, group structure verification, and distribution analysis. Includes statistical significance guidance, error thresholds, and recommendations for hard constraints vs. soft constraints vs. data augmentation.
+
+**equivariant-architecture-designer** - Design neural network architectures that respect validated symmetry groups. Covers G-CNNs for discrete groups, steerable CNNs for continuous 2D, e3nn for E(3), GNNs for permutation. Includes layer patterns (equivariant convolutions, nonlinearities, normalization, pooling), topology patterns, and library selection (e3nn, escnn, pytorch_geometric).
+
+**model-equivariance-auditor** - Verify implemented models correctly respect intended symmetries. Provides end-to-end equivariance tests, layer-wise analysis, gradient equivariance testing, and debugging guidance for common failure modes (non-equivariant nonlinearities, batch normalization issues, numerical precision). Includes quantitative metrics and fix recommendations.
 
 ### 🏗️ Architecture & Design
 
@@ -312,11 +325,12 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 41 skills
+**Production Ready**: 46 skills
 - ✓ 33 refined skills from standard collection
 - ✓ 1 original skill (writer)
 - ✓ 1 custom skill (chef-assistant)
 - ✓ 6 scientific writing skills (manuscript review, grants, letters, emails, clarity, career docs)
+- ✓ 5 geometric deep learning skills (symmetry discovery, group identification, validation, architecture design, model auditing)
 
 **In Development**: 23 skills remaining from standard collection
 
@@ -386,4 +400,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 69 production-ready skills | Active development | Last updated: 2025-12-13
+**Status**: 74 production-ready skills | Active development | Last updated: 2025-12-15
