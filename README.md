@@ -3,13 +3,13 @@
 [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
 
-> **Claude Code Plugin Available** — Install all 77 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 82 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills and orchestrating agents for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **77 skills** and **5 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **82 skills** and **5 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -27,6 +27,7 @@ This repository contains **77 skills** and **5 orchestrating agents** designed t
   - [💭 Ideation & Creativity](#-ideation--creativity)
   - [📊 Data & Modeling](#-data--modeling)
   - [🔷 Geometric Deep Learning](#-geometric-deep-learning)
+  - [🔗 GraphRAG](#-graphrag)
   - [🏗️ Architecture & Design](#️-architecture--design)
   - [🔒 Security & Risk](#-security--risk)
   - [📝 Communication & Documentation](#-communication--documentation)
@@ -149,6 +150,18 @@ This repository contains **77 skills** and **5 orchestrating agents** designed t
 
 **model-equivariance-auditor** - Verify implemented models correctly respect intended symmetries. Provides end-to-end equivariance tests, layer-wise analysis, gradient equivariance testing, and debugging guidance for common failure modes (non-equivariant nonlinearities, batch normalization issues, numerical precision). Includes quantitative metrics and fix recommendations.
 
+### 🔗 GraphRAG
+
+**knowledge-graph-construction** - Design and build knowledge graphs from unstructured data for GraphRAG systems. Guides through graph model selection (LPG, RDF, Hypergraph), schema design, entity/relation extraction pipelines, and quality validation. Use when building KG-backed retrieval systems.
+
+**embedding-fusion-strategy** - Design embedding strategies that combine semantic and structural signals for GraphRAG retrieval. Covers embedding granularity selection, structural embeddings (node2vec, TransE, GNNs), fusion approaches (early, late, hybrid), and alignment validation.
+
+**retrieval-search-orchestration** - Design and optimize retrieval pipelines for GraphRAG systems combining graph traversal with vector search. Covers retrieval pattern selection (global-first, local-first, hybrid), query decomposition, result fusion, re-ranking, and provenance tracking.
+
+**graphrag-system-design** - Architect end-to-end GraphRAG systems from requirements through deployment. Covers pattern selection (Hybrid Symbol-Vector, Subgraph-on-Demand, Community-Based Summarization), technology stack selection, integration pipeline design, and domain-specific adaptations.
+
+**graphrag-evaluation** - Design comprehensive evaluation frameworks for GraphRAG systems measuring KG quality, retrieval effectiveness, answer correctness, hallucination rates, and reasoning depth with baseline comparisons and statistical rigor.
+
 ### 🏗️ Architecture & Design
 
 **adr-architecture** - Document architecture decisions with context, options considered, consequences, and tradeoffs using Architecture Decision Records.
@@ -253,7 +266,7 @@ Orchestrating agents detect user needs and route to the appropriate specialized 
 | **scientific-writing-editor** | scientific-manuscript-review, grant-proposal-assistant, academic-letter-architect, scientific-email-polishing, career-document-architect, scientific-clarity-checker | Scientific and academic writing - manuscripts, grants, letters, emails, career documents, and cross-cutting clarity review. |
 | **superforecaster** | reference-class-forecasting, estimation-fermi, bayesian-reasoning-calibration, forecast-premortem, scout-mindset-bias-check | Forecasting, prediction, and probability estimation using a 5-phase pipeline: triage, decomposition, evidence updating, stress testing, and calibration. |
 | **geometric-deep-learning-architect** | symmetry-discovery-questionnaire, symmetry-group-identifier, symmetry-validation-suite, equivariant-architecture-designer, model-equivariance-auditor | Applying group theory and symmetry principles to neural network design - symmetry discovery, validation, equivariant architecture design, and model verification. |
-| **graphrag-specialist** | *(standalone)* | Knowledge graph construction and retrieval strategies for LLM reasoning - GraphRAG patterns, embedding strategies, retrieval orchestration, and technology stack recommendations. |
+| **graphrag-specialist** | knowledge-graph-construction, embedding-fusion-strategy, retrieval-search-orchestration, graphrag-system-design, graphrag-evaluation | Knowledge graph construction and retrieval strategies for LLM reasoning - GraphRAG patterns, embedding strategies, retrieval orchestration, and technology stack recommendations. |
 
 ## Installation
 
@@ -271,7 +284,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 77 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 82 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -347,12 +360,13 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 49 skills
+**Production Ready**: 54 skills
 - ✓ 33 refined skills from standard collection
 - ✓ 4 writing skills (structure planning, revision, stickiness, pre-publish checklist)
 - ✓ 1 custom skill (chef-assistant)
 - ✓ 6 scientific writing skills (manuscript review, grants, letters, emails, clarity, career docs)
 - ✓ 5 geometric deep learning skills (symmetry discovery, group identification, validation, architecture design, model auditing)
+- ✓ 5 GraphRAG skills (KG construction, embedding fusion, retrieval orchestration, system design, evaluation)
 
 **Orchestrating Agents**: 5 agents
 - ✓ writing-assistant (writing pipeline)
@@ -429,4 +443,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 77 production-ready skills, 5 orchestrating agents | Active development | Last updated: 2026-02-10
+**Status**: 82 production-ready skills, 5 orchestrating agents | Active development | Last updated: 2026-02-10
