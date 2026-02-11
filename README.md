@@ -3,13 +3,13 @@
 [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
 
-> **Claude Code Plugin Available** — Install all 74 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 77 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
-A comprehensive collection of production-ready skills for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
+A comprehensive collection of production-ready skills and orchestrating agents for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **74 skills** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **77 skills** and **5 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -30,6 +30,7 @@ This repository contains **74 skills** designed to enhance Claude Code's capabil
   - [🏗️ Architecture & Design](#️-architecture--design)
   - [🔒 Security & Risk](#-security--risk)
   - [📝 Communication & Documentation](#-communication--documentation)
+  - [✍️ Writing](#️-writing)
   - [🔬 Scientific Writing](#-scientific-writing)
   - [🎯 Estimation & Forecasting](#-estimation--forecasting)
   - [💼 Business & Product Management](#-business--product-management)
@@ -38,6 +39,7 @@ This repository contains **74 skills** designed to enhance Claude Code's capabil
   - [🛡️ Ethics & Evaluation](#️-ethics--evaluation)
   - [🍳 Specialized Domains](#-specialized-domains)
   - [🛠️ Skill Development & Meta-Tools](#️-skill-development--meta-tools)
+- [Orchestrating Agents](#orchestrating-agents)
 - [Installation](#installation)
 - [Using Skills](#using-skills)
 - [Skill Development Status](#skill-development-status)
@@ -167,9 +169,17 @@ This repository contains **74 skills** designed to enhance Claude Code's capabil
 
 **translation-reframing-audience-shift** - Adapt content between audiences with different expertise, context, or goals while preserving semantic accuracy but changing presentation. Master four fidelity types: semantic (MUST preserve facts, relationships, constraints, implications), tonal (adapt formality, emotion, register), emphasis (shift what's highlighted based on audience priorities), and medium (change structure, length, format). Apply six core translation types: technical↔business (implementation details ↔ business value, "so what?" test), strategic↔tactical (vision/goals ↔ actions/tasks, "how?" test), expert↔novice (domain jargon ↔ plain language with analogy bridges), formal↔informal (professional report ↔ casual communication), long-form↔summary (comprehensive ↔ highlights via inverted pyramid), and internal↔external (company context ↔ customer-facing). Profile audiences across expertise level (expert/intermediate/novice), primary goals (decision-makers want options/trade-offs, implementers want how-to, learners want understanding, stakeholders want impact/next-steps), context constraints (time available, medium, familiarity, sensitivity), and cultural/demographic factors (language comfort, generation, industry, geography). Use advanced techniques: multi-audience translation (parallel versions for each audience, layered progressive disclosure L0 headline→L4 full detail, modular mix-and-match content blocks), fidelity trade-off framework (safety-critical preserves accuracy absolutely, high-stakes decisions preserve key caveats, educational simplifies with disclaimers, informational rounds appropriately), domain-specific patterns with translation tables (technical→business: "migrated to microservices"→"scale independently, 30% cost reduction", strategic→tactical: "become data-driven"→"Q1 instrument flows, Q2 train PMs, Q3 metrics review"), cultural code-switching (replace idioms: "home run"→"big success", adapt date formats MM/DD/YYYY→YYYY-MM-DD ISO), and back-translation testing for semantic drift detection. Apply quality frameworks: "so what?" test (every technical detail answers business value), "how?" test (every strategic goal specifies concrete actions), analogy bridge (familiar domain→unfamiliar concept with structural mapping), inverted pyramid (most important first for busy audiences), and validation via "would expert confirm accuracy?" and "can target act on it?". Avoid pitfalls: semantic drift (facts become inaccurate through simplification), jargon mismatch (too technical or too simple), wrong emphasis (highlighting source's interests vs target's needs), missing "so what?" (technical without business impact), missing "how?" (vision without tactics), lost nuance (critical caveats omitted), cultural assumptions (idioms excluding target), and talking down (condescending to novices). Covers engineering→executive summaries, medical→patient explanations, academic→blog posts, API docs→customer guides, strategy→OKRs, security→legal/compliance, board presentations→team action items, roadmaps→public updates, bug tracking→known issues, 50-page docs→1-page briefs, annual reports→social posts, US→international markets, Gen Z→Boomer messaging, and any scenario where same core message needs different presentation for different stakeholders while maintaining correctness. Includes structured template with audience characterization, translation mapping (what must change vs preserve), translation diff tables, fidelity validation checklists, and delivery package with rationale.
 
-**writer** - Transform writing into precise, compelling prose using structured revision (Zinsser, King, Pinker), structural architecture (McPhee), and stickiness techniques (SUCCESs framework).
-
 **one-pager-prd** - Create concise product specifications (1-2 pages) for stakeholder alignment covering problem statement (user pain with quantified impact), solution overview (high-level approach without over-specifying), user personas and use cases, SMART metrics (baselines + targets, leading/lagging indicators), scope boundaries (MVP vs future, in/out explicit), constraints and assumptions, and open questions. Apply problem framing techniques: Jobs-to-be-Done ("When I [situation], I want to [motivation], so I can [outcome]"), 5 Whys root cause analysis, problem statement formula with evidence (interviews, analytics, support tickets). Use metric trees to decompose North Star into actionable sub-metrics. Apply scope prioritization: MoSCoW (Must/Should/Could/Won't), RICE scoring (Reach × Impact × Confidence / Effort), Kano model (basic/performance/delight needs), value-effort matrix. Write for clarity using pyramid principle (lead with conclusion), active voice, concrete language, abundant examples, scannable formatting (bullets, headers, tables). Manage stakeholders by tailoring content (engineering: constraints/dependencies, design: flows/personas, business: impact/ROI, legal: compliance). Apply user story mapping to visualize journey and slice features vertically. Includes one-pager template (1 page, bullets, quick approval) and full PRD template (1-2 pages, detailed requirements, execution guide). Covers feature proposals, new products, technical initiatives, platform projects, internal tools, strategic initiatives. For B2B (emphasize ROI, security, integrations), B2C (emphasize delight, viral potential), enterprise (emphasize compliance, customization).
+
+### ✍️ Writing
+
+**writing-structure-planner** - Plan writing architecture using McPhee's structural diagramming method. Analyze material, explore 8 structure types (list, chronological, circular, dual profile, triple profile, pyramid, parallel narratives, custom), sketch 3+ options with pros/cons, select and refine with gold-coin placement for reader engagement. Produces annotated structure diagrams before drafting begins.
+
+**writing-revision** - Systematic three-pass revision system for improving existing drafts. Pass 1 cuts clutter (Zinsser/King) targeting 10-25% word count reduction by eliminating adverbs, qualifiers, passive voice, and weak verbs. Pass 2 reduces cognitive load (Pinker) by fixing garden-path sentences, buried topics, and ambiguous pronouns. Pass 3 improves rhythm (Clark) through sentence variety, strong endings, and gold-coin distribution.
+
+**writing-stickiness** - Make messages memorable using the Heath brothers' SUCCESs framework. Analyze writing against 6 principles (Simple, Unexpected, Concrete, Credible, Emotional, Stories), score on stickiness scorecard (0-18 points), and systematically improve weakest dimensions. Target 12+/18 for good stickiness, 15+/18 for excellent.
+
+**writing-pre-publish-checklist** - Final quality gate before sharing or publishing. Runs 6-section systematic checklist: content accuracy, structural integrity (hook/flow/conclusion), clarity (jargon/ambiguity/audience fit), style consistency (tone/voice/variety), polish (spelling/grammar/formatting), and final tests (read-aloud, intent verification, pride test). Produces pass/fail assessment with actionable issue list.
 
 ### 🔬 Scientific Writing
 
@@ -233,6 +243,18 @@ This repository contains **74 skills** designed to enhance Claude Code's capabil
 
 **skill-creator** - Transform documents containing theoretical knowledge into actionable, reusable Claude Code skills using Mortimer Adler's analytical reading methodology. Apply 6-step progressive workflow with file-based context management to prevent overflow: (1) Inspectional Reading - systematic 10-30 minute skim, classify document type (methodology/framework/tool/theory), assess skill-worthiness using 5 criteria (teachability, generalizability, recurring problem, actionability, completeness) with 1-5 scoring (threshold ≥3.5), get user approval; (2) Structural Analysis - classify content (practical vs theoretical, sequential/categorical/structured/hybrid), state unity in one sentence, enumerate major parts with relationships, define problems solved, validate with user; (3) Component Extraction - choose reading strategy (section-based for <50 pages, windowing for >50 pages, targeted for hybrid), extract 5-15 key terms (vocabulary), 5-10 propositions (principles explaining why it works), arguments (logical sequences becoming workflow steps), and solutions (examples/templates), write section-by-section to workspace file to manage context, synthesize into final extraction; (4) Synthesis & Application - evaluate completeness and logic, identify practical application scenarios across domains, transform propositions into principles, arguments into workflow steps, theory into actionable procedures, define triggers (when/how to use), validate with user; (5) Skill Construction - determine complexity (simple/moderate/complex), plan resource file structure, create SKILL.md with YAML frontmatter (description focuses on WHEN not WHAT), table of contents, "Read This First" section, workflow with explicit "COPY THIS CHECKLIST" instruction, step definitions linking to resources, create resource files with WHY (brief theory for context activation) and WHAT (specific instructions with options/tradeoffs) subsections, create JSON evaluation rubric with 8 criteria (completeness, clarity, actionability, structure, triggers, resource quality, user collaboration, file size) scored 1-5 with threshold ≥3.5, verify all files <500 lines; (6) Validation & Refinement - score skill using rubric, present scores with rationale, identify areas <3 requiring revision, make refinements based on user decision, re-validate. File-based workflow prevents context overflow: each step writes output to `step-N-output.md` and updates `global-context.md`, next step reads both. User collaboration at decision points (proceed/modify after each major step, reading strategy choice, gap handling, workflow validation, structure approval). Components map to skill: Terms → Key Concepts/glossary in resources, Propositions → WHY sections explaining importance, Arguments → WHAT sections + workflow steps, Solutions → Examples/templates/case studies. Use when user has PDF/markdown/research paper/methodology guide containing theory and wants to convert into actionable skill, mentions "create skill from this document", "turn this into a skill", "extract skill from file", or when analyzing documents with frameworks/processes/systematic approaches for skill creation. Covers methodologies, theoretical frameworks, research papers, procedural guides, and systematic approaches requiring transformation from knowledge into executable workflows.
 
+## Orchestrating Agents
+
+Orchestrating agents detect user needs and route to the appropriate specialized skills. They apply skill invocation rules to ensure skills execute their own workflows rather than the agent doing the work itself.
+
+| Agent | Skills Orchestrated | Use For |
+|-------|-------------------|---------|
+| **writing-assistant** | writing-structure-planner, writing-revision, writing-stickiness, writing-pre-publish-checklist | Any writing task - new pieces, revision, structure planning, stickiness, pre-publishing checks. Guides users through the complete writing pipeline (McPhee, Zinsser, King, Pinker, Clark, Heath). |
+| **scientific-writing-editor** | scientific-manuscript-review, grant-proposal-assistant, academic-letter-architect, scientific-email-polishing, career-document-architect, scientific-clarity-checker | Scientific and academic writing - manuscripts, grants, letters, emails, career documents, and cross-cutting clarity review. |
+| **superforecaster** | reference-class-forecasting, estimation-fermi, bayesian-reasoning-calibration, forecast-premortem, scout-mindset-bias-check | Forecasting, prediction, and probability estimation using a 5-phase pipeline: triage, decomposition, evidence updating, stress testing, and calibration. |
+| **geometric-deep-learning-architect** | symmetry-discovery-questionnaire, symmetry-group-identifier, symmetry-validation-suite, equivariant-architecture-designer, model-equivariance-auditor | Applying group theory and symmetry principles to neural network design - symmetry discovery, validation, equivariant architecture design, and model verification. |
+| **graphrag-specialist** | *(standalone)* | Knowledge graph construction and retrieval strategies for LLM reasoning - GraphRAG patterns, embedding strategies, retrieval orchestration, and technology stack recommendations. |
+
 ## Installation
 
 ### Option 1: Install as Plugin (Recommended)
@@ -249,7 +271,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 62 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 77 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -325,12 +347,19 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 46 skills
+**Production Ready**: 49 skills
 - ✓ 33 refined skills from standard collection
-- ✓ 1 original skill (writer)
+- ✓ 4 writing skills (structure planning, revision, stickiness, pre-publish checklist)
 - ✓ 1 custom skill (chef-assistant)
 - ✓ 6 scientific writing skills (manuscript review, grants, letters, emails, clarity, career docs)
 - ✓ 5 geometric deep learning skills (symmetry discovery, group identification, validation, architecture design, model auditing)
+
+**Orchestrating Agents**: 5 agents
+- ✓ writing-assistant (writing pipeline)
+- ✓ scientific-writing-editor (academic writing)
+- ✓ superforecaster (prediction and forecasting)
+- ✓ geometric-deep-learning-architect (symmetry-aware neural networks)
+- ✓ graphrag-specialist (knowledge graph retrieval)
 
 **In Development**: 23 skills remaining from standard collection
 
@@ -400,4 +429,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 74 production-ready skills | Active development | Last updated: 2025-12-15
+**Status**: 77 production-ready skills, 5 orchestrating agents | Active development | Last updated: 2026-02-10

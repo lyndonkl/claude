@@ -1,0 +1,68 @@
+{
+  "name": "Writing Revision Rubric",
+  "description": "Evaluation criteria for three-pass revision quality",
+  "criteria": [
+    {
+      "name": "Clutter Reduction (Pass 1)",
+      "description": "Effectiveness of cutting adverbs, qualifiers, passive voice, weak verbs, and throat-clearing",
+      "weight": 1.0,
+      "scores": {
+        "1": "No clutter reduction; draft unchanged or worse",
+        "2": "Minimal cutting; most clutter remains, less than 5% reduction",
+        "3": "Moderate cutting; some clutter removed but significant waste remains (5-10% reduction)",
+        "4": "Good cutting; most clutter removed with 10-20% word count reduction",
+        "5": "Excellent cutting; all clutter eliminated, 10-25% reduction, every word earns its place"
+      }
+    },
+    {
+      "name": "Cognitive Load Reduction (Pass 2)",
+      "description": "Effectiveness of fixing garden-paths, buried topics, and ensuring first-reading comprehension",
+      "weight": 1.2,
+      "scores": {
+        "1": "No cognitive load improvements; sentences still require re-reading",
+        "2": "Minimal improvements; most garden-paths and buried topics remain",
+        "3": "Some improvements; obvious issues fixed but subtle problems remain",
+        "4": "Good improvements; most sentences parse correctly on first reading",
+        "5": "Excellent improvements; all sentences clear on first reading, topics signaled early, pronouns unambiguous"
+      }
+    },
+    {
+      "name": "Rhythm and Flow (Pass 3)",
+      "description": "Quality of sentence variety, strong endings, and gold-coin distribution",
+      "weight": 1.0,
+      "scores": {
+        "1": "Monotonous rhythm; all sentences similar length, weak endings throughout",
+        "2": "Slight variety; some length variation but still feels flat",
+        "3": "Moderate variety; some short punchy sentences and strong endings",
+        "4": "Good variety; deliberate length variation, mostly strong endings, some gold-coins placed",
+        "5": "Excellent rhythm; strategic variety, strong endings, gold-coins throughout, reads aloud beautifully"
+      }
+    },
+    {
+      "name": "Analysis Thoroughness",
+      "description": "Whether each pass included complete analysis before improvement",
+      "weight": 0.8,
+      "scores": {
+        "1": "No analysis performed; edits made without systematic review",
+        "2": "Partial analysis; only first section analyzed",
+        "3": "Moderate analysis; most of draft covered but gaps exist",
+        "4": "Good analysis; entire draft analyzed with specific findings documented",
+        "5": "Comprehensive analysis; complete draft analyzed, all issues catalogued in analysis files"
+      }
+    },
+    {
+      "name": "Meaning Preservation",
+      "description": "Whether the author's intended meaning and voice were preserved through revision",
+      "weight": 1.0,
+      "scores": {
+        "1": "Meaning significantly altered; author's intent lost",
+        "2": "Some meaning changes; key points distorted by aggressive editing",
+        "3": "Meaning mostly preserved; minor unintended shifts",
+        "4": "Meaning well preserved; author's voice and intent clear throughout",
+        "5": "Meaning perfectly preserved; all improvements enhance without altering intent or voice"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for revision to be considered complete. Scores below 3 in 'Cognitive Load Reduction' or 'Meaning Preservation' require re-revision."
+}

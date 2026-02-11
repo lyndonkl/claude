@@ -1,0 +1,68 @@
+{
+  "name": "Writing Pre-Publishing Checklist Rubric",
+  "description": "Evaluation criteria for pre-publishing quality check thoroughness",
+  "criteria": [
+    {
+      "name": "Checklist Completeness",
+      "description": "Whether all 6 sections of the checklist were systematically evaluated",
+      "weight": 1.0,
+      "scores": {
+        "1": "Fewer than 3 sections evaluated; major gaps in coverage",
+        "2": "3-4 sections evaluated; some sections skipped entirely",
+        "3": "5 sections evaluated; one section missing or superficial",
+        "4": "All 6 sections evaluated with clear pass/fail for each item",
+        "5": "All 6 sections evaluated thoroughly with specific evidence for each pass/fail decision"
+      }
+    },
+    {
+      "name": "Issue Identification Accuracy",
+      "description": "Whether real issues were caught and false positives avoided",
+      "weight": 1.2,
+      "scores": {
+        "1": "Major issues missed; false sense of readiness",
+        "2": "Some major issues missed; mostly surface-level checks",
+        "3": "Most issues caught but some significant ones missed",
+        "4": "Nearly all issues caught with few false positives",
+        "5": "All genuine issues identified accurately; no significant misses or false alarms"
+      }
+    },
+    {
+      "name": "Actionability of Feedback",
+      "description": "Whether identified issues are specific enough for the user to fix",
+      "weight": 1.0,
+      "scores": {
+        "1": "Issues listed vaguely; user cannot act on them",
+        "2": "Issues identified but location or fix unclear",
+        "3": "Issues located with general suggestions for improvement",
+        "4": "Issues specifically located with clear suggestions for fixing",
+        "5": "All issues precisely located with specific, actionable fix suggestions and priority ranking"
+      }
+    },
+    {
+      "name": "Context Sensitivity",
+      "description": "Whether standards were appropriately calibrated to the publication context",
+      "weight": 0.8,
+      "scores": {
+        "1": "One-size-fits-all approach; no consideration of context",
+        "2": "Minimal context consideration; standards too rigid or too loose",
+        "3": "Some context awareness; mostly appropriate standards",
+        "4": "Good context calibration; standards match publication type and audience",
+        "5": "Excellent context awareness; standards perfectly calibrated to audience, format, and publication venue"
+      }
+    },
+    {
+      "name": "Read-Aloud and Final Tests",
+      "description": "Quality of the final tests including read-aloud simulation and intent verification",
+      "weight": 1.0,
+      "scores": {
+        "1": "Final tests skipped entirely",
+        "2": "Cursory final assessment without read-aloud or intent check",
+        "3": "Basic final tests performed but findings are vague",
+        "4": "Good final tests; read-aloud issues and intent alignment checked",
+        "5": "Thorough final tests; read-aloud issues precisely located, intent verified, overall assessment well-reasoned"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for pre-publishing check to be considered complete. Scores below 3 in 'Issue Identification Accuracy' require re-review."
+}
