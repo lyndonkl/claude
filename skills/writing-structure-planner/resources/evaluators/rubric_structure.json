@@ -1,0 +1,68 @@
+{
+  "name": "Writing Structure Planner Rubric",
+  "description": "Evaluation criteria for structure planning quality",
+  "criteria": [
+    {
+      "name": "Material Analysis Depth",
+      "description": "How thoroughly the material was analyzed before structuring",
+      "weight": 1.0,
+      "scores": {
+        "1": "No material analysis; structure imposed without understanding content",
+        "2": "Superficial analysis; misses major themes or key material",
+        "3": "Adequate analysis; captures main points but misses nuances",
+        "4": "Thorough analysis; identifies themes, patterns, and organizing principles",
+        "5": "Comprehensive analysis; all material catalogued with themes, priorities, and reader considerations"
+      }
+    },
+    {
+      "name": "Structure Options Explored",
+      "description": "Whether multiple structural options were considered and compared",
+      "weight": 1.0,
+      "scores": {
+        "1": "Only one structure considered with no alternatives",
+        "2": "Two options considered but comparison is shallow",
+        "3": "Three options sketched with basic pros/cons",
+        "4": "Three options with detailed comparison and clear recommendation",
+        "5": "Three or more options with diagrams, material mapping, and criteria-based selection"
+      }
+    },
+    {
+      "name": "Structure-Material Fit",
+      "description": "How well the chosen structure serves the specific content",
+      "weight": 1.2,
+      "scores": {
+        "1": "Structure clearly wrong for the material; forced and unnatural",
+        "2": "Structure somewhat fits but creates awkward flow or buried key points",
+        "3": "Structure adequate; works but another option might serve better",
+        "4": "Structure fits well; material flows naturally with good momentum",
+        "5": "Structure feels inevitable; perfectly serves the content and creates natural flow"
+      }
+    },
+    {
+      "name": "Gold-Coin Placement",
+      "description": "Strategic distribution of reader rewards throughout the structure",
+      "weight": 1.0,
+      "scores": {
+        "1": "No gold-coin placement considered",
+        "2": "Gold coins clustered at beginning only; saggy middle",
+        "3": "Some distribution but middle section still lacks engagement",
+        "4": "Good distribution throughout with attention to middle sections",
+        "5": "Strategic placement at opening, throughout middle, and conclusion with specific moments identified"
+      }
+    },
+    {
+      "name": "Diagram Clarity and Usefulness",
+      "description": "Whether the final structure diagram is clear and actionable for drafting",
+      "weight": 0.8,
+      "scores": {
+        "1": "No diagram or outline produced",
+        "2": "Vague outline with no transitions or pacing notes",
+        "3": "Basic diagram with sections identified but lacking detail",
+        "4": "Clear diagram with transitions, pacing notes, and key moments marked",
+        "5": "Comprehensive annotated diagram with transitions, gold-coins, pacing, and through-line verified"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for structure plan to be considered complete. Scores below 3 in 'Structure-Material Fit' require revision."
+}

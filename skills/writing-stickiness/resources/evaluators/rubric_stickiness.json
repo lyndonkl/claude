@@ -1,0 +1,68 @@
+{
+  "name": "Writing Stickiness Enhancement Rubric",
+  "description": "Evaluation criteria for SUCCESs model application quality",
+  "criteria": [
+    {
+      "name": "SUCCESs Analysis Quality",
+      "description": "Thoroughness of initial analysis against all 6 SUCCESs principles",
+      "weight": 1.0,
+      "scores": {
+        "1": "No systematic analysis; principles not assessed individually",
+        "2": "Superficial analysis; some principles assessed but scores unjustified",
+        "3": "Adequate analysis; all 6 principles assessed with basic reasoning",
+        "4": "Good analysis; all principles assessed with specific evidence from text",
+        "5": "Comprehensive analysis; all principles assessed with detailed evidence, specific weaknesses identified, and improvement opportunities noted"
+      }
+    },
+    {
+      "name": "Improvement Targeting",
+      "description": "Whether improvements focus on the weakest principles rather than already-strong ones",
+      "weight": 1.0,
+      "scores": {
+        "1": "No targeted improvements; changes are random or unfocused",
+        "2": "Improvements scattered across principles without priority",
+        "3": "Some focus on weak principles but effort spread too thin",
+        "4": "Good focus on 2-3 weakest principles with specific improvements",
+        "5": "Excellent targeting; weakest principles identified and improved with specific, effective techniques"
+      }
+    },
+    {
+      "name": "Stickiness Score Improvement",
+      "description": "Measurable improvement in stickiness score from before to after",
+      "weight": 1.2,
+      "scores": {
+        "1": "No measurable improvement; score unchanged or decreased",
+        "2": "Minimal improvement; 1-2 point increase",
+        "3": "Moderate improvement; 3-5 point increase",
+        "4": "Good improvement; 6-8 point increase, reaching 12+/18",
+        "5": "Excellent improvement; 8+ point increase, reaching 15+/18"
+      }
+    },
+    {
+      "name": "Accuracy Preservation",
+      "description": "Whether stickiness enhancements maintain factual accuracy and truthfulness",
+      "weight": 1.0,
+      "scores": {
+        "1": "Accuracy sacrificed for impact; claims exaggerated or fabricated",
+        "2": "Some accuracy concerns; statistics or examples stretched beyond truth",
+        "3": "Mostly accurate; minor embellishments but core truth preserved",
+        "4": "Accurate; all enhancements truthful and well-sourced",
+        "5": "Fully accurate; stickiness achieved through legitimate techniques without any distortion"
+      }
+    },
+    {
+      "name": "Before/After Comparison",
+      "description": "Quality of the before/after presentation showing specific improvements",
+      "weight": 0.8,
+      "scores": {
+        "1": "No comparison provided; user can't see what changed",
+        "2": "Vague comparison; changes described but not shown",
+        "3": "Basic comparison; before/after shown but principles not labeled",
+        "4": "Good comparison; before/after with principle labels showing specific techniques used",
+        "5": "Excellent comparison; before/after with scores, principle annotations, and explanation of why each change works"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for stickiness enhancement to be considered complete. Scores below 3 in 'Accuracy Preservation' require revision."
+}
