@@ -1,0 +1,154 @@
+{
+  "rubric_name": "GraphRAG Evaluation Quality Rubric",
+  "description": "Assesses the quality and rigor of a GraphRAG system evaluation across five weighted criteria. Each criterion is scored 1-5. The weighted total must meet the minimum passing score.",
+  "minimum_passing_score": 3.0,
+  "criteria": [
+    {
+      "name": "Metric Coverage",
+      "weight": 0.2,
+      "description": "How comprehensively does the evaluation cover the key dimensions of GraphRAG quality (KG quality, retrieval quality, answer correctness, hallucination rate, reasoning depth)?",
+      "levels": {
+        "1": {
+          "label": "No metrics defined",
+          "description": "The evaluation does not define or measure any quantitative metrics. Assessment is purely subjective or absent."
+        },
+        "2": {
+          "label": "Single dimension measured",
+          "description": "Only one evaluation dimension is measured (e.g., only answer correctness). Other dimensions such as KG quality, retrieval quality, hallucination rate, and reasoning depth are ignored."
+        },
+        "3": {
+          "label": "All core dimensions covered",
+          "description": "The evaluation covers KG quality, retrieval quality, and answer correctness with defined metrics for each. Hallucination rate and reasoning depth may be partially addressed."
+        },
+        "4": {
+          "label": "Comprehensive metrics with reasoning evaluation",
+          "description": "All five dimensions are measured with well-defined metrics. Includes multi-hop reasoning evaluation, hallucination detection, and KG grounding rate. Metrics are appropriate to the system's use case."
+        },
+        "5": {
+          "label": "Full metrics suite with statistical analysis",
+          "description": "All dimensions are measured with multiple complementary metrics. Includes process-oriented reasoning evaluation, calibration analysis, and confidence scoring. Statistical properties of all metrics are documented."
+        }
+      }
+    },
+    {
+      "name": "Measurement Rigor",
+      "weight": 0.25,
+      "description": "How rigorous and reproducible are the measurement methods? Are test sets well-designed, sample sizes adequate, and results statistically sound?",
+      "levels": {
+        "1": {
+          "label": "Informal/anecdotal",
+          "description": "Evaluation is based on informal observation or a handful of anecdotal examples. No systematic test set or measurement protocol exists."
+        },
+        "2": {
+          "label": "Basic counts and percentages",
+          "description": "Simple metrics are calculated (e.g., percentage correct) but on an ad hoc test set. No stratification by query type or difficulty. Sample size may be too small for reliable conclusions."
+        },
+        "3": {
+          "label": "Standardized metrics with test sets",
+          "description": "Well-defined test sets with adequate sample sizes (100+ queries). Metrics follow standard definitions. Test set is stratified across query types and difficulty levels. Results are reproducible."
+        },
+        "4": {
+          "label": "Statistical significance testing with confidence intervals",
+          "description": "All comparisons include statistical significance tests (e.g., paired bootstrap, McNemar's test). Confidence intervals are reported for all metrics. Effect sizes are calculated alongside p-values. Inter-annotator agreement is measured for human evaluation."
+        },
+        "5": {
+          "label": "Reproducible benchmark with automated pipeline",
+          "description": "Fully automated evaluation pipeline that can be run repeatedly. Test sets are versioned and documented. Evaluation code is reproducible. Includes regression detection across system versions. Automated reporting with trend analysis."
+        }
+      }
+    },
+    {
+      "name": "Baseline Comparison",
+      "weight": 0.2,
+      "description": "Are evaluation results contextualized through comparison with appropriate baseline systems?",
+      "levels": {
+        "1": {
+          "label": "No baselines",
+          "description": "Results are reported in isolation with no comparison to any other system or configuration. It is impossible to judge whether results are good or bad."
+        },
+        "2": {
+          "label": "Single baseline",
+          "description": "Results are compared against one baseline system (e.g., pure vector RAG or LLM-only). Comparison is limited to a few metrics."
+        },
+        "3": {
+          "label": "Multiple baselines (RAG, no-RAG, variants)",
+          "description": "Results are compared against at least three baselines: pure vector RAG, LLM-only, and one system variant. All core metrics are compared across baselines."
+        },
+        "4": {
+          "label": "Controlled ablation study",
+          "description": "Systematic ablation study where individual components are removed or modified one at a time. The contribution of each component (KG construction, graph retrieval, multi-hop traversal, grounding) is isolated and quantified."
+        },
+        "5": {
+          "label": "Comprehensive comparison with state-of-art",
+          "description": "Includes ablation study, comparison against published state-of-the-art results on standard benchmarks, and analysis of performance across different data distributions and query populations. Identifies specific conditions where the system outperforms or underperforms alternatives."
+        }
+      }
+    },
+    {
+      "name": "Reasoning Depth",
+      "weight": 0.2,
+      "description": "How thoroughly does the evaluation assess the system's multi-step reasoning capabilities and reasoning correctness?",
+      "levels": {
+        "1": {
+          "label": "No reasoning evaluation",
+          "description": "The evaluation does not assess reasoning at all. Only final answers are checked without examining how the system arrived at them."
+        },
+        "2": {
+          "label": "Basic factual recall only",
+          "description": "Evaluation tests only single-hop factual recall (e.g., simple entity attribute lookups). No multi-hop or complex reasoning queries are included."
+        },
+        "3": {
+          "label": "Multi-hop reasoning tested",
+          "description": "Test set includes multi-hop queries requiring 2-3 reasoning steps. Accuracy is measured at different hop counts. Bridge entity tests are included. However, only final answer correctness is checked."
+        },
+        "4": {
+          "label": "Stepwise reasoning verification",
+          "description": "Intermediate reasoning steps are evaluated, not just final answers. Each step is checked for grounding in KG evidence. Error propagation is detected and categorized. Process-oriented evaluation identifies where in the chain reasoning fails."
+        },
+        "5": {
+          "label": "Full reasoning chain validation with error analysis",
+          "description": "Complete reasoning chain validation including stepwise verification, error propagation analysis, and reasoning pattern categorization. Includes negative tests, counterfactual reasoning, causal chain evaluation, and confidence calibration. Systematic error taxonomy identifies root causes of reasoning failures."
+        }
+      }
+    },
+    {
+      "name": "Actionable Recommendations",
+      "weight": 0.15,
+      "description": "Does the evaluation produce recommendations that can guide concrete improvements to the GraphRAG system?",
+      "levels": {
+        "1": {
+          "label": "No recommendations",
+          "description": "The evaluation reports metrics but provides no guidance on what to improve or how. Results are descriptive only."
+        },
+        "2": {
+          "label": "Vague improvement suggestions",
+          "description": "Generic suggestions are provided (e.g., 'improve retrieval quality') without specificity about what is wrong or how to fix it."
+        },
+        "3": {
+          "label": "Specific identified weaknesses",
+          "description": "The evaluation identifies specific weaknesses with supporting evidence (e.g., 'multi-hop retrieval fails for queries requiring 3+ hops due to missing bridging entities of type X'). Root causes are hypothesized based on evaluation data."
+        },
+        "4": {
+          "label": "Prioritized improvement plan with expected impact",
+          "description": "Weaknesses are ranked by severity and impact. Each recommendation includes expected improvement and estimated effort. Dependencies between improvements are identified. A clear sequence of next steps is provided."
+        },
+        "5": {
+          "label": "Complete improvement roadmap with implementation guidance",
+          "description": "Full improvement roadmap with phased implementation plan. Each recommendation includes specific implementation guidance, success criteria, and validation approach. Trade-offs between recommendations are analyzed. Includes both quick wins and long-term architectural improvements."
+        }
+      }
+    }
+  ],
+  "scoring": {
+    "method": "weighted_average",
+    "formula": "sum(criterion.score * criterion.weight) for each criterion",
+    "interpretation": {
+      "below_2.0": "Evaluation is insufficient. Major gaps in methodology require fundamental redesign before results can be trusted.",
+      "2.0_to_2.9": "Evaluation has significant weaknesses. Key dimensions are missing or measurement rigor is inadequate. Address gaps before drawing conclusions.",
+      "3.0_to_3.4": "Evaluation meets minimum quality bar. Core dimensions are covered with adequate rigor. Results can inform decisions but have notable limitations.",
+      "3.5_to_3.9": "Good evaluation. Comprehensive coverage with solid methodology. Results are reliable for most decision-making purposes.",
+      "4.0_to_4.4": "Strong evaluation. Rigorous methodology with thorough baseline comparisons and reasoning analysis. Results provide high confidence for system decisions.",
+      "4.5_to_5.0": "Excellent evaluation. State-of-the-art methodology with full reproducibility, comprehensive baselines, and actionable improvement roadmap. Suitable for publication or production deployment decisions."
+    }
+  }
+}

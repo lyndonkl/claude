@@ -1,0 +1,75 @@
+{
+  "name": "Embedding Fusion Strategy Quality Rubric",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Semantic Capture",
+      "weight": 0.2,
+      "levels": {
+        "1": "No semantic signal. Embedding strategy relies entirely on structural features with no text or meaning-based representation.",
+        "2": "Basic text labels only. Entity names or type labels are embedded but no richer textual descriptions or contextual information is used.",
+        "3": "Rich text embeddings of entities. Entity descriptions, attributes, and labels are encoded using a capable sentence or document encoder.",
+        "4": "Contextualized semantic embeddings. Text representations incorporate neighborhood context (e.g., descriptions mention connected entities) and use domain-appropriate encoder with fine-tuning.",
+        "5": "Multi-facet semantic representations. Multiple semantic views per entity (description, neighborhood narrative, relation-aware context). Encoder selection justified with benchmarks. Domain-specific fine-tuning validated."
+      }
+    },
+    {
+      "name": "Structural Capture",
+      "weight": 0.2,
+      "levels": {
+        "1": "No structural signal. Embedding strategy ignores graph topology entirely.",
+        "2": "Basic adjacency only. Direct connections are captured (e.g., one-hot neighbor features) but no multi-hop or positional information.",
+        "3": "Multi-hop structural embeddings. Random walk or message-passing methods capture neighborhood structure beyond direct connections. Parameters documented.",
+        "4": "Role-aware structural embeddings. Method captures both local neighborhoods and global structural roles (e.g., hub vs. bridge). Appropriate method selected for graph characteristics (density, heterogeneity).",
+        "5": "Full topological and positional encoding. Combines local structure, global position (spectral/positional encoding), and type-aware patterns (metapaths). Inductive capability for new nodes. Hyperparameters validated."
+      }
+    },
+    {
+      "name": "Fusion Coherence",
+      "weight": 0.25,
+      "levels": {
+        "1": "No fusion attempted. Semantic and structural embeddings exist independently with no combination strategy.",
+        "2": "Naive concatenation only. Embeddings are concatenated without dimensionality management, learned interaction, or justification for the approach.",
+        "3": "Principled fusion with justification. Fusion method chosen with explicit rationale tied to the downstream task. Dimensionality managed. Trade-offs discussed.",
+        "4": "Optimized fusion with alignment strategy. Fusion includes a training objective (contrastive, attention, or joint training). Alignment between modalities is explicitly addressed. Negative sampling or weighting strategy documented.",
+        "5": "Adaptive fusion with validation. Fusion approach is validated end-to-end on the downstream task. Multiple fusion approaches compared empirically. Dynamic weighting adapts to entity or query context. Ablation demonstrates value of each component."
+      }
+    },
+    {
+      "name": "Scalability",
+      "weight": 0.15,
+      "levels": {
+        "1": "Does not scale beyond toy data. No consideration of graph size, embedding storage, or query latency.",
+        "2": "Works on small graphs. Strategy is feasible for up to tens of thousands of entities but has clear bottlenecks at larger scale.",
+        "3": "Handles medium graphs with indexing. ANN index specified, storage estimated, and query latency considered for up to millions of entities.",
+        "4": "Production-ready with incremental updates. Strategy includes incremental embedding updates for graph changes, staleness management, and concrete vector database integration plan.",
+        "5": "Distributed and real-time capable. Strategy handles billions of entities with distributed indexing, streaming embedding updates, and sub-100ms query latency. Sharding and replication addressed."
+      }
+    },
+    {
+      "name": "Task Alignment",
+      "weight": 0.2,
+      "levels": {
+        "1": "Embeddings mismatched to task. Granularity, fusion approach, or embedding method is inappropriate for the stated downstream task.",
+        "2": "Generic embeddings for task. Standard embeddings applied without customization for the specific task requirements or evaluation metrics.",
+        "3": "Task-appropriate granularity and fusion. Embedding granularity matches the task (e.g., node-level for entity retrieval, path-level for multi-hop QA). Fusion approach is reasonable for the use case.",
+        "4": "Optimized for specific retrieval patterns. Embedding strategy is tailored to the access patterns, query distribution, and evaluation metrics of the target task. Training objective aligns with task objective.",
+        "5": "End-to-end validated for task performance. Strategy is validated with task-specific benchmarks. Ablation study shows contribution of each component. Comparison with alternative approaches demonstrates superiority. Metrics meet stated success criteria."
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0,
+  "scale": {
+    "description": "Each criterion scored 1-5, weighted by importance",
+    "min_score": 1,
+    "max_score": 5,
+    "passing_threshold": 3.0,
+    "excellence_threshold": 4.5
+  },
+  "usage_notes": {
+    "when_to_score": "After completing the embedding strategy specification, before delivering to user",
+    "minimum_standard": "Weighted average score >= 3.0 across all criteria",
+    "how_to_improve": "If scoring below threshold, identify lowest-scoring criteria and iterate. Common fixes: add missing semantic or structural signal, justify fusion approach, estimate scalability, validate against task metrics.",
+    "self_assessment": "Score honestly. Embedding strategy flaws compound in production -- poor fusion degrades retrieval quality across all queries."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "rubric_name": "Retrieval & Search Orchestration Quality",
+  "version": "1.0",
+  "minimum_passing_score": 3.0,
+  "criteria": [
+    {
+      "name": "Retrieval Relevance",
+      "weight": 0.25,
+      "description": "How well the retrieval strategy returns information relevant to the query, including ranking optimization and validation.",
+      "levels": {
+        "1": "Retrieved information is irrelevant to the query. No alignment between query intent and returned results.",
+        "2": "Partially relevant results. Some retrieved items match the query, but significant noise or off-topic content is present.",
+        "3": "Relevant results for common query types. The retrieval strategy consistently returns on-topic information for standard queries.",
+        "4": "High relevance with ranking optimization. Results are not only relevant but properly ranked by importance, with top results being the most useful.",
+        "5": "Precision-tuned retrieval with validation. Retrieval is optimized for both precision and recall, with automated validation checks confirming result quality."
+      }
+    },
+    {
+      "name": "Coverage Completeness",
+      "weight": 0.2,
+      "description": "How thoroughly the retrieval strategy covers all information needed to answer the query, including multi-hop and fallback coverage.",
+      "levels": {
+        "1": "Major information gaps. Critical facts needed to answer the query are missing from retrieval results.",
+        "2": "Core facts covered. The most essential information is retrieved, but secondary or supporting details are missing.",
+        "3": "Comprehensive coverage for the query scope. All information directly relevant to the query is retrieved, including supporting context.",
+        "4": "Multi-hop coverage with bridging entities. The strategy successfully traverses multiple relationships, retrieving intermediate entities needed for reasoning chains.",
+        "5": "Exhaustive coverage with fallback strategies. All relevant information is retrieved, with fallback mechanisms (iterative deepening, query relaxation) ensuring completeness even for edge cases."
+      }
+    },
+    {
+      "name": "Provenance Quality",
+      "weight": 0.2,
+      "description": "How well the system tracks and presents the origin, confidence, and evidence chain for each piece of retrieved information.",
+      "levels": {
+        "1": "No source tracking. Retrieved information has no metadata about its origin or reliability.",
+        "2": "Basic source IDs attached. Each retrieved fact includes a source document identifier, but no additional metadata.",
+        "3": "Full provenance with timestamps and confidence. Each fact carries source ID, extraction timestamp, confidence score, and extraction method.",
+        "4": "Evidence chains with multi-source aggregation. Facts include full provenance plus evidence chains showing derivation, with confidence adjusted for multiple supporting sources.",
+        "5": "Auditable provenance with conflict resolution. Complete evidence trails, multi-source aggregation, conflict detection between disagreeing sources, and resolution strategies documented."
+      }
+    },
+    {
+      "name": "Query Handling",
+      "weight": 0.2,
+      "description": "The range and sophistication of query types the retrieval strategy can handle, from simple lookups to adaptive multi-pattern processing.",
+      "levels": {
+        "1": "Only simple lookups. The strategy handles single-entity, single-hop factoid queries and nothing more.",
+        "2": "Basic pattern matching. Handles simple lookups plus basic keyword and embedding similarity searches.",
+        "3": "Multi-hop and decomposed queries. The strategy supports query decomposition for complex questions and can traverse multiple relationships.",
+        "4": "Hybrid symbolic-neural query processing. Combines structured graph queries (Cypher/SPARQL) with neural embedding search for flexible, precise retrieval.",
+        "5": "Adaptive strategy selection per query type. The system automatically classifies incoming queries and selects the optimal retrieval pattern (global-first, local-first, hybrid, temporal, constraint-guided) for each."
+      }
+    },
+    {
+      "name": "Hallucination Prevention",
+      "weight": 0.15,
+      "description": "The effectiveness of safeguards preventing the system from returning or generating information not grounded in the knowledge graph.",
+      "levels": {
+        "1": "No safeguards. The system has no mechanisms to detect or prevent hallucinated content in retrieval or generation.",
+        "2": "Basic filtering. Simple checks such as removing results below a minimum similarity threshold.",
+        "3": "Constraint-guided filtering with type checking. Results are validated against schema constraints, entity types, and relationship types to filter implausible retrievals.",
+        "4": "Multi-stage verification with KG grounding. Retrieved results are cross-checked against the knowledge graph structure, with LLM-generated claims verified against retrieved evidence.",
+        "5": "Stepwise verification with confidence thresholds. Every claim in the generated output is individually verified against source evidence, with confidence thresholds determining inclusion and phrasing certainty."
+      }
+    }
+  ]
+}

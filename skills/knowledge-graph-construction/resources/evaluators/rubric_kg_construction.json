@@ -1,0 +1,62 @@
+{
+  "name": "Knowledge Graph Construction Quality Rubric",
+  "version": "1.0",
+  "criteria": [
+    {
+      "name": "Schema Completeness",
+      "weight": 0.25,
+      "levels": {
+        "1": "No schema defined",
+        "2": "Partial schema with gaps",
+        "3": "Complete schema covering domain entities",
+        "4": "Optimized schema with evolution strategy",
+        "5": "Best-practice schema with validation rules"
+      }
+    },
+    {
+      "name": "Entity Coverage",
+      "weight": 0.25,
+      "levels": {
+        "1": "Major entity types missing",
+        "2": "Core entities identified",
+        "3": "Comprehensive entity taxonomy",
+        "4": "Entities with attributes and normalization",
+        "5": "Full coverage with ontology alignment"
+      }
+    },
+    {
+      "name": "Relationship Fidelity",
+      "weight": 0.2,
+      "levels": {
+        "1": "Relationships undefined",
+        "2": "Basic binary relations only",
+        "3": "Rich relation types with context",
+        "4": "N-ary relations and event reification",
+        "5": "Full relational model with provenance"
+      }
+    },
+    {
+      "name": "Normalization Quality",
+      "weight": 0.15,
+      "levels": {
+        "1": "No normalization",
+        "2": "Basic deduplication",
+        "3": "Synonym merging with canonical forms",
+        "4": "Ontology-aligned normalization",
+        "5": "Automated normalization pipeline with validation"
+      }
+    },
+    {
+      "name": "Data Model Fit",
+      "weight": 0.15,
+      "levels": {
+        "1": "Wrong model for use case",
+        "2": "Model works but suboptimal",
+        "3": "Appropriate model with justification",
+        "4": "Optimal model with trade-off analysis",
+        "5": "Best-fit model with migration strategy"
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0
+}

@@ -1,0 +1,104 @@
+{
+  "name": "GraphRAG System Design Evaluator",
+  "description": "Evaluates GraphRAG system design specifications for architecture coherence, technology fit, domain alignment, scalability, and integration completeness",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Architecture Coherence",
+      "weight": 0.25,
+      "description": "The system architecture is well-defined with clear component roles, data flows, and integration points",
+      "scoring": {
+        "1": "No clear architecture; components listed without relationships or data flow; unclear how graph, vector, and LLM components connect",
+        "2": "Basic components identified (graph DB, vector DB, LLM) but data flow between them is vague; no retrieval strategy articulated; missing key components",
+        "3": "Well-defined architecture with clear data flow from ingestion through generation; graph and vector roles specified; retrieval strategy articulated; query routing logic described",
+        "4": "Optimized architecture with clear integration points between all components; hybrid retrieval strategy with fallback paths; caching strategy defined; error handling for each pipeline stage; synchronization between graph and vector indices addressed",
+        "5": "Production-ready architecture with monitoring and observability at each pipeline stage; health checks and circuit breakers; graceful degradation when components fail; performance profiling points; clear separation of concerns with well-defined interfaces between components; deployment architecture with HA and DR considerations"
+      }
+    },
+    {
+      "name": "Technology Fit",
+      "weight": 0.2,
+      "description": "Technology choices are appropriate for the requirements and justified with clear reasoning",
+      "scoring": {
+        "1": "Wrong technology choices for the requirements (e.g., RDF store for rapid prototyping, single-node DB for billion-entity scale); no justification for selections",
+        "2": "Technologies work but are suboptimal (e.g., using heavyweight framework for simple retrieval, managed services where cost is critical); minimal justification; obvious alternatives not considered",
+        "3": "Appropriate technologies for the requirements with clear justification; trade-offs between chosen and alternative options acknowledged; team expertise and budget constraints considered",
+        "4": "Optimal technology stack with detailed trade-off analysis for each component; version-specific recommendations; integration compatibility verified; migration path from prototyping to production stack defined",
+        "5": "Best-fit stack with comprehensive trade-off analysis, migration and evolution strategy, vendor risk assessment, cost modeling, performance benchmarks or estimates for each component, and fallback options if primary choice proves inadequate"
+      }
+    },
+    {
+      "name": "Domain Alignment",
+      "weight": 0.2,
+      "description": "The design is customized for the target domain with appropriate ontologies, patterns, and compliance measures",
+      "scoring": {
+        "1": "Generic design that ignores domain requirements; no domain-specific ontologies, entity types, or compliance considerations; could be any RAG system",
+        "2": "Basic domain awareness (mentions relevant entity types) but no formal ontology selection; compliance mentioned but not integrated into architecture; domain query patterns not analyzed",
+        "3": "Domain-specific ontologies selected and integrated (e.g., UMLS for healthcare, FIBO for finance); domain entity types and relationships defined in schema; compliance requirements identified with architectural implications",
+        "4": "Full domain customization with ontology-aligned schema, domain-specific retrieval patterns (e.g., temporal graphs for finance, layered patient graphs for healthcare), compliance controls integrated into pipeline (access control, audit logging, data governance)",
+        "5": "Domain-optimized design validated against domain expert requirements; domain-specific evaluation criteria defined; compliance controls tested against regulatory checklists; domain vocabulary integrated into entity extraction and query parsing; cross-domain patterns avoided where domain-specific patterns exist"
+      }
+    },
+    {
+      "name": "Scalability",
+      "weight": 0.2,
+      "description": "The design addresses scaling requirements with concrete plans for growth",
+      "scoring": {
+        "1": "No scalability consideration; no performance estimates; unclear how system handles growth in data volume or query load",
+        "2": "Basic performance estimates (e.g., 'should handle our current data') but no growth projections; scaling strategy not defined; single points of failure not identified",
+        "3": "Scalability plan with estimated data volumes, query throughput targets, and benchmarks for key operations (graph traversal latency, vector search p95); horizontal vs vertical scaling strategy defined for each component",
+        "4": "Distributed architecture with capacity planning for 2-3x growth; read replica strategy for graph and vector databases; caching layers defined with eviction policies; batch vs real-time processing decision justified; bottleneck analysis for each pipeline stage",
+        "5": "Auto-scaling architecture with performance SLAs (p50, p95, p99 latency targets); load testing plan; capacity model projecting costs at 1x, 5x, 10x scale; graceful degradation under load; sharding strategy for graph database; vector index partitioning plan; cost-performance optimization analysis"
+      }
+    },
+    {
+      "name": "Integration Completeness",
+      "weight": 0.15,
+      "description": "The end-to-end pipeline is fully specified from data ingestion through response generation with citations",
+      "scoring": {
+        "1": "Components described in isolation without connection; no end-to-end pipeline; unclear how data flows from source to user response",
+        "2": "Basic integration connecting major components (ingest to graph, graph to LLM) but missing key stages (no indexing strategy, no citation mechanism, no error handling between stages)",
+        "3": "Full pipeline specified from ingest through generation with citations; all seven stages (Ingest, Extract, Build KG, Index, Retrieve, Generate, Cite) defined; query routing logic connects retrieval strategies to query types",
+        "4": "End-to-end pipeline with error handling and fallback strategies at each stage; retry logic for extraction failures; graceful degradation when graph is unavailable (fall back to vector-only); context assembly strategy handles variable subgraph sizes; citation provenance chains fully specified",
+        "5": "Production pipeline with monitoring at each stage (extraction quality metrics, retrieval precision tracking, generation quality scoring); logging for debugging and quality improvement; continuous improvement loop (feedback from generation quality informs extraction and retrieval tuning); A/B testing framework for retrieval strategies; data quality checks between pipeline stages"
+      }
+    }
+  ],
+  "minimum_passing_score": 3.0,
+  "overall_assessment": {
+    "thresholds": {
+      "excellent": "Weighted average >= 4.5",
+      "very_good": "Weighted average >= 4.0",
+      "good": "Weighted average >= 3.5",
+      "acceptable": "Weighted average >= 3.0 (minimum passing)",
+      "needs_rework": "Weighted average < 3.0 (revise before delivering)"
+    }
+  },
+  "common_failure_modes": {
+    "architecture_without_data_flow": {
+      "symptom": "Components listed but no clear description of how data moves between them",
+      "fix": "Draw the pipeline: Ingest -> Extract -> Build KG -> Index -> Retrieve -> Generate -> Cite with specific data formats at each boundary"
+    },
+    "technology_without_justification": {
+      "symptom": "Stack chosen based on popularity rather than requirements fit",
+      "fix": "For each component, state the requirement it serves, why this technology fits, and what alternatives were considered"
+    },
+    "generic_domain_treatment": {
+      "symptom": "Design could work for any domain; no ontology, compliance, or domain-specific retrieval patterns",
+      "fix": "Interview domain experts, identify domain ontologies, analyze domain query patterns, and integrate compliance from the start"
+    },
+    "missing_graph_maintenance": {
+      "symptom": "Design covers initial build but not ongoing updates, schema evolution, or data quality",
+      "fix": "Define update strategy (incremental vs rebuild), schema evolution plan, data quality monitoring, and graph maintenance operations"
+    },
+    "no_fallback_strategy": {
+      "symptom": "System has no plan for when graph traversal fails, vector search returns low-quality results, or LLM hallucinates",
+      "fix": "Define fallback at each stage: graph unavailable -> vector-only; low retrieval confidence -> expand search; LLM uncertain -> surface raw graph data with disclaimer"
+    }
+  },
+  "usage_instructions": "Rate each criterion independently on the 1-5 scale. Calculate the weighted average using the specified weights (Architecture 0.25, Technology 0.2, Domain 0.2, Scalability 0.2, Integration 0.15). Minimum passing score is 3.0 weighted average. For production systems, aim for >= 4.0. Identify the lowest-scoring criterion and improve that section before delivering."
+}
