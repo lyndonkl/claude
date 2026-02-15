@@ -2,82 +2,82 @@
   "criteria": [
     {
       "name": "Completeness",
-      "description": "Are all required components present and comprehensive?",
+      "description": "Are all cognitive foundation components present (perception, memory, Gestalt, encoding, frameworks)?",
       "scores": {
-        "1": "Major components missing - skill has significant gaps in coverage",
-        "2": "Several important components missing or incomplete - limited utility",
-        "3": "Core components present but some supporting elements missing - adequate coverage",
+        "1": "Major cognitive principles missing - significant gaps in foundation coverage",
+        "2": "Several important principles missing or incomplete - limited utility",
+        "3": "Core principles present but some supporting elements missing - adequate coverage",
         "4": "Nearly complete with only minor gaps - good comprehensive coverage",
-        "5": "Exceptionally complete - all core and supporting components present with depth"
+        "5": "Exceptionally complete - all cognitive principles, frameworks, and domain guidance present"
       }
     },
     {
       "name": "Clarity",
-      "description": "Are instructions clear, unambiguous, and easy to understand?",
+      "description": "Are cognitive principles explained clearly with WHY grounding?",
       "scores": {
-        "1": "Instructions confusing or ambiguous - difficult to follow",
-        "2": "Some clarity but significant ambiguity remains - requires interpretation",
+        "1": "Principles confusing or presented as arbitrary rules without rationale",
+        "2": "Some clarity but WHY explanations insufficient - requires interpretation",
         "3": "Generally clear with occasional ambiguity - mostly understandable",
-        "4": "Clear and well-explained with minimal ambiguity - easy to follow",
-        "5": "Crystal clear with excellent explanations and examples - no ambiguity"
+        "4": "Clear with good WHY explanations - easy to understand and apply",
+        "5": "Crystal clear with excellent WHY grounding and research citations"
       }
     },
     {
       "name": "Actionability",
-      "description": "Can the skill be followed step-by-step and applied in practice?",
+      "description": "Can principles be applied directly to design decisions?",
       "scores": {
-        "1": "Theoretical only - no actionable steps or practical guidance",
-        "2": "Limited actionability - some steps but difficult to apply",
-        "3": "Adequately actionable - can be followed with some effort",
-        "4": "Highly actionable - clear steps and practical application guidance",
-        "5": "Exceptionally actionable - detailed steps, examples, and immediate applicability"
+        "1": "Theoretical only - no actionable guidance for designers",
+        "2": "Limited actionability - some guidance but difficult to apply",
+        "3": "Adequately actionable - can be applied with some effort",
+        "4": "Highly actionable - clear principles with practical application guidance",
+        "5": "Exceptionally actionable - principles immediately applicable with domain-specific examples"
       }
     },
     {
       "name": "Structure",
-      "description": "Is the skill logically organized with clear navigation?",
+      "description": "Is the skill logically organized with clear navigation between foundations, frameworks, and domains?",
       "scores": {
-        "1": "Poorly organized - difficult to navigate, no clear structure",
-        "2": "Weak organization - some structure but hard to find information",
+        "1": "Poorly organized - difficult to navigate between cognitive topics",
+        "2": "Weak organization - some structure but hard to find relevant principles",
         "3": "Adequately organized - logical structure, acceptable navigation",
-        "4": "Well organized - clear structure and easy navigation",
-        "5": "Exceptionally organized - intuitive structure, excellent navigation, linked resources"
+        "4": "Well organized - clear path from foundations to frameworks to domains",
+        "5": "Exceptionally organized - intuitive navigation, linked resources, clear cross-references"
       }
     },
     {
       "name": "Examples",
-      "description": "Are sufficient concrete examples provided to illustrate concepts?",
+      "description": "Are sufficient concrete examples provided to illustrate cognitive principles?",
       "scores": {
         "1": "No examples provided - purely theoretical",
-        "2": "Minimal examples - insufficient to illustrate concepts clearly",
-        "3": "Adequate examples - covers main concepts with at least one example each",
-        "4": "Good examples - multiple concrete illustrations across most concepts",
-        "5": "Excellent examples - comprehensive concrete illustrations for all major concepts"
+        "2": "Minimal examples - insufficient to illustrate principles clearly",
+        "3": "Adequate examples - covers main principles with at least one example each",
+        "4": "Good examples - multiple concrete illustrations across domains",
+        "5": "Excellent examples - comprehensive illustrations for all major principles and domains"
       }
     },
     {
       "name": "Triggers",
-      "description": "Is 'when to use' clearly defined with specific trigger conditions?",
+      "description": "Is when to use this skill vs related skills clearly defined?",
       "scores": {
-        "1": "No trigger conditions specified - unclear when to use",
-        "2": "Vague triggers - difficult to know when skill applies",
-        "3": "Adequate triggers - general guidance on when to use",
-        "4": "Clear triggers - specific conditions and scenarios well-defined",
-        "5": "Excellent triggers - comprehensive when/when-not guidance with concrete scenarios"
+        "1": "No trigger conditions - unclear when to use this vs evaluation/fallacy skills",
+        "2": "Vague triggers - difficult to know when this skill applies vs others",
+        "3": "Adequate triggers - general guidance on scope and boundaries",
+        "4": "Clear triggers - specific conditions with cross-references to related skills",
+        "5": "Excellent triggers - comprehensive when/when-not with explicit skill routing guidance"
       }
     },
     {
       "name": "Cognitive Foundation",
-      "description": "Are cognitive psychology principles well-explained and properly applied?",
+      "description": "Are cognitive psychology principles well-explained with research backing?",
       "scores": {
-        "1": "No cognitive foundation - purely prescriptive rules without explanation",
-        "2": "Weak cognitive foundation - limited explanation of underlying principles",
-        "3": "Adequate cognitive foundation - basic principles explained",
-        "4": "Strong cognitive foundation - principles well-explained with research backing",
-        "5": "Exceptional cognitive foundation - deep principles, research citations, WHY clearly explained"
+        "1": "No cognitive foundation - prescriptive rules without research grounding",
+        "2": "Weak foundation - limited research backing",
+        "3": "Adequate foundation - basic principles with some research references",
+        "4": "Strong foundation - principles well-explained with author citations",
+        "5": "Exceptional foundation - deep principles, research citations, clear WHY for every recommendation"
       }
     }
   ],
   "threshold": 3.5,
-  "passing_note": "Average score must be ≥ 3.5 for skill to be considered production-ready. Scores below 3 in any individual criterion require revision before deployment."
+  "passing_note": "Average score must be >= 3.5 for skill to be considered production-ready. Scores below 3 in any individual criterion require revision before deployment."
 }

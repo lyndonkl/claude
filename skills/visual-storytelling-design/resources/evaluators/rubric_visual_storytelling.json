@@ -1,0 +1,83 @@
+{
+  "criteria": [
+    {
+      "name": "Narrative Structure",
+      "description": "Does the story follow a clear arc (context → problem → evidence → resolution)?",
+      "scores": {
+        "1": "No narrative structure - data dump without story",
+        "2": "Weak structure - some story elements but disorganized",
+        "3": "Adequate structure - recognizable arc with some gaps",
+        "4": "Good structure - complete arc with clear transitions",
+        "5": "Excellent structure - compelling arc with hook, build, climax, and resolution"
+      }
+    },
+    {
+      "name": "Opening Effectiveness",
+      "description": "Does the opening create interest and establish stakes?",
+      "scores": {
+        "1": "No hook - starts with generic data description",
+        "2": "Weak opening - some context but no compelling hook",
+        "3": "Adequate opening - establishes topic but could be more engaging",
+        "4": "Good opening - clear hook with human impact or surprising finding",
+        "5": "Excellent opening - immediately compelling, establishes stakes and curiosity"
+      }
+    },
+    {
+      "name": "Annotation Quality",
+      "description": "Do annotations guide interpretation without cluttering?",
+      "scores": {
+        "1": "No annotations - charts left unguided",
+        "2": "Insufficient or excessive annotations",
+        "3": "Adequate annotations - main insights labeled",
+        "4": "Good annotations - key insights, events, and patterns clearly marked",
+        "5": "Excellent annotations - precise, well-placed, guiding reader through each insight"
+      }
+    },
+    {
+      "name": "Pattern Appropriateness",
+      "description": "Is the storytelling pattern (template and visual pattern) well-matched to the content?",
+      "scores": {
+        "1": "Wrong pattern - structure contradicts the data message",
+        "2": "Poor fit - pattern creates confusion or extra cognitive load",
+        "3": "Acceptable fit - pattern works but not optimal",
+        "4": "Good fit - pattern matches data type and audience well",
+        "5": "Optimal fit - pattern perfectly serves the narrative goal and audience"
+      }
+    },
+    {
+      "name": "Context and Framing",
+      "description": "Is sufficient context provided (baselines, comparisons, denominators) with balanced framing?",
+      "scores": {
+        "1": "No context - numbers without baselines or comparisons",
+        "2": "Minimal context - some reference points but key comparisons missing",
+        "3": "Adequate context - main comparisons present",
+        "4": "Good context - historical, peer, and benchmark comparisons with balanced framing",
+        "5": "Excellent context - comprehensive baselines, multiple frames offered, limitations noted"
+      }
+    },
+    {
+      "name": "Self-Containedness",
+      "description": "Can the story be understood without external knowledge or explanation?",
+      "scores": {
+        "1": "Requires extensive external knowledge - unintelligible alone",
+        "2": "Relies on significant assumed knowledge",
+        "3": "Mostly self-contained with some assumptions about audience",
+        "4": "Self-contained - all needed context included",
+        "5": "Fully self-contained - terminology defined, sources cited, methodology noted"
+      }
+    },
+    {
+      "name": "Takeaway Clarity",
+      "description": "Is the main insight clearly stated and supported by the evidence shown?",
+      "scores": {
+        "1": "No clear takeaway - reader left to guess the point",
+        "2": "Vague takeaway - insight implied but not stated",
+        "3": "Adequate takeaway - insight stated but could be clearer",
+        "4": "Clear takeaway - main insight prominently stated and well-supported",
+        "5": "Compelling takeaway - insight unmistakable, supported by evidence, with implications stated"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for story to be considered effective. Scores below 3 in Narrative Structure or Takeaway Clarity require revision before publication."
+}

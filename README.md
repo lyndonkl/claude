@@ -3,13 +3,13 @@
 [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
 
-> **Claude Code Plugin Available** — Install all 82 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 85 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills and orchestrating agents for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
 
 ## Overview
 
-This repository contains **82 skills** and **5 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **85 skills** and **6 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -170,7 +170,13 @@ This repository contains **82 skills** and **5 orchestrating agents** designed t
 
 **information-architecture** - Organize, structure, and label content for digital products to maximize findability and usability. Conduct card sorting (open, closed, hybrid) with 15-30 users to understand mental models, create MECE taxonomies (mutually exclusive, collectively exhaustive), design faceted navigation for large content sets, and validate structure with tree testing (≥70% success rate, ≤1.5× directness). Optimize navigation depth (3-4 levels, 5-9 items per level), strengthen information scent (clear labels, trigger words, breadcrumbs), and provide multiple access paths (browse, search, filters, tags). Includes content audit templates, sitemap design, metadata schemas, and governance frameworks. Covers e-commerce, documentation, SaaS, and knowledge base IA patterns.
 
-**cognitive-design** - Apply cognitive psychology principles to design interfaces, visualizations, and content that align with how humans perceive, attend, remember, and process information. Ground decisions in perception research (preattentive processing, visual search patterns F/Z, attention spotlight), memory constraints (working memory 4±1 chunks, recognition over recall), Gestalt principles (proximity, similarity, continuity, closure, figure-ground), visual encoding hierarchy (Cleveland & McGill: position > length > angle > area), and mental models (Jakob's Law, affordances, natural mapping). Apply three systematic frameworks: Cognitive Design Pyramid (4-tier quality assessment: perceptual efficiency → cognitive coherence → emotional engagement → behavioral alignment), Design Feedback Loop (5-stage interaction cycle: perceive → interpret → decide → act → learn), and Three-Layer Visualization Model (data quality → visual encoding → cognitive interpretation). Use evaluation checklists across 8 dimensions (visibility, hierarchy, chunking, simplicity, memory support, feedback, consistency, scanning patterns) and 4-criteria visualization audit (clarity, efficiency, integrity, aesthetics with 1-5 scoring). Covers UX/product design (forms, navigation, dashboards, mobile interfaces with standard UI patterns), data visualization (chart selection matching task to perceptual encoding, color theory for categorical/quantitative/diverging data, dashboard design), educational design (chunking lessons, multimedia learning principles, progressive disclosure, scaffolding), storytelling/journalism (narrative arc, cognitive fluency, information scent), and avoiding cognitive fallacies (chartjunk, rainbow colormaps, pie charts for comparison, truncated axes, decoration over data). All resource files under 500 lines for focused reference. Use when designing user interfaces, creating data visualizations, developing educational content, evaluating existing designs for cognitive issues, explaining design rationale with research backing, or teaching design principles.
+**cognitive-design** - Ground design decisions in cognitive psychology research — perception (preattentive processing, visual search patterns F/Z, attention spotlight), memory constraints (working memory 4±1 chunks, recognition over recall), Gestalt principles (proximity, similarity, continuity, closure, figure-ground), visual encoding hierarchy (Cleveland & McGill: position > length > angle > area), and mental models (Jakob's Law, affordances, natural mapping). Apply three systematic frameworks: Cognitive Design Pyramid (4-tier: perceptual efficiency → cognitive coherence → emotional engagement → behavioral alignment), Design Feedback Loop (perceive → interpret → decide → act → learn), and Three-Layer Visualization Model (data → visual encoding → cognitive interpretation). Covers domain-specific cognitive guidance for UX/product design, data visualization, and educational design. Use when learning cognitive foundations, applying frameworks to new designs, choosing visual encodings, or advocating for design decisions with research backing.
+
+**design-evaluation-audit** - Systematically evaluate existing designs for cognitive alignment using structured checklists and audit frameworks. Apply the Cognitive Design Checklist across 8 dimensions (visibility, hierarchy, chunking, simplicity, memory support, feedback, consistency, scanning patterns) and the Visualization Audit Framework with 4 criteria (clarity, efficiency, integrity, aesthetics scored 1-5). Includes severity classification (CRITICAL/HIGH/MEDIUM/LOW), fix prioritization, 5-second test, squint test, and practical evaluation examples. Use when conducting design reviews, critiques, quality assurance before launch, or diagnosing why a design feels "off."
+
+**cognitive-fallacies-guard** - Detect and prevent visual misleads, cognitive biases, and data integrity violations in visualizations, dashboards, and reports. Covers chartjunk and data-ink ratio violations, truncated axes, 3D distortion effects, cognitive bias exploitation (confirmation, anchoring, framing), cherry-picking time periods, non-uniform scales, missing context, and spurious correlations from dual-axis manipulation. Includes detection methodology with rapid scan checklist, anti-pattern library, integrity principles (honest axes, fair comparisons, complete context, accurate encoding, transparency), and reporting templates. Use when auditing visualizations for honesty, reviewing charts before publication, or preventing misleading data presentation.
+
+**visual-storytelling-design** - Create data journalism, presentations, infographics, and visual stories that communicate data insights through narrative structure. Apply cognitive storytelling techniques: narrative arc (Context → Problem → Evidence → Insight), annotation strategies (callouts, arrows, shaded regions, direct labels), scrollytelling (progressive revelation with sticky charts), framing and context (baselines, comparisons, denominator clarity), and visual metaphors. Includes story templates (step-by-step arc, magazine style, annotated chart, interactive exploration, presentation deck) and pattern library (before/after, timeline, geographic, rankings). Use when transforming data into compelling visual narratives.
 
 ### 🔒 Security & Risk
 
@@ -267,6 +273,7 @@ Orchestrating agents detect user needs and route to the appropriate specialized 
 | **superforecaster** | reference-class-forecasting, estimation-fermi, bayesian-reasoning-calibration, forecast-premortem, scout-mindset-bias-check | Forecasting, prediction, and probability estimation using a 5-phase pipeline: triage, decomposition, evidence updating, stress testing, and calibration. |
 | **geometric-deep-learning-architect** | symmetry-discovery-questionnaire, symmetry-group-identifier, symmetry-validation-suite, equivariant-architecture-designer, model-equivariance-auditor | Applying group theory and symmetry principles to neural network design - symmetry discovery, validation, equivariant architecture design, and model verification. |
 | **graphrag-specialist** | knowledge-graph-construction, embedding-fusion-strategy, retrieval-search-orchestration, graphrag-system-design, graphrag-evaluation | Knowledge graph construction and retrieval strategies for LLM reasoning - GraphRAG patterns, embedding strategies, retrieval orchestration, and technology stack recommendations. |
+| **cognitive-design-architect** | cognitive-design, information-architecture, d3-visualization, visual-storytelling-design, design-evaluation-audit, cognitive-fallacies-guard | Cognitive design principles, visual design best practices, and information presentation. Guides through cognitive foundations, information architecture, D3 visualization, storytelling, evaluation, and fallacy prevention. |
 
 ## Installation
 
@@ -284,7 +291,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 82 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 85 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -360,20 +367,22 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 54 skills
+**Production Ready**: 57 skills
 - ✓ 33 refined skills from standard collection
 - ✓ 4 writing skills (structure planning, revision, stickiness, pre-publish checklist)
 - ✓ 1 custom skill (chef-assistant)
 - ✓ 6 scientific writing skills (manuscript review, grants, letters, emails, clarity, career docs)
 - ✓ 5 geometric deep learning skills (symmetry discovery, group identification, validation, architecture design, model auditing)
 - ✓ 5 GraphRAG skills (KG construction, embedding fusion, retrieval orchestration, system design, evaluation)
+- ✓ 3 cognitive design skills (design evaluation audit, cognitive fallacies guard, visual storytelling design)
 
-**Orchestrating Agents**: 5 agents
+**Orchestrating Agents**: 6 agents
 - ✓ writing-assistant (writing pipeline)
 - ✓ scientific-writing-editor (academic writing)
 - ✓ superforecaster (prediction and forecasting)
 - ✓ geometric-deep-learning-architect (symmetry-aware neural networks)
 - ✓ graphrag-specialist (knowledge graph retrieval)
+- ✓ cognitive-design-architect (cognitive design and visualization)
 
 **In Development**: 23 skills remaining from standard collection
 
@@ -443,4 +452,4 @@ Skills draw from established frameworks and expert practitioners:
 
 ---
 
-**Status**: 82 production-ready skills, 5 orchestrating agents | Active development | Last updated: 2026-02-10
+**Status**: 85 production-ready skills, 6 orchestrating agents | Active development | Last updated: 2026-02-14
