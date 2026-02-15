@@ -1,0 +1,83 @@
+{
+  "criteria": [
+    {
+      "name": "Visual Mislead Detection",
+      "description": "Are visual distortions identified (truncated axes, 3D effects, volume illusions, chartjunk)?",
+      "scores": {
+        "1": "No visual misleads checked - perceptual distortions ignored",
+        "2": "Checked 1-2 types - major categories missed",
+        "3": "Checked most common types - adequate coverage",
+        "4": "Comprehensive check of all visual mislead categories",
+        "5": "Exhaustive check including subtle distortions with specific impact analysis"
+      }
+    },
+    {
+      "name": "Cognitive Bias Detection",
+      "description": "Are cognitive biases identified (confirmation bias, anchoring, framing effects)?",
+      "scores": {
+        "1": "No bias checking performed",
+        "2": "Checked for one type of bias only",
+        "3": "Checked for major biases - adequate coverage",
+        "4": "Comprehensive bias check with specific examples identified",
+        "5": "Thorough bias analysis with alternative interpretations and mitigation strategies"
+      }
+    },
+    {
+      "name": "Data Integrity Verification",
+      "description": "Are data integrity issues flagged (cherry-picking, missing context, non-uniform scales)?",
+      "scores": {
+        "1": "No integrity checks performed",
+        "2": "Surface-level checks - major issues could be missed",
+        "3": "Core integrity checks performed - time periods, scales, context",
+        "4": "Thorough integrity verification with denominator and baseline checks",
+        "5": "Comprehensive integrity audit including source verification and limitation acknowledgment"
+      }
+    },
+    {
+      "name": "Quick Scan Coverage",
+      "description": "Was the 10-item quick scan checklist applied systematically?",
+      "scores": {
+        "1": "No systematic scan - ad hoc observations only",
+        "2": "Partial scan - fewer than half the items checked",
+        "3": "Most items checked (6-8 of 10)",
+        "4": "All 10 items checked with pass/fail noted",
+        "5": "All 10 items checked with detailed evidence and scoring"
+      }
+    },
+    {
+      "name": "Severity Accuracy",
+      "description": "Are findings classified with correct severity (Critical for integrity, High for perception, Medium/Low for efficiency)?",
+      "scores": {
+        "1": "No severity classification",
+        "2": "Severity assigned but integrity issues underrated",
+        "3": "Generally correct severity with minor misclassifications",
+        "4": "Accurate severity following the integrity > clarity > efficiency hierarchy",
+        "5": "Precise severity with clear justification and cognitive impact for each level"
+      }
+    },
+    {
+      "name": "Fix Specificity",
+      "description": "Are recommended fixes specific and actionable (not just 'improve this')?",
+      "scores": {
+        "1": "No fixes recommended",
+        "2": "Vague suggestions without specifics",
+        "3": "Adequate fixes - generally actionable",
+        "4": "Specific fixes with clear before/after guidance",
+        "5": "Detailed fixes with priority, effort estimate, and verification criteria"
+      }
+    },
+    {
+      "name": "Report Completeness",
+      "description": "Does the audit report follow the structured template with summary and prioritized findings?",
+      "scores": {
+        "1": "Unstructured notes - no report format",
+        "2": "Partial structure - missing summary or prioritization",
+        "3": "Adequate structure - findings documented with some organization",
+        "4": "Well-structured report with summary, prioritized findings, and assessment",
+        "5": "Complete audit report with summary, all findings in template format, and clear pass/conditional/fail assessment"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for audit to be considered thorough. Scores below 3 in Visual Mislead Detection or Data Integrity Verification require re-audit."
+}

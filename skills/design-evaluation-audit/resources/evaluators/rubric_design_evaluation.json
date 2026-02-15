@@ -1,0 +1,83 @@
+{
+  "criteria": [
+    {
+      "name": "Checklist Coverage",
+      "description": "Does the evaluation address all 8 cognitive design dimensions (visibility, hierarchy, chunking, simplicity, memory, feedback, consistency, scanning)?",
+      "scores": {
+        "1": "Evaluates fewer than 3 dimensions - major gaps in assessment",
+        "2": "Evaluates 3-4 dimensions - significant dimensions missed",
+        "3": "Evaluates 5-6 dimensions - core areas covered, some gaps",
+        "4": "Evaluates 7 dimensions - nearly comprehensive",
+        "5": "All 8 dimensions evaluated with specific findings for each"
+      }
+    },
+    {
+      "name": "Visualization Audit Rigor",
+      "description": "Are all 4 audit criteria (clarity, efficiency, integrity, aesthetics) scored with evidence?",
+      "scores": {
+        "1": "No structured scoring - subjective opinions without framework",
+        "2": "Partial scoring - some criteria addressed without evidence",
+        "3": "All 4 criteria scored but evidence thin for some",
+        "4": "All 4 criteria scored with supporting evidence",
+        "5": "All 4 criteria scored with detailed evidence, test results, and specific examples"
+      }
+    },
+    {
+      "name": "Severity Classification",
+      "description": "Are findings properly classified by severity (Critical/High/Medium/Low)?",
+      "scores": {
+        "1": "No severity classification - flat list of issues",
+        "2": "Inconsistent severity - integrity issues not flagged as critical",
+        "3": "Generally correct severity levels with minor misclassifications",
+        "4": "Accurate severity with proper prioritization (integrity first)",
+        "5": "Precise severity with clear justification for each classification"
+      }
+    },
+    {
+      "name": "Fix Recommendations",
+      "description": "Are specific, actionable fixes provided for each finding?",
+      "scores": {
+        "1": "No fixes provided - problems identified without solutions",
+        "2": "Vague fixes - general suggestions without specifics",
+        "3": "Adequate fixes - actionable for most findings",
+        "4": "Good fixes - specific and prioritized with effort estimates",
+        "5": "Excellent fixes - specific, prioritized, with before/after examples"
+      }
+    },
+    {
+      "name": "Evidence Quality",
+      "description": "Are findings supported by specific observations rather than general impressions?",
+      "scores": {
+        "1": "No evidence - assertions without supporting observations",
+        "2": "Weak evidence - vague references to issues",
+        "3": "Adequate evidence - most findings have specific observations",
+        "4": "Strong evidence - all findings cite specific design elements",
+        "5": "Excellent evidence - specific elements cited with cognitive impact explained"
+      }
+    },
+    {
+      "name": "Cognitive Grounding",
+      "description": "Are evaluation criteria grounded in cognitive science principles (not just aesthetic preference)?",
+      "scores": {
+        "1": "Pure aesthetics - no cognitive science basis",
+        "2": "Limited grounding - occasional reference to principles",
+        "3": "Adequate grounding - main findings connected to cognitive principles",
+        "4": "Good grounding - findings consistently tied to perception, memory, or attention research",
+        "5": "Excellent grounding - every finding connected to specific cognitive mechanism with WHY explanation"
+      }
+    },
+    {
+      "name": "Completeness",
+      "description": "Does the evaluation cover the full design artifact without overlooking sections?",
+      "scores": {
+        "1": "Evaluated only a fragment - major sections ignored",
+        "2": "Partial evaluation - some charts or sections skipped",
+        "3": "Most of the design evaluated - minor areas missed",
+        "4": "Complete evaluation of all visible design elements",
+        "5": "Comprehensive evaluation including edge cases, responsive views, and interaction states"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for evaluation to be considered thorough. Scores below 3 in Severity Classification or Evidence Quality require revision."
+}
