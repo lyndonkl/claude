@@ -1,0 +1,193 @@
+{
+  "criteria": [
+    {
+      "name": "Multiple Definition Consistency",
+      "1": "Numerator and denominator go to different claimholders (e.g., EV / Net Income), or multiples defined inconsistently across firms (mixing trailing and forward PE)",
+      "3": "Numerator and denominator match claimholders, time period stated, but dilution treatment or accounting consistency not verified across all peers",
+      "5": "All multiples precisely defined with matching claimholders, uniform time period (TTM or forward), consistent dilution treatment (diluted shares), and accounting adjustments documented for cross-firm comparability"
+    },
+    {
+      "name": "Comparable Universe Quality",
+      "1": "Peers selected only by industry classification with no regard for growth, risk, or profitability differences. Fewer than 5 peers or obviously mismatched firms included",
+      "3": "Peers share the same industry and approximate size. Some screening for growth or profitability. 8-15 firms with brief rationale for inclusion",
+      "5": "Peers screened on industry, size, growth rate, risk profile, business model, and margin structure. 15+ firms for regression. Exclusions documented with rationale. Selection criteria checklist completed"
+    },
+    {
+      "name": "Distribution Analysis",
+      "1": "Only the mean or a single peer is used as the comparison point. No sense of how the target fits within the distribution",
+      "3": "Mean and median reported. Target's position noted (above or below median). Some mention of range or spread",
+      "5": "Full distribution statistics (mean, median, quartiles, standard deviation, range, count). Skewness noted and median used as primary central tendency for skewed distributions. Target's percentile rank identified. Outliers flagged and treated appropriately"
+    },
+    {
+      "name": "Fundamental Driver Linkage",
+      "1": "Multiple compared to peers with no reference to what drives it. No mention of growth, risk, or profitability as explanatory variables",
+      "3": "Primary fundamental driver identified (e.g., growth for PE, ROE for PBV). Some discussion of whether target's premium or discount is justified by fundamentals",
+      "5": "Fundamental driver equation stated for each multiple. Target's position on each driver (growth, risk, profitability) compared to peers. Clear assessment of whether the multiple premium or discount is consistent with fundamentals. Every multiple explicitly connected to its DCF derivation"
+    },
+    {
+      "name": "Simple Comparison Rigor",
+      "1": "Target multiple compared to peer average with no adjustment for differences. Conclusion is simply 'above average = expensive'",
+      "3": "Target compared to peer median with qualitative acknowledgment of growth or risk differences. Some adjustment attempted",
+      "5": "Target compared to peer median with explicit qualitative adjustments for each fundamental driver (growth, risk, profitability). Adjusted fair multiple computed. Direction and approximate magnitude of each adjustment justified"
+    },
+    {
+      "name": "Regression Quality",
+      "1": "No regression attempted, or regression run with fewer than 10 observations, or regression variables inconsistent with fundamental driver theory",
+      "3": "Regression run with 15+ observations and correct driver variables. R-squared and coefficients reported. Coefficient signs checked against economic intuition",
+      "5": "Regression well-specified with appropriate driver variables, 15+ observations, R-squared and adjusted R-squared reported, coefficient signs match theory, t-statistics checked for significance, outlier sensitivity tested, prediction interval acknowledged. Limitations (multicollinearity, nonlinearity, sample size) discussed"
+    },
+    {
+      "name": "Implied Value Calculation",
+      "1": "No implied value calculated from the multiple analysis. Analysis stops at 'the multiple is high or low' without converting to a price",
+      "3": "Predicted multiple converted to implied price for at least one multiple. Current price compared. Over/undervaluation percentage computed",
+      "5": "Implied price computed from multiple methods (simple comparison and regression) and multiple multiples (PE, EV/EBITDA). For firm multiples, equity bridge correctly applied (subtract debt, add cash). Results summarized in a multi-multiple table with consistency check"
+    },
+    {
+      "name": "Intrinsic vs. Relative Reconciliation",
+      "1": "Relative valuation presented as the final word on value with no mention of its limitations or relationship to intrinsic valuation",
+      "3": "Caveat noted that relative valuation is relative to peers, not absolute. Some mention that DCF would complement the analysis",
+      "5": "Clear distinction between relative pricing (cheap vs. expensive relative to peers) and absolute valuation (above or below intrinsic value). Explicit caveat that sector-level mispricing is not captured. If DCF estimate is available, relative and intrinsic results compared and divergences explained"
+    }
+  ],
+  "guidance_by_type": {
+    "PE Ratio Analysis": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "PE defined consistently (trailing or forward, diluted shares) across all peers",
+        "Peers screened for positive earnings; firms with negative EPS excluded",
+        "Fundamental driver equation stated: PE = Payout x (1+g) / (ke - g)",
+        "Regression includes expected growth and beta (or cost of equity) as independent variables",
+        "Cyclical earnings addressed: use normalized PE for cyclical industries"
+      ],
+      "common_pitfalls": [
+        "Mixing trailing and forward PE across firms",
+        "Using mean PE in a right-skewed distribution instead of median",
+        "Ignoring that high PE may reflect high growth, not overvaluation",
+        "Including firms with negative earnings (negative PE is meaningless)"
+      ]
+    },
+    "EV/EBITDA Analysis": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Enterprise value correctly computed (Market Cap + Debt - Cash) for all firms",
+        "EBITDA consistently calculated (before or after lease adjustments applied uniformly)",
+        "Fundamental drivers identified: tax rate, depreciation/EBITDA, reinvestment, WACC, growth",
+        "Capex differences between firms acknowledged (EBITDA masks capex variation)",
+        "Regression includes growth, tax rate, and reinvestment rate as variables"
+      ],
+      "common_pitfalls": [
+        "Using book value of debt instead of market value in EV calculation",
+        "Ignoring that two firms with same EBITDA but different capex should trade at different multiples",
+        "Not adjusting for operating lease capitalization consistently",
+        "Comparing EV/EBITDA across industries with very different capital intensity"
+      ]
+    },
+    "PBV Analysis": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "PBV defined using most recent book value per share",
+        "ROE is the primary regression variable (PBV = (ROE - g) / (ke - g))",
+        "Financial services firms valued using PBV, not EV/EBITDA",
+        "Book value accounting differences addressed (GAAP vs IFRS, intangible capitalization)",
+        "Firms with negative book value excluded"
+      ],
+      "common_pitfalls": [
+        "Using PBV without controlling for ROE differences",
+        "Applying PBV to firms where book value has little economic meaning (light-asset tech companies)",
+        "Ignoring that buybacks can shrink book value and inflate PBV without changing firm value",
+        "Comparing PBV across different accounting regimes without adjustment"
+      ]
+    },
+    "EV/Sales Analysis": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Operating margin is the primary regression variable (margin is the dominant driver of EV/Sales)",
+        "Revenue defined consistently (net revenue, same fiscal period)",
+        "Used appropriately for negative-earnings firms where PE and EV/EBITDA are unavailable",
+        "Acknowledgment that low EV/Sales may reflect low margins, not undervaluation",
+        "Expected revenue growth included as secondary regression variable"
+      ],
+      "common_pitfalls": [
+        "Concluding a firm is 'cheap' on EV/Sales without checking its margins",
+        "Using EV/Sales for profitable firms where PE or EV/EBITDA would be more informative",
+        "Not controlling for margin differences across peers",
+        "Ignoring that EV/Sales is most useful for unprofitable or early-stage companies"
+      ]
+    }
+  },
+  "guidance_by_approach": {
+    "Simple Peer Comparison": {
+      "target_score": 3.5,
+      "description": "Qualitative comparison of target's multiple to peer median, with directional adjustments for fundamental differences",
+      "key_requirements": [
+        "Peer median (not mean) used as the benchmark",
+        "Fundamental drivers compared: growth, risk, profitability",
+        "Qualitative adjustments stated with directional reasoning",
+        "Implied value calculated from adjusted multiple"
+      ],
+      "when_to_use": "Small peer set (5-15 firms), quick analysis, or as sanity check alongside regression"
+    },
+    "Sector Regression": {
+      "target_score": 4.2,
+      "description": "OLS regression of multiple against fundamental drivers across sector, producing a predicted multiple for the target",
+      "key_requirements": [
+        "Sample of 15+ firms with consistent data",
+        "Driver variables match fundamental theory for the multiple",
+        "R-squared, coefficient signs, and t-statistics reported and interpreted",
+        "Predicted multiple computed and compared to actual",
+        "Limitations acknowledged (sample size, multicollinearity, nonlinearity)"
+      ],
+      "when_to_use": "Sufficient peer set size (15+), quantitative rigor desired, or when qualitative comparison is insufficient to resolve whether premium/discount is justified"
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Claimholder mismatch in multiple definition",
+      "symptom": "Enterprise value divided by net income, or price divided by EBITDA",
+      "detection": "Check whether numerator and denominator go to the same claimholders (equity or firm)",
+      "fix": "Equity multiples: price or market cap in numerator, equity metric in denominator. Firm multiples: EV in numerator, firm metric in denominator"
+    },
+    {
+      "failure": "Mean used instead of median for skewed distributions",
+      "symptom": "PE sector 'average' of 35x used as benchmark when median is 22x and a few outliers at 80x+ pull the mean up",
+      "detection": "Compare mean to median. If they differ by more than 15-20%, the distribution is skewed",
+      "fix": "Use median as the primary central tendency for PE and PBV distributions. Report both mean and median but base comparisons on the median"
+    },
+    {
+      "failure": "No fundamental driver analysis",
+      "symptom": "Conclusion that a firm is 'overvalued' at PE 30x vs. peer median 20x, without noting the firm's growth rate is double the peer median",
+      "detection": "Ask whether the comparison controls for growth, risk, and profitability differences",
+      "fix": "Write the fundamental driver equation. Compare the target's position on each driver to the peer median. Assess whether the multiple premium or discount is consistent with fundamentals"
+    },
+    {
+      "failure": "Regression with too few observations",
+      "symptom": "Regression with 8 firms, R-squared of 0.95 (overfitting), and coefficients that are not statistically significant",
+      "detection": "Check sample size (N < 15) and degrees of freedom (N minus number of predictors < 10)",
+      "fix": "Use simple peer comparison when sample size is below 15. If regression is desired, reduce the number of independent variables to preserve degrees of freedom"
+    },
+    {
+      "failure": "Relative conclusion stated as absolute",
+      "symptom": "Concluding the stock is 'undervalued' based solely on being below the sector median multiple, without acknowledging the sector itself may be overpriced",
+      "detection": "Check whether the conclusion distinguishes between 'cheap relative to peers' and 'below intrinsic value'",
+      "fix": "State the conclusion as relative: 'The stock appears cheap relative to sector peers after controlling for growth and risk.' Add caveat about sector-level pricing and recommend cross-checking with intrinsic (DCF) valuation"
+    },
+    {
+      "failure": "Missing equity bridge for firm multiples",
+      "symptom": "EV/EBITDA regression produces predicted EV, but no conversion to implied equity value per share (debt not subtracted, cash not added)",
+      "detection": "Check whether the final output is an implied share price or just an implied enterprise value",
+      "fix": "For firm multiples: Implied Equity Value = Implied EV - Debt + Cash. Then divide by diluted shares to get implied price per share"
+    },
+    {
+      "failure": "Inconsistent multiple definitions across peers",
+      "symptom": "Some peers use trailing PE, others forward PE. Some include lease-adjusted EBITDA, others do not",
+      "detection": "Check the definition column or footnotes in the peer comparison table",
+      "fix": "Standardize: choose one definition (e.g., trailing 12-month diluted PE) and apply it uniformly to all firms. Document adjustments made for consistency"
+    },
+    {
+      "failure": "Ignoring negative-denominator firms",
+      "symptom": "Firms with negative earnings included in PE analysis, producing negative PE ratios that distort the distribution",
+      "detection": "Check for negative values in the denominator column of the peer table",
+      "fix": "Exclude firms with negative denominators from the multiple analysis. Document the number excluded and consider whether the high exclusion rate suggests a different multiple should be used"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "criteria": [
+    {
+      "name": "Current Structure Accuracy",
+      "1": "Current debt ratio, cost of capital components, or beta are missing or incorrectly computed. Market values not used for weights.",
+      "3": "Current capital structure documented with debt ratio and basic cost of capital. Market values used but some inputs approximate or unsourced.",
+      "5": "Current structure fully documented with market-value debt, equity, and capital weights. All cost of capital inputs (riskfree rate, ERP, beta, tax rate) sourced and justified. Interest coverage and current rating verified."
+    },
+    {
+      "name": "WACC Schedule Completeness",
+      "1": "WACC computed at only one or two debt ratios, or key columns missing (beta, rating, spread). Schedule cannot identify a minimum.",
+      "3": "WACC computed at 5+ debt ratios covering a reasonable range. All columns present (levered beta, cost of equity, coverage, rating, spread, cost of debt, WACC). Some minor gaps or approximations.",
+      "5": "Full WACC schedule from 0% to at least 70% debt in 10% increments. Every column computed correctly and consistently. Circular reference between firm value and dollar debt addressed (iterative or noted). Tax shield impairment at high leverage handled."
+    },
+    {
+      "name": "Optimal Ratio Identification",
+      "1": "No clear minimum identified, or minimum stated without supporting schedule. Optimal ratio asserted without computation.",
+      "3": "Minimum WACC identified from schedule. Optimal debt ratio stated. Some discussion of whether the minimum is flat or steep.",
+      "5": "Minimum WACC clearly identified with the corresponding debt ratio. Shape of the WACC curve discussed (flat vs steep minimum, range of near-optimal ratios). Sensitivity of optimal to key inputs (ERP, tax rate, spread assumptions) noted."
+    },
+    {
+      "name": "Synthetic Rating Consistency",
+      "1": "Ratings assigned without reference to interest coverage, or coverage-to-rating mapping inconsistent across debt ratios.",
+      "3": "Synthetic ratings derived from interest coverage using a lookup table. Ratings generally consistent with coverage levels. Appropriate table used for firm size.",
+      "5": "Ratings rigorously derived from interest coverage at each debt level using the appropriate table (large vs small firm). Rating transitions (investment grade to speculative) flagged. Default spread consistent with rating. When coverage falls below 1x, tax shield impairment addressed."
+    },
+    {
+      "name": "Value Enhancement Calculation",
+      "1": "No value enhancement computed. Current vs optimal comparison missing or incorrectly calculated.",
+      "3": "Value enhancement computed as difference in firm value at current vs optimal WACC. Magnitude assessed (material vs immaterial).",
+      "5": "Value enhancement clearly computed with formula shown. Result contextualized as percentage of firm value. Assessment of whether enhancement justifies restructuring costs. Transaction costs (underwriting fees, repurchase premium) considered against value gain."
+    },
+    {
+      "name": "Debt Type Matching",
+      "1": "No debt type recommendation, or generic recommendation without reference to company characteristics.",
+      "3": "Debt type recommended with attention to at least two of: maturity (matched to asset life), currency (matched to revenue), rate structure (fixed vs floating). Rationale provided.",
+      "5": "Comprehensive debt type recommendation covering maturity, currency, rate structure, and instrument type. Each matched to specific company characteristics (asset duration, revenue currency mix, cash flow volatility). Existing debt profile compared to recommended profile."
+    },
+    {
+      "name": "Implementation Feasibility",
+      "1": "No implementation path. Analysis ends at 'optimal is X%' without actionable steps.",
+      "3": "Implementation path outlined (gradual or immediate). Timeline and basic steps described. Some consideration of market conditions.",
+      "5": "Detailed implementation path with phased timeline, specific actions at each stage, monitoring checkpoints, and contingency for adverse conditions. Choice between gradual and immediate approach justified. Signaling effects and market reaction considered."
+    },
+    {
+      "name": "Industry Comparison",
+      "1": "No comparison to industry norms. Optimal ratio presented in isolation.",
+      "3": "Optimal compared to industry average debt ratio. Deviation from industry norm noted.",
+      "5": "Optimal compared to industry median and quartile range. Deviation from industry norm explained with specific reasons (higher/lower tax rate, more/less volatile cash flows, different asset tangibility). Industry-specific considerations (e.g., regulatory capital for utilities, covenant norms) addressed."
+    }
+  ],
+  "guidance_by_type": {
+    "Under-Levered Company": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Current debt ratio documented well below optimal, with WACC schedule showing clear value enhancement from adding debt",
+        "Specific debt issuance recommendation: amount, maturity, currency, rate structure, and instrument type",
+        "Share repurchase or special dividend plan to deploy debt proceeds",
+        "Implementation timeline (gradual or immediate) with rationale for pace",
+        "Industry comparison confirming the company is below peers"
+      ],
+      "common_pitfalls": [
+        "Ignoring that the company may be under-levered by choice (growth optionality, acquisition flexibility)",
+        "Recommending debt without checking whether the stock is overvalued (repurchasing overvalued stock destroys value)",
+        "Not considering whether the company has NOLs that reduce the tax shield value"
+      ]
+    },
+    "Over-Levered Company": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Current debt ratio documented above optimal, with WACC schedule showing WACC could decline by reducing debt",
+        "Path to de-leverage: asset sales, equity issuance, or cash flow application to debt repayment",
+        "Priority ordering of debt to retire (highest cost first, nearest maturity first)",
+        "Assessment of covenant compliance and refinancing risk",
+        "Realistic timeline for de-leveraging given cash flow generation capacity"
+      ],
+      "common_pitfalls": [
+        "Recommending equity issuance without noting the dilution and signaling costs",
+        "Not considering whether asset sales would impair core operations",
+        "Overlooking that debt reduction may trigger prepayment penalties"
+      ]
+    },
+    "Near-Optimal Company": {
+      "target_score": 3.5,
+      "key_requirements": [
+        "WACC schedule showing current structure is within 5 pp of optimal and WACC difference is less than 20 bps",
+        "Focus shifts from debt ratio optimization to debt type matching and refinancing opportunities",
+        "Audit of existing debt profile against matching criteria (maturity, currency, rate)",
+        "Identification of refinancing opportunities to improve terms without changing leverage"
+      ],
+      "common_pitfalls": [
+        "Recommending restructuring when the value enhancement is immaterial",
+        "Ignoring debt type mismatch just because the debt ratio is near optimal",
+        "Not reassessing periodically (optimal shifts as inputs change)"
+      ]
+    },
+    "Private Company": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Unlevered beta estimated from public comparable firms (not regression on illiquid shares)",
+        "Market value of equity estimated (or book value used with explicit caveat)",
+        "Debt capacity may be lower than public firms due to limited capital market access",
+        "Bank debt and private placements emphasized over public bonds",
+        "Owner's diversification status considered (total beta if undiversified)"
+      ],
+      "common_pitfalls": [
+        "Using book values without adjustment for a company with no market price",
+        "Applying the same spread table used for public firms without small-firm adjustment",
+        "Ignoring personal guarantee requirements that effectively reduce owner's diversification"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Book values used instead of market values for capital structure weights",
+      "symptom": "Debt ratio computed from balance sheet (BV of debt / (BV of debt + BV of equity)). For most firms, BV of equity understates market value, inflating the debt ratio.",
+      "detection": "Check if equity value is based on share price x shares, or on book value of equity from balance sheet.",
+      "fix": "Use market capitalization for equity. Use market value of debt if traded bonds exist; otherwise book value of debt is an acceptable approximation."
+    },
+    {
+      "failure": "Effective tax rate used instead of marginal",
+      "symptom": "Tax rate for the tax shield is based on taxes paid / pre-tax income. Effective rates are often lower due to deferrals, credits, or NOLs.",
+      "detection": "Check tax rate source. If it is from the income statement tax provision divided by pre-tax income, it is the effective rate.",
+      "fix": "Use the marginal tax rate for the jurisdiction (federal + state for US). Adjust downward only if the company has material NOLs that will persist."
+    },
+    {
+      "failure": "Ignoring the circularity in the WACC schedule",
+      "symptom": "Dollar debt at each debt ratio is computed as a percentage of a fixed firm value, but the firm value itself should change as WACC changes.",
+      "detection": "Firm value used to compute dollar debt is the same across all rows of the schedule.",
+      "fix": "For a quick analysis, using current firm value across all rows is acceptable and standard practice. For precision, iterate: compute WACC, recompute firm value, re-derive dollar debt, and re-run until convergence."
+    },
+    {
+      "failure": "No consideration of indirect bankruptcy costs",
+      "symptom": "Optimal debt ratio is high (50%+) for a company where customers or employees are sensitive to financial health, such as an airline, warranty provider, or professional services firm.",
+      "detection": "Ask whether the company's stakeholders would reduce engagement if the firm appeared financially distressed.",
+      "fix": "For companies with high indirect bankruptcy costs, apply a haircut to the computed optimal (e.g., reduce by 5-10 pp) or add an explicit indirect cost estimate to the framework."
+    },
+    {
+      "failure": "Debt type recommendation disconnected from company profile",
+      "symptom": "Recommended debt maturity, currency, or rate structure does not match the company's assets, revenues, or cash flow pattern.",
+      "detection": "Compare recommended debt type to the asset duration, revenue currency, and cash flow volatility documented in the inputs.",
+      "fix": "Complete the debt type matching worksheet in the template. Match each dimension of debt to the corresponding company characteristic."
+    },
+    {
+      "failure": "No implementation path",
+      "symptom": "Analysis concludes with the optimal ratio but provides no guidance on how to get there, over what timeline, or with what specific actions.",
+      "detection": "Check if the analysis includes specific steps, timeline, and phasing for the capital structure change.",
+      "fix": "Develop a phased implementation plan. Choose gradual or immediate approach based on the size of the gap and market conditions. Include monitoring checkpoints."
+    },
+    {
+      "failure": "WACC schedule only covers a narrow range",
+      "symptom": "WACC computed at 3-4 debt ratios near the current ratio, missing the full picture.",
+      "detection": "Schedule does not cover from 0% to at least 60-70% debt.",
+      "fix": "Compute WACC at every 10% increment from 0% to at least 70% (or 90% for completeness). The optimal may be far from the current ratio."
+    },
+    {
+      "failure": "Tax shield overstated at high leverage",
+      "symptom": "At very high debt ratios, the model assumes full tax deductibility of interest even when interest expense exceeds EBIT.",
+      "detection": "Check whether interest coverage falls below 1.0x at any debt ratio in the schedule.",
+      "fix": "When interest expense exceeds EBIT, cap the tax-deductible interest at EBIT. The excess interest provides no tax shield (or provides a deferred shield if NOLs are created)."
+    }
+  ]
+}

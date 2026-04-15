@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "name": "Data Completeness",
+      "1": "Missing one or more financial statements, key line items absent, no supplemental data (R&D history, lease schedule)",
+      "3": "All three statements collected with major line items, some supplemental data present, at least one year of history",
+      "5": "All three statements with complete line items for 2+ years, R&D history for N+1 years, lease commitment schedule, effective and marginal tax rates documented, SBC identified"
+    },
+    {
+      "name": "R&D Capitalization",
+      "1": "R&D not considered for capitalization despite being material, or capitalized with no justification for asset life, amortization schedule missing",
+      "3": "R&D capitalized with reasonable asset life, amortization schedule computed, operating income adjusted, but minor errors or incomplete documentation",
+      "5": "R&D capitalized with industry-appropriate asset life justified, complete amortization schedule showing each prior year, research asset computed, operating income and balance sheet both adjusted, tax effect accounted for"
+    },
+    {
+      "name": "Operating Lease Conversion",
+      "1": "Operating leases ignored despite material commitments, or converted without discounting, or wrong discount rate used",
+      "3": "Lease commitments discounted at a reasonable rate, debt equivalent computed, balance sheet adjusted, but income statement adjustment incomplete or discount rate not justified",
+      "5": "Lease commitments discounted at pre-tax cost of debt with rate justified, PV computed year by year including treatment of lump-sum 'thereafter' amount, both balance sheet and income statement adjusted (operating expense reclassified to depreciation plus interest), ASC 842 status checked"
+    },
+    {
+      "name": "SBC Treatment",
+      "1": "SBC added back to earnings or cash flow as if it were not a real cost, or SBC not mentioned despite being material",
+      "3": "SBC treated as operating expense and not added back, magnitude noted relative to revenue or operating income",
+      "5": "SBC treated as real operating expense, not added back in any adjusted metric, magnitude quantified and flagged if above 10% of revenue, diluted share count or option value adjustment applied to per-share value"
+    },
+    {
+      "name": "Normalization Quality",
+      "1": "One-time items not identified, or recurring charges excluded as 'non-recurring' without justification, or cyclical effects ignored",
+      "3": "Major one-time items identified and removed, some justification provided for classification, cyclical effects acknowledged",
+      "5": "All significant non-recurring items identified with specific justification for each, recurring 'non-recurring' charges recognized and averaged rather than excluded, cyclical normalization applied where appropriate, before/after impact documented for each item"
+    },
+    {
+      "name": "FCFF Accuracy",
+      "1": "FCFF formula incorrect or major components missing, tax rate wrong, CapEx or depreciation not adjusted for R&D capitalization",
+      "3": "FCFF formula correct, major components present, tax rate reasonable, but minor inconsistencies (e.g., using effective instead of marginal tax rate, or missing working capital adjustment)",
+      "5": "FCFF computed from adjusted operating income using marginal tax rate, CapEx and depreciation consistent with R&D capitalization treatment, working capital change computed correctly excluding cash and debt, all components documented"
+    },
+    {
+      "name": "FCFE Accuracy",
+      "1": "FCFE not computed, or formula incorrect, or does not reconcile with FCFF",
+      "3": "FCFE computed with correct formula, net debt change included, reconciliation with FCFF attempted",
+      "5": "FCFE computed correctly, reconciles with FCFF within rounding tolerance (FCFE = FCFF - after-tax interest + net debt change), discrepancies investigated and explained if present"
+    },
+    {
+      "name": "Ratio Calculation",
+      "1": "Ratios computed from unadjusted figures, key ratios missing, or formula errors in computation",
+      "3": "Major ratios computed from adjusted figures (ROIC, ROE, operating margin, debt-to-capital), most formulas correct",
+      "5": "Comprehensive ratio dashboard computed from adjusted figures covering profitability (ROIC, ROE, margins), leverage (debt-to-capital, coverage), and efficiency (reinvestment rate, sales-to-capital), multi-year trends shown, all formulas correct"
+    },
+    {
+      "name": "Industry Comparison",
+      "1": "No industry context provided, ratios presented in isolation with no benchmarks",
+      "3": "Company ratios compared to industry medians for key metrics, sector identified, some context for outlier ratios",
+      "5": "Company ratios placed in industry distribution (quartiles or percentiles), outliers flagged and explained, comparison covers profitability, leverage, and efficiency metrics, source of benchmarks noted"
+    },
+    {
+      "name": "Adjustment Documentation",
+      "1": "Adjustments applied without explanation, before/after values not shown, rationale absent",
+      "3": "Most adjustments documented with before/after values and brief rationale, key assumptions stated",
+      "5": "Every adjustment documented with pre-adjustment value, post-adjustment value, rationale, key assumptions (asset life, discount rate, tax rate), and impact on EBIT, invested capital, and FCFF. Summary table showing all adjustments and their cumulative effect"
+    }
+  ],
+  "guidance_by_type": {
+    "Tech Company (Heavy R&D)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "R&D capitalization is the critical adjustment -- collect full R&D history, use 2-3 year asset life for software or 5-10 for pharma/biotech",
+        "SBC treatment is especially important -- tech companies often have SBC exceeding 10% of revenue",
+        "CapEx and depreciation in FCFF must be adjusted to include R&D capitalization and R&D amortization",
+        "Research asset materially increases invested capital, which typically reduces ROIC below the reported figure"
+      ],
+      "common_pitfalls": [
+        "Adding back SBC to compute 'adjusted' cash flow (this overstates true cash generation)",
+        "Using wrong asset life for R&D (too long inflates research asset, too short understates it)",
+        "Not adjusting both operating income and invested capital (adjusting one without the other distorts ROIC)"
+      ]
+    },
+    "Capital-Heavy Company (Leases and CapEx)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Operating lease conversion is the critical adjustment -- compute PV of all commitments at pre-tax cost of debt",
+        "Verify whether ASC 842 / IFRS 16 has already put leases on the balance sheet before applying conversion",
+        "Separate maintenance CapEx (sustaining current operations) from growth CapEx (expanding) if possible",
+        "Depreciation analysis: check if accelerated depreciation distorts operating income relative to economic reality"
+      ],
+      "common_pitfalls": [
+        "Double-counting leases that are already on the balance sheet under ASC 842",
+        "Using WACC instead of pre-tax cost of debt to discount lease commitments",
+        "Ignoring the 'thereafter' lump sum or discounting it incorrectly"
+      ]
+    },
+    "Financial Services Company": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Do not compute FCFF -- debt is operational for banks and insurance companies, not financial",
+        "Focus on equity metrics: ROE, book value, excess return (ROE - cost of equity)",
+        "Provision for credit losses is a key operating expense that requires careful analysis",
+        "Regulatory capital requirements constrain the equity base"
+      ],
+      "common_pitfalls": [
+        "Treating debt as financial and subtracting it from firm value (debt is the raw material for financial firms)",
+        "Computing ROIC (meaningless when debt is operational)",
+        "Ignoring regulatory capital requirements when assessing available equity"
+      ]
+    },
+    "Cyclical Company": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Normalize earnings across a full business cycle (5-10 years), not just the most recent year",
+        "Identify whether the company is at a cyclical peak, trough, or mid-cycle",
+        "Restructuring charges that recur with each downturn are part of the cycle, not one-time items",
+        "Working capital swings can be large for cyclical firms -- use average change, not a single year"
+      ],
+      "common_pitfalls": [
+        "Using peak-year earnings as 'normal' (leads to overvaluation at cycle tops)",
+        "Excluding restructuring charges that appear in most downturns",
+        "Not recognizing that margins revert toward industry averages over a full cycle"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Inconsistent adjustment application",
+      "symptom": "R&D capitalized in operating income but CapEx not adjusted, or lease converted on balance sheet but operating income not adjusted",
+      "detection": "ROIC changes dramatically from one adjustment but FCFF barely changes (or vice versa), suggesting incomplete propagation",
+      "fix": "Trace each adjustment through all three financial statements: income statement, balance sheet, and cash flow. Verify consistency."
+    },
+    {
+      "failure": "Wrong tax rate for FCFF",
+      "symptom": "Using effective tax rate (which may include one-time items, deferred taxes, or foreign rate differences) instead of marginal rate for forward-looking FCFF",
+      "detection": "FCFF tax rate diverges significantly from statutory rate without explanation",
+      "fix": "Use marginal tax rate for FCFF computation. Document the rate used and explain any divergence from the statutory rate."
+    },
+    {
+      "failure": "FCFF-FCFE reconciliation failure",
+      "symptom": "FCFE computed independently does not equal FCFF minus after-tax interest plus net debt change",
+      "detection": "Compute both independently and check the reconciliation formula",
+      "fix": "Identify the missing item. Common culprits: preferred dividends, minority interest payments, non-operating income included in one but not the other."
+    },
+    {
+      "failure": "SBC added back",
+      "symptom": "Cash flow or earnings figures labeled 'adjusted' that add back stock-based compensation",
+      "detection": "Compare reported GAAP figures to adjusted figures; if SBC is added back, flag it",
+      "fix": "Treat SBC as a real operating expense. If the analysis requires a cash-only view, label it explicitly and note that it overstates economic earnings."
+    },
+    {
+      "failure": "Recurring items excluded as non-recurring",
+      "symptom": "Restructuring charges, goodwill impairments, or integration costs excluded in multiple consecutive years",
+      "detection": "Review five years of income statements. If the same type of 'non-recurring' item appears in three or more years, it is recurring.",
+      "fix": "Average the item over the period rather than excluding it. Only exclude items that are genuinely tied to specific, non-repeating events."
+    },
+    {
+      "failure": "Operating and non-operating items mixed",
+      "symptom": "Cash included in invested capital (inflating the denominator for ROIC), or interest income included in EBIT (inflating the numerator)",
+      "detection": "ROIC is unusually low (cash in denominator) or unusually high (non-operating income in numerator)",
+      "fix": "Separate operating items (used in business) from non-operating items (financial assets, excess cash). Compute ROIC using only operating items."
+    },
+    {
+      "failure": "Missing working capital adjustment",
+      "symptom": "FCFF computed as NOPAT minus net CapEx with no working capital change",
+      "detection": "FCFF is suspiciously close to NOPAT minus net CapEx",
+      "fix": "Compute change in non-cash working capital (non-cash current assets minus non-debt current liabilities) and subtract from FCFF."
+    },
+    {
+      "failure": "Ratios from unadjusted figures",
+      "symptom": "ROIC, operating margin, or debt-to-capital computed from as-reported financials despite material adjustments being made",
+      "detection": "Ratios do not reflect adjustments documented elsewhere in the analysis",
+      "fix": "Compute all ratios from the adjusted financial statements. Show both reported and adjusted ratios for transparency."
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "criteria": [
+    {
+      "name": "Valuation Method Coverage",
+      "1": "Only one valuation method presented, no comparison or cross-check, incomplete analysis",
+      "3": "Two methods presented (e.g., DCF and one relative), basic comparison made, key assumptions noted for each",
+      "5": "Three or more methods presented (DCF, peer comparison, regression), all in reconciliation table with confidence weights, assumptions, and per-share values clearly documented"
+    },
+    {
+      "name": "Divergence Analysis",
+      "1": "No analysis of why different methods produce different values, differences ignored or dismissed",
+      "3": "Divergence noted and attributed to general causes (different assumptions), some investigation of which specific inputs drive the spread",
+      "5": "Systematic diagnosis of divergence sources (growth, risk, peer selection, capital structure), each gap traced to specific assumptions, resolution documented with rationale for weighting"
+    },
+    {
+      "name": "Implied Assumption Plausibility",
+      "1": "No reverse-engineering of market assumptions, or implied values stated without any plausibility check",
+      "3": "Implied growth rate or ROIC calculated, compared to at least one benchmark (historical, industry, or base rate)",
+      "5": "Both implied growth and implied ROIC calculated, compared to company history, industry median, and base rates for sustainability, interpretation clearly links to narrative disagreement"
+    },
+    {
+      "name": "Catalyst Specificity",
+      "1": "No catalysts identified, or catalysts are vague (the market will recognize value eventually)",
+      "3": "At least one specific catalyst with approximate timing, some discussion of expected impact",
+      "5": "Two or more catalysts with specific events, estimated timing (quarter or date), quantified impact ($/share or %), probability assessment, and independence check"
+    },
+    {
+      "name": "Margin of Safety Calibration",
+      "1": "Margin of safety not computed, or computed but not calibrated to company risk profile",
+      "3": "Margin of safety computed, some acknowledgment that required margin varies by company type",
+      "5": "Margin of safety computed and explicitly calibrated to uncertainty dimensions (cash flow predictability, forecast horizon, information quality), actual margin compared to required margin, recommendation adjusted if insufficient"
+    },
+    {
+      "name": "Recommendation Clarity",
+      "1": "No clear recommendation, or recommendation without price target, time horizon, or conviction level",
+      "3": "Buy/sell/hold stated with price target and time horizon, basic rationale provided",
+      "5": "Buy/sell/hold with specific price target range, time horizon, conviction level, clear rationale linking narrative to valuation to recommendation, upgrade/downgrade triggers stated"
+    },
+    {
+      "name": "Thesis Completeness",
+      "1": "No investment thesis, or thesis is a single unsupported sentence",
+      "3": "Thesis covers business narrative and valuation summary, links story to numbers, includes basic recommendation",
+      "5": "Complete one-page thesis linking narrative, numbers, market view, value gap, catalysts, risks, and actionable recommendation with exit triggers"
+    },
+    {
+      "name": "Risk Factor Coverage",
+      "1": "No risk factors identified, or generic risks (the stock could go down) with no specificity",
+      "3": "Two or more specific risk factors stated, some assessment of probability or impact",
+      "5": "Three or more specific, company-relevant risk factors with probability and impact assessment, explicit statement of what would invalidate the thesis, stop-loss or exit trigger defined"
+    }
+  ],
+  "guidance_by_type": {
+    "Value Gap (Buy Recommendation)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Multiple valuation methods confirm undervaluation (DCF and at least one relative method)",
+        "Implied growth rate materially below narrative growth, with plausibility check against base rates",
+        "At least one specific catalyst with timing within 12 months and quantified impact",
+        "Margin of safety exceeds minimum for company type (e.g., 20%+ for moderate-uncertainty company)",
+        "Risk factors explicitly state what could make the buy thesis wrong"
+      ],
+      "common_pitfalls": [
+        "Value trap: stock is cheap for a reason (declining business, structural headwinds) that the analysis ignores",
+        "Catalyst-free thesis: correct valuation but no mechanism for market to reprice",
+        "Ignoring recent price decline cause: stock dropped 30% before analysis -- check if new information invalidates prior assumptions",
+        "Insufficient margin for company risk: 15% margin on a volatile, unpredictable business"
+      ]
+    },
+    "Overvaluation (Sell Recommendation)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "DCF value materially below market price, supported by at least one relative valuation method",
+        "Implied growth rate or ROIC exceeds plausible ranges (checked against base rates and industry data)",
+        "Risk factors for the current price level identified (what could cause the stock to decline)",
+        "Recommendation acknowledges momentum risk (expensive stocks can stay expensive or get more expensive)"
+      ],
+      "common_pitfalls": [
+        "Underestimating optionality in high-growth companies (real options not captured in DCF)",
+        "Anchoring on historical multiples when business model has structurally changed",
+        "Ignoring short-squeeze or momentum risk when recommending sell",
+        "Failing to specify a time horizon for the sell thesis"
+      ]
+    },
+    "Fair Value / Convergence (Hold Recommendation)": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Multiple methods produce values within 10-15% of market price (convergence documented)",
+        "Implied assumptions align with narrative (no significant disagreement with market)",
+        "No compelling catalysts for repricing in either direction",
+        "Recommendation notes conditions that would upgrade to Buy or downgrade to Sell"
+      ],
+      "common_pitfalls": [
+        "Lazy Hold: defaulting to Hold without doing the full reconciliation work",
+        "Missing asymmetry: stock may be fairly valued on average but have skewed upside/downside",
+        "Not specifying what would change the recommendation to Buy or Sell"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Single-method reliance",
+      "symptom": "Only DCF presented, or only one multiple cited, with no cross-validation",
+      "detection": "Reconciliation table has only one row, or relative valuation methods are absent",
+      "fix": "Include at least two methods (DCF + one relative), preferably three, and document why each is relevant"
+    },
+    {
+      "failure": "Confirmation bias in weighting",
+      "symptom": "All methods produce nearly identical values (suspiciously tight cluster), or the method supporting the desired conclusion gets 80%+ weight",
+      "detection": "Value spread < 5% across methods, or single method dominates without justification",
+      "fix": "Review whether assumptions were unconsciously aligned across methods; justify confidence weights based on method appropriateness, not on which answer you prefer"
+    },
+    {
+      "failure": "Missing implied assumption analysis",
+      "symptom": "Analysis jumps from DCF value > price to Buy without examining what the market is pricing in",
+      "detection": "No implied growth rate or implied ROIC calculation, no comparison of market view vs analyst view",
+      "fix": "Back-solve for the growth rate and ROIC that make DCF = price; compare to your narrative and check plausibility"
+    },
+    {
+      "failure": "Vague or absent catalysts",
+      "symptom": "Buy recommendation with no mechanism for the gap to close, or catalysts like 'market will recognize value'",
+      "detection": "No catalyst section, or catalysts lack timing, impact quantification, or probability",
+      "fix": "Identify at least one specific event with estimated timing (quarter or date), expected impact ($/share), and probability"
+    },
+    {
+      "failure": "Margin of safety not calibrated",
+      "symptom": "Same margin of safety threshold (e.g., 20%) applied to all companies regardless of risk profile",
+      "detection": "No discussion of why the margin is sufficient for this particular company's uncertainty level",
+      "fix": "Assess cash flow predictability, forecast horizon sensitivity, and information quality; adjust required margin accordingly"
+    },
+    {
+      "failure": "Missing risk factors",
+      "symptom": "Buy recommendation with no downside discussion, or generic risks that apply to any stock",
+      "detection": "Risk section absent, or risks like 'macroeconomic downturn' without company-specific connection",
+      "fix": "Identify at least two company-specific risks, state probability and impact, define what would cause recommendation reversal"
+    },
+    {
+      "failure": "No time horizon",
+      "symptom": "Buy or Sell recommendation without specifying when the thesis should play out",
+      "detection": "Recommendation section lacks time horizon or says 'long term' without definition",
+      "fix": "Specify 6-month, 12-month, or 24-month horizon aligned with catalyst timing; state reassessment triggers"
+    },
+    {
+      "failure": "Ignoring sector-level mispricing",
+      "symptom": "Company deemed cheap relative to peers, but entire sector may be overvalued (or undervalued)",
+      "detection": "Only peer-relative analysis performed; no check against broader market or fundamental anchors",
+      "fix": "Note that relative valuation says 'cheap vs peers' not 'undervalued in absolute terms'; compare sector multiple to historical range or to DCF-implied multiple"
+    }
+  ]
+}

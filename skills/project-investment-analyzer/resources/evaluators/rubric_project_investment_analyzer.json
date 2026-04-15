@@ -1,0 +1,203 @@
+{
+  "criteria": [
+    {
+      "name": "Cash Flow Identification",
+      "description": "All incremental cash flows correctly identified. Sunk costs excluded. Opportunity costs and side effects included.",
+      "scale": {
+        "1": "Major cash flows missing. Sunk costs included. Opportunity costs and side effects ignored. Cannot trust the analysis.",
+        "3": "Most cash flows identified. Sunk costs excluded. Some side effects may be missing. Working capital partially addressed.",
+        "5": "All incremental cash flows mapped. Sunk costs explicitly excluded with rationale. Opportunity costs quantified. Side effects (cannibalization, synergy) included. Working capital investment complete."
+      }
+    },
+    {
+      "name": "Discount Rate Appropriateness",
+      "description": "Project-specific discount rate used when risk differs from company average. Country risk premium applied for international projects. Beta sourced from project's industry.",
+      "scale": {
+        "1": "Company WACC used without adjustment despite different project risk. No country risk consideration for international project. Beta mismatch.",
+        "3": "Some discount rate adjustment attempted. Country risk premium included but weighting may be imprecise. Beta from reasonable but not ideal comparables.",
+        "5": "Project-specific WACC correctly derived. Bottom-up beta from project industry peers. Revenue-weighted country risk premium for international exposure. Currency consistency between cash flows and discount rate."
+      }
+    },
+    {
+      "name": "NPV Calculation",
+      "description": "NPV computed correctly with proper discounting mechanics. Initial investment at Time 0. Salvage value tax-adjusted and discounted.",
+      "scale": {
+        "1": "Math errors in discounting. Initial investment discounted incorrectly. Salvage value not tax-adjusted. Terminal value missing or wrong.",
+        "3": "NPV calculation mostly correct. Minor timing issues. Salvage value included but tax treatment approximate.",
+        "5": "NPV calculation accurate. Correct discounting at project-specific rate. Initial investment at Time 0. Salvage value tax-adjusted. All years accounted for. Depreciation tax shields correctly computed."
+      }
+    },
+    {
+      "name": "IRR Analysis",
+      "description": "IRR computed and interpreted correctly. Limitations acknowledged when applicable (multiple IRRs, scale issues).",
+      "scale": {
+        "1": "IRR not computed, or computed incorrectly. No comparison to hurdle rate. Limitations not considered.",
+        "3": "IRR computed and compared to hurdle rate. Some awareness of limitations. Basic interpretation provided.",
+        "5": "IRR computed accurately. Compared to project-specific hurdle rate. Limitations explicitly addressed (non-conventional cash flows, scale problem if comparing projects). NPV used as primary decision metric with IRR as supplement."
+      }
+    },
+    {
+      "name": "ROC and EVA Assessment",
+      "description": "Return on capital computed at steady state and compared to WACC. EVA quantified to show dollar value creation or destruction.",
+      "scale": {
+        "1": "No ROC or EVA analysis. Value creation not assessed beyond NPV.",
+        "3": "ROC computed and compared to WACC. EVA mentioned but not quantified or only for one year.",
+        "5": "ROC computed at steady state with clear invested capital definition. EVA quantified as (ROC - WACC) x Invested Capital. Ramp-up period acknowledged. Link between cumulative EVA and NPV explained."
+      }
+    },
+    {
+      "name": "Sensitivity Analysis",
+      "description": "Key assumptions tested for impact on NPV and the investment decision. Breakeven values identified.",
+      "scale": {
+        "1": "No sensitivity analysis. Single-point estimate only. No understanding of which assumptions matter most.",
+        "3": "Sensitivity on 1-2 variables. Direction of impact noted. Some scenarios tested but breakeven not identified.",
+        "5": "Sensitivity on 3-5 key assumptions (market share, pricing, discount rate, costs, project life). Both one-variable and two-variable grids. Breakeven values identified. Robustness of decision across scenarios assessed."
+      }
+    },
+    {
+      "name": "Sunk and Opportunity Cost Treatment",
+      "description": "Sunk costs explicitly excluded with rationale. Opportunity costs identified and included.",
+      "scale": {
+        "1": "Sunk costs included in investment. Opportunity costs ignored. No discussion of either concept.",
+        "3": "Sunk costs excluded. Opportunity costs mentioned but not fully quantified. Rationale brief.",
+        "5": "Sunk costs listed and explicitly excluded with clear rationale (already spent, unrecoverable). Opportunity costs identified, quantified, and included as project cash outflows. Side effects mapped comprehensively."
+      }
+    },
+    {
+      "name": "Recommendation Quality",
+      "description": "Clear invest/defer/reject recommendation supported by NPV, IRR, ROC/EVA, and sensitivity results. Conditions and risks stated.",
+      "scale": {
+        "1": "No recommendation, or recommendation not supported by analysis. Disconnect between numbers and conclusion.",
+        "3": "Recommendation stated with basic support from NPV and IRR. Some conditions noted. Limited discussion of risks.",
+        "5": "Clear recommendation (invest/defer/reject) with specific conditions. Supported by NPV, IRR, ROC/EVA, and sensitivity analysis. Key risks identified. Trigger conditions stated for defer scenarios. Implementation considerations addressed."
+      }
+    }
+  ],
+  "guidance_by_type": {
+    "Domestic Expansion": {
+      "target_score": 4.0,
+      "key_criteria": ["Cash Flow Identification", "NPV Calculation", "Sensitivity Analysis"],
+      "common_pitfalls": [
+        "Ignoring cannibalization of existing products",
+        "Missing working capital investment during ramp-up",
+        "Using inflated revenue projections without sensitivity testing"
+      ],
+      "specific_guidance": "Use company WACC. Focus on getting incremental cash flows right, especially cannibalization effects. Test sensitivity on market share and pricing assumptions."
+    },
+    "International / Emerging Market Project": {
+      "target_score": 4.2,
+      "key_criteria": ["Discount Rate Appropriateness", "Cash Flow Identification", "Sensitivity Analysis"],
+      "common_pitfalls": [
+        "Using company WACC without country risk adjustment",
+        "Mixing currencies between cash flows and discount rate",
+        "Ignoring political and regulatory risk in cash flow projections"
+      ],
+      "specific_guidance": "Revenue-weighted country risk premium is essential. Ensure currency consistency. Test sensitivity on country risk premium and market penetration assumptions. Consider political and regulatory scenarios."
+    },
+    "Existing Investment Assessment": {
+      "target_score": 3.8,
+      "key_criteria": ["ROC and EVA Assessment", "Cash Flow Identification", "Recommendation Quality"],
+      "common_pitfalls": [
+        "Confusing accounting profit with economic value creation",
+        "Not computing ROC correctly (using wrong invested capital base)",
+        "Sunk cost fallacy in continue/abandon decision"
+      ],
+      "specific_guidance": "Focus on ROC vs WACC comparison and cumulative EVA. If ROC < WACC, the project destroys value even if profitable in accounting terms. The forward-looking question is whether to continue, not whether the original decision was right."
+    },
+    "Mutually Exclusive Project Selection": {
+      "target_score": 4.3,
+      "key_criteria": ["NPV Calculation", "IRR Analysis", "Recommendation Quality"],
+      "common_pitfalls": [
+        "Choosing highest IRR instead of highest NPV",
+        "Not adjusting for different project lives",
+        "Ignoring capital constraints when ranking"
+      ],
+      "specific_guidance": "Rank by NPV for mutually exclusive projects. Use profitability index (NPV/Investment) under capital constraints. Compute equivalent annual NPV if project lives differ. Explicitly state why IRR ranking may differ from NPV ranking."
+    }
+  },
+  "guidance_by_complexity": {
+    "Simple (Single Cash Flow Stream, Domestic)": {
+      "target_score": 3.5,
+      "focus_areas": ["Cash Flow Identification", "NPV Calculation", "Recommendation Quality"],
+      "acceptable_shortcuts": ["Company WACC acceptable if same-risk project", "Basic sensitivity on 1-2 variables", "IRR as primary metric acceptable for conventional cash flows"],
+      "specific_guidance": "Focus on correctly identifying incremental cash flows and computing NPV. Ensure sunk costs excluded. Basic sensitivity on key revenue and cost assumptions."
+    },
+    "Standard (International, Multiple Revenue Streams)": {
+      "target_score": 4.0,
+      "focus_areas": ["Discount Rate Appropriateness", "Cash Flow Identification", "Sensitivity Analysis", "ROC and EVA Assessment"],
+      "acceptable_shortcuts": ["Regional CRP grouping rather than country-by-country", "Simplified working capital model"],
+      "specific_guidance": "Full project-specific discount rate required. Map all revenue streams and cost categories. Include side effects. Sensitivity on 3+ variables. ROC/EVA assessment at steady state."
+    },
+    "Complex (Multi-Region, Multi-Product, Phase-Gated)": {
+      "target_score": 4.5,
+      "focus_areas": ["All criteria"],
+      "acceptable_shortcuts": ["None -- comprehensive analysis expected"],
+      "specific_guidance": "Country-by-country risk adjustment. Phase-gated cash flows with decision points. Real options considerations for deferral value. Full sensitivity grid. Multiple scenarios (base, optimistic, pessimistic). Comparison to alternative projects if mutually exclusive."
+    }
+  },
+  "common_failure_modes": [
+    {
+      "name": "Including Sunk Costs",
+      "symptom": "Prior R&D or market research expenditures added to the initial investment, inflating the investment base and reducing NPV",
+      "detection": "Check if any costs described as 'already spent' or 'already expensed' appear in the Time 0 outflow",
+      "fix": "Remove all sunk costs from the cash flow table. List them separately with explanation of why they are excluded."
+    },
+    {
+      "name": "Missing Working Capital",
+      "symptom": "Revenue grows but no corresponding investment in receivables, inventory, or payables. Cash flows overstated.",
+      "detection": "Check if working capital appears in cash flow table. If revenue grows 20% but working capital change is zero, likely missing.",
+      "fix": "Model working capital as percentage of revenue or COGS. Compute change in working capital each year. Include as cash outflow when WC increases, cash inflow when WC decreases."
+    },
+    {
+      "name": "Wrong Discount Rate",
+      "symptom": "Company-wide WACC used for a project with different risk profile. International project discounted at domestic rate.",
+      "detection": "Check if discount rate reflects project-specific risk. If project is in a different industry or geography but uses parent WACC, rate is wrong.",
+      "fix": "Compute project-specific beta from industry peers. Add revenue-weighted country risk premium for international projects. Use project-specific WACC."
+    },
+    {
+      "name": "IRR Misused for Ranking",
+      "symptom": "Small project with high IRR chosen over large project with higher NPV but lower IRR. Value left on table.",
+      "detection": "Check if mutually exclusive projects are ranked by IRR. If so, rerank by NPV.",
+      "fix": "Use NPV as primary ranking metric. Report IRR as supplementary information. Explicitly note when IRR and NPV rankings diverge."
+    },
+    {
+      "name": "Accounting Profit Confused with Cash Flow",
+      "symptom": "Net income used instead of free cash flow. Depreciation treated as cash outflow. Interest expense included in project cash flows.",
+      "detection": "Check if depreciation is subtracted in cash flow (it should be added back). Check if interest expense appears in project cash flows (it should not -- it is in WACC).",
+      "fix": "Start with EBIT, apply taxes, add back depreciation, subtract CapEx and working capital changes. Do not include interest or financing flows."
+    },
+    {
+      "name": "Salvage Value Not Tax-Adjusted",
+      "symptom": "Full salvage value included in final year without considering tax on gain or loss relative to book value.",
+      "detection": "Check if salvage value equals book value. If not, tax impact should be computed.",
+      "fix": "After-tax Salvage = Salvage - Tax Rate x (Salvage - Book Value). If book value > salvage, the tax loss creates a shield."
+    },
+    {
+      "name": "No Sensitivity Analysis",
+      "symptom": "Single-point NPV presented as the answer. No testing of what happens if key assumptions change.",
+      "detection": "Ask: 'What market share makes NPV = 0?' If breakeven not computed, sensitivity is missing.",
+      "fix": "Test 3-5 key assumptions. Compute breakeven values. Build two-variable sensitivity grid. Assess whether the decision is robust."
+    },
+    {
+      "name": "Missing Side Effects",
+      "symptom": "Project analyzed in isolation without considering impact on existing business lines. Cannibalization or synergy ignored.",
+      "detection": "Ask: 'Does this project affect sales of any existing product?' If yes and not in cash flows, side effects missing.",
+      "fix": "Map all impacts on existing business. Include cannibalization as negative incremental cash flow. Include synergy as positive incremental cash flow. Be conservative on synergy estimates."
+    },
+    {
+      "name": "Double-Counting Depreciation",
+      "symptom": "Depreciation subtracted as both a non-cash expense (in EBIT) and as a cash outflow. Cash flow understated.",
+      "detection": "Check if depreciation appears twice: once reducing EBIT and again as a separate cash outflow line.",
+      "fix": "Depreciation reduces EBIT (which reduces taxes) but is added back to get cash flow. It is not a cash outflow. CapEx is the cash outflow; depreciation is its non-cash allocation over time."
+    },
+    {
+      "name": "Currency Mismatch",
+      "symptom": "Cash flows in local currency discounted at USD rate, or USD cash flows discounted at local-currency rate. NPV systematically biased.",
+      "detection": "Check if cash flow currency matches discount rate currency. If project is in India but discount rate is US WACC without country risk adjustment, there is a mismatch.",
+      "fix": "Either convert cash flows to USD and discount at USD WACC + CRP, or keep cash flows in local currency and discount at local-currency rate. Both approaches should yield the same NPV."
+    }
+  ],
+  "minimum_standard": 3.5,
+  "target_score": 4.0,
+  "excellence_threshold": 4.5
+}

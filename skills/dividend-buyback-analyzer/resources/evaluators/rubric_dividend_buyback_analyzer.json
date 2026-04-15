@@ -1,0 +1,155 @@
+{
+  "criteria": [
+    {
+      "name": "FCFE Accuracy",
+      "1": "FCFE not computed or formula incorrect, key components missing (e.g., net debt change omitted), no adjustment for non-recurring items",
+      "3": "FCFE computed with correct formula, major components included, minor omissions (e.g., no cyclical normalization), reasonable approximation",
+      "5": "FCFE computed precisely with all components, non-recurring items adjusted, multi-year average used for cyclical firms, SBC treatment addressed, formula and sources documented"
+    },
+    {
+      "name": "Cash Return Comparison",
+      "1": "No comparison between FCFE and actual returns, or comparison uses wrong figures (e.g., compares to net income instead of FCFE)",
+      "3": "FCFE vs actual returns compared, cash return ratio computed, gap identified as under- or over-returning, basic trend noted",
+      "5": "Multi-year FCFE vs returns comparison with trend analysis, cash return ratio benchmarked against life cycle stage, cumulative gap quantified, both flow (annual) and stock (accumulated) dimensions addressed"
+    },
+    {
+      "name": "Excess Cash Assessment",
+      "1": "No assessment of balance sheet cash, or total cash treated as excess without subtracting operating needs",
+      "3": "Excess cash calculated by subtracting operating cash needs from total cash, operating cash percentage estimated, result compared to market cap or revenue",
+      "5": "Operating cash needs estimated with industry-appropriate percentage and rationale, excess cash quantified as absolute amount and relative to market cap/revenue/FCFE, peer cash levels compared, opportunity cost of excess cash computed"
+    },
+    {
+      "name": "Reinvestment Quality Evaluation",
+      "1": "No assessment of whether retention is justified, or blanket assumption that all cash should be returned regardless of ROC",
+      "3": "ROC vs WACC comparison included, basic interpretation of value creation spread, some consideration of whether retention is justified",
+      "5": "ROC vs WACC spread analyzed with trend (improving/stable/declining), historical capital allocation track record assessed, specific reinvestment opportunities evaluated, management credibility on capital deployment addressed"
+    },
+    {
+      "name": "Dividend vs Buyback Logic",
+      "1": "No rationale for the split between dividends and buybacks, or recommendation uses only one vehicle without explaining why",
+      "3": "Split justified by at least two factors (cash flow stability, tax regime, investor base, valuation, signaling), recommendation matches company profile",
+      "5": "Comprehensive split rationale addressing cash flow predictability, tax efficiency, investor base composition, stock valuation impact on buyback accretion, signaling implications, and peer norms, with clear prioritization of factors"
+    },
+    {
+      "name": "Tax Consideration",
+      "1": "Tax treatment not mentioned, or incorrect tax assumptions (e.g., treating dividends as tax-free when they are taxable)",
+      "3": "Relevant tax regime identified, basic comparison of dividend vs capital gains tax treatment, tax impact noted in recommendation",
+      "5": "Tax analysis covers individual vs institutional investors, qualified vs ordinary dividend treatment, capital gains deferral advantage quantified, jurisdiction-specific nuances addressed (e.g., imputation credits, withholding taxes), buyback excise tax included if applicable"
+    },
+    {
+      "name": "Peer Comparison",
+      "1": "No peer comparison, or peers selected from unrelated industries with different capital needs",
+      "3": "Relevant peers selected, key payout metrics compared (payout ratio, dividend yield, total yield), target company's position relative to peers noted",
+      "5": "Thoughtful peer selection with rationale, comprehensive comparison across multiple metrics (payout ratio, cash return ratio, total yield, cash/revenue), deviations from peer norms explained by growth, risk, or life cycle differences"
+    },
+    {
+      "name": "Recommendation Actionability",
+      "1": "No concrete recommendation, or recommendation is vague (e.g., 'return more cash' without specifying how much or in what form)",
+      "3": "Specific dollar amounts for dividends and buybacks recommended, rationale provided, implementation timeline mentioned",
+      "5": "Detailed recommendation with specific amounts for dividends, regular buybacks, and excess cash return, implementation timeline (phased vs immediate), triggers for reassessment identified, projected impact on cash balance and shareholder yield quantified, risks to recommendation stated"
+    }
+  ],
+  "guidance_by_type": {
+    "Cash Hoarder (under-returning mature firm)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "FCFE computed and shown to substantially exceed cash returned over multiple years",
+        "Excess cash quantified with industry-appropriate operating cash needs estimate",
+        "ROC vs WACC analysis shows declining spread or weakening reinvestment opportunities",
+        "Recommendation includes both increasing ongoing returns and addressing the accumulated excess cash",
+        "Peer comparison highlights the deviation from industry return norms"
+      ],
+      "common_pitfalls": [
+        "Not distinguishing between the flow problem (annual under-return) and the stock problem (accumulated excess cash) -- both must be addressed",
+        "Recommending return of all excess cash immediately when a phased approach may be more prudent",
+        "Ignoring that the company may have legitimate reasons for precautionary cash holdings (pending acquisition, uncertain regulatory environment)"
+      ]
+    },
+    "Dividend Stretcher (over-returning firm)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "FCFE shown to be less than current dividends, with trend indicating structural shortfall (not just cyclical dip)",
+        "Cash balance trajectory shows depletion or debt increase to fund dividends",
+        "Recommendation provides specific sustainable dividend level (70-80% of normalized FCFE) with transition plan",
+        "Signaling implications of dividend cut addressed with communication strategy"
+      ],
+      "common_pitfalls": [
+        "Recommending immediate full cut when gradual reduction with clear communication may be less damaging to stock price",
+        "Not using normalized FCFE -- a cyclical trough should not trigger a permanent dividend cut",
+        "Ignoring the investor base composition: income-dependent investors may need advance notice"
+      ]
+    },
+    "High-Growth Retainer (justified low payout)": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "ROC substantially above WACC with evidence of strong project pipeline",
+        "Cash return ratio near zero explained and justified by reinvestment quality",
+        "Analysis identifies the trigger point (ROC converging toward WACC, growth decelerating) when returns should begin",
+        "Comparison to peers at similar growth stage validates the low-payout approach"
+      ],
+      "common_pitfalls": [
+        "Accepting management's assertion of good projects without verifying ROC on recent investments",
+        "Not setting a timeline or trigger for when the company should begin returning cash",
+        "Failing to note that even high-growth companies may have excess cash if recent funding rounds exceeded needs"
+      ]
+    },
+    "Mature Returner (balanced policy review)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Current policy assessed against FCFE capacity (typically in the 80-100% range)",
+        "Dividend vs buyback split evaluated for tax efficiency and investor base fit",
+        "Incremental improvements identified (e.g., shifting 5% from dividends to buybacks for tax efficiency)",
+        "Peer comparison confirms the company is in line with or better than industry norms"
+      ],
+      "common_pitfalls": [
+        "Recommending dramatic changes when the current policy is already near-optimal",
+        "Ignoring the signaling cost of changing an established dividend -- stability has value",
+        "Not checking whether buyback prices have been value-accretive historically"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Confusing FCFF with FCFE",
+      "symptom": "Using FCFF (pre-debt) as the cash return benchmark, which overstates capacity because it ignores debt service obligations",
+      "detection": "Cash return ratio appears very low even for a company widely considered to have generous payouts, or formula lacks net debt change term",
+      "fix": "Use FCFE formula which subtracts net CapEx and working capital changes and adds net debt issuance. FCFE = Net Income - Net CapEx - WC Change + Net Debt Change"
+    },
+    {
+      "failure": "Ignoring stock-based compensation in FCFE",
+      "symptom": "FCFE appears abundant, but much of the nominal free cash flow is offset by dilution from stock options and RSUs",
+      "detection": "Large gap between FCFE and 'true' cash available to existing shareholders; high SBC as percentage of net income",
+      "fix": "Acknowledge SBC as a real cost. Adjust by noting that SBC-funded compensation would otherwise require cash outflows. Report FCFE both with and without SBC adjustment"
+    },
+    {
+      "failure": "Not normalizing FCFE for cyclicality",
+      "symptom": "Recommending a large dividend increase based on peak-year FCFE, or recommending a dividend cut based on trough-year FCFE",
+      "detection": "FCFE varies by more than 30% year-over-year, or the industry is known to be cyclical (energy, industrials, semiconductors)",
+      "fix": "Use 3-5 year average FCFE for policy decisions. Set the base dividend at a level sustainable through the cycle (60-70% of trough FCFE), use buybacks to distribute excess in peak years"
+    },
+    {
+      "failure": "Treating all balance sheet cash as excess",
+      "symptom": "Recommending return of entire cash balance without reserving for operating needs",
+      "detection": "Excess cash equals total cash (no operating cash deduction), or operating cash estimate is unrealistically low",
+      "fix": "Estimate operating cash needs as 2-5% of revenue depending on industry, or use peer median cash-to-revenue ratio as benchmark. Only cash above this threshold is truly excess"
+    },
+    {
+      "failure": "No consideration of reinvestment quality",
+      "symptom": "Blanket recommendation to return all FCFE without assessing whether the company has value-creating uses for the cash",
+      "detection": "No mention of ROC, WACC, project pipeline, or capital allocation track record",
+      "fix": "Compare ROC to WACC, assess the trend, evaluate management's capital allocation history, and condition the return recommendation on reinvestment quality"
+    },
+    {
+      "failure": "Recommending buybacks at overvalued prices",
+      "symptom": "Large buyback recommendation without assessing whether the current stock price is at or below intrinsic value",
+      "detection": "No valuation context provided, or stock is trading at historically high multiples while buyback is being recommended",
+      "fix": "Assess whether buybacks are accretive by comparing repurchase price to intrinsic value estimate. If stock appears overvalued, favor dividends or cash retention until valuation normalizes"
+    },
+    {
+      "failure": "Missing the signaling dimension of dividends",
+      "symptom": "Treating dividend cuts as costless adjustments, or recommending frequent changes to dividend levels",
+      "detection": "Recommendation includes dividend reduction without discussing market reaction or communication strategy",
+      "fix": "Acknowledge that dividend cuts typically trigger 5-10% stock price declines due to negative signaling. If a cut is necessary, provide a communication strategy and emphasize the sustainability of the new level"
+    }
+  ]
+}

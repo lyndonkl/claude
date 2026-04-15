@@ -1,0 +1,186 @@
+{
+  "criteria": [
+    {
+      "name": "Situation Classification",
+      "1": "No classification attempted, wrong sub-framework selected, or classification based on superficial criteria without checking indicators",
+      "3": "Correct primary classification, decision tree followed, most indicators checked, rationale stated",
+      "5": "All relevant indicators systematically evaluated, correct primary and any secondary classifications identified, multiple-classification overlap handled, clear documentation of which sub-framework applies and why"
+    },
+    {
+      "name": "Sub-Framework Selection",
+      "1": "Applied standard DCF without recognizing the special situation, or selected sub-framework inconsistent with classification",
+      "3": "Correct sub-framework selected and applied, model inputs identified, basic calculations performed",
+      "5": "Sub-framework precisely matched to situation, all model-specific inputs estimated with clear sourcing, calculations transparent and reproducible, alternative sub-frameworks considered and rejected with justification"
+    },
+    {
+      "name": "Model-Specific Adjustments",
+      "1": "No adjustments made beyond standard DCF, or adjustments applied mechanically without justification",
+      "3": "Key adjustments applied (margin convergence, total beta, liquidity discount, or excess return model), most assumptions stated, some sourcing provided",
+      "5": "All required adjustments applied with full justification, assumptions explicitly stated and sourced (peer margins, regression R-squared, restricted stock studies, regulatory capital ratios), sensitivity to adjustment assumptions tested"
+    },
+    {
+      "name": "Probability Weighting / Discount Application",
+      "1": "No probability weighting or discounts applied when required, or arbitrary round numbers used without grounding",
+      "3": "Failure probability, liquidity discount, or option pricing applied with stated rationale, some supporting evidence cited",
+      "5": "Probability weighting or discounts grounded in observable data (cash runway, Z-score, restricted stock regressions, CDS spreads), estimation methodology transparent, sensitivity analysis on the discount/probability assumptions included"
+    },
+    {
+      "name": "Standard vs Adjusted Comparison",
+      "1": "No comparison to standard DCF, reader cannot assess the magnitude or direction of adjustments",
+      "3": "Standard DCF value shown alongside adjusted value, overall impact quantified, direction of adjustment clear",
+      "5": "Complete side-by-side comparison with standard DCF, each adjustment quantified as percentage of standard value, narrative explaining why each adjustment increases or decreases value, reader can evaluate each adjustment independently"
+    },
+    {
+      "name": "Target Margin Sourcing (High-Growth)",
+      "1": "Target margin is a guess, uses management guidance without cross-check, or is missing entirely for negative-earnings firms",
+      "3": "Target margin sourced from mature peer companies, at least 3 peers cited, median or quartile range referenced",
+      "5": "Target margin from 5+ mature peers with revenue and margin data shown, 25th-75th percentile range documented, selected target justified relative to company's competitive position, convergence path and timeline explicitly modeled"
+    },
+    {
+      "name": "Option Pricing Accuracy (Distressed)",
+      "1": "Black-Scholes not applied when equity-as-call-option is appropriate, or inputs are missing or internally inconsistent",
+      "3": "Black-Scholes applied with all five inputs estimated, firm value volatility derived from a stated approach, calculation steps shown",
+      "5": "All Black-Scholes inputs carefully estimated and sourced, firm value volatility uses asset-side (not equity) volatility with methodology explained, d1/d2/N(d1)/N(d2) shown, interpretation of N(d2) as solvency probability discussed, limitations of the model acknowledged"
+    },
+    {
+      "name": "Total Beta / Liquidity Discount (Private)",
+      "1": "Standard market beta used without considering owner diversification, no liquidity discount applied for private firm",
+      "3": "Total beta calculated from market beta and correlation, liquidity discount applied from a stated range, owner context identified",
+      "5": "Total beta derived from comparable firm regression data with R-squared cited, owner diversification status explicitly evaluated with consequences for beta choice, liquidity discount calibrated to company characteristics (revenue, profitability, block size) using regression rather than flat percentage"
+    },
+    {
+      "name": "Excess Return Model (Financial Services)",
+      "1": "FCFF model applied to a financial services firm (debt treated as financial rather than operational), or equity valued by subtracting debt from firm value",
+      "3": "Equity-only model used (excess return, DDM, or FCFE), ROE and cost of equity estimated, book value anchors the valuation",
+      "5": "Excess return model with year-by-year projections of ROE vs cost of equity, regulatory capital constraints checked, growth in book equity consistent with retention and ROE, P/BV interpretation provided, stable-period ROE convergence justified"
+    },
+    {
+      "name": "Overall Plausibility",
+      "1": "Final value is implausible (negative equity value for a solvent firm, P/BV of 50x for a bank, value exceeds industry TAM), key sanity checks missed",
+      "3": "Final value passes basic reasonableness checks, comparable to peer valuations, key metrics (P/BV, EV/Revenue, implied growth) within plausible ranges",
+      "5": "Final value cross-checked against multiple benchmarks (peer multiples, recent transactions, market cap for public comparables), implied assumptions reverse-engineered and verified as plausible, key risks to the valuation identified, sensitivity table shows value across range of assumptions"
+    }
+  ],
+  "guidance_by_type": {
+    "High-Growth / Negative Earnings": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Revenue-based DCF with margin convergence path from current (negative) to target (positive peer-derived) margin",
+        "Sales-to-capital ratio used for reinvestment instead of CapEx/WC estimation",
+        "Target margin from 5+ mature peer companies with data shown",
+        "Failure probability grounded in cash runway, Z-score, or industry base rates",
+        "NOL carryforward treatment addressed if applicable",
+        "Standard DCF comparison showing impact of failure adjustment"
+      ],
+      "common_pitfalls": [
+        "Using management's projected margins instead of realized margins from mature peers",
+        "Applying growth rate to negative earnings (making them more negative) instead of using revenue-based approach",
+        "Forgetting to apply failure probability adjustment",
+        "Setting sales-to-capital ratio without industry benchmarking",
+        "Assuming NOLs have no value (they shelter future income from taxes)"
+      ]
+    },
+    "Distressed Firm": {
+      "target_score": 4.1,
+      "key_requirements": [
+        "Black-Scholes model with all five inputs estimated and sourced",
+        "Firm value volatility estimated from asset-side data (not equity volatility)",
+        "Face value of debt correctly aggregated across tranches",
+        "Weighted average debt maturity calculated from debt schedule",
+        "Cash flow yield (dividend yield equivalent) estimated as FCFF / Firm Value",
+        "N(d2) interpreted as solvency probability"
+      ],
+      "common_pitfalls": [
+        "Using equity volatility instead of firm value (asset) volatility -- overstates sigma due to leverage",
+        "Ignoring the cash flow yield (y) adjustment, which accounts for cash leaving the firm before debt maturity",
+        "Applying Black-Scholes to firms with very short debt maturity (little optionality)",
+        "Forgetting that higher volatility increases equity value in distress (more upside potential)",
+        "Not accounting for debt covenants that may force earlier liquidation than stated maturity"
+      ]
+    },
+    "Private Company": {
+      "target_score": 3.9,
+      "key_requirements": [
+        "Owner diversification status explicitly determined before choosing beta",
+        "Total beta calculated from comparable firm regression R-squared",
+        "Liquidity discount calibrated to company characteristics, not a flat percentage",
+        "Minority discount applied only when valuing non-controlling stake",
+        "Both market-beta and total-beta values shown for comparison"
+      ],
+      "common_pitfalls": [
+        "Applying total beta to a diversified acquirer (PE fund, public company)",
+        "Using a flat 25% liquidity discount without adjusting for company size and profitability",
+        "Double-counting risk by applying both a higher discount rate and a separate risk discount",
+        "Forgetting to check whether minority discount is appropriate for the valuation context",
+        "Using book value instead of estimated market value for capital structure weights"
+      ]
+    },
+    "Financial Services": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Equity-only model used (excess return, DDM, or FCFE -- never FCFF for banks)",
+        "ROE compared to cost of equity to determine if bank creates or destroys value",
+        "Regulatory capital constraints checked and incorporated into growth assumptions",
+        "Book value of equity used as the anchor, with excess returns determining premium/discount",
+        "Price-to-book interpretation provided (P/BV > 1 if ROE > ke)"
+      ],
+      "common_pitfalls": [
+        "Subtracting debt from firm value (deposits are operational, not financial)",
+        "Using WACC as discount rate (only cost of equity is appropriate)",
+        "Projecting growth that violates regulatory capital requirements",
+        "Not normalizing ROE for cyclical loan loss provisions",
+        "Ignoring that bank book values are more meaningful than for non-financial firms (assets marked to market)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Wrong sub-framework for the situation",
+      "symptom": "Applying standard FCFF DCF to a bank, or using equity-as-call-option for a company that is merely unprofitable but not distressed",
+      "detection": "Check: Is the sub-framework appropriate for the company's classification? Does the model's assumptions match the company's characteristics?",
+      "fix": "Use the classification decision tree. Banks and insurers always get the excess return model. Negative earnings with high growth gets revenue-based DCF. Only firms with actual default risk get equity-as-call-option."
+    },
+    {
+      "failure": "Target margin from wrong source",
+      "symptom": "Target margin uses management projections, analyst targets, or industry 'potential' rather than observed margins from mature peers",
+      "detection": "Ask: Where does the target margin come from? Can I verify it from public data on mature companies?",
+      "fix": "Source target margin exclusively from realized operating margins of 5+ mature companies in the same industry. Use the median or a justified point within the 25th-75th percentile range."
+    },
+    {
+      "failure": "Equity volatility used instead of firm value volatility",
+      "symptom": "Black-Scholes inputs use observed equity return volatility (e.g., 80% annual) without de-levering, producing inflated equity values",
+      "detection": "Sigma seems unusually high (>50% for a firm with moderate business risk), or equity value seems too high relative to firm value",
+      "fix": "De-lever equity volatility using the capital structure, or use comparable firm asset volatility as the input."
+    },
+    {
+      "failure": "Total beta applied to diversified buyer",
+      "symptom": "Private company discount is excessive because total beta (e.g., 3.5) is applied even though the buyer is a PE fund with a diversified portfolio",
+      "detection": "Ask: Who is the buyer/owner? Are they diversified or undiversified?",
+      "fix": "Use total beta only for undiversified owners. For PE funds, public acquirers, or diversified family offices, use market beta."
+    },
+    {
+      "failure": "Flat liquidity discount without calibration",
+      "symptom": "A blanket 25% discount applied regardless of company size, profitability, or context",
+      "detection": "Discount is a round number with no explanation of how it was derived",
+      "fix": "Use regression-based approach from restricted stock studies. Calibrate discount to company revenue, profitability, and block size. Larger, more profitable companies warrant smaller discounts."
+    },
+    {
+      "failure": "Debt subtracted from firm value for a bank",
+      "symptom": "FCFF model applied to bank, then deposits subtracted from firm value to get equity -- produces nonsensical result",
+      "detection": "Check if 'debt' in the equity bridge includes operational liabilities (deposits, insurance reserves, trading liabilities)",
+      "fix": "For financial services firms, use equity-only models. Value equity directly using excess return model, DDM, or FCFE. Do not compute firm value and subtract debt."
+    },
+    {
+      "failure": "No failure probability adjustment for high-growth firms",
+      "symptom": "Pre-revenue or cash-burning startup valued at billions with no acknowledgment of failure risk",
+      "detection": "Check: Is there a probability-weighted scenario for failure? Is the distress sale value estimated?",
+      "fix": "Estimate failure probability from cash runway, industry base rates, and company-specific factors. Apply probability weighting: Value = (1-P) x DCF + P x Distress_Value."
+    },
+    {
+      "failure": "Missing standard vs adjusted comparison",
+      "symptom": "Reader cannot assess how much the special-situation adjustments changed the value or whether they are reasonable",
+      "detection": "No standard DCF benchmark is shown alongside the adjusted value",
+      "fix": "Always show: standard DCF value, each adjustment and its magnitude, final adjusted value. This allows the reader to evaluate each adjustment independently."
+    }
+  ]
+}

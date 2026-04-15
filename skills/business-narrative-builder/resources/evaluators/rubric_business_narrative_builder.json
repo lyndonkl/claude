@@ -1,0 +1,166 @@
+{
+  "criteria": [
+    {
+      "name": "Narrative Clarity",
+      "1": "No coherent narrative, just financial projections without a story, or narrative is vague and generic (e.g., 'company will grow')",
+      "3": "Narrative tells a directional story with some specificity, addresses market and strategy, but may lack detail on competitive dynamics or timeline",
+      "5": "Narrative is specific, compelling, and internally consistent, clearly describing how the business evolves over time, what market it serves, how it makes money, and what could go wrong"
+    },
+    {
+      "name": "Life Cycle Classification",
+      "1": "No life cycle stage identified, or classification contradicts observable evidence (e.g., calling a declining company 'young growth')",
+      "3": "Life cycle stage identified with some supporting evidence, but rationale may be thin or stage transition signals not discussed",
+      "5": "Life cycle stage clearly identified with multiple supporting characteristics, transition signals discussed, confidence level and alternative stage considered"
+    },
+    {
+      "name": "TAM Sizing Rigor",
+      "1": "No TAM estimate provided, or TAM is a single unsourced number with no methodology",
+      "3": "TAM estimated using one approach (top-down or bottom-up) with sources cited, but no cross-check or the estimate is not clearly connected to company revenue projections",
+      "5": "TAM estimated using both top-down and bottom-up approaches, sources cited, estimates cross-checked and reconciled, clear connection from TAM to company market share to revenue growth"
+    },
+    {
+      "name": "Narrative-to-Numbers Linkage",
+      "1": "Numbers appear without connection to the narrative, or narrative and numbers tell different stories",
+      "3": "Most value drivers are connected to narrative elements, but some numbers lack clear story-based rationale",
+      "5": "Every value driver traces directly to a specific narrative element, and every narrative claim has a corresponding number, with the mapping explicitly documented"
+    },
+    {
+      "name": "Growth Path Plausibility",
+      "1": "Revenue growth implies impossible market share (>50%), or growth rate sustained at >30% for >15 years with no justification",
+      "3": "Revenue growth path is within plausible range, bounded by TAM, but may not account for competitive response or market saturation",
+      "5": "Revenue growth path is clearly bounded by TAM, accounts for competition and market dynamics, supported by historical analogues, and includes a realistic market share trajectory"
+    },
+    {
+      "name": "Margin Benchmarking",
+      "1": "Target operating margin stated without any industry reference, or margin assumption exceeds all known peers without explanation",
+      "3": "Target margin benchmarked against industry median or select peers, but rationale for where in the range the company lands may be incomplete",
+      "5": "Target margin benchmarked against industry median and quartiles, with specific rationale for the chosen target tied to competitive advantages, cost structure, or pricing power"
+    },
+    {
+      "name": "Risk and Failure Assessment",
+      "1": "No discussion of risk or failure probability, even for young or distressed companies",
+      "3": "Risk factors mentioned and failure probability stated for relevant companies, but basis may be generic (e.g., 'startups have high failure rates') rather than company-specific",
+      "5": "Risk assessment is company-specific with failure probability grounded in data (cash burn rate, capital available, industry base rates, Altman Z-score), distress value estimated, and risk reflected in cost of capital"
+    },
+    {
+      "name": "Alternative Narratives",
+      "1": "Only one narrative presented with no acknowledgment of uncertainty or alternative outcomes",
+      "3": "At least one alternative narrative mentioned with directional impact on value drivers, but may lack full driver-level detail",
+      "5": "Multiple alternative narratives developed with complete value driver mappings, specific triggers identified for each, and impact on valuation quantified or at least directionally characterized"
+    }
+  ],
+  "guidance_by_type": {
+    "Young Growth Company": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Narrative must address path to profitability, not just revenue growth",
+        "TAM sizing is critical because it defines the ceiling for revenue projections",
+        "Target operating margin should come from mature industry peers, not company's own history (margins are likely negative or meaningless)",
+        "Failure probability should be explicitly stated (10-30% range typical) with basis in cash burn rate and capital available",
+        "At least two narratives (e.g., 'mass market leader' vs 'niche premium player') to bracket the range of outcomes",
+        "Sales-to-capital ratio should be estimated from peers since the company may not have stable invested capital base"
+      ],
+      "common_pitfalls": [
+        "Extrapolating current explosive growth rates for 15+ years",
+        "Setting failure probability to 0% for a company that is burning cash",
+        "Using the company's current (negative) margins as a baseline rather than industry targets",
+        "Defining TAM so broadly that any revenue projection looks small as a percentage"
+      ]
+    },
+    "Mature Growth Company": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Narrative should focus on where growth comes from next (adjacent markets, geography, new products)",
+        "Operating margin should be compared to current margin and industry benchmarks, with trajectory explained",
+        "Reinvestment quality matters: ROC vs WACC should be assessed to determine if growth creates value",
+        "Competitive advantage period (length of high growth) should be estimated based on advantage durability",
+        "Stable growth transition should be realistic (not a sudden cliff from 15% to 3%)"
+      ],
+      "common_pitfalls": [
+        "Assuming current growth rate persists without identifying specific drivers",
+        "Missing margin compression from intensifying competition",
+        "Ignoring the capital required to fund growth in new markets"
+      ]
+    },
+    "Mature Stable Company": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Narrative should focus on competitive moat durability and disruption risk",
+        "Revenue growth should converge to risk-free rate or GDP growth",
+        "Operating margin stability should be assessed (is the current margin sustainable?)",
+        "Capital allocation narrative matters: how is excess cash flow being deployed?",
+        "Terminal value will be the dominant portion of firm value -- inputs must be well-justified"
+      ],
+      "common_pitfalls": [
+        "Overvaluing stability and ignoring secular decline risk",
+        "Setting terminal growth rate above risk-free rate",
+        "Not accounting for potential disruption from technology or new entrants"
+      ]
+    },
+    "Decline or Turnaround Company": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Narrative must clearly address whether this is managed decline or turnaround, with evidence for the chosen path",
+        "Revenue trajectory should reflect realistic decline rate, not anchored on historical peaks",
+        "If turnaround narrative: identify specific management actions, timeline, and evidence of execution",
+        "Failure or liquidation scenario should be developed as a full alternative narrative",
+        "Margins may need to be modeled as contracting, not stable"
+      ],
+      "common_pitfalls": [
+        "Anchoring on historical peak revenue and assuming reversion",
+        "Turnaround narrative based on hope rather than evidence",
+        "Ignoring distress costs (customer flight, employee attrition, credit tightening)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Disconnected narrative and numbers",
+      "symptom": "Numbers were set by extrapolation or benchmarks without a story explaining them, or the story implies one trajectory while the numbers imply another",
+      "detection": "For each value driver, ask 'What part of the narrative justifies this number?' If no answer, they are disconnected.",
+      "fix": "Rebuild by starting with the narrative, then deriving each number from the story. If the narrative says 'niche player' but revenue implies 25% market share, reconcile."
+    },
+    {
+      "failure": "TAM not connected to revenue path",
+      "symptom": "TAM is stated but revenue growth does not reference it, or implied market share trajectory is not calculated",
+      "detection": "Compute implied market share at year 5 and year 10; if not calculated, TAM and revenue are disconnected.",
+      "fix": "Build a year-by-year market share trajectory from current share to target share, bounded by TAM."
+    },
+    {
+      "failure": "Missing failure probability for young firms",
+      "symptom": "Company is pre-profit or burning cash but failure probability is not stated or is set to 0%",
+      "detection": "Check if life cycle stage is Start-up, Young Growth, or Decline, and whether failure probability appears in the driver table.",
+      "fix": "Estimate failure probability using cash burn rate (months of cash remaining), industry base rates, and qualitative assessment. A 0% failure probability requires explicit justification."
+    },
+    {
+      "failure": "Single narrative without alternatives",
+      "symptom": "Only one story presented, creating false precision in the valuation",
+      "detection": "Count the number of distinct narratives in the output.",
+      "fix": "Develop at least one alternative narrative (different strategy, different market outcome, different management quality) and show how it changes value drivers."
+    },
+    {
+      "failure": "Margin target without industry benchmark",
+      "symptom": "Target operating margin stated as a number without reference to what mature peers achieve",
+      "detection": "Check whether industry median and quartile margins are cited alongside the target.",
+      "fix": "Look up operating margins for 10-20 mature companies in the same industry. Report median and 75th percentile. Explain where the target falls and why."
+    },
+    {
+      "failure": "Growth rate exceeds TAM constraint",
+      "symptom": "Revenue projection at maturity implies market share above 30-40% in a competitive market",
+      "detection": "Compute target revenue / TAM. If result exceeds 0.30-0.40 in a competitive market, the growth rate is too aggressive.",
+      "fix": "Either reduce the growth rate, extend the time horizon, or provide a specific explanation for why high market share is achievable (dominant network effects, winner-take-most dynamics, regulatory barriers)."
+    },
+    {
+      "failure": "Stable growth rate exceeds economic growth",
+      "symptom": "Terminal growth rate set above risk-free rate or nominal GDP growth (typically 2-4%)",
+      "detection": "Check whether stable growth rate is above the risk-free rate in the analysis currency.",
+      "fix": "Cap stable growth at the risk-free rate or nominal GDP growth for the relevant economy. No single company can grow faster than the economy indefinitely."
+    },
+    {
+      "failure": "Life cycle misclassification",
+      "symptom": "Company placed in wrong stage, leading to inappropriate narrative structure and driver selection",
+      "detection": "Cross-check the classified stage against the 6-stage characteristics table. If fewer than 3 of 6 characteristics match, reconsider.",
+      "fix": "Re-evaluate using the Life Cycle Classification Checklist. If the company straddles two stages, note both and explain which you are weighting and why."
+    }
+  ]
+}
