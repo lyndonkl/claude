@@ -1,89 +1,14 @@
 ---
 name: heuristics-and-checklists
-description: Use when making decisions under time pressure or uncertainty, preventing errors in complex procedures, designing decision rules or checklists, simplifying complex choices, or when user mentions heuristics, rules of thumb, mental models, checklists, error prevention, cognitive biases, satisficing, or needs practical decision shortcuts and systematic error reduction.
+description: Provides practical frameworks for fast decision-making through mental shortcuts (heuristics) and systematic error prevention through structured checklists. Guides through designing effective heuristics, creating checklists for complex procedures, and recognizing when shortcuts lead to biases. Use when making decisions under time pressure or uncertainty, preventing errors in complex procedures, designing decision rules or checklists, simplifying complex choices, or when user mentions heuristics, rules of thumb, mental models, checklists, error prevention, cognitive biases, satisficing, or standard operating procedures.
 ---
 # Heuristics and Checklists
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Heuristics and Checklists provides practical frameworks for fast decision-making through mental shortcuts (heuristics) and systematic error prevention through structured procedures (checklists). This skill guides you through designing effective heuristics for routine decisions, creating checklists for complex procedures, and understanding when shortcuts work vs. when they lead to biases.
-
-## When to Use
-
-Use this skill when:
-
-- **Time-constrained decisions**: Need to decide quickly without full analysis
-- **Routine choices**: Repetitive decisions where full analysis is overkill (satisficing)
-- **Error prevention**: Complex procedures where mistakes are costly (surgery, software deployment, flight operations)
-- **Checklist design**: Creating pre-flight, pre-launch, or pre-deployment checklists
-- **Cognitive load reduction**: Simplifying complex decisions into simple rules
-- **Bias mitigation**: Understanding when heuristics mislead (availability, anchoring, representativeness)
-- **Knowledge transfer**: Codifying expert intuition into transferable rules
-- **Quality assurance**: Ensuring critical steps aren't skipped
-- **Onboarding**: Teaching newcomers reliable decision patterns
-- **High-stakes procedures**: Surgery, aviation, nuclear operations, financial trading
-
-Trigger phrases: "heuristics", "rules of thumb", "mental models", "checklists", "error prevention", "cognitive biases", "satisficing", "quick decision", "standard operating procedure"
-
-## What Is It?
-
-**Heuristics and Checklists** combines two complementary approaches for practical decision-making and error prevention:
-
-**Core components**:
-- **Heuristics**: Mental shortcuts or rules of thumb that simplify decisions (e.g., "recognition heuristic": choose the option you recognize)
-- **Checklists**: Structured lists ensuring critical steps completed in order (aviation pre-flight, surgical safety checklist)
-- **Fast & Frugal Trees**: Simple decision trees with few branches, good enough decisions with minimal information
-- **Satisficing**: "Good enough" decisions (Simon) vs. exhaustive optimization
-- **Bias awareness**: Recognizing when heuristics fail (availability bias, anchoring, representativeness)
-- **Error prevention**: Swiss cheese model, forcing functions, fail-safes
-
-**Quick example:**
-
-**Scenario**: Startup CEO deciding whether to hire a candidate after interview.
-
-**Without heuristics** (exhaustive analysis):
-- Compare to all other candidates (takes weeks)
-- 360-degree reference checks (10+ calls)
-- Skills assessment, culture fit survey, multiple rounds
-- Analysis paralysis, miss good candidates to faster competitors
-
-**With heuristics** (fast & frugal):
-1. **Recognition heuristic**: Have they worked at company I respect? (Yes → +1)
-2. **Take-the-best**: What's their track record on most important skill? (Strong → +1)
-3. **Satisficing threshold**: If 2/2 positive, hire. Don't keep searching for "perfect" candidate.
-
-**Outcome**: Hired strong candidate in 3 days instead of 3 weeks. Not perfect, but good enough and fast.
-
-**Checklist example** (Software Deployment):
-```
-Pre-Deployment Checklist:
-☐ All tests passing (unit, integration, E2E)
-☐ Database migrations tested on staging
-☐ Rollback plan documented
-☐ Monitoring dashboards configured
-☐ On-call engineer identified
-☐ Stakeholders notified of deployment window
-☐ Feature flags configured for gradual rollout
-☐ Backups completed
-```
-
-**Benefit**: Prevents missing critical steps. Reduces deployment failures by 60-80% (empirical data from aviation, surgery, software).
-
-**Core benefits**:
-- **Speed**: Heuristics enable fast decisions under time pressure
-- **Cognitive efficiency**: Reduce mental load, free capacity for complex thinking
-- **Error reduction**: Checklists catch mistakes before they cause harm
-- **Consistency**: Standardized procedures reduce variance in outcomes
-- **Knowledge codification**: Capture expert intuition in transferable form
 
 ## Workflow
 
@@ -171,7 +96,7 @@ Validate using [resources/evaluators/rubric_heuristics_and_checklists.json](reso
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
 1. **Know when heuristics work vs. fail**: Heuristics excel in stable, familiar environments with time pressure. They fail in novel, deceptive contexts (adversarial, misleading information). Don't use recognition heuristic when advertising creates false signals.
 

@@ -1,66 +1,14 @@
 ---
 name: design-of-experiments
-description: Use when optimizing multi-factor systems with limited experimental budget, screening many variables to find the vital few, discovering interactions between parameters, mapping response surfaces for peak performance, validating robustness to noise factors, or when users mention factorial designs, A/B/n testing, parameter tuning, process optimization, or experimental efficiency.
+description: Generates structured experimental designs (factorial, response surface, Taguchi) to systematically discover how multiple factors affect outcomes while minimizing experimental runs. Use when optimizing multi-factor systems with limited experimental budget, screening many variables to find the vital few, discovering interactions between parameters, mapping response surfaces for peak performance, validating robustness to noise factors, or when users mention factorial designs, A/B/n testing, parameter tuning, or process optimization.
 ---
 # Design of Experiments
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Design of Experiments (DOE) helps you systematically discover how multiple factors affect an outcome while minimizing the number of experimental runs. Instead of testing one variable at a time (inefficient) or guessing randomly (unreliable), DOE uses structured experimental designs to:
-
-- **Screen** many factors to find the critical few
-- **Optimize** factor settings to maximize/minimize a response
-- **Discover interactions** where factors affect each other
-- **Map response surfaces** to understand the full factor space
-- **Validate robustness** against noise and environmental variation
-
-## When to Use
-
-Use this skill when:
-
-- **Limited experimental budget**: You have constraints on time, cost, or resources for testing
-- **Multiple factors**: 3+ controllable variables that could affect the outcome
-- **Interaction suspicion**: Factors may interact (effect of A depends on level of B)
-- **Optimization needed**: Finding best settings, not just "better than baseline"
-- **Screening required**: Many candidate factors (10+), need to identify vital few
-- **Response surface**: Need to map curvature, find peaks/valleys, understand tradeoffs
-- **Robust design**: Must work well despite noise factors or environmental variation
-- **Process improvement**: Manufacturing, chemical processes, software performance tuning
-- **Product development**: Formulations, recipes, configurations with multiple parameters
-- **A/B/n testing**: Web/app features with multiple variants and combinations
-- **Machine learning**: Hyperparameter tuning for models with many parameters
-
-Trigger phrases: "optimize", "tune parameters", "factorial test", "interaction effects", "response surface", "efficient experiments", "minimize runs", "robustness", "sensitivity analysis"
-
-## What Is It?
-
-Design of Experiments is a statistical framework for planning, executing, and analyzing experiments where you deliberately vary multiple input factors to observe effects on output responses.
-
-**Quick example:**
-
-You're optimizing a web signup flow with 3 factors:
-- **Factor A**: Form layout (single-page vs multi-step)
-- **Factor B**: CTA button color (blue vs green)
-- **Factor C**: Social proof (testimonials vs user count)
-
-**Naive approach**: Test one at a time = 6 runs (2 levels each × 3 factors)
-- But you miss interactions! Maybe blue works better for single-page, green for multi-step.
-
-**DOE approach**: 2³ factorial design = 8 runs
-- Tests all combinations: (single/blue/testimonials), (single/blue/count), (single/green/testimonials), etc.
-- Reveals main effects AND interactions
-- Statistical power to detect differences
-
-**Result**: You discover that layout and CTA color interact strongly—multi-step + green outperforms everything, but single-page + blue is close second. Social proof has minimal effect. Make data-driven decision with confidence.
 
 ## Workflow
 
@@ -138,23 +86,23 @@ Self-assess using [resources/evaluators/rubric_design_of_experiments.json](resou
 
 ## Guardrails
 
-**Critical requirements:**
+**Design requirements:**
 
 1. **Randomize run order**: Eliminates time-order bias and confounding with lurking variables. Use random number generator, not "convenient" sequences.
 
 2. **Replicate center points**: For designs with continuous factors, replicate center point runs (3-5 times) to estimate pure error and detect curvature.
 
-3. **Avoid confounding critical interactions**: In fractional factorials, don't confound important 2-way interactions with main effects. Choose Resolution ≥ IV if interactions matter.
+3. **Preserve critical interactions**: In fractional factorials, avoid confounding important 2-way interactions with main effects. Choose Resolution IV or higher if interactions matter.
 
 4. **Check design balance**: Ensure orthogonality (factors are uncorrelated in design matrix). Correlation > 0.3 reduces precision and interpretability.
 
 5. **Define response precisely**: Use objective, quantitative, repeatable measurements. Avoid subjective scoring unless calibrated with multiple raters.
 
-6. **Justify sample size**: Run power analysis to ensure design can detect meaningful effect sizes with acceptable Type II error risk (β ≤ 0.20).
+6. **Justify sample size**: Run power analysis to ensure design can detect meaningful effect sizes with acceptable Type II error risk (beta at most 0.20).
 
 7. **Document assumptions**: State expected effect magnitudes, interaction assumptions, noise variance estimates. Design validity depends on these.
 
-8. **Plan for analysis before running**: Specify statistical tests, significance level (α), effect size metrics before data collection. Prevents p-hacking.
+8. **Plan for analysis before running**: Specify statistical tests, significance level (alpha), effect size metrics before data collection to prevent p-hacking.
 
 **Common pitfalls:**
 

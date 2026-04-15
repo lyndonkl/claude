@@ -1,13 +1,11 @@
 ---
 name: strategy-and-competitive-analysis
-description: Use when developing business strategy (market entry, product launch, geographic expansion, M&A, turnaround), conducting competitive analysis (profiling competitors, assessing competitive threats, Porter's 5 Forces, identifying differentiation), applying strategic frameworks (Good Strategy kernel with diagnosis/guiding policy/coherent actions, SWOT, Blue Ocean Strategy, Playing to Win where-to-play/how-to-win, Value Chain Analysis, BCG Matrix), making strategic decisions under constraints (build vs buy, pricing strategy, market positioning, business model choices), planning strategic initiatives (annual planning, OKRs, roadmaps), evaluating competitive positioning (moats, sustainable advantages, differentiation vs cost leadership), or when user mentions "strategy", "competitive analysis", "Porter's 5 Forces", "SWOT", "market positioning", "strategic planning", "competitive landscape", or "strategic frameworks".
+description: Develops business strategies grounded in rigorous competitive and market analysis using proven frameworks (Good Strategy kernel, Porter's 5 Forces, SWOT, Blue Ocean, Playing to Win, Value Chain Analysis, BCG Matrix). Use when developing strategy (market entry, product launch, expansion, M&A, turnaround), conducting competitive analysis, making strategic decisions (build vs buy, pricing, positioning), planning strategic initiatives, or when user mentions strategy, competitive analysis, Porter's 5 Forces, SWOT, market positioning, or strategic frameworks.
 ---
+
 # Strategy & Competitive Analysis
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
 - [Workflow](#workflow)
 - [Strategic Frameworks Overview](#strategic-frameworks-overview)
 - [Competitive Analysis Overview](#competitive-analysis-overview)
@@ -15,37 +13,7 @@ description: Use when developing business strategy (market entry, product launch
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Develop robust strategies grounded in rigorous competitive and market analysis, using proven frameworks to diagnose challenges, formulate guiding policies, and specify coherent actions.
-
-## When to Use
-
-**Business Strategy Development:**
-- Market entry strategy (new product, geography, segment)
-- Strategic planning (annual plans, 3-year vision, OKRs)
-- Strategic decisions (build vs buy, pricing, positioning, business model)
-- Growth strategy (organic, M&A, partnerships, platform)
-
-**Competitive Analysis:**
-- Competitor profiling (features, pricing, positioning, strengths/weaknesses)
-- Threat assessment (new entrants, substitutes, competitive moves)
-- Differentiation opportunities (market gaps, uncontested space)
-- Industry structure analysis (5 Forces, consolidation, barriers to entry)
-
-**Strategic Frameworks:**
-- Need structured approach to complex strategic questions
-- Multiple stakeholders requiring alignment on strategy rationale
-- High-stakes decisions requiring rigorous analysis
-- Teaching/communicating strategy to teams
-
-## What Is It
-
-Strategy & Competitive Analysis applies proven frameworks to make better strategic decisions:
-
-**Good Strategy Kernel** (Rumelt): Diagnosis (what's the challenge) → Guiding Policy (overall approach) → Coherent Actions (specific coordinated steps).
-
-**Competitive Analysis**: Porter's 5 Forces (rivalry, new entrants, substitutes, buyer power, supplier power), competitor profiling (SWOT per competitor), positioning maps, moat assessment.
+**Core approach -- Good Strategy Kernel** (Rumelt): Diagnosis (what's the challenge) → Guiding Policy (overall approach) → Coherent Actions (specific coordinated steps).
 
 **Example**: SaaS startup entering crowded market → **Diagnosis**: commoditized features, price competition, high CAC. **Guiding Policy**: vertical specialization (healthcare) + product-led growth. **Coherent Actions**: build HIPAA compliance, create compliance templates, offer free tier, invest in SEO for "healthcare SaaS".
 

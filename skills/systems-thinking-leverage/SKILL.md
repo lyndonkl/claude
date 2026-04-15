@@ -1,49 +1,8 @@
 ---
 name: systems-thinking-leverage
-description: Use when problems involve interconnected components with feedback loops (reinforcing or balancing), delays, or emergent behavior where simple cause-effect thinking fails. Invoke when identifying leverage points for intervention (where to push for maximum effect with minimum effort), understanding why past solutions failed or had unintended consequences, analyzing system archetypes (fixes that fail, shifting the burden, tragedy of the commons, limits to growth, escalation), mapping stocks and flows (accumulations and rates of change), discovering feedback loop dynamics, finding root causes in complex adaptive systems, designing interventions that work with system structure rather than against it, or when user mentions systems thinking, leverage points, feedback loops, unintended consequences, system dynamics, causal loop diagrams, or complex systems. Apply to organizational systems (employee engagement, scaling challenges, productivity decline), product/technical systems (technical debt accumulation, performance degradation, adoption barriers), social systems (polarization, misinformation spread, community issues), environmental systems (climate, resource depletion, pollution), personal systems (habit formation, burnout, skill development), and anywhere simple linear interventions repeatedly fail while systemic patterns persist.
+description: Finds high-leverage intervention points in complex systems by mapping feedback loops, identifying system archetypes (fixes that fail, shifting the burden, tragedy of the commons, limits to growth), and ranking interventions by Meadows' leverage hierarchy. Use when problems involve interconnected components with feedback loops, delays, or emergent behavior; when past solutions failed or caused unintended consequences; when identifying where to push for maximum effect; or when user mentions systems thinking, leverage points, feedback loops, causal loop diagrams, stocks and flows, or complex systems.
 ---
 # Systems Thinking & Leverage Points
-
-## Purpose
-
-Find high-leverage intervention points in complex systems by mapping feedback loops, identifying system archetypes, and understanding where small changes can produce large effects.
-
-## When to Use
-
-**Invoke this skill when:**
-- Problem involves multiple interconnected parts with feedback loops
-- Past solutions failed or caused unintended consequences
-- Simple cause-effect thinking doesn't capture the dynamics
-- You need to find where to intervene for maximum leverage
-- System exhibits delays, accumulations, or emergent behavior
-- Patterns keep recurring despite different people/contexts (system archetype)
-- Need to understand why things got this way (stock accumulation)
-- Deciding between intervention points (parameters vs. structure vs. goals vs. paradigms)
-
-**Don't use when:**
-- Problem is simple cause-effect with clear solution
-- System has only 1-2 components with no feedback
-- Linear analysis is sufficient
-- Time constraints require immediate action (no time for mapping)
-
-## What Is It?
-
-**Systems thinking** analyzes how interconnected components create emergent behavior through feedback loops, stocks/flows, and delays. **Leverage points** (Donella Meadows) are places to intervene in a system ranked by effectiveness:
-
-**Low leverage** (easy but weak): Parameters (numbers, rates, constants)
-**Medium leverage**: Buffers, stock structures, delays, feedback loop strength
-**High leverage** (hard but powerful): Information flows, rules, self-organization, goals, paradigms
-
-**Example**: Company with high employee turnover (problem).
-
-**Low leverage**: Increase salaries 10% (parameter) → Temporary effect, competitors match
-**Medium leverage**: Improve manager-employee feedback frequency (balancing loop) → Some improvement
-**High leverage**: Change goal from "minimize cost per employee" to "maximize team capability" → Shifts hiring, training, retention decisions system-wide
-
-**Quick example of feedback loops:**
-- **Reinforcing loop** (R): More engaged employees → Better customer experience → More revenue → More investment in employees → More engaged employees (growth or collapse)
-- **Balancing loop** (B): Workload increases → Stress increases → Burnout → Productivity decreases → Workload increases further (goal-seeking)
-- **Delays**: Training today → Skills improve (3-6 months delay) → Productivity increases. Ignoring delay causes impatience and abandoning training too early.
 
 ## Workflow
 

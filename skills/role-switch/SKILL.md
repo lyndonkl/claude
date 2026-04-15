@@ -1,60 +1,17 @@
 ---
 name: role-switch
-description: Use when stakeholders have conflicting priorities and need alignment, suspect decision blind spots from single perspective, need to pressure-test proposals before presenting, want empathy for different viewpoints (eng vs PM vs legal vs user), building consensus across functions, evaluating tradeoffs with multi-dimensional impact, or when user mentions "what would X think", "stakeholder alignment", "see from their perspective", "blind spots", or "conflicting interests".
+description: Analyzes decisions from multiple stakeholder perspectives (engineering, product, legal, finance, users) to uncover blind spots, surface tensions, and synthesize alignment paths with explicit tradeoffs. Use when stakeholders have conflicting priorities, need to pressure-test proposals, build cross-functional empathy, or when user mentions "what would X think", "stakeholder alignment", "see from their perspective", "blind spots", or "conflicting interests".
 ---
 
 # Role Switch
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It](#what-is-it)
-4. [Workflow](#workflow)
-5. [Role Selection Patterns](#role-selection-patterns)
-6. [Synthesis Principles](#synthesis-principles)
-7. [Common Patterns](#common-patterns)
-8. [Guardrails](#guardrails)
-9. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Role Switch helps uncover blind spots, align stakeholders, and make better decisions by systematically analyzing from multiple perspectives. It transforms single-viewpoint analysis into multi-stakeholder synthesis with explicit tradeoffs and alignment paths.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Align stakeholders with conflicting priorities (eng vs PM vs sales vs legal)
-- Uncover blind spots in decisions by viewing from multiple angles
-- Pressure-test proposals before presenting to diverse audiences
-- Build empathy for perspectives different from your own
-- Navigate cross-functional tradeoffs (cost vs quality, speed vs thoroughness)
-- Evaluate decisions with multi-dimensional impact (technical, business, user, regulatory)
-- Find consensus paths when positions seem incompatible
-- Validate assumptions by seeing what different roles would challenge
-
-**User phrases that trigger this skill:**
-- "What would [stakeholder] think about this?"
-- "How do we get alignment across teams?"
-- "I'm worried we're missing something"
-- "See this from their perspective"
-- "Conflicting priorities between X and Y"
-- "Stakeholder buy-in strategy"
-
-## What Is It
-
-A structured analysis that:
-1. **Identifies relevant roles** (stakeholders with different goals, constraints, incentives)
-2. **Adopts each perspective** (inhabits mindset, priorities, success criteria of that role)
-3. **Articulates viewpoint** (what this role cares about, fears, values, measures)
-4. **Surfaces tensions** (where perspectives conflict, tradeoffs emerge)
-5. **Synthesizes alignment** (finds common ground, proposes resolutions, sequences decisions)
-
-**Quick example (API versioning decision):**
-- **Engineer**: "Deprecate v1 now—maintaining two versions doubles complexity and slows new features"
-- **Product Manager**: "Keep v1 for 12 months—customers need migration time or we risk churn"
-- **Customer Success**: "Offer v1→v2 migration service—customers value hand-holding over self-service docs"
-- **Finance**: "Charge for extended v1 support—converts maintenance burden into revenue stream"
-- **Synthesis**: Deprecate v1 in 12 months with 6-month free support + paid extended support option, PM owns migration docs + webinars, CS offers premium service
+1. [Workflow](#workflow)
+2. [Role Selection Patterns](#role-selection-patterns)
+3. [Synthesis Principles](#synthesis-principles)
+4. [Common Patterns](#common-patterns)
+5. [Guardrails](#guardrails)
+6. [Quick Reference](#quick-reference)
 
 ## Workflow
 

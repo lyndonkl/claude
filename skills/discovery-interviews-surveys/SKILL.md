@@ -1,70 +1,14 @@
 ---
 name: discovery-interviews-surveys
-description: Use when validating product assumptions before building, discovering unmet user needs, understanding customer problems and workflows, testing concepts or positioning, researching target markets, identifying jobs-to-be-done and hiring triggers, uncovering pain points and workarounds, or when users mention user research, customer interviews, surveys, discovery interviews, validation studies, or voice of customer.
+description: Designs structured interview guides, survey instruments, and JTBD probes to learn from users while avoiding common research biases (leading questions, confirmation bias, selection bias). Use when validating product assumptions before building, discovering unmet user needs, understanding customer problems and workflows, testing concepts or positioning, researching target markets, identifying jobs-to-be-done and hiring triggers, or uncovering pain points and workarounds.
 ---
 # Discovery Interviews & Surveys
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Discovery Interviews & Surveys help you learn from users systematically to:
-
-- **Validate assumptions** before investing in building
-- **Discover real problems** users experience (not just stated needs)
-- **Understand jobs-to-be-done** (what users "hire" your product to do)
-- **Identify pain points** and current workarounds
-- **Test concepts** and positioning with target audience
-- **Uncover unmet needs** that users may not articulate directly
-
-This moves from guessing to evidence-based product decisions.
-
-## When to Use
-
-Use this skill when:
-
-- **Pre-build validation**: Testing product ideas before development
-- **Problem discovery**: Understanding user pain points and workflows
-- **Jobs-to-be-done research**: Identifying hiring/firing triggers and desired outcomes
-- **Market research**: Understanding target audience, competitive landscape, willingness to pay
-- **Concept testing**: Validating positioning, messaging, feature prioritization
-- **Post-launch learning**: Understanding adoption barriers, churn reasons, expansion opportunities
-- **Customer satisfaction research**: Identifying satisfaction/dissatisfaction drivers
-- **UX research**: Mental models, task flows, usability issues
-- **Voice of customer**: Gathering qualitative insights for roadmap prioritization
-
-Trigger phrases: "user research", "customer interviews", "surveys", "discovery", "validation study", "voice of customer", "jobs-to-be-done", "JTBD", "user needs"
-
-## What Is It?
-
-Discovery Interviews & Surveys provide structured approaches to learn from users while avoiding common biases (leading questions, confirmation bias, selection bias).
-
-**Key components**:
-1. **Interview guides**: Open-ended questions that reveal problems and context
-2. **Survey instruments**: Scaled questions for quantitative validation at scale
-3. **JTBD probes**: Questions focused on hiring/firing triggers and desired outcomes
-4. **Bias-avoidance techniques**: Past behavior focus, "show me" requests, avoiding hypotheticals
-5. **Analysis frameworks**: Thematic coding, affinity mapping, statistical analysis
-
-**Quick example:**
-
-**Bad interview question** (leading, hypothetical):
-"Would you pay $49/month for a tool that automatically backs up your files?"
-
-**Good interview approach** (behavior-focused, problem-discovery):
-1. "Tell me about the last time you lost important files. What happened?"
-2. "What have you tried to prevent data loss? How's that working?"
-3. "Walk me through your current backup process. Show me if possible."
-4. "What would need to change for you to invest time/money in better backup?"
-
-**Result**: Learn about actual problems, current solutions, willingness to change—not hypothetical preferences.
 
 ## Workflow
 
@@ -147,23 +91,23 @@ For interviews: thematic coding, affinity mapping, quote extraction. For surveys
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
-1. **Avoid leading questions**: Don't telegraph the "right" answer. Bad: "Don't you think our UI is confusing?" Good: "Walk me through using this feature. What happened?"
+1. **Avoid leading questions**: Phrase questions neutrally rather than telegraphing the "right" answer. Instead of: "Don't you think our UI is confusing?" use: "Walk me through using this feature. What happened?"
 
-2. **Focus on past behavior, not hypotheticals**: What people did reveals truth; what they say they'd do is often wrong. Bad: "Would you use this feature?" Good: "Tell me about the last time you needed to do X."
+2. **Focus on past behavior, not hypotheticals**: What people did reveals truth; what they say they'd do is often wrong. Instead of: "Would you use this feature?" use: "Tell me about the last time you needed to do X."
 
-3. **Use "show me" not "tell me"**: Actual behavior > described behavior. Ask to screen-share, demonstrate current workflow, show artifacts (spreadsheets, tools).
+3. **Use "show me" over "tell me"**: Actual behavior is more reliable than described behavior. Ask to screen-share, demonstrate current workflow, show artifacts (spreadsheets, tools).
 
-4. **Recruit right participants**: Screen carefully. Wrong participants = wasted time. Define inclusion/exclusion criteria, use screening survey.
+4. **Recruit right participants**: Screen carefully. Wrong participants waste time. Define inclusion/exclusion criteria and use screening surveys.
 
 5. **Sample size appropriate for method**: Interviews: 5-15 for themes to emerge. Surveys: 100+ for statistical significance, 30+ per segment if comparing.
 
-6. **Avoid confirmation bias**: Actively look for disconfirming evidence. If 9/10 interviews support hypothesis, focus heavily on the 1 that doesn't.
+6. **Seek disconfirming evidence**: Actively look for evidence against your hypothesis. If 9/10 interviews support the hypothesis, focus heavily on the 1 that does not.
 
 7. **Record and transcribe (with permission)**: Memory is unreliable. Record interviews, transcribe for analysis. Take notes as backup.
 
-8. **Analyze systematically**: Don't cherry-pick quotes that support preferred conclusion. Use thematic coding, count themes, present contradictory evidence.
+8. **Analyze systematically**: Use thematic coding, count themes, and present contradictory evidence rather than cherry-picking supportive quotes.
 
 **Common pitfalls:**
 

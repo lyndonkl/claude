@@ -1,14 +1,13 @@
 ---
 name: cognitive-design
-description: Use when designing visual interfaces, data visualizations, educational content, or presentations and need to ground decisions in cognitive psychology principles — perception, attention, memory, Gestalt grouping, and visual encoding hierarchy. Invoke when user mentions cognitive load, visual hierarchy, working memory, preattentive processing, Gestalt principles, encoding hierarchy, cognitive design pyramid, or needs to understand WHY certain designs work. For design evaluation, use `design-evaluation-audit`. For fallacy prevention, use `cognitive-fallacies-guard`. For data storytelling, use `visual-storytelling-design`.
+description: Grounds visual design decisions in cognitive psychology principles — perception, attention, memory, Gestalt grouping, and visual encoding hierarchy — explaining WHY certain designs work. Covers interfaces, data visualizations, educational content, and presentations. Invoke when user mentions cognitive load, visual hierarchy, working memory, preattentive processing, Gestalt principles, encoding hierarchy, or cognitive design pyramid. For design evaluation, use `design-evaluation-audit`. For fallacy prevention, use `cognitive-fallacies-guard`. For data storytelling, use `visual-storytelling-design`.
 ---
 
 # Cognitive Design Principles
 
 ## Table of Contents
 
-- [Read This First](#read-this-first)
-- [How to Use This Skill](#how-to-use-this-skill)
+- [Overview](#overview)
 - [Workflows](#workflows)
   - [Apply Cognitive Principles Workflow](#apply-cognitive-principles-workflow)
   - [Quick Validation Workflow](#quick-validation-workflow)
@@ -23,62 +22,11 @@ description: Use when designing visual interfaces, data visualizations, educatio
 
 ---
 
-## Read This First
+## Overview
 
-### What This Skill Does
+This skill provides the cognitive science foundations for effective design — the perception, attention, memory, and decision-making principles that explain WHY certain designs work. It helps ground design decisions in research (Tufte, Norman, Ware, Cleveland & McGill, Mayer), apply systematic frameworks (Cognitive Design Pyramid, Design Feedback Loop, Three-Layer Model), choose appropriate visual encodings, and manage attention, memory limits, and cognitive load.
 
-This skill provides the **cognitive science foundations** for effective design — the perception, attention, memory, and decision-making principles that explain WHY certain designs work.
-
-**Core principle:** Effective design aligns with how people think, not just how things look.
-
-### Why Cognitive Design Matters
-
-**Common problems this addresses:**
-- Users miss critical information in dashboards
-- Complex interfaces cause cognitive overload and abandonment
-- Data visualizations are misinterpreted
-- Educational materials aren't retained
-- Form completion rates are low
-
-**How this helps:**
-- Ground design decisions in cognitive psychology research (Tufte, Norman, Ware, Cleveland & McGill, Mayer)
-- Apply systematic frameworks (Cognitive Design Pyramid, Design Feedback Loop, Three-Layer Model)
-- Choose appropriate visual encodings based on perceptual hierarchy
-- Manage attention, memory limits, and cognitive load
-- Apply domain-specific cognitive principles (data viz, UX, education)
-
-### When to Use This Skill
-
-**Use this skill when:**
-- ✓ Learning cognitive foundations for design
-- ✓ Applying cognitive frameworks to new designs
-- ✓ Choosing visual encodings based on perception research
-- ✓ Getting domain-specific cognitive guidance (data viz, UX, education)
-- ✓ Advocating for design decisions with research backing
-- ✓ Understanding WHY designs succeed or fail cognitively
-
-**Use other skills for:**
-- → `design-evaluation-audit` for systematic design reviews and audits
-- → `cognitive-fallacies-guard` for detecting misleading visualizations
-- → `visual-storytelling-design` for data journalism and narrative visualization
-- → `information-architecture` for content organization and navigation
-- → `d3-visualization` for implementing visualizations with D3.js
-
----
-
-## How to Use This Skill
-
-### Prerequisites
-
-- Basic design literacy (familiarity with UI terminology, common chart types)
-- Understanding of user tasks and context
-- Access to design being created
-
-### Expected Outcomes
-
-**Immediate:** Designs grounded in cognitive science with clear rationale
-**Short-term:** Improved usability metrics (completion rates, time-on-task)
-**Long-term:** Internalized cognitive principles, team shared vocabulary
+**Related skills:** `design-evaluation-audit` for systematic reviews, `cognitive-fallacies-guard` for detecting misleads, `visual-storytelling-design` for data journalism, `information-architecture` for content organization, `d3-visualization` for D3.js implementation.
 
 ---
 

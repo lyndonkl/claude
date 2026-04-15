@@ -1,72 +1,15 @@
 ---
 name: mapping-visualization-scaffolds
-description: Use when complex systems need visual documentation, mapping component relationships and dependencies, creating hierarchies or taxonomies, documenting process flows or decision trees, understanding system architectures, visualizing data lineage or knowledge structures, planning information architecture, or when user mentions concept maps, system diagrams, dependency mapping, relationship visualization, or architecture blueprints.
+description: Creates visual maps that make implicit relationships, dependencies, and structures explicit through diagrams, concept maps, and architectural blueprints. Guides through identifying nodes and relationships, choosing visualization approaches, and validating completeness. Use when complex systems need visual documentation, mapping component relationships and dependencies, creating hierarchies or taxonomies, documenting process flows or decision trees, understanding system architectures, visualizing data lineage or knowledge structures, or when user mentions concept maps, system diagrams, dependency mapping, relationship visualization, or architecture blueprints.
 ---
 
 # Mapping & Visualization Scaffolds
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Create visual maps that make implicit relationships, dependencies, and structures explicit through diagrams, concept maps, and architectural blueprints.
-
-## When to Use
-
-Use mapping-visualization-scaffolds when you need to:
-
-**System Understanding:**
-- Document complex system architectures (microservices, infrastructure, data flows)
-- Map component dependencies and relationships
-- Visualize API endpoints and integration points
-- Understand legacy system structure
-
-**Knowledge Organization:**
-- Create concept maps for learning or teaching
-- Build taxonomies and hierarchies
-- Organize research literature or domain knowledge
-- Structure information architecture
-
-**Process & Flow Documentation:**
-- Map user journeys and workflows
-- Create decision trees and flowcharts
-- Document approval chains or escalation paths
-- Visualize project dependencies and timelines
-
-**Strategic Visualization:**
-- Map stakeholder relationships and influence
-- Visualize organizational structures
-- Create competitive landscape maps
-- Document value chains or business models
-
-## What Is It
-
-A mapping scaffold is a structured approach to creating visual representations that show:
-- **Nodes** (components, concepts, people, steps)
-- **Relationships** (connections, dependencies, hierarchies, flows)
-- **Attributes** (properties, states, metadata)
-- **Groupings** (clusters, categories, layers)
-
-**Quick Example:**
-
-For a microservices architecture:
-```
-Nodes: API Gateway, Auth Service, User Service, Payment Service, Database
-Relationships:
-  - API Gateway → calls → Auth Service
-  - Auth Service → validates → User Service
-  - Payment Service → reads/writes → Database
-Groupings: Frontend Layer, Business Logic Layer, Data Layer
-```
-
-This creates a visual map showing how services connect and depend on each other.
 
 ## Workflow
 

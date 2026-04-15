@@ -1,40 +1,19 @@
 ---
 name: writing-stickiness
-description: Use when making messages more memorable or persuasive using the SUCCESs framework. Invoke when user mentions stickiness, making ideas stick, memorable messaging, persuasion, the Heath brothers, or wants to apply Simple, Unexpected, Concrete, Credible, Emotional, Stories principles.
+description: Applies the Heath brothers' SUCCESs model (Simple, Unexpected, Concrete, Credible, Emotional, Stories) to make messages memorable and persuasive, with systematic analysis, targeted improvements, and scoring (0-18 stickiness scorecard). Use when making messages more memorable or compelling, preparing presentations, crafting pitches or campaigns, or when user mentions stickiness, making ideas stick, persuasion, SUCCESs framework, or Heath brothers.
 ---
 
 # Writing Stickiness Enhancement
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [SUCCESs Framework Overview](#success-framework-overview)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill applies the Heath brothers' SUCCESs model (Simple, Unexpected, Concrete, Credible, Emotional, Stories) to make messages memorable and persuasive. It provides systematic analysis against all 6 principles, targeted improvements, and scoring using the stickiness scorecard (0-18 points).
-
-## When to Use
-
-Use this skill when:
-
-- **Making messages memorable**: User wants their message to stick in readers' minds
-- **Improving persuasion**: Message needs to be more compelling or convincing
-- **Presentation prep**: Making slides or talk content more impactful
-- **Marketing or messaging**: Crafting taglines, pitches, or campaigns
-- **Any writing needing impact**: User wants writing to resonate beyond just being clear
-
-Trigger phrases: "make it stick", "more memorable", "more persuasive", "more impactful", "stickiness", "make people care", "make it compelling", "SUCCESs", "Heath brothers", "punch it up"
-
-**Do NOT use for:**
-- Planning structure (use `writing-structure-planner`)
-- General prose revision (use `writing-revision`)
-- Final quality checks (use `writing-pre-publish-checklist`)
+**Related skills:** Use `writing-structure-planner` for planning structure, `writing-revision` for prose revision, `writing-pre-publish-checklist` for final quality checks.
 
 ## Core Principles
 
@@ -57,11 +36,11 @@ Stickiness Enhancement:
 
 **Before starting:** Review [resources/success-model.md](resources/success-model.md) for the complete SUCCESs framework with all 6 principles, stickiness scorecard, and before/after examples.
 
-**IMPORTANT:** Analyze the ENTIRE document first and output findings to an analysis file in the current directory, then read that file to make improvements. This ensures complete coverage.
+Analyze the entire document first and output findings to an analysis file in the current directory, then read that file to make improvements. This ensures complete coverage.
 
 **Step 1: Analyze against SUCCESs framework**
 
-Step 1.1: Read ENTIRE draft. Create analysis file `writer-stickiness-analysis.md` assessing the document against all 6 SUCCESs principles:
+Step 1.1: Read entire draft. Create analysis file `writer-stickiness-analysis.md` assessing the document against all 6 SUCCESs principles:
 
 - **Simple** (0-3): Identify core message in 12 words or fewer. List competing messages. Rate clarity and focus.
 - **Unexpected** (0-3): Identify surprise elements or curiosity gaps. Note where expectations could be violated. Rate attention-getting power.
@@ -78,7 +57,7 @@ See each principle's section in [resources/success-model.md](resources/success-m
 
 Step 2.1: Read analysis file. Identify the 2-3 weakest principles (scored 0-1).
 
-Step 2.2: Work through ENTIRE draft making targeted improvements for each weak principle:
+Step 2.2: Work through entire draft making targeted improvements for each weak principle:
 - **Simple**: Refine core message to 12 words or fewer. Strip competing ideas.
 - **Unexpected**: Add surprise or curiosity gaps. Violate reader expectations.
 - **Concrete**: Add visualizable details and specific examples. Replace abstractions.
@@ -117,7 +96,7 @@ Validate using [resources/evaluators/rubric_stickiness.json](resources/evaluator
 
 ## Guardrails
 
-**Critical requirements:**
+**Requirements:**
 
 1. **Score before improving**: Always analyze and score the current state before making changes
 2. **Target weakest first**: Focus improvements on the lowest-scoring principles

@@ -1,66 +1,17 @@
 ---
 name: research-claim-map
-description: Use when verifying claims before decisions, fact-checking statements against sources, conducting due diligence on vendor/competitor assertions, evaluating conflicting evidence, triangulating source credibility, assessing research validity for literature reviews, investigating misinformation, rating evidence strength (primary vs secondary), identifying knowledge gaps, or when user mentions "fact-check", "verify this", "is this true", "evaluate sources", "conflicting evidence", or "due diligence".
+description: Systematically evaluates claims by triangulating sources, rating evidence quality (primary/secondary/tertiary), assessing source credibility, and reaching confidence-rated conclusions to prevent confirmation bias and reliance on unreliable sources. Use when verifying claims before decisions, fact-checking statements, conducting due diligence, evaluating conflicting evidence, or when user mentions "fact-check", "verify this", "is this true", "evaluate sources", "conflicting evidence", or "due diligence".
 ---
 
 # Research Claim Map
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It](#what-is-it)
-4. [Workflow](#workflow)
-5. [Evidence Quality Framework](#evidence-quality-framework)
-6. [Source Credibility Assessment](#source-credibility-assessment)
-7. [Common Patterns](#common-patterns)
-8. [Guardrails](#guardrails)
-9. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Research Claim Map helps you systematically evaluate claims by triangulating sources, assessing evidence quality, identifying limitations, and reaching evidence-based conclusions. It prevents confirmation bias, overconfidence, and reliance on unreliable sources.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Verify factual claims before making decisions or recommendations
-- Evaluate conflicting evidence from multiple sources
-- Assess vendor claims, product benchmarks, or competitive intelligence
-- Conduct due diligence on business assertions (revenue, customers, capabilities)
-- Fact-check news stories, social media claims, or viral statements
-- Review academic literature for research validity
-- Investigate potential misinformation or misleading statistics
-- Rate evidence strength for policy decisions or strategic planning
-- Triangulate eyewitness accounts or historical records
-- Identify knowledge gaps and areas requiring further investigation
-
-**User phrases that trigger this skill:**
-- "Is this claim true?"
-- "Can you verify this?"
-- "Fact-check this statement"
-- "I found conflicting information about..."
-- "How reliable is this source?"
-- "What's the evidence for..."
-- "Due diligence on..."
-- "Evaluate these competing claims"
-
-## What Is It
-
-A Research Claim Map is a structured analysis that breaks down a claim into:
-1. **Claim statement** (specific, testable assertion)
-2. **Evidence for** (sources supporting the claim, rated by quality)
-3. **Evidence against** (sources contradicting the claim, rated by quality)
-4. **Source credibility** (expertise, bias, track record for each source)
-5. **Limitations** (gaps, uncertainties, assumptions)
-6. **Conclusion** (confidence level, decision recommendation)
-
-**Quick example:**
-- **Claim**: "Competitor X has 10,000 paying customers"
-- **Evidence for**: Press release (secondary), case study count (tertiary)
-- **Evidence against**: Industry analyst estimate of 3,000 (secondary)
-- **Credibility**: Press release (biased source), analyst (independent but uncertain methodology)
-- **Limitations**: No primary source verification, customer definition unclear
-- **Conclusion**: Low confidence (40%) - likely inflated, need primary verification
+1. [Workflow](#workflow)
+2. [Evidence Quality Framework](#evidence-quality-framework)
+3. [Source Credibility Assessment](#source-credibility-assessment)
+4. [Common Patterns](#common-patterns)
+5. [Guardrails](#guardrails)
+6. [Quick Reference](#quick-reference)
 
 ## Workflow
 

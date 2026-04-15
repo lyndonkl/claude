@@ -1,25 +1,9 @@
 ---
 name: deliberation-debate-red-teaming
-description: Use when testing plans or decisions for blind spots, need adversarial review before launch, validating strategy against worst-case scenarios, building consensus through structured debate, identifying attack vectors or vulnerabilities, user mentions "play devil's advocate", "what could go wrong", "challenge our assumptions", "stress test this", "red team", or when groupthink or confirmation bias may be hiding risks.
+description: Challenges plans, designs, and decisions from multiple adversarial perspectives to surface blind spots, hidden assumptions, and vulnerabilities before they cause real damage. Use when testing plans or decisions for blind spots, need adversarial review before launch, validating strategy against worst-case scenarios, building consensus through structured debate, identifying attack vectors or vulnerabilities, or when groupthink or confirmation bias may be hiding risks.
 ---
 
 # Deliberation, Debate & Red Teaming
-
-## What Is It?
-
-Deliberation-debate-red-teaming is a structured adversarial process where you intentionally challenge plans, designs, or decisions from multiple critical perspectives to surface blind spots, hidden assumptions, and vulnerabilities before they cause real damage.
-
-**Quick example:**
-
-**Proposal:** "Launch new feature to all users next week"
-
-**Red team critiques:**
-- **Security:** "No penetration testing done, could expose user data"
-- **Operations:** "No runbook for rollback, deployment on Friday risks weekend outage"
-- **Customer:** "Feature breaks existing workflow for power users (20% of revenue)"
-- **Legal:** "GDPR consent flow unclear, could trigger regulatory investigation"
-
-**Result:** Delay launch 2 weeks, address security/legal/ops gaps, add feature flag for gradual rollout
 
 ## Workflow
 

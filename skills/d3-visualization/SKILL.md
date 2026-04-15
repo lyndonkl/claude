@@ -1,13 +1,13 @@
 ---
 name: d3-visualization
-description: Use when creating custom, interactive data visualizations with D3.js—building bar/line/scatter charts from scratch, creating network diagrams or geographic maps, binding changing data to visual elements, adding zoom/pan/brush interactions, animating chart transitions, or when chart libraries (Highcharts, Chart.js) don't support your specific visualization design and you need low-level control over data-driven DOM manipulation, scales, shapes, and layouts.
+description: Guides creation of custom, interactive data visualizations with D3.js — bar/line/scatter charts, network diagrams, geographic maps, hierarchies, and real-time data updates with zoom/pan/brush interactions and animated transitions. Use when chart libraries (Highcharts, Chart.js) lack the customization needed and you require low-level control over data-driven DOM manipulation, scales, shapes, and layouts. Invoke when user mentions D3, d3.js, custom visualization, force-directed graph, or data-driven SVG.
 ---
 
 # D3.js Data Visualization
 
 ## Table of Contents
 
-- [Read This First](#read-this-first)
+- [Overview](#overview)
 - [Workflows](#workflows)
   - [Create Basic Chart Workflow](#create-basic-chart-workflow)
   - [Update Visualization with New Data](#update-visualization-with-new-data)
@@ -17,36 +17,15 @@ description: Use when creating custom, interactive data visualizations with D3.j
 
 ---
 
-## Read This First
+## Overview
 
-### What This Skill Does
+D3 provides low-level building blocks for data-driven DOM manipulation, visual encoding, layout algorithms, and interactions — enabling bespoke visualizations that chart libraries cannot provide.
 
-This skill helps you create custom, interactive data visualizations using D3.js (Data-Driven Documents). D3 provides low-level building blocks for data-driven DOM manipulation, visual encoding, layout algorithms, and interactions—enabling bespoke visualizations that chart libraries can't provide.
+**Use D3 when:** Chart libraries lack your specific design, you need full customization, you're building network graphs/hierarchies/maps, or animating data changes smoothly.
 
-### When to Use D3
+**Prefer simpler tools when:** Simple bar/line charts suffice (Chart.js, Highcharts), you need 3D (Three.js, WebGL), or datasets exceed 10K points without aggregation.
 
-**Use D3 when:**
-- Chart libraries don't support your specific design
-- You need full customization control
-- Creating network graphs, hierarchies, or geographic maps
-- Building interactive dashboards with linked views
-- Animating data changes smoothly
-- Working with complex or unconventional data structures
-
-**Don't use D3 when:**
-- Simple bar/line charts suffice (use Chart.js, Highcharts—easier)
-- You need 3D visualizations (use Three.js, WebGL)
-- Massive datasets >10K points without aggregation (performance limitations)
-- You're unfamiliar with JavaScript/SVG/CSS (prerequisites required)
-
-### Core Concepts
-
-**Data Joins**: Bind arrays to DOM elements, creating one-to-one correspondence
-**Scales**: Transform data values → visual values (pixels, colors, sizes)
-**Shapes**: Generate SVG paths for lines, areas, arcs from data
-**Layouts**: Calculate positions for complex visualizations (networks, trees, maps)
-**Transitions**: Animate smooth changes between states
-**Interactions**: Add zoom, pan, drag, brush selection behaviors
+**Core concepts:** Data Joins (bind arrays to DOM elements), Scales (data values to visual values), Shapes (SVG path generation), Layouts (position calculation for networks/trees/maps), Transitions (animated state changes), Interactions (zoom/pan/drag/brush).
 
 ### Skill Structure
 

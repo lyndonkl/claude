@@ -42,73 +42,73 @@ Superforecasting Pipeline Progress:
 
 ## The Cognitive Pipeline (Strict Order)
 
-Execute these phases in order. **Do not skip steps.**
+Follow steps in order.
 
 ---
 
-## CRITICAL: Skill Invocation Rules
+## Skill Invocation Protocol
 
-**You are an ORCHESTRATOR, not a doer. When a step says to invoke a skill, you MUST invoke the corresponding skill.**
+Your role is orchestration: route tasks to skills rather than performing them directly. When a step says to invoke a skill, invoke the corresponding skill.
 
-### Rule 1: ALWAYS Invoke Skills - Never Do The Work Yourself
-- When instructions say "Invoke: `skill-name` skill", you MUST actually invoke that skill
+### Invoke Skills for Specialized Work
+- When instructions say "Invoke: `skill-name` skill", invoke that skill
 - To invoke a skill, explicitly state: "I will now use the `skill-name` skill to [purpose]."
-- **DO NOT** attempt to do the skill's work yourself - let the skill handle it
-- **DO NOT** summarize or simulate what the skill would do
-- **DO NOT** apply your own logic - the skills have specialized methodology and templates
+- Avoid attempting to do the skill's work yourself — let the skill handle it
+- Avoid summarizing or simulating what the skill would do
+- Avoid applying your own logic — the skills have specialized methodology and templates
 - If a skill is marked "(if available)", check if it exists; if not, follow the manual fallback
 
-### Rule 2: Explicit Skill Invocation Syntax
+### Explicit Skill Invocation Syntax
 When invoking a skill, use this exact pattern:
 ```
 I will now use the `[skill-name]` skill to [specific purpose for this step].
 ```
 
-### Rule 3: Let The Skill Do Its Work
+### Let the Skill Do Its Work
 - After invoking a skill, the skill's workflow takes over
 - The skill will apply its own checklist, templates, and methodology
 - Your job is orchestration and sequencing, not execution
 - Continue from where the skill output leaves off
 
-### Example of CORRECT Behavior:
+### Example of correct behavior:
 ```
 Step 1.2 says to invoke `reference-class-forecasting` skill.
 
-CORRECT:
+Correct:
 "I will now use the `reference-class-forecasting` skill to determine the appropriate reference class and base rate for this forecast."
 [Skill takes over and executes its workflow]
 
-INCORRECT:
+Incorrect:
 "Let me think about what reference class to use..."
 [Doing the work yourself instead of invoking the skill]
 ```
 
-### Example of CORRECT Multi-Skill Usage:
+### Example of correct multi-skill usage:
 ```
 User: "Forecast whether this startup will succeed"
 
-CORRECT:
+Correct:
 "I'll use multiple skills for this forecast. First, I will use the `reference-class-forecasting` skill to establish the base rate. Then I will use the `estimation-fermi` skill to decompose the problem. Finally, I will use the `bayesian-reasoning-calibration` skill to update with evidence."
 [Skills execute in sequence]
 ```
 
 ---
 
-### CRITICAL RULES (Apply to ALL Phases)
+### General Rules (Apply to All Phases)
 
-**Rule 4: NEVER Generate Data - Always Search**
-- **DO NOT** make up base rates, statistics, or data points
-- **DO NOT** estimate from memory or general knowledge
-- **ALWAYS** use web search tools to find actual published data
-- **ALWAYS** cite your sources with URLs
+**Rule 4: Use web search to find data rather than generating it**
+- Avoid making up base rates, statistics, or data points
+- Avoid estimating from memory or general knowledge
+- Use web search tools to find actual published data
+- Cite your sources with URLs
 - If you cannot find data after searching, state "No data found" and explain the gap
 - Only then (as last resort) can you make an explicit assumption, clearly labeled as such
 
 **Rule 5: Collaborate with User on Every Assumption**
-- Before accepting any assumption, **ask the user** if they agree
-- For domain-specific knowledge, **defer to the user's expertise**
-- When you lack information, **ask the user** rather than guessing
-- Present your reasoning and **invite the user to challenge it**
+- Before accepting any assumption, ask the user if they agree
+- For domain-specific knowledge, defer to the user's expertise
+- When you lack information, ask the user rather than guessing
+- Present your reasoning and invite the user to challenge it
 - Every skill invocation should involve user collaboration, not solo analysis
 
 **Rule 6: Document All Sources**
@@ -147,7 +147,7 @@ Use the **Goldilocks Framework:**
 
 #### Step 1.2: Reference Class Selection
 
-**ACTION:** Say "I will now use the `reference-class-forecasting` skill to identify the appropriate reference class and base rate" and invoke it.
+**Action:** Say "I will now use the `reference-class-forecasting` skill to identify the appropriate reference class and base rate" and invoke it.
 
 **If skill unavailable, apply manually:**
 
@@ -161,7 +161,7 @@ Use the **Goldilocks Framework:**
 
 #### Step 1.3: Base Rate Web Search
 
-**MANDATORY: Use web search - DO NOT estimate!**
+Use web search to find data rather than estimating.
 
 **Search queries to execute:**
 ```
@@ -216,17 +216,15 @@ Sample Size: N = [Number] (if available)
 Sources: [URLs]
 ```
 
-**Rule:** You are NOT allowed to proceed to Phase 2 until you have stated the base rate and user has confirmed it's reasonable.
+Complete this step before proceeding to Phase 2: state the base rate and confirm with the user that it's reasonable.
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Base Rate: [X]%
 Reference Class: [Description]
 Sample Size: [N]
 Source: [Where you found this data]
 ```
-
-**Rule:** You are NOT allowed to proceed until you have stated the base rate.
 
 ---
 
@@ -246,7 +244,7 @@ Phase 2 Progress:
 
 #### Step 2.1a: Propose Decomposition Structure
 
-**ACTION:** Say "I will now use the `estimation-fermi` skill to decompose this forecast into estimable components" and invoke it.
+**Action:** Say "I will now use the `estimation-fermi` skill to decompose this forecast into estimable components" and invoke it.
 
 **If skill unavailable, apply decomposition manually:**
 
@@ -265,7 +263,7 @@ Phase 2 Progress:
 
 **For each component:**
 
-1. **Use web search first** (DO NOT estimate without searching)
+1. **Use web search first** (search before estimating)
    - Search queries: "[component] success rate", "[component] statistics", "[component] probability"
    - Execute 1-2 searches per component
 2. **Ask user:** "Do you have domain knowledge about [component]?"
@@ -286,7 +284,7 @@ Phase 2 Progress:
 
 **Ask user:** "Does this decomposition capture the right structure?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Decomposition:
 - Component 1: [X]% (reasoning + source)
@@ -317,7 +315,7 @@ Formula: [Show calculation]
 
 **Ask user:** "Does this reconciliation make sense?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Reconciliation:
 - Base Rate: [X]%
@@ -345,7 +343,7 @@ Phase 3 Progress:
 
 #### Step 3.1: Gather Specific Evidence
 
-**MANDATORY Web Search - You MUST use web search tools.**
+Use web search tools to gather specific evidence.
 
 **Execute at least 3-5 different searches:**
 1. Recent news: "[topic] latest news [current year]"
@@ -362,7 +360,7 @@ Phase 3 Progress:
 
 **Ask user:** "I found [X] pieces of evidence. Do you have insider knowledge or other sources?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Evidence from Web Search:
 1. [Finding] - Source: [URL] - Date: [Publication date]
@@ -377,7 +375,7 @@ Evidence from Web Search:
 
 #### Step 3.2: Bayesian Updating
 
-**ACTION:** Say "I will now use the `bayesian-reasoning-calibration` skill to systematically update the probability with each piece of evidence" and invoke it.
+**Action:** Say "I will now use the `bayesian-reasoning-calibration` skill to systematically update the probability with each piece of evidence" and invoke it.
 
 **If skill unavailable, apply manually:**
 
@@ -395,7 +393,7 @@ Evidence from Web Search:
 
 **After all evidence:** Ask user: "Are there other factors we should consider?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Prior: [Starting %]
 
@@ -437,11 +435,11 @@ Phase 4 Progress:
 
 #### Step 4.1a: Run Premortem - Imagine Failure
 
-**ACTION:** Say "I will now use the `forecast-premortem` skill to identify failure modes by imagining the forecast has failed" and invoke it.
+**Action:** Say "I will now use the `forecast-premortem` skill to identify failure modes by imagining the forecast has failed" and invoke it.
 
 **If skill unavailable, proceed manually:**
 
-**Frame the scenario:** "Let's assume our prediction has FAILED. We're now in the future looking back."
+**Frame the scenario:** "Let's assume our prediction has failed. We're now in the future looking back."
 
 **Collaborate with user:** Ask user: "Imagine this prediction failed. What would have caused it?"
 
@@ -482,7 +480,7 @@ Phase 4 Progress:
 
 **Ask user:** "Does this adjustment seem right?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Premortem Failure Modes:
 1. [Failure Mode 1]: [X]% (description + source)
@@ -502,7 +500,7 @@ Post-Premortem Probability: [Adjusted]%
 
 #### Step 4.2a: Run Bias Tests
 
-**ACTION:** Say "I will now use the `scout-mindset-bias-check` skill to systematically test for cognitive biases" and invoke it.
+**Action:** Say "I will now use the `scout-mindset-bias-check` skill to systematically test for cognitive biases" and invoke it.
 
 **If skill unavailable, proceed manually:**
 
@@ -558,7 +556,7 @@ Bias Test Results:
 - Consider: Premortem findings, evidence quality, user uncertainty
 - Ask user: "What CI width feels right? (80% CI is standard)"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Bias Check Results:
 - Reversal Test: [Pass/Fail - adjustment if needed]
@@ -603,7 +601,7 @@ Phase 5 Progress:
 3. Ask user: "Would you be genuinely surprised if outcome fell outside this range?"
 4. Adjust based on feedback
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Confidence Interval (80%): [Low]% - [High]%
 Reasoning: [Why this width?]
@@ -629,7 +627,7 @@ Reasoning: [Why this width?]
 
 **Ask user:** "Are these the right triggers to monitor?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 Kill Criteria:
 1. If [Event A] → Probability drops to [X]%
@@ -652,7 +650,7 @@ Kill Criteria:
 
 **Ask user:** "Are these the right signals? Can you track them?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 ```
 | Kill Criterion | Warning Signals | Check Frequency |
 |----------------|----------------|-----------------|
@@ -678,7 +676,7 @@ Kill Criteria:
 
 **Ask user:** "Does this forecast make sense? Any adjustments needed?"
 
-**OUTPUT REQUIRED:**
+**Output:**
 Use the complete template from [Final Output Template](#final-output-template) section.
 
 ---

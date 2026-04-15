@@ -1,79 +1,14 @@
 ---
 name: hypotheticals-counterfactuals
-description: Use when exploring alternative scenarios, testing assumptions through "what if" questions, understanding causal relationships, conducting pre-mortem analysis, stress testing decisions, or when user mentions counterfactuals, hypothetical scenarios, thought experiments, alternative futures, what-if analysis, or needs to challenge assumptions and explore possibilities.
+description: Applies "what if" thinking to explore alternative scenarios, test assumptions, understand causal relationships, and prepare for uncertainty. Guides through counterfactual reasoning, scenario exploration, pre-mortem analysis, and stress testing decisions against alternative futures. Use when exploring alternative scenarios, testing assumptions through "what if" questions, understanding causal relationships, conducting pre-mortem analysis, stress testing decisions, or when user mentions counterfactuals, hypothetical scenarios, thought experiments, alternative futures, what-if analysis, or needs to challenge assumptions.
 ---
 # Hypotheticals and Counterfactuals
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Hypotheticals and Counterfactuals uses "what if" thinking to explore alternative scenarios, test assumptions, understand causal relationships, and prepare for uncertainty. This skill guides you through counterfactual reasoning (what would have happened differently?), scenario exploration (what could happen?), pre-mortem analysis (imagine failure, identify causes), and stress testing decisions against alternative futures.
-
-## When to Use
-
-Use this skill when:
-
-- **Testing assumptions**: Challenge underlying beliefs by asking "what if this assumption is wrong?"
-- **Pre-mortem analysis**: Imagine project failure, identify potential causes before they occur
-- **Causal inference**: Understand "what caused X?" by asking "would X have happened without Y?"
-- **Scenario planning**: Explore alternative futures (best case, worst case, surprising case)
-- **Risk identification**: Uncover hidden risks through "what could go wrong?" analysis
-- **Strategic planning**: Test strategy robustness across different market conditions
-- **Learning from failures**: Counterfactual analysis "what if we had done X instead?"
-- **Decision stress testing**: Check if decision holds across optimistic/pessimistic scenarios
-- **Innovation exploration**: "What if we removed constraint X?" to unlock new possibilities
-- **Historical analysis**: "What would have happened if..." to understand key factors
-
-Trigger phrases: "what if", "counterfactual", "hypothetical scenario", "thought experiment", "alternative future", "pre-mortem", "stress test", "what could go wrong", "imagine if", "suppose that"
-
-## What Is It?
-
-**Hypotheticals and Counterfactuals** combines forward-looking scenario exploration (hypotheticals) with backward-looking alternative history analysis (counterfactuals):
-
-**Core components**:
-- **Counterfactuals**: "What would have happened if X had been different?" Understand causality by imagining alternatives.
-- **Pre-mortem**: Imagine future failure, work backward to identify causes. Inversion of post-mortem.
-- **Scenario Planning**: Explore multiple plausible futures (2×2 matrix, three scenarios, cone of uncertainty).
-- **Stress Testing**: Test decisions/plans against extreme scenarios (best/worst case, black swans).
-- **Thought Experiments**: Explore ideas through imagined scenarios (Einstein's elevator, trolley problem).
-- **Assumption Reversal**: "What if our key assumption is backwards?" to challenge mental models.
-
-**Quick example:**
-
-**Scenario**: Startup deciding whether to pivot from B2B to B2C.
-
-**Counterfactual Analysis** (Learning from past):
-- **Actual**: We focused on B2B, growth slow (5% MoM)
-- **Counterfactual**: "What if we had gone B2C from start?"
-  - Hypothesis: Faster growth (viral potential) but higher CAC, lower LTV
-  - Evidence: Competitor X did B2C, grew 20% MoM but 60% churn
-  - Insight: B2C growth faster BUT unit economics worse. B2B slower but sustainable.
-
-**Pre-Mortem** (Preparing for future):
-- Imagine: It's 1 year from now, B2C pivot failed
-- Why did it fail?
-  1. CAC higher than projected (Facebook ads too expensive)
-  2. Churn higher than B2B (no contracts, easy to switch)
-  3. Team lacked consumer product expertise
-  4. Existing B2B customers churned (felt abandoned)
-- **Action**: Before pivoting, test assumptions with small B2C experiment. Don't abandon B2B entirely.
-
-**Outcome**: Decision to run parallel B2C pilot while maintaining B2B, de-risking pivot through counterfactual insights and pre-mortem preparation.
-
-**Core benefits**:
-- **Causal clarity**: Understand what drives outcomes by imagining alternatives
-- **Risk identification**: Pre-mortem uncovers failure modes before they happen
-- **Assumption testing**: Stress test beliefs against extreme scenarios
-- **Strategic flexibility**: Prepare for multiple futures, not just one forecast
-- **Learning enhancement**: Counterfactuals reveal what mattered vs. what didn't
 
 ## Workflow
 
@@ -161,7 +96,7 @@ Validate using [resources/evaluators/rubric_hypotheticals_counterfactuals.json](
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
 1. **Plausibility constraint**: Scenarios must be possible, not just imaginable. "What if gravity reversed?" is not useful counterfactual. Stay within bounds of plausibility given current knowledge.
 

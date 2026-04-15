@@ -1,51 +1,18 @@
 ---
 name: chain-estimation-decision-storytelling
-description: Use when making high-stakes decisions under uncertainty that require stakeholder buy-in. Invoke when evaluating strategic options (build vs buy, market entry, resource allocation), quantifying tradeoffs with uncertain outcomes, justifying investments with expected value analysis, pitching recommendations to decision-makers, or creating business cases with cost-benefit estimates. Use when user mentions "should we", "ROI analysis", "make a case for", "evaluate options", "expected value", "justify decision", or needs to combine estimation, decision analysis, and persuasive communication.
+description: Chains estimation, decision analysis, and storytelling to transform uncertain choices into clear, stakeholder-ready recommendations. Quantifies uncertain variables, applies expected value analysis to identify the best option, then packages the analysis into a persuasive narrative. Use when evaluating strategic options (build vs buy, market entry, resource allocation), quantifying tradeoffs, justifying investments, pitching to decision-makers, or when user mentions ROI analysis, expected value, business case, cost-benefit, or needs to combine estimation with persuasive communication.
 ---
 
 # Chain Estimation → Decision → Storytelling
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [What is Chain Estimation → Decision → Storytelling?](#what-is-chain-estimation--decision--storytelling)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Systematically quantify uncertain choices, make defensible decisions using expected value analysis, and communicate recommendations through persuasive narratives. This meta-skill chains estimation → decision → storytelling to transform ambiguous options into clear, stakeholder-ready recommendations.
-
-## When to Use This Skill
-
-- Evaluating strategic options with uncertain outcomes (build vs buy, market entry, product investment)
-- Creating business cases for resource allocation or budget approval
-- Justifying technical decisions with cost-benefit analysis (architecture, tooling, infrastructure)
-- Pitching recommendations to executives or board with quantified tradeoffs
-- Making investment decisions with ROI projections and risk assessment
-- Prioritizing initiatives with expected value comparison
-- Evaluating partnerships, acquisitions, or major contracts
-- Designing pricing strategies with revenue/cost modeling
-- Resource planning with capacity and utilization estimates
-- Risk mitigation decisions with probability-weighted outcomes
-- Product roadmap decisions with effort/impact estimates
-- Organizational change decisions (hiring, restructuring, policy)
-- Technology adoption with TCO and benefit quantification
-- Market positioning decisions with competitive analysis
-- Portfolio management with probability-adjusted returns
-
-**Trigger phrases:** "should we", "evaluate options", "make a case for", "ROI analysis", "expected value", "justify decision", "quantify tradeoffs", "pitch to", "business case", "cost-benefit", "probability-weighted"
-
-## What is Chain Estimation → Decision → Storytelling?
-
-A three-phase meta-skill that combines:
-
-1. **Estimation**: Quantify uncertain variables with ranges, probabilities, and sensitivity analysis
-2. **Decision**: Apply expected value, decision trees, or scoring to identify best option
-3. **Storytelling**: Package analysis into compelling narrative for stakeholders
+Three phases: Estimation (quantify uncertain variables with ranges and probabilities), Decision (apply expected value or scoring to identify best option), Storytelling (package analysis into compelling narrative for stakeholders).
 
 **Quick Example:**
 

@@ -1,48 +1,14 @@
 ---
 name: market-mechanics-betting
-description: Use to convert probabilities into decisions (bet/pass/hedge) and optimize scoring. Invoke when need to calculate edge, size bets optimally (Kelly Criterion), extremize aggregated forecasts, or improve Brier scores. Use when user mentions betting strategy, Kelly, edge calculation, Brier score, extremizing, or translating belief into action.
+description: Translates beliefs (probabilities) into optimal actions (bet/pass/hedge) using quantitative frameworks including edge calculation, Kelly Criterion bet sizing, forecast extremizing, and Brier score optimization. Use when converting probabilities into decisions, calculating edge against market odds, sizing bets optimally, extremizing aggregated forecasts, improving Brier scores, or when user mentions betting strategy, Kelly Criterion, edge calculation, Brier score, extremizing, or translating belief into action.
 ---
 
 # Market Mechanics & Betting
 
 ## Table of Contents
-- [What is Market Mechanics?](#what-is-market-mechanics)
-- [When to Use This Skill](#when-to-use-this-skill)
 - [Interactive Menu](#interactive-menu)
 - [Quick Reference](#quick-reference)
 - [Resource Files](#resource-files)
-
----
-
-## What is Market Mechanics?
-
-**Market mechanics** translates beliefs (probabilities) into actions (bets, decisions, resource allocation) using quantitative frameworks.
-
-**Core Principle:** If you believe something with X% probability, you should be willing to bet at certain odds.
-
-**Why It Matters:**
-- Forces intellectual honesty (would you bet on this?)
-- Optimizes resource allocation (how much to bet?)
-- Improves calibration (betting reveals true beliefs)
-- Provides scoring framework (Brier, log score)
-- Enables aggregation (extremizing, market prices)
-
----
-
-## When to Use This Skill
-
-Use when:
-- Converting belief to action - Have probability, need decision
-- Betting decisions - Should I bet? How much?
-- Resource allocation - How to distribute finite resources?
-- Scoring forecasts - Measuring accuracy (Brier score)
-- Aggregating forecasts - Combining multiple predictions
-- Finding edge - Is my probability better than market?
-
-Do NOT use when:
-- No market/betting context exists
-- Non-quantifiable outcomes
-- Pure strategic analysis (no probability needed)
 
 ---
 

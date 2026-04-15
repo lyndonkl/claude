@@ -1,75 +1,15 @@
 ---
 name: memory-retrieval-learning
-description: Use when long-term knowledge retention is needed (weeks to months), studying for exams or certifications, learning new job skills or technology, mastering substantial material that requires systematic review, combating forgetting through spaced repetition and retrieval practice, or when user mentions studying, memorizing, learning plans, spaced repetition, flashcards, active recall, or durable learning.
+description: Creates evidence-based learning plans that maximize long-term retention through spaced repetition, retrieval practice, interleaving, and elaboration. Guides through goal definition, material breakdown, review scheduling, and progress tracking. Use when long-term knowledge retention is needed, studying for exams or certifications, learning new job skills or technology, mastering substantial material, combating forgetting, or when user mentions studying, memorizing, learning plans, spaced repetition, flashcards, active recall, or durable learning.
 ---
 
 # Memory, Retrieval & Learning
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Create evidence-based learning plans that maximize long-term retention through spaced repetition, retrieval practice, and interleaving.
-
-## When to Use
-
-Use memory-retrieval-learning when you need to:
-
-**Exam & Certification Prep:**
-- Study for professional certifications (AWS, CPA, PMP, bar exam, medical boards)
-- Prepare for academic exams (SAT, GRE, finals)
-- Master substantial material over weeks/months
-- Retain knowledge for high-stakes tests
-
-**Professional Learning:**
-- Learn new technology stack or programming language
-- Master company product knowledge
-- Study industry regulations and compliance
-- Transition to new career field
-- Learn software tools and methodologies
-
-**Language Learning:**
-- Master vocabulary and grammar rules
-- Learn verb conjugations and sentence patterns
-- Study pronunciation and idioms
-- Build conversational fluency
-
-**Skill Mastery:**
-- Learn complex procedures (medical, technical, safety)
-- Master formulas, equations, or algorithms
-- Memorize taxonomies or classification systems
-- Study historical facts, dates, or sequences
-
-## What Is It
-
-Memory-retrieval-learning applies cognitive science research on how humans learn durably:
-
-**Key Principles:**
-1. **Spaced Repetition**: Review material at increasing intervals (1 day, 3 days, 7 days, 14 days, 30 days)
-2. **Retrieval Practice**: Test yourself actively rather than passively re-reading
-3. **Interleaving**: Mix different topics/types rather than blocking by type
-4. **Elaboration**: Connect new knowledge to existing understanding
-
-**Quick Example:**
-
-Learning Spanish verb conjugations:
-```
-Week 1: Learn 20 new verbs → Test yourself same day
-Week 1: Review those 20 verbs after 1 day → Test
-Week 1: Review after 3 days → Test
-Week 2: Review after 7 days → Test + Add 20 new verbs
-Week 3: Review old verbs after 14 days → Test + Continue new verbs
-Week 5: Review after 30 days → Test
-```
-
-This combats the forgetting curve by reviewing just before you'd forget.
 
 ## Workflow
 

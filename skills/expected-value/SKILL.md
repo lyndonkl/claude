@@ -1,68 +1,26 @@
 ---
 name: expected-value
-description: Use when making decisions under uncertainty with quantifiable outcomes, comparing risky options (investments, product bets, strategic choices), prioritizing projects by expected return, assessing whether to take a gamble, or when user mentions expected value, EV calculation, risk-adjusted return, probability-weighted outcomes, decision tree, or needs to choose between uncertain alternatives.
+description: Calculates probability-weighted averages of all possible outcomes to enable rational decisions under uncertainty. Covers scenario identification, probability estimation, payoff quantification, and risk-adjusted interpretation. Use when comparing risky options (investments, product bets, strategic choices), prioritizing projects by expected return, assessing whether to take a gamble, or when user mentions expected value, EV calculation, risk-adjusted return, probability-weighted outcomes, or decision tree.
 ---
 # Expected Value
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Core Formula
 
-Expected Value (EV) provides a framework for making rational decisions under uncertainty by calculating the probability-weighted average of all possible outcomes. This skill guides you through identifying scenarios, estimating probabilities and payoffs, computing expected values, and interpreting results while accounting for risk preferences and real-world constraints.
+**EV** = Σ (Probability of outcome x Value of outcome)
 
-## When to Use
-
-Use this skill when:
-
-- **Investment decisions**: Should we invest in project A (high risk, high return) or project B (low risk, low return)?
-- **Product bets**: Launch feature X (uncertain adoption) or focus on feature Y (safer bet)?
-- **Resource allocation**: Which initiatives have highest expected return given limited budget?
-- **Go/no-go decisions**: Is expected value of launching positive after accounting for probabilities of success/failure?
-- **Pricing & negotiation**: What's expected value of accepting vs. rejecting an offer?
-- **Insurance & hedging**: Should we buy insurance (guaranteed small loss) vs. risk large loss?
-- **A/B test interpretation**: Which variant has higher expected conversion rate accounting for uncertainty?
-- **Portfolio optimization**: Diversify to maximize expected return for given risk tolerance?
-
-Trigger phrases: "expected value", "EV calculation", "risk-adjusted return", "probability-weighted outcomes", "decision tree", "should I take this gamble", "compare risky options"
-
-## What Is It?
-
-**Expected Value (EV)** = Σ (Probability of outcome × Value of outcome)
-
-For each possible outcome, multiply its probability by its value (payoff), then sum across all outcomes.
-
-**Core formula**:
 ```
 EV = (p₁ × v₁) + (p₂ × v₂) + ... + (pₙ × vₙ)
-
-where:
-- p₁, p₂, ..., pₙ are probabilities of each outcome (must sum to 1.0)
-- v₁, v₂, ..., vₙ are values (payoffs) of each outcome
+where probabilities must sum to 1.0
 ```
 
-**Quick example:**
-
-**Scenario**: Launch new product feature. Estimate 60% chance of success ($100k revenue), 40% chance of failure (-$20k sunk cost).
-
-**Calculation**:
-- EV = (0.6 × $100k) + (0.4 × -$20k)
-- EV = $60k - $8k = **$52k**
-
-**Interpretation**: On average, launching this feature yields $52k. Positive EV → launch is rational choice (if risk tolerance allows).
-
-**Core benefits:**
-- **Quantitative comparison**: Compare disparate options on same scale (expected return)
-- **Explicit uncertainty**: Forces estimation of probabilities instead of gut feel
-- **Repeatable framework**: Same method applies to investments, products, hiring, etc.
-- **Risk-adjusted**: Weights outcomes by likelihood, not just best/worst case
-- **Portfolio thinking**: Optimal long-term strategy is maximize expected value over many decisions
+**Example**: Launch feature with 60% chance of $100k revenue, 40% chance of -$20k sunk cost.
+EV = (0.6 x $100k) + (0.4 x -$20k) = $60k - $8k = **$52k** (positive EV, rational to launch if risk tolerance allows)
 
 ## Workflow
 
@@ -143,23 +101,21 @@ Validate using [resources/evaluators/rubric_expected_value.json](resources/evalu
 
 ## Guardrails
 
-**Critical requirements:**
+1. **Probabilities should sum to 1.0**: Listed outcomes need to be exhaustive (cover all possibilities) and mutually exclusive (no overlap). Verify: p1 + p2 + ... + pn = 1.0.
 
-1. **Probabilities must sum to 1.0**: If you list outcomes, their probabilities must be exhaustive (cover all possibilities) and mutually exclusive (no overlap). Check: p₁ + p₂ + ... + pₙ = 1.0.
+2. **Adjust for risk on one-shot, high-stakes decisions**: EV is a long-run average. For rare, irreversible decisions, factor in risk aversion. A 1% chance of $1B (EV = $10M) does not mean betting the house is rational.
 
-2. **Don't use EV for one-shot, high-stakes decisions without risk adjustment**: EV is long-run average. For rare, irreversible decisions (bet life savings, critical surgery), consider risk aversion. A 1% chance of $1B (EV = $10M) doesn't mean you should bet your house.
+3. **Quantify uncertainty, don't hide it**: Probabilities and payoffs are estimates. Use ranges, sensitivity analysis, or distributions rather than pretending false precision.
 
-3. **Quantify uncertainty, don't hide it**: Probabilities and payoffs are estimates, often uncertain. Use ranges (optimistic/pessimistic), sensitivity analysis, or distributions. Don't pretend false precision.
+4. **Consider non-monetary value**: Some outcomes have utility not captured by money (reputation, learning, optionality, morale). Convert to a common scale or use multi-attribute utility.
 
-4. **Consider non-monetary value**: EV in dollars is convenient, but some outcomes have utility not captured by money (reputation, learning, optionality, morale). Convert to common scale or use multi-attribute utility.
+5. **Ground probabilities in data**: Use base rates, reference classes, data, and expert forecasts rather than gut feel. Check calibration: are "70% confident" predictions right 70% of the time?
 
-5. **Probabilities must be calibrated**: Don't use gut-feel probabilities without grounding. Use base rates, reference classes, data, expert forecasts. Test: are your "70% confident" predictions right 70% of the time?
+6. **Account for correlated outcomes**: If outcomes are not independent (e.g., economic downturn affects all portfolio companies), correlation reduces diversification benefit.
 
-6. **Account for correlated outcomes**: If outcomes aren't independent (economic downturn affects all portfolio companies), correlation reduces diversification benefit. Model dependencies.
+7. **Time value of money**: Discount future cash flows to present value. EV should use NPV, not nominal values.
 
-7. **Time value of money**: Payoffs at different times aren't equivalent. Discount future cash flows to present value (NPV = Σ CF_t / (1+r)^t). EV should use NPV, not nominal values.
-
-8. **Stopping rules and option value**: In sequential decisions, fold-back induction finds optimal strategy. Don't ignore option to stop early, pivot, or wait for more information.
+8. **Consider option value**: In sequential decisions, fold-back induction finds optimal strategy. Factor in the option to stop early, pivot, or wait for more information.
 
 **Common pitfalls:**
 

@@ -1,40 +1,19 @@
 ---
 name: writing-pre-publish-checklist
-description: Use when performing final quality checks before sharing or publishing writing. Invoke when user mentions pre-publish, final check, ready to publish, last review, quality check before sending, about to share, or wants a comprehensive checklist run on a finished piece.
+description: Runs a comprehensive six-section quality checklist (content, structure, clarity, style, polish, final tests) before writing is shared or published, catching issues that revision and stickiness enhancement might miss. Use when performing final quality checks before sharing, publishing, or submitting writing, or when user mentions pre-publish, final check, ready to publish, last review, quality check, or about to share.
 ---
 
 # Writing Pre-Publishing Checklist
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [Check Details](#check-details)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill runs a comprehensive six-section quality checklist before writing is shared or published. It covers content accuracy, structural integrity, clarity, style consistency, polish, and final read-aloud tests. This is the last gate before publishing - it catches issues that revision and stickiness enhancement might miss.
-
-## When to Use
-
-Use this skill when:
-
-- **About to publish**: User is ready to share or publish a piece
-- **Final review**: Writing has been revised and user wants a last check
-- **Quality gate**: User wants systematic verification before sending
-- **Second opinion**: User wants another set of eyes on finished work
-- **Submission prep**: About to submit to editor, client, or publication
-
-Trigger phrases: "ready to publish", "final check", "pre-publish", "before I send this", "last review", "is this ready?", "quality check", "submission ready", "about to share"
-
-**Do NOT use for:**
-- Planning structure (use `writing-structure-planner`)
-- Deep revision of prose (use `writing-revision`)
-- Making messages memorable (use `writing-stickiness`)
+**Related skills:** Use `writing-structure-planner` for planning structure, `writing-revision` for deep prose revision, `writing-stickiness` for memorable messaging.
 
 ## Core Principles
 
@@ -58,7 +37,7 @@ Pre-Publishing Checklist:
 - [ ] Section 6: Final tests
 ```
 
-**Before starting:** This is a systematic pass through the complete piece. Read the ENTIRE document first to understand context, then work through each section.
+**Before starting:** This is a systematic pass through the complete piece. Read the entire document first to understand context, then work through each section.
 
 ### Section 1: Content Check
 
@@ -207,9 +186,9 @@ Validate using [resources/evaluators/rubric_pre_publish.json](resources/evaluato
 
 ## Guardrails
 
-**Critical requirements:**
+**Requirements:**
 
-1. **Complete all 6 sections**: Don't skip sections even if the writing seems good
+1. **Complete all 6 sections**: Run every section even if the writing seems good
 2. **Binary pass/fail**: Each checklist item gets a clear pass or fail, not "maybe"
 3. **Flag to user**: Present issues for the user to address rather than silently fixing
 4. **Context-aware**: Adjust standards to context (blog post vs. academic paper vs. email)

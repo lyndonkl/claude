@@ -1,13 +1,11 @@
 ---
 name: scientific-manuscript-review
-description: Use when reviewing or editing research manuscripts, journal articles, reviews, or perspectives. Invoke when user mentions manuscript, paper draft, article, research writing, journal submission, reviewer feedback, or needs to improve scientific writing clarity, structure, or argumentation in their manuscript.
+description: Guides systematic multi-pass review and editing of scientific manuscripts (research articles, reviews, perspectives) to improve clarity, structure, scientific rigor, and reader comprehension. Use when reviewing or editing research manuscripts, journal articles, or perspectives, when user mentions manuscript, paper draft, article, research writing, journal submission, reviewer feedback, or needs to improve scientific writing.
 ---
 
 # Scientific Manuscript Review
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [Section-by-Section Review](#section-by-section-review)
@@ -15,27 +13,7 @@ description: Use when reviewing or editing research manuscripts, journal article
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill provides systematic review and editing of scientific manuscripts (research articles, reviews, perspectives) to improve clarity, structure, scientific rigor, and reader comprehension. It applies a multi-pass approach covering structure, scientific logic, language, and formatting to transform drafts into publication-ready documents.
-
-## When to Use
-
-Use this skill when:
-
-- **Drafting manuscripts**: Research articles, short communications, review papers, perspectives
-- **Pre-submission review**: Final polish before journal submission
-- **Revision cycles**: Addressing reviewer comments, improving based on feedback
-- **Collaborative editing**: Reviewing co-author drafts, mentoring student writing
-- **Self-editing**: Systematic review of your own writing for blind spots
-- **Journal transfer**: Adapting manuscript for different journal format
-
-Trigger phrases: "manuscript review", "paper draft", "journal article", "research writing", "improve my paper", "reviewer feedback", "submission ready", "scientific writing"
-
-**Do NOT use for:**
-- Grant proposals (use `grant-proposal-assistant`)
-- Recommendation letters (use `academic-letter-architect`)
-- General emails (use `scientific-email-polishing`)
+**Related skills:** Grant proposals → `grant-proposal-assistant` | Recommendation letters → `academic-letter-architect` | Emails → `scientific-email-polishing`
 
 ## Core Principles
 
@@ -193,9 +171,9 @@ Verify compliance with target journal guidelines (word limits, reference format,
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
-1. **Preserve author voice**: Edit for clarity, don't rewrite. Never invent claims or change meaning. Mark suggestions clearly when proposing new content.
+1. **Preserve author voice**: Edit for clarity, not voice. Avoid inventing claims or changing meaning. Mark suggestions clearly when proposing new content.
 
 2. **Claims match data**: Every conclusion must be supported by presented results. Flag overclaiming immediately. Speculation must be labeled.
 

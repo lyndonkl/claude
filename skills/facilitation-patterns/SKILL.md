@@ -1,73 +1,29 @@
 ---
 name: facilitation-patterns
-description: Use when running meetings, workshops, brainstorms, design sprints, retrospectives, or team decision-making sessions. Apply when need structured group discussion, managing diverse stakeholder input, ensuring equal participation, handling conflict or groupthink, or when user mentions facilitation, workshop design, meeting patterns, session planning, or running effective collaborative sessions.
+description: Provides structured formats and techniques for running productive group sessions, from standups to multi-day workshops. Covers format selection, agenda design, participation management, decision methods, and handling difficult dynamics. Use when running meetings, workshops, brainstorms, design sprints, retrospectives, or team decision-making sessions, or when user mentions facilitation, workshop design, meeting patterns, session planning, or effective collaboration.
 ---
 # Facilitation Patterns
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Facilitation Patterns provide structured approaches for running productive group sessions—from quick standups to multi-day workshops. This skill guides you through selecting the right format, designing agendas, managing participation dynamics, making group decisions, and handling difficult situations to achieve session objectives.
-
-## When to Use
-
-Use this skill when:
-
-- **Planning sessions**: Design meeting agenda, choose workshop format, estimate timing
-- **Running meetings**: Daily standup, 1:1s, team sync, all-hands, board meeting
-- **Facilitating workshops**: Brainstorm, design sprint, strategy offsite, training session
-- **Team decisions**: Need structured decision-making (voting, consensus, delegation)
-- **Retrospectives**: Sprint retro, project postmortem, quarterly review
-- **Stakeholder engagement**: Kickoff, requirements gathering, alignment session
-- **Conflict resolution**: Tensions between team members, opposing viewpoints, stuck decisions
-- **Participation issues**: Some dominate conversation, others silent, sidebar discussions, low energy
-- **Remote facilitation**: Virtual meetings, hybrid sessions, asynchronous collaboration
-
-Trigger phrases: "facilitation", "workshop design", "meeting patterns", "how to run", "session planning", "effective meetings", "group discussion", "team collaboration"
-
-## What Is It?
-
-**Facilitation Patterns** are proven formats and techniques for structuring group interactions to achieve specific outcomes (decisions, ideas, alignment, learning, etc.).
-
-**Core components**:
-- **Format selection**: Which pattern fits your goal? (divergent brainstorm, convergent decision, alignment, learning)
-- **Agenda design**: Time-boxed activities in logical flow (diverge → converge, build → test)
-- **Participation techniques**: Ensure everyone contributes (round robin, silent writing, breakouts)
-- **Decision methods**: How to choose (consensus, consent, vote, delegation, advisory)
-- **Energy management**: Pacing, breaks, energizers, transitions
-- **Difficult dynamics**: Handle dominators, silent participants, conflict, tangents, groupthink
-
-**Quick example:**
+## Example
 
 **Scenario**: Product team needs to prioritize features for Q2 (8 people, 90 minutes).
 
-**Pattern selected**: Effort-Impact Workshop (diverge → assess → converge)
+**Pattern**: Effort-Impact Workshop (diverge, assess, converge)
 
 **Agenda**:
 1. **Frame** (10 min): Present context, Q2 goals, constraints
-2. **Diverge** (20 min): Silent brainstorm on sticky notes (what features could we build?)
+2. **Diverge** (20 min): Silent brainstorm on sticky notes
 3. **Cluster** (15 min): Group similar ideas, clarify duplicates
-4. **Assess** (25 min): Plot features on effort-impact 2×2 matrix (in pairs, then discuss)
-5. **Converge** (15 min): Dot voting on "quick wins" (high impact, low effort)
-6. **Decide** (10 min): Top 5 features by votes → facilitator makes final call with input
-7. **Close** (5 min): Summarize decisions, next steps, feedback on session
-
-**Outcome**: Prioritized list of 5 features, buy-in from team (they contributed), completed in 90 min.
-
-**Core benefits**:
-- **Structured productivity**: Clear process prevents aimless discussion
-- **Inclusive participation**: Techniques ensure quiet voices heard, dominators managed
-- **Better decisions**: Multiple perspectives, bias mitigation (group vs individual), explicit criteria
-- **Time efficiency**: Time-boxing prevents overruns, focused activities
-- **Psychological safety**: Ground rules, equal participation, separated idea generation from evaluation
+4. **Assess** (25 min): Plot on effort-impact 2x2 matrix (in pairs, then discuss)
+5. **Converge** (15 min): Dot voting on quick wins
+6. **Decide** (10 min): Top 5 by votes, facilitator makes final call with input
+7. **Close** (5 min): Summarize decisions, next steps
 
 ## Workflow
 
@@ -161,23 +117,21 @@ Validate using [resources/evaluators/rubric_facilitation_patterns.json](resource
 
 ## Guardrails
 
-**Critical requirements:**
+1. **Objectives before format**: Start with "what outcome do we need?" not "let's do a brainstorm." If the objective is unclear, the session will drift.
 
-1. **Objectives before format**: Start with "what outcome do we need?" not "let's do a brainstorm". Format serves objective. If objective unclear, session will drift.
+2. **Time-box activities**: Parkinson's Law means work expands to fill time. Set strict timers, end activities even if incomplete. 25 minutes of focused work beats open-ended discussion.
 
-2. **Time-box ruthlessly**: Parkinson's Law (work expands to fill time). Set strict timers, end activities even if incomplete. 25 min generates better focus than open-ended "until we're done."
+3. **Separate divergence from convergence**: Defer judgment during brainstorming, because critiquing ideas early kills creativity. Generate first, evaluate second.
 
-3. **Separate divergence from convergence**: Don't critique ideas during brainstorm (kills creativity). Defer judgment. Generate first, evaluate second. Premature convergence yields safe, obvious ideas.
+4. **Ensure psychological safety**: Set ground rules (no interrupting, critique ideas not people). Address power dynamics (boss speaks last, use anonymous input). Without safety, the result is groupthink or silence.
 
-4. **Ensure psychological safety**: Ground rules (no interrupting, critique ideas not people, Vegas rule if needed). Address power dynamics (boss speaks last, use anonymous input). Without safety, you get groupthink or silence.
+5. **Manage participation actively**: Use individual writing, round robin, and small groups to draw out quieter participants. Use time limits and parking lots to manage those who dominate.
 
-5. **Manage participation actively**: Silent people have ideas (use individual writing, round robin, small groups). Verbose people dominate (time limits, "let's hear from others", parking lot for tangents). Don't let dysfunction fester.
+6. **Decide how decisions are made**: Consensus, consent, majority vote, or delegation. Announce the method upfront to avoid "I thought we decided, but nothing happened."
 
-6. **Decide how decisions are made**: Consensus (everyone agrees), consent (no objections), majority vote, delegation (input → decision-maker). Announce method upfront. Lack of clarity → "I thought we decided, but nothing happened."
+7. **Track outputs visibly**: Shared board, live doc, or sticky notes so everyone sees the same thing. Assign a scribe. Invisible outputs are easily lost.
 
-7. **Track outputs visibly**: Shared board, live doc, sticky notes. Everyone sees same thing (reduces misunderstanding). Assign scribe if needed. Invisible outputs are easily lost.
-
-8. **Close with clarity**: What was decided? Who does what by when? What's still open? How will we communicate? 5 min close prevents week of confusion.
+8. **Close with clarity**: State what was decided, who does what by when, what is still open, and how the group will communicate.
 
 **Common pitfalls:**
 

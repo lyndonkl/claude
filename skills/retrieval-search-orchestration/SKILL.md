@@ -1,10 +1,9 @@
 ---
 name: retrieval-search-orchestration
-description: Use when designing retrieval strategies for querying knowledge graphs in RAG systems. Invoke when user mentions retrieval strategy, search orchestration, global-first retrieval, local-first retrieval, U-shaped retrieval, query decomposition, multi-hop reasoning, provenance tracking, or citation in GraphRAG. Provides retrieval pattern selection, query rewriting, and provenance design.
+description: Designs retrieval strategies for querying knowledge graphs in RAG systems, covering pattern selection (global-first, local-first, U-shaped hybrid), query decomposition for multi-hop reasoning, ranking and constraint configuration, and provenance tracking for citation. Use when designing retrieval pipelines, orchestrating search over knowledge graphs, or when user mentions retrieval strategy, search orchestration, query decomposition, multi-hop reasoning, provenance tracking, or citation in GraphRAG.
 ---
 
 ## Table of Contents
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Step Descriptions](#step-descriptions)
 - [Retrieval Pattern Selection Guide](#retrieval-pattern-selection-guide)
@@ -13,13 +12,9 @@ description: Use when designing retrieval strategies for querying knowledge grap
 
 # Retrieval & Search Orchestration
 
-## What Is It?
-
-Design retrieval strategies for querying knowledge graphs in Retrieval-Augmented Generation (RAG) systems. This skill covers pattern selection for different query types, query decomposition for complex multi-hop questions, ranking and constraint configuration, and provenance tracking to ensure every generated answer can be traced back to its source evidence.
-
 ## Workflow
 
-**COPY THIS CHECKLIST** and work through each step:
+Copy this checklist and work through each step:
 
 - [ ] 1. Analyze query types and requirements
 - [ ] 2. Select retrieval pattern

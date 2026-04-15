@@ -1,47 +1,8 @@
 ---
 name: translation-reframing-audience-shift
-description: Use when content must be translated between audiences with different expertise, context, or goals while preserving accuracy but adapting presentation. Invoke when technical content needs business framing (engineering decisions → executive summary), strategic vision needs tactical translation (board presentation → team OKRs), expert knowledge needs simplification (academic paper → blog post, medical diagnosis → patient explanation), formal content needs casual tone (annual report → social media post), long-form needs summarization (50-page doc → 1-page brief), internal content needs external framing (roadmap → public updates, bug tracking → known issues), cross-cultural adaptation (US idioms → international clarity, Gen Z → Boomer messaging), medium shifts (written report → presentation script, detailed spec → action checklist), or when user mentions "explain to", "reframe for", "translate this for [audience]", "make this more [accessible/formal/technical]", "adapt for [executives/engineers/customers]", "simplify without losing accuracy", or "same content, different audience". Apply to technical communication (code → business value), organizational translation (strategy → execution), education (expert → novice), customer communication (internal → external), cross-cultural messaging, and anywhere same core message needs different presentation for different stakeholders while maintaining correctness.
+description: Adapts content for different audiences while preserving core accuracy, changing tone, depth, emphasis, and framing to match audience expertise and goals. Use when technical content needs business framing, strategic vision needs tactical translation, expert knowledge needs simplification, formal content needs casual tone, long-form needs summarization, internal content needs external framing, or cross-cultural adaptation is needed. Use when user mentions "explain to", "reframe for", "translate for [audience]", "adapt for [executives/engineers/customers]", or "same content, different audience".
 ---
 # Translation, Reframing & Audience Shift
-
-## Purpose
-
-Adapt content for different audiences while preserving core accuracy—changing tone, depth, emphasis, and framing to match audience expertise, goals, and context.
-
-## When to Use
-
-**Invoke this skill when:**
-- Same information needs to reach audiences with different expertise (technical → business, expert → novice)
-- Content tone/formality needs changing (formal report → casual email, academic → conversational)
-- Strategic content needs tactical translation (vision → action items, why → how)
-- Internal content goes external (company docs → customer-facing, jargon → plain language)
-- Long-form needs compression without losing key points (detailed → summary, comprehensive → highlights)
-- Medium changes (written → spoken, document → presentation, email → social media)
-- Cross-cultural or demographic shifts (US → international, industry → industry, generation → generation)
-- Emphasis needs shifting (highlight different aspects for different stakeholders)
-
-**Don't use when:**
-- Content is already appropriate for target audience (no translation needed)
-- Creating entirely new content (not adapting existing)
-- Simple copy-editing (grammar, spelling) without audience shift
-- Translating between human languages (use language translation, not this skill)
-
-## What Is It?
-
-**Translation/reframing** adapts content between audiences by preserving semantic accuracy (what is true) while changing presentation (how it's communicated). **Four fidelity types:**
-
-**1. Semantic fidelity (MUST preserve):** Core facts, relationships, constraints, implications remain accurate
-**2. Tonal fidelity (adapt):** Formality, emotion, register change to match audience expectations
-**3. Emphasis fidelity (adapt):** What's highlighted vs. backgrounded shifts based on audience priorities
-**4. Medium fidelity (adapt):** Structure, length, format change for different channels/contexts
-
-**Example:** Technical incident postmortem → Customer status update
-
-**Original (Engineers):** "Root cause: race condition in distributed lock manager under high concurrency (>5000 req/s). Null pointer dereference when lock timeout occurred before callback registration. Fix: added CAS operation with retry logic, deployed canary to 5% traffic, monitored for 2 hours before full rollout."
-
-**Translated (Customers):** "What happened: Service slowdown on Jan 15, 2-3pm affecting checkout for some users. Root cause: Timing issue in our system under high traffic. Status: Fixed, monitored, and fully deployed. Prevention: Added safeguards to prevent similar timing issues."
-
-**What changed:** Technical detail reduced, jargon removed, impact/status emphasized, customer concerns prioritized (what happened, is it fixed, will it happen again). **What preserved:** Timing, affected functionality, root cause category, resolution status.
 
 ## Workflow
 
@@ -186,7 +147,7 @@ Before translating, characterize source and target:
 
 Before finalizing, check:
 
-**Semantic Fidelity (CRITICAL):**
+**Semantic Fidelity (highest priority):**
 - [ ] Core facts accurate? (No distortions or omissions that change meaning)
 - [ ] Relationships preserved? (Cause-effect, dependencies, constraints intact)
 - [ ] Caveats included? (Limitations, uncertainties, edge cases mentioned when relevant)

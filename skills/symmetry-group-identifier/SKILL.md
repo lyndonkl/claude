@@ -1,15 +1,11 @@
 ---
 name: symmetry-group-identifier
-description: Use when you've identified candidate symmetries and need to map them to mathematical groups for architecture design. Invoke when user mentions cyclic groups, dihedral groups, Lie groups, SO(3), SE(3), permutation groups, or needs to formalize symmetries into group theory language. Provides taxonomy and mathematical foundations from Visual Group Theory principles.
+description: Maps identified symmetries to mathematical groups (cyclic, dihedral, symmetric, SO(3), SE(3), E(3)) for equivariant neural network architecture design, using taxonomy and foundations from Visual Group Theory. Use when candidate symmetries have been identified and need formalization into group theory language, or when user mentions cyclic groups, dihedral groups, Lie groups, SO(3), SE(3), or permutation groups.
 ---
 
 # Symmetry Group Identifier
 
-## What Is It?
-
-This skill helps you **map identified symmetries to mathematical groups**. Once you know what transformations should leave your predictions unchanged, this skill formalizes them into the language of group theory.
-
-**Why groups matter**: Neural network architectures are built around specific symmetry groups. Knowing your group tells you exactly which architecture patterns to use.
+Knowing your symmetry group tells you which equivariant architecture patterns to use. This skill formalizes identified transformations into the language of group theory.
 
 ## Workflow
 

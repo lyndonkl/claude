@@ -1,13 +1,13 @@
 ---
 name: cognitive-fallacies-guard
-description: Use when detecting and preventing visual misleads, cognitive biases, and design failures in data visualizations, dashboards, reports, or presentations. Invoke when user mentions chartjunk, misleading chart, truncated axis, data integrity, visual deception, 3D chart problems, cherry-picking data, or needs to audit visualizations for honesty and accuracy.
+description: Detects and prevents visual misleads, cognitive biases, and data integrity violations in visualizations, dashboards, reports, and presentations. Audits charts for honesty, diagnoses misinterpretation causes, and provides specific fixes. Invoke when user mentions chartjunk, misleading chart, truncated axis, data integrity, visual deception, 3D chart problems, cherry-picking data, or needs to audit visualizations for accuracy. For general design evaluation, use `design-evaluation-audit`. For cognitive foundations, use `cognitive-design`.
 ---
 
 # Cognitive Fallacies Guard
 
 ## Table of Contents
 
-- [Read This First](#read-this-first)
+- [Overview](#overview)
 - [Fallacy Audit Workflow](#fallacy-audit-workflow)
 - [Path Selection Menu](#path-selection-menu)
   - [Path 1: Visual Misleads Scan](#path-1-visual-misleads-scan)
@@ -18,43 +18,11 @@ description: Use when detecting and preventing visual misleads, cognitive biases
 
 ---
 
-## Read This First
+## Overview
 
-### What This Skill Does
+Visualizations are persuasive — common mistakes cause systematic misinterpretation, not just aesthetic failures. This skill scans for visual misleads (chartjunk, truncated axes, 3D distortion), checks for cognitive bias exploitation (confirmation bias reinforcement, anchoring, framing manipulation), and verifies data integrity (honest axes, complete data, fair comparisons).
 
-This skill helps you **detect and prevent visual misleads, cognitive biases, and data integrity violations** in visualizations, dashboards, reports, and presentations.
-
-**Core principle:** Visualizations are persuasive — designers have an ethical obligation to communicate honestly. Common mistakes aren't just aesthetic failures; they cause systematic misinterpretation.
-
-### Why It Matters
-
-**Problems caused by fallacies:**
-- Chartjunk consumes working memory without conveying data
-- Truncated axes exaggerate differences and mislead comparisons
-- 3D effects distort perception through volume illusions
-- Cherry-picking misleads by omitting contradictory context
-- Spurious correlations imply false causation
-
-**Why designers commit fallacies:**
-- Aesthetic appeal prioritized over clarity
-- Unaware of cognitive impacts
-- Following bad examples
-- Intentional manipulation (sometimes)
-
-### When to Use This Skill
-
-**Use this skill when:**
-- ✓ Auditing visualizations for honesty before publication
-- ✓ Reviewing charts and dashboards for misleading patterns
-- ✓ Diagnosing why users misinterpret data
-- ✓ Preventing common visualization mistakes during design
-- ✓ Verifying data integrity in reports and presentations
-
-**Do NOT use for:**
-- ✗ General design evaluation (use `design-evaluation-audit`)
-- ✗ Learning cognitive foundations (use `cognitive-design`)
-- ✗ Creating new visualizations (use `d3-visualization`)
-- ✗ Building data stories (use `visual-storytelling-design`)
+**Related skills:** `design-evaluation-audit` for general design evaluation, `cognitive-design` for cognitive foundations, `d3-visualization` for creating visualizations, `visual-storytelling-design` for data stories.
 
 ---
 
@@ -129,7 +97,7 @@ Confirm honest axes, complete data, fair comparisons, proper context, and no spu
 
 ### Quick Severity Guide
 
-- **CRITICAL:** Integrity violations (truncated bars without disclosure, cherry-picked data, implied causation)
+- **Severity: High** — Integrity violations (truncated bars without disclosure, cherry-picked data, implied causation)
 - **HIGH:** Perceptual distortions (3D effects, volume illusions, missing denominators)
 - **MEDIUM:** Bias reinforcement (one-sided framing, anchoring order, confirmation bias layout)
 - **LOW:** Visual noise (excessive gridlines, decorative elements, ornamental borders)
@@ -138,6 +106,4 @@ Confirm honest axes, complete data, fair comparisons, proper context, and no spu
 
 ## Guardrails
 
-**This skill does NOT:** Create designs, evaluate general usability, teach cognitive theory, or assess aesthetic quality.
-
-**This skill DOES:** Detect visual misleads, identify cognitive bias exploitation, verify data integrity, and provide specific fixes for each fallacy found.
+**Scope boundaries:** This skill detects visual misleads, identifies cognitive bias exploitation, verifies data integrity, and provides specific fixes for each fallacy found. It does not create designs, evaluate general usability, teach cognitive theory, or assess aesthetic quality.

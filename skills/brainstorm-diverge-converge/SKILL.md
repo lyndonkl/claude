@@ -1,15 +1,12 @@
 ---
 name: brainstorm-diverge-converge
-description: Use when you need to generate many creative options before systematically narrowing to the best choices. Invoke when exploring product ideas, solving open-ended problems, generating strategic alternatives, developing research questions, designing experiments, or when you need both breadth (many ideas) and rigor (principled selection). Use when user mentions brainstorming, ideation, divergent thinking, generating options, or evaluating alternatives.
+description: Applies structured divergent-convergent thinking to generate many creative options, organize them into meaningful clusters, then systematically evaluate and narrow to the strongest choices. Balances creative exploration with disciplined decision-making. Use when exploring product ideas, solving open-ended problems, generating strategic alternatives, developing research questions, designing experiments, or when user mentions brainstorming, ideation, divergent thinking, generating options, or evaluating alternatives.
 ---
 
 # Brainstorm Diverge-Converge
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [What is Brainstorm Diverge-Converge?](#what-is-brainstorm-diverge-converge)
 - [Workflow](#workflow)
   - [1. Gather Requirements](#1--gather-requirements)
   - [2. Diverge (Generate Ideas)](#2--diverge-generate-ideas)
@@ -20,36 +17,7 @@ description: Use when you need to generate many creative options before systemat
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Apply structured divergent-convergent thinking to generate many creative options, organize them into meaningful clusters, then systematically evaluate and narrow to the strongest choices. This balances creative exploration with disciplined decision-making.
-
-## When to Use This Skill
-
-- Generating product or feature ideas
-- Exploring solution approaches for open-ended problems
-- Developing research questions or hypotheses
-- Creating marketing or content strategies
-- Identifying strategic initiatives or opportunities
-- Designing experiments or tests
-- Naming products, features, or projects
-- Developing interview questions or survey items
-- Exploring design alternatives (UI, architecture, process)
-- Prioritizing from a large possibility space
-- Overcoming creative blocks
-- When you need both quantity (many options) and quality (best options)
-
-**Trigger phrases:** "brainstorm", "generate ideas", "explore options", "what are all the ways", "divergent thinking", "ideation", "evaluate alternatives", "narrow down choices"
-
-## What is Brainstorm Diverge-Converge?
-
-A three-phase creative problem-solving method:
-
-- **Diverge (Expand)**: Generate many ideas without judgment or filtering. Focus on quantity and variety. Defer evaluation.
-
-- **Cluster (Organize)**: Group similar ideas into themes or categories. Identify patterns and connections. Create structure from chaos.
-
-- **Converge (Select)**: Evaluate ideas against criteria. Score, rank, or prioritize. Select strongest options for action.
+Three phases: Diverge (generate many ideas without judgment), Cluster (group into themes), Converge (evaluate against criteria and select).
 
 **Quick Example:**
 

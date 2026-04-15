@@ -1,15 +1,12 @@
 ---
 name: alignment-values-north-star
-description: Use when teams need shared direction and decision-making alignment. Invoke when starting new teams, scaling organizations, defining culture, establishing product vision, resolving misalignment, creating strategic clarity, or setting behavioral standards. Use when user mentions North Star, team values, mission, principles, guardrails, decision framework, or cultural alignment.
+description: Creates actionable alignment frameworks that give teams a shared North Star (direction), values (guardrails), and decision tenets (behavioral standards). Enables autonomous decision-making while maintaining organizational coherence. Use when starting new teams, scaling organizations, defining culture, establishing product vision, resolving misalignment, creating strategic clarity, or when user mentions North Star, team values, mission, principles, guardrails, decision framework, or cultural alignment.
 ---
 
 # Alignment: Values & North Star
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [What is Values & North Star Alignment?](#what-is-values--north-star-alignment)
 - [Workflow](#workflow)
   - [1. Understand Context](#1--understand-context)
   - [2. Choose Framework](#2--choose-framework)
@@ -20,32 +17,7 @@ description: Use when teams need shared direction and decision-making alignment.
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Create clear, actionable alignment frameworks that give teams a shared North Star (direction), values (guardrails), and decision tenets (behavioral standards). This enables autonomous decision-making while maintaining coherence across the organization.
-
-## When to Use This Skill
-
-- Starting new teams or organizations (defining identity)
-- Scaling teams (maintaining culture as you grow)
-- Resolving misalignment or conflicts (clarifying shared direction)
-- Defining product/engineering/design principles
-- Creating strategic clarity after pivots or changes
-- Establishing decision-making frameworks
-- Setting cultural norms and behavioral expectations
-- Post-merger integration (aligning different cultures)
-- Crisis response (re-centering on what matters)
-- Onboarding leaders who need to understand team identity
-
-**Trigger phrases:** "North Star", "team values", "mission", "vision", "principles", "guardrails", "what we stand for", "decision framework", "cultural alignment", "operating principles"
-
-## What is Values & North Star Alignment?
-
-A framework with three layers:
-
-1. **North Star**: The aspirational direction - where are we going and why?
-2. **Values/Guardrails**: Core principles that constrain how we operate
-3. **Decision Tenets/Behaviors**: Concrete, observable behaviors that demonstrate values
+The framework has three layers: North Star (aspirational direction), Values/Guardrails (core operating principles), and Decision Tenets/Behaviors (concrete, observable demonstrations of values).
 
 **Quick Example:**
 

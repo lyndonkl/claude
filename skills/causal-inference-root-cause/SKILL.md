@@ -1,15 +1,12 @@
 ---
 name: causal-inference-root-cause
-description: Use when investigating why something happened and need to distinguish correlation from causation, identify root causes vs symptoms, test competing hypotheses, control for confounding variables, or design experiments to validate causal claims. Invoke when debugging systems, analyzing failures, researching health outcomes, evaluating policy impacts, or when user mentions root cause, causal chain, confounding, spurious correlation, or asks "why did this really happen?"
+description: Systematically investigates causal relationships to identify true root causes rather than correlations or symptoms. Distinguishes genuine causation from spurious associations, tests competing explanations, and designs interventions addressing underlying drivers. Use when investigating why something happened, debugging systems, analyzing failures, evaluating policy impacts, or when user mentions root cause, causal chain, confounding, spurious correlation, or asks "why did this really happen?"
 ---
 
 # Causal Inference & Root Cause Analysis
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [What is Causal Inference?](#what-is-causal-inference)
 - [Workflow](#workflow)
   - [1. Define the Effect](#1--define-the-effect)
   - [2. Generate Hypotheses](#2--generate-hypotheses)
@@ -20,41 +17,7 @@ description: Use when investigating why something happened and need to distingui
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Systematically investigate causal relationships to identify true root causes rather than mere correlations or symptoms. This skill helps distinguish genuine causation from spurious associations, test competing explanations, and design interventions that address underlying drivers.
-
-## When to Use This Skill
-
-- Investigating system failures or production incidents
-- Debugging performance issues with multiple potential causes
-- Analyzing why a metric changed (e.g., conversion rate drop)
-- Researching health outcomes or treatment effects
-- Evaluating policy or intervention impacts
-- Distinguishing correlation from causation in data
-- Identifying confounding variables in experiments
-- Tracing symptom back to root cause
-- Testing competing hypotheses about cause-effect relationships
-- Designing experiments to validate causal claims
-- Understanding why a project succeeded or failed
-- Analyzing customer churn or retention drivers
-
-**Trigger phrases:** "root cause", "why did this happen", "causal chain", "correlation vs causation", "confounding", "spurious correlation", "what really caused", "underlying driver"
-
-## What is Causal Inference?
-
-A systematic approach to determine whether X causes Y (not just correlates with Y):
-
-- **Correlation**: X and Y move together (may be coincidental or due to third factor Z)
-- **Causation**: Changing X directly causes change in Y (causal mechanism exists)
-
-**Key Concepts:**
-
-- **Root cause**: The fundamental issue that, if resolved, prevents the problem
-- **Proximate cause**: Immediate trigger (may be symptom, not root)
-- **Confounding variable**: Third factor that causes both X and Y, creating spurious correlation
-- **Counterfactual**: "What would have happened without X?" - the key causal question
-- **Causal mechanism**: The pathway or process through which X affects Y
+Key concepts: root cause (fundamental issue), proximate cause (immediate trigger), confounding variable (third factor creating spurious correlation), counterfactual ("what would have happened without X?"), and causal mechanism (pathway through which X affects Y).
 
 **Quick Example:**
 

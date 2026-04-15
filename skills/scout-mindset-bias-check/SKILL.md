@@ -1,44 +1,16 @@
 ---
 name: scout-mindset-bias-check
-description: Use to detect and remove cognitive biases from reasoning. Invoke when prediction feels emotional, stuck at 50/50, or when you want to validate forecasting process. Use when user mentions scout mindset, soldier mindset, bias check, reversal test, scope sensitivity, or cognitive distortions.
+description: Detects and removes cognitive biases from reasoning using Julia Galef's Scout Mindset framework. Provides reversal tests, scope sensitivity checks, status quo bias tests, confidence interval audits, and full bias audits. Use when a prediction feels emotional, stuck at 50/50, or when validating forecasting process. Use when user mentions scout mindset, soldier mindset, bias check, reversal test, scope sensitivity, or cognitive distortions.
 ---
 
 # Scout Mindset & Bias Check
 
 ## Table of Contents
-- [What is Scout Mindset?](#what-is-scout-mindset)
-- [When to Use This Skill](#when-to-use-this-skill)
 - [Interactive Menu](#interactive-menu)
 - [Quick Reference](#quick-reference)
 - [Resource Files](#resource-files)
 
----
-
-## What is Scout Mindset?
-
-**Scout Mindset** (Julia Galef) is the motivation to see things as they are, not as you wish them to be. Contrast with **Soldier Mindset**, which defends a position regardless of evidence.
-
-**Core Principle:** Your goal is to map the territory accurately, not win an argument.
-
-**Why It Matters:**
-- Forecasting requires intellectual honesty
-- Biases systemically distort probabilities
-- Emotional attachment clouds judgment
-- Motivated reasoning leads to overconfidence
-
----
-
-## When to Use This Skill
-
-Use this skill when:
-- **Prediction feels emotional** - You want a certain outcome
-- **Stuck at 50/50** - Indecisive, can't commit to probability
-- **Defending a position** - Arguing for your forecast, not questioning it
-- **After inside view analysis** - Used specific details, need bias check
-- **Disagreement with others** - Different people, different probabilities
-- **Before finalizing** - Last sanity check
-
-Do NOT skip this when stakes are high, you have strong priors, or forecast affects you personally.
+**Core Principle:** Map the territory accurately rather than defending a position. Forecasting requires intellectual honesty -- biases systematically distort probabilities, emotional attachment clouds judgment, and motivated reasoning leads to overconfidence.
 
 ---
 

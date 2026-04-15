@@ -1,15 +1,9 @@
 ---
 name: equivariant-architecture-designer
-description: Use when you have validated symmetry groups and need to design neural network architecture that respects those symmetries. Invoke when user mentions equivariant layers, G-CNN, e3nn, steerable networks, building symmetry into model, or needs architecture recommendations for specific symmetry groups. Provides architecture patterns and implementation guidance.
+description: Designs neural network architectures that respect validated symmetry groups, recommending architecture families (G-CNN, steerable CNN, e3nn), layer patterns, and implementation libraries. Use when you have validated symmetry groups and need equivariant architecture design, or when user mentions equivariant layers, G-CNN, e3nn, steerable networks, or building symmetry into a model.
 ---
 
 # Equivariant Architecture Designer
-
-## What Is It?
-
-This skill helps you **design neural network architectures that respect identified symmetry groups**. Given a validated group specification, it recommends architecture patterns, specific libraries, and implementation strategies.
-
-**The payoff**: Equivariant architectures have fewer parameters, train faster, generalize better, and are more robust to distribution shift.
 
 ## Workflow
 

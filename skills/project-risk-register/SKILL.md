@@ -1,54 +1,15 @@
 ---
 name: project-risk-register
-description: Use when managing project uncertainty through structured risk tracking, identifying and assessing risks with probability×impact scoring (risk matrix), assigning risk owners and mitigation plans, tracking contingencies and triggers, monitoring risk evolution over project lifecycle, or when user mentions risk register, risk assessment, risk management, risk mitigation, probability-impact matrix, or asks "what could go wrong with this project?".
+description: Identifies, assesses, and prioritizes project risks using probability-times-impact scoring (risk matrix), then assigns owners, mitigation plans, contingencies, and triggers to track risk evolution over the project lifecycle. Use when managing project uncertainty, building a risk register, conducting risk assessments, defining risk mitigation plans, or when user mentions risk register, risk management, probability-impact matrix, or asks "what could go wrong with this project?".
 ---
 # Project Risk Register
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It?](#what-is-it)
-4. [Workflow](#workflow)
-5. [Common Patterns](#common-patterns)
-6. [Risk Scoring Framework](#risk-scoring-framework)
-7. [Guardrails](#guardrails)
-8. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Proactively identify, assess, prioritize, and monitor project risks to reduce likelihood of surprises, enable informed decision-making, and ensure stakeholders understand uncertainty. Transform vague concerns ("this might not work") into actionable risk management (probability×impact scores, named owners, specific mitigations, measurable triggers).
-
-## When to Use
-
-**Use this skill when:**
-
-- **Project kickoff**: Establishing risk baseline before significant work begins
-- **High uncertainty**: New technology, unfamiliar domain, complex dependencies, regulatory constraints
-- **Stakeholder pressure**: Execs/board want visibility into "what could go wrong"
-- **Critical path concerns**: Delays, dependencies, or single points of failure threaten timeline
-- **Gate reviews**: Quarterly check-ins, milestone reviews, go/no-go decisions require risk assessment
-- **Incident response**: Major issue occurred, need to identify related risks to prevent recurrence
-- **Portfolio management**: Comparing risk profiles across multiple projects for resource allocation
-- **Change requests**: Scope/timeline/budget changes require risk re-assessment
-
-**Common triggers:**
-- "What are the biggest risks to this project?"
-- "What could cause us to miss the deadline?"
-- "How confident are we in this estimate/plan?"
-- "What's our backup plan if X fails?"
-- "What dependencies could block us?"
-
-## What Is It?
-
-**Project Risk Register** is a living document tracking all identified risks with:
-
-1. **Risk identification**: What could go wrong (threat) or go better than expected (opportunity)
-2. **Risk assessment**: Probability (how likely?) × Impact (how bad/good if it happens?) = Risk Score
-3. **Risk prioritization**: Focus on high-score risks (red/high) first, monitor medium (yellow), accept low (green)
-4. **Risk ownership**: Named individual responsible for monitoring and mitigation
-5. **Risk response**: Mitigation (reduce probability), contingency (reduce impact if occurs), acceptance (do nothing)
-6. **Risk triggers**: Early warning indicators that risk is materializing (time to activate contingency)
-7. **Risk monitoring**: Regular updates (status changes, new risks, retired risks)
+1. [Workflow](#workflow)
+2. [Common Patterns](#common-patterns)
+3. [Risk Scoring Framework](#risk-scoring-framework)
+4. [Guardrails](#guardrails)
+5. [Quick Reference](#quick-reference)
 
 **Risk Matrix (5×5 Probability×Impact):**
 

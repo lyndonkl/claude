@@ -1,13 +1,12 @@
 ---
 name: skill-creator
-description: Use when the user has a document (PDF, markdown, book notes, research paper, methodology guide) containing theoretical knowledge or frameworks and wants to convert it into an actionable, reusable skill. Invoke when the user mentions "create a skill from this document", "turn this into a skill", "extract a skill from this file", or when analyzing documents with methodologies, frameworks, processes, or systematic approaches that could be made actionable for future use.
+description: Transforms documents containing theoretical knowledge or frameworks (PDFs, markdown, book notes, research papers, methodology guides) into actionable, reusable Claude Code skills using systematic reading methodology. Use when user mentions "create a skill from this document", "turn this into a skill", "extract a skill from this file", or when analyzing documents with methodologies, frameworks, or processes that could be made actionable.
 ---
 
 # Skill Creator
 
 ## Table of Contents
 
-- [Read This First](#read-this-first)
 - [Workflow](#workflow)
   - [Step 1: Inspectional Reading](#step-1-inspectional-reading)
   - [Step 2: Structural Analysis](#step-2-structural-analysis)
@@ -18,34 +17,7 @@ description: Use when the user has a document (PDF, markdown, book notes, resear
 
 ---
 
-## Read This First
-
-### What This Skill Does
-
-This skill helps you transform documents containing theoretical knowledge into actionable, reusable skills. It applies systematic reading methodology from "How to Read a Book" by Mortimer Adler to extract, analyze, and structure knowledge from documents.
-
-### The Process Overview
-
-The skill follows a **six-step progressive reading approach**:
-
-1. **Inspectional Reading** - Quick overview to understand structure and determine if the document contains skill-worthy material
-2. **Structural Analysis** - Deep understanding of what the document is about and how it's organized
-3. **Component Extraction** - Systematic extraction of actionable components from the content
-4. **Synthesis and Application** - Critical evaluation and transformation of theory into practical application
-5. **Skill Construction** - Building the actual skill files (SKILL.md, resources, rubric)
-6. **Validation and Refinement** - Scoring the skill quality and making improvements
-
-### Why This Approach Works
-
-This methodology prevents common mistakes like:
-- Reading entire documents without structure (information overload)
-- Missing key concepts by not understanding the overall framework first
-- Extracting theory without identifying practical applications
-- Creating skills that can't be reused because they're too specific or too vague
-
-### Collaborative Process
-
-**This skill is always collaborative with you, the user.** At decision points, you'll be presented with options and trade-offs. The final decisions always belong to you. This ensures the skill created matches your needs and mental model.
+This skill applies Mortimer Adler's systematic reading methodology ("How to Read a Book") through a six-step progressive approach: inspectional reading, structural analysis, component extraction, synthesis, skill construction, and validation. The process is collaborative -- at decision points, options and trade-offs are presented for the user to choose.
 
 ---
 

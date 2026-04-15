@@ -1,62 +1,26 @@
 ---
 name: code-data-analysis-scaffolds
-description: Use when starting technical work requiring structured approach - writing tests before code (TDD), planning data exploration (EDA), designing statistical analysis, clarifying modeling objectives (causal vs predictive), or validating results. Invoke when user mentions "write tests for", "explore this dataset", "analyze", "model", "validate", or when technical work needs systematic scaffolding before execution.
+description: Generates structured scaffolds (frameworks, checklists, templates) for technical work — TDD test suites, exploratory data analysis plans, statistical analysis designs, causal vs predictive modeling objectives, and validation checklists. Use when starting technical work that needs systematic planning before execution. Invoke when user mentions "write tests for", "explore this dataset", "analyze", "model", "validate", "design an A/B test", or when technical work needs scaffolding before execution.
 ---
 # Code Data Analysis Scaffolds
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [When NOT to Use This Skill](#when-not-to-use-this-skill)
-- [What Is It?](#what-is-it)
+- [Overview](#overview)
 - [Workflow](#workflow)
 - [Scaffold Types](#scaffold-types)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Overview
 
-This skill provides structured scaffolds (frameworks, checklists, templates) for technical work in software engineering and data science. It helps you approach complex tasks systematically by defining what to do, in what order, and what to validate before proceeding.
-
-## When to Use This Skill
-
-Use this skill when you need to:
-
-- **Write tests systematically** - TDD scaffolding, test suite design, test data generation
-- **Explore data rigorously** - EDA plans, data quality checks, feature analysis strategies
-- **Design statistical analyses** - A/B tests, causal inference, hypothesis testing frameworks
-- **Build predictive models** - Model selection, validation strategy, evaluation metrics
-- **Refactor with confidence** - Test coverage strategy, refactoring checklist, regression prevention
-- **Validate technical work** - Data validation, model evaluation, code quality checks
-- **Clarify technical approach** - Distinguish causal vs predictive goals, choose appropriate methods
-
-**Trigger phrases:**
-- "Write tests for [code/feature]"
-- "Explore this dataset"
-- "Analyze [data/problem]"
-- "Build a model to predict..."
-- "How should I validate..."
-- "Design an A/B test for..."
-- "What's the right approach to..."
-
-## When NOT to Use This Skill
-
-Skip this skill when:
-
-- **Just execute, don't plan** - User wants immediate code/analysis without scaffolding
-- **Scaffold already exists** - User has clear plan and just needs execution help
-- **Non-technical tasks** - Use appropriate skill for writing, planning, decision-making
-- **Simple one-liners** - No scaffold needed for trivial tasks
-- **Exploratory conversation** - User is brainstorming, not ready for structured approach yet
-
-## What Is It?
-
-Code Data Analysis Scaffolds provides structured frameworks for common technical patterns:
+This skill provides structured scaffolds for common technical patterns:
 
 1. **TDD Scaffold**: Given requirements, generate test structure before implementing code
 2. **EDA Scaffold**: Given dataset, create systematic exploration plan
 3. **Statistical Analysis Scaffold**: Given question, design appropriate statistical test/model
 4. **Validation Scaffold**: Given code/model/data, create comprehensive validation checklist
+
+**Skip this skill** when the user wants immediate execution without scaffolding, already has a clear plan, or the task is trivial.
 
 **Quick example:**
 

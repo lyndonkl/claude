@@ -1,13 +1,11 @@
 ---
 name: scientific-email-polishing
-description: Use when writing or polishing professional scientific emails, journal cover letters, or responses to reviewers. Invoke when user mentions email to collaborator, cover letter to editor, reviewer response, professional correspondence, or needs help with professional tone, clear asks, or diplomatic communication in academic/scientific contexts.
+description: Composes and polishes professional scientific correspondence -- emails to collaborators, journal cover letters, and responses to peer reviewers -- ensuring clear communication, appropriate tone, explicit asks, and professional formatting for academic contexts. Use when writing or polishing scientific emails, cover letters to editors, reviewer responses, or when user mentions email to collaborator, cover letter to journal, reviewer response, or professional scientific correspondence.
 ---
 
 # Scientific Email Polishing
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [Email Types](#email-types)
@@ -15,27 +13,10 @@ description: Use when writing or polishing professional scientific emails, journ
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill helps compose and polish professional scientific correspondence including emails to collaborators, cover letters to journal editors, and responses to peer reviewers. It ensures clear communication, appropriate tone, explicit asks, and professional formatting for academic contexts.
-
-## When to Use
-
-Use this skill when:
-
-- **Professional emails**: To collaborators, department heads, funding officers
-- **Journal cover letters**: Submitting manuscripts to journals
-- **Response to reviewers**: Addressing peer review comments
-- **Editor correspondence**: Queries, appeals, resubmission letters
-- **Cold outreach**: Potential collaborators, speakers, advisors
-- **Administrative emails**: To program officers, committee members
-
-Trigger phrases: "write an email", "cover letter to journal", "response to reviewers", "email to collaborator", "professional email", "polish this email"
-
-**Do NOT use for:**
-- Recommendation letters (use `academic-letter-architect`)
-- Research statements (use `career-document-architect`)
-- Grant proposals (use `grant-proposal-assistant`)
+**Related skills for other document types:**
+- Recommendation letters: `academic-letter-architect`
+- Research statements: `career-document-architect`
+- Grant proposals: `grant-proposal-assistant`
 
 ## Core Principles
 
@@ -244,10 +225,10 @@ Best regards,
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
 1. **Clear purpose**: Every email needs an identifiable goal
-2. **Explicit asks**: Don't make recipients guess what you need
+2. **Explicit asks**: State what you need so recipients can act without guessing
 3. **Professional tone**: Appropriate for academic/scientific context
 4. **Proofread**: Errors undermine credibility
 5. **Appropriate length**: Respect recipients' time

@@ -1,53 +1,14 @@
 ---
 name: domain-research-health-science
-description: Use when formulating clinical research questions (PICOT framework), evaluating health evidence quality (study design hierarchy, bias assessment, GRADE), prioritizing patient-important outcomes, conducting systematic reviews or meta-analyses, creating evidence summaries for guidelines, assessing regulatory evidence, or when user mentions clinical trials, evidence-based medicine, health research methodology, systematic reviews, research protocols, or study quality assessment.
+description: Guides clinical and health science research through PICOT question formulation, evidence hierarchy assessment, bias evaluation (Cochrane RoB 2, ROBINS-I), outcome prioritization, and GRADE certainty rating. Use when formulating clinical research questions, evaluating health evidence quality, prioritizing patient-important outcomes, conducting systematic reviews or meta-analyses, creating evidence summaries for guidelines, or assessing regulatory evidence.
 ---
 # Domain Research: Health Science
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-This skill helps structure clinical and health science research using evidence-based medicine frameworks. It guides you through formulating precise research questions (PICOT), evaluating study quality (hierarchy of evidence, bias assessment, GRADE), prioritizing outcomes (patient-important vs surrogate), and synthesizing evidence for clinical decision-making.
-
-## When to Use
-
-Use this skill when:
-
-- **Formulating research questions**: Structuring clinical questions using P ICO T (Population, Intervention, Comparator, Outcome, Timeframe)
-- **Evaluating evidence quality**: Assessing study design strength, risk of bias, certainty of evidence (GRADE framework)
-- **Prioritizing outcomes**: Distinguishing patient-important outcomes from surrogate endpoints, creating outcome hierarchies
-- **Systematic reviews**: Planning or conducting systematic reviews, meta-analyses, or evidence syntheses
-- **Clinical guidelines**: Creating evidence summaries for practice guidelines or decision support
-- **Trial design**: Designing RCTs, pragmatic trials, or observational studies with rigorous methodology
-- **Regulatory submissions**: Preparing evidence dossiers for drug/device approval or reimbursement decisions
-- **Critical appraisal**: Evaluating published research for clinical applicability and methodological quality
-
-Trigger phrases: "clinical trial design", "systematic review", "PICOT question", "evidence quality", "bias assessment", "GRADE", "outcome measures", "research protocol", "evidence synthesis", "study appraisal"
-
-## What Is It?
-
-Domain Research: Health Science applies structured frameworks from evidence-based medicine to ensure clinical research is well-formulated, methodologically sound, and clinically meaningful.
-
-**Quick example:**
-
-**Vague question**: "Does this drug work for heart disease?"
-
-**PICOT-structured question**:
-- **P** (Population): Adults >65 with heart failure and reduced ejection fraction
-- **I** (Intervention): SGLT2 inhibitor (dapagliflozin 10mg daily)
-- **C** (Comparator): Standard care (ACE inhibitor + beta-blocker)
-- **O** (Outcome): All-cause mortality (primary); hospitalizations, quality of life (secondary)
-- **T** (Timeframe): 12-month follow-up
-
-**Result**: Precise, answerable research question that guides study design, literature search, and outcome selection.
 
 ## Workflow
 
@@ -126,23 +87,23 @@ Produce evidence profile or summary of findings table linking outcomes to certai
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
-1. **Use PICOT for all clinical questions**: Vague questions lead to unfocused research. Always specify Population, Intervention, Comparator, Outcome, Timeframe explicitly. Avoid "does X work?" without defining for whom, compared to what, and measuring which outcomes.
+1. **Use PICOT for all clinical questions**: Vague questions lead to unfocused research. Specify Population, Intervention, Comparator, Outcome, Timeframe explicitly rather than asking "does X work?" without defining for whom, compared to what, and measuring which outcomes.
 
-2. **Match study design to question type**: RCTs answer therapy questions (causal inference). Cohort studies answer prognosis. Cross-sectional studies answer diagnosis. Case-control studies answer rare harm or etiology. Don't claim causation from observational data or use case series for treatment effects.
+2. **Match study design to question type**: RCTs answer therapy questions (causal inference). Cohort studies answer prognosis. Cross-sectional studies answer diagnosis. Case-control studies answer rare harm or etiology. Avoid claiming causation from observational data or using case series for treatment effects.
 
-3. **Prioritize patient-important outcomes over surrogates**: Surrogate endpoints (biomarkers, lab values) don't always correlate with patient outcomes. Focus on mortality, morbidity, symptoms, function, quality of life. Only use surrogates if validated relationship to patient outcomes exists.
+3. **Prioritize patient-important outcomes over surrogates**: Surrogate endpoints (biomarkers, lab values) do not always correlate with patient outcomes. Focus on mortality, morbidity, symptoms, function, quality of life. Only use surrogates when a validated relationship to patient outcomes exists.
 
-4. **Assess bias systematically, not informally**: Use validated tools (Cochrane RoB 2, ROBINS-I, QUADAS-2) not subjective judgment. Bias assessment affects certainty of evidence and clinical recommendations. Common biases: selection bias, performance bias (lack of blinding), detection bias, attrition bias, reporting bias.
+4. **Assess bias systematically**: Use validated tools (Cochrane RoB 2, ROBINS-I, QUADAS-2) rather than subjective judgment, because bias assessment directly affects certainty of evidence and clinical recommendations. Common biases: selection bias, performance bias (lack of blinding), detection bias, attrition bias, reporting bias.
 
-5. **Apply GRADE to rate certainty of evidence**: Don't conflate study design with certainty. RCTs start as high certainty but can be downgraded (serious limitations, inconsistency, indirectness, imprecision, publication bias). Observational studies start as low but can be upgraded (large effect, dose-response, residual confounding reducing effect).
+5. **Apply GRADE to rate certainty of evidence**: Avoid conflating study design with certainty. RCTs start as high certainty but can be downgraded (serious limitations, inconsistency, indirectness, imprecision, publication bias). Observational studies start as low but can be upgraded (large effect, dose-response, residual confounding reducing effect).
 
-6. **Distinguish statistical significance from clinical importance**: p < 0.05 doesn't mean clinically meaningful. Consider minimal clinically important difference (MCID), absolute risk reduction, number needed to treat (NNT). Small p-value with tiny effect size is statistically significant but clinically irrelevant.
+6. **Distinguish statistical significance from clinical importance**: p < 0.05 does not mean clinically meaningful. Consider minimal clinically important difference (MCID), absolute risk reduction, number needed to treat (NNT). A small p-value with tiny effect size is statistically significant but clinically irrelevant.
 
-7. **Assess external validity and applicability**: Evidence from selected trial populations may not apply to your patient. Consider PICO match (are your patients similar?), setting differences (tertiary center vs community), intervention feasibility, patient values and preferences.
+7. **Assess external validity and applicability**: Evidence from selected trial populations may not apply to the target patient. Consider PICO match, setting differences (tertiary center vs community), intervention feasibility, patient values and preferences.
 
-8. **State limitations and certainty explicitly**: All evidence has limitations. Specify what's uncertain, where evidence gaps exist, and how this affects confidence in recommendations. Avoid overconfident claims not supported by evidence quality.
+8. **State limitations and certainty explicitly**: All evidence has limitations. Specify what is uncertain, where evidence gaps exist, and how this affects confidence in recommendations.
 
 **Common pitfalls:**
 
