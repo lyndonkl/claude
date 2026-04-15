@@ -1,73 +1,10 @@
 ---
 name: portfolio-roadmapping-bets
-description: Use when managing multiple initiatives across time horizons (now/next/later, H1/H2/H3), balancing risk vs return across portfolio, sizing and sequencing bets with dependencies, setting exit/scale criteria for experiments, allocating resources across innovation types (core/adjacent/transformational), or when user mentions portfolio planning, roadmap horizons, betting framework, initiative prioritization, innovation portfolio, or resource allocation across horizons.
+description: Creates strategic portfolio roadmaps that size and sequence initiative bets across time horizons (H1/H2/H3), balance risk profiles (core/adjacent/transformational), and set clear exit/scale criteria for disciplined resource allocation. Use when managing multiple initiatives across time horizons, balancing risk vs return across portfolio, sizing and sequencing bets with dependencies, setting exit/scale criteria for experiments, allocating resources across innovation types, or when user mentions portfolio planning, roadmap horizons, betting framework, initiative prioritization, innovation portfolio, or resource allocation across horizons.
 ---
 # Portfolio Roadmapping Bets
 
-## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It?](#what-is-it)
-4. [Workflow](#workflow)
-5. [Common Patterns](#common-patterns)
-6. [Guardrails](#guardrails)
-7. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Create strategic portfolio roadmaps that balance exploration vs exploitation, size bets by effort and impact, sequence initiatives across time horizons, and set clear exit/scale criteria for disciplined resource allocation.
-
-## When to Use
-
-**Use this skill when:**
-
-### Portfolio Context
-- Managing 5+ initiatives requiring sequencing and trade-offs
-- Balancing quick wins vs strategic bets vs R&D exploration
-- Allocating scarce resources (budget, people, time) across competing priorities
-- Planning across multiple time horizons (H1: 0-6mo, H2: 6-12mo, H3: 12-24mo+)
-
-### Decision Complexity
-- Initiatives have dependencies requiring careful sequencing
-- Exit criteria needed to kill or scale experiments
-- Risk/return profiles vary widely (low-risk incremental vs high-risk transformational)
-- Portfolio balance matters (70% core, 20% adjacent, 10% transformational)
-
-### Stakeholder Communication
-- Executives need portfolio-level view of roadmap with strategic rationale
-- Teams need clarity on what's now vs next vs later
-- Investors or board want visibility into innovation pipeline and resource allocation
-
-**Do NOT use when:**
-- Single initiative with clear priority (use one-pager-prd or project-risk-register instead)
-- Purely operational prioritization without strategic horizons (use prioritization-effort-impact)
-- No resource constraints or trade-offs (just do everything)
-
-## What Is It?
-
-**Portfolio Roadmapping Bets** is a framework for managing a portfolio of initiatives across time horizons using betting language to:
-- **Size bets**: Estimate effort (S/M/L) and impact (1x/3x/10x potential)
-- **Sequence bets**: Order initiatives based on dependencies, learning, and strategic timing
-- **Set bet criteria**: Define what success looks like (scale) and when to exit (kill)
-- **Balance portfolio**: Ensure healthy mix across risk profiles and horizons
-- **Review bets**: Periodic check-ins to kill losers, double-down on winners
-
-**Quick Example:**
-
-**Theme:** Grow marketplace revenue 3x in 18 months
-
-**H1 Bets (Now, 0-6 months):**
-- **Bet 1**: Improve search relevance (Medium effort, 1.5x GMV) - Scale if CTR +20%
-- **Bet 2**: Add "Buy It Now" pricing (Small, 1.3x GMV) - Exit if <5% adoption in 60 days
-
-**H2 Bets (Next, 6-12 months):**
-- **Bet 3**: Launch seller analytics dashboard (Large, 1.8x GMV) - Depends on Bet 1 data pipeline
-- **Bet 4**: Experiment with auction format (Medium, 3x potential) - Exit if fraud risk >2%
-
-**H3 Bets (Later, 12-24 months):**
-- **Bet 5**: Build AI recommendation engine (X-Large, 10x potential) - Depends on Bets 1+3 data
-
-**Portfolio Balance**: 60% core (Bets 1-2), 30% adjacent (Bets 3-4), 10% transformational (Bet 5)
+**When NOT to use:** Single initiative with clear priority (use one-pager-prd or project-risk-register instead), purely operational prioritization without strategic horizons (use prioritization-effort-impact), or no resource constraints or trade-offs.
 
 ## Workflow
 

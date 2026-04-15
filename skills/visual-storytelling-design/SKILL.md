@@ -1,13 +1,12 @@
 ---
 name: visual-storytelling-design
-description: Use when creating data journalism, presentations, infographics, or visual stories that need to communicate data insights through narrative structure. Invoke when user mentions data storytelling, scrollytelling, presentation design, infographic, annotated chart, data journalism, narrative visualization, or needs to transform data into compelling visual narratives.
+description: Transforms data into compelling visual narratives by applying narrative structure, annotation techniques, scrollytelling patterns, and honest framing to data journalism, presentations, and infographics. Use when creating data-driven articles or reports, designing infographics with narrative, building scrollytelling experiences, annotating charts to guide interpretation, or when user mentions data storytelling, presentation design, annotated chart, narrative visualization.
 ---
 
 # Visual Storytelling Design
 
 ## Table of Contents
 
-- [Read This First](#read-this-first)
 - [Story Design Workflow](#story-design-workflow)
 - [Path Selection Menu](#path-selection-menu)
   - [Path 1: Build Narrative Structure](#path-1-build-narrative-structure)
@@ -19,42 +18,9 @@ description: Use when creating data journalism, presentations, infographics, or 
 
 ---
 
-## Read This First
+**Core principle:** Structuring data as narrative (Context → Problem → Evidence → Insight) aids comprehension and retention. Annotations guide attention, progressive disclosure reveals complexity gradually, and framing provides context for accurate interpretation.
 
-### What This Skill Does
-
-This skill helps you **transform data into compelling visual narratives** — data journalism, presentations, infographics, and interactive stories that communicate insights through narrative structure.
-
-**Core principle:** People naturally seek stories with cause-effect and chronology. Structuring data as narrative aids comprehension and retention.
-
-### Why It Matters
-
-**Challenges of data storytelling:**
-- Raw data is a heap of facts — hard to process
-- Visualizations can be misinterpreted without guidance
-- Readers skim, don't read thoroughly
-- Need emotional engagement AND factual accuracy
-
-**How cognitive principles help:**
-- **Narrative structure** chunks information meaningfully (Context → Problem → Evidence → Insight)
-- **Annotations** guide attention to key insights (prevent misinterpretation)
-- **Progressive disclosure** reveals complexity gradually (scrollytelling)
-- **Framing** provides context for accurate interpretation
-
-### When to Use This Skill
-
-**Use this skill when:**
-- ✓ Creating data-driven articles, reports, or presentations
-- ✓ Designing infographics or data visualizations with narrative
-- ✓ Building scrollytelling or interactive data experiences
-- ✓ Annotating charts to guide interpretation
-- ✓ Framing data with honest context and comparisons
-
-**Do NOT use for:**
-- ✗ Learning cognitive principles (use `cognitive-design`)
-- ✗ Implementing D3.js visualizations (use `d3-visualization`)
-- ✗ Evaluating designs (use `design-evaluation-audit`)
-- ✗ Checking for misleading patterns (use `cognitive-fallacies-guard`)
+**Related skills:** Use `cognitive-design` for cognitive principles, `d3-visualization` for D3.js implementation, `design-evaluation-audit` for systematic evaluation, `cognitive-fallacies-guard` for integrity checks.
 
 ---
 
@@ -144,6 +110,4 @@ Verify the story is honest (no cherry-picking, balanced framing), clear (insight
 
 ## Guardrails
 
-**This skill does NOT:** Implement code, evaluate general usability, teach cognitive theory, or check for misleading patterns.
-
-**This skill DOES:** Provide narrative structure, annotation techniques, scrollytelling patterns, framing guidance, story templates, and quality checklists for data storytelling.
+**Scope:** This skill provides narrative structure, annotation techniques, scrollytelling patterns, framing guidance, story templates, and quality checklists for data storytelling. It does not implement code, evaluate general usability, teach cognitive theory, or check for misleading patterns.

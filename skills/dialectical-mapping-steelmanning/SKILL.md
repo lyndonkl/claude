@@ -1,75 +1,14 @@
 ---
 name: dialectical-mapping-steelmanning
-description: Use when debates are trapped in false dichotomies, polarized positions need charitable interpretation, tradeoffs are obscured by binary framing, synthesis beyond 'pick one side' is needed, or when users mention steelman arguments, thesis-antithesis-synthesis, Hegelian dialectic, third way solutions, or resolving seemingly opposed principles.
+description: Applies thesis-antithesis-synthesis reasoning to escape false binary choices by steelmanning opposing positions, mapping their underlying principles and tradeoffs, and synthesizing principled third-way resolutions. Use when debates are trapped in false dichotomies, polarized positions need charitable interpretation, tradeoffs are obscured by binary framing, synthesis beyond "pick one side" is needed, or when users mention steelman arguments, Hegelian dialectic, or resolving seemingly opposed principles.
 ---
 # Dialectical Mapping & Steelmanning
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Dialectical Mapping & Steelmanning helps you escape false binary choices by:
-
-- **Steelmanning** both positions (presenting them in their strongest, most charitable form)
-- **Mapping** the underlying principles and tradeoffs (what each side values and sacrifices)
-- **Synthesizing** a principled third way (transcending "pick a side" to find higher-order resolution)
-- **Making tradeoffs explicit** (clarifying costs/benefits of synthesis vs pure positions)
-
-This moves debates from "A vs B" to "here's the best of both, here's what we sacrifice, here's why it's worth it."
-
-## When to Use
-
-Use this skill when:
-
-- **False dichotomies**: Debate framed as binary choice ("we must pick A or B") but better options exist
-- **Polarized positions**: Both sides dug in, uncharitable interpretations, strawman arguments flying
-- **Hidden tradeoffs**: Each position has merits and costs, but these aren't explicit
-- **Principle conflicts**: Seemingly opposed values (speed vs quality, freedom vs safety, innovation vs stability)
-- **Synthesis needed**: User explicitly wants "third way", "best of both worlds", or "transcend the debate"
-- **Strategic tensions**: Business decisions with legitimate competing priorities (growth vs profitability, centralization vs autonomy)
-- **Design tradeoffs**: Technical or product decisions with no clear winner (monolith vs microservices, simple vs powerful)
-- **Policy debates**: Governance questions with multiple stakeholder values (privacy vs security, efficiency vs equity)
-
-Trigger phrases: "steelman", "thesis-antithesis-synthesis", "Hegelian dialectic", "false dichotomy", "third way", "both sides have a point", "transcend the debate", "resolve the tension"
-
-## What Is It?
-
-Dialectical Mapping & Steelmanning is a three-step reasoning process:
-
-1. **Steelman Thesis & Antithesis**: Present each position in its strongest form (charitable interpretation, best arguments, underlying principles)
-2. **Map Tradeoffs**: Identify what each side optimizes for and what it sacrifices
-3. **Synthesize Third Way**: Find a higher-order principle or hybrid approach that honors both positions' core values while acknowledging new tradeoffs
-
-**Quick example:**
-
-**Debate**: "Should our startup prioritize growth or profitability?"
-
-**Typical (bad) framing**: Binary choice. Pick one, argue against the other.
-
-**Steelman Thesis (Growth)**:
-- Principle: Market position compounds. Early lead captures network effects, brand recognition, talent attraction.
-- Best argument: In winner-take-most markets, second place is first loser. Profitability can wait; market share can't.
-- Tradeoff: Accept cash burn, potential failure if funding dries up.
-
-**Steelman Antithesis (Profitability)**:
-- Principle: Sustainability enables long-term strategy. Profitable companies control their destiny, survive downturns, outlast competitors.
-- Best argument: Growth without unit economics is vanity metric. Profit proves business viability.
-- Tradeoff: Accept slower growth, risk being outpaced by well-funded competitors.
-
-**Synthesis (Profitable Growth)**:
-- **Higher principle**: Capital efficiency. Grow as fast as sustainable unit economics allow.
-- **Third way**: Focus on channels/segments with healthy LTV:CAC (>3:1), deprioritize expensive acquisition. Scale what works profitably, experiment cheaply elsewhere.
-- **New tradeoffs**: Slower than "growth at all costs", requires discipline to say no, may miss land-grab opportunities in subsidized markets.
-- **Why it works**: Preserves optionality (can raise capital from position of strength OR bootstrap), builds durable moat (real economics, not just scale), reduces existential risk.
-
-**Result**: Escaped false binary. Found principled synthesis with explicit tradeoffs.
 
 ## Workflow
 
@@ -138,21 +77,21 @@ Self-assess using [resources/evaluators/rubric_dialectical_mapping_steelmanning.
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
-1. **Steelman, don't strawman**: Present each position as its adherents would recognize. Ask: "Would someone who holds this view agree this is a fair representation?" If no, strengthen it further.
+1. **Steelman, not strawman**: Present each position as its adherents would recognize. Ask: "Would someone who holds this view agree this is a fair representation?" If not, strengthen it further.
 
-2. **Identify principles, not just preferences**: Go deeper than "Side A wants X, Side B wants Y." Find WHY they want it. What value do they optimize for? Freedom? Safety? Speed? Equity? Efficiency?
+2. **Identify principles, not just preferences**: Go deeper than "Side A wants X, Side B wants Y." Find the underlying values each side optimizes for: freedom, safety, speed, equity, efficiency, etc.
 
-3. **Synthesis must transcend, not just compromise**: Splitting the difference (50% A, 50% B) is usually weak. Good synthesis finds new option C that honors both principles at higher level. "Both-and" thinking, not "either-or" averaging.
+3. **Synthesis should transcend, not just compromise**: Splitting the difference (50% A, 50% B) is usually weak. Good synthesis finds a new option C that honors both principles at a higher level -- "both-and" thinking rather than "either-or" averaging.
 
-4. **Make tradeoffs explicit**: Every synthesis has costs. State what you gain AND what you sacrifice vs pure positions. Don't pretend synthesis is "best of both with no downsides."
+4. **Make tradeoffs explicit**: Every synthesis has costs. State what you gain and what you sacrifice vs pure positions. Avoid presenting synthesis as "best of both with no downsides."
 
-5. **Avoid false equivalence**: Steelmanning doesn't mean both sides are equally correct. One position may have stronger arguments/evidence. Synthesis should reflect this (lean toward stronger position, add safeguards from weaker).
+5. **Avoid false equivalence**: Steelmanning does not require treating both sides as equally correct. One position may have stronger arguments or evidence. Synthesis should reflect this (lean toward the stronger position, add safeguards from the weaker).
 
 6. **Check for false dichotomy**: Some "debates" are manufactured. Both A and B may be bad options. Ask: "Is this actually a binary choice, or are we missing option C/D/E?"
 
-7. **Test synthesis with adversarial roles**: Before finalizing, inhabit each original position and critique the synthesis. Would a partisan of A/B accept it, or see it as capitulation? If synthesis can't survive friendly fire, strengthen it.
+7. **Test synthesis with adversarial roles**: Before finalizing, inhabit each original position and critique the synthesis. Would a partisan of A or B accept it, or see it as capitulation? If the synthesis cannot survive friendly fire, strengthen it.
 
 **Common pitfalls:**
 

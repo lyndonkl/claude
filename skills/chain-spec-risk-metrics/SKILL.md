@@ -1,60 +1,24 @@
 ---
 name: chain-spec-risk-metrics
-description: Use when planning high-stakes initiatives (migrations, launches, strategic changes) that require clear specifications, proactive risk identification (premortem/register), and measurable success criteria. Invoke when user mentions "plan this migration", "launch strategy", "implementation roadmap", "what could go wrong", "how do we measure success", or when high-impact decisions need comprehensive planning with risk mitigation and instrumentation.
+description: Chains together clear specifications, proactive risk analysis (premortem/register), and measurable success metrics into a comprehensive planning artifact for high-stakes initiatives. Use when planning migrations, launches, or strategic changes that need implementation roadmaps, risk mitigation, and instrumentation. Invoke when user mentions "plan this migration", "launch strategy", "implementation roadmap", "what could go wrong", "how do we measure success", or when high-impact decisions need comprehensive planning.
 ---
 # Chain Spec Risk Metrics
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [When NOT to Use This Skill](#when-not-to-use-this-skill)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Overview
 
-This skill helps you create comprehensive plans for high-stakes initiatives by chaining together three critical components: clear specifications, proactive risk analysis, and measurable success metrics. It ensures initiatives are well-defined, risks are anticipated and mitigated, and progress can be objectively tracked.
-
-## When to Use This Skill
-
-Use this skill when you need to:
-
-- **Plan complex implementations** - Migrations, infrastructure changes, system redesigns requiring detailed specs
-- **Launch new initiatives** - Products, features, programs that need risk assessment and success measurement
-- **Make high-stakes decisions** - Strategic choices where failure modes must be identified and monitored
-- **Coordinate cross-functional work** - Initiatives requiring clear specifications for alignment and risk transparency
-- **Request comprehensive planning** - User asks "plan this migration", "create implementation roadmap", "what could go wrong?"
-- **Establish accountability** - Need clear success criteria and risk owners for governance
-
-**Trigger phrases:**
-- "Plan this [migration/launch/implementation]"
-- "Create a roadmap for..."
-- "What could go wrong with..."
-- "How do we measure success for..."
-- "Write a spec that includes risks and metrics"
-- "Comprehensive plan with risk mitigation"
-
-## When NOT to Use This Skill
-
-Skip this skill when:
-
-- **Quick decisions** - Low-stakes choices don't need full premortem treatment
-- **Specifications only** - If user just needs a spec without risk/metrics analysis (use one-pager-prd or adr-architecture instead)
-- **Risk analysis only** - If focused solely on identifying risks (use project-risk-register or postmortem instead)
-- **Metrics only** - If just defining KPIs (use metrics-tree instead)
-- **Already decided and executing** - Use postmortem or reviews-retros-reflection for retrospectives
-- **Brainstorming alternatives** - Use brainstorm-diverge-converge to generate options first
-
-## What Is It?
-
-Chain Spec Risk Metrics is a meta-skill that combines three complementary techniques into a comprehensive planning artifact:
+This skill combines three components into a comprehensive planning artifact:
 
 1. **Specification** - Define what you're building/changing with clarity (scope, requirements, approach, timeline)
 2. **Risk Analysis** - Identify what could go wrong through premortem ("imagine we failed - why?") and create risk register with mitigations
 3. **Success Metrics** - Define measurable outcomes to track progress and validate success
+
+**When NOT to use:** For specifications only, use `one-pager-prd` or `adr-architecture`. For risk analysis only, use `project-risk-register`. For metrics only, use `metrics-tree`. For brainstorming alternatives, use `brainstorm-diverge-converge`.
 
 **Quick example:**
 > **Initiative:** Migrate monolith to microservices

@@ -1,13 +1,11 @@
 ---
 name: career-document-architect
-description: Use when writing or reviewing career documents including research statements, teaching statements, diversity statements, CVs, or biosketches. Invoke when user mentions research statement, teaching philosophy, diversity statement, biosketch, academic CV, faculty application, or needs help with career narrative, positioning, or professional documents for academic advancement.
+description: Guides the creation of career documents for academic advancement including research statements, teaching statements, diversity statements, CVs, and biosketches. Combines strategic positioning, narrative coherence, and institutional alignment with authentic representation of contributions and vision. Use when writing or reviewing faculty applications, fellowship statements, promotion packages, award applications, or when user mentions research statement, teaching philosophy, diversity statement, biosketch, academic CV, or career narrative.
 ---
 
 # Career Document Architect
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [Document Frameworks](#document-frameworks)
@@ -15,27 +13,10 @@ description: Use when writing or reviewing career documents including research s
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill guides the creation of career documents for academic advancement including research statements, teaching statements, diversity statements, CVs, and biosketches. These documents require strategic positioning, narrative coherence, and alignment with institutional expectations while authentically representing the candidate's contributions and vision.
-
-## When to Use
-
-Use this skill when:
-
-- **Faculty applications**: Research, teaching, and diversity statements
-- **Fellowship applications**: Research statements for postdoc fellowships
-- **Promotion packages**: Career narratives for tenure or advancement
-- **Award applications**: Statements for career awards
-- **CV/Biosketch preparation**: Formatting and content optimization
-- **Career pivots**: Repositioning narrative for new directions
-
-Trigger phrases: "research statement", "teaching statement", "teaching philosophy", "diversity statement", "biosketch", "academic CV", "faculty application", "career narrative"
-
-**Do NOT use for:**
-- Grant proposals (use `grant-proposal-assistant`)
-- Recommendation letters (use `academic-letter-architect`)
-- Manuscript writing (use `scientific-manuscript-review`)
+**Related skills (use instead for):**
+- Grant proposals: `grant-proposal-assistant`
+- Recommendation letters: `academic-letter-architect`
+- Manuscript writing: `scientific-manuscript-review`
 
 ## Core Principles
 
@@ -301,7 +282,7 @@ For each future direction:
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
 1. **Truthful**: Never fabricate or exaggerate
 2. **Evidence-based**: Claims supported by specifics

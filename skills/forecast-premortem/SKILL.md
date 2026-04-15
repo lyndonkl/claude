@@ -1,49 +1,16 @@
 ---
 name: forecast-premortem
-description: Use to stress-test predictions by assuming they failed and working backward to identify why. Invoke when confidence is high (>80% or <20%), need to identify tail risks and unknown unknowns, or want to widen overconfident intervals. Use when user mentions premortem, backcasting, what could go wrong, stress test, or black swans.
+description: Stress-tests predictions by assuming failure and working backward to identify blind spots, tail risks, and overconfidence. Applies Gary Klein's premortem technique to probabilistic forecasting. Use when confidence is high (>80% or <20%), need to identify tail risks and unknown unknowns, want to widen overconfident intervals, or when user mentions premortem, backcasting, what could go wrong, stress test, or black swans.
 ---
 
 # Forecast Pre-Mortem
 
 ## Table of Contents
-- [What is a Forecast Pre-Mortem?](#what-is-a-forecast-pre-mortem)
-- [When to Use This Skill](#when-to-use-this-skill)
 - [Interactive Menu](#interactive-menu)
 - [Quick Reference](#quick-reference)
 - [Resource Files](#resource-files)
 
----
-
-## What is a Forecast Pre-Mortem?
-
-A **forecast pre-mortem** is a stress-testing technique where you assume your prediction has already failed and work backward to construct the history of how it failed. This reveals blind spots, tail risks, and overconfidence.
-
-**Core Principle:** Invert the problem. Don't ask "Will this succeed?" Ask "It has failed - why?"
-
-**Why It Matters:**
-- Defeats overconfidence by forcing you to imagine failure
-- Identifies specific failure modes you hadn't considered
-- Transforms vague doubt into concrete risk variables
-- Widens confidence intervals appropriately
-- Surfaces "unknown unknowns"
-
-**Origin:** Gary Klein's "premortem" technique, adapted for probabilistic forecasting
-
----
-
-## When to Use This Skill
-
-Use this skill when:
-- **High confidence** (>80% or <20%) - Most likely to be overconfident
-- **Feeling certain** - Certainty is a red flag in forecasting
-- **Prediction is important** - Stakes are high, need robustness
-- **After inside view analysis** - Used specific details, might have missed big picture
-- **Before finalizing forecast** - Last check before committing
-
-Do NOT use when:
-- Confidence already low (~50%) - You're already uncertain
-- Trivial low-stakes prediction - Not worth the time
-- Pure base rate forecasting - Premortem is for inside view adjustments
+**Core Principle**: Invert the problem. Instead of "Will this succeed?", ask "It has failed -- why?"
 
 ---
 

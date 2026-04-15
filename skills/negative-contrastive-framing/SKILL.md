@@ -1,66 +1,9 @@
 ---
 name: negative-contrastive-framing
-description: Use when clarifying fuzzy boundaries, defining quality criteria, teaching by counterexample, preventing common mistakes, setting design guardrails, disambiguating similar concepts, refining requirements through anti-patterns, creating clear decision criteria, or when user mentions near-miss examples, anti-goals, what not to do, negative examples, counterexamples, or boundary clarification.
+description: Defines concepts, quality criteria, and boundaries by showing what they are NOT -- using anti-goals, near-miss examples, and failure patterns to create crisp decision criteria where positive definitions alone are ambiguous. Use when clarifying fuzzy boundaries, defining quality criteria, teaching by counterexample, preventing common mistakes, setting design guardrails, disambiguating similar concepts, refining requirements through anti-patterns, or when user mentions near-miss examples, anti-goals, what not to do, negative examples, counterexamples, or boundary clarification.
 ---
 
 # Negative Contrastive Framing
-
-## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
-- [Workflow](#workflow)
-- [Common Patterns](#common-patterns)
-- [Guardrails](#guardrails)
-- [Quick Reference](#quick-reference)
-
-## Purpose
-
-Define concepts, quality criteria, and boundaries by showing what they're NOT—using anti-goals, near-miss examples, and failure patterns to create crisp decision criteria where positive definitions alone are ambiguous.
-
-## When to Use
-
-**Clarifying Fuzzy Boundaries:**
-- Positive definition exists but edges are unclear
-- Multiple interpretations cause confusion
-- Team debates what "counts" as meeting criteria
-- Need to distinguish similar concepts
-
-**Teaching & Communication:**
-- Explaining concepts to learners who need counterexamples
-- Training teams to recognize anti-patterns
-- Creating style guides with do's and don'ts
-- Onboarding with common mistake prevention
-
-**Setting Standards:**
-- Defining code quality (show bad patterns)
-- Establishing design principles (show violations)
-- Creating evaluation rubrics (clarify failure modes)
-- Building decision criteria (identify disqualifiers)
-
-**Preventing Errors:**
-- Near-miss incidents revealing risk patterns
-- Common mistakes that need explicit guards
-- Edge cases that almost pass but shouldn't
-- Subtle failures that look like successes
-
-## What Is It
-
-Negative contrastive framing defines something by showing what it's NOT:
-
-**Types of Negative Examples:**
-1. **Anti-goals:** Opposite of desired outcome ("not slow" → define fast)
-2. **Near-misses:** Examples that almost qualify but fail on key dimension
-3. **Failure patterns:** Common mistakes that violate criteria
-4. **Boundary cases:** Edge examples clarifying where line is drawn
-
-**Example:**
-Defining "good UX":
-- **Positive:** "Intuitive, efficient, delightful"
-- **Negative contrast:**
-  - ❌ Near-miss: Fast but confusing (speed without clarity)
-  - ❌ Anti-pattern: Dark patterns (manipulative design)
-  - ❌ Failure: Requires manual to understand basic tasks
 
 ## Workflow
 

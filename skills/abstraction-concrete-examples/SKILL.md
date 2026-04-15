@@ -1,15 +1,12 @@
 ---
 name: abstraction-concrete-examples
-description: Use when explaining concepts at different expertise levels, moving between abstract principles and concrete implementation, identifying edge cases by testing ideas against scenarios, designing layered documentation, decomposing complex problems into actionable steps, or bridging strategy-execution gaps. Invoke when user mentions abstraction levels, making concepts concrete, or explaining at different depths.
+description: Builds structured abstraction ladders that translate high-level principles into concrete, actionable examples across 3-5 levels. Bridges communication gaps, reveals hidden assumptions, and tests whether abstract ideas work in practice. Use when explaining concepts at different expertise levels, moving between abstract principles and concrete implementation, identifying edge cases by testing ideas against scenarios, designing layered documentation, decomposing complex problems into actionable steps, or bridging strategy-execution gaps.
 ---
 
 # Abstraction Ladder Framework
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [What is an Abstraction Ladder?](#what-is-an-abstraction-ladder)
 - [Workflow](#workflow)
   - [1. Gather Requirements](#1-gather-requirements)
   - [2. Choose Approach](#2-choose-approach)
@@ -20,33 +17,7 @@ description: Use when explaining concepts at different expertise levels, moving 
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Create structured abstraction ladders showing how concepts translate from high-level principles to concrete, actionable examples. This bridges communication gaps, reveals hidden assumptions, and tests whether abstract ideas work in practice.
-
-## When to Use This Skill
-
-- User needs to explain same concept to different expertise levels
-- Task requires moving between "why" (abstract) and "how" (concrete)
-- Identifying edge cases by testing principles against specific scenarios
-- Designing layered documentation (overview → details → specifics)
-- Decomposing complex problems into actionable steps
-- Validating that high-level goals translate to concrete actions
-- Bridging strategy and execution gaps
-
-**Trigger phrases:** "abstraction levels", "make this concrete", "explain at different levels", "from principles to implementation", "high-level and detailed view"
-
-## What is an Abstraction Ladder?
-
-A multi-level structure (typically 3-5 levels) connecting universal principles to concrete details:
-
-- **Level 1 (Abstract)**: Universal principles, theories, values
-- **Level 2**: Frameworks, standards, categories
-- **Level 3 (Middle)**: Methods, approaches, general examples
-- **Level 4**: Specific implementations, concrete instances
-- **Level 5 (Concrete)**: Precise details, measurements, edge cases
-
-**Quick Example:**
+The ladder uses 3-5 levels connecting universal principles to concrete details. Example:
 - L1: "Software should be maintainable"
 - L2: "Use modular architecture"
 - L3: "Apply dependency injection"
@@ -116,7 +87,7 @@ Present the completed `abstraction-concrete-examples.md` file. Highlight key ins
 - Use vague language ("good", "better", "appropriate") without defining terms
 - Make huge conceptual jumps between levels
 - Let different levels drift to different topics
-- Skip the validation step (rubric is required)
+- Skip the validation step (the rubric check ensures quality)
 - Front-load expertise - explain clearly for the target audience
 
 ## Quick Reference

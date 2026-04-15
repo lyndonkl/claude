@@ -1,6 +1,6 @@
 ---
 name: chain-roleplay-debate-synthesis
-description: Use when facing decisions with multiple legitimate perspectives and inherent tensions. Invoke when stakeholders have competing priorities (growth vs. sustainability, speed vs. quality, innovation vs. risk), need to pressure-test ideas from different angles before committing, exploring tradeoffs between incompatible values, synthesizing conflicting expert opinions into coherent strategy, or surfacing assumptions that single-viewpoint analysis would miss.
+description: Facilitates structured roleplay, debate, and synthesis to resolve decisions with multiple legitimate perspectives and inherent tensions. Surfaces assumptions that single-viewpoint analysis would miss and integrates competing priorities into coherent recommendations. Use when stakeholders have competing priorities (growth vs. sustainability, speed vs. quality), need to pressure-test ideas from different angles, explore tradeoffs between incompatible values, or synthesize conflicting expert opinions into coherent strategy.
 ---
 
 # Chain Roleplay → Debate → Synthesis

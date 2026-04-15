@@ -1,72 +1,18 @@
 ---
 name: stakeholders-org-design
-description: Use when designing organizational structure (team topologies, Conway's Law alignment), mapping stakeholders by power-interest for change initiatives, defining team interface contracts (APIs, SLAs, decision rights, handoffs), assessing capability maturity (DORA, CMMC, agile maturity models), planning org restructures (functional to product teams, platform teams, shared services), or when user mentions "org design", "team structure", "stakeholder map", "team interfaces", "capability maturity", "Conway's Law", or "RACI".
+description: Provides frameworks for mapping stakeholder influence networks, designing team structures aligned with system architecture (Conway's Law), defining team interface contracts (APIs, SLAs, decision rights), and assessing capability maturity (DORA, CMMC, agile models). Use when designing org structure or team topologies, mapping stakeholders for change initiatives, defining team interfaces, assessing capability maturity, planning restructures, or when user mentions org design, team structure, stakeholder map, Conway's Law, or RACI.
 ---
 
 # Stakeholders & Organizational Design
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It](#what-is-it)
-4. [Workflow](#workflow)
-5. [Stakeholder Mapping](#stakeholder-mapping)
-6. [Team Interface Contracts](#team-interface-contracts)
-7. [Capability Maturity](#capability-maturity)
-8. [Common Patterns](#common-patterns)
-9. [Guardrails](#guardrails)
-10. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Stakeholders & Organizational Design provides frameworks for mapping influence networks, designing effective team structures aligned with system architecture (Conway's Law), defining clear team interfaces and responsibilities, and assessing organizational capability maturity to guide improvement.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Design or restructure organizational teams (functional → product, monolith → microservices teams, platform teams)
-- Map stakeholders for change initiatives (power-interest matrix, influence networks, champions/blockers)
-- Define team interfaces and contracts (APIs, SLAs, handoff protocols, decision rights)
-- Assess capability maturity (DevOps/DORA, security/CMMC, agile, data, design maturity models)
-- Apply Conway's Law (align team structure with desired system architecture)
-- Establish governance frameworks (RACI, decision rights, escalation paths)
-- Plan cross-functional collaboration models (product triads, embedded vs centralized)
-- Design team topologies (stream-aligned, platform, enabling, complicated-subsystem)
-
-**User phrases that trigger this skill:**
-- "How should we structure our teams?"
-- "Map stakeholders for [initiative]"
-- "Define team interfaces"
-- "Assess our [capability] maturity"
-- "Conway's Law"
-- "Team Topologies"
-- "RACI matrix"
-
-## What Is It
-
-A framework combining:
-1. **Stakeholder Mapping**: Power-interest matrix, influence networks, RACI for decision rights
-2. **Organizational Design**: Team structures aligned with architecture and strategy
-3. **Team Interface Contracts**: APIs, SLAs, handoff protocols, communication patterns
-4. **Capability Maturity**: Assessment using standard models (DORA, CMMC, CMM, custom rubrics)
-
-**Quick example (Platform Team Design):**
-
-**Stakeholder Map:**
-- **High Power, High Interest**: Engineering VP (sponsor), Product teams (customers)
-- **High Power, Low Interest**: CTO (keep satisfied with metrics)
-- **Low Power, High Interest**: Individual engineers (keep informed)
-
-**Team Structure:**
-- **Platform Team** (8 people): Developer experience, infrastructure, observability
-- **Interface**: Self-service APIs, documentation, office hours
-- **SLA**: 99.9% uptime, <2 week feature delivery, <4hr critical bug fix
-
-**Capability Maturity** (DORA metrics):
-- Deployment frequency: Daily → Weekly (target: Daily)
-- Lead time: 1 week → 2 days (target: <1 day)
-- MTTR: 4 hours → 1 hour (target: <1 hour)
-- Change failure rate: 15% → 5% (target: <5%)
+1. [Workflow](#workflow)
+2. [Stakeholder Mapping](#stakeholder-mapping)
+3. [Team Interface Contracts](#team-interface-contracts)
+4. [Capability Maturity](#capability-maturity)
+5. [Common Patterns](#common-patterns)
+6. [Guardrails](#guardrails)
+7. [Quick Reference](#quick-reference)
 
 ## Workflow
 

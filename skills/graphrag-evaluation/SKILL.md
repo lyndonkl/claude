@@ -1,10 +1,9 @@
 ---
 name: graphrag-evaluation
-description: Use when evaluating GraphRAG system quality across knowledge graph completeness, retrieval relevance, answer correctness, and reasoning verification. Invoke when user mentions evaluate GraphRAG, quality metrics, benchmark, hallucination reduction, answer correctness, multi-step reasoning evaluation, test my GraphRAG, or measure RAG performance. Provides evaluation frameworks, metric selection, and testing protocols.
+description: Evaluates GraphRAG systems across knowledge graph completeness, retrieval relevance, answer correctness, reasoning depth, and hallucination prevention. Provides structured evaluation frameworks, metric selection guidance, and testing protocols. Use when evaluating GraphRAG quality, benchmarking multi-step reasoning, measuring hallucination reduction, or when user mentions evaluate GraphRAG, quality metrics, answer correctness, test my GraphRAG, or measure RAG performance.
 ---
 
 ## Table of Contents
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Evaluation Dimensions](#evaluation-dimensions)
 - [Metric Selection Guide](#metric-selection-guide)
@@ -12,15 +11,9 @@ description: Use when evaluating GraphRAG system quality across knowledge graph 
 
 # GraphRAG Evaluation
 
-## What Is It?
-
-Evaluate GraphRAG systems across multiple dimensions -- KG quality, retrieval effectiveness, answer correctness, reasoning depth, and hallucination prevention. This skill provides structured evaluation frameworks, metric selection guidance, and testing protocols to systematically measure and improve GraphRAG system performance.
-
-GraphRAG systems combine knowledge graphs with retrieval-augmented generation, introducing unique evaluation challenges beyond standard RAG. The knowledge graph itself must be assessed for completeness and accuracy, retrieval must be measured for both recall and precision across multi-hop paths, answers must be verified for correctness and grounding, and reasoning chains must be validated step by step. This skill guides you through each dimension with concrete metrics and testing protocols.
-
 ## Workflow
 
-**COPY THIS CHECKLIST** and work through each step:
+Copy this checklist and work through each step:
 
 - [ ] Step 1. Identify Evaluation Scope
 - [ ] Step 2. Select Metrics

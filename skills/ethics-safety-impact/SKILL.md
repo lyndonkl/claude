@@ -1,83 +1,24 @@
 ---
 name: ethics-safety-impact
-description: Use when decisions could affect groups differently and need to anticipate harms/benefits, assess fairness and safety concerns, identify vulnerable populations, propose risk mitigations, define monitoring metrics, or when user mentions ethical review, impact assessment, differential harm, safety analysis, vulnerable groups, bias audit, or responsible AI/tech.
+description: Guides structured identification of potential harms, benefits, and differential impacts across stakeholder groups for decisions affecting people. Covers stakeholder mapping, fairness evaluation, risk mitigation design, and monitoring. Use when decisions could affect groups differently, need to anticipate harms/benefits, assess fairness and safety, identify vulnerable populations, or when user mentions ethical review, impact assessment, differential harm, safety analysis, bias audit, or responsible AI/tech.
 ---
 # Ethics, Safety & Impact Assessment
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Ethics, Safety & Impact Assessment provides a structured framework for identifying potential harms, benefits, and differential impacts before launching features, implementing policies, or making decisions that affect people. This skill guides you through stakeholder identification, harm/benefit analysis, fairness evaluation, risk mitigation design, and ongoing monitoring to ensure responsible and equitable outcomes.
-
-## When to Use
-
-Use this skill when:
-
-- **Product launches**: New features, algorithm changes, UI redesigns that affect user experience or outcomes
-- **Policy decisions**: Terms of service updates, content moderation rules, data usage policies, pricing changes
-- **Data & AI systems**: Training models, deploying algorithms, using sensitive data, automated decision-making
-- **Platform changes**: Recommendation systems, search ranking, feed algorithms, matching/routing logic
-- **Access & inclusion**: Features affecting accessibility, vulnerable populations, underrepresented groups, global markets
-- **Safety-critical systems**: Health, finance, transportation, security applications where errors have serious consequences
-- **High-stakes decisions**: Hiring, lending, admissions, criminal justice, insurance where outcomes significantly affect lives
-- **Content & communication**: Moderation policies, fact-checking systems, content ranking, amplification rules
-
-Trigger phrases: "ethical review", "impact assessment", "who might be harmed", "differential impact", "vulnerable populations", "bias audit", "fairness check", "safety analysis", "responsible AI", "unintended consequences"
-
-## What Is It?
-
-Ethics, Safety & Impact Assessment is a proactive evaluation framework that systematically examines:
-- **Who** is affected (stakeholder mapping, vulnerable groups)
-- **What** could go wrong (harm scenarios, failure modes)
-- **Why** it matters (severity, likelihood, distribution of impacts)
-- **How** to mitigate (design changes, safeguards, monitoring)
-- **When** to escalate (triggers, thresholds, review processes)
-
-**Core ethical principles:**
-- **Fairness**: Equal treatment, non-discrimination, equitable outcomes across groups
-- **Autonomy**: User choice, informed consent, control over data and experience
-- **Beneficence**: Maximize benefits, design for positive impact
-- **Non-maleficence**: Minimize harms, "do no harm" as baseline
-- **Transparency**: Explain decisions, disclose limitations, build trust
-- **Accountability**: Clear ownership, redress mechanisms, audit trails
-- **Privacy**: Data protection, confidentiality, purpose limitation
-- **Justice**: Equitable distribution of benefits and burdens, address historical inequities
-
-**Quick example:**
+## Example
 
 **Scenario**: Launching credit scoring algorithm for loan approvals
 
-**Ethical impact assessment**:
-
-1. **Stakeholders affected**: Loan applicants (diverse demographics), lenders, society (economic mobility)
-
-2. **Potential harms**:
-   - **Disparate impact**: Algorithm trained on historical data may perpetuate bias against protected groups (race, gender, age)
-   - **Opacity**: Applicants denied loans without explanation, cannot contest decision
-   - **Feedback loops**: Denying loans to disadvantaged groups → lack of credit history → continued denials
-   - **Economic harm**: Incorrect denials prevent wealth building, perpetuate poverty
-
-3. **Vulnerable groups**: Racial minorities historically discriminated in lending, immigrants with thin credit files, young adults, people in poverty
-
-4. **Mitigations**:
-   - **Fairness audit**: Test for disparate impact across protected classes, equalized odds
-   - **Explainability**: Provide reason codes (top 3 factors), allow appeals
-   - **Alternative data**: Include rent, utility payments to expand access
-   - **Human review**: Flag edge cases for manual review, override capability
-   - **Regular monitoring**: Track approval rates by demographic, quarterly bias audits
-
-5. **Monitoring & escalation**:
-   - **Metrics**: Approval rate parity (within 10% across groups), false positive/negative rates, appeal overturn rate
-   - **Triggers**: If disparate impact >20%, escalate to ethics committee
-   - **Review**: Quarterly fairness audits, annual independent assessment
+1. **Stakeholders**: Loan applicants (diverse demographics), lenders, society (economic mobility)
+2. **Harms**: Disparate impact from historical bias, opacity preventing appeals, feedback loops perpetuating denials
+3. **Vulnerable groups**: Racial minorities, immigrants with thin credit files, young adults, people in poverty
+4. **Mitigations**: Fairness audit across protected classes, reason codes + appeals, alternative data (rent/utilities), human review for edge cases
+5. **Monitoring**: Approval rate parity within 10% across groups; if disparate impact >20%, escalate to ethics committee
 
 ## Workflow
 
@@ -156,23 +97,21 @@ Set metrics, thresholds, review cadence, escalation triggers. Validate using [re
 
 ## Guardrails
 
-**Critical requirements:**
+1. **Identify vulnerable groups explicitly**: Prioritize children, elderly, people with disabilities, marginalized/discriminated groups, low-income, low-literacy, geographically isolated, and politically targeted populations. If none are identified, look harder.
 
-1. **Identify vulnerable groups explicitly**: Not all stakeholders are equally at risk. Prioritize: children, elderly, people with disabilities, marginalized/discriminated groups, low-income, low-literacy, geographically isolated, politically targeted. If none identified, you're probably missing them.
+2. **Consider second-order and long-term effects**: Look for feedback loops (harm leads to disadvantage leads to more harm), normalization, precedent-setting, and accumulation of small harms over time. Ask "what happens next?"
 
-2. **Consider second-order and long-term effects**: First-order obvious harms are just the start. Look for: feedback loops (harm → disadvantage → more harm), normalization (practice becomes standard), precedent (enables worse future behavior), accumulation (small harms compound over time). Ask "what happens next?"
+3. **Assess differential impact, not just average**: A feature may help the average user but harm specific groups. Check for disparate impact (outcome differences across groups >20% is a red flag), intersectionality, and distributive justice.
 
-3. **Assess differential impact, not just average**: Feature may help average user but harm specific groups. Metrics: disparate impact (outcome differences across groups >20% = red flag), intersectionality (combinations of identities may face unique harms), distributive justice (who gets benefits vs. burdens?).
+4. **Design mitigations before launch**: Build safeguards into design, test with diverse users, use staged rollouts with monitoring, and pre-commit to audits. Reactive fixes come too late for those already harmed.
 
-4. **Design mitigations before launch, not after harm**: Reactive fixes are too late for those already harmed. Proactive: Build safeguards into design, test with diverse users, staged rollout with monitoring, kill switches, pre-commit to audits. "Move fast and break things" is unethical for systems affecting people's lives.
+5. **Provide transparency and recourse**: At minimum, explain decisions, provide appeal mechanisms with human review, offer redress for harm, and maintain audit trails.
 
-5. **Provide transparency and recourse**: People affected have right to know and contest. Minimum: Explain decisions (what factors, why outcome), Appeal mechanism (human review, overturn if wrong), Redress (compensate harm), Audit trails (investigate complaints). Opacity is often a sign of hidden bias or risk.
+6. **Monitor outcomes, not just intentions**: Measure outcome disparities by group, user-reported harms, error rate distribution, and unintended consequences. Set thresholds that trigger review or shutdown.
 
-6. **Monitor outcomes, not just intentions**: Good intentions don't prevent harm. Measure actual impacts: outcome disparities by group, user-reported harms, error rates and their distribution, unintended consequences. Set thresholds that trigger review/shutdown.
+7. **Establish clear accountability and escalation**: Define who reviews ethics risks before launch, who monitors post-launch, what triggers escalation, and who can halt harmful features.
 
-7. **Establish clear accountability and escalation**: Assign ownership. Define: Who reviews ethics risks before launch? Who monitors post-launch? What triggers escalation? Who can halt harmful features? Document decisions and rationale for later review.
-
-8. **Respect autonomy and consent**: Users deserve: Informed choice (understand what they're agreeing to, in plain language), Meaningful alternatives (consent not coerced), Control (opt out, delete data, configure settings), Purpose limitation (data used only for stated purpose). Children and vulnerable groups need extra protections.
+8. **Respect autonomy and consent**: Provide informed choice in plain language, meaningful alternatives (not coerced consent), user control (opt out, delete data), and purpose limitation. Children and vulnerable groups need extra protections.
 
 **Common pitfalls:**
 

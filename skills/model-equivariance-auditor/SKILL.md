@@ -1,15 +1,11 @@
 ---
 name: model-equivariance-auditor
-description: Use when you have implemented an equivariant model and need to verify it correctly respects the intended symmetries. Invoke when user mentions testing model equivariance, debugging symmetry bugs, verifying implementation correctness, checking if model is actually equivariant, or diagnosing why equivariant model isn't working. Provides verification tests and debugging guidance.
+description: Verifies that implemented neural network models correctly respect their intended symmetries through systematic equivariance testing, layer-wise isolation, and gradient analysis. Use when testing model equivariance, debugging symmetry bugs, verifying implementation correctness, checking if a model is actually equivariant, or diagnosing why an equivariant model isn't working.
 ---
 
 # Model Equivariance Auditor
 
-## What Is It?
-
-This skill helps you **verify that your implemented model correctly respects its intended symmetries**. Even with equivariant libraries, implementation bugs can break equivariance. This skill provides systematic verification tests and debugging strategies.
-
-**Why audit?** A model that claims equivariance but isn't will train poorly and give inconsistent predictions. Catching these bugs early saves debugging time.
+Even with equivariant libraries, implementation bugs can break equivariance. A model that claims equivariance but lacks it will train poorly and give inconsistent predictions. Catching these bugs early saves significant debugging time.
 
 ## Workflow
 

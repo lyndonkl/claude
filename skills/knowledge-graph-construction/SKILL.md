@@ -1,10 +1,9 @@
 ---
 name: knowledge-graph-construction
-description: Use when designing and building knowledge graphs from unstructured data. Invoke when user mentions entity extraction, schema design, LPG vs RDF, graph data model, ontology alignment, knowledge graph construction, or building a KG for RAG. Provides extraction pipelines, schema patterns, and data model selection guidance.
+description: Designs and builds knowledge graphs from unstructured or semi-structured data sources. Guides through data model selection (LPG, RDF, hypergraph, temporal), schema design, entity/relation extraction pipelines, and layered architecture construction. Use when designing knowledge graphs, choosing between LPG vs RDF, planning entity extraction, designing graph schemas, aligning ontologies, building a KG for RAG, or when user mentions knowledge graph construction.
 ---
 
 ## Table of Contents
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Architecture Selection Guide](#architecture-selection-guide)
 - [Schema Patterns](#schema-patterns)
@@ -12,15 +11,9 @@ description: Use when designing and building knowledge graphs from unstructured 
 
 # Knowledge Graph Construction
 
-## What Is It?
-
-This skill helps you **design and build knowledge graphs from unstructured or semi-structured data sources**. Given a domain and data corpus, it guides you through data model selection, schema design, entity/relation extraction pipelines, and layered architecture construction.
-
-**The payoff**: Well-constructed knowledge graphs provide structured, verified facts that ground LLM reasoning, reduce hallucination, enable explainable retrieval, and support complex multi-hop queries that flat vector search cannot handle.
-
 ## Workflow
 
-**COPY THIS CHECKLIST** and work through each step:
+**Copy this checklist** and work through each step:
 
 ```
 KG Construction Progress:

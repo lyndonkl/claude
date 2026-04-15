@@ -1,15 +1,12 @@
 ---
 name: bayesian-reasoning-calibration
-description: Use when making predictions or judgments under uncertainty and need to explicitly update beliefs with new evidence. Invoke when forecasting outcomes, evaluating probabilities, testing hypotheses, calibrating confidence, assessing risks with uncertain data, or avoiding overconfidence bias. Use when user mentions priors, likelihoods, Bayes theorem, probability updates, forecasting, calibration, or belief revision.
+description: Applies Bayesian reasoning to systematically update probability estimates with new evidence, helping make better forecasts and avoid overconfidence. Use when making predictions or judgments under uncertainty, forecasting outcomes, evaluating probabilities, testing hypotheses, calibrating confidence, assessing risks with uncertain data, or when user mentions priors, likelihoods, Bayes theorem, probability updates, forecasting, calibration, or belief revision.
 ---
 
 # Bayesian Reasoning & Calibration
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [What is Bayesian Reasoning?](#what-is-bayesian-reasoning)
 - [Workflow](#workflow)
   - [1. Define the Question](#1--define-the-question)
   - [2. Establish Prior Beliefs](#2--establish-prior-beliefs)
@@ -20,36 +17,7 @@ description: Use when making predictions or judgments under uncertainty and need
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Apply Bayesian reasoning to systematically update probability estimates as new evidence arrives. This helps make better forecasts, avoid overconfidence, and explicitly show how beliefs should change with data.
-
-## When to Use This Skill
-
-- Making forecasts or predictions with uncertainty
-- Updating beliefs when new evidence emerges
-- Calibrating confidence in estimates
-- Testing hypotheses with imperfect data
-- Evaluating risks with incomplete information
-- Avoiding anchoring and overconfidence biases
-- Making decisions under uncertainty
-- Comparing multiple competing explanations
-- Assessing diagnostic test results
-- Forecasting project outcomes with new data
-
-**Trigger phrases:** "What's the probability", "update my belief", "how confident", "forecast", "prior probability", "likelihood", "Bayes", "calibration", "base rate", "posterior probability"
-
-## What is Bayesian Reasoning?
-
-A systematic way to update probability estimates using Bayes' Theorem:
-
-**P(H|E) = P(E|H) × P(H) / P(E)**
-
-Where:
-- **P(H)** = Prior: Probability of hypothesis before seeing evidence
-- **P(E|H)** = Likelihood: Probability of evidence if hypothesis is true
-- **P(E|¬H)** = Probability of evidence if hypothesis is false
-- **P(H|E)** = Posterior: Updated probability after seeing evidence
+**Core formula:** P(H|E) = P(E|H) x P(H) / P(E), where P(H) = prior, P(E|H) = likelihood, P(H|E) = posterior.
 
 **Quick Example:**
 

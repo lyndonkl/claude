@@ -1,53 +1,21 @@
 ---
 name: constraint-based-creativity
-description: Use when brainstorming feels stuck or generates obvious ideas, need to break creative patterns, working with limited resources (budget/time/tools/materials), want unconventional solutions, designing with specific limitations, user mentions "think outside the box", "we're stuck", "same old ideas", "tight constraints", "limited budget/time", or seeking innovation through limitation rather than abundance.
+description: Turns limitations into creative fuel by strategically imposing constraints that force novel thinking, break habitual patterns, and reveal unexpected solutions. Covers resource constraints (budget/time/tools), format constraints (length/medium), rule-based constraints, and perspective constraints. Use when brainstorming feels stuck or generates obvious ideas, working with limited resources, designing with specific limitations, or when user mentions "think outside the box", "we're stuck", "same old ideas", "tight constraints", or "limited budget/time".
 ---
 
 # Constraint-Based Creativity
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
+- [Overview](#overview)
 - [Workflow](#workflow)
 - [Constraint Types](#constraint-types)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Overview
 
-Turn limitations into creative fuel by strategically imposing constraints that force novel thinking, break habitual patterns, and reveal unexpected solutions.
-
-## When to Use
-
-**Invoke this skill when you observe:**
-- Unconstrained brainstorming produces predictable, generic ideas
-- Team defaulting to "same old approaches"
-- Creative block despite ample resources
-- Need to work within tight limitations (budget, time, materials, technical)
-- Want to differentiate from competitors using similar unlimited resources
-- Seeking simplicity and focus over feature bloat
-- Innovation feels incremental rather than breakthrough
-
-**Common trigger phrases:**
-- "We keep coming up with the same ideas"
-- "How do we innovate on a tight budget?"
-- "Think outside the box"
-- "We're stuck"
-- "What if we could only use X?"
-- "Design this with severe limitations"
-- "Create something radically different"
-
-## What Is It
-
-**Constraint-based creativity** deliberately limits freedom (resources, rules, materials, format) to force creative problem-solving. Paradoxically, constraints often boost creativity by:
-
-1. **Reducing decision paralysis** - Fewer options = clearer focus
-2. **Breaking habitual patterns** - Can't use usual solutions
-3. **Forcing novel combinations** - Must work with what's allowed
-4. **Increasing psychological safety** - "We had to because of X"
-5. **Creating memorable differentiation** - Constraints make solutions distinctive
+Deliberately limiting freedom (resources, rules, materials, format) paradoxically boosts creativity by reducing decision paralysis, breaking habitual patterns, forcing novel combinations, and creating memorable differentiation.
 
 **Quick example:** Twitter's original 140-character limit forced concise, punchy writing. Haiku's 5-7-5 syllable structure produces poetry. $10K budget forces guerrilla marketing over Super Bowl ads. Building with only CSS (no images) creates distinctive visual style.
 

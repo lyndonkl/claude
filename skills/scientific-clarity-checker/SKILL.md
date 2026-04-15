@@ -1,44 +1,17 @@
 ---
 name: scientific-clarity-checker
-description: Use when reviewing any scientific document for logical clarity, argument soundness, and scientific rigor. Invoke when user mentions check clarity, review logic, scientific soundness, hypothesis-data alignment, claims vs evidence, or needs a cross-cutting scientific logic review independent of document type.
+description: Reviews scientific documents for logical clarity, argument soundness, and rigor by auditing hypothesis-data alignment, claim-evidence chains, quantitative precision, hedging calibration, and terminology consistency across any document type. Use when reviewing scientific argumentation, checking claims vs evidence, auditing terminology, or when user mentions check clarity, review logic, scientific soundness, hypothesis-data alignment, or claims vs evidence.
 ---
 
 # Scientific Clarity Checker
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [Analysis Frameworks](#analysis-frameworks)
 - [Common Issues](#common-issues)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-This skill provides systematic review of scientific clarity and logical rigor across any document type. It focuses on hypothesis-data alignment, argument validity, quantitative precision, and appropriate hedging. Use this as a cross-cutting check that complements document-specific skills.
-
-## When to Use
-
-Use this skill when:
-
-- **Logic check needed**: Review scientific argumentation independent of format
-- **Claims vs. evidence**: Verify conclusions follow from presented data
-- **Terminology audit**: Check consistency and precision of scientific language
-- **Pre-submission check**: Final clarity review before sending any document
-- **Collaborative review**: Providing scientific critique to colleagues
-- **Self-editing**: Checking your own work for blind spots
-
-Trigger phrases: "check scientific clarity", "review the logic", "do claims match data", "scientific rigor check", "hypothesis-data alignment", "is this sound"
-
-**Works with all document types:**
-- Manuscripts
-- Grants
-- Letters
-- Presentations
-- Abstracts
-- Any scientific writing
 
 ## Core Principles
 
@@ -215,10 +188,10 @@ Common logical issues:
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
-1. **Don't invent evidence**: Point out what's missing, don't fabricate support
-2. **Preserve author intent**: Flag issues, don't rewrite meaning
+1. **Point out gaps, not fabricate support**: Identify missing evidence without inventing it
+2. **Preserve author intent**: Flag issues without rewriting meaning
 3. **Audience-appropriate**: Technical detail depends on target readers
 4. **Document-appropriate**: Standards differ for abstracts vs. full papers
 5. **Constructive feedback**: Identify problems with suggestions for improvement

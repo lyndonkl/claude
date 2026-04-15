@@ -1,40 +1,19 @@
 ---
 name: writing-structure-planner
-description: Use when planning, organizing, or diagramming the structure of a piece of writing. Invoke when user mentions outlining, organizing ideas, structure planning, article architecture, narrative flow, or needs help deciding how to arrange their material before drafting.
+description: Guides writing architecture planning using McPhee's structural diagramming method, helping select from 8 structure types (list, chronological, circular, dual/triple profile, pyramid, parallel, custom), create visual diagrams, and place gold-coin moments for engagement. Use when planning or organizing writing structure, outlining before drafting, restructuring disorganized drafts, or when user mentions outlining, organizing ideas, structure planning, article architecture, narrative flow.
 ---
 
 # Writing Structure Planner
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [Structure Types Overview](#structure-types-overview)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill guides users through McPhee's structural diagramming method to plan writing architecture before drafting. It helps select from 8 structure types, create visual diagrams, and place gold-coin moments for reader engagement. Structure planning prevents disorganized writing and ensures material flows naturally.
-
-## When to Use
-
-Use this skill when:
-
-- **Starting a new piece**: User has ideas/material but hasn't organized them yet
-- **Restructuring a draft**: Existing piece feels disorganized or lacks flow
-- **Choosing an approach**: User is unsure whether to use chronological, list, circular, etc.
-- **Complex material**: User has many threads, perspectives, or data points to weave together
-- **Outline creation**: User wants a roadmap before writing
-
-Trigger phrases: "outline", "organize my ideas", "structure this", "how should I arrange", "plan the structure", "what order", "narrative architecture", "flow", "diagram my piece"
-
-**Do NOT use for:**
-- Revising existing prose (use `writing-revision`)
-- Making messages memorable (use `writing-stickiness`)
-- Final quality checks (use `writing-pre-publish-checklist`)
+**Related skills:** Use `writing-revision` for revising existing prose, `writing-stickiness` for memorable messaging, `writing-pre-publish-checklist` for final quality checks.
 
 ## Core Principles
 
@@ -57,13 +36,13 @@ Structure Planning:
 
 **Before starting:** Review [resources/structure-types.md](resources/structure-types.md) for the 8 structure types, diagramming method, and selection criteria.
 
-**IMPORTANT:** For analysis steps, output findings to analysis files in the current directory to ensure thorough coverage of all material. These analysis files remain in the project for your review.
+For analysis steps, output findings to analysis files in the current directory to ensure thorough coverage of all material. These analysis files remain in the project for your review.
 
 **Step 1: Analyze material thoroughly**
 
 Step 1.1: Gather and understand all material completely. Read everything the user has provided.
 
-Step 1.2: Create analysis file `writer-structure-material-analysis.md` and output: ALL key points, anecdotes, data, quotes, and examples found in the material. Identify themes and patterns. Determine what's most important vs. supporting detail. Identify the natural organizing principle (time, space, importance, comparison). Note reader considerations (busy? engaged? unfamiliar? expert?).
+Step 1.2: Create analysis file `writer-structure-material-analysis.md` and output: all key points, anecdotes, data, quotes, and examples found in the material. Identify themes and patterns. Determine what's most important vs. supporting detail. Identify the natural organizing principle (time, space, importance, comparison). Note reader considerations (busy? engaged? unfamiliar? expert?).
 
 Step 1.3: Present the material analysis to the user and confirm understanding is complete. Ask: "Did I miss any important material or themes?"
 
@@ -114,7 +93,7 @@ The 8 structure types available (see [resources/structure-types.md](resources/st
 
 ## Guardrails
 
-**Critical requirements:**
+**Requirements:**
 
 1. **Material-first**: Always understand the material before suggesting structure. Never impose a structure without understanding content.
 2. **Three options**: Always generate at least 3 structural options. The second or third is often best.

@@ -1,52 +1,16 @@
 ---
 name: synthesis-and-analogy
-description: Use when synthesizing information from multiple sources (literature review, stakeholder feedback, research findings, data from different systems), creating or evaluating analogies for explanation or problem-solving (cross-domain transfer, "X is like Y", structural mapping), combining conflicting viewpoints into unified framework, identifying patterns across disparate sources, finding creative solutions by transferring principles from one domain to another, testing whether analogies hold (surface vs deep similarities), or when user mentions "synthesize", "combine sources", "analogy", "like", "similar to", "transfer from", "integrate findings", "what's it analogous to".
+description: Synthesizes information from multiple sources into coherent insights and applies analogical reasoning to transfer knowledge across domains. Use when conducting literature reviews, integrating stakeholder feedback, reconciling conflicting viewpoints, identifying cross-source patterns, creating explanatory analogies ("X is like Y"), finding creative solutions through cross-domain transfer, or testing whether analogies hold (surface vs deep). Use when user mentions "synthesize", "combine sources", "analogy", "similar to", "transfer from", "integrate findings".
 ---
 # Synthesis & Analogy
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
 - [Workflow](#workflow)
 - [Synthesis Techniques](#synthesis-techniques)
 - [Analogy Techniques](#analogy-techniques)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
-
-## Purpose
-
-Synthesize information from multiple sources into coherent insights and use analogical reasoning to transfer knowledge across domains, explain complex concepts, and find creative solutions.
-
-## When to Use
-
-**Information Synthesis:**
-- Literature review (combine 10+ research papers into narrative)
-- Multi-source integration (customer feedback + analytics + competitive data)
-- Conflicting viewpoint reconciliation (synthesize disagreeing experts)
-- Pattern identification across sources (themes from interviews, support tickets, reviews)
-
-**Analogical Reasoning:**
-- Explain complex concepts (use familiar domain to explain unfamiliar)
-- Cross-domain problem-solving (transfer solution from different field)
-- Creative ideation (find novel solutions through structural mapping)
-- Teaching/communication (make abstract concepts concrete)
-
-**Combined Synthesis + Analogy:**
-- Synthesize multiple analogies to build richer understanding
-- Use analogies to reconcile conflicting sources ("both are right from different perspectives")
-- Transfer synthesized insights from one domain to another
-
-## What Is It
-
-**Synthesis**: Combining information from multiple sources into unified, coherent whole that reveals patterns, resolves conflicts, and generates new insights beyond individual sources.
-
-**Analogy**: Structural mapping between domains where relationships in source domain (familiar) illuminate relationships in target domain (unfamiliar). Good analogies preserve deep structure, not just surface features.
-
-**Example - Synthesis**: Synthesizing 15 customer interviews + 5 surveys + support ticket analysis → "Customers struggle with onboarding (87% mention), specifically Step 3 configuration (65% abandon here), because terminology is domain-specific (42% request glossary). Three user types emerge: novices (need hand-holding), intermediates (need examples), experts (need speed)."
-
-**Example - Analogy**: "Microservices architecture is like a city of specialized shops vs monolithic architecture like a department store. City: each shop (service) independent, can renovate without closing whole city, but must coordinate deliveries (APIs). Department store: everything under one roof (codebase), easier coordination, but renovating one section disrupts whole store. Trade-off: flexibility vs simplicity."
 
 ## Workflow
 

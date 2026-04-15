@@ -1,23 +1,9 @@
 ---
 name: layered-reasoning
-description: Use when reasoning across multiple abstraction levels (strategic/tactical/operational), designing systems with hierarchical layers, explaining concepts at different depths, maintaining consistency between high-level principles and concrete implementation, or when users mention 30,000-foot view, layered thinking, abstraction levels, top-down design, or need to move fluidly between strategy and execution.
+description: Structures thinking across multiple abstraction levels (30,000 ft strategic, 3,000 ft tactical, 300 ft operational) while maintaining consistency between layers. Guides through top-down decomposition, bottom-up aggregation, cross-layer translation, and constraint propagation. Use when reasoning across multiple abstraction levels, designing systems with hierarchical layers, explaining concepts at different depths, maintaining consistency between principles and implementation, or when users mention 30,000-foot view, layered thinking, abstraction levels, top-down design, or strategy-to-execution alignment.
 ---
 
 # Layered Reasoning
-
-## Purpose
-
-Layered reasoning structures thinking across multiple levels of abstraction—from high-level principles (30,000 ft) to tactical approaches (3,000 ft) to concrete actions (300 ft). Good layered reasoning maintains consistency: lower layers implement upper layers, upper layers constrain lower layers, and each layer is independently useful.
-
-Use this skill when:
-- **Designing systems** with architectural layers (strategy → design → implementation)
-- **Explaining complex topics** at multiple depths (executive summary → technical detail → code)
-- **Strategic planning** connecting vision → objectives → tactics → tasks
-- **Ensuring consistency** between principles and execution
-- **Bridging communication** between stakeholders at different levels (CEO → manager → engineer)
-- **Problem-solving** where high-level constraints must guide low-level decisions
-
-Layered reasoning prevents inconsistency: strategic plans that can't be executed, implementations that violate principles, or explanations that confuse by jumping abstraction levels.
 
 ---
 
@@ -148,7 +134,7 @@ Write explicit rationale at each layer explaining how it relates to layers above
 
 ---
 
-## Critical Guardrails
+## Guardrails
 
 ### 1. Maintain Consistency Across Layers
 

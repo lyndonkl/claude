@@ -1,58 +1,9 @@
 ---
 name: morphological-analysis-triz
-description: Use when need systematic innovation through comprehensive solution space exploration, resolving technical contradictions (speed vs precision, strength vs weight, cost vs quality), generating novel product configurations, exploring all feasible design alternatives before prototyping, finding inventive solutions to engineering problems, identifying patent opportunities through parameter combinations, or when user mentions morphological analysis, Zwicky box, TRIZ, inventive principles, technical contradictions, systematic innovation, or design space exploration.
+description: Explores solution spaces systematically through morphological analysis (parameter-option matrices) and resolves technical contradictions using TRIZ inventive principles to generate novel, non-obvious solutions. Use when exploring all feasible design alternatives before prototyping, resolving technical contradictions (speed vs precision, strength vs weight, cost vs quality), generating novel product configurations, finding inventive solutions to engineering problems, identifying patent opportunities, or when user mentions morphological analysis, Zwicky box, TRIZ, inventive principles, systematic innovation, or design space exploration.
 ---
 
 # Morphological Analysis & TRIZ
-
-## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
-- [Workflow](#workflow)
-- [Common Patterns](#common-patterns)
-- [Guardrails](#guardrails)
-- [Quick Reference](#quick-reference)
-
-## Purpose
-
-Systematically explore solution spaces through morphological analysis (parameter-option matrices) and resolve technical contradictions using TRIZ inventive principles to generate novel, non-obvious solutions.
-
-## When to Use
-
-**Systematic Exploration:**
-- Explore all feasible configurations before committing
-- Generate comprehensive set of design alternatives
-- Create product line variations across parameters
-- Document complete solution space
-
-**Innovation & Invention:**
-- Find novel, non-obvious solutions
-- Generate patentable innovations
-- Discover synergies between features
-- Break out of conventional thinking
-
-**Resolving Contradictions:**
-- Improve one parameter without worsening another
-- Solve "impossible" trade-offs (faster AND cheaper)
-- Apply proven inventive principles
-- Resolve conflicts between requirements
-
-**Engineering & Design:**
-- Design new products/systems from scratch
-- Optimize existing designs systematically
-- Configure complex systems with many parameters
-
-## What Is It
-
-Two complementary methods:
-
-**Morphological Analysis:** Decompose problem into parameters, identify options for each, systematically combine to explore solution space.
-```
-Parameters: Power (3 options) × Size (4 options) × Material (3 options) = 36 configurations
-```
-
-**TRIZ:** Resolve contradictions using 40 inventive principles. Example: "Improve speed → worsens precision" solved by Principle #1 (Segmentation): fast rough pass + slow precision pass.
 
 ## Workflow
 

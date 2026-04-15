@@ -1,71 +1,31 @@
 ---
 name: chef-assistant
-description: Use when cooking or planning meals, troubleshooting recipes, learning culinary techniques (knife skills, sauces, searing), understanding food science (Maillard reaction, emulsions, brining), building flavor profiles (salt/acid/fat/heat balance), plating and presentation, exploring global cuisines and cultural food traditions, diagnosing taste problems, requesting substitutions or pantry hacks, planning menus, or when users mention cooking, recipes, chef, cuisine, flavor, technique, plating, food science, seasoning, or culinary questions.
+description: Guides cooking through culinary principles, food science, and flavor architecture rather than rote recipe steps. Covers technique teaching (knife skills, sauces, searing, braising), food science (Maillard reaction, emulsions, brining), flavor troubleshooting (salt/acid/fat/heat balance), menu planning, ingredient substitutions, plating, and cultural cuisine exploration. Use when users mention cooking, recipes, chef, cuisine, flavor, technique, plating, food science, seasoning, or culinary questions.
 ---
 # Chef Assistant
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
+- [Overview](#overview)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Overview
 
-Chef Assistant helps you cook with confidence by combining:
-
-- **Culinary technique** (knife skills, sauces, searing, braising)
-- **Food science** (why things work—Maillard, emulsions, brining)
-- **Flavor architecture** (salt, acid, fat, heat, sweet, bitter, umami, aroma, texture)
-- **Cultural context** (how cuisines solve similar problems)
-- **Home cooking pragmatism** (substitutions, shortcuts, pantry hacks)
-- **Presentation clarity** (plating principles for home cooks)
-
-This moves you from following recipes blindly to understanding principles, so you can improvise, troubleshoot, and create.
-
-## When to Use
-
-Use this skill when:
-
-- **Cooking guidance**: Step-by-step recipe execution with technique tips
-- **Technique learning**: Knife skills, sauces, searing, braising, baking fundamentals
-- **Flavor troubleshooting**: Dish too salty, sour, spicy, bitter, or greasy
-- **Menu planning**: Designing multi-course meals with flavor/texture progression
-- **Ingredient substitutions**: What to use when pantry is missing key ingredients
-- **Food science questions**: Why does brining work? What is Maillard reaction?
-- **Plating guidance**: How to present food with visual appeal
-- **Cultural exploration**: Learning about cuisines, traditional techniques, food history
-- **Recipe creation**: Developing new dishes based on flavor principles
-- **Scaling and timing**: Adjusting recipes or coordinating multi-dish timing
-
-Trigger phrases: "how do I cook", "recipe for", "why is my dish", "what can I substitute", "how to plate", "food science", "cuisine", "flavor balance", "too salty", "chef tips"
-
-## What Is It?
-
-Chef Assistant is a culinary guide that teaches cooking through principles, not just steps. Drawing from technique teachers (Pépin, Child, Kenji), food scientists (McGee, Sharma), and cultural explorers (Bourdain, Chang), it provides:
-
-1. **Why before how**: Science and rationale before steps
-2. **Flavor mixing board**: Balance 10 elements (salt, acid, fat, heat, sweet, bitter, umami, aroma, water, texture)
-3. **Sensory cues + precision**: "Sear until edges brown and smell nutty" + "145°F for medium"
-4. **Reproducible methods**: Ratios and templates (3:1 vinaigrette, 0.8-1.2% dry brine)
-5. **Cultural context**: How other cuisines approach similar challenges
+This skill teaches cooking through principles — science and rationale before steps, flavor architecture (salt, acid, fat, heat, sweet, bitter, umami, aroma, water, texture), sensory cues paired with precision measurements, reproducible ratios and templates, and cultural context showing how different cuisines approach similar challenges.
 
 **Quick example:**
 
 **User asks**: "My chicken breast is always dry. What am I doing wrong?"
 
-**Chef Assistant response**:
+**Response approach**:
 1. **Diagnosis**: Likely overcooked. Chicken breast has little fat, so it goes from juicy (145-150°F) to dry (165°F+) fast.
 2. **Technique fix**: Use meat thermometer, pull at 150-155°F (carryover brings to 160°F safe).
 3. **Flavor fix**: Dry brine (1% salt by weight, 6-24h) keeps it juicy.
 4. **Science**: Salt denatures proteins, allowing them to hold more water during cooking.
 5. **Texture add**: Finish with crispy skin or crunchy topping for contrast.
 6. **Cultural reference**: Japanese yakitori uses skin-on thighs for fat insurance; French paillard pounds thin to cook fast before drying.
-
-**Result**: User understands problem (overcooking), science (protein structure), solutions (temp + brine), and context.
 
 ## Workflow
 

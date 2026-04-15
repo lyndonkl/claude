@@ -1,15 +1,11 @@
 ---
 name: symmetry-validation-suite
-description: Use when you need to empirically test whether hypothesized symmetries actually hold in your data or model. Invoke when user mentions testing invariance, validating equivariance, checking if symmetry assumptions are correct, debugging symmetry-related model failures, or needs data-driven validation before committing to equivariant architecture. Provides test protocols and metrics.
+description: Provides empirical test protocols and metrics to validate whether hypothesized symmetries actually hold in data or models before committing to equivariant architecture. Includes invariance/equivariance testing, group structure verification, and distribution analysis under transforms. Use when testing invariance, validating equivariance, checking symmetry assumptions, debugging symmetry-related model failures, or needing data-driven validation before architecture decisions.
 ---
 
 # Symmetry Validation Suite
 
-## What Is It?
-
-This skill provides **empirical tests to validate symmetry hypotheses**. Before committing to an equivariant architecture, you should verify that your claimed symmetries actually hold. This skill gives you concrete testing protocols and metrics.
-
-**Why validate?** Wrong symmetry assumptions hurt model performance. Too much symmetry over-constrains; missing symmetry wastes capacity.
+Wrong symmetry assumptions hurt model performance -- too much symmetry over-constrains, while missing symmetry wastes capacity. Validate before committing to equivariant architecture.
 
 ## Workflow
 

@@ -1,13 +1,13 @@
 ---
 name: design-evaluation-audit
-description: Use when systematically evaluating existing designs for cognitive alignment, conducting design reviews or critiques, diagnosing usability issues, quality assurance before launch, or choosing between design alternatives with objective criteria. Invoke when user mentions design review, design critique, evaluate design, audit visualization, checklist, cognitive assessment, or usability evaluation.
+description: Systematically evaluates existing designs against cognitive science principles using repeatable checklists, scoring rubrics, and severity-classified fix recommendations. Use when conducting design reviews or critiques, evaluating designs for cognitive alignment, performing quality assurance before launch, diagnosing usability issues, or choosing between design alternatives with objective criteria.
 ---
 
 # Design Evaluation & Audit
 
 ## Table of Contents
 
-- [Read This First](#read-this-first)
+- [Skill Boundaries](#skill-boundaries)
 - [Design Review Workflow](#design-review-workflow)
 - [Path Selection Menu](#path-selection-menu)
   - [Path 1: Run Cognitive Design Checklist](#path-1-run-cognitive-design-checklist)
@@ -18,43 +18,12 @@ description: Use when systematically evaluating existing designs for cognitive a
 
 ---
 
-## Read This First
+## Skill Boundaries
 
-### What This Skill Does
-
-This skill provides **systematic evaluation tools** for assessing existing designs against cognitive science principles. It gives you repeatable checklists, scoring rubrics, and prioritized fix recommendations.
-
-**Core principle:** Good evaluation is systematic, not subjective — every dimension gets checked, every finding gets severity-classified, every fix gets prioritized.
-
-### Why It Matters
-
-**Common problems this addresses:**
-- Design reviews that miss critical issues because they rely on gut feeling
-- Teams disagreeing on what to fix first without objective framework
-- Usability problems shipping because no one checked systematically
-- Visualizations that mislead because integrity was never audited
-
-**How this helps:**
-- Covers all cognitive dimensions (visibility, hierarchy, chunking, memory, feedback, consistency, scanning, simplicity)
-- Scores visualizations on 4 independent criteria (Clarity, Efficiency, Integrity, Aesthetics)
-- Classifies findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
-- Produces actionable fix recommendations with clear priority order
-
-### When to Use This Skill
-
-**Use this skill when:**
-- ✓ Conducting design reviews or critiques
-- ✓ Evaluating designs for cognitive alignment before iteration
-- ✓ Quality assurance before launch or publication
-- ✓ Diagnosing why a design "feels off"
-- ✓ Choosing between design alternatives with objective criteria
-- ✓ Auditing data visualizations for quality
-
-**Do NOT use for:**
-- ✗ Creating new designs from scratch (use `cognitive-design`)
-- ✗ Learning cognitive theory (use `cognitive-design` Path 1)
-- ✗ Detecting misleading visualizations (use `cognitive-fallacies-guard`)
-- ✗ Technical implementation (coding, tooling)
+**Use instead of this skill for:**
+- Creating new designs from scratch: use `cognitive-design`
+- Learning cognitive theory: use `cognitive-design` Path 1
+- Detecting misleading visualizations: use `cognitive-fallacies-guard`
 
 ---
 
@@ -164,6 +133,6 @@ All YES = likely cognitively sound. Any NO = run full checklist on the failing a
 
 ## Guardrails
 
-**This skill does NOT:** Create designs, teach theory, provide domain guidance, replace user testing, or cover full accessibility compliance.
+**Out of scope:** Creating designs, teaching theory, providing domain guidance, replacing user testing, or covering full accessibility compliance.
 
-**This skill DOES:** Provide systematic evaluation against cognitive principles, classify findings by severity, produce prioritized fix recommendations, and score visualization quality.
+**In scope:** Systematic evaluation against cognitive principles, severity-classified findings, prioritized fix recommendations, and visualization quality scoring.

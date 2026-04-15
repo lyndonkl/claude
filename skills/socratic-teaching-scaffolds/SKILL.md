@@ -1,48 +1,17 @@
 ---
 name: socratic-teaching-scaffolds
-description: Use when teaching complex concepts (technical, scientific, philosophical), helping learners discover insights through guided questioning rather than direct explanation, correcting misconceptions by revealing contradictions, onboarding new team members through scaffolded learning, mentoring through problem-solving question frameworks, designing self-paced learning materials, or when user mentions "teach me", "help me understand", "explain like I'm", "learning path", "guided discovery", or "Socratic method".
+description: Guides learners to discover knowledge through strategic Socratic questioning and progressive scaffolding removal. Combines question ladders, misconception detectors, Feynman explanations, and worked-example fading to build durable understanding. Use when teaching complex concepts, correcting misconceptions, onboarding team members, mentoring problem-solving, or designing self-paced learning. Use when user mentions "teach me", "help me understand", "explain like I'm", "learning path", "guided discovery", or "Socratic method".
 ---
 
 # Socratic Teaching Scaffolds
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It](#what-is-it)
-4. [Workflow](#workflow)
-5. [Socratic Question Types](#socratic-question-types)
-6. [Scaffolding Levels](#scaffolding-levels)
-7. [Common Patterns](#common-patterns)
-8. [Guardrails](#guardrails)
-9. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Socratic Teaching Scaffolds guide learners to discover knowledge through strategic questioning and progressive support removal. This skill transforms passive explanation into active discovery, corrects misconceptions by revealing contradictions, and builds durable understanding through self-generated insights.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Teach complex concepts where understanding beats memorization (algorithms, scientific theories, philosophical ideas)
-- Correct deep misconceptions that resist direct explanation (statistical fallacies, physics intuitions, programming mental models)
-- Help learners develop problem-solving skills, not just solutions
-- Design learning experiences that build from concrete to abstract understanding
-- Onboard professionals through guided discovery rather than documentation dumps
-- Create self-paced learning materials with built-in feedback loops
-- Mentor through questions that develop independent thinking
-- Bridge expertise gaps across different knowledge levels
-
-**User phrases that trigger this skill:**
-- "Teach me [concept]"
-- "Help me understand [topic]"
-- "Explain like I'm [expertise level]"
-- "I don't get why [misconception]"
-- "What's the best way to learn [skill]?"
-- "How should I think about [concept]?"
-
-## What Is It
-
-A teaching framework combining **Socratic questioning** (strategic questions that guide discovery) with **instructional scaffolding** (temporary support that fades as competence grows).
+1. [Workflow](#workflow)
+2. [Socratic Question Types](#socratic-question-types)
+3. [Scaffolding Levels](#scaffolding-levels)
+4. [Common Patterns](#common-patterns)
+5. [Guardrails](#guardrails)
+6. [Quick Reference](#quick-reference)
 
 **Core components:**
 1. **Question Ladders**: Sequences from simple to complex that build understanding incrementally
@@ -63,7 +32,7 @@ A teaching framework combining **Socratic questioning** (strategic questions tha
 - "Will this recursion ever stop? Trace it with 3 items." (reveals infinite recursion misunderstanding)
 
 **Feynman Progression:**
-- Level 1: "Like Russian nesting dolls—each contains a smaller version"
+- Level 1: "Like Russian nesting dolls--each contains a smaller version"
 - Level 2: "Function calls itself with simpler input until base case"
 - Level 3: "Recursive definition: f(n) = g(f(n-1), n) with f(0) = base"
 

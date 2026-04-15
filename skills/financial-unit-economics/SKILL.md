@@ -1,73 +1,25 @@
 ---
 name: financial-unit-economics
-description: Use when evaluating business model viability, analyzing profitability per customer/product/transaction, validating startup metrics (CAC, LTV, payback period), making pricing decisions, assessing scalability, comparing business models, or when user mentions unit economics, CAC/LTV ratio, contribution margin, customer profitability, break-even analysis, or needs to determine if a business can be profitable at scale.
+description: Analyzes profitability per customer, product, or transaction to determine business model viability and scalability. Covers CAC, LTV, contribution margin, cohort analysis, and growth-readiness assessment. Use when evaluating business model viability, validating startup metrics (CAC, LTV, payback period), making pricing decisions, comparing business models, or when user mentions unit economics, CAC/LTV ratio, contribution margin, customer profitability, or break-even analysis.
 ---
 # Financial Unit Economics
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Example
 
-Financial Unit Economics analyzes the profitability of individual units (customers, products, transactions) to determine if a business model is viable and scalable. This skill guides you through calculating key metrics (CAC, LTV, contribution margin), interpreting ratios, conducting cohort analysis, and making data-driven decisions about pricing, marketing spend, and growth strategy.
+**Scenario**: SaaS startup, $100/month subscription
 
-## When to Use
-
-Use this skill when:
-
-- **Business model validation**: Determine if startup/new product can be profitable at scale
-- **Pricing decisions**: Set prices based on target margins and customer economics
-- **Marketing spend**: Assess ROI of acquisition channels, optimize CAC
-- **Growth strategy**: Decide when to scale (raise funding, increase spend) based on unit economics
-- **Product roadmap**: Prioritize features that improve retention or reduce churn (increase LTV)
-- **Investor pitch**: Demonstrate business model viability with CAC, LTV, payback metrics
-- **Channel optimization**: Compare profitability across customer segments or acquisition channels
-- **Subscription models**: Analyze recurring revenue, churn, cohort retention curves
-- **Marketplace economics**: Model take rate, supply/demand side economics, liquidity
-- **Financial planning**: Forecast cash flow, runway, burn rate based on unit economics
-
-Trigger phrases: "unit economics", "CAC/LTV", "customer acquisition cost", "lifetime value", "contribution margin", "payback period", "customer profitability", "break-even", "cohort analysis", "is this business viable?"
-
-## What Is It?
-
-**Financial Unit Economics** is the practice of measuring profitability at the most granular level (per customer, product, or transaction) to understand if revenue from a single unit exceeds the cost to acquire and serve it.
-
-**Core components**:
-- **CAC (Customer Acquisition Cost)**: Total sales/marketing spend ÷ new customers acquired
-- **LTV (Lifetime Value)**: Revenue from customer over their lifetime minus variable costs
-- **Contribution Margin**: (Revenue - Variable Costs) ÷ Revenue (as %)
-- **LTV/CAC Ratio**: Measures return on acquisition investment (target: 3:1 or higher)
-- **Payback Period**: Months to recover CAC from customer revenue
-- **Cohort Analysis**: Track metrics over time for customer groups (by acquisition month/channel)
-
-**Quick example:**
-
-**Scenario**: SaaS startup, subscription model ($100/month), analyzing unit economics.
-
-**Metrics**:
-- **CAC**: $20k marketing spend, 100 new customers → CAC = $200
-- **Monthly revenue per customer**: $100
-- **Variable costs**: $20/customer/month (hosting, support)
-- **Gross margin**: ($100 - $20) / $100 = 80%
-- **Monthly churn**: 5% → Average lifetime = 1 / 0.05 = 20 months
-- **LTV**: $100 revenue × 20 months × 80% margin = $1,600
-- **LTV/CAC**: $1,600 / $200 = 8:1 ✓ (healthy, >3:1)
-- **Payback period**: $200 CAC ÷ ($100 × 80% margin) = 2.5 months ✓ (good, <12 months)
-
-**Interpretation**: Strong unit economics. Each customer generates 8× their acquisition cost. Can profitably scale marketing spend. Payback in 2.5 months means fast capital recovery.
-
-**Core benefits**:
-- **Early warning system**: Detect unsustainable business models before scaling losses
-- **Data-driven growth**: Know when unit economics justify increasing spend
-- **Channel optimization**: Identify which acquisition channels are profitable
-- **Pricing power**: Quantify impact of price changes on profitability
-- **Investor confidence**: Demonstrate path to profitability with clear metrics
+- **CAC**: $20k spend / 100 customers = $200
+- **Gross margin**: ($100 - $20 variable) / $100 = 80%
+- **Monthly churn**: 5% -> Average lifetime = 20 months
+- **LTV**: $100 x 20 months x 80% = $1,600
+- **LTV/CAC**: 8:1 (healthy, >3:1), **Payback**: 2.5 months (good, <12 months)
+- **Interpretation**: Strong unit economics. Can profitably scale marketing spend.
 
 ## Workflow
 
@@ -148,23 +100,21 @@ Validate using [resources/evaluators/rubric_financial_unit_economics.json](resou
 
 ## Guardrails
 
-**Critical requirements:**
+1. **Fully-loaded CAC**: Include all acquisition costs (sales salaries, marketing spend, tools, overhead allocation). Excluding sales team salaries is a common miss that inflates perceived economics.
 
-1. **Fully-loaded CAC**: Include all acquisition costs (sales salaries, marketing spend, tools, overhead allocation). Underestimating CAC makes unit economics look better than reality. Common miss: excluding sales team salaries.
+2. **True variable costs**: Only include costs that scale with each unit (COGS, hosting per user, transaction fees). Exclude fixed costs (rent, core engineering). Accurate margins are essential for LTV.
 
-2. **True variable costs**: Only include costs that scale with each unit (COGS, hosting per user, transaction fees). Don't include fixed costs (rent, core engineering). LTV calculation requires accurate margin.
+3. **Cohort-based LTV**: Early cohorts are not the same as recent cohorts. Track retention curves by cohort. Base LTV on observed retention, not assumptions.
 
-3. **Cohort-based LTV**: Don't average across all customers. Early cohorts ≠ recent cohorts. Track retention curves by cohort (acquisition month/channel). LTV should be based on observed retention, not assumptions.
+4. **Use conservative time horizons**: LTV is a prediction. For new products with limited data, weight recent cohorts more heavily and avoid projecting far beyond observed behavior.
 
-4. **Time horizon matters**: LTV is a prediction. Use conservative assumptions. For new products, LTV estimates are unreliable (insufficient data). Weight recent cohorts more heavily.
+5. **Optimize both payback and LTV/CAC**: High LTV/CAC but long payback (>18 months) strains cash. Fast payback (<6 months) allows rapid reinvestment.
 
-5. **Payback period vs. LTV/CAC**: Both matter. High LTV/CAC but long payback (>18 months) strains cash. Fast payback (<6 months) allows rapid reinvestment. Optimize for both.
+6. **Analyze at channel level**: Blended metrics hide the truth. CAC and LTV vary by channel (paid search vs. referral vs. content). Break down separately to optimize spend.
 
-6. **Channel-level analysis**: Blended metrics hide truth. CAC and LTV vary by channel (paid search vs. referral vs. content). Analyze separately to optimize spend.
+7. **Retention drives LTV exponentially**: Improving monthly churn from 5% to 4% increases LTV by 25%. Retention improvements typically matter more than acquisition improvements.
 
-7. **Retention is king**: Small changes in churn have exponential impact on LTV. Improving monthly churn from 5% to 4% increases LTV by 25%. Retention improvements > acquisition improvements.
-
-8. **Gross margin floor**: Need ≥60% gross margin for SaaS, ≥40% for e-commerce to be viable. Low margin means high LTV/CAC ratio still yields poor cash flow.
+8. **Gross margin floor**: SaaS needs >=60% gross margin, e-commerce >=40%, to be viable. Low margin means even high LTV/CAC ratios yield poor cash flow.
 
 **Common pitfalls:**
 

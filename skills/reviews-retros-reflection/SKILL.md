@@ -1,62 +1,16 @@
 ---
 name: reviews-retros-reflection
-description: Use when conducting sprint retrospectives, project post-mortems, weekly reviews, quarterly reflections, after-action reviews (AARs), team health checks, process improvement sessions, celebrating wins while learning from misses, establishing continuous improvement habits, or when user mentions "retro", "retrospective", "what went well", "lessons learned", "review meeting", "reflection", or "how can we improve".
+description: Facilitates structured team reflection through retrospectives, post-mortems, after-action reviews, and weekly/quarterly reviews, producing root cause analysis and SMART action items with psychological safety. Use when conducting sprint retrospectives, project post-mortems, weekly reviews, quarterly reflections, after-action reviews (AARs), or when user mentions "retro", "retrospective", "what went well", "lessons learned", "reflection", or "how can we improve".
 ---
 
 # Reviews, Retros & Reflection
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It](#what-is-it)
-4. [Workflow](#workflow)
-5. [Retrospective Formats](#retrospective-formats)
-6. [Common Patterns](#common-patterns)
-7. [Guardrails](#guardrails)
-8. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Reviews, Retros & Reflection helps teams and individuals systematically learn from experience through structured reflection, root cause analysis, and actionable improvement planning. It creates psychological safety for honest feedback while driving measurable progress.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Conduct sprint/iteration retrospectives (Agile, Scrum teams)
-- Run project post-mortems or after-action reviews
-- Facilitate weekly/monthly team reviews
-- Reflect on quarterly or annual performance
-- Process significant events (launch, incident, milestone)
-- Improve team dynamics and collaboration
-- Establish continuous learning culture
-- Celebrate successes while extracting lessons from failures
-- Generate actionable improvement items
-- Build team alignment on priorities
-
-**User phrases that trigger this skill:**
-- "Let's do a retro"
-- "What went well/wrong?"
-- "How can we improve?"
-- "Lessons learned from..."
-- "Sprint retrospective"
-- "After-action review"
-- "Team reflection session"
-- "Review our progress"
-
-## What Is It
-
-A structured reflection process that:
-1. **Gathers data** (what happened during period)
-2. **Generates insights** (why it happened, patterns)
-3. **Decides actions** (what to change, keep, start, stop)
-4. **Tracks progress** (follow-up on previous actions)
-5. **Celebrates wins** (recognize successes, build morale)
-
-**Quick example (Start/Stop/Continue format):**
-- **Start**: Daily 15-min standup (async in Slack), mob programming for complex features
-- **Stop**: Last-minute scope changes, weekend deployments
-- **Continue**: Pairing on new features, celebrating small wins in team channel
-- **Actions**: (1) Create standup bot template by Friday, (2) Add "no scope changes <3 days before sprint end" to team charter
+1. [Workflow](#workflow)
+2. [Retrospective Formats](#retrospective-formats)
+3. [Common Patterns](#common-patterns)
+4. [Guardrails](#guardrails)
+5. [Quick Reference](#quick-reference)
 
 ## Workflow
 

@@ -1,81 +1,27 @@
 ---
 name: focus-timeboxing-8020
-description: Use when managing time and attention, combating procrastination or context-switching, prioritizing high-impact work, planning daily/weekly schedules, improving focus and productivity, or when user mentions timeboxing, Pomodoro, deep work, 80/20 rule, Pareto principle, focus blocks, task batching, energy management, or needs structured approach to getting important work done.
+description: Combines Pareto prioritization (80/20), timeboxing, and deep work techniques to manage attention, eliminate context-switching, and maximize high-impact output. Use when managing time and attention, combating procrastination, prioritizing high-impact work, planning daily/weekly schedules, or when user mentions timeboxing, Pomodoro, deep work, 80/20 rule, Pareto principle, focus blocks, task batching, or energy management.
 ---
 # Focus, Timeboxing, and 80/20
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Example
 
-Focus, Timeboxing, and 80/20 provides structured techniques for managing attention, prioritizing high-impact work, and using time constraints to overcome procrastination and context-switching. This skill guides you through identifying your vital few tasks (80/20), designing focus blocks, timeboxing work, and managing energy to maximize deep work output.
+**Scenario**: Engineer overwhelmed with tickets, meetings, code reviews, and a complex feature.
 
-## When to Use
+**80/20**: Ship payment feature (biggest customer request, revenue impact) = vital 20%.
 
-Use this skill when:
+**Weekly Plan**:
+- Mon-Wed mornings (9-12): Deep work on payment feature (no meetings, Slack off)
+- Mon-Wed afternoons: Code reviews, standups, pair programming
+- Thu-Fri: Batch meetings, planning, admin, lower-priority tickets
 
-- **Overwhelmed by tasks**: Too many things competing for attention, unsure where to focus
-- **Procrastination**: Important work gets delayed, easier tasks feel more urgent
-- **Context-switching**: Constantly interrupted, can't get into flow state
-- **Productivity planning**: Designing daily/weekly schedules, allocating time to priorities
-- **Deep work needed**: Complex thinking, writing, coding, design requiring sustained focus
-- **Energy management**: Feeling burned out, working long hours with low output
-- **80/20 analysis**: Identifying which 20% of efforts drive 80% of results
-- **Meeting overload**: Calendar packed, no time for focused work
-- **Task batching**: Grouping similar tasks (emails, calls, admin) for efficiency
-- **Deadline pressure**: Using time constraints productively (Parkinson's Law)
-
-Trigger phrases: "timeboxing", "Pomodoro", "deep work", "80/20 rule", "Pareto principle", "focus blocks", "task batching", "energy management", "time management", "procrastination", "productivity system"
-
-## What Is It?
-
-**Focus, Timeboxing, and 80/20** combines three complementary techniques for managing attention and priorities:
-
-**Core components**:
-- **80/20 Principle (Pareto)**: 20% of inputs drive 80% of outputs. Identify vital few tasks with disproportionate impact.
-- **Timeboxing**: Allocate fixed time periods to tasks. Work expands to fill time (Parkinson's Law), so constrain it.
-- **Deep Work**: Sustained, distraction-free focus on cognitively demanding tasks (Cal Newport). Produces high-value output.
-- **Energy Management**: Match task intensity to energy levels. Protect peak hours for most important work.
-- **Batching**: Group similar low-focus tasks (email, admin, calls) to minimize context-switching.
-
-**Quick example:**
-
-**Scenario**: Software engineer overwhelmed with tickets, meetings, code reviews, and a complex feature to build.
-
-**80/20 Analysis**:
-- **20% (High Impact)**: Ship new payment feature (biggest customer request, revenue impact)
-- **80% (Lower Impact)**: Bug fixes, refactoring, minor tickets, meetings
-
-**Timeboxed Weekly Plan**:
-- **Mon-Wed mornings (9-12am)**: Deep work on payment feature (3hr blocks, no meetings, Slack off)
-- **Mon-Wed afternoons (2-4pm)**: Code reviews, standups, pair programming
-- **Thu-Fri**: Batch meetings, planning, admin, lower-priority tickets
-
-**Daily Timeboxing** (Monday):
-- 9:00-10:30am: Payment feature - API design (90 min deep work)
-- 10:30-10:45am: Break, walk outside
-- 10:45-12:15pm: Payment feature - Implementation (90 min deep work)
-- 12:15-1:00pm: Lunch
-- 2:00-3:00pm: Batch code reviews (5 PRs, 12 min each)
-- 3:00-3:30pm: Standup + team sync
-- 3:30-4:00pm: Emails, Slack, admin
-- 4:00pm: Hard stop, no evening work
-
-**Outcome**: Payment feature shipped in 3 days (18 hours deep work) vs. estimated 2+ weeks with constant interruptions. 80/20 focus + timeboxing unlocked 4× productivity.
-
-**Core benefits**:
-- **Parkinson's Law harnessed**: Time constraints force decisions, prevent perfectionism
-- **Context-switching eliminated**: Batching and focus blocks preserve flow state
-- **Guilt-free focus**: Pre-allocated time for deep work and admin reduces anxiety
-- **Energy optimization**: High-impact work during peak hours, admin during low energy
-- **Measurable progress**: Timeboxes create accountability and completion satisfaction
+**Outcome**: Feature shipped in 3 days (18 hours deep work) vs. estimated 2+ weeks with constant interruptions.
 
 ## Workflow
 
@@ -163,23 +109,21 @@ Validate using [resources/evaluators/rubric_focus_timeboxing_8020.json](resource
 
 ## Guardrails
 
-**Critical requirements:**
+1. **Protect deep work time**: No meetings, no Slack, no email during focus blocks. One interruption destroys 20+ minutes of flow. Schedule deep work during peak energy (usually mornings).
 
-1. **Protect deep work time**: No meetings, no Slack, no email during focus blocks. Treat as sacred. One interruption destroys 20+ min of flow. Schedule deep work during peak energy (usually mornings).
+2. **Use Parkinson's Law**: Work expands to fill available time. Shorter timeboxes force prioritization and prevent perfectionism. A 90-minute timebox with a clear outcome beats open-ended "work on this."
 
-2. **Respect Parkinson's Law**: Work expands to fill available time. Shorter timeboxes force prioritization and prevent perfectionism. Better: 90 min timebox with clear outcome than open-ended "work on this."
+3. **Identify the 80/20**: Force rank tasks by impact. The top 20% should get 80% of focus time. Cut, delegate, or batch the rest.
 
-3. **Actually identify 80/20**: Most people work on 80% (low-impact). Force rank tasks by impact. Top 20% should get 80% of your focus time. Cut, delegate, or batch the rest.
+4. **Energy matters more than time**: 8 hours tired produces less than 4 hours energized. Match intensity to energy level. Troughs are for admin and meetings, not complex thinking.
 
-4. **Energy > Time**: 8 hours tired < 4 hours energized. Don't schedule deep work during low-energy troughs. Match intensity to energy. Trough = admin/meetings, not complex thinking.
+5. **Build in buffer**: Leave ~20% unscheduled for unexpected issues, overflow, and breaks. Over-scheduling is fragile; one delay cascades.
 
-5. **Build in buffer**: Don't timebox every minute. 20% unscheduled time for unexpected issues, overflow, breaks. Over-scheduled = fragile. One delay cascades.
+6. **Set hard stops**: Define an end-of-day time. Constrained time forces prioritization; endless time enables procrastination.
 
-6. **Hard stops prevent burnout**: Define end-of-day (e.g., 5pm hard stop). No evening work unless true emergency. Constrained time forces prioritization, endless time enables procrastination.
+7. **Take breaks**: After 90 minutes of deep work, take 10-15 minutes. Walk, stretch, look outside. Focus degrades after 90-120 minutes without a break.
 
-7. **Breaks are non-negotiable**: 90 min deep work → 10-15 min break. Walk, stretch, look outside. Don't skip breaks to "power through." Focus degrades exponentially after 90-120 min.
-
-8. **Measure focus quality, not hours**: 3 hours deep work > 8 hours distracted. Track how many focus blocks completed per week, not total hours. Quality over quantity.
+8. **Measure focus quality, not hours**: 3 hours of deep work outperforms 8 hours of distracted work. Track completed focus blocks per week, not total hours.
 
 **Common pitfalls:**
 

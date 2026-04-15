@@ -1,65 +1,17 @@
 ---
 name: roadmap-backcast
-description: Use when planning with fixed deadline or target outcome, working backward from future goal to present, defining milestones and dependencies, mapping critical path, identifying what must happen when, planning product launches with hard dates, multi-year strategic roadmaps, event planning, transformation initiatives, or when user mentions "backcast", "work backward from", "reverse planning", "we need to launch by", "target date is", or "what needs to happen to reach".
+description: Plans backward from a fixed goal or deadline to the present, identifying required milestones, dependencies, critical path, and feasibility constraints to transform aspirational targets into actionable sequenced plans. Use when planning with fixed deadlines, working backward from future goals, mapping critical path, or when user mentions "backcast", "work backward from", "reverse planning", "we need to launch by", "target date is", or "what needs to happen to reach".
 ---
 
 # Roadmap Backcast
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It](#what-is-it)
-4. [Workflow](#workflow)
-5. [Dependency Mapping](#dependency-mapping)
-6. [Critical Path Analysis](#critical-path-analysis)
-7. [Common Patterns](#common-patterns)
-8. [Guardrails](#guardrails)
-9. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Roadmap Backcast helps you plan backward from a fixed goal or deadline to the present, identifying required milestones, dependencies, critical path, and feasibility constraints. It transforms aspirational targets into actionable, sequenced plans.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Plan toward a fixed deadline (product launch, event, compliance date)
-- Work backward from strategic goal to present steps
-- Map dependencies and sequencing for complex initiatives
-- Identify critical path (longest sequence that determines timeline)
-- Assess feasibility of ambitious timeline
-- Coordinate cross-functional work toward shared milestone
-- Plan multi-year transformation with interim checkpoints
-- Sequence initiatives that build on each other
-- Allocate resources across dependent workstreams
-
-**User phrases that trigger this skill:**
-- "We need to launch by [date]"
-- "Work backward from the goal"
-- "What needs to happen to reach [outcome]?"
-- "Reverse plan from target"
-- "Fixed deadline, what's feasible?"
-- "Backcast from [future state]"
-- "Critical path to delivery"
-
-## What Is It
-
-A backcasting roadmap that:
-1. **Defines end state** (specific, measurable target outcome and date)
-2. **Works backward** (what must be true one step before? And before that?)
-3. **Identifies milestones** (key checkpoints with clear deliverables)
-4. **Maps dependencies** (what depends on what, what can be parallel)
-5. **Finds critical path** (longest chain that determines minimum timeline)
-6. **Assesses feasibility** (can we realistically achieve by target date?)
-
-**Quick example (Product Launch by Q1 2025):**
-- **Target**: Product live in production for 1000 customers by Jan 31, 2025
-- **T-4 weeks** (Jan 3): Beta testing with 50 customers complete, critical bugs fixed
-- **T-8 weeks** (Dec 6): Feature complete, internal QA passed
-- **T-12 weeks** (Nov 8): MVP built, core features working
-- **T-16 weeks** (Oct 11): Design finalized, API contracts defined
-- **T-20 weeks** (Sep 13): Requirements locked, team staffed
-- **Today** (Sep 1): Feasible if no scope creep and 20% time buffer included
+1. [Workflow](#workflow)
+2. [Dependency Mapping](#dependency-mapping)
+3. [Critical Path Analysis](#critical-path-analysis)
+4. [Common Patterns](#common-patterns)
+5. [Guardrails](#guardrails)
+6. [Quick Reference](#quick-reference)
 
 ## Workflow
 

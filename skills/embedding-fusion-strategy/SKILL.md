@@ -1,6 +1,6 @@
 ---
 name: embedding-fusion-strategy
-description: Use when designing embedding strategies that fuse semantic and structural information for knowledge graphs. Invoke when user mentions node embeddings, structural embeddings, semantic embeddings, contrastive alignment, embedding fusion, vector representations for graphs, or combining text and graph signals. Provides embedding selection, fusion design, and implementation guidance.
+description: Designs embedding strategies that combine semantic (text-based) and structural (graph-based) information at node, edge, path, and subgraph levels for knowledge graphs. Use when selecting embedding granularity, choosing complementary semantic and structural approaches, designing fusion strategies (concatenation, attention, contrastive alignment), or when user mentions node embeddings, embedding fusion, vector representations for graphs, or combining text and graph signals.
 ---
 
 ## Table of Contents
@@ -12,15 +12,9 @@ description: Use when designing embedding strategies that fuse semantic and stru
 
 # Embedding Fusion Strategy
 
-## What Is It?
-
-This skill helps you **design embedding strategies that combine semantic (text-based) and structural (graph-based) information** at node, edge, path, and subgraph levels. Given a knowledge graph and a downstream task, it guides you through selecting the right embedding granularity, choosing complementary semantic and structural approaches, and designing a fusion strategy that captures both meaning and topology.
-
-**The payoff**: Neither pure text embeddings nor pure graph embeddings capture complete entity meaning. Fusion bridges the symbolic and semantic worlds, enabling retrieval and reasoning that neither approach achieves alone.
-
 ## Workflow
 
-**COPY THIS CHECKLIST** and work through each step:
+Copy this checklist and work through each step:
 
 ```
 Embedding Fusion Strategy Progress:

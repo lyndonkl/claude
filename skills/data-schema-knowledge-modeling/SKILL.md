@@ -1,57 +1,21 @@
 ---
 name: data-schema-knowledge-modeling
-description: Use when designing database schemas, need to model domain entities and relationships clearly, building knowledge graphs or ontologies, creating API data models, defining system boundaries and invariants, migrating between data models, establishing taxonomies or hierarchies, user mentions "schema", "data model", "entities", "relationships", "ontology", "knowledge graph", or when scattered/inconsistent data structures need formalization.
+description: Creates rigorous, validated models of entities, relationships, and constraints for database schemas (SQL, NoSQL, graph), knowledge graphs, ontologies, API data models, and taxonomies. Covers relational, document, graph, event/time-series, and dimensional schema patterns with lifecycle modeling, soft deletes, polymorphic associations, and hierarchies. Use when user mentions "schema", "data model", "entities", "relationships", "ontology", "knowledge graph", or when data structures need formalization.
 ---
 
 # Data Schema & Knowledge Modeling
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
+- [Overview](#overview)
 - [Workflow](#workflow)
 - [Schema Types](#schema-types)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Overview
 
-Create rigorous, validated models of entities, relationships, and constraints that enable correct system implementation, knowledge representation, and semantic reasoning.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Design database schema (SQL, NoSQL, graph) for new application
-- Model complex domain with many entities and relationships
-- Build knowledge graph or ontology for semantic search/reasoning
-- Define API data models and contracts
-- Create taxonomies or classification hierarchies
-- Establish data governance and canonical models
-- Migrate legacy schemas to modern architectures
-- Resolve ambiguity in domain concepts and relationships
-- Enable data integration across systems
-- Document system invariants and business rules
-
-**Common trigger phrases:**
-- "Design a schema for..."
-- "Model the entities and relationships"
-- "Create a knowledge graph"
-- "What's the data model?"
-- "Define the ontology"
-- "How should we structure this data?"
-- "Map relationships between..."
-- "Design the API data model"
-
-## What Is It
-
-**Data schema & knowledge modeling** is the process of formally defining:
-
-1. **Entities** - Things that exist (User, Product, Order, Organization)
-2. **Attributes** - Properties of entities (name, price, status, createdAt)
-3. **Relationships** - Connections between entities (User owns Order, Product belongsTo Category)
-4. **Constraints** - Rules and invariants (unique email, price > 0, one primary address)
-5. **Cardinality** - How many of each (one-to-many, many-to-many)
+This skill formally defines entities, attributes, relationships, constraints, and cardinality to produce unambiguous data models that prevent inconsistencies and enable correct implementation.
 
 **Quick example:** E-commerce schema:
 - **Entities**: User, Product, Order, Cart, Payment
@@ -86,7 +50,7 @@ Map connections between entities (one-to-one, one-to-many, many-to-many). For ma
 
 **Step 4: Specify constraints and invariants**
 
-Define uniqueness constraints, foreign key relationships, check constraints, and business rules. Document domain invariants (rules that must ALWAYS be true). Identify derived/computed attributes vs stored. Use [resources/methodology.md](resources/methodology.md) for advanced constraint patterns and validation strategies.
+Define uniqueness constraints, foreign key relationships, check constraints, and business rules. Document domain invariants (rules that must hold true at all times). Identify derived/computed attributes vs stored. Use [resources/methodology.md](resources/methodology.md) for advanced constraint patterns and validation strategies.
 
 **Step 5: Validate and document the model**
 

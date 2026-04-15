@@ -1,13 +1,11 @@
 ---
 name: grant-proposal-assistant
-description: Use when writing or reviewing NIH, NSF, or foundation grant proposals. Invoke when user mentions specific aims, R01, R21, K-series, significance, innovation, approach section, grant writing, proposal review, research strategy, or needs help with fundable hypothesis, reviewer-friendly structure, or compliance with grant guidelines.
+description: Guides creation and review of competitive grant proposals (NIH R01/R21/K, NSF, foundations) by applying reviewer-perspective thinking to ensure clear hypotheses, compelling significance, genuine innovation, and feasible approaches. Use when writing or reviewing grant proposals, crafting specific aims, drafting significance/innovation/approach sections, or when user mentions R01, R21, K-series, grant writing, proposal review, study section, or fundable hypothesis.
 ---
 
 # Grant Proposal Assistant
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Questions](#core-questions)
 - [Workflow](#workflow)
 - [Section Frameworks](#section-frameworks)
@@ -15,27 +13,10 @@ description: Use when writing or reviewing NIH, NSF, or foundation grant proposa
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill guides the creation and review of competitive grant proposals (NIH R01/R21/K, NSF, foundations) by ensuring clear hypotheses, compelling significance, genuine innovation, and feasible approaches. It applies reviewer-perspective thinking to structure proposals that address common critique points before submission.
-
-## When to Use
-
-Use this skill when:
-
-- **Writing new proposals**: NIH R01, R21, R03, K-series; NSF grants; Foundation applications
-- **Specific Aims development**: Crafting the critical 1-page aims document
-- **Section drafting**: Significance, Innovation, Approach sections
-- **Proposal review**: Pre-submission critique, mock study section preparation
-- **Resubmission**: Addressing reviewer critiques, strengthening weak areas
-- **Budget justification**: Aligning resources with proposed work
-
-Trigger phrases: "grant proposal", "specific aims", "R01", "R21", "NIH grant", "NSF proposal", "significance section", "innovation", "approach", "study section", "reviewer", "fundable"
-
-**Do NOT use for:**
-- Manuscripts (use `scientific-manuscript-review`)
-- Fellowship personal statements (use `career-document-architect`)
-- Letters of recommendation (use `academic-letter-architect`)
+**Related skills (not this one)**:
+- Manuscripts: `scientific-manuscript-review`
+- Fellowship personal statements: `career-document-architect`
+- Letters of recommendation: `academic-letter-architect`
 
 ## Core Questions
 
@@ -233,15 +214,13 @@ When will this be completed? Dependencies on other aims?
 
 ## Guardrails
 
-**Critical requirements:**
-
-1. **Testable hypothesis**: Must be falsifiable, not just a goal
-2. **Explicit gaps**: State what's unknown, not just what you'll do
-3. **Real innovation**: Specific, not "innovative approach"
-4. **Independent aims**: Project survives if one aim fails
-5. **Feasibility evidence**: Preliminary data for risky elements
-6. **Power calculations**: Know your sample sizes and why
-7. **Pitfall acknowledgment**: Show you've anticipated problems
+1. **Testable hypothesis**: The hypothesis should be falsifiable, not just a goal
+2. **Explicit gaps**: State what is unknown, not just what you will do
+3. **Real innovation**: Be specific, not just "innovative approach"
+4. **Independent aims**: The project should survive if one aim fails
+5. **Feasibility evidence**: Include preliminary data for risky elements
+6. **Power calculations**: Know sample sizes and why they are sufficient
+7. **Pitfall acknowledgment**: Show anticipated problems and alternatives
 
 **Common pitfalls:**
 - ❌ **Fishing expedition**: "We will determine..." without hypothesis

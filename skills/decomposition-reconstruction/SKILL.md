@@ -1,26 +1,9 @@
 ---
 name: decomposition-reconstruction
-description: Use when dealing with complex systems that need simplification, identifying bottlenecks or critical failure points, redesigning architecture or processes for better performance, breaking down problems that feel overwhelming, analyzing dependencies to understand ripple effects, user mentions "this is too complex", "where's the bottleneck", "how do we redesign this", "what are the key components", or when optimization requires understanding how parts interact.
+description: Breaks complex systems into atomic components, maps their relationships, and reconstructs them in optimized configurations to identify bottlenecks, critical failure points, and redesign opportunities. Use when dealing with complex systems that need simplification, identifying bottlenecks or critical failure points, redesigning architecture or processes for better performance, breaking down problems that feel overwhelming, analyzing dependencies to understand ripple effects, or when optimization requires understanding how parts interact.
 ---
 
 # Decomposition & Reconstruction
-
-## What Is It?
-
-Decomposition-reconstruction is a two-phase analytical technique: first, break a complex system into atomic components and understand their relationships; second, either recombine components in better configurations or identify critical elements that drive system behavior.
-
-**Quick example:**
-
-**System:** Slow web application (3-second page load)
-
-**Decomposition:**
-- Frontend: 1.2s (JS bundle: 0.8s, CSS: 0.2s, HTML render: 0.2s)
-- Network: 0.5s (API calls: 3 requests × 150ms each, parallel)
-- Backend: 1.3s (Database query: 1.0s, business logic: 0.2s, serialization: 0.1s)
-
-**Reconstruction (bottleneck identification):**
-Critical path: Database query (1.0s) + JS bundle (0.8s) = 1.8s of the 3.0s total
-Optimization target: Optimize DB query indexing and code-split JS bundle → Expected 1.5s page load
 
 ## Workflow
 

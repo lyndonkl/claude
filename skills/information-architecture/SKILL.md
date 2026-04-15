@@ -1,23 +1,9 @@
 ---
 name: information-architecture
-description: Use when organizing content for digital products, designing navigation systems, restructuring information hierarchies, improving findability, creating taxonomies or metadata schemas, or when users mention information architecture, IA, sitemap, navigation design, content structure, card sorting, tree testing, taxonomy, findability, or need help making information discoverable and usable.
+description: Organizes, structures, and labels content so users can find and manage information effectively. Guides through content audits, card sorting, taxonomy design, navigation structure, and tree testing validation. Use when organizing content for digital products, designing navigation systems, restructuring information hierarchies, improving findability, creating taxonomies or metadata schemas, or when users mention information architecture, IA, sitemap, navigation design, content structure, card sorting, tree testing, taxonomy, or findability.
 ---
 
 # Information Architecture
-
-## Purpose
-
-Information architecture (IA) is the practice of organizing, structuring, and labeling content to help users find and manage information effectively. Good IA makes complex information navigable, discoverable, and understandable.
-
-Use this skill when:
-- **Designing navigation** for websites, apps, documentation, or knowledge bases
-- **Restructuring content** that users can't find or understand
-- **Creating taxonomies** for classification, tagging, or metadata
-- **Organizing information** at scale (hundreds or thousands of items)
-- **Improving findability** when search and browse both fail
-- **Designing mental models** that match how users think about content
-
-Information architecture bridges user mental models and system structure. The goal: users can predict where information lives and find it quickly.
 
 ---
 
@@ -148,7 +134,7 @@ Track time to find, search success rate, navigation abandonment, bounce rate, us
 
 ---
 
-## Critical Guardrails
+## Guardrails
 
 ### 1. Test with Real Users, Not Assumptions
 

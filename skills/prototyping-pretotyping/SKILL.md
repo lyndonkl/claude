@@ -1,60 +1,15 @@
 ---
 name: prototyping-pretotyping
-description: Use when testing ideas cheaply before building (pretotyping with fake doors, concierge MVPs, paper prototypes) to validate desirability/feasibility, choosing appropriate prototype fidelity (paper/clickable/coded), running experiments to test assumptions (demand, pricing, workflow), or when user mentions prototype, MVP, fake door test, concierge, Wizard of Oz, landing page test, smoke test, or asks "how can we validate this idea before building?".
+description: Guides validation of ideas before full development using pretotyping (fake doors, concierge MVPs, Wizard of Oz) and prototyping at appropriate fidelity (paper, clickable, coded) to test assumptions about demand, pricing, and feasibility. Use when testing ideas cheaply before building, choosing prototype fidelity, running experiments to validate assumptions, or when user mentions prototype, MVP, fake door test, concierge, Wizard of Oz, landing page test, smoke test, or asks "how can we validate this idea before building?".
 ---
 # Prototyping & Pretotyping
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It?](#what-is-it)
-4. [Workflow](#workflow)
-5. [Common Patterns](#common-patterns)
-6. [Fidelity Ladder](#fidelity-ladder)
-7. [Guardrails](#guardrails)
-8. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Test assumptions and validate ideas before investing in full development. Use cheapest/fastest method to answer key questions: Do people want this? Will they pay? Can we build it? Does it solve the problem? Pretotype (test idea with minimal implementation) before prototype (build partial version) before product (build full version).
-
-## When to Use
-
-**Use this skill when:**
-
-- **High uncertainty**: Unvalidated assumptions about customer demand, willingness to pay, or technical feasibility
-- **Before building**: Need evidence before committing resources to full development
-- **Feature prioritization**: Multiple ideas, limited resources, want data to decide
-- **Pivot evaluation**: Considering major direction change, need quick validation
-- **Stakeholder buy-in**: Need evidence to convince execs/investors idea is worth pursuing
-- **Pricing uncertainty**: Don't know what customers will pay
-- **Workflow validation**: Unsure if proposed solution fits user mental model
-- **Technical unknowns**: New technology, integration, or architecture approach needs validation
-
-**Common triggers:**
-- "Should we build this feature?"
-- "Will customers pay for this?"
-- "Can we validate demand before building?"
-- "What's the cheapest way to test this idea?"
-- "How do we know if users want this?"
-
-## What Is It?
-
-**Pretotyping** (Alberto Savoia): Test if people want it BEFORE building it
-- Fake it: Landing page, "Buy Now" button that shows "Coming Soon", mockup videos
-- Concierge: Manually deliver service before automating (e.g., manually curate results before building algorithm)
-- Wizard of Oz: Appear automated but human-powered behind scenes
-
-**Prototyping**: Build partial/simplified version to test assumptions
-- **Paper prototype**: Sketches, wireframes (test workflow/structure)
-- **Clickable prototype**: Figma/InVision (test interactions/flow)
-- **Coded prototype**: Working software with limited features (test feasibility/performance)
-
-**Example - Testing meal kit delivery service:**
-- **Pretotype** (Week 1): Landing page "Sign up for farm-to-table meal kits, launching soon" → Measure sign-ups
-- **Concierge MVP** (Week 2-4): Manually source ingredients, pack boxes, deliver to 10 sign-ups → Validate willingness to pay, learn workflow
-- **Prototype** (Month 2-3): Build supplier database, basic logistics system for 50 customers → Test scalability
-- **Product** (Month 4+): Full platform with automated sourcing, routing, subscription management
+1. [Workflow](#workflow)
+2. [Common Patterns](#common-patterns)
+3. [Fidelity Ladder](#fidelity-ladder)
+4. [Guardrails](#guardrails)
+5. [Quick Reference](#quick-reference)
 
 ## Workflow
 

@@ -1,66 +1,17 @@
 ---
 name: security-threat-model
-description: Use when designing or reviewing systems handling sensitive data (PII, PHI, financial, auth credentials), building features with security implications (auth, payments, file uploads, APIs), preparing for security audits or compliance (PCI, HIPAA, SOC 2), investigating security incidents, integrating third-party services, or when user mentions "threat model", "security architecture", "STRIDE", "trust boundaries", "attack surface", or "security review".
+description: Systematically identifies vulnerabilities, threats, and mitigations for systems handling sensitive data using STRIDE methodology, trust boundary mapping, and defense-in-depth principles. Use when designing or reviewing systems with PII/PHI/financial/auth data, building security-sensitive features (auth, payments, file uploads, APIs), preparing for audits or compliance (PCI, HIPAA, SOC 2), investigating incidents, or integrating third-party services. Use when user mentions threat model, STRIDE, trust boundaries, attack surface, or security review.
 ---
 
 # Security Threat Model
 
 ## Table of Contents
-1. [Purpose](#purpose)
-2. [When to Use](#when-to-use)
-3. [What Is It](#what-is-it)
-4. [Workflow](#workflow)
-5. [STRIDE Framework](#stride-framework)
-6. [Trust Boundary Mapping](#trust-boundary-mapping)
-7. [Common Patterns](#common-patterns)
-8. [Guardrails](#guardrails)
-9. [Quick Reference](#quick-reference)
-
-## Purpose
-
-Security Threat Modeling systematically identifies vulnerabilities, threats, and mitigations for systems handling sensitive data. It transforms ad-hoc security thinking into structured analysis using STRIDE methodology, trust boundary mapping, and defense-in-depth principles.
-
-## When to Use
-
-**Invoke this skill when you need to:**
-- Design secure architecture for systems handling sensitive data (PII, PHI, payment data, credentials)
-- Review existing systems for security vulnerabilities before launch or audit
-- Evaluate security implications of new features (auth, file uploads, APIs, integrations)
-- Prepare for compliance requirements (PCI DSS, HIPAA, SOC 2, GDPR, FedRAMP)
-- Investigate security incidents to identify root causes and prevent recurrence
-- Assess third-party integration risks (OAuth, webhooks, data sharing)
-- Document security posture for stakeholders, auditors, or customers
-- Prioritize security improvements with limited resources
-
-**User phrases that trigger this skill:**
-- "Is this secure?"
-- "What are the security risks?"
-- "Threat model for [system]"
-- "STRIDE analysis"
-- "Trust boundaries"
-- "Security review before launch"
-- "Compliance requirements"
-
-## What Is It
-
-A structured security analysis that:
-1. **Maps system architecture** (components, data flows, trust boundaries)
-2. **Classifies data** (sensitivity levels, compliance requirements, lifecycle)
-3. **Identifies threats** using STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)
-4. **Defines mitigations** (preventive controls, detective controls, corrective controls)
-5. **Establishes monitoring** (alerts, audit logs, incident response)
-6. **Prioritizes risks** (likelihood × impact, exploitability, compliance)
-
-**Quick example (Password Reset Flow):**
-- **Trust Boundaries**: User → Web Server → Email Service → Database
-- **Data**: Email address (PII), reset token (credential), user ID
-- **Threats**:
-  - **Spoofing**: Attacker requests reset for victim's email
-  - **Tampering**: Token modified in email link
-  - **Information Disclosure**: Token visible in logs/analytics
-  - **Denial of Service**: Mass reset requests exhaust email quota
-  - **Elevation of Privilege**: Reset token doesn't expire, reusable across sessions
-- **Mitigations**: Rate limiting (5/hour), short-lived tokens (15 min), HTTPS only, email confirmation, account lockout after failed attempts, cryptographic token signing
+1. [Workflow](#workflow)
+2. [STRIDE Framework](#stride-framework)
+3. [Trust Boundary Mapping](#trust-boundary-mapping)
+4. [Common Patterns](#common-patterns)
+5. [Guardrails](#guardrails)
+6. [Quick Reference](#quick-reference)
 
 ## Workflow
 

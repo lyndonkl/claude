@@ -1,13 +1,11 @@
 ---
 name: academic-letter-architect
-description: Use when writing recommendation letters, reference letters, or award nominations for students, postdocs, or colleagues. Invoke when user mentions recommendation letter, reference, nomination, letter of support, endorsement, or needs help with strong advocacy, comparative statements, or evidence-based character assessment.
+description: Guides the creation of evidence-based academic recommendation letters, reference letters, and award nominations that combine concrete examples, meaningful comparisons, and genuine enthusiasm. Use when writing recommendation letters for students, postdocs, or colleagues, or when user mentions recommendation letter, reference, nomination, letter of support, endorsement, or needs help with strong advocacy and comparative statements.
 ---
 
 # Academic Letter Architect
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
 - [Core Principles](#core-principles)
 - [Workflow](#workflow)
 - [Letter Structure](#letter-structure)
@@ -15,26 +13,10 @@ description: Use when writing recommendation letters, reference letters, or awar
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-This skill guides the creation of effective academic recommendation letters that provide evidence-based advocacy. Strong letters combine concrete examples, meaningful comparisons, and genuine enthusiasm to differentiate candidates and support their applications for positions, awards, or opportunities.
-
-## When to Use
-
-Use this skill when:
-
-- **Student recommendations**: Graduate school applications, fellowship applications, job applications
-- **Postdoc recommendations**: Faculty position applications, grant applications
-- **Colleague recommendations**: Promotion letters, award nominations
-- **Award nominations**: Prize nominations, recognition letters
-- **Letters of support**: Collaboration letters, grant support letters
-
-Trigger phrases: "recommendation letter", "reference letter", "nomination", "write a letter for", "letter of support", "endorse", "vouch for"
-
-**Do NOT use for:**
-- Personal statements (use `career-document-architect`)
-- Cover letters to journals (use `scientific-email-polishing`)
-- Grant proposals (use `grant-proposal-assistant`)
+**Related skills (use instead for):**
+- Personal statements: `career-document-architect`
+- Cover letters to journals: `scientific-email-polishing`
+- Grant proposals: `grant-proposal-assistant`
 
 ## Core Principles
 
@@ -214,7 +196,7 @@ Elements:
 
 ## Guardrails
 
-**Critical requirements:**
+**Key requirements:**
 
 1. **Truthfulness**: Only write what you genuinely believe. Dishonest letters harm candidates and your reputation.
 

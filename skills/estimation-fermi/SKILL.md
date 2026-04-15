@@ -1,69 +1,24 @@
 ---
 name: estimation-fermi
-description: Use when making quick order-of-magnitude estimates under uncertainty (market sizing, resource planning, feasibility checks), decomposing complex quantities into estimable parts, bounding unknowns with upper/lower limits, sanity-checking strategic assumptions, or when user mentions Fermi estimation, back-of-envelope calculation, order of magnitude, ballpark estimate, triangulation, or needs to assess feasibility before detailed analysis.
+description: Decomposes complex unknowns into estimable components to produce rapid order-of-magnitude answers with bounded uncertainty. Use when making quick estimates (market sizing, resource planning, feasibility checks), bounding unknowns with upper/lower limits, sanity-checking strategic assumptions, or when user mentions Fermi estimation, back-of-envelope calculation, order of magnitude, ballpark estimate, or triangulation.
 ---
 # Fermi Estimation
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Fermi estimation provides rapid order-of-magnitude answers to seemingly impossible questions by decomposing them into smaller, estimable parts. This skill guides you through decomposition strategies, bounding techniques, sanity checks, and triangulation to make defensible estimates when data is scarce, time is limited, or precision is unnecessary for the decision at hand.
-
-## When to Use
-
-Use this skill when:
-
-- **Market sizing**: Estimating TAM/SAM/SOM for product launch, addressable market for new feature, competitive market share
-- **Resource planning**: Infrastructure capacity (servers, storage, bandwidth), staffing needs, budget allocation, inventory requirements
-- **Feasibility checks**: Can we build this in 6 months? Will customers pay $X? Is this market big enough?
-- **Strategic decisions**: Build vs buy tradeoffs, enter new market assessment, fundraising/runway calculations, pricing validation
-- **Business metrics**: Revenue projections, customer acquisition costs, LTV estimates, unit economics, break-even analysis
-- **Impact assessment**: Carbon footprint, energy consumption, social reach, cost savings from initiative
-- **Interview questions**: Consulting case interviews (piano tuners in Chicago), product sense questions, analytical reasoning tests
-- **Quick validation**: Sanity-checking detailed models, pressure-testing assumptions, getting directional answer before investing in precision
-
-Trigger phrases: "ballpark estimate", "order of magnitude", "back-of-envelope", "roughly how many", "feasibility check", "gut check", "triangulate", "sanity check"
-
-## What Is It?
-
-Fermi estimation (named after physicist Enrico Fermi) breaks down complex unknowns into simpler components that can be estimated using common knowledge, constraints, and reasoning. The goal is not precision but being "right to within a factor of 10" quickly.
-
-**Quick example:**
+## Example
 
 **Question**: How many piano tuners are in Chicago?
 
-**Fermi decomposition**:
-1. **Population**: Chicago ~3 million people
-2. **Households**: 3M people ÷ 3 people/household = 1M households
-3. **Pianos**: ~1 in 20 households has piano = 50,000 pianos
-4. **Tuning frequency**: Piano tuned once/year on average
-5. **Tunings needed**: 50,000 tunings/year
-6. **Tuner capacity**: Tuner works 250 days/year, 4 tunings/day = 1,000 tunings/year per tuner
-7. **Tuners needed**: 50,000 ÷ 1,000 = **~50 piano tuners**
-
-**Actual**: ~80-100 piano tuners in Chicago (within order of magnitude ✓)
-
-**Business example - Market sizing:**
-
-**Question**: What's the TAM for a B2B sales automation SaaS in the US?
-
 **Decomposition**:
-1. **Total businesses in US**: ~30M
-2. **With sales teams**: ~10% = 3M businesses
-3. **With >10 employees** (can afford SaaS): ~2M businesses
-4. **Addressable** (tech-savvy, not enterprise with custom solutions): ~500k businesses
-5. **Price point**: $500/month average
-6. **TAM**: 500k × $500/month × 12 = **$3B/year**
-
-**Validation**: Quick search confirms B2B sales tech market ~$5-7B (same order of magnitude ✓)
+1. Chicago ~3M people ÷ 3/household = 1M households
+2. ~1 in 20 has piano = 50,000 pianos, tuned once/year
+3. Tuner: 250 days/year × 4 tunings/day = 1,000/year
+4. 50,000 ÷ 1,000 = **~50 piano tuners** (Actual: ~80-100, within order of magnitude)
 
 ## Workflow
 
@@ -142,23 +97,21 @@ Re-estimate using different decomposition to validate. Check if both paths yield
 
 ## Guardrails
 
-**Critical requirements:**
+1. **State assumptions explicitly**: Every Fermi estimate rests on assumptions. Make them visible ("Assuming 250 workdays/year", "If conversion rate ~3%"). Unstated assumptions create false precision.
 
-1. **State assumptions explicitly**: Every Fermi estimate rests on assumptions. Make them visible ("Assuming 250 workdays/year", "If conversion rate ~3%"). Allows others to challenge/refine. Unstated assumptions create false precision.
+2. **Aim for order of magnitude, not precision**: Goal is 10^X, not X.XX. Round to 1-2 significant figures (50 not 47.3, 3M not 2,847,291). If the decision needs precision, get real data instead.
 
-2. **Aim for order of magnitude, not precision**: Goal is 10^X, not X.XX. Round to 1-2 significant figures (50 not 47.3, 3M not 2,847,291). False precision wastes time and misleads. If decision needs precision, don't use Fermi—get real data.
-
-3. **Decompose until components are estimable**: Break down until you reach quantities you can estimate from knowledge/experience. If a component is still "how would I know that?", decompose further. Avoid plugging in wild guesses for complex sub-problems.
+3. **Decompose until components are estimable**: Break down until you reach quantities you can estimate from knowledge/experience. If a component is still "how would I know that?", decompose further.
 
 4. **Use multiple paths (triangulation)**: Estimate same quantity via different decompositions (top-down vs bottom-up, supply-side vs demand-side). If paths agree within factor of 3, confidence increases. If they differ by 10x+, investigate which decomposition is flawed.
 
-5. **Bound the answer**: Calculate optimistic and pessimistic cases to bracket reality. If decision is same across range (market is $1B or $10B, either way we enter), bounds matter less. If decision flips (profitable at $10M, not at $1M), need precision or better estimate.
+5. **Bound the answer**: Calculate optimistic and pessimistic cases to bracket reality. If the decision holds across the range, bounds matter less. If the decision flips, invest in a better estimate.
 
-6. **Sanity-check against reality**: Does answer pass smell test? Compare to known quantities (your estimate for Starbucks revenue should be within 10x of actual ~$35B). Use dimensional analysis (units should cancel correctly). Check extreme cases (what if everyone did X? does it break physics?).
+6. **Sanity-check against reality**: Compare to known quantities, use dimensional analysis (units should cancel correctly), and check extreme cases (what if everyone did X? does it break physics?).
 
-7. **Calibrate on known problems**: Practice on questions with verifiable answers (US population, Disney World attendance, wheat production). Identify your biases (overestimate? underestimate? anchoring?). Improves future estimates.
+7. **Calibrate on known problems**: Practice on questions with verifiable answers to identify personal biases (overestimate? underestimate? anchoring?).
 
-8. **Acknowledge uncertainty ranges**: Express estimates as ranges or confidence intervals when appropriate ("10-100k users", "likely $1-5M"). Communicates epistemic humility. Avoids false precision trap.
+8. **Acknowledge uncertainty ranges**: Express estimates as ranges when appropriate ("10-100k users", "likely $1-5M").
 
 **Common pitfalls:**
 

@@ -1,13 +1,13 @@
 ---
 name: decision-matrix
-description: Use when comparing multiple named alternatives across several criteria, need transparent trade-off analysis, making group decisions requiring alignment, choosing between vendors/tools/strategies, stakeholders need to see decision rationale, balancing competing priorities (cost vs quality vs speed), user mentions "which option should we choose", "compare alternatives", "evaluate vendors", "trade-offs", or when decision needs to be defensible and data-driven.
+description: Compares multiple named alternatives against weighted criteria to produce transparent, defensible choices with explicit trade-off analysis. Covers criterion identification, weighting approaches (direct allocation, pairwise comparison, stakeholder averaging), scoring calibration, sensitivity analysis, and group decision facilitation. Use when choosing between vendors/tools/strategies, balancing competing priorities (cost vs quality vs speed), or when user mentions "which option should we choose", "compare alternatives", "evaluate vendors", or "trade-offs".
 ---
 
 # Decision Matrix
 
-## What Is It?
+## Overview
 
-A decision matrix is a structured tool for comparing multiple alternatives against weighted criteria to make transparent, defensible choices. It forces explicit trade-off analysis by scoring each option on each criterion, making subjective factors visible and comparable.
+A decision matrix scores each option on each criterion, making subjective factors visible and comparable. It includes weighted criteria, sensitivity analysis, and clear recommendations.
 
 **Quick example:**
 
@@ -17,7 +17,7 @@ A decision matrix is a structured tool for comparing multiple alternatives again
 | Option B | 6 (1.8) | 9 (2.25) | 7 (3.15) | 7.20 |
 | Option C | 9 (2.7) | 4 (1.0) | 6 (2.7) | 6.40 |
 
-The numbers in parentheses show criterion score × weight. Option A wins despite not being fastest or cheapest because quality matters most (45% weight).
+Option A wins despite not being fastest or cheapest because quality matters most (45% weight).
 
 ## Workflow
 

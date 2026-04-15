@@ -1,23 +1,9 @@
 ---
 name: kill-criteria-exit-ramps
-description: Use when defining stopping rules for projects, avoiding sunk cost fallacy, setting objective exit criteria, deciding whether to continue/pivot/kill initiatives, or when users mention kill criteria, exit ramps, stopping rules, go/no-go decisions, project termination, sunk costs, or need disciplined decision-making about when to quit.
+description: Establishes pre-defined, objective conditions for stopping projects and specific decision points for continue/pivot/kill evaluations. Guides through defining kill criteria, setting go/no-go gates, avoiding sunk cost fallacy, and executing disciplined stopping decisions. Use when defining stopping rules for projects, avoiding sunk cost fallacy, setting objective exit criteria, deciding whether to continue/pivot/kill initiatives, or when users mention kill criteria, exit ramps, stopping rules, go/no-go decisions, project termination, or sunk costs.
 ---
 
 # Kill Criteria & Exit Ramps
-
-## Purpose
-
-Kill criteria are pre-defined, objective conditions that trigger stopping a project, product, or initiative. Exit ramps are specific decision points where you evaluate whether to continue, pivot, or kill. This skill helps avoid sunk cost fallacy and opportunity cost by establishing discipline around quitting.
-
-Use this skill when:
-- **Starting new projects**: Define kill criteria upfront before emotional/financial investment
-- **Evaluating ongoing initiatives**: Decide whether to continue, pivot, or stop
-- **Avoiding sunk cost trap**: "We've invested too much to quit now"
-- **Portfolio management**: Which projects to kill to free resources for winners
-- **Setting go/no-go gates**: Milestone-based decision points
-- **Managing risk**: Exit before losses escalate
-
-The hardest decision is often knowing when to quit. Kill criteria remove emotion and politics from stopping decisions.
 
 ---
 
@@ -157,7 +143,7 @@ If kill triggered: communicate decision, wind down project, reallocate resources
 
 ---
 
-## Critical Guardrails
+## Guardrails
 
 ### 1. Set Kill Criteria Before Launch (Not After)
 

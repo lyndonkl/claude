@@ -1,10 +1,9 @@
 ---
 name: graphrag-system-design
-description: Use when designing complete GraphRAG systems that combine graph retrieval with LLM reasoning. Invoke when user mentions GraphRAG system, technology stack, Neo4j with LLM, LangChain graph, LlamaIndex knowledge graph, community detection for RAG, hybrid symbol-vector integration, production GraphRAG, or domain-specific graph RAG. Provides architecture design, technology selection, and domain customization guidance.
+description: Designs complete GraphRAG systems integrating graph databases, vector stores, orchestration frameworks, and LLM reasoning. Guides through pattern selection, technology stack decisions, integration pipeline design, and domain-specific customizations. Use when designing GraphRAG systems, choosing technology stacks for graph-augmented retrieval, combining Neo4j with LLM, using LangChain/LlamaIndex knowledge graphs, applying community detection for RAG, building hybrid symbol-vector pipelines, or deploying production or domain-specific GraphRAG.
 ---
 
 ## Table of Contents
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [GraphRAG Pattern Selection](#graphrag-pattern-selection)
 - [Integration Architecture](#integration-architecture)
@@ -12,15 +11,9 @@ description: Use when designing complete GraphRAG systems that combine graph ret
 
 # GraphRAG System Design
 
-## What Is It?
-
-This skill helps you **design complete GraphRAG systems integrating graph databases, vector stores, orchestration frameworks, and LLM reasoning**. Given a domain and retrieval requirements, it guides you through pattern selection, technology stack decisions, integration pipeline design, and domain-specific customizations.
-
-**The payoff**: GraphRAG systems overcome fundamental limitations of flat vector RAG by adding relational structure for multi-hop reasoning, provenance tracking for explainability, and structured retrieval that preserves semantic context across connected entities.
-
 ## Workflow
 
-**COPY THIS CHECKLIST** and work through each step:
+**Copy this checklist** and work through each step:
 
 ```
 GraphRAG System Design Progress:

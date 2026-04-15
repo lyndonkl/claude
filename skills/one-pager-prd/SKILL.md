@@ -1,86 +1,11 @@
 ---
 name: one-pager-prd
-description: Use when proposing new features/products, documenting product requirements, creating concise specs for stakeholder alignment, pitching initiatives, scoping projects before detailed design, capturing user stories and success metrics, or when user mentions one-pager, PRD, product spec, feature proposal, product requirements, or brief.
+description: Creates concise, decision-ready product specifications (one-pagers and PRDs) that align stakeholders on problem, solution, users, success metrics, and constraints. Use when proposing new features/products, documenting product requirements, creating concise specs for stakeholder alignment, pitching initiatives, scoping projects before detailed design, capturing user stories and success metrics, or when user mentions one-pager, PRD, product spec, feature proposal, product requirements, or brief.
 ---
 
 # One-Pager PRD
 
-## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
-- [Workflow](#workflow)
-- [Common Patterns](#common-patterns)
-- [Guardrails](#guardrails)
-- [Quick Reference](#quick-reference)
-
-## Purpose
-
-Create concise, decision-ready product specifications that align stakeholders on problem, solution, users, success metrics, and constraints—enabling fast approval and reducing back-and-forth.
-
-## When to Use
-
-**Early-Stage Product Definition:**
-- Proposing new feature or product
-- Need stakeholder alignment before building
-- Scoping initiative for resource allocation
-- Pitching idea to leadership for approval
-
-**Documentation Needs:**
-- Capturing requirements for engineering handoff
-- Documenting decisions for future reference
-- Creating spec for cross-functional team (PM, design, eng)
-- Recording what's in/out of scope
-
-**Communication:**
-- Getting buy-in from multiple stakeholders
-- Explaining complex feature simply
-- Aligning sales/marketing on upcoming releases
-- Onboarding new team members to initiative
-
-**When NOT to Use:**
-- Detailed technical design docs (use ADRs instead)
-- Comprehensive product strategy (too high-level for one-pager)
-- User research synthesis (different format)
-- Post-launch retrospectives (use postmortem skill)
-
-## What Is It
-
-A one-pager PRD is a 1-2 page product specification covering:
-
-**Core Elements:**
-1. **Problem:** What user pain are we solving? Why now?
-2. **Solution:** What are we building? (High-level approach)
-3. **Users:** Who benefits? Personas, segments, use cases
-4. **Goals & Metrics:** How do we measure success?
-5. **Scope:** What's in/out? Key user flows
-6. **Constraints:** Technical, business, timeline limits
-7. **Open Questions:** Unknowns to resolve
-
-**Format:**
-- **One-Pager:** 1 page, bullet points, for quick approval
-- **PRD (Product Requirements Document):** 1-2 pages, more detail, for execution
-
-**Example One-Pager:**
-
-**Feature:** Bulk Edit for Data Tables
-
-**Problem:** Users managing 1000+ rows waste hours editing one-by-one. Competitors have bulk edit. Churn risk for power users.
-
-**Solution:** Select multiple rows → Edit panel → Apply changes to all. Support: text, dropdowns, dates, numbers.
-
-**Users:** Data analysts (15% of users, 60% of usage), operations teams.
-
-**Goals:** Reduce time-to-edit by 80%. Increase retention of power users by 10%. Launch Q2.
-
-**In Scope:** Select all, filter+select, edit common fields (5 field types).
-**Out of Scope:** Undo/redo (v2), bulk delete (security concern).
-
-**Metrics:** Time per edit (baseline: 5 min/row), adoption rate (target: 40% of power users in month 1).
-
-**Constraints:** Must work with 10K rows without performance degradation.
-
-**Open Questions:** Validation—fail entire batch or skip invalid rows?
+**When NOT to use:** Detailed technical design docs (use ADRs instead), comprehensive product strategy (too high-level for one-pager), user research synthesis (different format), post-launch retrospectives (use postmortem skill).
 
 ## Workflow
 

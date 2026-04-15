@@ -1,15 +1,12 @@
 ---
 name: adr-architecture
-description: Use when documenting significant technical or architectural decisions that need context, rationale, and consequences recorded. Invoke when choosing between technology options, making infrastructure decisions, establishing standards, migrating systems, or when team needs to understand why a decision was made. Use when user mentions ADR, architecture decision, technical decision record, or decision documentation.
+description: Documents significant architectural and technical decisions with full context, alternatives considered, trade-offs analyzed, and consequences understood. Creates a decision trail that helps teams understand why decisions were made. Use when choosing between technology options, making infrastructure decisions, establishing standards, migrating systems, or when user mentions ADR, architecture decision, technical decision record, or decision documentation.
 ---
 
 # Architecture Decision Records (ADR)
 
 ## Table of Contents
 
-- [Purpose](#purpose)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [What is an ADR?](#what-is-an-adr)
 - [Workflow](#workflow)
   - [1. Understand the Decision](#1--understand-the-decision)
   - [2. Choose ADR Template](#2--choose-adr-template)
@@ -20,33 +17,7 @@ description: Use when documenting significant technical or architectural decisio
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
-
-Document significant architectural and technical decisions with full context, alternatives considered, trade-offs analyzed, and consequences understood. ADRs create a decision trail that helps teams understand "why" decisions were made, even years later.
-
-## When to Use This Skill
-
-- Recording architecture decisions (microservices, databases, frameworks)
-- Documenting infrastructure choices (cloud providers, deployment strategies)
-- Capturing technology selections (libraries, tools, platforms)
-- Logging process decisions (branching strategy, deployment process)
-- Establishing technical standards or conventions
-- Migrating or sunsetting systems
-- Making security or compliance choices
-- Resolving technical debates with documented rationale
-- Onboarding new team members who need decision history
-
-**Trigger phrases:** "ADR", "architecture decision", "document this decision", "why did we choose", "decision record", "technical decision log"
-
-## What is an ADR?
-
-An Architecture Decision Record is a document capturing a single significant decision. It includes:
-
-- **Context**: What situation necessitates this decision?
-- **Decision**: What are we choosing to do?
-- **Alternatives**: What other options did we consider?
-- **Consequences**: What are the trade-offs and implications?
-- **Status**: Proposed, accepted, deprecated, superseded?
+Each ADR captures: Context (what situation necessitates this decision), Decision (what we're choosing), Alternatives (other options considered), Consequences (trade-offs and implications), and Status (proposed, accepted, deprecated, superseded).
 
 **Quick Example:**
 

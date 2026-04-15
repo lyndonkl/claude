@@ -1,47 +1,14 @@
 ---
 name: reference-class-forecasting
-description: Use when starting a forecast to establish a statistical baseline (base rate) before analyzing specifics. Invoke when need to anchor predictions in historical reality, avoid "this time is different" bias, or establish outside view before inside view analysis. Use when user mentions base rates, reference classes, outside view, or starting a new prediction.
+description: Anchors predictions in historical reality by identifying a class of similar past events and using their statistical frequency as a baseline (outside view) before analyzing case-specific details. Use when starting a forecast, establishing base rates, testing "this time is different" claims, or when user mentions reference classes, outside view, base rates, or starting a new prediction.
 ---
 
 # Reference Class Forecasting
 
 ## Table of Contents
-- [What is Reference Class Forecasting?](#what-is-reference-class-forecasting)
-- [When to Use This Skill](#when-to-use-this-skill)
 - [Interactive Menu](#interactive-menu)
 - [Quick Reference](#quick-reference)
 - [Resource Files](#resource-files)
-
----
-
-## What is Reference Class Forecasting?
-
-Reference class forecasting is the practice of anchoring predictions in **historical reality** by identifying a class of similar past events and using their statistical frequency as a starting point. This is the "Outside View" - looking at what usually happens to things like this, before getting distracted by the specific details of "this case."
-
-**Core Principle:** Assume this event is **average** until you have specific evidence proving otherwise.
-
-**Why It Matters:**
-- Defeats "inside view" bias (thinking your case is unique)
-- Prevents base rate neglect (ignoring statistical baselines)
-- Provides objective anchor before subjective analysis
-- Forces humility and statistical thinking
-
----
-
-## When to Use This Skill
-
-Use this skill when:
-- **Starting any forecast** - Establish base rate FIRST
-- **Someone says "this time is different"** - Test if it really is
-- **Making predictions about success/failure** - Find historical frequencies
-- **Evaluating startup/project outcomes** - Anchor in class statistics
-- **Challenged by confident predictions** - Ground in reality
-- **Before detailed analysis** - Get outside view baseline
-
-Do NOT use when:
-- Event has literally never happened (novel situation)
-- Working with deterministic physical laws
-- Pure chaos with no patterns
 
 ---
 
@@ -136,8 +103,8 @@ I'll help you find the base rate using:
 Once we find the base rate, that becomes your **starting probability**.
 
 **The Rule:**
-> You are NOT allowed to move from this base rate until you have specific,
-> evidence-based reasons in your "inside view" analysis.
+> Treat this base rate as your starting point. Adjust only when you have specific,
+> evidence-based reasons from your "inside view" analysis.
 
 **Default anchors if no data found:**
 - Novel innovation: 10-20% (most innovations fail)

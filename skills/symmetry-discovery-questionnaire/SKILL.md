@@ -1,15 +1,9 @@
 ---
 name: symmetry-discovery-questionnaire
-description: Use when ML engineers need to identify symmetries in their data but don't know where to start. Invoke when user mentions data symmetry, invariance discovery, what transformations matter, or needs help recognizing patterns their model should respect. Works collaboratively through domain analysis, transformation testing, and physical constraint identification.
+description: Guides collaborative discovery of hidden symmetries in ML data through structured domain analysis, coordinate system examination, transformation testing, and physical constraint identification. No group theory knowledge required. Use when ML engineers need to identify symmetries in their data, when user mentions data symmetry, invariance discovery, what transformations matter, or needs help recognizing patterns their model should respect.
 ---
 
 # Symmetry Discovery Questionnaire
-
-## What Is It?
-
-This skill helps you **discover hidden symmetries** in your data through a structured collaborative process. Symmetries are transformations that leave important properties unchanged - and building them into neural networks dramatically improves performance (better sample efficiency, faster convergence, improved generalization).
-
-**You don't need to know group theory.** This skill guides you through domain-specific questions to uncover what symmetries might be present.
 
 ## Workflow
 

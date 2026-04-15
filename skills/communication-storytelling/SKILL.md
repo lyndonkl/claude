@@ -1,60 +1,21 @@
 ---
 name: communication-storytelling
-description: Use when transforming analysis/data into persuasive narratives—presenting to executives, explaining technical concepts to non-technical audiences, creating customer-facing communications, writing investor updates, announcing changes, turning research into insights, or when user mentions "write this for", "explain to", "present findings", "make this compelling", "audience is". Invoke when information needs to become a story tailored to specific stakeholders.
+description: Transforms analysis, data, and complex information into clear, persuasive narratives tailored to specific audiences — executives, customers, investors, or non-technical stakeholders. Provides story structures (Hero's Journey, Problem-Solution-Benefit, Situation-Complication-Resolution) and audience adaptation techniques. Use when presenting findings, explaining technical concepts to non-technical audiences, writing announcements, or when user mentions "write this for", "explain to", "present findings", "make this compelling", or "audience is".
 ---
 
 # Communication Storytelling
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
+- [Overview](#overview)
 - [Workflow](#workflow)
+- [Story Structure](#story-structure)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Overview
 
-Transform complex information, analysis, or data into clear, persuasive narratives tailored to specific audiences. This skill helps you craft compelling stories with a strong headline, key supporting points, and concrete evidence that drives understanding and action.
-
-## When to Use
-
-Use this skill when you need to:
-
-**Audience Translation:**
-- Present technical analysis to non-technical stakeholders
-- Explain complex data to executives who need quick decisions
-- Write customer-facing communications from internal analysis
-- Translate research findings into actionable insights
-
-**High-Stakes Communication:**
-- Create board presentations or investor updates
-- Announce organizational changes or difficult decisions
-- Write crisis communications that build trust
-- Present recommendations that need executive buy-in
-
-**Narrative Crafting:**
-- Turn A/B test results into product decisions
-- Create compelling case studies from customer data
-- Write product launch announcements from feature lists
-- Transform postmortems into learning narratives
-
-**When user says:**
-- "How do I present this to [audience]?"
-- "Make this compelling for [stakeholders]"
-- "Explain [technical thing] to [non-technical audience]"
-- "Write an announcement about [change]"
-- "Turn this analysis into a narrative"
-
-## What Is It?
-
-Communication storytelling uses a structured approach to create narratives that inform, persuade, and inspire action. The core framework includes:
-
-1. **Headline** - Single clear statement capturing the essence
-2. **Key Points** - 3-5 supporting ideas with logical flow
-3. **Proof** - Evidence, data, examples, stories that substantiate
-4. **Call-to-Action** - What audience should think, feel, or do
+This skill crafts compelling stories using a structured framework: (1) Headline — single clear statement capturing the essence, (2) Key Points — 3-5 supporting ideas with logical flow, (3) Proof — evidence, data, examples that substantiate, (4) Call-to-Action — what audience should think, feel, or do.
 
 **Quick example:**
 

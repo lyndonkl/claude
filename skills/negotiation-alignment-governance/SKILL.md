@@ -1,76 +1,9 @@
 ---
 name: negotiation-alignment-governance
-description: Use when stakeholders need aligned working agreements, resolving decision authority ambiguity, navigating cross-functional conflicts, establishing governance frameworks (RACI/DACI/RAPID), negotiating resource allocation, defining escalation paths, creating team norms, mediating trade-off disputes, or when user mentions stakeholder alignment, decision rights, working agreements, conflict resolution, governance model, or consensus building.
+description: Creates explicit stakeholder alignment through negotiated working agreements, clear decision rights (RACI/DACI/RAPID), and conflict resolution protocols. Use when stakeholders need aligned working agreements, resolving decision authority ambiguity, navigating cross-functional conflicts, establishing governance frameworks, negotiating resource allocation, defining escalation paths, creating team norms, mediating trade-off disputes, or when user mentions stakeholder alignment, decision rights, working agreements, conflict resolution, governance model, or consensus building.
 ---
 
 # Negotiation Alignment Governance
-
-## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It](#what-is-it)
-- [Workflow](#workflow)
-- [Common Patterns](#common-patterns)
-- [Guardrails](#guardrails)
-- [Quick Reference](#quick-reference)
-
-## Purpose
-
-Create explicit stakeholder alignment through negotiated working agreements, clear decision rights, and conflict resolution protocols—transforming ambiguity and tension into shared understanding and actionable governance.
-
-## When to Use
-
-**Decision Authority Ambiguity:**
-- Multiple stakeholders believe they have final say
-- Unclear who should be consulted vs informed
-- Decisions blocked because no one owns them
-- Frequent "I thought you were doing that" moments
-
-**Cross-Functional Conflict:**
-- Departments optimizing for different goals
-- Resource contention between teams
-- Trade-off disputes (quality vs speed, innovation vs stability)
-- Scope disagreements between stakeholders
-
-**Alignment Needs:**
-- New team forming and needs working agreements
-- Org restructure creating unclear boundaries
-- Cross-functional initiative requiring coordination
-- Partnership or joint venture needing governance
-
-**Negotiation Scenarios:**
-- Competing priorities requiring resolution
-- Stakeholder expectations needing alignment
-- SLAs and commitments to negotiate
-- Risk tolerance differences to reconcile
-
-## What Is It
-
-Negotiation-alignment-governance creates explicit agreements on:
-
-**1. Decision Rights (Who Decides):**
-- RACI: Responsible, Accountable, Consulted, Informed
-- DACI: Driver, Approver, Contributors, Informed
-- RAPID: Recommend, Agree, Perform, Input, Decide
-- Consent-based frameworks
-
-**2. Working Agreements (How We Work):**
-- Communication norms (sync vs async, response times)
-- Meeting protocols (agendas, decision methods)
-- Quality standards and definition of done
-- Escalation paths and conflict resolution
-
-**3. Conflict Resolution (When We Disagree):**
-- Structured dialogue formats
-- Mediation protocols
-- Disagree-and-commit mechanisms
-- Escalation criteria
-
-**Example:**
-Product wants to ship fast, Engineering wants quality. Instead of endless debates:
-- **Decision rights:** Product owns feature scope (DACI: Approver), Engineering owns quality bar (veto on production issues)
-- **Working agreement:** Weekly trade-off discussion with data (bug rate, tech debt, customer complaints)
-- **Conflict resolution:** If blocked, escalate to VP with joint recommendation and decision criteria
 
 ## Workflow
 

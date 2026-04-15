@@ -1,56 +1,18 @@
 ---
 name: evaluation-rubrics
-description: Use when need explicit quality criteria and scoring scales to evaluate work consistently, compare alternatives objectively, set acceptance thresholds, reduce subjective bias, or when user mentions rubric, scoring criteria, quality standards, evaluation framework, inter-rater reliability, or grade/assess work.
+description: Designs structured scoring tools with explicit criteria, performance scales, and descriptors for consistent, transparent quality assessment. Use when need quality criteria and scoring scales to evaluate work consistently, compare alternatives objectively, set acceptance thresholds, reduce subjective bias, or when user mentions rubric, scoring criteria, quality standards, evaluation framework, inter-rater reliability, or grading/assessing work.
 ---
 # Evaluation Rubrics
 
 ## Table of Contents
-- [Purpose](#purpose)
-- [When to Use](#when-to-use)
-- [What Is It?](#what-is-it)
 - [Workflow](#workflow)
 - [Common Patterns](#common-patterns)
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-## Purpose
+## Example
 
-Evaluation Rubrics provide explicit criteria and performance scales to assess quality consistently, fairly, and transparently. This skill guides you through rubric design—from identifying meaningful criteria to writing clear performance descriptors—to enable objective evaluation, reduce bias, align teams on standards, and give actionable feedback.
-
-## When to Use
-
-Use this skill when:
-
-- **Quality assessment**: Code reviews, design critiques, writing evaluation, product launches, academic grading
-- **Competitive evaluation**: Vendor selection, hiring candidates, grant proposals, pitch competitions, award judging
-- **Progress tracking**: Sprint reviews, skill assessments, training completion, certification exams
-- **Standardization**: Multiple reviewers need to score consistently (inter-rater reliability), reduce subjective bias
-- **Feedback delivery**: Provide clear, actionable feedback tied to specific criteria (not just "good" or "needs work")
-- **Threshold setting**: Define minimum acceptable quality (e.g., "must score ≥3/5 on all criteria to pass")
-- **Process improvement**: Identify systematic weaknesses (many submissions score low on same criterion → need better guidance)
-
-Trigger phrases: "rubric", "scoring criteria", "evaluation framework", "quality standards", "how do we grade this", "what does good look like", "consistent assessment", "inter-rater reliability"
-
-## What Is It?
-
-An evaluation rubric is a structured scoring tool with:
-- **Criteria**: What dimensions of quality are being assessed (e.g., clarity, completeness, originality)
-- **Scale**: Numeric or qualitative levels (e.g., 1-5, Novice-Expert, Below/Meets/Exceeds)
-- **Descriptors**: Explicit descriptions of what each level looks like for each criterion
-- **Weighting** (optional): Importance of each criterion (some more critical than others)
-
-**Core benefits:**
-- **Consistency**: Same work scored similarly by different reviewers (inter-rater reliability)
-- **Transparency**: Evaluatees know expectations upfront, can self-assess
-- **Actionable feedback**: Specific areas for improvement, not vague critique
-- **Fairness**: Reduces bias, focuses on observable work not subjective impressions
-- **Efficiency**: Faster evaluation with clear benchmarks, less debate
-
-**Quick example:**
-
-**Scenario**: Evaluating technical blog posts
-
-**Rubric (1-5 scale)**:
+**Scenario**: Evaluating technical blog posts (1-5 scale)
 
 | Criterion | 1 (Poor) | 3 (Adequate) | 5 (Excellent) |
 |-----------|----------|--------------|---------------|
@@ -59,9 +21,8 @@ An evaluation rubric is a structured scoring tool with:
 | **Practical Value** | No actionable guidance, theoretical only | Some examples, limited applicability | Concrete examples, immediately applicable |
 | **Originality** | Rehashes common knowledge, no new insight | Some fresh perspective, builds on existing | Novel approach, advances understanding |
 
-**Scoring**: Post A scores [4, 5, 3, 2] = 3.5 avg. Post B scores [5, 4, 5, 4] = 4.5 avg → Post B higher quality.
-
-**Feedback for Post A**: "Strong clarity (5) and good accuracy (4), but needs more practical examples (3) and offers less original insight (2). Add code samples and explore edge cases to improve."
+**Scoring**: Post A [4, 5, 3, 2] = 3.5 avg. Post B [5, 4, 5, 4] = 4.5 avg.
+**Feedback for Post A**: "Strong clarity (5) and good accuracy (4), but needs more practical examples (3) and offers less original insight (2)."
 
 ## Workflow
 
@@ -140,23 +101,21 @@ Apply rubric, collect feedback from evaluators and evaluatees, revise criteria/d
 
 ## Guardrails
 
-**Critical requirements:**
+1. **Criteria should be observable and measurable**: Not "good attitude" (subjective), but "arrives on time, volunteers for tasks, helps teammates" (observable). Test: Can two independent reviewers score this criterion consistently?
 
-1. **Criteria must be observable and measurable**: Not "good attitude" (subjective), but "arrives on time, volunteers for tasks, helps teammates" (observable). Vague criteria lead to unreliable scoring. Test: Can two independent reviewers score this criterion consistently?
+2. **Descriptors should distinguish levels clearly**: Each level needs concrete differences from adjacent levels. Avoid "5=very good, 4=good, 3=okay". Better: "5=zero bugs, meets all requirements, 4=1-2 minor bugs, meets 90% requirements."
 
-2. **Descriptors must distinguish levels clearly**: Each level should have concrete differences from adjacent levels (not just "better" or "more"). Avoid: "5=very good, 4=good, 3=okay". Better: "5=zero bugs, meets all requirements, 4=1-2 minor bugs, meets 90% requirements, 3=3+ bugs or missing key feature".
+3. **Use appropriate scale granularity**: 1-3 is too coarse, 1-10 is too fine. Sweet spot: 1-4 (forced choice, no middle) or 1-5 (allows neutral middle). Match granularity to actual observable differences.
 
-3. **Use appropriate scale granularity**: 1-3 too coarse (hard to differentiate), 1-10 too fine (false precision, hard to define all levels). Sweet spot: 1-4 (forced choice, no middle) or 1-5 (allows neutral middle). Match granularity to actual observable differences.
+4. **Balance comprehensiveness with simplicity**: Aim for 4-8 criteria covering essential quality dimensions. If >10 criteria, consider grouping or prioritizing.
 
-4. **Balance comprehensiveness with simplicity**: More criteria = more detailed feedback but longer to use. Aim for 4-8 criteria covering essential quality dimensions. If >10 criteria, consider grouping or prioritizing.
+5. **Calibrate for inter-rater reliability**: Have multiple reviewers score same work, measure agreement (Kappa, ICC). If <70% agreement, refine descriptors.
 
-5. **Calibrate for inter-rater reliability**: Have multiple reviewers score same work, measure agreement (Kappa, ICC). If <70% agreement, refine descriptors. Schedule calibration sessions where reviewers discuss discrepancies.
+6. **Provide examples at each level**: Include concrete examples of work at each level (anchor papers, reference designs, code samples) to calibrate reviewers.
 
-6. **Provide examples at each level**: Abstract descriptors are ambiguous. Include concrete examples of work at each level (anchor papers, reference designs, code samples) to calibrate reviewers.
+7. **Share rubric before evaluation**: If evaluatees see the rubric only after being scored, it is grading not guidance. Share upfront so people know expectations and can self-assess.
 
-7. **Make rubric accessible before evaluation**: If evaluatees see rubric only after being scored, it's just grading not guidance. Share rubric upfront so people know expectations and can self-assess.
-
-8. **Weight criteria appropriately**: Not all criteria equally important. If "Security" matters more than "Code style", weight it (Security ×3, Style ×1). Or use thresholds (must score ≥4 on Security to pass, regardless of other scores).
+8. **Weight criteria appropriately**: If "Security" matters more than "Code style", weight it (Security x3, Style x1). Or use thresholds (score >=4 on Security to pass, regardless of other scores).
 
 **Common pitfalls:**
 
