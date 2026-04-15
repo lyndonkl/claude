@@ -3,13 +3,13 @@
 [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
 
-> **Claude Code Plugin Available** — Install all 85 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 95 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
-A comprehensive collection of production-ready skills and orchestrating agents for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, and specialized domains.
+A comprehensive collection of production-ready skills and orchestrating agents for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, corporate finance, valuation, and specialized domains.
 
 ## Overview
 
-This repository contains **85 skills** and **6 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, and creative problem-solving. Each skill includes:
+This repository contains **95 skills** and **11 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, corporate finance, valuation, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -38,6 +38,7 @@ This repository contains **85 skills** and **6 orchestrating agents** designed t
   - [⏱️ Productivity & Learning](#️-productivity--learning)
   - [🏢 Organizational Design](#-organizational-design)
   - [🛡️ Ethics & Evaluation](#️-ethics--evaluation)
+  - [💰 Corporate Finance & Valuation](#-corporate-finance--valuation)
   - [🍳 Specialized Domains](#-specialized-domains)
   - [🛠️ Skill Development & Meta-Tools](#️-skill-development--meta-tools)
 - [Orchestrating Agents](#orchestrating-agents)
@@ -222,7 +223,7 @@ This repository contains **85 skills** and **6 orchestrating agents** designed t
 
 ### 💼 Business & Product Management
 
-**financial-unit-economics** - Analyze business model viability through customer profitability metrics (CAC, LTV, contribution margin). Calculate fully-loaded acquisition costs, cohort-based lifetime value, LTV/CAC ratio (target >3:1), payback period (<12 months), conduct channel-level analysis, and provide actionable recommendations on pricing, retention, and growth strategy. Covers SaaS, e-commerce, marketplace, freemium, and enterprise models.
+**financial-unit-economics** - Analyze business model viability through unit economics and customer profitability metrics (CAC, LTV, contribution margin). Calculate fully-loaded acquisition costs, cohort-based lifetime value, LTV/CAC ratio (target >3:1), payback period (<12 months), conduct channel-level analysis, and provide actionable recommendations on pricing, retention, and growth strategy. Covers SaaS, e-commerce, marketplace, freemium, and enterprise models.
 
 **facilitation-patterns** - Design and run productive group sessions (meetings, workshops, brainstorms, retrospectives) using proven facilitation patterns. Select appropriate formats (divergent brainstorm, convergent decision, alignment session), design time-boxed agendas with diverge-converge flow, manage participation dynamics (round robin, silent writing, breakouts), handle difficult situations (dominators, conflict, tangents), and apply decision-making methods (consensus, consent, vote, advisory). Includes remote and hybrid facilitation techniques.
 
@@ -252,6 +253,28 @@ This repository contains **85 skills** and **6 orchestrating agents** designed t
 
 **evaluation-rubrics** - Design reliable evaluation rubrics with explicit criteria, appropriate scales (1-5, qualitative, binary), observable descriptors, inter-rater reliability measurement (Kappa ≥0.70), calibration techniques, bias mitigation (halo, central tendency), and weighted scoring for consistent quality assessment.
 
+### 💰 Corporate Finance & Valuation
+
+**business-narrative-builder** - Constructs a structured narrative linking a company's qualitative business story to quantitative valuation drivers (revenue growth, target margin, reinvestment efficiency, cost of capital, failure risk). Classifies the company within a 6-stage corporate life cycle and sizes the total addressable market. Based on Damodaran's "Narrative and Numbers" framework.
+
+**financial-statement-analyzer** - Reads and normalizes a company's financial statements to extract clean valuation inputs. Performs accounting adjustments including R&D capitalization, operating lease conversion to debt, stock-based compensation treatment, and one-time item normalization. Computes FCFF, FCFE, and key financial ratios.
+
+**cost-of-capital-estimator** - Computes cost of equity (CAPM), cost of debt (synthetic rating), and weighted average cost of capital (WACC) for any company in any currency. Handles emerging market risk premiums via Damodaran's 4-step ERP procedure, bottom-up beta estimation, and three approaches to country risk premium.
+
+**intrinsic-valuation-dcf** - Performs discounted cash flow valuation using the appropriate model variant (DDM, FCFE, or FCFF) with configurable growth stages. Produces year-by-year cash flow projections, terminal value, equity bridge, per-share intrinsic value, and sensitivity analysis.
+
+**relative-valuation-multiples** - Values a company relative to comparable firms using price multiples (PE, PBV, EV/EBITDA, EV/Sales). Implements Damodaran's four-step framework (define, describe, analyze, apply) with both simple peer comparison and sector regression approaches.
+
+**capital-structure-optimizer** - Analyzes a company's debt-equity mix and determines the optimal capital structure that minimizes WACC. Computes WACC at each debt ratio from 0% to 90%, identifies the minimum, and recommends debt type matching (maturity, currency, fixed vs floating).
+
+**project-investment-analyzer** - Evaluates investment projects using NPV, IRR, and return on capital analysis. Determines whether a project clears its hurdle rate (ROC > WACC), computes economic value added (EVA), and adjusts discount rates for regional or project-specific risk.
+
+**dividend-buyback-analyzer** - Determines how much cash a company can return to shareholders and whether to use dividends, buybacks, or retained earnings. Compares actual cash returns to FCFE capacity, identifies excess cash, and recommends optimal return policy.
+
+**special-situations-valuation** - Adapts the standard DCF framework for companies that break normal assumptions: high-growth firms with negative earnings (revenue-based DCF with failure probability), distressed firms (equity-as-call-option via Black-Scholes), private companies (total beta and liquidity discount), and financial services firms (excess return model).
+
+**valuation-reconciler** - Synthesizes intrinsic (DCF) and relative (multiples) valuation outputs into a final value estimate and investment recommendation. Reconciles divergent valuations, reverse-engineers implied growth and ROIC, computes margin of safety, and produces a buy/sell/hold recommendation with catalysts.
+
 ### 🍳 Specialized Domains
 
 **chef-assistant** - Expert culinary guide combining technique, food science, flavor architecture (salt/acid/fat/heat), cultural context, and plating. Covers recipe creation, troubleshooting, menu planning, and cooking methods across global cuisines.
@@ -274,6 +297,11 @@ Orchestrating agents detect user needs and route to the appropriate specialized 
 | **geometric-deep-learning-architect** | symmetry-discovery-questionnaire, symmetry-group-identifier, symmetry-validation-suite, equivariant-architecture-designer, model-equivariance-auditor | Applying group theory and symmetry principles to neural network design - symmetry discovery, validation, equivariant architecture design, and model verification. |
 | **graphrag-specialist** | knowledge-graph-construction, embedding-fusion-strategy, retrieval-search-orchestration, graphrag-system-design, graphrag-evaluation | Knowledge graph construction and retrieval strategies for LLM reasoning - GraphRAG patterns, embedding strategies, retrieval orchestration, and technology stack recommendations. |
 | **cognitive-design-architect** | cognitive-design, information-architecture, d3-visualization, visual-storytelling-design, design-evaluation-audit, cognitive-fallacies-guard | Cognitive design principles, visual design best practices, and information presentation. Guides through cognitive foundations, information architecture, D3 visualization, storytelling, evaluation, and fallacy prevention. |
+| **company-analyst** | business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, intrinsic-valuation-dcf, relative-valuation-multiples, capital-structure-optimizer, dividend-buyback-analyzer, valuation-reconciler | End-to-end company analysis for standard profitable companies. Orchestrates business narrative through valuation and capital structure into an investment recommendation (buy/sell/hold). |
+| **special-situations-analyst** | business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, special-situations-valuation, relative-valuation-multiples, valuation-reconciler | Edge-case valuations for companies that break standard DCF assumptions: high-growth/negative-earnings, distressed, private, and financial services firms. |
+| **capital-allocation-strategist** | financial-statement-analyzer, cost-of-capital-estimator, capital-structure-optimizer, dividend-buyback-analyzer, project-investment-analyzer | Capital allocation decisions: financing mix (debt vs equity), dividend/buyback policy, and project investment evaluation. Integrates the three fundamental corporate finance decisions. |
+| **acquisition-analyst** | business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, intrinsic-valuation-dcf, relative-valuation-multiples, project-investment-analyzer, special-situations-valuation, valuation-reconciler | M&A target valuation computing standalone value, synergy value, and maximum acquisition price. Treats synergies as incremental project cash flows. |
+| **ipo-strategist** | business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, special-situations-valuation, relative-valuation-multiples, capital-structure-optimizer, valuation-reconciler | Private-to-public transition valuation. Transitions from total beta to market beta, removes illiquidity discount, uses public comparables for IPO pricing, and optimizes post-IPO capital structure. |
 
 ## Installation
 
@@ -291,7 +319,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 85 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 95 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 
@@ -367,7 +395,7 @@ Skill Progress:
 
 ## Skill Development Status
 
-**Production Ready**: 57 skills
+**Production Ready**: 67 skills
 - ✓ 33 refined skills from standard collection
 - ✓ 4 writing skills (structure planning, revision, stickiness, pre-publish checklist)
 - ✓ 1 custom skill (chef-assistant)
@@ -375,14 +403,20 @@ Skill Progress:
 - ✓ 5 geometric deep learning skills (symmetry discovery, group identification, validation, architecture design, model auditing)
 - ✓ 5 GraphRAG skills (KG construction, embedding fusion, retrieval orchestration, system design, evaluation)
 - ✓ 3 cognitive design skills (design evaluation audit, cognitive fallacies guard, visual storytelling design)
+- ✓ 10 corporate finance & valuation skills (business narrative, financial statements, cost of capital, DCF, relative valuation, capital structure, project investment, dividend/buyback, special situations, reconciliation)
 
-**Orchestrating Agents**: 6 agents
+**Orchestrating Agents**: 11 agents
 - ✓ writing-assistant (writing pipeline)
 - ✓ scientific-writing-editor (academic writing)
 - ✓ superforecaster (prediction and forecasting)
 - ✓ geometric-deep-learning-architect (symmetry-aware neural networks)
 - ✓ graphrag-specialist (knowledge graph retrieval)
 - ✓ cognitive-design-architect (cognitive design and visualization)
+- ✓ company-analyst (end-to-end company analysis and valuation)
+- ✓ special-situations-analyst (edge-case valuations)
+- ✓ capital-allocation-strategist (financing, dividends, project investment)
+- ✓ acquisition-analyst (M&A target valuation and synergy analysis)
+- ✓ ipo-strategist (private-to-public transition)
 
 **In Development**: 23 skills remaining from standard collection
 
@@ -447,9 +481,10 @@ Skills draw from established frameworks and expert practitioners:
 - **Thinking frameworks**: Bayesian reasoning, causal inference, dialectics, first principles
 - **Research methods**: Jobs-to-be-done (Christensen), design of experiments (Box, Taguchi), user research (Torres, Ulwick)
 - **Decision-making**: Multi-criteria analysis, expected value, risk analysis
+- **Corporate finance & valuation**: Damodaran's valuation curriculum (DCF, relative valuation, real options, corporate finance first principles)
 - **Communication**: Story structure (McKee), clarity writing (Zinsser, Pinker, King), SUCCESs framework (Heath)
 - **Culinary arts**: Technique (Pépin, Child, López-Alt), food science (McGee, Sharma), cultural cooking (Bourdain, Chang, Ottolenghi)
 
 ---
 
-**Status**: 85 production-ready skills, 6 orchestrating agents | Active development | Last updated: 2026-02-14
+**Status**: 95 production-ready skills, 11 orchestrating agents | Active development | Last updated: 2026-04-15

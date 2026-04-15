@@ -1,0 +1,163 @@
+{
+  "criteria": [
+    {
+      "name": "Riskfree Rate Derivation",
+      "1": "Riskfree rate assumed without justification, currency mismatch with cash flows, or local government bond yield used without removing default spread",
+      "3": "Riskfree rate identified and sourced, currency matches cash flows, default spread removed for emerging markets but method choice not justified",
+      "5": "Riskfree rate derived using appropriate method (sovereign bond minus default spread or inflation differential), currency matches cash flows, cross-checked with alternative method, no default risk embedded"
+    },
+    {
+      "name": "ERP Methodology",
+      "1": "ERP is a single unsourced number, no distinction between mature and country risk, or uses only historical average without justification",
+      "3": "ERP built from mature market premium plus country risk, implied premium referenced, country risk sourced from sovereign rating",
+      "5": "Implied ERP used for mature market with source and date, country risk premium derived from sovereign default spread adjusted by equity/bond volatility ratio, geographic weighting applied using revenue breakdown"
+    },
+    {
+      "name": "Country Risk Treatment",
+      "1": "Country risk ignored for emerging market company, or entire company assigned home country risk regardless of revenue geography",
+      "3": "Country risk acknowledged and estimated, revenue-weighted CRP attempted but with limited geographic detail",
+      "5": "CRP computed per country or region, weighted by revenue geography, volatility ratio applied, approach choice (location vs operation vs lambda) stated and justified"
+    },
+    {
+      "name": "Beta Estimation",
+      "1": "Single regression beta used without noting standard error, or arbitrary beta assumed, no comparable firms referenced",
+      "3": "Bottom-up approach attempted with comparable firms, betas unlevered and relevered, but sample small (<10 firms) or procedure partially documented",
+      "5": "Bottom-up beta from 15+ comparable firms, each unlevered at own D/E and tax rate, median computed, relevered at target capital structure, standard error significantly lower than regression alternative"
+    },
+    {
+      "name": "Cost of Equity Accuracy",
+      "1": "CAPM formula applied incorrectly, inputs inconsistent (USD riskfree rate with BRL ERP), or cost of equity below riskfree rate",
+      "3": "CAPM applied correctly with consistent inputs, cost of equity in reasonable range for the company type and geography",
+      "5": "CAPM applied with all inputs derived from prior steps, currency-consistent, result sanity-checked against industry peers and geographic norms, expanded form showing each component"
+    },
+    {
+      "name": "Synthetic Rating Quality",
+      "1": "No cost of debt estimation, or arbitrary spread assumed without interest coverage analysis",
+      "3": "Interest coverage computed, mapped to rating via lookup table, default spread identified, but firm size category not considered or EBIT not normalized",
+      "5": "Interest coverage from normalized EBIT, correct table used (large vs small firm), rating cross-checked against actual rating if available, default spread sourced and current"
+    },
+    {
+      "name": "Capital Structure Weights",
+      "1": "Book values used for equity weight, or weights assumed without computation, or weights do not sum to 100%",
+      "3": "Market value of equity used, debt approximated (book or market), weights computed and sum to 100%",
+      "5": "Market value of equity from current share price x diluted shares, debt at market value or justified book approximation, weights clearly computed, sensitivity to weight changes noted"
+    },
+    {
+      "name": "WACC Computation Consistency",
+      "1": "WACC formula applied incorrectly, or WACC exceeds cost of equity, or after-tax adjustment missing on debt, or currency mismatch",
+      "3": "WACC correctly computed from components, after-tax cost of debt used, result in correct currency, within plausible range",
+      "5": "WACC computed with all components traceable to prior steps, after-tax debt cost uses marginal tax rate, market value weights, result validated (between after-tax kd and ke), sensitivity table provided across debt ratios"
+    }
+  ],
+  "guidance_by_type": {
+    "US / Developed Market Company": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Riskfree rate: 10-year Treasury yield directly usable, no default spread adjustment needed",
+        "ERP: Implied mature market ERP, no country risk premium required",
+        "Beta: Bottom-up from US industry peers, or regression beta with standard error noted",
+        "Cost of debt: Actual credit rating if available, synthetic as cross-check",
+        "WACC: Typically 7-10% for large US firms"
+      ],
+      "common_pitfalls": [
+        "Using historical ERP instead of implied",
+        "Using book value weights when market cap is readily available",
+        "Forgetting to use marginal tax rate for after-tax cost of debt"
+      ]
+    },
+    "Emerging Market Company": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Riskfree rate: Local bond minus sovereign default spread, or inflation differential method, with cross-check",
+        "ERP: Mature premium plus operation-weighted CRP with volatility adjustment",
+        "Beta: Bottom-up from global industry peers (not local market regression which is noisy)",
+        "Cost of debt: Synthetic rating using small-firm table if applicable, spread added to local riskfree rate",
+        "WACC: Currency-consistent, typically 10-16%+ depending on country"
+      ],
+      "common_pitfalls": [
+        "Using local government bond yield as riskfree rate without removing default spread",
+        "Assigning home country CRP to entire company regardless of geographic revenue mix",
+        "Using local market beta which reflects thin trading, not true business risk",
+        "Mixing currencies (USD riskfree rate with local ERP and local cash flows)"
+      ]
+    },
+    "Private Company": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Beta: Bottom-up from public peers, total beta adjustment if owner is undiversified",
+        "Cost of debt: Synthetic rating using small-firm table, interest coverage from normalized EBIT",
+        "Key decision: Diversified buyer (market beta) vs undiversified owner (total beta) clearly stated",
+        "Capital structure: Target or current D/E, justified by industry norms"
+      ],
+      "common_pitfalls": [
+        "Applying total beta when buyer is a diversified PE fund (should use market beta)",
+        "Using large-firm rating table for a small private company",
+        "Not noting that cost of equity for undiversified owner will be significantly higher"
+      ]
+    },
+    "Multi-Division Conglomerate": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Separate unlevered beta for each division from division-appropriate industry peers",
+        "Division-level CRP if divisions operate in different geographies",
+        "Value-weighted or revenue-weighted blending of division costs of capital",
+        "Corporate WACC presented alongside division-level WACCs"
+      ],
+      "common_pitfalls": [
+        "Using a single blended beta for all divisions",
+        "Ignoring that different divisions may face different country risks",
+        "Not weighting by value (or revenue as proxy) when combining divisions"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Currency mismatch",
+      "symptom": "Riskfree rate in one currency, ERP from another market, cash flows in a third currency",
+      "detection": "Check that riskfree rate, ERP, and projected cash flows are all denominated in the same currency",
+      "fix": "Pick one currency for the entire analysis. Derive riskfree rate in that currency. Build ERP consistently. If converting WACC across currencies, use the inflation differential formula."
+    },
+    {
+      "failure": "Defaultable bond used as riskfree rate",
+      "symptom": "Riskfree rate for India set at 7.5% (10-year Indian government bond) without noting that the Indian government has default risk (Baa3 rating)",
+      "detection": "Riskfree rate seems too high relative to US rate, or equals the local government bond yield for a non-AAA sovereign",
+      "fix": "Subtract the sovereign default spread from the local government bond yield, or use the inflation differential method from the US rate."
+    },
+    {
+      "failure": "Historical ERP used instead of implied",
+      "symptom": "ERP stated as 'the historical equity risk premium is 6.5%' without specifying time period, arithmetic vs geometric, or market conditions",
+      "detection": "ERP described as historical or backward-looking, no reference to current market-implied estimate",
+      "fix": "Use the implied ERP derived from current S&P 500 prices and expected cash flows. Reference Damodaran's annual update or compute directly."
+    },
+    {
+      "failure": "Regression beta without standard error",
+      "symptom": "Beta stated as a single number (e.g., 1.15) from a regression, with no acknowledgment of uncertainty",
+      "detection": "Beta sourced from a single regression with no confidence interval or standard error mentioned",
+      "fix": "If using regression beta, report standard error (typically 0.20+). Prefer bottom-up beta from 15-20 comparable firms for a more precise estimate."
+    },
+    {
+      "failure": "Book value weights for capital structure",
+      "symptom": "Equity weight computed as book value of equity / (book debt + book equity), producing an artificially low equity weight for profitable firms",
+      "detection": "Equity weight seems low relative to known market cap, or book equity is stated instead of market cap",
+      "fix": "Use market capitalization (shares outstanding x current price) for equity weight. Use market value of debt if available, or approximate with book value."
+    },
+    {
+      "failure": "Ignoring tax shield on debt",
+      "symptom": "WACC computed using pre-tax cost of debt instead of after-tax, overstating the true cost",
+      "detection": "After-tax cost of debt equals pre-tax cost of debt, or the (1-t) term is missing from the WACC formula",
+      "fix": "After-tax cost of debt = Pre-tax cost of debt x (1 - Marginal tax rate). Use marginal (not effective) tax rate."
+    },
+    {
+      "failure": "Country risk ignored for multinational",
+      "symptom": "A company with 60% emerging market revenue assigned zero country risk premium because it is incorporated in the US",
+      "detection": "CRP is zero for a company with significant emerging market operations, or CRP assigned based on incorporation rather than operations",
+      "fix": "Use operation-based revenue weighting to compute a blended CRP reflecting where the company actually earns its money."
+    },
+    {
+      "failure": "Wrong firm size table for synthetic rating",
+      "symptom": "A small company with 3.5x interest coverage rated BBB (large-firm table) instead of BB (small-firm table)",
+      "detection": "Rating seems generous relative to firm size and cash flow volatility",
+      "fix": "Use the large-firm table only for companies with revenue exceeding $5B. All others should use the small-firm table, which has tighter coverage thresholds."
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "criteria": [
+    {
+      "name": "Model Selection Appropriateness",
+      "1": "Wrong model chosen (e.g., FCFF for a bank, DDM for a high-growth company with no dividends), no rationale provided",
+      "3": "Reasonable model choice with basic rationale, model fits the company type, minor issues with justification",
+      "5": "Optimal model selected with clear rationale tracing to company characteristics (capital structure stability, dividend policy, industry type), alternative models considered and reasons for rejection stated"
+    },
+    {
+      "name": "Base Year Cash Flow Accuracy",
+      "1": "Base year cash flows taken directly from financial statements without adjustment, key items missing (no working capital change, no tax adjustment), formula errors",
+      "3": "Base year cash flows computed correctly from adjusted financials, tax rate applied, CapEx and depreciation identified, working capital change included",
+      "5": "Base year cash flows meticulously derived from cleaned financials (R&D capitalized, leases converted, one-time items removed), all components sourced and documented, derived metrics (ROC, reinvestment rate, margin) computed and cross-checked against industry"
+    },
+    {
+      "name": "Growth Rate Justification",
+      "1": "Growth rate assumed without justification, inconsistent with fundamentals (high growth with no reinvestment), or contradicts narrative",
+      "3": "Growth rate justified by at least one method (fundamental, historical, or consensus), generally consistent with reinvestment assumptions",
+      "5": "Growth rate derived from fundamental method (g = reinvestment rate x ROC), cross-checked against historical and consensus, explicitly linked to business narrative (TAM, competitive position, life cycle), high-growth period length justified by competitive advantage assessment"
+    },
+    {
+      "name": "Projection Consistency",
+      "1": "Year-by-year projections contain internal contradictions (growth without reinvestment, margins that violate industry physics), missing years or incomplete table",
+      "3": "Projections are internally consistent, growth and reinvestment aligned, margins converge toward reasonable target, all years populated",
+      "5": "Projections show clear logical progression: revenue bounded by TAM, margins converging to target with explicit rationale, reinvestment rate consistent with growth and ROC, each input traceable to narrative assumption, transition to stable period smooth and justified"
+    },
+    {
+      "name": "Terminal Value Reasonableness",
+      "1": "Terminal value computed with stable growth exceeding GDP growth, no reinvestment adjustment in stable period, or formula applied incorrectly",
+      "3": "Terminal value uses growing perpetuity with stable growth at or below risk-free rate, reinvestment rate adjusted for stable period, proportion of total value noted",
+      "5": "Terminal value rigorously constructed: stable growth bounded by risk-free rate or GDP, reinvestment rate = g/ROC, cost of capital converged to mature levels, exit multiple cross-check performed, terminal value proportion flagged if extreme, sensitivity to stable growth shown"
+    },
+    {
+      "name": "Discounting Correctness",
+      "1": "Cash flows and discount rates mismatched (FCFF at cost of equity, FCFE at WACC), present value factors computed incorrectly, discounting convention unclear",
+      "3": "Correct matching of cash flows to discount rates, present value factors correct, discounting convention stated",
+      "5": "Discounting fully consistent (FCFF at WACC, FCFE at ke, DDM at ke), present value factors verified, convention stated (end-of-year or mid-year with rationale), multi-currency handled correctly if applicable, terminal value discounted at appropriate year"
+    },
+    {
+      "name": "Equity Bridge Completeness",
+      "1": "No bridge from firm value to equity (for FCFF), or bridge missing major components (debt not subtracted, cash not added, options ignored)",
+      "3": "Bridge includes main components: debt subtracted, cash added, per-share value computed. Options may be handled via diluted share count",
+      "5": "Complete equity bridge: market value of debt subtracted (not book value), cash and non-operating assets added, employee stock options valued (treasury stock or Black-Scholes) and subtracted, minority interests addressed, diluted share count used with method stated"
+    },
+    {
+      "name": "Sensitivity Analysis",
+      "1": "No sensitivity analysis, single point estimate only, no acknowledgment of uncertainty",
+      "3": "Two-way sensitivity grid (growth vs. WACC) computed, base case identified, range of outcomes stated",
+      "5": "Comprehensive sensitivity: two-way grid on growth and WACC, additional dimensions tested (margin, growth period length, reinvestment), tornado chart or ranked sensitivity identifying highest-impact inputs, value range clearly stated (bull/bear/base), breakeven analysis for key decision thresholds"
+    },
+    {
+      "name": "Value Decomposition",
+      "1": "No breakdown of where value comes from, terminal value proportion not stated",
+      "3": "Terminal value proportion stated and flagged if high (>80%), basic split between near-term and terminal value shown",
+      "5": "Full decomposition: value from current operations, value from high-growth period, value from terminal period each quantified, terminal value proportion assessed against norms (50-80%), cash and non-operating asset contribution identified, implications for sensitivity discussed"
+    },
+    {
+      "name": "Overall Plausibility",
+      "1": "Final value is implausible relative to market price, comparables, or common sense, with no acknowledgment of the divergence",
+      "3": "Final value is reasonable, compared to current market price, basic margin of safety or implied growth analysis performed",
+      "5": "Final value is plausible and contextualized: compared to market price with margin of safety, compared to relative valuation estimates, implied growth rate and ROIC reverse-engineered from market price, narrative consistency verified (value story matches numbers story), key risks to valuation thesis identified"
+    }
+  ],
+  "guidance_by_type": {
+    "FCFF Two-Stage (Standard)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Base year FCFF computed from adjusted financials with correct tax treatment",
+        "Growth rate derived from reinvestment rate x ROC, cross-checked with historical/consensus",
+        "Terminal value with stable growth at or below risk-free rate, reinvestment rate = g/ROC",
+        "Complete equity bridge: firm value - debt + cash - options = equity",
+        "Two-way sensitivity grid (growth vs WACC) with base case marked"
+      ],
+      "common_pitfalls": [
+        "Using book value of debt instead of market value in equity bridge",
+        "Forgetting to adjust reinvestment rate in stable period",
+        "Keeping high-growth WACC in terminal value when capital structure should converge",
+        "Omitting employee stock option value for tech companies"
+      ]
+    },
+    "FCFE Two-Stage": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "FCFE includes net debt issuance/repayment, not just operating items",
+        "Discount rate is cost of equity, not WACC",
+        "No equity bridge needed (result is equity value directly), but option deduction still required",
+        "Debt ratio assumption stated and justified as stable",
+        "Cross-check: FCFE model value should equal FCFF model value minus debt if assumptions are consistent"
+      ],
+      "common_pitfalls": [
+        "Discounting FCFE at WACC instead of cost of equity",
+        "Ignoring net debt flows (treating FCFE as FCFF)",
+        "Assuming debt ratio is stable when the company is actively deleveraging"
+      ]
+    },
+    "Dividend Discount Model": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Company has consistent dividend track record and payout ratio",
+        "Growth rate reflects retention ratio x ROE, not just historical dividend growth",
+        "Stable payout ratio justified (company is mature, not retaining for high-return projects)",
+        "If buybacks are significant, augmented DDM (dividends + buybacks) considered"
+      ],
+      "common_pitfalls": [
+        "Using DDM for a company that retains most earnings for high-ROE reinvestment",
+        "Ignoring buybacks that represent a significant portion of cash returns",
+        "Stable growth rate exceeding sustainable rate (retention x ROE)"
+      ]
+    },
+    "Three-Stage Model": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Clear rationale for three stages rather than two (long growth runway, young company)",
+        "Transition period parameters interpolate linearly (growth, reinvestment, beta, debt ratio)",
+        "All three stages internally consistent (growth matches reinvestment at each stage)",
+        "Terminal value computed at end of transition period, not end of high-growth period"
+      ],
+      "common_pitfalls": [
+        "Transition period too short (1-2 years) making it effectively two-stage",
+        "Parameters not interpolating smoothly (abrupt changes between stages)",
+        "Cost of capital not converging during transition"
+      ]
+    },
+    "Negative Earnings / Revenue-Based": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Revenue-based approach with margin convergence to mature-industry target",
+        "Sales-to-capital ratio used for reinvestment estimation",
+        "Failure probability explicitly estimated and applied",
+        "Target margin sourced from mature industry peers, not management projections",
+        "Value = DCF x (1 - P_failure) + Distress value x P_failure"
+      ],
+      "common_pitfalls": [
+        "Using management's optimistic margin targets without industry benchmarking",
+        "Ignoring failure probability for early-stage companies",
+        "Applying standard reinvestment rate when sales-to-capital is more appropriate"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Cash flow / discount rate mismatch",
+      "symptom": "FCFF discounted at cost of equity, or FCFE discounted at WACC. Result will be systematically biased (FCFF at ke overstates equity value, FCFE at WACC understates it)",
+      "detection": "Check which cash flow is being discounted and verify the discount rate label matches (WACC for FCFF, ke for FCFE/DDM)",
+      "fix": "Enforce the consistency principle: FCFF pairs with WACC, FCFE pairs with cost of equity, dividends pair with cost of equity"
+    },
+    {
+      "failure": "Stable growth exceeds economic growth",
+      "symptom": "Terminal value is enormous because the denominator (r - g) is very small, pushing total value to implausible levels",
+      "detection": "Compare stable growth rate to risk-free rate and nominal GDP growth. If g_stable > risk-free rate, the model is likely broken",
+      "fix": "Cap stable growth at risk-free rate (conservative) or nominal GDP growth (upper bound). For most developed-market companies, 2-3% nominal is appropriate"
+    },
+    {
+      "failure": "Reinvestment-growth disconnect in stable period",
+      "symptom": "Stable growth is 3% but reinvestment rate is 0% (or vice versa: 50% reinvestment with 2% growth). This implies value creation from nothing or massive value destruction",
+      "detection": "Check that stable reinvestment rate = g_stable / ROC_stable. If ROC is not stated, this check cannot be performed",
+      "fix": "Explicitly compute stable reinvestment rate as g/ROC. State the implied stable ROC and verify it is reasonable (typically converging toward cost of capital for mature companies)"
+    },
+    {
+      "failure": "Incomplete equity bridge",
+      "symptom": "FCFF model produces firm value but analyst reports per-share value without showing debt subtraction, cash addition, or option deduction. Creates an unexplained gap",
+      "detection": "Check whether the bridge from firm value to per-share value shows each component",
+      "fix": "Show complete bridge: firm value - market value of debt + cash + non-operating assets - option value - minority interests = equity value. Divide by diluted shares"
+    },
+    {
+      "failure": "No sensitivity analysis",
+      "symptom": "Single point estimate presented as 'the value' without any range or acknowledgment of uncertainty. Creates false precision",
+      "detection": "Check whether the output includes any variation of key inputs",
+      "fix": "At minimum, produce a two-way grid varying stable growth rate and WACC. Report value as a range (e.g., $42-$58 per share, base case $49)"
+    },
+    {
+      "failure": "Terminal value exceeds 90% of total",
+      "symptom": "Almost all value comes from the terminal period, meaning the explicit projection period contributes very little. The valuation is effectively a single perpetuity",
+      "detection": "Compute terminal value as a percentage of total firm/equity value",
+      "fix": "Consider whether the high-growth period is too short, growth rate too low, or reinvestment too high during explicit period. Extending the projection or raising near-term growth may be appropriate if supported by the narrative"
+    },
+    {
+      "failure": "Book value of debt used instead of market value",
+      "symptom": "Equity value in the bridge uses book value of debt (from balance sheet) rather than market value, leading to systematic over- or under-estimation of equity",
+      "detection": "Check the source of the debt figure subtracted in the equity bridge",
+      "fix": "Use market value of debt. If not available, estimate by discounting future debt payments at current cost of debt. For investment-grade companies, book and market are usually close; for distressed companies, the difference is material"
+    },
+    {
+      "failure": "Ignoring employee stock options",
+      "symptom": "Equity value divided by basic shares, ignoring potentially large option grants. Per-share value is overstated, sometimes by 10-20% for tech companies",
+      "detection": "Check whether options are addressed (either via diluted share count or separate option value subtraction)",
+      "fix": "Use treasury stock method (add diluted shares) or Black-Scholes (subtract option value from equity, divide by basic shares). For companies with >5% of shares in options, this is material"
+    },
+    {
+      "failure": "Growth rate disconnected from narrative",
+      "symptom": "Growth rate appears as a number with no link to business story (TAM, competitive position, life cycle). Cannot be challenged or updated because its basis is unclear",
+      "detection": "Ask 'Why 12% and not 8% or 16%?' If no narrative answer exists, the input is not grounded",
+      "fix": "Trace each input to the business narrative: revenue growth from TAM and share trajectory, margins from industry benchmarks and competitive position, reinvestment from capital intensity of the business model"
+    },
+    {
+      "failure": "Double-counting growth",
+      "symptom": "High growth rate applied to income that already includes the reinvestment needed for that growth. This happens when growth is applied to operating income before subtracting reinvestment, then reinvestment is also subtracted",
+      "detection": "Check that FCFF = After-tax EBIT x (1 - Reinvestment Rate), not After-tax EBIT x (1 + g) x (1 - Reinvestment Rate) applied twice",
+      "fix": "Apply growth to after-tax operating income to get next year's income, then subtract reinvestment to get FCFF. The growth rate and reinvestment rate work together, not independently"
+    }
+  ]
+}
