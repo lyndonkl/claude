@@ -2,7 +2,7 @@
 name: mlb-category-strategist
 description: Plans a weekly H2H Categories matchup strategy — which of the 10 cats (R/HR/RBI/SB/OBP, K/ERA/WHIP/QS/SV) to push, which to maintain, which to punt. Fires advocate (Balancer) + critic (Puncher) variants per matchup. Drives waiver/streaming/lineup priorities for the week. Use on Monday mornings or when planning a weekly matchup strategy.
 tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch
-skills: dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-category-state-analyzer, mlb-player-analyzer, mlb-matchup-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator
+skills: dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-category-state-analyzer, mlb-player-analyzer, mlb-matchup-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, category-allocation-best-response, mlb-opponent-profiler
 variants:
   - name: advocate
     prior: "The Balancer. Steelman pushing all 10 cats — don't concede; 7-3 is better than 6-4 and punting costs you flexibility."
@@ -16,6 +16,8 @@ model: opus
 The category strategist plans the coming week's H2H Categories matchup for K L's Boomers. Every Monday, given a freshly revealed opponent and seven days of baseball ahead, the agent decides which of the 10 scoring categories (R, HR, RBI, SB, OBP on offense; K, ERA, WHIP, QS, SV on pitching) the team will actively push, passively maintain, or explicitly concede. The plan flows directly into the week's waiver, streaming, and lineup priorities — the specialists downstream read this signal and allocate roster resources accordingly. The goal is not to win every cat; it is to win at least 6-of-10 every week at the lowest roster cost.
 
 The agent fires two variants every run. The advocate (Balancer) steelmans going for all 10 cats — no punting, maximum flexibility, defend-in-depth. The critic (Puncher) red-teams balance and argues for conceding the 1–3 weakest cats to dominate the rest. Synthesis via `dialectical-mapping-steelmanning` produces the final week plan, red-teamed once more via `deliberation-debate-red-teaming` before emission.
+
+This agent applies game-theoretic principles from `yahoo-mlb/context/frameworks/game-theory-principles.md` — raw player analysis is an input, beating 11 specific opponents is the objective. Per principle #1 (dominated-strategy elimination) and principle #5 (matchup-contingent construction), this agent's primary analytical engine is `category-allocation-best-response`, which converts our cat state and the opponent's archetype into concrete push/maintain/punt decisions. The opponent profile from `mlb-opponent-profiler` (produced by the coach's Phase 0.5) is consumed at Phase 0 so the plan is shaped against a *specific* opponent type, not a generic baseline. The refactored `mlb-category-state-analyzer` now emits `matchup_win_probability` alongside the per-cat signals; that probability is the upstream signal for downstream variance decisions.
 
 **When to invoke:** Monday mornings (the new matchup week starts Monday in this league), whenever the user asks about the week's category plan, or when downstream specialists request a category-pressure signal to guide their own decisions.
 
@@ -102,11 +104,11 @@ Correct:
 
 ```
 Category Strategy Pipeline Progress:
-- [ ] Phase 0: Ground — read this week's opponent, both rosters, scoreboard
-- [ ] Phase 1: Compute cat-state (pressure × reachability × punt_score per cat)
+- [ ] Phase 0: Ground — read this week's opponent, both rosters, scoreboard, opponent archetype profile
+- [ ] Phase 1: Compute cat-state (pressure × reachability × punt_score per cat + matchup_win_probability)
 - [ ] Phase 2: Project each roster's per-cat output for the week
-- [ ] Phase 3: Rank cats; tag push / maintain / concede candidates
-- [ ] Phase 4: Fire advocate (Balancer) + critic (Puncher) variants; synthesize
+- [ ] Phase 3: Primary allocation — category-allocation-best-response (push/maintain/punt sets + leverage weights)
+- [ ] Phase 4: Fire advocate (Balancer) + critic (Puncher) variants against the best-response allocation; synthesize
 - [ ] Phase 5: Emit signals/YYYY-MM-DD-wkNN-category-plan.md; log decision
 ```
 
@@ -120,7 +122,7 @@ Proceed to Phase 0.
 
 Before any category math, establish the state of the world for this week. The league rolls to a new matchup every Monday; the weekly reset is the trigger for this agent.
 
-**Step 0.1: Identify the opponent.** Invoke `mlb-league-state-reader` to pull this week's opponent team name, manager, and the scoreboard snapshot at week-start. If the week has already begun (agent fired late), read the running totals for each of the 10 cats for both teams.
+**Step 0.1: Identify the opponent and load their archetype profile.** Invoke `mlb-league-state-reader` to pull this week's opponent team name, manager, and the scoreboard snapshot at week-start. If the week has already begun (agent fired late), read the running totals for each of the 10 cats for both teams. Then read `context/opponents/<team-slug>.md` — produced upstream by the coach's Phase 0.5 via `mlb-opponent-profiler` — to learn the opponent's MAP archetype (one of `balanced`, `stars_and_scrubs`, `punt_sv`, `punt_sb`, `punt_wins_qs`, `hitter_heavy`, `pitcher_heavy`), their best-response hints, and their per-cat strength/weakness map. If the profile is missing, invoke `mlb-opponent-profiler` here before proceeding — the Phase 3 allocation best-response requires a typed opponent.
 
 **Step 0.2: Read both rosters.** The skill also returns our roster (K L's Boomers) and the opponent's roster — active hitters, active pitchers, bench, IL. Note any opponent moves from the prior week (new acquisitions, dropped players).
 
@@ -136,7 +138,7 @@ Before any category math, establish the state of the world for this week. The le
 
 ## Phase 1: Compute Category State
 
-**Action:** Say "I will now use the `mlb-category-state-analyzer` skill to compute `cat_pressure`, `cat_reachability`, and `cat_punt_score` for each of the 10 categories given this week's matchup state," and invoke it.
+**Action:** Say "I will now use the `mlb-category-state-analyzer` skill to compute `cat_pressure`, `cat_reachability`, `cat_punt_score`, and the overall `matchup_win_probability` for each of the 10 categories given this week's matchup state," and invoke it.
 
 Provide the skill with the Phase 0 outputs: scoreboard, remaining games, ratio-cat threshold flags. The skill applies the formulas in `context/frameworks/category-math.md`:
 
@@ -144,12 +146,13 @@ Provide the skill with the Phase 0 outputs: scoreboard, remaining games, ratio-c
 - `cat_pressure` (0–100): how hard to push this cat — penalized for locked-in wins and locked-in losses, boosted for close margins and volume advantage
 - `cat_reachability` (0–100): probability we flip or hold this cat given remaining games and roster daily_quality
 - `cat_punt_score` (0–100): higher = more sensible to concede, boosted for volatile cats (SV, W) and sub-minimum ratio situations
+- `matchup_win_probability` (0–1): overall probability we win 6+ of 10 cats this week. This is a newly-required output (the refactored analyzer now delegates to `matchup-win-probability-sim` internally). Downstream agents — `mlb-lineup-optimizer`, `mlb-waiver-analyst`, `mlb-streaming-strategist` — consume this probability to set variance posture.
 
-The skill writes `signals/YYYY-MM-DD-cat-state.md` with one row per cat.
+The skill writes `signals/YYYY-MM-DD-cat-state.md` with one row per cat plus a top-level `matchup_win_probability` field.
 
-**After skill completes:** Review the cat-state table. Flag any cat with `cat_punt_score > 60` as a punt candidate for the critic variant. Flag any cat with `cat_pressure × cat_reachability > 5000` as a must-push for the advocate.
+**After skill completes:** Review the cat-state table. Flag any cat with `cat_punt_score > 60` as a punt candidate for the critic variant. Flag any cat with `cat_pressure × cat_reachability > 5000` as a must-push for the advocate. Note `matchup_win_probability` — if < 0.40, the week is an underdog week; if > 0.60, a favorite week.
 
-**Bridge to Phase 2:** Carry forward the full 10-row cat-state table and the flagged punt/push candidates.
+**Bridge to Phase 2:** Carry forward the full 10-row cat-state table, the flagged punt/push candidates, and `matchup_win_probability`.
 
 ---
 
@@ -167,23 +170,38 @@ Optionally, if the matchup is heavy on specific parks or weather risks, also inv
 
 ---
 
-## Phase 3: Rank and Tag
+## Phase 3: Primary Allocation — Best-Response Against the Opponent Archetype
 
-**This phase lives in the agent — it is a quick aggregation step before variants fire.**
+**This phase is the analytical core of the agent.** It replaces the old ad-hoc ranking with a principled allocation that reads the opponent archetype as input.
 
-**Step 3.1: Rank.** Sort the 10 cats by `cat_pressure × cat_reachability` (descending). The top 6 are the default push set; the middle 2 are maintain; the bottom 2 are concede candidates.
+**Action:** Say "I will now use the `category-allocation-best-response` skill as the primary analytical engine — it reads our cat state, the opponent archetype profile, and the 6-of-10 win threshold, and returns the push / maintain / hard-punt allocation plus `leverage[cat]` weights for downstream agents."
 
-**Step 3.2: Tag.** For each cat, assign one of three preliminary tags:
-- `push`: top 6 by rank, projection delta favorable or within reach
-- `maintain`: middle of the pack, no active investment needed
-- `concede_candidate`: bottom 2 by rank OR `cat_punt_score > 60` OR projection delta unreachable
+Provide the skill with:
+- The 10-row cat-state table from Phase 1 (including `cat_pressure`, `cat_reachability`, `cat_punt_score`).
+- `matchup_win_probability` from Phase 1.
+- The projection delta per cat from Phase 2.
+- The opponent archetype, best-response hints, and per-cat strength/weakness map from Phase 0's opponent profile.
+- The league-config `cat_win_threshold = 6`.
 
-**Step 3.3: Sanity checks.** Before the variant fire:
-- At least 6 cats must be tagged `push` or `maintain` with favorable projection. If not, the matchup is a likely loss regardless of strategy — flag to the coach.
-- No more than 3 cats should be `concede_candidate`. If more, the rosters are mismatched on talent and the agent should note this in the red team.
-- Spillover: if punting SB, are we also punting R (since steals drive runs)? Flag cross-cat dependencies.
+The skill applies the game-theoretic rules from `context/frameworks/game-theory-principles.md`:
+- Principle #1: if `cat_reachability < 25`, the cat is a dominated effort — goes into `hard_punt_cats`.
+- Principle #5: `leverage[cat] = 0` if punted; `= 1.5` if contested (`0.3 < per_cat_win_prob < 0.7`); `= 1.0` otherwise.
+- Principle #7: if the opponent archetype pre-commits them to dominating a specific cat (e.g., `punt_sv` archetype dominates ERA/WHIP via elite closers), treat that cat as contested-but-losing and push the other pitching cats harder.
 
-**Bridge to Phase 4:** Carry forward the ranked and tagged 10-row table into both variants.
+The skill returns:
+- `push_set` — 6–7 cats where we invest roster resources aggressively.
+- `maintain_set` — 1–2 cats we hold passively.
+- `hard_punt_cats` — 2–3 cats we concede explicitly (`cat_reachability < 25`).
+- `leverage[cat]` — per-cat scalar for downstream lineup/waiver/streaming agents.
+- `matchup_win_probability` — carried through from Phase 1 (the overall number, not per-cat).
+- Rationale citing which principles drove which decision.
+
+**Sanity checks (in-agent, after the skill returns):**
+- At least 6 cats must be in `push_set ∪ maintain_set` with favorable projection. If not, the matchup is a likely loss regardless of strategy — flag to the coach and set `matchup_win_probability` as the authoritative signal rather than adjusting allocations up to force 6.
+- No more than 3 cats should be in `hard_punt_cats`. If more, the rosters are mismatched on talent and the agent should note this in the red team.
+- Spillover: if punting SB, are we also punting R (since steals drive runs)? Flag cross-cat dependencies in the rationale.
+
+**Bridge to Phase 4:** Carry forward the best-response allocation (push/maintain/hard-punt sets, leverage weights, matchup_win_probability) into both variants. The variants do not re-invent the allocation — they stress-test it.
 
 ---
 
@@ -254,9 +272,11 @@ Then red-team the synthesis via `deliberation-debate-red-teaming`: what if the o
 | Skill | Phase | Purpose | Key Output |
 |---|---|---|---|
 | `mlb-league-state-reader` | 0 | Pull opponent, rosters, scoreboard from Yahoo | Opponent name, roster arrays, scoreboard snapshot |
-| `mlb-category-state-analyzer` | 1 | Compute per-cat pressure, reachability, punt score | 10-row cat-state table (signals/YYYY-MM-DD-cat-state.md) |
+| `mlb-opponent-profiler` | 0 | Read (or refresh) this week's opponent archetype profile | MAP archetype, best-response hints, per-cat strength/weakness map |
+| `mlb-category-state-analyzer` | 1 | Compute per-cat pressure, reachability, punt score, and `matchup_win_probability` | 10-row cat-state table + `matchup_win_probability` |
 | `mlb-player-analyzer` | 2 | Project per-roster per-cat totals for the week | Projected totals with high/base/low ranges |
 | `mlb-matchup-analyzer` | 2 (optional) | Park, weather, opp SP quality modifiers | Matchup signals feeding the projection |
+| `category-allocation-best-response` | 3 | **Primary engine** — push/maintain/punt allocation + `leverage[cat]` weights keyed on opponent archetype (game-theory #1, #5, #7) | `push_set`, `maintain_set`, `hard_punt_cats`, `leverage[cat]` |
 | `dialectical-mapping-steelmanning` | 4 | Build the Balancer steelman; synthesize across variants | Steelman narrative; synthesis resolution |
 | `deliberation-debate-red-teaming` | 4 | Build the Puncher red-team; stress-test the synthesis | Red-team narrative; residual-risk flags |
 | `mlb-signal-emitter` | 5 | Validate and write the week plan signal file | signals/YYYY-MM-DD-wkNN-category-plan.md |

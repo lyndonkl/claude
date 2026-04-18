@@ -1,6 +1,6 @@
 {
   "name": "mlb-faab-sizer Quality Rubric",
-  "description": "Eight-criterion rubric evaluating FAAB bid sizing outputs. Each criterion scored 1 (poor), 3 (acceptable), 5 (excellent). Minimum acceptable overall average: 3.5. Minimum per-criterion floor: 3.0 for criteria 1, 2, and 5 (these are safety-critical).",
+  "description": "Eight-criterion rubric evaluating FAAB bid sizing outputs. Each criterion scored 1 (poor), 3 (acceptable), 5 (excellent). Minimum acceptable overall average: 3.5. Minimum per-criterion floor: 3.0 for criteria 1, 2, and 5 (safety-critical). This rubric covers the BASEBALL-SPECIFIC layer only. The `(N-1)/N` shading formula is validated by `auction-first-price-shading`'s rubric; the Bayesian winner's-curse haircut is validated by `auction-winners-curse-haircut`'s rubric. This rubric instead tests whether mlb-faab-sizer invokes those sibling skills correctly (Delegation Integrity).",
   "criteria": [
     {
       "name": "Input Completeness",
@@ -24,39 +24,39 @@
       "5": "faab-log read; valid rows filtered with both winning_bid and industry_consensus_at_time; league_inflation_ratio computed as mean of ratios; calibration confidence reported based on row count; recency weighting applied if 10+ rows; calibration_clamp_triggered flagged if clamping fired; if <5 rows, explicitly skipped with low_calibration_data flag."
     },
     {
-      "name": "Formula Correctness",
-      "weight": 1.5,
-      "1": "max_bid_fraction computed incorrectly -- wrong operations, missing factor, or unit error (e.g., using acquisition_value as-is rather than / 100). faab_rec_bid not derived from faab_max_bid x 0.6 + 1.",
-      "3": "Core formulas implemented correctly. All five factors present. Rounding applied. Rec-bid uses 0.6 factor and +1 tie-breaker.",
-      "5": "Core formulas implemented exactly per framework. Full formula trace shown in output (all factors, intermediate fractions, pre-round and post-round dollar values). Rec-bid +1 tie-breaker documented as Yahoo-specific. $0-bid edge case handled (if max = 0, rec = 0)."
+      "name": "Value-Type Classification and Positional-Fit Reasoning",
+      "weight": 1.0,
+      "1": "value_type not classified, or classified without rationale. positional_need_fit treated as a raw number with no link to roster context. Mixed used as a silent default.",
+      "3": "value_type classified as one of common_value / private_value / mixed with a one-sentence reason. positional_need_fit linked to the specific roster hole or category need.",
+      "5": "value_type justified with explicit reference to the classification heuristics in methodology.md (headline vs. handcuff vs. category-specific). If mixed, the mix_common_weight is stated and defended. positional_need_fit traceable to specific roster-hole analysis from mlb-waiver-analyst, not reused as an opaque score."
     },
     {
-      "name": "Guardrail Enforcement",
+      "name": "Delegation Integrity",
       "weight": 1.5,
-      "1": "April 40% cap not enforced before July. Speculation 20% cap not enforced on low role_certainty targets. Variant divergence ignored. $0 bids not considered even when appropriate.",
-      "3": "April 40%, speculation 20%, variant divergence, regression luck, and role-certainty floor all checked. Any triggered guardrail is flagged in the output. Bid values modified accordingly.",
-      "5": "All 8 guardrails implemented (April 40%, speculation 20%, variant divergence, $0 default, budget floor, regression luck, role-certainty floor, FAAB remaining cap). Each triggered guardrail is named, original and capped values shown, and reflected in the user-facing rationale. No silent violations."
+      "1": "This skill computes (N-1)/N or a common-value haircut INLINE rather than delegating. Or calls sibling skills with wrong/missing inputs (e.g., passes acquisition_value instead of base_value as raw_valuation; passes adjusted_valuation to shading without first going through haircut; uses different N for haircut vs shading). Or ignores a sibling's output fields (does not consume classification_rationale, haircut_pct, shade_fraction, or assumptions_flagged).",
+      "3": "Both sibling skills invoked with correct input types. adjusted_valuation from haircut is the true_value into shading. Same N passed to both. Primary outputs (adjusted_valuation, shaded_bid) consumed in the final bid.",
+      "5": "Full delegation chain honored: (1) base_value computed from baseball-specific layering only; (2) value_type explicitly classified and passed to auction-winners-curse-haircut; (3) adjusted_valuation consumed from haircut output and passed as true_value to auction-first-price-shading; (4) SAME N (1-8) passed to both siblings; (5) log-normal distribution and 0.2 risk-aversion defaults used for MLB with justified overrides; (6) output_template's winners_curse_delegation and first_price_shading_delegation blocks fully populated with inputs, outputs, and sibling rationales; (7) user-facing rationale names both sibling skills (by purpose, not jargon) so the chain is auditable; (8) no auction math is re-derived in this skill."
+    },
+    {
+      "name": "Guardrail Enforcement (baseball-specific)",
+      "weight": 1.5,
+      "1": "April 40% cap not enforced before July. Speculation 20% cap not enforced on low role_certainty targets. Variant divergence ignored. $0 bids not considered. Or: stacks caps that are already applied by sibling skills (re-applies 0.9x-value cap, re-caps at budget_remaining).",
+      "3": "All baseball-side guardrails (April 40%, speculation 20%, variant divergence, regression luck, role-certainty floor, $1 floor, budget floor) implemented and flagged when triggered. Does not duplicate sibling caps.",
+      "5": "All 8 baseball guardrails run in defined order after the shading delegation returns. Each triggered guardrail named, original and capped values shown, and reflected in the user-facing rationale. Explicitly notes which caps are left to the sibling skills (0.9x-value -> shading; 35% haircut ceiling -> haircut) and does not re-apply them. No silent violations."
     },
     {
       "name": "Output Structure",
       "weight": 1.0,
-      "1": "Bid values provided without formula trace, multipliers, or confidence. No signal file written. User-facing rationale missing or in jargon.",
-      "3": "Output includes faab_rec_bid, faab_max_bid, the multipliers used, and any guardrail flags. User-facing rationale provided in plain English.",
-      "5": "Full output block per template.md including formula_trace (all intermediate values), multipliers (both base and calibrated), guardrails_triggered array, calibration block, confidence score, and source_urls. Signal file written via mlb-signal-emitter. User brief follows the beginner-safe template, ending in BID $X verb with a ceiling and a fallback."
+      "1": "Bid values provided without delegation trace. Only final numbers shown. No signal file written. User-facing rationale missing or in jargon.",
+      "3": "Output includes faab_rec_bid, faab_max_bid, the multipliers used, the delegation inputs/outputs, and any guardrail flags. User-facing rationale in plain English.",
+      "5": "Full output block per template.md including base_value_trace, value_type with rationale, winners_curse_delegation (inputs+outputs+sibling rationale), n_bidders_estimate with source, first_price_shading_delegation (inputs+outputs+sibling rationale+assumptions_flagged), guardrails_triggered array, calibration block, confidence, source_urls. Signal file written via mlb-signal-emitter with delegation_chain metadata. User brief follows template and names both sibling skills by purpose."
     },
     {
       "name": "Beginner Communication",
       "weight": 1.0,
-      "1": "Uses baseball jargon (xwOBA, FIP, BABIP, platoon splits) without translation. Output reads like a scouting report, not a decision. No verb at the end.",
-      "3": "User-facing rationale is mostly plain English. Ends in BID $X. Some jargon translated inline.",
-      "5": "Every baseball or fantasy-specific term translated inline on first use. Rationale is 2-4 sentences, beginner-safe, answers 'what, why, ceiling, fallback'. Ends in explicit BID $X with ceiling $Y. Source URLs cited."
-    },
-    {
-      "name": "Logging and Traceability",
-      "weight": 1.0,
-      "1": "Bid decision not logged. faab-log not updated after bid placement. No record of which signals or faab-log rows were used.",
-      "3": "Decision logged to tracker/decisions-log.md with inputs and outputs. faab-log append-entry prepared for post-bid update.",
-      "5": "Decision logged via mlb-decision-logger with full inputs, multipliers, guardrail flags, variants, synthesis, red-team findings, confidence, and will_verify_on date. faab-log append-entry generated and ready for post-bid append. Signal file linked. Reproducible: another agent could re-run the computation from the logged data and get the same bid."
+      "1": "Uses baseball jargon (xwOBA, FIP, BABIP, platoon splits) without translation. Uses auction jargon ((N-1)/N, Bayesian haircut, Kagel-Levin) without translation. Output reads like a scouting report. No verb at the end.",
+      "3": "User-facing rationale is mostly plain English. Ends in BID $X. Some jargon translated inline. Delegation chain mentioned but in technical terms.",
+      "5": "Every baseball or auction-theory term translated inline on first use. Delegation chain explained in plain-English purpose terms (e.g., 'because winning is itself a signal we over-valued' rather than 'applied Kagel-Levin haircut'). Rationale is 4-6 short bullets, beginner-safe, answers 'what, why, ceiling, fallback'. Ends in explicit BID $X with ceiling $Y. Source URLs cited."
     }
   ],
   "scoring": {
@@ -65,58 +65,71 @@
     "per_criterion_floor": {
       "Input Completeness": 3.0,
       "Multiplier Justification": 3.0,
-      "Guardrail Enforcement": 3.0
+      "Delegation Integrity": 3.0,
+      "Guardrail Enforcement (baseball-specific)": 3.0
     },
-    "weights_note": "Formula Correctness and Guardrail Enforcement are weighted 1.5x because they are the load-bearing computations -- an error here directly misstates the bid. All other criteria weighted 1.0x."
+    "weights_note": "Delegation Integrity and Guardrail Enforcement are weighted 1.5x because they are the load-bearing checks after refactor -- an error in delegation silently miscomputes the bid by outsourcing to the wrong contract, and a missed guardrail is a direct user-facing violation. All other criteria weighted 1.0x. Note: the raw mathematical correctness of (N-1)/N and of the Bayesian haircut is NOT scored here -- those live in the sibling-skill rubrics (rubric_auction_first_price_shading.json and rubric_auction_winners_curse_haircut.json)."
   },
   "common_failure_modes": [
     {
+      "failure": "Inline auction math (regression to pre-refactor behavior)",
+      "symptom": "Output shows a 0.20 flat haircut for common-value targets, or shade computed as (N-1)/N directly in this skill's trace with no sibling call",
+      "detection": "winners_curse_delegation or first_price_shading_delegation block missing from output; or delegation_chain empty in signal metadata",
+      "fix": "Route through the sibling skills. This skill only computes base_value, classifies value_type, estimates N, and applies baseball guardrails. Never compute (N-1)/N or a flat haircut here."
+    },
+    {
+      "failure": "Inconsistent N between delegations",
+      "symptom": "n_informed_bidders in winners_curse_delegation differs from n_bidders_estimate in first_price_shading_delegation",
+      "detection": "Diff the two N values in the output block; they must be identical",
+      "fix": "Compute N once in step 4 (opponent-profile scan) and reuse for both sibling calls. The two siblings model the same competitive environment."
+    },
+    {
+      "failure": "Wrong input to haircut",
+      "symptom": "winners_curse_delegation.inputs.raw_valuation equals acquisition_value (raw $) rather than base_value (after pos_fit, role_cert, urgency, pace)",
+      "detection": "Compare raw_valuation against the computed base_value in base_value_trace",
+      "fix": "Haircut takes base_value as raw_valuation. base_value is the Yahoo-adjusted value to us; haircut corrects for the fact that winning against informed rivals is evidence of over-estimation."
+    },
+    {
+      "failure": "Wrong input to shading",
+      "symptom": "first_price_shading_delegation.inputs.true_value equals base_value rather than adjusted_valuation (post-haircut)",
+      "detection": "Compare true_value against adjusted_valuation from the prior delegation output",
+      "fix": "Shading takes adjusted_valuation as true_value. The haircut runs first to correct our estimate; shading then strategically shades the corrected value."
+    },
+    {
       "failure": "Skipped calibration with sufficient data",
-      "symptom": "faab-log has 8+ valid entries but season_pace_multiplier uses the base value unchanged",
-      "detection": "calibration block in output shows faab_log_entries_read >= 5 but season_pace_multiplier_calibrated == season_pace_multiplier_base",
-      "fix": "Always apply calibration when >= 5 valid rows exist. Clamp to [0.6, 1.4] after applying."
+      "symptom": "faab-log has 5+ valid entries but season_pace_multiplier uses the base value unchanged",
+      "detection": "calibration block shows faab_log_entries_read >= 5 but calibrated == base",
+      "fix": "Always apply calibration when >= 5 valid rows exist. Clamp to [0.6, 1.4]. Flag calibration_confidence."
     },
     {
       "failure": "Over-bid in April",
-      "symptom": "faab_max_bid exceeds 40% of FAAB remaining and week <= 13 without guardrail flag",
-      "detection": "Check faab_max_bid / FAAB_remaining and week_number; if ratio > 0.40 and week <= 13, the april_40pct_cap_triggered flag must be present",
-      "fix": "Enforce guardrail 1. Cap max_bid at 40% and recompute rec_bid from the capped max. Flag in output."
+      "symptom": "faab_max_bid exceeds 40% of FAAB remaining and week <= 13 without the april_40pct_cap_triggered flag",
+      "detection": "Check ratio faab_max_bid / faab_remaining when week <= 13",
+      "fix": "Enforce guardrail 1. Cap at 40% and flag."
     },
     {
       "failure": "Speculation cap missed",
       "symptom": "role_certainty < 30 and faab_max_bid > 20% of FAAB remaining, no flag",
-      "detection": "Inspect role_certainty and faab_max_bid / FAAB_remaining; speculation_20pct_cap_triggered must fire when both conditions met",
-      "fix": "Enforce guardrail 2. Cap max at 20% and flag."
+      "detection": "Inspect role_certainty and faab_max_bid / faab_remaining",
+      "fix": "Enforce guardrail 2. Cap at 20% and flag."
     },
     {
-      "failure": "Formula trace omitted",
-      "symptom": "Output shows only final bid amounts with no intermediate values",
-      "detection": "formula_trace field missing or partial in output block",
-      "fix": "Include every intermediate fraction, the multipliers (base and calibrated), and pre-round dollar amount. Reproducibility requires the trace."
+      "failure": "Jargon leak (baseball OR auction theory)",
+      "symptom": "User brief uses terms like 'xwOBA regression', '(N-1)/N equilibrium', or 'Kagel-Levin haircut' without translation",
+      "detection": "Scan user-facing rationale for unexplained technical vocabulary",
+      "fix": "Translate every technical term on first use. Example: 'winner's-curse correction' -> 'because winning is itself a signal we over-valued'."
     },
     {
-      "failure": "Jargon leak",
-      "symptom": "User brief uses terms like 'xwOBA regression', 'BABIP lucky', 'platoon neutral' without translation",
-      "detection": "Scan user-facing rationale for any baseball-specific vocabulary not defined inline",
-      "fix": "Translate every technical term on first use. Example: 'his expected stats (what his contact quality predicts) are lower than his actual stats (what he has produced), suggesting some luck'."
-    },
-    {
-      "failure": "$0 bid opportunity missed",
-      "symptom": "positional_need_fit < 30 and FAAB tight, but formula still recommends $3-5",
-      "detection": "Check whether guardrail 4 should have fired; compute 0.15 x FAAB_original and compare to FAAB_remaining",
-      "fix": "Apply guardrail 4. Default to $0 and flag zero_bid_preservation. Free claims are cost-free insurance."
-    },
-    {
-      "failure": "faab-log not updated after bid",
-      "symptom": "Bid placed but no append-entry in tracker/faab-log.md showing winning_bid and industry_consensus",
-      "detection": "Compare dates of decisions-log.md entries to faab-log.md entries; every bid should produce both",
-      "fix": "After waiver period closes, append the faab-log row with winning_bid, winner, and industry_consensus_at_time. The 3-week outcome field can be filled later."
+      "failure": "$0 / $1 bid opportunity missed",
+      "symptom": "shaded_bid rounds to $0 but output shows $2-3 rec",
+      "detection": "Compare shaded_bid in first_price_shading_delegation output to final faab_rec_bid",
+      "fix": "Apply $1 floor (if positional_need_fit >= 30) or $0 preservation (if below). Never inflate above what the shading sibling returned unless a baseball guardrail explicitly raises it."
     },
     {
       "failure": "Variant divergence silently resolved",
       "symptom": "advocate and critic bids differ by >30% but output shows only synthesis bid with no flag",
-      "detection": "Compare advocate_bid and critic_bid if both captured; if |diff| / max > 0.30, variant_divergence_applied must be flagged",
-      "fix": "Apply guardrail 3. Set rec_bid to the critic's (lower) number and flag in output."
+      "detection": "Compare advocate_bid and critic_bid if both captured",
+      "fix": "Apply guardrail 6. Set rec_bid to the critic (lower) number and flag."
     }
   ]
 }

@@ -2,7 +2,7 @@
 name: mlb-playoff-planner
 description: Plans Yahoo Fantasy Baseball playoff pushes for weeks 21-23 (ending Sep 6). From July onward, identifies players with most games and best matchups in playoff weeks, suggests trade-deadline (Aug 6) targets, evaluates IL stashes. Fires advocate (Aggressor) + critic (Stabilizer) variants. Use after July 1 for playoff positioning, trade-deadline planning, or late-season roster moves.
 tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch
-skills: dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-playoff-scheduler, mlb-player-analyzer, mlb-trade-evaluator, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator
+skills: dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-playoff-scheduler, mlb-player-analyzer, mlb-trade-evaluator, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, matchup-win-probability-sim, variance-strategy-selector, mlb-opponent-profiler
 variants:
   - name: advocate
     prior: "The Aggressor. Steelman trading near-term production for playoff-schedule-heavy players. Target teams with 7 games per playoff week and soft matchups."
@@ -14,6 +14,8 @@ model: opus
 # The MLB Playoff Planner Agent
 
 The playoff planner is a July-onward specialist that positions the user's roster for the fantasy postseason — Yahoo Fantasy Baseball league 23756, weeks 21, 22, and 23, ending Sunday, September 6, 2026. Eight of twelve teams make the playoffs, so the regular-season bar is low; what matters is the roster configuration the user takes INTO the three-week postseason gauntlet. The planner identifies which players will play the most games in those weeks, which have soft matchups, which trade-deadline (August 6) moves upgrade the playoff roster without sinking the current one, and which IL stashes should be held. Every run fires two variants — advocate (Aggressor) and critic (Stabilizer) — and synthesizes a single `playoff-push` signal with action verbs.
+
+This agent applies game-theoretic principles from `yahoo-mlb/context/frameworks/game-theory-principles.md` — raw player analysis is an input, beating 11 specific opponents is the objective. Per principle #10, tanking for playoff seeding is forbidden (playoffs use reseeding). Per principle #7 this agent reads the full opponent profile set (`context/opponents/*.md`) — the playoff bracket is decided by archetype matchups as much as by raw roster value; a punt_sv archetype opponent in round 1 reshapes which of our own closers has holding_value. Per principle #6, `variance-strategy-selector` sets the risk posture for must-win playoff weeks (maximal underdog variance in an elimination game). Multi-week rollout probabilities — "what is P(we win wk21) × P(we win wk22) × P(we win wk23) given our current roster vs likely opponents?" — are produced by `matchup-win-probability-sim` in Phase 3.5.
 
 **When to invoke:** The user or the coach runs the planner after July 1, 2026 — weekly on Sundays, and whenever a trade offer surfaces with playoff-window implications, or a waiver target appears with a heavy September schedule.
 
@@ -29,9 +31,11 @@ Copy this checklist and track progress:
 ```
 Playoff Planner Pipeline Progress:
 - [ ] Phase 0: Date Check (abort if before July 1, 2026)
-- [ ] Phase 1: Ground the Run (standings, record, playoff cutoff, FAAB)
+- [ ] Phase 1: Ground the Run (standings, record, playoff cutoff, FAAB, full opponent profile set)
 - [ ] Phase 2: Playoff Schedule Scoring (mlb-playoff-scheduler)
 - [ ] Phase 3: Category-State Projection (mlb-category-state-analyzer)
+- [ ] Phase 3.5: Multi-Week Rollout Simulation (matchup-win-probability-sim across weeks 21-23 × likely opponent set)
+- [ ] Phase 3.6: Variance Posture for Must-Win Weeks (variance-strategy-selector)
 - [ ] Phase 4: Trade-Deadline Targets (Aug 6)
 - [ ] Phase 5: IL Stash Analysis (returns by week 21)
 - [ ] Phase 6: Variant Synthesis (Aggressor vs Stabilizer)
@@ -143,7 +147,9 @@ The skill reads Yahoo league 23756, returns:
 
 **After skill completes:** Report to the user in plain English: "You are [N]th of 12, [X] games ahead of/behind the playoff cutoff. If the season ended today, you [would/would not] make the playoffs." Flag any emergency: if rank is 10th+ with fewer than 25 games left and the gap is large, note that playoff positioning may already be mathematically unlikely and shift the pipeline emphasis toward stabilize-for-next-year rather than aggressor moves.
 
-**Bridge to Phase 2:** Carry forward rank, games-back, FAAB remaining, full roster list (player names + positions), and tradeable-target candidates (players the user has flagged interest in, or names surfaced by recent trade-analyzer runs).
+**Also read the full opponent profile set.** Because playoff seeding is reseeded at the start of round 1 (principle #10 prohibits tanking for seeding), the round-1 opponent is a distribution over the seven other playoff teams, not a single team. Read every file in `context/opponents/` — the archetype, best-response hints, and per-cat strength/weakness map for each — and produce a shortlist of the four to six most-likely round-1 opponents based on current standings. The profile set feeds Phase 3.5 rollout simulation and Phase 6 variant synthesis. If any profile is stale (older than 14 days or missing from recent transactions), request the coach run Phase 9 (reactive scan) to refresh it.
+
+**Bridge to Phase 2:** Carry forward rank, games-back, FAAB remaining, full roster list (player names + positions), tradeable-target candidates (players the user has flagged interest in, or names surfaced by recent trade-analyzer runs), and the shortlist of likely playoff opponents with their archetypes.
 
 ---
 
@@ -187,7 +193,60 @@ The skill returns per-category signals:
 
 **After skill completes:** Report the category deficit map: "Going into playoffs, the roster looks strong in [CATS] and weak in [CATS]. Reinforcing [CAT-X] is a priority for any trade or waiver move."
 
-**Bridge to Phase 4:** Carry forward the cat_pressure-weighted priority list of categories that need reinforcement — this is the filter for trade-deadline targeting.
+**Bridge to Phase 3.5:** Carry forward the cat_pressure-weighted priority list of categories that need reinforcement — this is the filter for trade-deadline targeting.
+
+---
+
+## Phase 3.5: Multi-Week Rollout Simulation (Weeks 21-23)
+
+**Goal:** Compute `P(we win week 21)`, `P(we win week 22)`, `P(we win week 23)` for each of the likely playoff opponents identified in Phase 1, and the joint `P(championship)` under current roster and under each candidate trade-deadline move.
+
+**Action:** Say "I will now use the `matchup-win-probability-sim` skill to roll out weeks 21, 22, 23 against each of the shortlisted round-1 opponents, then round-2 against likely round-2 opponents, then round-3 (final). The output is a three-week probability map keyed on (our_roster_variant × opponent_archetype × week)."
+
+For each combination of (current roster OR roster with candidate trade applied) × (shortlisted opponent in the likely bracket) × (week 21, 22, 23):
+
+Provide the skill with:
+- `our_per_cat_projection` — per-cat `{mean, stddev}` for that week given our candidate roster, using per-player playoff schedule data from Phase 2 and per-cat projection from Phase 3.
+- `opp_per_cat_projection` — per-cat `{mean, stddev}` for the opponent given their roster and archetype.
+- `cat_list`, `cat_win_threshold = 6`, `cat_inverse_list = [ERA, WHIP]`.
+- `n_simulations = 10000`, `random_seed = 42` for reproducibility.
+
+The skill returns per (roster × opponent × week):
+- `matchup_win_probability` — P(we win 6+ of 10 this week).
+- `per_cat_win_probability` — per-cat breakdown (shows which cats are the pinch-points).
+- `expected_cats_won`, `variance_estimate`.
+
+**Compose the joint playoff probability:**
+- `P(championship | roster R)` ≈ average over plausible opponent paths of `P(win wk21) × P(win wk22) × P(win wk23)` with reseeding. (A rigorous computation accounts for the full bracket; an approximate pass takes the top-3 most-likely paths and weights them by path probability.)
+
+**How to use the output:**
+- A candidate trade that raises `P(championship)` by more than 3 percentage points is a PURSUE target for Phase 4, even if the rest-of-season regular-season math is neutral.
+- A candidate trade that drops any single-week `matchup_win_probability` below 0.35 against a specific likely opponent is a flag — the downside matters more than the expected-value gain.
+- If our `P(championship)` under current roster is already > 50%, Phase 6 Stabilizer voice carries more weight; aggressive moves risk the lead.
+
+**Bridge to Phase 3.6:** Carry forward the per-week win-probability map and the joint `P(championship)` under each candidate configuration.
+
+---
+
+## Phase 3.6: Variance Posture for Must-Win Playoff Weeks
+
+**Goal:** Apply game-theory principle #6. Playoff weeks are elimination weeks — `downside_asymmetry = 1.0` by definition. An underdog in a playoff week must lean into variance; a favorite must damp it.
+
+**Action:** For each playoff week (21, 22, 23) and the most-likely opponent, say "I will now use the `variance-strategy-selector` skill to set the variance posture for week [N] — this is a must-win week, so `downside_asymmetry = 0.95` and the posture flows downstream to `mlb-lineup-optimizer` and `mlb-streaming-strategist`."
+
+Provide the skill with:
+- `current_win_probability` = single-week `matchup_win_probability` from Phase 3.5.
+- `downside_asymmetry` = 0.95 (near-catastrophic — elimination from the tournament).
+- `slots_to_decide` = 15 (full active roster).
+
+The skill returns, per playoff week, `variance_posture` (`seek` / `neutral` / `minimize`) and `variance_multiplier`.
+
+**How to use the output:**
+- The variance posture becomes a required field in the playoff-push signal. Downstream lineup and streaming agents read it and adjust their multiplier accordingly during playoff weeks.
+- If any of the three playoff weeks has `variance_posture = seek`, the trade-deadline targeting in Phase 4 should also tilt toward high-ceiling acquisitions (even with high floors sacrificed) rather than safe-floor pieces.
+- Record the variance posture per playoff week in the signal's YAML frontmatter.
+
+**Bridge to Phase 4:** Carry forward the three per-week variance postures and multipliers.
 
 ---
 
@@ -322,8 +381,11 @@ For each action-verb recommendation in the signal, append one entry to `tracker/
 | Skill | Phase | Purpose | Key Output |
 |-------|-------|---------|------------|
 | `mlb-league-state-reader` | 1 | Pull standings, record, FAAB, roster | Rank, games-back, category standings, roster list |
+| `mlb-opponent-profiler` | 1 | Read full set of `context/opponents/*.md` profiles; refresh stale ones (game-theory #7) | Archetype + best-response hints per likely playoff opponent |
 | `mlb-playoff-scheduler` | 2 | Score weeks 21–23 per player | `playoff_games`, `playoff_matchup_quality`, `holding_value` |
 | `mlb-category-state-analyzer` | 3 | Project end-of-season cat standings | `cat_position`, `cat_pressure`, `cat_reachability`, `cat_punt_score` |
+| `matchup-win-probability-sim` | 3.5 | Simulate weeks 21-23 win probabilities across opponent bracket; compose `P(championship)` | Per-week `matchup_win_probability`, per-cat breakdown, joint championship odds |
+| `variance-strategy-selector` | 3.6 | Variance posture for must-win playoff weeks (`downside_asymmetry = 0.95`) | Per-week `variance_posture`, `variance_multiplier` |
 | `mlb-trade-evaluator` | 4 | Trade-deadline target structures | `playoff_impact`, `trade_cat_delta`, target list with verdicts |
 | `mlb-player-analyzer` | 5 | IL return + playoff-window upside | Return date, `role_certainty`, IL verbs |
 | `dialectical-mapping-steelmanning` | 6 | Steelman the Aggressor case | Best-case Aggressor action list |

@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "name": "Prior Calibration",
+      "1": "prior_ev_probability is outside [0.10, 0.70], or is >= 0.50 for a received trade offer without strong justification (dormant + very high symmetry), or is below 0.20 without extreme adverse-selection signal (expert + asymmetry > 80)",
+      "3": "prior_ev_probability is within [0.25, 0.55] and generally consistent with the inputs, but one or more adjustments are applied with magnitudes outside the recommended bands",
+      "5": "prior_ev_probability is in the correct band given the inputs, uses the documented base priors by offer_type, applies adjustments within the recommended magnitude ranges, clips correctly to [0.10, 0.70], and the final value is traceable arithmetically from the inputs"
+    },
+    {
+      "name": "Offer-Type Handling",
+      "1": "Base prior not differentiated by offer_type, or uses a single base prior (e.g., 0.40) for all types ignoring the selection-strength differences between trades, drops, free agents, and counter-offers",
+      "3": "Base priors differentiated for at least trade vs non-trade offer types; rationale present but not fully aligned with selection-strength theory",
+      "5": "Base prior correctly set per offer_type (trade=0.40, counter_offer=0.38, waiver_drop=0.42, free_agent=0.48, generic=0.40), with explicit mapping to the selection-strength of each type, and counter_offer correctly treated as the tightest selection"
+    },
+    {
+      "name": "Archetype Sensitivity",
+      "1": "Archetype ignored, or applied with a uniform delta regardless of type, or expert and dormant treated symmetrically",
+      "3": "Archetype adjustments applied with correct signs (expert/active negative, dormant positive), but magnitudes may be off or frustrated not triangulated",
+      "5": "All five archetypes handled with correct deltas (expert=-0.08, active=-0.05, dormant=+0.08, unknown=0, frustrated=0 with triangulation), frustrated case includes the 4-signal panic check and the scheming-disguised-as-frustration override, documentation ties each delta to q_good/q_bad selection strength"
+    },
+    {
+      "name": "Symmetry Integration",
+      "1": "offer_symmetry_score ignored, or applied with wrong sign (lowering prior for high symmetry), or magnitude far outside the +0.05 to +0.10 band",
+      "3": "Symmetry adjustment applied with correct sign and in roughly the right magnitude for the score band, but lacks the 'too good to be true' flag for scores < 30 or the cap at +0.10",
+      "5": "Symmetry adjustment scaled by score band (70-84 = +0.05 to +0.07, 85+ = +0.10), caps at +0.10, flags scores < 30 as 'too good to be true' for investigation, and the rationale addresses the 'seems fair = probably bad' counterintuition"
+    },
+    {
+      "name": "Asymmetry Integration",
+      "1": "proposer_info_asymmetry ignored or applied with wrong sign, or magnitude far outside the -0.03 to -0.20 band",
+      "3": "Asymmetry adjustment applied with correct sign and roughly correct magnitude, but scaling across bands is flat (e.g., -0.10 for all scores >= 30)",
+      "5": "Asymmetry adjustment scaled by band (30-59 = -0.03 to -0.05, 60-79 = -0.10 to -0.15, 80+ = -0.15 to -0.20), the rationale distinguishes public-information-parity from beat-reporter gap from material recent news from insider-ish timing, and asymmetry is separated from own-valuation errors (no double-counting)"
+    },
+    {
+      "name": "Rationale Quality",
+      "1": "bayesian_rationale is missing, generic (e.g., 'prior is 0.35 because of adverse selection'), or fails to name specific inputs",
+      "3": "bayesian_rationale is 2-4 sentences, names at least one specific input that drove the prior, and identifies at least one adjustment magnitude, but may lack the selection-mechanism frame",
+      "5": "bayesian_rationale is 2-4 sentences, names the base prior by offer_type, identifies the two largest adjustments with their magnitudes and directions, connects to the market-for-lemons selection mechanism, and states the conclusion in terms of the recommended_adjustment and its effect on downstream EV"
+    },
+    {
+      "name": "Override-Hint Identification",
+      "1": "override_hints missing, or generic ('do more research', 'consider other factors'), or fewer than 2 hints",
+      "3": "2-5 override_hints present, each identifying a specific input condition, but some hints lack the quantitative re-run guidance (e.g., 'if asymmetry rises, prior drops' without specifying the new value)",
+      "5": "2-5 override_hints present, each of the form 'If [specific observable condition], then re-run with [specific input] = [specific value]; prior becomes approximately [new value]', at least one hint addresses information that could flip the verdict, hints are mutually independent (not restatements of the same condition)"
+    },
+    {
+      "name": "Edge Cases (Dormant, Panic, Expert)",
+      "1": "Edge cases not recognized, or handled generically (all archetypes treated with symmetric deltas), panic signals not triangulated, expert case not elevated in haircut magnitude",
+      "3": "At least two of the three edge cases handled correctly: dormant prior crosses 0.50 on high symmetry; frustrated triangulation applied; expert archetype drives haircut to 0.80 or below",
+      "5": "All three edge cases handled: dormant with high symmetry can reach prior 0.50+ and recommended_adjustment 1.00; frustrated archetype triggers 4-signal triangulation with both panic-confirmed and scheming-disguised-as-frustration overrides; expert + asymmetry > 60 produces prior <= 0.30 and recommended_adjustment <= 0.80; each edge case's logic traceable to the decision tree"
+    },
+    {
+      "name": "Numeric Contract",
+      "1": "Output fields missing, wrong types, or values outside contracted ranges (prior_ev_probability outside [0-1], recommended_adjustment outside a sane range, override_hints not a string array)",
+      "3": "All four output fields present with correct types, prior_ev_probability in [0.10, 0.70], recommended_adjustment in [0.75, 1.00], but the prior-to-adjustment mapping is non-monotonic or does not follow the documented bands",
+      "5": "All four output fields present with correct types and ranges; prior-to-adjustment mapping is monotonic and matches the documented bands (0.50+ -> 1.00, 0.45-0.49 -> 0.95, 0.40-0.44 -> 0.90, 0.35-0.39 -> 0.85, 0.30-0.34 -> 0.80, <0.30 -> 0.75); downstream consumers can safely multiply own_EV by recommended_adjustment"
+    },
+    {
+      "name": "Citations",
+      "1": "No reference to the theoretical foundations (Akerlof, Bayes), no cross-domain grounding, presented as ad-hoc heuristics",
+      "3": "References to at least one of Akerlof market-for-lemons or Bayesian update; one cross-domain example present but shallow",
+      "5": "References Akerlof market-for-lemons by name with correct attribution of the selection mechanism; Bayesian update presented with the P(E|O) = P(O|E)P(E)/P(O) derivation; at least three cross-domain examples (finance/insider trading, labor/unsolicited job offers, used cars, M&A, fantasy sports) each tied to the numeric framework; calibration/backtesting guidance included"
+    }
+  ],
+  "guidance_by_type": {
+    "Trade Offer (active/expert proposer)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Base prior starts at 0.40 and archetype_delta drives it lower",
+        "Asymmetry signal checked against recent news cycles -- closer changes, injuries, lineup shifts, trade deadline rumors",
+        "Recommended adjustment below 0.90 is expected; below 0.80 for expert + asymmetry > 60",
+        "Override hints must include the 'if news broke we missed it' conditional"
+      ],
+      "common_pitfalls": [
+        "Treating active and expert as identical (expert carries -0.08, active only -0.05)",
+        "Ignoring the counter_offer tightening (base prior 0.38 vs trade's 0.40)",
+        "Double-counting known information as asymmetry (if we already priced it in, it is not asymmetric)"
+      ]
+    },
+    "Trade Offer (dormant/frustrated proposer)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Dormant archetype can push prior to 0.50+ on high symmetry, which is the rare accept case",
+        "Frustrated archetype requires triangulation: minimum 2 of 4 panic signals to confirm panic",
+        "Scheming-disguised-as-frustration override triggers when symmetry is suspiciously high and no public panic signal exists",
+        "Recommended adjustment for confirmed panic-sells is 0.95 (light haircut); for ambiguous frustrated, 0.90"
+      ],
+      "common_pitfalls": [
+        "Using 'they seem frustrated' as sufficient (require triangulation)",
+        "Applying dormant delta (+0.08) to any low-activity manager -- check they are not simply a quiet expert",
+        "Missing the scheming override and accepting a surface-fair offer from someone using frustration as cover"
+      ]
+    },
+    "Waiver Drop or Free-Agent Pickup": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Base prior is 0.42 (drop) or 0.48 (free agent) -- reflects weaker selection than trades",
+        "Archetype of the dropping team matters less than in a trade (they did not select *you* as recipient)",
+        "Asymmetry still matters -- they may have dropped because of private news",
+        "Recommended adjustment is typically 0.92 (drop) or 0.95 (free agent)"
+      ],
+      "common_pitfalls": [
+        "Using trade base prior (0.40) for drops or free agents",
+        "Ignoring asymmetry for drops (a player dropped right before an IL announcement carries asymmetry 80+)",
+        "Applying deep haircut (0.80) to a free-agent pickup, which over-corrects"
+      ]
+    },
+    "Unsolicited M&A or Job Offer (generic)": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Use offer_type = generic with base prior 0.40",
+        "Archetype 'expert' applies to institutional bidders and top-tier recruiters",
+        "Asymmetry is almost always > 50 for M&A (they see strategic value or defect we do not); for jobs, check for plan-B indicators",
+        "Override hints must include diligence paths (back-channel references, mechanic inspection equivalents)"
+      ],
+      "common_pitfalls": [
+        "Assuming high symmetry means fair deal (surface-fair M&A bids are the worst-case adverse selection)",
+        "Not checking repeated-game history with the counterparty (top recruiter with prior successful placements is different from spam recruiter)",
+        "Failing to emit the 'why us specifically?' override hint"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Prior crosses 0.50 for non-dormant offers",
+      "symptom": "prior_ev_probability = 0.52 for an active trader's offer, or 0.55 for an expert's offer",
+      "detection": "Compare prior to archetype: active/expert priors should not exceed 0.45 regardless of symmetry; only dormant can legitimately cross 0.50",
+      "fix": "Re-check archetype classification (is the counterparty actually dormant?). Re-check symmetry_delta magnitude (cap at +0.10). Re-check that asymmetry has not been mis-entered as 0 when there is plausibly hidden information."
+    },
+    {
+      "failure": "Recommended adjustment non-monotonic with prior",
+      "symptom": "Prior 0.38 maps to adjustment 0.90 but prior 0.42 also maps to 0.90, or priors of 0.35 and 0.45 map to the same adjustment",
+      "detection": "Plot prior -> adjustment across inputs; should be piecewise monotone with breakpoints at 0.30, 0.35, 0.40, 0.45, 0.50",
+      "fix": "Use the documented prior-to-adjustment mapping table directly. Do not custom-map."
+    },
+    {
+      "failure": "Asymmetry double-counted as own-valuation error",
+      "symptom": "The valuation model already priced in a known injury, and asymmetry is still set high for the same injury",
+      "detection": "Audit the valuation inputs -- is the piece of information already reflected in own EV? If yes, asymmetry should exclude it",
+      "fix": "Use proposer_info_asymmetry only for information we do NOT have. If we have already priced something in, set asymmetry to zero for that item."
+    },
+    {
+      "failure": "Override hints are not actionable",
+      "symptom": "Hints like 'consider other factors' or 'monitor news' without specifying what changes by how much",
+      "detection": "Each hint should have the form 'If X, re-run with Y = Z, prior becomes ~W'",
+      "fix": "Rewrite every hint with the conditional-then-re-run structure. If a hint cannot be made actionable, remove it."
+    },
+    {
+      "failure": "Frustrated archetype applied without triangulation",
+      "symptom": "archetype_delta set to +0.05 (panic-confirmed) based on a single signal (e.g., the team is losing)",
+      "detection": "Count panic signals explicitly; require 2+ from (losses, tone, tilt-trades, complaints)",
+      "fix": "If fewer than 2 signals present, leave archetype_delta at 0.00 and note the missing signals in override hints."
+    },
+    {
+      "failure": "Prior clipped but inconsistent with clip",
+      "symptom": "Internal arithmetic yields 0.72 but output is 0.70 (correct clip); rationale still references 0.72",
+      "detection": "Compare stated rationale to output prior",
+      "fix": "Always make rationale consistent with the emitted (clipped) prior, not the raw arithmetic."
+    },
+    {
+      "failure": "Cross-domain grounding absent",
+      "symptom": "Output cites only the consuming domain's examples (all fantasy sports, or all M&A), reducing reusability",
+      "detection": "The skill should produce the same structured output across domains",
+      "fix": "Test the skill on 3+ domains (fantasy, M&A, labor, used cars) before shipping. Every delta should be domain-agnostic."
+    },
+    {
+      "failure": "Selection mechanism not explained",
+      "symptom": "Rationale says 'prior is low because they offered it' without explaining WHY the offering act is informative",
+      "detection": "Look for the market-for-lemons logic in the rationale",
+      "fix": "Include at least one sentence tying the prior to the selection mechanism: they had many possible offers and chose this one."
+    }
+  ]
+}

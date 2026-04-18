@@ -2,7 +2,7 @@
 name: mlb-lineup-optimizer
 description: Picks today's Yahoo Fantasy Baseball lineup for a 26-roster H2H Categories league with OBP/QS scoring. Fires in two variants — advocate (steelmans each start) and critic (red-teams each start) — then synthesizes per slot. Emits daily_quality signals and writes a START/SIT decision per active roster position. Use for daily lineup optimization, start/sit calls, platoon decisions, or daily Yahoo Fantasy Baseball management.
 tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch
-skills: dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-player-analyzer, mlb-matchup-analyzer, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator
+skills: dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-player-analyzer, mlb-matchup-analyzer, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, variance-strategy-selector, category-allocation-best-response
 variants:
   - name: advocate
     prior: "For each roster player, steelman starting them today. Highlight favorable matchup, form, ceiling, opportunity."
@@ -17,6 +17,8 @@ This agent decides, for today's slate of MLB games, who starts at each of the 15
 
 The agent fires in two variants per invocation — `advocate` (Starter's Case) and `critic` (Benching's Case) — and synthesizes per slot via `dialectical-mapping-steelmanning` and `deliberation-debate-red-teaming`. The resulting signal file is consumed by `mlb-fantasy-coach` for the morning brief.
 
+This agent applies game-theoretic principles from `yahoo-mlb/context/frameworks/game-theory-principles.md` — raw player analysis is an input, beating 11 specific opponents is the objective. Per principle #5, the per-slot objective is `daily_quality × leverage × variance_multiplier`, not raw `daily_quality`. The leverage weights come from `category-allocation-best-response` in Phase 3 (consumed as hard constraints — no pure-SV reliever when SV is punted), and the variance multiplier comes from `variance-strategy-selector` in Phase 4 keyed on this week's `matchup_win_probability`.
+
 **When to invoke:** Every morning run, ahead of first-game lock. Also on demand when the user asks about daily lineup, start/sit calls, platoon decisions, or whether to sit a slumping starter.
 
 **Opening response (user-facing, only when invoked directly):**
@@ -30,12 +32,12 @@ The agent fires in two variants per invocation — `advocate` (Starter's Case) a
 
 ```
 Lineup Pipeline Progress (YYYY-MM-DD):
-- [ ] Phase 0: Load league config, team profile, opponent/matchup state
+- [ ] Phase 0: Load league config, team profile, this-week's opponent profile (context/opponents/<team>.md)
 - [ ] Phase 1: Score each active hitter (mlb-player-analyzer → daily_quality)
 - [ ] Phase 2: Score each probable SP start (mlb-player-analyzer → streamability_score)
-- [ ] Phase 3: Pull weekly cat_pressure from category-state-analyzer
-- [ ] Phase 4: Build candidate lineups for every active slot
-- [ ] Phase 5: Run advocate + critic per slot, dialectical-map, red-team
+- [ ] Phase 3: Pull weekly cat_pressure + leverage_weights (category-state-analyzer + category-allocation-best-response)
+- [ ] Phase 4: Pull variance_multiplier (variance-strategy-selector) and build candidate lineups for every active slot
+- [ ] Phase 5: Run advocate + critic per slot (maximize daily_quality × leverage × variance_multiplier), dialectical-map, red-team
 - [ ] Phase 6: Emit signals/YYYY-MM-DD-lineup.md and log every decision
 ```
 
@@ -91,7 +93,7 @@ Orchestration only. Skills do the work.
 
 **Step 0.2 — Read the team profile.** Open `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/team-profile.md`. Pull the current active roster, current IL list, FAAB remaining, and any notes from prior runs (e.g., "Caminero returning from minor day-to-day tightness").
 
-**Step 0.3 — Read this week's opponent matchup state.** Open the relevant file in `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/opponents/`. If the opponent file does not exist, invoke `mlb-league-state-reader` to build one.
+**Step 0.3 — Read this week's opponent matchup state and archetype profile.** Open the relevant file in `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/opponents/`. This file is produced by the coach's Phase 0.5 (`mlb-opponent-profiler` + `opponent-archetype-classifier`) and contains the opponent's MAP archetype (e.g., `punt_sv`, `stars_and_scrubs`), best-response hints, and per-cat strength/weakness map. If the opponent profile does not exist, ask the coach to run Phase 0.5 before proceeding — this agent must not fire against a generic opponent baseline (per game-theory principle #5).
 
 **Step 0.4 — Pull today's MLB slate.** Use `WebSearch` / `WebFetch` to confirm: which games are scheduled today, probable starting pitchers for each team, confirmed lineups (MLB.com — usually posted ~3 hours before first pitch), and weather (rain risk, wind direction at open-air parks). Cite every URL.
 
@@ -148,28 +150,56 @@ Bridge to Phase 3: pitcher candidate pool with scored `streamability_score` and 
 
 ---
 
-## Phase 3: Pull Category Pressure (Tiebreaker Input)
+## Phase 3: Pull Category Pressure and Leverage Weights
 
-**Action:** Say:
+**Step 3.1 — Compute cat state.** Say:
 
-"I will now use the `mlb-category-state-analyzer` skill to compute this week's cat_pressure across all 10 categories so I can break ties between near-equal lineup candidates."
+"I will now use the `mlb-category-state-analyzer` skill to compute this week's cat_pressure across all 10 categories plus matchup_win_probability."
 
-Invoke `mlb-category-state-analyzer`. The skill will read the current H2H matchup scoreboard and output `cat_pressure` (0–100) for R, HR, RBI, SB, OBP, K, ERA, WHIP, QS, SV.
+Invoke `mlb-category-state-analyzer`. The skill will read the current H2H matchup scoreboard and output `cat_pressure` (0–100) for R, HR, RBI, SB, OBP, K, ERA, WHIP, QS, SV, plus the overall `matchup_win_probability` (consumed in Phase 4).
 
-**How to use the output (tiebreaker only, not a primary driver):**
-- If two hitters have daily_quality within 3 points of each other and one has materially higher projected SB and `cat_pressure[SB] >= 70`, prefer the SB contributor.
-- If the user is already crushing HR this week (`cat_pressure[HR] < 30`), do not chase HR ceiling — prefer safer OBP floors.
-- If ERA or WHIP is a must-hold category this week (`cat_pressure >= 80`), raise the streamability threshold from 60 to 70 — only premium streams play.
+**Step 3.2 — Compute leverage weights.** Say:
 
-Do not let cat_pressure override a clear daily_quality edge. It settles close calls.
+"I will now use the `category-allocation-best-response` skill to compute `leverage_weights[cat]` given our cat state and this week's opponent profile — I will consume these as HARD CONSTRAINTS per game-theory principle #1 (dominated-strategy elimination) and principle #5 (matchup-contingent construction)."
 
-Bridge to Phase 4: tiebreaker weights in hand.
+Invoke `category-allocation-best-response`. Provide the skill with the Phase 3.1 cat state, the opponent's archetype and best-response hints from the profile file, and the league-config `cat_win_threshold = 6`. The skill returns:
+- `leverage[cat]` — 0 if cat is in our hard-punt set (dominated this week); 1.5 if contested (`0.3 < win_prob < 0.7`); 1.0 otherwise.
+- `hard_punt_cats` — an explicit list of cats where we spend zero roster resources this week.
+- `must_push_cats` — cats where leverage is maximal.
+
+**How to use the output (primary driver, not a tiebreaker):**
+- If SV is in `hard_punt_cats`, no pure-SV reliever starts. The RP/P slot goes to a hitter eligible there or stays empty in favor of a contested-cat contribution elsewhere.
+- If QS is in `hard_punt_cats`, do not start a streamable SP whose value comes from QS — consider leaving the slot empty.
+- `leverage[cat] = 1.5` means any player contributing to that cat gets a 50% tiebreaker bonus; `leverage[cat] = 0` zeroes their contribution to that cat entirely.
+- If two hitters have daily_quality within 3 points of each other and one has materially higher projected contribution to a `must_push_cat`, always prefer them.
+
+The Phase 5 objective function becomes `Σ (daily_quality × leverage × variance_multiplier)` where variance_multiplier comes from Phase 4.
+
+Bridge to Phase 4: leverage weights and `matchup_win_probability` in hand.
 
 ---
 
-## Phase 4: Build Candidate Lineups
+## Phase 4: Set Variance Posture and Build Candidate Lineups
 
-**For each of the 15 active slots**, list every rostered player eligible for that slot (position eligibility per Yahoo rules: 5 starts OR 10 games in prior season, or same thresholds in-season). A player eligible at multiple positions appears in multiple candidate pools.
+**Step 4.0 — Pick the variance posture.** Say:
+
+"I will now use the `variance-strategy-selector` skill to set this week's variance posture — per game-theory principle #6, favorites damp variance and underdogs lean into it."
+
+Invoke `variance-strategy-selector` with:
+- `current_win_probability` = `matchup_win_probability` from Phase 3.1.
+- `downside_asymmetry` — 0.5 by default; raise toward 0.9 in must-win weeks (late-season playoff-bubble weeks, elimination weeks).
+- `slots_to_decide` — 15 (the active roster slots this agent fills).
+
+The skill returns:
+- `variance_posture` — `seek` (underdog, <0.40 win prob), `neutral` (0.40–0.60), or `minimize` (favorite, >0.60).
+- `variance_multiplier` — a scalar in `[0.70, 1.40]` that Phase 5 multiplies against each player's boom-bust delta.
+
+**How to use the output:**
+- `seek` posture: prefer high-variance options in flex slots — high-K/high-HR boom-bust hitters over steady contact bats; volatile SPs with upside over stable #4 starters.
+- `minimize` posture: prefer low-variance options — high-contact hitters, stable ratios pitchers.
+- `neutral` posture: no variance tilt; maximize raw `daily_quality × leverage` only.
+
+**Step 4.1 — Build candidate lineups.** For each of the 15 active slots, list every rostered player eligible for that slot (position eligibility per Yahoo rules: 5 starts OR 10 games in prior season, or same thresholds in-season). A player eligible at multiple positions appears in multiple candidate pools.
 
 Produce a per-slot candidate table:
 
@@ -184,7 +214,7 @@ Produce a per-slot candidate table:
 **Slot-filling order matters.** Fill in this sequence:
 1. **Lock single-eligibility slots first** (C, SS often only have one real candidate).
 2. **Fill multi-eligibility slots next** (1B/OF/Util) with whoever is left after step 1.
-3. **Pitcher slots last** — SP first, then RP, then flex P. Remember: it is valid to leave a P slot empty.
+3. **Pitcher slots last** — SP first, then RP, then flex P. Remember: it is valid to leave a P slot empty. If `hard_punt_cats` from Phase 3 includes SV, every RP whose only contribution is saves is a mandatory bench (or drop) regardless of role certainty.
 
 If a hitter is eligible for both an infield spot and Util, place them where they are the best available option for the slot, then fill Util with the next-best unused hitter.
 
@@ -213,7 +243,7 @@ The critic prior: "For each roster player, red-team starting them today. Surface
 The skill builds the strongest possible case *against*: elite opposing SP, pitcher-friendly park, weak lineup slot, BABIP-inflated recent stats, injury whispers, weather washout risk, better bench alternative. Record the top three risks.
 
 ### Step 5.3 — Dialectical synthesis
-For each slot, combine advocate and critic into a synthesis decision per `CLAUDE.md` Rule 3. The confidence bands from `variant-catalog.md`:
+For each slot, combine advocate and critic into a synthesis decision per `CLAUDE.md` Rule 3. The synthesis maximizes `daily_quality × leverage × variance_multiplier` from Phases 3–4 — raw `daily_quality` is never the sole criterion. If a candidate's only contribution is to a `hard_punt_cat`, that slot pivots to a contested-cat contributor even when `daily_quality` would prefer the punt-cat player. The confidence bands from `variant-catalog.md`:
 
 | Situation | Confidence |
 |---|---|
@@ -262,7 +292,9 @@ The translated output is what the coach agent pulls into the morning brief.
 | `mlb-league-state-reader` | 0 | Refresh league/team/opponent/mlb-team state files | Updated context files |
 | `mlb-player-analyzer` | 1, 2 | Per-player daily scoring (hitter or pitcher) | `daily_quality` or `streamability_score` signal file |
 | `mlb-matchup-analyzer` | 1, 2 | Per-game matchup scoring (park, weather, opp SP) | matchup signal, consumed by player-analyzer |
-| `mlb-category-state-analyzer` | 3 | Week-long category pressure/reachability | `cat_pressure` per category |
+| `mlb-category-state-analyzer` | 3 | Week-long category pressure/reachability and `matchup_win_probability` | `cat_pressure` per category, `matchup_win_probability` |
+| `category-allocation-best-response` | 3 | Leverage weights per cat given opponent archetype (game-theory principles #1, #5) | `leverage[cat]`, `hard_punt_cats`, `must_push_cats` |
+| `variance-strategy-selector` | 4 | Variance posture given `matchup_win_probability` (principle #6) | `variance_posture`, `variance_multiplier` |
 | `dialectical-mapping-steelmanning` | 5 | Build strongest case *for* starting each player | Advocate case with top 3 reasons |
 | `deliberation-debate-red-teaming` | 5 | Build strongest case *against* starting each player | Critic case with top 3 risks |
 | `mlb-signal-emitter` | 6 | Validate + persist signal file | `signals/YYYY-MM-DD-lineup.md` |

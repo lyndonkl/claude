@@ -3,13 +3,13 @@
 [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
 
-> **Claude Code Plugin Available** — Install all 95 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
+> **Claude Code Plugin Available** — Install all 116 skills instantly with `/plugin marketplace add lyndonkl/claude` then `/plugin install thinking-frameworks-skills`
 
 A comprehensive collection of production-ready skills and orchestrating agents for Claude Code, covering thinking frameworks, decision-making tools, research methods, design patterns, corporate finance, valuation, and specialized domains.
 
 ## Overview
 
-This repository contains **95 skills** and **11 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, corporate finance, valuation, and creative problem-solving. Each skill includes:
+This repository contains **116 skills** and **18 orchestrating agents** designed to enhance Claude Code's capabilities across strategic thinking, product development, research, experimentation, corporate finance, valuation, competitive game theory, Yahoo Fantasy Baseball, and creative problem-solving. Each skill includes:
 
 - **Structured workflows** with step-by-step guidance
 - **Practical templates** for immediate use
@@ -39,6 +39,8 @@ This repository contains **95 skills** and **11 orchestrating agents** designed 
   - [🏢 Organizational Design](#-organizational-design)
   - [🛡️ Ethics & Evaluation](#️-ethics--evaluation)
   - [💰 Corporate Finance & Valuation](#-corporate-finance--valuation)
+  - [🎮 Game Theory & Strategic Competition](#-game-theory--strategic-competition)
+  - [⚾ Yahoo Fantasy Baseball](#-yahoo-fantasy-baseball)
   - [🍳 Specialized Domains](#-specialized-domains)
   - [🛠️ Skill Development & Meta-Tools](#️-skill-development--meta-tools)
 - [Orchestrating Agents](#orchestrating-agents)
@@ -275,6 +277,56 @@ This repository contains **95 skills** and **11 orchestrating agents** designed 
 
 **valuation-reconciler** - Synthesizes intrinsic (DCF) and relative (multiples) valuation outputs into a final value estimate and investment recommendation. Reconciles divergent valuations, reverse-engineers implied growth and ROIC, computes margin of safety, and produces a buy/sell/hold recommendation with catalysts.
 
+### 🎮 Game Theory & Strategic Competition
+
+Domain-neutral primitives for any multi-player competitive game — fantasy sports, prediction markets, poker, auctions, M&A, any "beat the other players" context. Each skill has explicit formal foundations (Vickrey, Akerlof, Kagel-Levin, Nash, Blotto) and is portable across domains.
+
+**auction-first-price-shading** - Computes the optimal shaded bid for a first-price sealed-bid auction given a true private value, an estimate of the number of competing bidders N, and a value-distribution assumption. Implements the `(N-1)/N` equilibrium shading rule for uniform private values, adjusts for log-normal distributions and risk aversion, and caps output by budget. Use for FAAB bid sizing, waiver-auction bids, prediction market positioning, or any sealed-bid pricing.
+
+**auction-winners-curse-haircut** - Applies a Bayesian haircut to a bid valuation for common-value auctions where winning is itself evidence the bidder over-estimated. Takes a raw valuation, a value-type classification (common_value / private_value / mixed), the number of informed bidders N, and a signal-dispersion estimate; returns an adjusted valuation with a 15-25% haircut on common-value targets and zero haircut on private-value targets. Stacks with auction-first-price-shading.
+
+**adverse-selection-prior** - Produces a Bayesian prior probability that an offered transaction is +EV for the recipient, given that the counterparty chose to propose it. Applies Akerlof market-for-lemons logic — if they offered it, they believe it is +EV for them, so the prior that it is +EV for us is materially below 50%. Outputs a numeric prior plus a multiplicative adjustment to apply to our own EV calculations. Use on incoming trade offers, waiver drops by rival teams, unsolicited job offers, M&A approaches.
+
+**variance-strategy-selector** - Given a current win probability and a downside asymmetry flag, recommends a variance-seeking, neutral, or variance-minimizing posture and emits a numeric multiplier (typically 0.8-1.3) for downstream consumers to apply to boom-bust scores, position sizes, or bet sizes. Favorites minimize variance; underdogs maximize it. Applies to fantasy sports lineup construction, poker bankroll sizing, portfolio allocation, racing strategy.
+
+**opponent-archetype-classifier** - Classifies an opposing player, manager, or agent into one of a configurable archetype set using Bayesian inference over observed behavior (roster composition, transaction pattern, lineup moves, trade activity). Domain-neutral scaffold — callers supply the archetype taxonomy and observable feature set. Works for fantasy archetypes, poker tight-aggressive/loose-passive classification, DFS GPP-vs-cash, M&A bidder types. Returns posterior, MAP archetype, confidence, and feature-contribution breakdown.
+
+**matchup-win-probability-sim** - Computes P(we win at least K of N categories) for a head-to-head categorical matchup via Monte-Carlo simulation or Poisson-binomial approximation. Domain-neutral — works for any fantasy sport with H2H Categories scoring (MLB, NBA, NHL) or any zero-sum per-category competition. Supports inverse categories (lower is better), volume-weighted ratios, and reproducible seeded simulations. Outputs matchup win probability plus per-category probabilities and variance estimates.
+
+**category-allocation-best-response** - Computes the best-response allocation of roster resources across categories in a Head-to-Head Categories matchup. Given our per-category capacity, the opponent's projected output, per-category win probabilities (from matchup-win-probability-sim), and a K-of-N winning threshold, returns pushed cats, conceded cats (dominated strategies), contested cats, and numeric leverage weights for downstream consumers. Implements dominated-strategy elimination as a Colonel-Blotto-adjacent optimization.
+
+### ⚾ Yahoo Fantasy Baseball
+
+Baseball-specific skills for managing a Yahoo Fantasy Baseball H2H Categories league. Use alongside the `mlb-fantasy-coach` agent and the companion runtime project at `~/Documents/Projects/yahoo-mlb/`. Several skills delegate their game-theoretic primitives to the domain-neutral skills in the Game Theory category.
+
+**mlb-league-state-reader** - Parses Yahoo Fantasy Baseball league state (roster, standings, current matchup, FAAB remaining, free agents) from authenticated Yahoo team pages via Claude-in-Chrome browser automation. Grounds against league-config.md and team-profile.md to emit a normalized league-state bundle every other agent consumes.
+
+**mlb-player-analyzer** - Deep-dive analysis of a single MLB player (hitter or pitcher) for a Yahoo Fantasy Baseball league. Web-searches FanGraphs (ATC projections), Baseball Savant (xwOBA/xBA/xERA), MLB.com (lineups, probables), RotoWire (weather, injuries), and RotoBaller (closer depth) to produce the full set of signals: daily_quality, form_score, matchup_score, opportunity_score, regression_index, streamability_score, qs_probability, save_role_certainty.
+
+**mlb-matchup-analyzer** - Analyzes a single MLB game from a fantasy perspective given home team, away team, and date. Emits structured matchup signals — opp_sp_quality, park_hitter_factor, park_pitcher_factor, weather_risk, bullpen_state — and a short narrative of platoon implications.
+
+**mlb-category-state-analyzer** - Computes the weekly category state for a Yahoo H2H Categories matchup across all 10 scoring categories (R, HR, RBI, SB, OBP, K, ERA, WHIP, QS, SV). Pulls current totals from Yahoo, builds rest-of-week per-cat projections from roster and schedule, then delegates matchup and per-cat win probability to `matchup-win-probability-sim`. Emits cat_position, cat_pressure, cat_reachability, cat_punt_score per cat.
+
+**mlb-regression-flagger** - Identifies fantasy baseball players whose surface stats (wOBA, ERA, batting average) are diverging from their underlying Statcast quality (xwOBA, FIP, xBA) — emits a `regression_index` from -100 (very lucky, sell high) to +100 (very unlucky, buy low). Primary signal for buy-low/sell-high decisions in trades and waivers.
+
+**mlb-two-start-scout** - For a given fantasy week (Monday-Sunday), identifies every starting pitcher scheduled to start twice, validates both probable starts, grades each matchup against the league's Quality Starts scoring rules, and ranks the list by streamability_score. Flags bullpen-game and opener risks that nearly never produce QS.
+
+**mlb-closer-tracker** - Tracks the closer role and bullpen pecking order across all 30 MLB teams — who owns the ninth-inning job today, who is next in line if the current closer falters (the handcuff), and who carries DFA or demotion risk. Emits a per-reliever `save_role_certainty` signal (0-100) and flags speculation targets plus punt-SV triggers.
+
+**mlb-faab-sizer** - Computes FAAB (Free Agent Acquisition Budget) recommended and maximum bids for Yahoo fantasy baseball waiver targets. Implements the baseball-specific layering of the faab-bid-framework (positional_need_fit, role_certainty, urgency, season_pace, league-inflation calibration from tracker/faab-log.md) and delegates the auction math to the domain-neutral `auction-first-price-shading` and `auction-winners-curse-haircut` skills.
+
+**mlb-trade-evaluator** - Computes the full impact of a proposed MLB fantasy trade across all 10 H2H categories (R/HR/RBI/SB/OBP, K/ERA/WHIP/QS/SV), rest-of-season dollar value, positional flexibility, slot-value optionality bonus, adverse-selection prior, and weeks 21-23 playoff impact. Produces a signed verdict (ACCEPT / COUNTER with specific package / REJECT) using the always-counter ladder from game-theory principle #8. Delegates adverse-selection reasoning to `adverse-selection-prior`.
+
+**mlb-playoff-scheduler** - Counts MLB games per team during the Yahoo fantasy playoff window (weeks 21, 22, 23) and grades the quality of each team's opponents. Emits three signals per rostered player — playoff_games (int, max ~21), playoff_matchup_quality (0-100), holding_value (0-100) — that drive trade deadline and IL-stash decisions from July 15 onward.
+
+**mlb-opponent-profiler** - Weekly refresh of per-opponent archetype plus behavioral profiles for the 11 opposing teams in a Yahoo Fantasy Baseball league. Thin baseball-specific wrapper around the domain-neutral `opponent-archetype-classifier` — provides the 10-archetype MLB taxonomy (balanced, stars_and_scrubs, punt_sv, punt_sb, punt_wins_qs, hitter_heavy, pitcher_heavy, inactive, frustrated_active, unknown) plus Yahoo scraping and MLB feature extraction.
+
+**mlb-signal-emitter** - Validates and persists signal files to the yahoo-mlb signals directory. Every MLB skill calls this skill before writing a signal. Enforces the signal-framework.md schema — required YAML frontmatter fields (type, date, emitted_by, confidence, source_urls), range-checks numeric signals (0-100 unipolar, ±100 bipolar), refuses ill-formed writes.
+
+**mlb-decision-logger** - Appends structured decision entries to the yahoo-mlb decision log (tracker/decisions-log.md) on behalf of any agent in the MLB team. Validates entries against the authoritative schema, serializes concurrent writes from parallel agents, and runs the Monday calibration pass to fill in outcomes and update the variant scoreboard.
+
+**mlb-beginner-translator** - Converts baseball and fantasy-baseball jargon into plain English for a user with zero baseball knowledge. Wraps every user-facing sentence produced by the MLB agent team (morning briefs, trade recommendations, waiver calls, chat summaries). Detects jargon terms, attaches an inline parenthetical translation on first use, enforces the action-verb ladder (START/SIT/ADD/DROP/BID/ACCEPT/COUNTER/REJECT).
+
 ### 🍳 Specialized Domains
 
 **chef-assistant** - Expert culinary guide combining technique, food science, flavor architecture (salt/acid/fat/heat), cultural context, and plating. Covers recipe creation, troubleshooting, menu planning, and cooking methods across global cuisines.
@@ -302,6 +354,13 @@ Orchestrating agents detect user needs and route to the appropriate specialized 
 | **capital-allocation-strategist** | financial-statement-analyzer, cost-of-capital-estimator, capital-structure-optimizer, dividend-buyback-analyzer, project-investment-analyzer | Capital allocation decisions: financing mix (debt vs equity), dividend/buyback policy, and project investment evaluation. Integrates the three fundamental corporate finance decisions. |
 | **acquisition-analyst** | business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, intrinsic-valuation-dcf, relative-valuation-multiples, project-investment-analyzer, special-situations-valuation, valuation-reconciler | M&A target valuation computing standalone value, synergy value, and maximum acquisition price. Treats synergies as incremental project cash flows. |
 | **ipo-strategist** | business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, special-situations-valuation, relative-valuation-multiples, capital-structure-optimizer, valuation-reconciler | Private-to-public transition valuation. Transitions from total beta to market beta, removes illiquidity discount, uses public comparables for IPO pricing, and optimizes post-IPO capital structure. |
+| **mlb-fantasy-coach** | communication-storytelling, dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-opponent-profiler, opponent-archetype-classifier, mlb-decision-logger, mlb-beginner-translator | Primary orchestrator for Yahoo Fantasy Baseball team management. Routes to specialist MLB agents (lineup, waiver, streaming, trade, category, playoff), spawns advocate + critic variants, synthesizes via dialectical-mapping and red-teaming, produces plain-English morning briefs for users with zero baseball knowledge. Game-theoretically aware — uses opponent profiles and the 10 principles in yahoo-mlb/context/frameworks/game-theory-principles.md. |
+| **mlb-lineup-optimizer** | mlb-league-state-reader, mlb-player-analyzer, mlb-matchup-analyzer, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, variance-strategy-selector, category-allocation-best-response, dialectical-mapping-steelmanning, deliberation-debate-red-teaming | Daily start/sit decisions for a 26-roster H2H Categories league. Maximizes daily_quality × leverage × variance_multiplier subject to hard-constraint conceded cats from the category plan. Variance-seeking as underdog, variance-minimizing as favorite. |
+| **mlb-waiver-analyst** | mlb-league-state-reader, mlb-player-analyzer, mlb-regression-flagger, mlb-closer-tracker, mlb-faab-sizer, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, variance-strategy-selector, adverse-selection-prior, dialectical-mapping-steelmanning, deliberation-debate-red-teaming | Weekly add/drop and FAAB bid recommendations. Advocate (Buy Case) + critic (Pass Case) variants, regression tailwind detection, adverse-selection check on waiver drops, N-bidder-aware FAAB shading via the refactored mlb-faab-sizer. |
+| **mlb-streaming-strategist** | mlb-league-state-reader, mlb-player-analyzer, mlb-matchup-analyzer, mlb-two-start-scout, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, category-allocation-best-response, variance-strategy-selector, dialectical-mapping-steelmanning, deliberation-debate-red-teaming | Weekly pitching plan for QS-scoring leagues. Identifies two-start SPs, spot-starts, and rostered SPs to bench on bad matchups. Reads category plan as hard constraint — no streaming for QS if QS is punted. |
+| **mlb-trade-analyzer** | mlb-league-state-reader, mlb-player-analyzer, mlb-regression-flagger, mlb-category-state-analyzer, mlb-trade-evaluator, mlb-playoff-scheduler, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, mlb-opponent-profiler, adverse-selection-prior, dialectical-mapping-steelmanning, deliberation-debate-red-teaming | On-demand trade offer evaluation. Advocate (Acceptor) + critic (Rejecter) variants. Critic opens with the adverse-selection prior. Always-counter ladder — ACCEPT at ≥+15%, COUNTER as default, REJECT reserved for clearly predatory offers (≤-20%). |
+| **mlb-category-strategist** | mlb-league-state-reader, mlb-category-state-analyzer, mlb-player-analyzer, mlb-matchup-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, mlb-opponent-profiler, category-allocation-best-response, dialectical-mapping-steelmanning, deliberation-debate-red-teaming | Weekly H2H Categories push/punt plan. Balancer (push all 10) vs Puncher (concede 2-3 dominated cats). Uses category-allocation-best-response as primary analytical engine, reads opponent profile to anticipate their push. |
+| **mlb-playoff-planner** | mlb-league-state-reader, mlb-playoff-scheduler, mlb-player-analyzer, mlb-trade-evaluator, mlb-category-state-analyzer, mlb-signal-emitter, mlb-decision-logger, mlb-beginner-translator, mlb-opponent-profiler, matchup-win-probability-sim, variance-strategy-selector, dialectical-mapping-steelmanning, deliberation-debate-red-teaming | July-onward playoff positioning for weeks 21-23. Aggressor (trade near-term for playoff-schedule-heavy players) vs Stabilizer (don't miss playoffs chasing playoffs). Multi-week rollout simulation via matchup-win-probability-sim. |
 
 ## Installation
 
@@ -319,7 +378,7 @@ Install the entire skills collection as a Claude Code plugin:
    /plugin install thinking-frameworks-skills
    ```
 
-All 95 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
+All 116 skills will be automatically available. Skills are model-invoked—Claude autonomously uses them based on your request and the skill's description.
 
 ### Option 2: Manual Installation
 

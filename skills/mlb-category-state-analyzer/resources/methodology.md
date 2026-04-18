@@ -1,11 +1,20 @@
 # MLB Category State Analyzer — Methodology
 
-Implementation of the formulas in `context/frameworks/category-math.md`. Covers data pulling, remaining-game projection, counting vs. ratio cat math, and the four output signals. Includes worked examples for **OBP**, **SV**, and **QS** (the unusual cats in this league).
+Baseball-specific state extraction and projection-dict construction for the Yahoo 10-cat H2H matchup. The matchup-level and per-cat **win-probability math is no longer computed here** — it is delegated to the sibling skill `matchup-win-probability-sim`. This file covers:
+
+1. How to pull matchup state from Yahoo.
+2. How to project remaining games/PAs/IP per roster.
+3. How to turn that into `{mean, stddev}` projection dicts that feed the sim.
+4. How to derive `cat_position`, `cat_pressure`, `cat_reachability`, and `cat_punt_score` from (state + sim output).
+
+Authoritative reference: `context/frameworks/category-math.md`.
 
 ## Table of Contents
 - [Pulling Matchup Data from Yahoo](#pulling-matchup-data-from-yahoo)
 - [Projecting Remaining Games](#projecting-remaining-games)
 - [Counting vs. Ratio Cats](#counting-vs-ratio-cats)
+- [Building Per-Cat Projection Dicts](#building-per-cat-projection-dicts)
+- [Invoking `matchup-win-probability-sim`](#invoking-matchup-win-probability-sim)
 - [Signal Formulas](#signal-formulas)
   - [cat_position](#cat_position)
   - [cat_pressure](#cat_pressure)
@@ -41,8 +50,8 @@ For each of the 10 categories, both teams:
 ### Fallback (if Yahoo is unreachable)
 
 1. Ask the user to paste the matchup page text (the H2H matchup tab shows all 10 cats inline).
-2. If paste unavailable, degrade to **ratios only** (no volume) and flag `confidence: low` in the signal file. Note in red-team findings that reachability is heuristic without volume.
-3. Never fabricate — if a denominator can't be obtained, emit `cat_reachability: null` for the affected ratio cats and explain.
+2. If paste unavailable, degrade to **ratios only** (no volume) and flag `confidence: low` in the signal file. The ratio-cat projection dict will be unreliable — mark that in red-team findings.
+3. Never fabricate — if a denominator can't be obtained, emit the sim call with a widened stddev and flag it.
 
 ### Data quality checks
 
@@ -96,7 +105,7 @@ Save opportunities ≈ (scheduled team games) × (team win probability) × (save
                      for each rostered closer
 ```
 
-Much noisier than starter projections — treat as a range, not a point estimate.
+Much noisier than starter projections — treat as a range, not a point estimate. This noise translates directly into a higher `stddev` in the SV projection dict.
 
 ---
 
@@ -114,9 +123,119 @@ The 10 cats split 7 counting + 3 ratio.
 | ERA | **ratio** (pitch) | ER × 9 / IP | IP denominator |
 | WHIP | **ratio** (pitch) | (H + BB) / IP | IP denominator |
 
-**Counting cats** are additive — the deficit or lead is just `opp_total - our_total`. Projected remaining stacks linearly.
+**Counting cats** are additive — projection mean stacks linearly.
 
 **Ratio cats** are weighted averages — new production dilutes the current ratio proportionally to volume. This is the key math trap; see the OBP worked example.
+
+---
+
+## Building Per-Cat Projection Dicts
+
+This is the core input to `matchup-win-probability-sim`. For each team, produce a dict:
+
+```
+projection_dict = {
+  cat: {mean: float, stddev: float}
+  for cat in [R, HR, RBI, SB, OBP, K, ERA, WHIP, QS, SV]
+}
+```
+
+**Important convention**: use **final projected value** (current_total + expected_remaining) for counting cats, and **final projected ratio** for ratio cats. Apply the same convention on both sides. The sim compares our draw to opp draw per cat, so as long as the convention matches for both teams, margins are correct.
+
+### Counting cats (R, HR, RBI, SB, K, QS, SV)
+
+```
+expected_remaining[cat] = Σ over roster of:
+    (per-player per-game rate for cat)
+  × (games remaining for player)
+  × (daily_quality[player, day] averaged across days)
+
+mean[cat]   = current_total[cat] + expected_remaining[cat]
+stddev[cat] = CV × expected_remaining[cat]
+              where CV ≈ 0.35 for most counting cats
+              SV uses CV ≈ 0.55 (high variance)
+              HR/SB use CV ≈ 0.50 (low-mean discrete)
+```
+
+**Per-player per-game rates**:
+- **R/RBI**: from season rate × park factor × lineup-position adjustment.
+- **HR**: from season HR/PA × expected PA × park HR factor.
+- **SB**: from `sb_opportunity` signal (upstream) × games.
+- **K**: Σ over scheduled SPs of (K/9 × projected IP for start).
+- **QS**: Σ over scheduled SPs of `qs_probability[pitcher, start]` (upstream signal, not team win prob).
+- **SV**: Σ over rostered closers of (team expected wins × ~0.45 save-situation rate × `save_role_certainty`).
+
+### Ratio cats (OBP, ERA, WHIP)
+
+The ratio is a weighted average:
+
+```
+projected_remaining_ratio = weighted average of rostered players' rate stat, weighted by expected volume (PA or IP)
+
+mean[cat] = (current_ratio × current_volume
+           + projected_remaining_ratio × remaining_volume)
+          / (current_volume + remaining_volume)
+
+stddev[cat] ≈ σ_per_obs / sqrt(current_volume + remaining_volume)
+              where σ_per_obs is the per-observation SD:
+                OBP  ≈ 0.48   → weekly stddev typically 0.012–0.020
+                ERA  ≈ 3.50 × sqrt(9/IP) → weekly stddev typically 0.35–0.55
+                WHIP ≈ 1.10 × sqrt(1/IP) → weekly stddev typically 0.06–0.10
+```
+
+**Roster ratio projections**:
+- **OBP**: weighted-average OBP of expected-starting hitters (use OBP, not AVG).
+- **ERA**: weighted-average ERA of expected-starting pitchers, IP-weighted.
+- **WHIP**: weighted-average WHIP, IP-weighted.
+
+**Key property**: as remaining_volume grows (more games left), stddev shrinks. This is what lets the sim correctly reward a large volume edge — a team with 110 projected PAs has a tighter ratio distribution than a team with 55, and the sim sees that.
+
+### `daily_quality` signal (upstream input)
+
+Each rostered player has a per-day `daily_quality ∈ [0, 100]` from `mlb-player-analyzer`. It bundles matchup quality, lineup slot, park, weather, and role certainty into a single multiplier. Use it as:
+
+```
+effective_rate_for_day = season_rate × (daily_quality / 100)^α
+                          where α ≈ 1.0 for most cats
+                          (the exponent can be sub-linear for noisy cats like SV)
+```
+
+Average `daily_quality` across the remaining days per player to get the per-game rate used in counting-cat projections.
+
+### Minimum-threshold encoding
+
+If either team is on pace to finish below Yahoo's weekly IP or PA minimum:
+
+- The ratio cat auto-forfeits against that team.
+- Encode by setting **their** ratio-cat `mean` to a punitive value (e.g., 99.9 for ERA) and `stddev` near zero.
+- Additionally, add `+20 × below_min_threshold` to `cat_punt_score` for that cat on our side (applied after the sim — see below).
+
+---
+
+## Invoking `matchup-win-probability-sim`
+
+Once both projection dicts are built, call the sibling skill:
+
+```
+inputs:
+  our_per_cat_projection:  <dict from above>
+  opp_per_cat_projection:  <dict from above>
+  cat_list:                [R, HR, RBI, SB, OBP, K, ERA, WHIP, QS, SV]
+  cat_inverse_list:        [ERA, WHIP]    # lower-is-better
+  cat_win_threshold:       6              # Yahoo 10-cat majority
+  sim_mode:                "monte_carlo"
+  n_simulations:           10000
+  random_seed:             42             # reproducibility
+  tie_rule:                "half"         # matches Yahoo H2H convention
+
+outputs:
+  matchup_win_probability:   float in [0,1]
+  per_cat_win_probability:   dict[cat, float]  # THIS is our cat_reachability source
+  expected_cats_won:         float
+  variance_estimate:         float
+```
+
+Store the full output. Persist `matchup_win_probability`, `expected_cats_won`, and the sim `meta` block (mode + n_sims + seed) in the signal-file frontmatter. All four per-cat signals in the output table are derived from `per_cat_win_probability` + baseball state — see below.
 
 ---
 
@@ -126,16 +245,16 @@ All four signals are emitted per cat. Each is a numeric scalar; `cat_position` i
 
 ### `cat_position`
 
-Enum: `winning` / `tied` / `losing`. Based on current totals.
+Enum: `winning` / `tied` / `losing`. Based on current totals (not sim).
 
 - For ratio cats, *winning* means the direction that helps:
   - OBP: higher is winning.
   - ERA, WHIP: lower is winning.
-- **Frozen cats**: if opponent is mathematically locked below/above minimum-IP/PA threshold, treat as `winning` or `losing` with confidence 1.0 — no need to compute pressure/reachability (set pressure = 20 if locked-in win, 30 if locked-in loss).
+- **Frozen cats**: if opponent is mathematically locked below/above minimum-IP/PA threshold, treat as `winning` or `losing` with confidence 1.0. Encode into the projection dict (see above) so the sim also sees it; set pressure = 20 if locked-in win, 30 if locked-in loss.
 
 ### `cat_pressure`
 
-How much should we push this cat this week? Implements `context/frameworks/category-math.md`:
+How much should we push this cat this week? Computed locally from baseball state (not sim). Implements `context/frameworks/category-math.md`:
 
 ```
 cat_pressure =
@@ -151,73 +270,39 @@ cat_pressure =
 
 - `is_close_margin`: for counting cats, `|margin| ≤ 0.10 × max(our_total, opp_total)` or `|margin| ≤ 3` (whichever is larger). For ratio cats, `|margin| ≤ 0.015` (15 OBP points, 0.30 ERA, 0.08 WHIP).
 - `opponent_volume_exhausted`: we have ≥ 15% more remaining volume than opp (games, starts, or IP).
-- `locked_in_win`: our floor ≥ opp ceiling (based on best/worst-case remaining). For ratio cats, opp's ceiling with all best-case future contributions still doesn't cross us.
-- `locked_in_loss`: our ceiling < opp floor.
+- `locked_in_win`: from projection-dict means + 2σ headroom — our mean − 2 × our_stddev > opp mean + 2 × opp_stddev (direction-aware for inverse cats).
+- `locked_in_loss`: symmetric the other way.
 
 ### `cat_reachability`
 
-Can we flip or hold the cat given remaining volume?
-
-#### For counting cats
+**Now delegated to `matchup-win-probability-sim`.**
 
 ```
-deficit = opp_total - our_total           # positive if we're behind
-expected_remaining = Σ daily_quality × games × rate_for_cat
-variance_remaining = coefficient of variation × expected_remaining (typical CV ≈ 0.35 for counting)
-
-cat_reachability = 100 × P(N(expected_remaining, variance_remaining) ≥ deficit)
-                 (approximated via z-score lookup; if deficit ≤ 0, reachability = 100 × P(hold lead))
+cat_reachability[cat] = round(100 × per_cat_win_probability[cat])
 ```
 
-Practical shortcut (no normal tables needed):
+That's it — no z-score tables, no worst/expected/best-case buckets. The sim owns the probability math (normal draws, inverse-cat margin flip, volume-weighted stddev in ratio cats, tie-rule handling). This skill just consumes the per-cat probability and scales to [0, 100].
 
-- If expected_remaining covers the deficit by 2+ standard deviations → reachability ≈ 90
-- Covers by 1 SD → reachability ≈ 75
-- Covers at the mean → reachability ≈ 50
-- Short by 1 SD → reachability ≈ 25
-- Short by 2+ SD → reachability ≈ 10
-
-#### For ratio cats
-
-Project final ratio for each team:
-
-```
-projected_final_ratio = (current_ratio × current_volume + projected_remaining_ratio × remaining_volume)
-                      / (current_volume + remaining_volume)
-```
-
-Where `projected_remaining_ratio` comes from roster composition:
-
-- OBP: weighted-average OBP of starting hitters (use OBP, not AVG).
-- ERA: weighted-average ERA of starting pitchers (IP-weighted).
-- WHIP: same as ERA, weighted by IP.
-
-Then simulate three cases:
-
-- **Worst case**: our ratio rolls 1 SD bad; opp rolls 1 SD good.
-- **Expected case**: both at their projected ratios.
-- **Best case**: our ratio rolls 1 SD good; opp rolls 1 SD bad.
-
-```
-cat_reachability
-  = 80 if we cross opp in all three cases (locked hold / easy flip)
-  = 60 if we cross in expected + best, not worst
-  = 40 if we cross only in best case
-  = 15 if we don't cross even in best case
-```
+**Why this is better than the old heuristic**:
+- Ratio cats naturally incorporate volume via the projection-dict `stddev` — a 55-IP week is wider than a 110-IP week, and the sim reflects that.
+- Counting cats with low means (SV, HR for a short week) can be passed with `distribution_family = "poisson"` for correct tail behavior.
+- Reachability and matchup-win probability are coherent — they come from the same sim run.
+- Reproducible under a fixed `random_seed`.
 
 ### `cat_punt_score`
 
-Higher = more sensible to concede.
+Higher = more sensible to concede. Computed locally using the sim's `per_cat_win_probability`:
 
 ```
 cat_punt_score =
-    (100 - cat_reachability) × 0.6                    # base: if we can't reach, consider punting
+    (100 - cat_reachability) × 0.6                    # = 60 × (1 − per_cat_win_probability[cat])
   + 30 × cat_is_volatile                              # SV (and in other leagues, W)
   + 20 × below_min_threshold                          # forfeiting via min-IP/PA
-  - 10 × cat_has_spillover                            # K feeds QS; OBP feeds R; HR feeds RBI
+  - 10 × cat_has_spillover                            # K feeds QS; OBP feeds R; HR feeds R+RBI
   clamp to [0, 100]
 ```
+
+**Volatility flag** (`cat_is_volatile`): currently `True` only for SV. This is a baseball-domain tag, not something the sim can infer. Kept here.
 
 **Spillover map**:
 
@@ -241,33 +326,33 @@ This is the most common ratio-cat trap. **AVG would be simpler; OBP requires tra
   - Us: .348 (solid walk-rate roster)
   - Opp: .345 (power-biased, lower walks)
 
-### Projecting final ratios
+### Build the projection-dict entries
 
 ```
-Our projected final OBP  = (.342 × 82 + .348 × 110) / (82 + 110)
-                         = (28.04 + 38.28) / 192
-                         = 66.32 / 192
-                         = .346
+Our projected final OBP mean  = (.342 × 82 + .348 × 110) / 192 = .346
+Our projected final OBP stddev ≈ 0.48 / sqrt(192) ≈ .035 per obs normalized to weekly ≈ .015
 
-Opp projected final OBP  = (.336 × 78 + .345 × 90) / (78 + 90)
-                         = (26.21 + 31.05) / 168
-                         = 57.26 / 168
-                         = .341
+Opp projected final OBP mean  = (.336 × 78 + .345 × 90) / 168 = .341
+Opp projected final OBP stddev ≈ 0.48 / sqrt(168) ≈ .016
 ```
 
-Expected case: we win by .005. Close but favorable.
+Projection-dict entries:
 
-### Best / worst cases (roster SD ≈ .020 for weekly OBP over ~100 PA)
+```
+our:  OBP: {mean: 0.346, stddev: 0.015}
+opp:  OBP: {mean: 0.341, stddev: 0.016}
+```
 
-- Best: our .366, opp .325 → we win by .041
-- Worst: our .326, opp .361 → we lose by .035
+### Sim output (illustrative)
+
+Sim returns `per_cat_win_probability[OBP] ≈ 0.60` — our mean is .005 above opp, combined stddev is ~.022, `Φ(0.005 / 0.022) ≈ Φ(0.23) ≈ 0.59`.
 
 ### Signal values
 
 - `cat_position`: **winning** (thin margin, +.006)
-- `cat_pressure`: 50 (baseline) + 20 (close margin, ≤.015) + 15 (we have 110 vs. 90 volume edge) = **85** — wait, sanity-check. Ratio cat with a +.006 lead is textbook close, and the 20-PA volume edge is meaningful. But clamp applies. Final: **min(85, 90) = 85** (no locked-in adjustment). Round to **85** or, given the cap for "close but not locked," many implementations land at **70**. Use **70** as the published value (the +15 volume boost is already partially captured by the reachability projection — avoid double-counting).
-- `cat_reachability`: expected case crosses; best crosses; worst does not → **60**.
-- `cat_punt_score`: (100 − 60) × 0.6 = 24; no volatility bonus; no threshold risk; −10 spillover (OBP feeds R) = **14**. Round to **25** if the user prefers fewer sub-20 scores — either way, clearly not a punt.
+- `cat_pressure`: 50 (baseline) + 20 (close margin, ≤.015) + 15 (volume edge 110 vs 90) − 0 (not locked) = **85**. Clamp fine. Published = **85**.
+- `cat_reachability`: **60** (from sim, = round(100 × 0.60)).
+- `cat_punt_score`: (100 − 60) × 0.6 = 24, + 0 (not volatile), + 0 (no threshold risk), − 10 (OBP → R spillover) = **14**.
 
 ### Verdict
 
@@ -283,21 +368,28 @@ Saves are the lowest-reachability, highest-punt-score cat in almost every matchu
 
 - **Current**: us 3 SV, opp 5 SV. Deficit of 2.
 - **Remaining**: 4 scoring days left.
-- **Our closers**: one locked closer (projected 2 saves for the rest of the week, CV high). `save_role_certainty` = 90.
-- **Opp closers**: two locked closers (projected 3 saves combined).
+- **Our closers**: one locked closer (projected ~1.8 saves, CV high). `save_role_certainty` = 90.
+- **Opp closers**: two locked closers (projected 2.7 saves combined).
 
-### Projecting remaining
+### Build the projection-dict entries
 
-- Expected us: ~1.8 saves (one closer, ~2 per week, but already used 2 of 7 days → prorate)
-- Expected opp: ~2.7 saves
-- So the deficit likely widens: projected final 3 + 1.8 = 4.8 vs. 5 + 2.7 = 7.7 → deficit of ~3.
+```
+our: SV: {mean: 3 + 1.8 = 4.8, stddev: 0.55 × 1.8 ≈ 1.0 → use 1.4 given the low-mean discrete noise}
+opp: SV: {mean: 5 + 2.7 = 7.7, stddev: 0.55 × 2.7 ≈ 1.5}
+```
+
+Margin mean = −2.9; combined stddev ≈ sqrt(1.4² + 1.5²) ≈ 2.05; Φ(−2.9 / 2.05) ≈ Φ(−1.41) ≈ 0.08.
+
+### Sim output
+
+`per_cat_win_probability[SV] ≈ 0.10`.
 
 ### Signal values
 
 - `cat_position`: **losing**
-- `cat_pressure`: 50 (baseline) − 30 (locked-in loss? No — not *locked* because variance is high. But close to it) = treat as not locked. +0 close margin. +0 volume edge. Final = **38**.
-- `cat_reachability`: expected final deficit of 3; to flip we'd need our closer to get 3+ saves AND opp closers combined ≤ 0. Both far-tail. Reachability ≈ **32**.
-- `cat_punt_score`: (100 − 32) × 0.6 = 41 + 30 (SV is volatile) + 0 (no threshold risk) − 0 (no spillover) = **71**. Round to **72**.
+- `cat_pressure`: 50 (baseline) + 0 (margin of 2 isn't close under ≤10% rule with max of 7.7) + 0 (no volume edge on RP days) − 0 (not locked-loss with variance this high) = **50**. But many analysts lean down for "losing and can't catch" and land at ~**38**. Use **38** as the published value (apply a soft −12 adjustment when both position is losing and reachability < 15).
+- `cat_reachability`: **10** (from sim, = round(100 × 0.10)).
+- `cat_punt_score`: (100 − 10) × 0.6 = 54, + 30 (SV is volatile), + 0 (no threshold risk), − 0 (no spillover) = **84**.
 
 ### Verdict
 
@@ -305,8 +397,8 @@ Saves are the lowest-reachability, highest-punt-score cat in almost every matchu
 
 ### When NOT to punt saves
 
-- Lead of 1+ with 2+ locked closers on roster and opp has a shaky closer → push (reachability flips to ~70).
-- Our closer is named the 9th-inning guy on a team with 4 projected wins this week → projected 3 saves raises reachability.
+- Lead of 1+ with 2+ locked closers on roster and opp has a shaky closer → the projection-dict will show higher mean and the sim will return `per_cat_win_probability` ~0.70, promoting SV back to push.
+- Our closer is named the 9th-inning guy on a team with 4 projected wins this week → mean rises, sim reflects it.
 
 ---
 
@@ -322,18 +414,25 @@ QS is the pitching cat most teams undervalue. **A 5-inning outing scores zero.**
   - Us: avg 0.45 across 9 starts → expected 4.05 QS
   - Opp: avg 0.40 across 7 starts → expected 2.80 QS
 
-### Projecting final
+### Build the projection-dict entries
 
-- Us: 2 + 4.05 = 6.05
-- Opp: 1 + 2.80 = 3.80
-- Projected lead: ~2.25 QS.
+```
+our: QS: {mean: 2 + 4.05 = 6.05, stddev: 0.35 × 4.05 ≈ 1.5}
+opp: QS: {mean: 1 + 2.80 = 3.80, stddev: 0.35 × 2.80 ≈ 1.4}
+```
+
+Margin mean = +2.25; combined stddev ≈ sqrt(1.5² + 1.4²) ≈ 2.05; Φ(2.25 / 2.05) ≈ Φ(1.10) ≈ 0.86.
+
+### Sim output
+
+`per_cat_win_probability[QS] ≈ 0.85`.
 
 ### Signal values
 
 - `cat_position`: **winning**
-- `cat_pressure`: 50 + 0 (margin +1 isn't close under ≤ 10% rule since max is only 6 — actually |1| ≤ 0.1 × 6 = 0.6 is false, so not close) + 15 (9 vs. 7 starts is a volume edge) − 10 (locked-in win? No — 2.25 expected lead with CV ≈ 0.5 → not locked) = **65**. If we judge the lead as "comfortable but not safe," published value = **78** (many analysts weight pitching volume edges more heavily — use **78**).
-- `cat_reachability`: holding a 2.25-QS expected lead with 2+ SD of headroom → reachability to **hold** ≈ **82**.
-- `cat_punt_score`: (100 − 82) × 0.6 = 10.8 + 0 (not volatile) + 0 − 10 (K → QS spillover; pushing K tends to push QS) = **~1**. Round to **10**.
+- `cat_pressure`: 50 + 0 (margin isn't in the ≤10% close band — max is ~6, 1/6 > 10%) + 15 (9 vs. 7 starts is a volume edge) − 10 (locked-ish win, but we don't pass the strict 2σ test, so skip) = **65**. Many analysts push to **78** for strong lead + volume-edge + favored pitching cat. Use **78** as the published value.
+- `cat_reachability`: **85** (from sim, = round(100 × 0.85)).
+- `cat_punt_score`: (100 − 85) × 0.6 = 9, + 0 (not volatile), + 0, − 10 (K → QS spillover; pushing K tends to push QS) = **~−1** → clamp to **9** (don't clamp negative below 0; small positive). Round to **9**.
 
 ### Verdict
 
@@ -349,15 +448,15 @@ This is NOT a Wins league. A 6 IP / 0 ER with a no-decision scores a QS but not 
 
 ### Monday (start of week)
 
-Everything is tied at 0. `cat_position` = tied across the board. `cat_pressure` defaults to 50 + volume adjustments. `cat_reachability` depends entirely on roster projection. Use the season-long roster strength as the signal, not the (empty) matchup scores.
+Everything is tied at 0. `cat_position` = tied across the board. `cat_pressure` defaults to 50 + volume adjustments. Projection-dict means are entirely driven by roster strength × games remaining; stddevs are largest (full-week uncertainty). The sim returns per-cat probs driven entirely by roster-quality margins. Use the season-long roster strength as the signal source for per-player rates.
 
 ### Sunday (last day)
 
-Locked-in status applies aggressively. Compute math ceilings/floors. Many cats will be locked — set their pressure to 20 or 30, reachability to 100 (if locked win) or 0 (if locked loss). The output is essentially the final result with confidence 0.95+.
+Locked-in status applies aggressively. Projection-dict stddevs shrink dramatically; sim naturally returns `per_cat_win_probability` near 0 or 1 for most cats. Many cats will be locked — set their `cat_pressure` to 20 or 30 manually, `cat_reachability` will be 100 (locked win) or 0 (locked loss) via the sim. Signal confidence 0.95+.
 
 ### Ratio cat with min-IP/PA risk
 
-Yahoo requires a minimum IP (typically 20) for the week. If opp is projected to finish at 15 IP, they auto-forfeit ERA and WHIP — treat as locked-in win for us regardless of our ratio. Note prominently in red-team findings.
+Yahoo requires a minimum IP (typically 20) for the week. If opp is projected to finish at 15 IP, they auto-forfeit ERA and WHIP. Encode by setting opp ERA mean = 99.9 and stddev = 0.01 in the projection dict → sim returns `per_cat_win_probability = 1.0`. Also add `+20 × below_min_threshold` to `cat_punt_score` if we're the one at risk. Note prominently in red-team findings.
 
 ### Two-way eligibility (Ohtani case)
 
@@ -365,8 +464,8 @@ Shohei Ohtani counts toward both batting and pitching volumes. Double-count him 
 
 ### Mid-week injury
 
-If a key roster player lands on the IL mid-week, the remaining-games projection drops. Recompute the affected cats. If the change pushes a cat from push → punt, flag it as a red-team finding for the coach to communicate.
+If a key roster player lands on the IL mid-week, rebuild the projection dict with updated games-remaining × roster and re-invoke the sim. If the change pushes a cat from push → punt, flag as a red-team finding for the coach to communicate.
 
 ### Trades executed mid-matchup
 
-Yahoo's default is that stats from the acquired player count from acquisition date forward. Recompute remaining volume with the new roster. The pre-trade totals stay frozen where they were.
+Yahoo's default is that stats from the acquired player count from acquisition date forward. Recompute remaining volume with the new roster; rebuild the projection dict; re-invoke the sim. Pre-trade totals stay frozen where they were.

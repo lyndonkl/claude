@@ -10,7 +10,7 @@
       "name": "Counting Category Math",
       "1": "Counting deltas computed from full-season not ROS, or sign errors (e.g., IN minus OUT reversed), or cats missing entirely",
       "3": "All seven counting cats (R, HR, RBI, SB, K, QS, SV) computed from ROS projections with correct IN-minus-OUT subtraction, table displayed both teams side by side",
-      "5": "All counting cats computed from ROS ATC, table shows raw deltas both our side and mirror (their side), SV projections validated against save_role_certainty from player-analyzer, QS projections are directly pulled (not heuristic) from FanGraphs"
+      "5": "All counting cats computed from ROS ATC, table shows raw deltas both our side and mirror (their side), SV projections validated against save_role_certainty from mlb-closer-tracker, QS projections pulled directly (not heuristic) from FanGraphs"
     },
     {
       "name": "Ratio Category Math",
@@ -25,16 +25,28 @@
       "5": "cat_pressure read from today's cat-state signal file with source file path cited, weight formula (pressure/50) applied to each of the 10 cats, weighted sum computed and displayed alongside raw sum, any cat with pressure>=80 flagged as a forced-reject trigger if its delta is negative, mirror-side uses raw (not our) pressures with rationale"
     },
     {
-      "name": "trade_value_delta Dollar Calculation",
+      "name": "trade_value_delta Dollar Calculation (Raw)",
       "1": "No dollar value computed, or a made-up number not sourced from an auction calculator",
-      "3": "FanGraphs Auction Calculator values pulled for each player, net delta computed and bucketed as gain/noise/loss",
-      "5": "FanGraphs AC values configured for 12-team H2H OBP-variant 5x5 league, pulled for all players with source URL, ROS version used, value bucketed into the five calibration tiers (>=+$10 through <=-$10), injury discount applied for any IL player with >4 weeks of expected missed time, fallback to Razzball with OBP adjustment documented when FG unavailable"
+      "3": "FanGraphs Auction Calculator values pulled for each player, raw net delta computed",
+      "5": "FanGraphs AC values configured for 12-team H2H OBP-variant 5x5 league, pulled for all players with source URL, ROS version used, injury discount applied for any IL player with >4 weeks of expected missed time, fallback to Razzball with OBP adjustment documented when FG unavailable, raw delta clearly labeled as input to the slot-value and adverse-selection stages (not the final verdict number)"
+    },
+    {
+      "name": "Slot-Value Bonus Application",
+      "1": "slot_value_delta not computed, computed with wrong sign, or applied only to our side (ignoring the symmetric case where the opponent frees a slot)",
+      "3": "slot_value_delta computed as (N_slots_cleared_us − N_slots_cleared_them) × $2.50, included in trade_value_delta_pre_adj, basic rationale given",
+      "5": "slot_value_delta computed correctly and symmetrically (both sides evaluated), max(0, ...) applied so a side that takes on more players gets 0 cleared slots on that side, $2.50 per slot unit cited with rationale (streaming, IL stashes, handcuff speculation), value added to trade_value_delta_raw to produce trade_value_delta_pre_adj, 2-for-1 examples worked out in the signal, bench-slot optionality explicitly NOT double-counted in positional_flex_delta, plain-English explanation given to the beginner user (\"every open bench slot is worth about $2-3 because we can stream a pitcher or stash an injured returner\")"
+    },
+    {
+      "name": "Adverse-Selection Integration",
+      "1": "Did not invoke @skills/adverse-selection-prior/, or computed a prior inline instead of delegating, or did not consume the skill's output contract",
+      "3": "Invoked @skills/adverse-selection-prior/ with the four required inputs (offer_type, proposer_archetype, offer_symmetry_score, proposer_info_asymmetry) and multiplied trade_value_delta_pre_adj by recommended_adjustment",
+      "5": "Invoked @skills/adverse-selection-prior/ with all four inputs correctly derived from upstream signals (offer_type from trade context, proposer_archetype read verbatim from context/opponents/<team>.md, offer_symmetry_score mapped from pre-adj ratio per the methodology table, proposer_info_asymmetry scored with all adjustments for injury/closer/regression news), consumed the full output contract (prior_ev_probability stored in signal, recommended_adjustment applied multiplicatively to trade_value_delta_pre_adj, bayesian_rationale embedded in verdict rationale, override_hints each added as red_team_findings), adverse_selection_adjustment_pct recorded as (1 − recommended_adjustment) × 100, the haircut applied ONLY to the dollar delta (not to per-category deltas), delegation not duplicated inline"
     },
     {
       "name": "positional_flex_delta Scoring",
       "1": "Position impact not evaluated, or scored as binary up/down with no rationale",
       "3": "Position flex scored on a -100 to +100 scale using scarcity of positions (C, SS scarce; OF abundant) and bench/slot impacts, total computed",
-      "5": "Each contributing factor scored individually per the scoring anchors (scarce-position gain/loss, multi-position eligibility, bench consolidation, SP/RP count alignment with starting slots), contributions summed and clamped to [-100, +100], table in the template fully populated, written in beginner-voice (\"gain depth at SS where we had only two eligible players\")"
+      "5": "Each contributing factor scored individually per the scoring anchors (scarce-position gain/loss, multi-position eligibility, SP/RP count alignment with starting slots), contributions summed and clamped to [-100, +100], bench-slot optionality explicitly excluded to avoid double-counting with slot_value_delta, table in the template fully populated, written in beginner-voice"
     },
     {
       "name": "playoff_impact Computation",
@@ -43,147 +55,191 @@
       "5": "Date-gated (pre-July = 50 with N/A note), July 1-14 computed at normal weight, July 15+ computed and double-weighted in verdict, games×matchup_quality pulled from mlb-playoff-scheduler signal with source URL, pitcher playoff_games converted to projected STARTS (not team games) via Roster Resource probables grid, clamped to 0-100 with 50 neutral anchor"
     },
     {
-      "name": "Verdict Calibration and Reject Bias",
-      "1": "Verdict not one of the three enums (ACCEPT/COUNTER/REJECT), or verdict contradicts the signal values, or biased toward ACCEPT",
-      "3": "Verdict correctly maps to one of the three enums using threshold logic, acknowledges reject bias in ambiguous cases",
-      "5": "Decision tree applied explicitly: all five ACCEPT conditions checked and logged (value>=+$5, weighted cat delta>+30, no high-pressure cat negative, flex>=0, playoff>=50 if applicable); forced-REJECT overrides (any pressure>=80 cat negative, value<=-$10, flex<=-30, July 15+ playoff<=40, IL uncertain) explicitly evaluated and triggered where applicable; tie goes to reject; rationale explains which condition(s) drove the verdict"
+      "name": "Verdict-Ladder Correctness",
+      "1": "Did not apply the +15% / −20% ladder on delta_pct, used old +$5/−$5 dollar thresholds, pure-rejected in the middle band, or accepted below the +15% threshold",
+      "3": "Computed delta_pct = trade_value_delta_adjusted / Σ$_OUT, applied the three-tier ladder (ACCEPT ≥ +15%, COUNTER middle band, REJECT ≤ −20%), produced a counter when verdict is COUNTER",
+      "5": "Computed delta_pct correctly on the post-haircut adjusted delta; enforced ACCEPT only when delta_pct ≥ +15% AND advocate/critic variants agree AND no cat with pressure ≥ 80 has negative weighted delta; enforced REJECT only when delta_pct ≤ −20% AND prior_ev_probability ≤ 0.35 (otherwise downgraded to COUNTER with a more demanding ask); applied the always-counter rule in the middle band (never pure-REJECT); when only one REJECT condition held, downgraded to COUNTER; forced-REJECT overrides (high-pressure cat negative, IL unknown, July 15+ playoff ≤ 40) evaluated explicitly; tie at boundary resolved toward COUNTER; rationale explicitly names which condition(s) drove the verdict; even on REJECT, the counter we would have sent is documented in the signal for relationship log"
     },
     {
       "name": "Counter-Offer Specificity",
-      "1": "Verdict is COUNTER but no specific counter-package is proposed (just 'ask for more'), or counter is obviously extractive and will be rejected",
+      "1": "Verdict is COUNTER (or REJECT) but no specific counter-package is proposed (just 'ask for more'), or counter is obviously extractive and will be rejected",
       "3": "Counter proposes a specific named player to add or swap, identifies the gap the counter closes",
-      "5": "Counter identifies the specific gap (value short by $X, or cat-C negative, or flex marginal), scans opponent's actual Yahoo roster for plausible candidates, proposes a specific named player (not a tier), estimates acceptance probability with one sentence of rationale, pre-commits to REJECT if counter is refused"
+      "5": "Counter identifies the specific gap (value short by $X to reach +15%, or cat-C negative at pressure ≥80, or flex marginal), scans opponent's actual Yahoo roster for plausible candidates, proposes a specific named player (not a tier), estimates acceptance probability with one sentence of rationale, provides a fallback ladder (primary counter → smaller counter → REJECT on second refusal), counter-package produced even when verdict is REJECT (for relationship log, with counter_sent: false flag)"
     },
     {
       "name": "Documentation and Signal Compliance",
       "1": "No signal file written, or output not in the template schema, or no source URLs, or no confidence score",
       "3": "Signal file written to signals/YYYY-MM-DD-trade-<opponent>.md with frontmatter and major fields populated, source URLs cited for projections",
-      "5": "Signal file fully compliant with the signal-framework schema (type: trade, all required fields), every projection and dollar value has a source URL, confidence computed and >=0.5 for a final verdict (or <0.5 with explicit note), red_team_findings block populated with at least one finding, decision log entry emitted via mlb-decision-logger with will_verify_on date set to 4 weeks out, output written in beginner-voice with jargon translated inline, ends with a single-verb recommendation"
+      "5": "Signal file fully compliant with the signal-framework schema, frontmatter includes all new fields (trade_value_delta_raw, slot_value_delta, trade_value_delta_pre_adj, prior_ev_probability, recommended_adjustment, adverse_selection_adjustment_pct, trade_value_delta_adjusted, delta_pct, opponent_archetype, counter_sent), every projection and dollar value has a source URL, confidence >=0.5 for a final verdict (or <0.5 with explicit note), red_team_findings includes every override_hint from the adverse-selection-prior output, decision log entry emitted via mlb-decision-logger with will_verify_on date 4 weeks out, output written in beginner-voice with jargon translated inline, ends with a single-verb recommendation (ACCEPT / COUNTER / REJECT)"
     }
   ],
   "guidance_by_type": {
     "Star-for-depth offer": {
       "target_score": 4.3,
       "key_requirements": [
-        "Be especially skeptical: opponent is consolidating, which implies they expect the concentration to help them",
-        "Check whether the players we give up are genuinely close to waiver-tier; if they are actually startable, that's hidden value",
-        "Positional flex often tips negative on these offers because we free bench slots the opponent wanted to free for themselves"
+        "Compute slot_value_delta carefully — a 2-for-1 from our side yields +$2.50, not zero",
+        "Expect a 0.85-0.90 haircut from adverse-selection-prior on an active-archetype star-for-depth offer",
+        "In the middle band, always counter with a specific ask (not a dismissive REJECT)"
       ],
       "common_pitfalls": [
-        "Letting the headline star's name override the math",
-        "Treating our own players as more droppable than they are",
-        "Ignoring that opponent frees a roster spot to stream from waivers"
+        "Treating the +$2.50 slot bonus as decisive when delta_pct is still well below +15%",
+        "Letting the headline star's name override the math after the haircut is applied",
+        "Ignoring that the archetype-driven haircut is what shifts a borderline ACCEPT into COUNTER"
       ]
     },
     "Category-targeted swap": {
       "target_score": 4.1,
       "key_requirements": [
         "Read cat_pressure carefully: does the swap match OUR pressures or THEIRS?",
-        "Only accept when gained cats have pressure >=70 AND given-up cats have pressure <=40",
-        "Cross-check the mirror table — if their raw cat deltas also improve their needs, the trade may still be extractive for us"
+        "Even if on-surface the swap looks balanced, the adverse-selection-prior haircut (0.85-0.90) can push delta_pct out of the ACCEPT band",
+        "Only ACCEPT when gained cats have pressure >=70 AND given-up cats have pressure <=40 AND delta_pct >= +15% post-haircut"
       ],
       "common_pitfalls": [
         "Assuming category swaps are automatically fair because both sides address weaknesses",
-        "Using today's standings instead of rest-of-season projections (standings are noisy in April/May)"
+        "Using today's standings instead of rest-of-season projections",
+        "Skipping the haircut because 'it's symmetric' — symmetric is what Akerlof warns against"
       ]
     },
     "Buy-low / sell-high regression play": {
       "target_score": 4.0,
       "key_requirements": [
         "Cross-reference mlb-regression-flagger signal for each player's regression_index",
-        "If their player's regression_index is sharply positive (unlucky, bounce-back due) AND ours is sharply negative (lucky, regression incoming), a flat-dollar trade is a gain — ACCEPT is justified",
-        "Document the regression thesis in the signal file so it can be verified in 4 weeks"
+        "Set proposer_info_asymmetry low (30-40) when our own regression model is strong — we have insight they may not",
+        "Shallow haircut (0.95) may let a flat-dollar trade clear +15% if regression thesis is strong"
       ],
       "common_pitfalls": [
-        "Anchoring on season-to-date results when xwOBA / xERA tell a different story",
-        "Assuming the opponent is equally sophisticated about regression (they may or may not be)"
+        "Anchoring on season-to-date results when xwOBA/xERA tell a different story",
+        "Forgetting to lower proposer_info_asymmetry when we have the regression edge — leading to an over-deep haircut"
       ]
     },
     "Injury-adjacent desperation offer": {
       "target_score": 4.4,
       "key_requirements": [
-        "RotoWire injury report check is step 1, before any other analysis",
-        "If projected return costs >4 weeks, manually scale the ATC projection — do not trust the ensemble to have repriced",
-        "Default to REJECT because the ATC staleness is common and the information asymmetry favors the offerer"
+        "RotoWire injury report check is step 1",
+        "Set proposer_info_asymmetry to 80+ (they know more about the injury)",
+        "Expected recommended_adjustment ≈ 0.80 — deep haircut often pushes delta_pct into REJECT band"
       ],
       "common_pitfalls": [
         "Trusting ATC for a player who went on IL in the last 7 days",
-        "Underestimating the psychological pressure on the injured player's team to offload (they know more than us)"
+        "Using default asymmetry of 50 when the injury context clearly warrants 80+"
       ]
     },
     "Playoff-week schedule arbitrage (July+)": {
       "target_score": 4.2,
       "key_requirements": [
-        "Pull weeks 21-23 game counts per team from mlb.com/schedule, not the generic team season schedule",
-        "For SPs, convert to projected starts using Roster Resource probables grid — pitchers do not start every team game",
-        "Double-weight playoff_impact in the verdict for trades proposed July 15 or later"
+        "Pull weeks 21-23 game counts per team from mlb.com/schedule",
+        "For SPs, convert to projected starts using Roster Resource probables grid",
+        "Double-weight playoff_impact for trades proposed July 15 or later",
+        "Playoff-impact positive swings can tip close COUNTER cases into ACCEPT only if delta_pct is already within ~3% of +15%"
       ],
       "common_pitfalls": [
-        "Counting team games as pitcher starts (overstates SP playoff contribution by ~60%)",
-        "Not flagging trade deadline proximity (Aug 6) — a bad trade this late cannot be reversed"
+        "Counting team games as pitcher starts",
+        "Using playoff_impact as a primary driver when delta_pct is deep in the middle band"
       ]
     }
   },
   "common_failure_modes": [
     {
+      "failure": "Skipped adverse-selection delegation",
+      "symptom": "Signal file has no prior_ev_probability, recommended_adjustment, or adverse_selection_adjustment_pct fields",
+      "detection": "Grep the signal for 'prior_ev_probability'; if missing, Step 7 was skipped",
+      "fix": "Invoke @skills/adverse-selection-prior/ with the four required inputs; consume the full output contract (all four fields stored in the signal)"
+    },
+    {
+      "failure": "Duplicated the adverse-selection logic inline",
+      "symptom": "The evaluator computes its own Bayesian update instead of delegating",
+      "detection": "Grep the skill output for 'base_prior', 'symmetry_delta', or 'archetype_delta' — these belong only in the delegated skill",
+      "fix": "Remove inline Bayesian math. Call @skills/adverse-selection-prior/ and consume its output. Single source of truth."
+    },
+    {
+      "failure": "Applied haircut to per-category deltas",
+      "symptom": "Weighted cat deltas look damped; cat delta table numbers don't match the ROS projection arithmetic",
+      "detection": "Recompute any cat weighted delta manually; if the result doesn't match, the haircut was wrongly applied to cats",
+      "fix": "Apply recommended_adjustment ONLY to trade_value_delta_pre_adj, producing trade_value_delta_adjusted. Cat deltas stay un-haircut."
+    },
+    {
+      "failure": "Forgot slot-value bonus",
+      "symptom": "2-for-1 trade not credited with +$2.50; signal file has no slot_value_delta field",
+      "detection": "If players_in != players_out in the signal, slot_value_delta must be non-zero",
+      "fix": "Compute in Step 6 symmetrically: (slots_cleared_us − slots_cleared_them) × $2.50. Include even when zero."
+    },
+    {
+      "failure": "Double-counted bench slot optionality",
+      "symptom": "A 2-for-1 earns +$2.50 in slot_value_delta AND +10 in positional_flex_delta 'bench consolidation'",
+      "detection": "Check whether positional_flex_delta includes a +10 bench-consolidation line for the same 2-for-1 that earned slot_value_delta",
+      "fix": "Remove the flex +10 for bench-consolidation when slot_value_delta is non-zero. Optionality is captured in dollars via slot_value_delta; flex captures starting-slot fit only."
+    },
+    {
+      "failure": "Pure REJECT in middle band",
+      "symptom": "Verdict is REJECT but delta_pct > −20% or prior_ev_probability > 0.35",
+      "detection": "Check both REJECT conditions in the decision block; if either fails, verdict must be COUNTER",
+      "fix": "Downgrade to COUNTER with a specific package. Pure REJECT is reserved for clearly predatory offers only (both conditions met)."
+    },
+    {
+      "failure": "ACCEPT below +15% threshold",
+      "symptom": "Verdict is ACCEPT at delta_pct between +5% and +14.9%",
+      "detection": "The new threshold is +15% post-haircut, not +5% (old) or 0% (naive)",
+      "fix": "If delta_pct < +15%, verdict is COUNTER. Squeeze more value via a specific counter-package ask."
+    },
+    {
+      "failure": "Archetype defaulted to 'unknown' with file present",
+      "symptom": "adverse-selection-prior input shows proposer_archetype=unknown but context/opponents/<team>.md exists",
+      "detection": "Check whether context/opponents/<opponent-slug>.md was read before Step 7",
+      "fix": "Read the opponent profile file (written by mlb-opponent-profiler) and pass the archetype verbatim to the prior skill."
+    },
+    {
       "failure": "Full-season projections instead of rest-of-season",
-      "symptom": "A player with 20 HR in April is valued as if he'll hit 40+ over the full season, independent of games remaining",
-      "detection": "Check the FanGraphs URL — does it end in 'atc' (full season) or 'atcr' (rest of season)?",
-      "fix": "Switch to atcr. Re-pull all projections. This typically changes trade_value_delta by $5-$15 for hot/cold starters."
+      "symptom": "A player with 20 HR in April is valued as if he'll hit 40+ over the full season",
+      "detection": "Check the FanGraphs URL — 'atc' (full) vs 'atcr' (ROS)",
+      "fix": "Switch to atcr. Re-pull all projections."
     },
     {
       "failure": "Simple-averaged ratio cats",
       "symptom": "OBP delta reported as (AVG(OBP_IN)) - (AVG(OBP_OUT)) without weighting",
-      "detection": "Compute weighted version; if the result differs by more than 0.002 from the simple average, the simple version is wrong",
-      "fix": "Weight by PA (OBP) or IP (ERA, WHIP) per the ratio category math section. Use implied-components approach (sum of ER or baserunners divided by IP)."
+      "detection": "Compute weighted version; if differs by >0.002, simple version was used",
+      "fix": "Weight by PA (OBP) or IP (ERA, WHIP) per the ratio category math section"
     },
     {
       "failure": "Flat cat_pressure weights (all 1.0)",
-      "symptom": "Every cat's delta contributes equally to the weighted sum; trade verdict doesn't reflect user's actual weekly needs",
-      "detection": "Open the cat-state signal; if pressures vary meaningfully (range > 30) but the weighted sum equals the raw sum, weighting wasn't applied",
-      "fix": "Read signals/YYYY-MM-DD-cat-state.md. Apply weight = pressure/50 to each cat before summing. Re-render verdict."
+      "symptom": "Weighted sum equals raw sum despite varied pressures",
+      "detection": "Check cat-state signal; if pressures vary (range > 30) but weighted = raw, weighting wasn't applied",
+      "fix": "Read signals/YYYY-MM-DD-cat-state.md. Apply weight = pressure/50."
     },
     {
       "failure": "Vague counter ('ask for more')",
-      "symptom": "Verdict is COUNTER but the output does not name a specific player to request",
-      "detection": "Grep the output for a named player in the counter-package section",
-      "fix": "Pull the opponent's Yahoo roster. Identify a specific player that closes the quantified gap. Propose that player by name and pre-commit to REJECT if refused."
+      "symptom": "Verdict is COUNTER (or REJECT with documented counter) but no specific player named",
+      "detection": "Grep the output for a named player in the counter section",
+      "fix": "Pull the opponent's Yahoo roster. Name a specific player that closes the quantified gap to +15%. Pre-commit to fallback ladder."
     },
     {
       "failure": "Missed IL status",
-      "symptom": "Incoming player is projected at full value but is currently on the IL",
-      "detection": "Cross-check RotoWire injury report for every IN player before finalizing the verdict",
-      "fix": "If the player is on IL and ATC hasn't repriced, scale the ROS projection manually. If return date is unknown, flag as forced REJECT."
+      "symptom": "Incoming player is projected at full value but is on the IL",
+      "detection": "Cross-check RotoWire for every IN player",
+      "fix": "Scale the ROS projection manually, or force REJECT if return date unknown"
     },
     {
       "failure": "Sign error on ERA/WHIP delta",
-      "symptom": "A trade that gains a better pitcher shows a negative weighted delta in ERA or WHIP",
-      "detection": "Spot-check: if IN pitchers have lower projected ERA than OUT pitchers, the contribution to trade_cat_delta must be positive",
-      "fix": "Multiply the raw ratio-cat delta by -1 before scaling and summing. Lower ERA/WHIP is better; the sign convention must make that a positive contribution."
-    },
-    {
-      "failure": "Accept bias instead of reject bias",
-      "symptom": "A trade that is close to fair (value_delta in -$5 to +$5 band) is accepted instead of countered",
-      "detection": "Re-read the decision tree: ACCEPT requires value_delta >= +$5, not just >= 0",
-      "fix": "If value_delta < +$5, the verdict cannot be ACCEPT. It is COUNTER if the other conditions are met, or REJECT otherwise."
+      "symptom": "A trade that gains a better pitcher shows negative weighted delta in ERA/WHIP",
+      "detection": "Spot-check: lower ERA/WHIP IN should contribute POSITIVELY to trade_cat_delta",
+      "fix": "Multiply raw ratio delta by -1 before scaling"
     },
     {
       "failure": "Ignored high-pressure cat negative",
-      "symptom": "Verdict is ACCEPT despite a cat with pressure >=80 having a negative weighted delta",
-      "detection": "Walk the forced-REJECT override list explicitly for each verdict",
-      "fix": "Force REJECT. The trade sacrifices a category the user critically needs; no amount of dollar value gain compensates within a weekly H2H framework."
+      "symptom": "Verdict is ACCEPT despite a pressure ≥ 80 cat having negative weighted delta",
+      "detection": "Walk the forced-REJECT override list for every verdict",
+      "fix": "Force REJECT (or at minimum COUNTER with a cat-specific throw-in ask)"
     },
     {
-      "failure": "Uniform weights for mirror-side (opponent) table",
-      "symptom": "Mirror analysis uses our cat_pressure values on the opponent's side",
-      "detection": "Check the mirror table: are the weights the same as our side?",
-      "fix": "Either use raw (unweighted) deltas for the mirror, or pull the opponent's standings per-cat and derive their pressures separately."
+      "failure": "Uniform weights for mirror (opponent) table",
+      "symptom": "Mirror analysis uses our cat_pressure values",
+      "detection": "Check the mirror table weights vs our pressures",
+      "fix": "Use raw deltas (or their standings-derived pressures) for the mirror"
     },
     {
-      "failure": "No commissioner-review flag",
-      "symptom": "A trade that is manifestly lopsided in our favor is accepted without noting that the commissioner may reverse it",
-      "detection": "If trade_value_delta >= +$20, the trade is likely to be reviewed and potentially reversed in this league",
-      "fix": "Add a red-team finding: 'Commissioner review may reverse this trade; consider restructuring to make it less lopsided on paper while preserving the gain.'"
+      "failure": "No commissioner-review flag on lopsided gain",
+      "symptom": "delta_pct >= +25% accepted without noting review risk",
+      "detection": "Any trade with delta_pct >= +25% triggers review risk in this league",
+      "fix": "Add red_team finding about commissioner review; consider restructuring counter to make the gain less lopsided on paper"
     }
   ]
 }
