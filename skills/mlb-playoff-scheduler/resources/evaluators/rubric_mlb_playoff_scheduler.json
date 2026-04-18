@@ -1,0 +1,114 @@
+{
+  "skill": "mlb-playoff-scheduler",
+  "scale": "1 = fails, 3 = acceptable, 5 = exemplary",
+  "minimum_average": 3.5,
+  "criteria": [
+    {
+      "name": "Date Gate Discipline",
+      "1": "Emits a fully-computed signal file before 2026-07-01, fabricating schedule and opponent quality data. Or emits a malformed stub that downstream agents cannot distinguish from a live signal.",
+      "3": "Respects the July 1 gate and emits the stub template with null signals. Frontmatter includes stub marker. Body text explains the pre-July rationale.",
+      "5": "Respects the gate, emits the canonical stub, marks `stub: true` in run_metadata, sets all three signals to null, sets confidence to 0.0, and writes a dated `Next re-run: YYYY-MM-DD` line pointing to the first Sunday on or after July 1. Downstream agents have a machine-checkable flag to refuse consumption."
+    },
+    {
+      "name": "Week Window Accuracy",
+      "1": "Week 21-23 windows are wrong -- either misaligned to Yahoo Mon-Sun or off by a week. Dates do not terminate on Sep 6.",
+      "3": "Windows correctly spanning 2026-08-17 to 2026-09-06 with Mon-Sun boundaries. 21 calendar days total.",
+      "5": "Windows correctly defined, cross-referenced against league-config.md, and a note confirms the playoff end date matches the Yahoo league settings. Any league-config mismatch triggers a red-team finding rather than silent override."
+    },
+    {
+      "name": "Schedule Coverage and Doubleheader Handling",
+      "1": "Missing teams or weeks in the games grid. Doubleheaders treated as single games. No cross-check between MLB.com and FanGraphs.",
+      "3": "All 30 teams present in the grid. Doubleheaders counted correctly when visible. One source (MLB.com) cited consistently.",
+      "5": "All 30 teams with per-week counts. MLB.com and FanGraphs cross-checked for every team whose total is outside 17-20. Doubleheaders explicitly flagged in the Notes column with the date. Makeup games called out with their origin date."
+    },
+    {
+      "name": "Opponent Quality Sourcing",
+      "1": "Opponent wOBA / ERA figures are uncited or fabricated. Only one metric type used across hitters and pitchers (e.g., ERA for both when wOBA split should apply to pitchers).",
+      "3": "Staff wOBA-allowed used for hitters, lineup wOBA split by handedness used for pitchers. Each opponent's figures sourced from FanGraphs or Baseball Savant with URLs captured.",
+      "5": "All opponent figures from FanGraphs with URL per metric. Both xwOBA and wOBA captured when available (xwOBA preferred). ERA fallback explicitly labeled as such if used. Handedness split applied correctly for every pitcher row."
+    },
+    {
+      "name": "Normalization Correctness",
+      "1": "Formulas do not anchor at 50 = neutral. Clamps missing -- values go below 0 or above 100. Volume-weighted averages computed as simple averages of weekly averages.",
+      "3": "The 50-anchored formula applied, clamps present, averages are volume-weighted across all games in the window (not week-level means).",
+      "5": "The 50-anchored formula applied with the correct league-median wOBA constants (staff ~0.320, lineup vs RHP ~0.315, vs LHP ~0.310). Clamps applied on final value, not intermediate. Volume-weighting correct: sum over games of metric divided by total games. All arithmetic verifiable from the table."
+    },
+    {
+      "name": "Holding Value Blend",
+      "1": "Holding value formula wrong or arbitrary. Weights not disclosed. No rationale for weighting.",
+      "3": "`holding_value = 0.6 x volume_score + 0.4 x playoff_matchup_quality` applied, with volume_score = (playoff_games / 21) x 100. Final value clamped to [0, 100].",
+      "5": "Correct blend applied with explicit formula and weight justification in the signal body. Alternative weight profiles noted (punt-ERA, OBP-chase) if the user's category strategy is known. Thresholds for `Strong hold` / `Neutral` / `Trade candidate` explicitly stated (70 / 40)."
+    },
+    {
+      "name": "Per-Player Mapping Completeness",
+      "1": "Per-player mapping missing entirely, or covers only a subset of the user's roster. Pitchers not handled separately.",
+      "3": "Every roster player has a row. Pitchers receive the handedness-appropriate quality score. Starter vs reliever volume interpretation noted.",
+      "5": "Every roster player mapped with team, position, role, and all three signals. Starters have projected-starts volume rather than team game count. Closers scaled by usage rate. Grouping (Strong hold / Neutral / Trade candidate) provided for the user-facing brief. Each player's row traceable to the team row that produced it."
+    },
+    {
+      "name": "Citation and Confidence Discipline",
+      "1": "`source_urls` empty or sparse. Confidence declared without justification. No red-team findings.",
+      "3": "`source_urls` lists the primary schedule and wOBA sources. `synthesis_confidence` declared with a plausible value. At least one red-team finding capturing the main risk (e.g., TBD makeup game).",
+      "5": "Every opponent wOBA and every schedule row traceable to a cited URL. `synthesis_confidence` declared and consistent with data quality (e.g., 0.9 when both MLB.com and FanGraphs agree, 0.6 when only one source resolves, 0.3 when opponent wOBA is missing). Red-team findings enumerate: TBD makeups, rotation flux for impact opponents, rain-postponement risk at outdoor parks, and any data-fetch failures."
+    }
+  ],
+  "common_failure_modes": [
+    {
+      "failure": "Pre-July precomputation",
+      "symptom": "Signal file before 2026-07-01 contains real numbers rather than the stub.",
+      "detection": "Check run date vs frontmatter; any live signal dated before 2026-07-01 fails this rubric.",
+      "fix": "Gate the compute path on the run date. Before July 1, emit only the stub template."
+    },
+    {
+      "failure": "Week-level averaging of opponent wOBA",
+      "symptom": "Opponent quality is the mean of three weekly averages rather than volume-weighted across all games.",
+      "detection": "Hand-compute for one team: sum of per-game wOBA divided by playoff_games. If it doesn't match the emitted value, the averaging is wrong.",
+      "fix": "Always sum opponent metric over games, then divide by total games. Never average the weekly averages."
+    },
+    {
+      "failure": "Ignoring handedness for pitchers",
+      "symptom": "A LHP and a RHP on the same team have the same `playoff_matchup_quality`.",
+      "detection": "Compare two pitchers on one team with opposite hands. Their quality scores should differ because the opposing lineup wOBA splits by hand.",
+      "fix": "Pull opposing lineup wOBA vs RHP and vs LHP separately. Apply the split matching each pitcher's hand."
+    },
+    {
+      "failure": "Collapsing doubleheaders",
+      "symptom": "A team with a scheduled doubleheader shows `playoff_games` = 20 when the raw calendar should produce 21.",
+      "detection": "Any team with `playoff_games` < 17 or = 21 warrants cross-check. Compare MLB.com daily schedule to the per-team total.",
+      "fix": "Iterate the daily schedule, not the team's calendar-day count. Count each scheduled game separately, including both games of a doubleheader."
+    },
+    {
+      "failure": "Confusing starter volume with team volume",
+      "symptom": "A starting pitcher has `playoff_games` = 20 (copied from his team). The volume_score is inflated.",
+      "detection": "Any SP with `playoff_games` > 6 is suspect. Typical is 4 starts in 21 days.",
+      "fix": "For SPs, use projected starts in the window (typically 4). For RPs, use team game count x usage rate. Document the mapping."
+    },
+    {
+      "failure": "Fabricated opponent wOBA",
+      "symptom": "Opponent wOBA figures without a corresponding URL in `source_urls`.",
+      "detection": "Every opponent wOBA should have a traceable source. Audit: pick 3 opponent figures at random and verify each on FanGraphs.",
+      "fix": "If a figure cannot be sourced, mark that team's row `null` and drop confidence to 0.3 with a red-team finding."
+    },
+    {
+      "failure": "Stale schedule (missed makeup games)",
+      "symptom": "A team has `playoff_games` = 18 in the emitted signal, but MLB.com shows a 19th game as a newly-scheduled makeup.",
+      "detection": "Re-run weekly. If this week's total differs from last week's for the same team, check for makeup-game additions.",
+      "fix": "Re-run every Sunday. Trust the latest MLB.com schedule. Update the signal file and note the change in the decision log."
+    },
+    {
+      "failure": "Over-reliance on ERA",
+      "symptom": "All opponent quality uses ERA instead of wOBA.",
+      "detection": "Frontmatter or methodology notes ERA throughout. Primary methodology specifies wOBA.",
+      "fix": "Use wOBA as primary. ERA is a fallback only when wOBA is unreachable, and must be flagged in red-team findings when used."
+    }
+  ],
+  "scoring_notes": {
+    "context": "This skill fires weekly from July 5, 2026 through the end of the season. Pre-July, only the Date Gate Discipline criterion scores (others are N/A). Post-July, all 8 criteria apply.",
+    "target_score": 4.0,
+    "fail_conditions": [
+      "Average score below 3.5",
+      "Any criterion scoring 1 (regardless of average)",
+      "Pre-July computation that bypasses the stub"
+    ]
+  }
+}

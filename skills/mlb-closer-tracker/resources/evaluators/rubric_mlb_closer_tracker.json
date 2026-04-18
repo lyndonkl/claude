@@ -1,0 +1,158 @@
+{
+  "criteria": [
+    {
+      "name": "Team Coverage",
+      "1": "Fewer than 20 teams covered, or no explicit accounting of missing teams",
+      "3": "25-29 teams covered with top-3 RP per team, missing teams are flagged",
+      "5": "All 30 MLB teams covered with top-3 RP per team (90 RP entries), every entry has a save_role_certainty score, per-team situation tag present"
+    },
+    {
+      "name": "Source Quality and Freshness",
+      "1": "Single source only (e.g., just RotoBaller) and stale (>5 days old), or no source URLs cited",
+      "3": "RotoBaller pulled on the day of emission, one secondary source consulted for volatile situations, URLs cited",
+      "5": "RotoBaller pulled same-day, Closer Monkey cross-referenced for all sub-70 certainty situations, Athlon Closer Confidential grades captured in April/May, every source URL cited with last-updated timestamp noted, stale pages downgraded in confidence"
+    },
+    {
+      "name": "save_role_certainty Rubric Application",
+      "1": "Scores assigned without using the 5-component rubric, or components applied inconsistently across teams",
+      "3": "All 5 components (role label, recent performance, velocity, manager signal, contract/age) considered for most RPs, scoring mostly consistent",
+      "5": "Every scored RP has all 5 components evaluated with cited evidence, scores rescaled correctly to 0-100, per-RP score_confidence attached (0.0-1.0), insufficient-data RPs explicitly marked rather than guessed"
+    },
+    {
+      "name": "Committee Detection",
+      "1": "Committees not flagged even when multiple arms are in the mix, or named 'closers' in committees score above 70",
+      "3": "Committees flagged when top-2 are within 15 points, named closer in committee capped at 60-65",
+      "5": "Committees flagged on both the 15-point spread criterion AND manager language criterion, platoon-handcuff analysis performed for speculation sizing, no RP on a committee team scores above 60, flag table includes all committee situations league-wide"
+    },
+    {
+      "name": "Velocity Trend Analysis",
+      "1": "Velocity not checked for any closer, or checked without comparing to baseline",
+      "3": "Velocity checked for closers below 80 certainty, baseline comparison present for most of them",
+      "5": "Velocity checked for every closer scoring below 80, 3-outing rolling average compared to 2026 season baseline on Baseball Savant, -1 mph sustained drop triggers score penalty, closer who has not thrown in 7+ days flagged explicitly"
+    },
+    {
+      "name": "Speculation Target Identification and Bid Sizing",
+      "1": "No speculation targets identified, or targets include clearly-owned handcuffs behind elite locked closers, or FAAB bids exceed $10 without category-strategist concurrence",
+      "3": "Speculation targets correctly restricted to 30-60 certainty range with volatility on incumbent, FAAB bands applied mostly correctly",
+      "5": "Speculation targets filtered on both save_role_certainty band AND incumbent volatility flags, ranked by speculation_score, Yahoo availability cross-referenced, FAAB bid bands applied per the guidance table, ceiling rule enforced ($10 max without category-strategist concurrence), floor rule enforced (min $1 on anything stash-worthy), platoon handcuff preferred in committees"
+    },
+    {
+      "name": "Punt-SV Decision Logic",
+      "1": "Punt-SV not considered even when trigger conditions are met, or punt-SV recommended without justification",
+      "3": "Punt-SV trigger evaluated, recommendation issued when appropriate, basic justification provided",
+      "5": "Punt-SV trigger formally evaluated against all three conditions (zero >=75 certainty RPs owned, 4+ slots would need speculation, SV losing/tied-low-reach per category-state), explicit recommendation to category-strategist with action ladder (DROP/HOLD/ADD), justification ties back to SV volatility being the league's most punt-worthy cat, review date set for next category-state read"
+    },
+    {
+      "name": "Signal File Quality and Handoff",
+      "1": "Signal file missing frontmatter fields, no source URLs, no confidence score, or not validated through mlb-signal-emitter",
+      "3": "Signal file has required frontmatter, source URLs cited, confidence present, most required fields populated, validated",
+      "5": "Signal file passes mlb-signal-emitter validation on first try, frontmatter includes teams_covered/rps_scored/committees_flagged/dfa_risks_flagged/punt_sv_recommended counts, depth charts + flat per-RP table + speculation table + committee/DFA flag table + punt-SV block all present, red-team findings noted for low-confidence entries, handoff targets (waiver-analyst, category-strategist, lineup-optimizer) can consume without re-derivation"
+    }
+  ],
+  "guidance_by_type": {
+    "Early Season (April - mid-May)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Athlon Closer Confidential grades are freshest here — capture every team's letter grade",
+        "Spring training manager quotes are LESS reliable than in-season quotes — discount component 4 by half until 3 regular-season weeks have passed",
+        "Expect 6-10 committees in early April that will resolve by mid-May — flag all of them and revisit weekly",
+        "Velocity baseline is thin with only 5-10 outings; use prior-season velocity as supplementary baseline",
+        "DFA-risk is rare in April (rosters still set); set expectation to 0-1 league-wide"
+      ],
+      "common_pitfalls": [
+        "Scoring spring training 'named closer' as locked when no regular-season reps exist (cap at 75 until 10 regular-season appearances)",
+        "Ignoring off-season signings who displaced incumbents (check transaction log, not just current RotoBaller)",
+        "Bidding too aggressively on April committees before they resolve — hold FAAB for the resolution week"
+      ]
+    },
+    "Peak Season (mid-May - July)": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Roles are mostly settled — most teams should have a save_role_certainty 80+ closer by now",
+        "Committees that persist past May are structural (rebuilding teams, injury-ravaged bullpens) — not temporary",
+        "Trade-deadline positioning (mid-July) starts generating role-change rumors — add a 'trade rumor flag' to volatility assessment",
+        "Velocity trends are now reliable — 30+ outings of baseline available"
+      ],
+      "common_pitfalls": [
+        "Not accounting for deadline trades — a closer can change teams overnight and lose the role",
+        "Treating a 2-week slump as a role change when the manager hasn't signaled it"
+      ]
+    },
+    "Trade Deadline Window (late July - early August)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Every closer on a bottom-10 team is a deadline flight risk — cap their save_role_certainty at 75 regardless of performance (they may be traded to a setup role)",
+        "Every contender with a shaky closer may trade FOR one — flag the teams and the rumored names",
+        "Handcuffs on contenders become more valuable if the incumbent is traded to a new team",
+        "Check MLB trade rumor aggregators (MLBTradeRumors.com) alongside RotoBaller"
+      ],
+      "common_pitfalls": [
+        "Forgetting that an acquired closer displaces the incumbent on the new team (reducing save_role_certainty for BOTH the displaced arm and any prior handcuff)",
+        "Bidding high FAAB on handcuffs of teams likely to BUY a closer at the deadline"
+      ]
+    },
+    "September Stretch": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Closers on eliminated teams may be shut down for workload management — treat as injury-flag (velocity check mandatory)",
+        "Contenders may ride hot hands in high-leverage even over named closer — score volatility +5-10 points if the team is in a tight playoff race",
+        "This is our fantasy playoff window (weeks 21-23) — every save_role_certainty directly affects playoff outcomes",
+        "Punt-SV trigger gets re-evaluated weekly at this stage"
+      ],
+      "common_pitfalls": [
+        "Dropping a locked closer on an eliminated team (he still pitches the 9th until shutdown)",
+        "Not flagging 'setup men who got the 9th in a playoff game' — those are real vultures"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Stale RotoBaller snapshot",
+      "symptom": "Depth chart reflects last week's reality; a role change has already happened and is not captured",
+      "detection": "Closer Monkey or Twitter/X beat writers show a role change that RotoBaller has not reflected; last-updated timestamp on RotoBaller > 48h old",
+      "fix": "Downgrade run confidence to 0.6, elevate Closer Monkey to primary, manually correct the affected team's entry, note the lag in the signal file"
+    },
+    {
+      "failure": "Over-scoring named closers in committees",
+      "symptom": "A named closer on a team that RotoBaller or Closer Monkey labels 'Committee' scores 80+ despite the volatility",
+      "detection": "Cross-check every closer scoring above 75 against committee flags in any source",
+      "fix": "Cap committee-situation closers at 60. Volatility = low certainty, regardless of who got the last save."
+    },
+    {
+      "failure": "FAAB ceiling violation",
+      "symptom": "Speculation bid recommended above $10 without documented category-strategist concurrence",
+      "detection": "Every speculation target with a bid >$10 should have a concurrence note referencing the category-state signal",
+      "fix": "Lower the bid to $10 ceiling or attach the category-strategist concurrence. If neither works, flag for user review."
+    },
+    {
+      "failure": "Ignoring platoon in committees",
+      "symptom": "Speculation target in a committee is the same-handedness arm as the incumbent, not the platoon handcuff",
+      "detection": "In any committee, check the handedness of top-2 arms; if same-handed, check the third option — the opposite-handed arm may be the better speculation",
+      "fix": "Re-sort committee speculation by upcoming 2-week 9th-inning LHB/RHB exposure. Recommend the platoon-advantaged arm."
+    },
+    {
+      "failure": "Missing velocity check on wobbly closers",
+      "symptom": "A closer scores 65-75 with no velocity trend data cited",
+      "detection": "Every closer < 80 certainty should have velocity data in the scoring evidence",
+      "fix": "Pull Baseball Savant, compute 3-outing rolling average vs season baseline, re-score component 3."
+    },
+    {
+      "failure": "Punt-SV not surfaced when warranted",
+      "symptom": "User has zero elite closers, reliever pool is thin league-wide, but the signal file contains no punt-SV recommendation",
+      "detection": "Check: if user-owned closers all < 75 AND 4+ RP slots would need specs to compete, punt-SV should fire",
+      "fix": "Add the punt-SV block to the signal body and set punt_sv_recommended: true in frontmatter. Hand off to category-strategist."
+    },
+    {
+      "failure": "DFA-risk not flagged for demoted closer",
+      "symptom": "An ex-closer scores below 25 but is not flagged for DROP",
+      "detection": "Every RP scoring below 25 should be evaluated for DFA-risk",
+      "fix": "Cross-reference options status and contract. If out of options or non-guaranteed deal, add DFA-risk flag and DROP recommendation."
+    },
+    {
+      "failure": "Beginner-unfriendly output",
+      "symptom": "Signal file uses jargon like 'handcuff,' 'vulture,' 'hold' without plain-English translation",
+      "detection": "Review the final output as if you have never played fantasy baseball — any unexplained jargon is a failure",
+      "fix": "Wrap all jargon in parentheses on first use. Example: 'speculation-worthy handcuff (the next-in-line reliever who would take the closer job if the current guy falters).'"
+    }
+  ]
+}

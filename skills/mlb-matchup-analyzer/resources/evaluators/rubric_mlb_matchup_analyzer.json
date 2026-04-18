@@ -1,0 +1,159 @@
+{
+  "criteria": [
+    {
+      "name": "Probable Pitcher Identification",
+      "1": "One or both SPs missing, handedness not recorded, no season stats pulled, or source URL not cited",
+      "3": "Both SPs identified with handedness and season ERA, source cited, but secondary stats (xFIP, K%, hard-hit%) incomplete or stale",
+      "5": "Both SPs identified with handedness, season ERA/xFIP/K%/hard-hit%, rolling last-30-day form, recent start log (last 3 outings), velocity trend, and every fact traced to a specific FanGraphs or Savant URL. Confirmed vs TBD status explicitly marked."
+    },
+    {
+      "name": "Park Factor Normalization",
+      "1": "Raw FanGraphs factors used without normalization, or normalization formula wrong, or 50-neutral anchor not applied, or hitter/pitcher factors not both emitted",
+      "3": "Park factors normalized to 0-100 with 50-neutral anchor, both park_hitter_factor and park_pitcher_factor emitted, source URL cited",
+      "5": "Park factors normalized via the documented formula (50 + (raw - 1.00) * 200) with clamping, both composite and handedness-specific (LHB/RHB) factors emitted when the park has material splits, sanity-checked against reference parks (Coors 70+, Oracle <35), and source URL cited with year specified"
+    },
+    {
+      "name": "Opposing SP Quality Signal",
+      "1": "opp_sp_quality not computed, or computed from only one perspective, or formula not anchored at 50 = league-average",
+      "3": "opp_sp_quality computed from both perspectives (vs home hitters, vs away hitters) using a documented formula anchored at 50, but adjustments (rest, velocity, handedness) not applied",
+      "5": "opp_sp_quality computed from both perspectives using xFIP-based formula anchored at 50, with documented adjustments for recent rest, velocity trend, and park-handedness interaction. Value is clamped to [0,100] and traces to cited season stats."
+    },
+    {
+      "name": "Weather Risk Computation",
+      "1": "Weather ignored, or reported qualitatively only (e.g., 'could rain'), or formula does not account for game importance, or dome not overriding",
+      "3": "weather_risk computed as rain_probability x importance multiplier, on 0-100 scale, with source cited. Dome status checked.",
+      "5": "weather_risk = rain_prob * importance_multiplier + non-rain surcharges (wind, temperature extremes, lightning), clamped to [0,100]. Importance multiplier tiered by stage of season (April 1.0 -> postseason 2.0). Dome/closed-roof override sets risk to 0 with roof_status noted. Source cited and forecast freshness flagged."
+    },
+    {
+      "name": "Bullpen State Assessment",
+      "1": "bullpen_state not computed, or computed only for one team, or based on vibes (no usage check, no depth chart reference)",
+      "3": "bullpen_state computed for both teams using a documented formula, closer availability and top setup arms considered, RotoBaller or similar source cited",
+      "5": "bullpen_state_home and bullpen_state_away both computed via the documented 50-neutral formula with: closer availability check (pitches last 3 days), top 2-3 high-leverage arms availability, IL additions in last 72 hours, role uncertainty penalty, rest bonus. Usage heuristics applied consistently and source URL cited."
+    },
+    {
+      "name": "Platoon Narrative Quality (Beginner-Friendly)",
+      "1": "Narrative uses baseball jargon without translation (splits, wOBA, OPS) or reports L/R handedness codes without spelling out, or is missing entirely",
+      "3": "Narrative in plain English, each hitter's handedness and SP handedness stated in words, basic platoon rule applied, verdict given for the consuming agent",
+      "5": "Fully jargon-free narrative. Every stat mentioned is translated inline ('got on base 38% of the time' rather than '.380 OBP'). Hitter handedness, SP handedness, platoon-rule verdict, individual hitter handedness numbers (when they deviate), and park-handedness interaction all covered. Ends with a one-sentence tilt verdict usable by mlb-player-analyzer."
+    },
+    {
+      "name": "Source Citation and Verification",
+      "1": "source_urls empty or contains generic homepages rather than specific pages, or facts in body do not trace to URLs listed, or fallback sources used silently",
+      "3": "source_urls contains specific pages for each category (probables, park factors, weather, bullpen), most facts traceable, fallbacks noted when used",
+      "5": "source_urls lists a specific URL for every category of fact in the body. Fallback sources are explicitly labeled as such (primary attempt logged). Freshness of each source noted (e.g., weather forecast timestamp). Any fact that could not be verified has confidence dropped and a red_team_findings entry. No generic homepage URLs."
+    },
+    {
+      "name": "Signal File Structure and Emission",
+      "1": "Frontmatter missing or invalid YAML, signals outside declared 0-100 ranges, required fields missing (type, date, computed_at, emitted_by), or written to wrong path",
+      "3": "Frontmatter valid YAML with required fields, signals within declared ranges, matchup summary table present, written to signals/YYYY-MM-DD-matchup.md",
+      "5": "Frontmatter valid YAML passing mlb-signal-emitter validation. All five core signals emitted with correct ranges. Both sides emitted where per-team (bullpen_state, opp_sp_quality). Matchup summary table, probable starters section, park context, weather, bullpen, platoon narrative, and sources all present in the body. synthesis_confidence scored per the confidence rubric. computed_at timestamp accurate."
+    }
+  ],
+  "guidance_by_type": {
+    "Extreme Park Game (Coors, Oracle)": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Park factor is the dominant signal -- ensure handedness-specific factors are pulled, not just composite",
+        "Cross-check park_hitter_factor against reference values (Coors should land 70+; Oracle 25-30)",
+        "Platoon narrative should explicitly call out the park effect for each hitter discussed"
+      ],
+      "common_pitfalls": [
+        "Using composite park factor when one side of the plate is materially different",
+        "Reporting raw FanGraphs factor (~1.18) instead of normalized (~86)",
+        "Forgetting to invert for park_pitcher_factor"
+      ]
+    },
+    "Weather-Risk Game (April Northeast, September Midwest)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Pull forecast within 6 hours of first pitch if possible",
+        "Apply the season-stage importance multiplier correctly",
+        "Add non-rain surcharges (cold, wind, lightning) explicitly",
+        "Check roof status for retractable-roof parks on game day"
+      ],
+      "common_pitfalls": [
+        "Using a 24+ hour stale forecast without flagging freshness",
+        "Forgetting importance multiplier in September/October",
+        "Setting weather_risk = 0 for a dome without confirming source",
+        "Missing cold-weather surcharge in April games below 45 F"
+      ]
+    },
+    "Ace vs Ace Pitching Duel": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "opp_sp_quality should be high (65+) from BOTH perspectives",
+        "Bullpen state matters more than usual -- both teams likely enter late innings tied",
+        "Platoon narrative should note that strong SPs compress platoon edges (good hitters still struggle, bad hitters struggle more)"
+      ],
+      "common_pitfalls": [
+        "Computing opp_sp_quality only from the fantasy-relevant team's perspective",
+        "Ignoring bullpen state when one team's closer is unavailable (decides a 1-run game)",
+        "Overstating hitter matchup scores when both SPs are elite"
+      ]
+    },
+    "Bullpen-Chaos Game (Recent Closer Change, Gassed Pen)": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Pull last 7 days of usage for closer + top 3 setup arms",
+        "Check for role demotions or IL moves in last 72 hours",
+        "Cite Pitcher List or Closer Monkey if RotoBaller chart is stale",
+        "Reflect the penalty in bullpen_state (value should be <40 for a gassed pen)"
+      ],
+      "common_pitfalls": [
+        "Relying on a stale depth chart without checking box scores",
+        "Treating bullpen_state as a single value instead of emitting per-team",
+        "Forgetting the role-uncertainty penalty when a closer change is recent"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Raw factors passed through without 50-neutral normalization",
+      "symptom": "park_hitter_factor emitted as 1.18 (FanGraphs raw) instead of 86, or opp_sp_quality emitted as raw xFIP",
+      "detection": "Any signal value outside [0, 100], or distribution of values across the league that does not center on 50",
+      "fix": "Apply the normalization formula documented in methodology.md. Clamp to [0,100]. Sanity-check against reference cases."
+    },
+    {
+      "failure": "Single perspective emitted for per-team signals",
+      "symptom": "Only one opp_sp_quality or one bullpen_state in the signal file",
+      "detection": "Frontmatter missing _home / _away suffixed fields",
+      "fix": "Emit both perspectives. The home team's hitters face the away SP; the away team's hitters face the home SP. Bullpen state is also per-team."
+    },
+    {
+      "failure": "Weather treated qualitatively",
+      "symptom": "Signal file says 'chance of rain' without a numeric weather_risk, or weather_risk computed without the importance multiplier",
+      "detection": "weather_risk value not consistent with rain probability and season stage",
+      "fix": "Apply the formula: weather_risk = min(100, rain_prob_pct * importance_multiplier) + non-rain surcharges. Document all inputs."
+    },
+    {
+      "failure": "Jargon in platoon narrative",
+      "symptom": "Body text contains 'platoon splits', 'wOBA vs RHP', 'L/L matchup', or raw slash-line numbers without translation",
+      "detection": "A reader with zero baseball knowledge could not follow the narrative",
+      "fix": "Rewrite in plain English per CLAUDE.md rule 5. Spell out handedness. Translate every stat inline the first time it appears."
+    },
+    {
+      "failure": "Missing or generic source URLs",
+      "symptom": "source_urls lists https://www.fangraphs.com (homepage) rather than the specific park-factors or player page",
+      "detection": "URLs in source_urls do not uniquely identify the fact they support",
+      "fix": "Cite the specific page URL. If the fact came from a web search snippet, link the underlying page, not the search results."
+    },
+    {
+      "failure": "Dome game with non-zero weather_risk",
+      "symptom": "weather_risk > 0 for a game at Tropicana Field, Minute Maid Park (closed), Rogers Centre (closed), or other dome/closed-roof venue",
+      "detection": "roof_status is dome or closed yet weather_risk is positive",
+      "fix": "Override weather_risk to 0 when roof_status is dome or confirmed closed. Note the roof source (usually team announcement day-of)."
+    },
+    {
+      "failure": "Bullpen state based on stale data",
+      "symptom": "bullpen_state reflects a depth chart that is 3+ days old and does not account for last night's game",
+      "detection": "Signal says closer available but last night's box score shows he pitched 30 pitches",
+      "fix": "Always cross-reference the depth chart with last night's box score before scoring availability. Drop confidence if box score data is unavailable."
+    },
+    {
+      "failure": "Low-confidence signal emitted without red-team flag",
+      "symptom": "synthesis_confidence below 0.4 but red_team_findings is empty",
+      "detection": "Confidence and red-team findings are inconsistent",
+      "fix": "Any signal with confidence < 0.4 requires an explicit red_team_findings entry naming the gap (e.g., 'SP confirmed only 2 hours before first pitch') and a mitigation (e.g., 'recheck at 5pm ET')."
+    }
+  ]
+}

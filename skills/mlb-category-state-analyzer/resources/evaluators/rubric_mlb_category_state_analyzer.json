@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "name": "Matchup Data Completeness",
+      "1": "Current scores missing for one or more cats, or ratio-cat denominators (PA for OBP, IP for ERA/WHIP) absent, or no source URL cited",
+      "3": "All 10 current totals captured with most denominators, at least the Yahoo matchup URL is cited, minor gaps in remaining-games projection",
+      "5": "All 10 current totals captured with complete PA/IP denominators for OBP/ERA/WHIP, remaining games/starts/IP projected for both rosters, minimum-threshold status checked, timestamped scrape with source URLs and fallback noted if partial"
+    },
+    {
+      "name": "cat_position Correctness",
+      "1": "Position misassigned (e.g., ERA labeled 'winning' when our ratio is higher; ratio-direction confusion), or ties not handled",
+      "3": "All 10 positions correct at face value, ratio-cat directions (lower-is-better for ERA/WHIP; higher-is-better for OBP) handled correctly",
+      "5": "All 10 positions correct, ratio directions right, frozen/locked cats flagged explicitly (opp below min-IP/PA → auto-forfeit noted), ties distinguished from near-ties with explicit margin"
+    },
+    {
+      "name": "cat_pressure Computation",
+      "1": "Pressure computed without the formula from category-math.md, or values outside [0, 100], or key adjustments (close-margin, volume edge, locked-in) missing",
+      "3": "Pressure formula applied for most cats with close-margin and volume-edge triggers, values in range, locked-in adjustments applied partially",
+      "5": "Pressure formula applied per spec for all 10 cats: baseline 50 + 20 × is_close_margin + 15 × volume_edge − 10 × locked_win − 30 × locked_loss, clamped to [0, 100], with each trigger's evaluation shown for auditability, no double-counting"
+    },
+    {
+      "name": "cat_reachability — Counting Cats",
+      "1": "Reachability computed without reference to remaining volume or deficit, or formula ignores roster composition",
+      "3": "For counting cats (R, HR, RBI, SB, K, QS, SV), reachability reflects deficit vs. expected remaining with reasonable roster projections, CV/SD treatment approximate",
+      "5": "For counting cats, reachability derived from P(expected remaining ≥ deficit) using z-score approximation or equivalent, roster per-game rates sourced from upstream signals (qs_probability, etc.), reachability trends match intuition (large volume edge + small deficit → high reachability)"
+    },
+    {
+      "name": "cat_reachability — Ratio Cats",
+      "1": "Ratio cat reachability treated as counting-style (percentage of deficit), or volume denominator ignored, or simple rate comparison without weighted average",
+      "3": "For OBP, ERA, WHIP, reachability computed via weighted-average projected final ratio using current volume + remaining volume, expected case considered",
+      "5": "For OBP, ERA, WHIP, projected final ratio computed as [(current ratio × current volume) + (projected ratio × remaining volume)] / total volume for both teams; worst/expected/best-case crossing evaluated; reachability bucketed (80 if all three cross, 60 if expected + best, 40 if only best, 15 if none); roster-level ratios use OBP (not AVG) and QS probability (not win probability)"
+    },
+    {
+      "name": "cat_punt_score Computation",
+      "1": "Punt score inverted (lower = more punt-worthy), or missing volatility bonus for SV, or ignores spillover, or out of range",
+      "3": "Punt score computed with (100 − reachability) × 0.6 base + volatility bonus for SV, in range, some spillover treatment",
+      "5": "Punt score computed per spec: (100 − reachability) × 0.6 + 30 × volatile (SV) + 20 × below_min_threshold − 10 × spillover (K→QS, OBP→R, HR→R+RBI), clamped to [0, 100], spillover map documented, SV consistently scored as highest-volatility cat"
+    },
+    {
+      "name": "Overall Push/Maintain/Punt Plan",
+      "1": "Plan doesn't sum to 10, or top-6 not selected by pressure × reachability, or recommendation contradicts per-cat verdicts",
+      "3": "10-cat plan sums correctly, roughly 6 push / 2 maintain / 2 punt, ranking approximately by pressure × reachability",
+      "5": "Plan sums to 10 with target push ≥ 6, ranking strictly by cat_pressure × cat_reachability / 100, punts confirmed by cat_punt_score > 60, per-cat verdicts consistent with the overall plan, downstream routing hints provided for waiver/streaming/lineup agents"
+    },
+    {
+      "name": "Signal File Format and Downstream Usability",
+      "1": "Missing YAML frontmatter, or type field wrong, or source_urls absent, or confidence missing",
+      "3": "Valid YAML frontmatter with type: cat-state, date, emitted_by, and source URLs; per-cat table present; minor schema gaps",
+      "5": "Full YAML frontmatter (type: cat-state, date, emitted_by, week, matchup_opponent, scoring_days_remaining, synthesis_confidence, red_team_findings, source_urls), per-cat table with all 4 signals for all 10 cats, overall plan line, downstream routing hints for each consuming agent, red-team findings with severity × likelihood, validation-ready for mlb-signal-emitter"
+    }
+  ],
+  "guidance_by_type": {
+    "OBP (ratio batting cat)": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "Always capture PA denominator — a high ratio on low volume is fragile",
+        "Use OBP (not AVG) for roster projections — this league counts walks",
+        "Project final ratio as weighted average; small ratio gaps with volume edges are very pushable",
+        "Lineup-optimizer routing: push → prefer high-walk bats even if low AVG"
+      ],
+      "common_pitfalls": [
+        "Computing reachability from rate alone, ignoring that .400 OBP in 10 PAs dilutes quickly",
+        "Using AVG-style projections for players (Soto undervalued; free swingers overvalued)",
+        "Missing the spillover adjustment (OBP → R gets −10 on punt score)"
+      ]
+    },
+    "SV (volatile counting cat)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Apply the +30 volatility bonus in cat_punt_score — SV is the league's most volatile cat",
+        "Check save_role_certainty from upstream player signals — if < 70 on our only closer, almost always punt",
+        "Never project more than ~2.5 saves per week per closer (noise ceiling)",
+        "Punt decision must consider bench-slot alternatives (streamer SP often wins more value)"
+      ],
+      "common_pitfalls": [
+        "Treating a 1-save deficit as pushable when we have only one shaky closer (isn't)",
+        "Forgetting that opp closers are also subject to blown-save risk — the variance cuts both ways",
+        "Recommending a FAAB bid on a closer that would only win SV by 1 while costing 40% of budget"
+      ]
+    },
+    "QS (counting pitching cat, not W)": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Use qs_probability from mlb-player-analyzer, NOT win probability — this league counts 6+ IP with ≤3 ER",
+        "Count two-start pitchers as two independent starts",
+        "Volume edge in scheduled starts is the #1 driver of reachability",
+        "Spillover map: K → QS, so pushing K raises QS punt-score's −10 adjustment"
+      ],
+      "common_pitfalls": [
+        "Projecting QS from Wins rate or ERA proxy — use the dedicated qs_probability signal",
+        "Streaming a 5-inning 'opener' as a QS play (zero QS value)",
+        "Ignoring the interaction: pushing QS and ERA/WHIP together requires innings-eaters, not K-chaser specialists"
+      ]
+    },
+    "Counting batting cats (R, HR, RBI, SB)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Deficit vs. expected-remaining with reasonable CV (~0.35)",
+        "Volume edge is direct: more hitter games = more raw counting opportunities",
+        "SB specifically: require speed on roster; most rosters cannot flip a 2+ SB deficit mid-week",
+        "Spillover: HR → R, RBI both; consider on punt score"
+      ],
+      "common_pitfalls": [
+        "Treating SB like HR (it isn't — stolen bases are concentrated in 3-5 players league-wide)",
+        "Projecting R without weighting by lineup position (top-of-order vs. 8-hole)",
+        "Missing doubleheaders (adds ~15% volume for one day)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Ratio cat treated as counting cat",
+      "symptom": "OBP, ERA, or WHIP reachability computed as 'deficit × some factor' without projecting weighted-average final ratio",
+      "detection": "Reachability value doesn't respond to changes in denominator (PA or IP) — it only tracks the rate margin",
+      "fix": "Apply the ratio-cat projection formula: projected_final = (current × current_vol + projected_remaining × remaining_vol) / total_vol. Evaluate worst/expected/best-case crossings."
+    },
+    {
+      "failure": "OBP projected using AVG",
+      "symptom": "High-walk, low-AVG players (Juan Soto, Kyle Schwarber) under-represented in roster OBP projection",
+      "detection": "Roster projected OBP matches AVG rather than OBP; reachability calibrates off",
+      "fix": "Explicitly use OBP from player signals. Flag batters whose (OBP − AVG) > 0.080 as high-walk contributors and weight accordingly."
+    },
+    {
+      "failure": "QS projected from Wins",
+      "symptom": "QS projection includes short outings where the team wins, or ignores 6 IP no-decision QS contributions",
+      "detection": "Projected QS correlates with team win probability rather than starter's IP durability",
+      "fix": "Use qs_probability from mlb-player-analyzer. Validate that a rostered innings-eater (5.8 IP/start, average team) scores higher than a 5-IP K specialist on a winning team."
+    },
+    {
+      "failure": "SV push when roster can't support it",
+      "symptom": "Saves labeled 'push' despite save_role_certainty < 70 on only rostered closer",
+      "detection": "Cross-check the SV push verdict against upstream save_role_certainty; if low, punt bias should dominate",
+      "fix": "Add a hard rule: if no rostered closer has save_role_certainty ≥ 70, SV cat_punt_score floor = 60 regardless of deficit size."
+    },
+    {
+      "failure": "Double-counting volume edge",
+      "symptom": "cat_pressure above 90 on cats with modest margins because both +20 (close) and +15 (volume) are applied on top of already-favorable reachability",
+      "detection": "Pressure values concentrated near the cap (>85); sanity check against cat importance",
+      "fix": "The formula as written does stack both; that's intentional. But if a cat is BOTH close AND volume-favored AND locked-win-adjacent, apply −10 locked_win to bring it back. Clamp to [0, 100]."
+    },
+    {
+      "failure": "Minimum-IP/PA forfeit ignored",
+      "symptom": "Ratio cat flagged reachable but opp is projected to finish below Yahoo's minimum IP (20) or PA threshold",
+      "detection": "Check opp projected total IP or PA vs. league minimum; if below, cat auto-forfeits their way",
+      "fix": "Treat as locked-in win for us regardless of ratio. Set reachability = 100, pressure = 30, punt_score = 0. Note in red-team findings."
+    },
+    {
+      "failure": "Push 5 or push 7 instead of push 6",
+      "symptom": "Overall plan labels 5 cats as push (user concedes the matchup) or 7 cats (spreads too thin)",
+      "detection": "Count pushes; goal is 6 wins, so push 6 and punt 2 is the default defensible plan",
+      "fix": "Force the ranking to select exactly 6 pushes (top 6 by pressure × reachability). Exception: if bottom cat in the push set has reachability < 25, demote to maintain; promote the top maintain cat only if its reachability ≥ 50."
+    },
+    {
+      "failure": "Signal file missing downstream routing hints",
+      "symptom": "Per-cat table emitted but no agent-specific routing ('waiver should bid closers: yes/no'; 'streaming aggressiveness: high/low')",
+      "detection": "Consuming agents have to re-derive the push/punt implication for their domain",
+      "fix": "Include the Downstream Routing Hints block from template.md. This saves the waiver-analyst, streaming-strategist, and lineup-optimizer from re-reading the per-cat signals."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "criteria": [
+    {
+      "name": "Roster Completeness",
+      "1": "Fewer than 20 of 26 slots populated, or slots emitted out of canonical order, or status/opp_today fields missing for most players",
+      "3": "All 26 slots populated in canonical order, player names and MLB teams correct, but some status or opp_today fields missing or inconsistently formatted",
+      "5": "All 26 slots populated in canonical order (C, 1B, 2B, 3B, SS, OF x3, UTIL x2, SP x3, RP x2, P x5, BN x3, IL x3), every entry has slot, player, mlb_team, opp_today, and normalized status enum. Empty slots emitted explicitly with player: null."
+    },
+    {
+      "name": "FAAB Accuracy",
+      "1": "FAAB remaining not computed, or reported as a guess, or copied from a UI number without ledger reconstruction",
+      "3": "FAAB remaining computed from transactions page with correct formula ($100 - sum of bids), minor ledger items possibly missed (commissioner adjustments, trade-related swaps)",
+      "5": "FAAB remaining reconstructed from full season transactions ledger: every winning bid captured with date, player added, amount; edge cases (commish adjustments, failed-bid exclusion) handled; discrepancy with Yahoo's visible FAAB header investigated and flagged if present; ledger included in signal body"
+    },
+    {
+      "name": "URL Citation",
+      "1": "source_urls missing from signal frontmatter, or contains fewer than all URLs actually visited, or contains URLs that were not in fact navigated",
+      "3": "source_urls present with most of the 5 Yahoo pages listed, accurate for pages that succeeded, but missing entries for degraded pages",
+      "5": "source_urls lists every URL navigated (successful AND failed), degraded_pages lists every failure separately, every factual claim in the signal body is traceable to a specific listed URL, canonical URLs from data-sources.md used (not user-specific variants)"
+    },
+    {
+      "name": "Fallback Handling",
+      "1": "A page failure caused the entire run to abort, or failures were silently skipped without user notification or signal-level documentation",
+      "3": "Per-page failures handled: run continued, user notified of the specific failure, fallback (retry, paste, direct-ask) applied, but fallback details not fully documented in signal",
+      "5": "Every failure triaged by type (auth expired, timeout, rate limit, parse error, unknown layout), correct fallback applied per the decision tree, user prompted with the specific URL and what-to-paste, confidence dropped proportionally per degraded page, signal body describes exactly what's missing and the downstream impact"
+    },
+    {
+      "name": "Matchup and Standings Accuracy",
+      "1": "W-L-T record or rank missing or incorrect; per-category matchup direction wrong (e.g., marking a higher ERA as winning); category ranks missing",
+      "3": "Overall record and rank correct, matchup scoreline computed, but some per-cat statuses miscategorized (especially rate stats where lower-is-better for ERA/WHIP) or some cat ranks missing",
+      "5": "W-L-T record, overall rank, and per-cat ranks (all 10) captured correctly; matchup scoreline computed from first principles (not from Yahoo's visual indicators) with correct direction for rate stats (OBP higher, ERA/WHIP lower); pre-scoring edge case (early season) detected and handled with explicit null + note"
+    },
+    {
+      "name": "Status Enum Normalization",
+      "1": "Status field dumped raw from Yahoo (IL10, IL60, DTD, P with mixed casing), downstream agents left to interpret strings; no status field at all for some players",
+      "3": "Most status values normalized to the canonical enum (active, BN, IL, DTD, NA, SUSP), but edge cases (PPD, DH, SUSP) inconsistently handled",
+      "5": "Every player has a normalized status from the canonical enum; mapping table applied consistently; PPD reflected in opp_today (not status); players in starting lineup slots with status: IL flagged prominently as user-error warnings to the coach"
+    },
+    {
+      "name": "Team Profile Write Discipline",
+      "1": "team-profile.md appended to rather than overwritten (stale data accumulates), or the output structure diverges from the template (missing roster YAML, missing state table), or the As-of date is wrong",
+      "3": "team-profile.md overwritten each run with correct date, state table populated, roster YAML present, but some sections (matchup table, category standings) incomplete or missing",
+      "5": "team-profile.md fully overwritten per template.md schema: header with correct date, complete state table (record, rank, FAAB, opponent, acquisitions, IL slots), full 26-entry roster YAML in canonical order, live matchup table, per-cat standings table, open-questions section present only when a page failed"
+    },
+    {
+      "name": "Signal Frontmatter and Validation",
+      "1": "Signal file missing frontmatter or with invalid YAML, type not set to league-state, confidence absent or outside [0,1], computed_at missing or malformed",
+      "3": "Frontmatter present with required keys (type, date, emitted_by, confidence, source_urls), values mostly correct, validation step attempted",
+      "5": "Frontmatter fully conforms to signal-framework.md: type=league-state, ISO date, emitted_by=mlb-league-state-reader, confidence reflecting the run quality per the defined bands (0.9 all-clean / 0.8 one degraded / 0.6 two+ degraded / 0.3 all-failed), computed_at timestamp present, source_urls exhaustive, degraded_pages listed when applicable; file written to signals/YYYY-MM-DD-league-state.md with overwrite-not-append discipline"
+    }
+  ],
+  "guidance_by_scenario": {
+    "Clean run (all 5 pages fetched)": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "All 26 roster slots populated with full field set",
+        "FAAB reconstructed from transactions ledger and cross-checked against Yahoo header",
+        "Matchup scoreline computed from first principles with correct direction for OBP/ERA/WHIP",
+        "confidence: 0.9 in frontmatter",
+        "All 5 URLs in source_urls, degraded_pages empty"
+      ],
+      "common_pitfalls": [
+        "Trusting Yahoo's visual matchup indicators without recomputing (they can be wrong during live updates)",
+        "Copying FAAB balance from a UI header instead of reconstructing from the ledger",
+        "Forgetting to normalize Yahoo's status strings to the canonical enum"
+      ]
+    },
+    "Partial degradation (1-2 pages failed)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Successful pages still fully parsed; failures do not cascade",
+        "Each failed page triggered the correct fallback (retry once, then paste prompt)",
+        "degraded_pages frontmatter populated; Notes section describes impact",
+        "confidence dropped to 0.8 (one page) or 0.6 (two+)",
+        "Downstream-agent impact explicitly stated (e.g., 'waiver-analyst can still run')"
+      ],
+      "common_pitfalls": [
+        "Silently dropping the failed page without updating degraded_pages",
+        "Asking the user to paste the wrong URL (copy-paste the exact canonical URL)",
+        "Not adjusting confidence when fallback was applied"
+      ]
+    },
+    "Session expired (auth failure on first page)": {
+      "target_score": 3.5,
+      "key_requirements": [
+        "Session-expired state detected on the first page (team page)",
+        "Run paused BEFORE attempting pages 2-5 (no wasted calls)",
+        "User prompted with the correct re-login URL and clear wait-instruction",
+        "No attempt to auto-authenticate (credentials are user's responsibility)",
+        "On user's 'retry', resume from page 1"
+      ],
+      "common_pitfalls": [
+        "Continuing to hit pages 2-5 after detecting auth failure (wastes calls, produces noise)",
+        "Asking the user for their password (never do this)",
+        "Writing a signal file without any real data when the run was paused mid-flight"
+      ]
+    },
+    "Full failure (cannot reach Yahoo at all)": {
+      "target_score": 3.0,
+      "key_requirements": [
+        "Empty-body signal still written for the day with confidence: 0.3",
+        "Prominent note to coach: 'Could not reach Yahoo — paste or retry required before any downstream agent runs'",
+        "All 5 URLs listed in both source_urls (attempted) and degraded_pages (failed)",
+        "User offered paste fallback for each page, in order of importance (team > matchup > transactions > standings > free agents)"
+      ],
+      "common_pitfalls": [
+        "Writing no signal at all (downstream agents lose the audit trail)",
+        "Emitting confidence > 0.3 when nothing was actually fetched",
+        "Blocking the user from paste-recovery by not offering it"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Roster slot miscount",
+      "symptom": "roster YAML has 25 or 27 entries instead of exactly 26, or slots appear out of canonical order",
+      "detection": "Assert len(roster) == 26 and verify slot sequence matches canonical order before writing",
+      "fix": "Re-parse from the team page; Yahoo renders slots in canonical order, so a miscount usually means a missed or duplicated row. Fall back to read_page (accessibility tree) if get_page_text mangled the structure."
+    },
+    {
+      "failure": "Wrong FAAB direction (bid amount counted twice or as credit)",
+      "symptom": "FAAB remaining > $100 or implausibly low given known bid history",
+      "detection": "Sanity check: 0 <= FAAB remaining <= $100; spent = $100 - remaining should match sum of documented bids",
+      "fix": "Re-parse transactions page. Include only winning add bids; exclude trade FAAB swaps unless the league allows them; exclude drops and IL moves."
+    },
+    {
+      "failure": "Matchup status direction flipped for rate stats",
+      "symptom": "Our ERA is 3.50, opponent is 4.00, signal says we are 'losing' ERA",
+      "detection": "For ERA and WHIP, lower is better. If status shows 'losing' when our value is lower, the direction is flipped.",
+      "fix": "Compute status per cat using the explicit direction rules in methodology (counting stats + OBP: higher wins; ERA + WHIP: lower wins). Do not trust Yahoo's visual indicators during live updates."
+    },
+    {
+      "failure": "Silent page failure",
+      "symptom": "Signal file frontmatter shows all 5 URLs in source_urls, but the body data for one page is missing or stale from a prior run",
+      "detection": "Cross-reference source_urls with actual body sections; every URL in source_urls should correspond to fresh body content",
+      "fix": "Use degraded_pages to track failures separately from source_urls. source_urls means 'attempted'; degraded_pages means 'failed'. Body sections for degraded pages must explicitly say 'not fetched this run'."
+    },
+    {
+      "failure": "Yahoo layout change breaks parser",
+      "symptom": "Parse fails on a page that worked yesterday; row count wrong or fields missing",
+      "detection": "Compare parsed row count and field presence to expected; flag mismatches",
+      "fix": "Fall back to read_page (accessibility tree). If that also fails, dump first 4000 chars of page text into signal as raw_capture with confidence 0.4, and escalate to user: 'Yahoo layout appears to have changed — parsing degraded, please verify output.'"
+    },
+    {
+      "failure": "Appending to team-profile.md instead of overwriting",
+      "symptom": "team-profile.md grows over time; contains multiple As-of sections; roster YAML duplicated",
+      "detection": "File has more than one '## As of' header after a run",
+      "fix": "Use Write (not Edit-append) when emitting team-profile.md. This file is 'current state' by contract; history lives in the dated signal files."
+    },
+    {
+      "failure": "Raw status strings leaked downstream",
+      "symptom": "Downstream agent receives 'IL10' or 'DTD' or blank instead of the canonical enum",
+      "detection": "Grep roster YAML for status values outside {active, BN, IL, DTD, NA, SUSP}",
+      "fix": "Apply the status enum mapping table during parse, not at the consumer. Map IL10/IL15/IL60 all to 'IL'. Blank and 'P' both map to 'active'."
+    },
+    {
+      "failure": "Downstream re-scrape",
+      "symptom": "Lineup-optimizer or waiver-analyst independently hits Yahoo URLs instead of reading today's league-state signal",
+      "detection": "Review downstream agent logs for mcp__claude-in-chrome__navigate calls to baseball.fantasysports.yahoo.com URLs after this skill has already run today",
+      "fix": "Ensure the signal file is written before downstream agents are invoked. Downstream agents must read signals/YYYY-MM-DD-league-state.md as their primary data source; only re-scrape if the signal is older than 6 hours or marked degraded."
+    }
+  ]
+}

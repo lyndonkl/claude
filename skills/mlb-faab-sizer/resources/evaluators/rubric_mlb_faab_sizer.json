@@ -1,0 +1,122 @@
+{
+  "name": "mlb-faab-sizer Quality Rubric",
+  "description": "Eight-criterion rubric evaluating FAAB bid sizing outputs. Each criterion scored 1 (poor), 3 (acceptable), 5 (excellent). Minimum acceptable overall average: 3.5. Minimum per-criterion floor: 3.0 for criteria 1, 2, and 5 (these are safety-critical).",
+  "criteria": [
+    {
+      "name": "Input Completeness",
+      "weight": 1.0,
+      "1": "One or more required inputs missing or assumed without citation. FAAB remaining not verified against team-profile.md. Week number inferred rather than computed from today's date. Role_certainty or positional_need_fit used without source signal.",
+      "3": "All required inputs present (acquisition_value, positional_need_fit, role_certainty, FAAB remaining, week number, situation label). Each value has a source but some are stale or lack timestamp.",
+      "5": "All required inputs present, each tied to a named upstream signal (mlb-player-analyzer for acquisition_value and role_certainty; mlb-waiver-analyst for positional_need_fit) with computed_at timestamps. FAAB remaining reconciled against the latest team-profile.md entry. Week number computed from today's date. Regression index included when available."
+    },
+    {
+      "name": "Multiplier Justification",
+      "weight": 1.0,
+      "1": "Urgency or season-pace multipliers used without rationale, or values outside the allowed ranges (urgency: 0.7-1.4, pace: 0.6-1.4). Default values used when situation clearly warrants an adjustment.",
+      "3": "Both multipliers selected from the allowed ranges with brief rationale. Situation label maps reasonably to urgency_multiplier. Calendar bucket maps reasonably to season_pace_multiplier.",
+      "5": "Both multipliers justified with explicit reference to the situation-label table (urgency) and calendar-bucket table (pace). Edge cases (late-April interpolation, eliminated-team September) handled explicitly. Contention status documented when relevant."
+    },
+    {
+      "name": "League Inflation Calibration",
+      "weight": 1.0,
+      "1": "faab-log not read, or read but calibration not applied despite sufficient data. Or calibration applied without computing or disclosing league_inflation_ratio. Or calibration applied with <5 valid rows (over-calibration on thin data).",
+      "3": "faab-log read, valid rows filtered, league_inflation_ratio computed and applied. Calibration confidence (low/medium/high) reported. Clamping to [0.6, 1.4] applied if triggered.",
+      "5": "faab-log read; valid rows filtered with both winning_bid and industry_consensus_at_time; league_inflation_ratio computed as mean of ratios; calibration confidence reported based on row count; recency weighting applied if 10+ rows; calibration_clamp_triggered flagged if clamping fired; if <5 rows, explicitly skipped with low_calibration_data flag."
+    },
+    {
+      "name": "Formula Correctness",
+      "weight": 1.5,
+      "1": "max_bid_fraction computed incorrectly -- wrong operations, missing factor, or unit error (e.g., using acquisition_value as-is rather than / 100). faab_rec_bid not derived from faab_max_bid x 0.6 + 1.",
+      "3": "Core formulas implemented correctly. All five factors present. Rounding applied. Rec-bid uses 0.6 factor and +1 tie-breaker.",
+      "5": "Core formulas implemented exactly per framework. Full formula trace shown in output (all factors, intermediate fractions, pre-round and post-round dollar values). Rec-bid +1 tie-breaker documented as Yahoo-specific. $0-bid edge case handled (if max = 0, rec = 0)."
+    },
+    {
+      "name": "Guardrail Enforcement",
+      "weight": 1.5,
+      "1": "April 40% cap not enforced before July. Speculation 20% cap not enforced on low role_certainty targets. Variant divergence ignored. $0 bids not considered even when appropriate.",
+      "3": "April 40%, speculation 20%, variant divergence, regression luck, and role-certainty floor all checked. Any triggered guardrail is flagged in the output. Bid values modified accordingly.",
+      "5": "All 8 guardrails implemented (April 40%, speculation 20%, variant divergence, $0 default, budget floor, regression luck, role-certainty floor, FAAB remaining cap). Each triggered guardrail is named, original and capped values shown, and reflected in the user-facing rationale. No silent violations."
+    },
+    {
+      "name": "Output Structure",
+      "weight": 1.0,
+      "1": "Bid values provided without formula trace, multipliers, or confidence. No signal file written. User-facing rationale missing or in jargon.",
+      "3": "Output includes faab_rec_bid, faab_max_bid, the multipliers used, and any guardrail flags. User-facing rationale provided in plain English.",
+      "5": "Full output block per template.md including formula_trace (all intermediate values), multipliers (both base and calibrated), guardrails_triggered array, calibration block, confidence score, and source_urls. Signal file written via mlb-signal-emitter. User brief follows the beginner-safe template, ending in BID $X verb with a ceiling and a fallback."
+    },
+    {
+      "name": "Beginner Communication",
+      "weight": 1.0,
+      "1": "Uses baseball jargon (xwOBA, FIP, BABIP, platoon splits) without translation. Output reads like a scouting report, not a decision. No verb at the end.",
+      "3": "User-facing rationale is mostly plain English. Ends in BID $X. Some jargon translated inline.",
+      "5": "Every baseball or fantasy-specific term translated inline on first use. Rationale is 2-4 sentences, beginner-safe, answers 'what, why, ceiling, fallback'. Ends in explicit BID $X with ceiling $Y. Source URLs cited."
+    },
+    {
+      "name": "Logging and Traceability",
+      "weight": 1.0,
+      "1": "Bid decision not logged. faab-log not updated after bid placement. No record of which signals or faab-log rows were used.",
+      "3": "Decision logged to tracker/decisions-log.md with inputs and outputs. faab-log append-entry prepared for post-bid update.",
+      "5": "Decision logged via mlb-decision-logger with full inputs, multipliers, guardrail flags, variants, synthesis, red-team findings, confidence, and will_verify_on date. faab-log append-entry generated and ready for post-bid append. Signal file linked. Reproducible: another agent could re-run the computation from the logged data and get the same bid."
+    }
+  ],
+  "scoring": {
+    "method": "weighted_average",
+    "pass_threshold": 3.5,
+    "per_criterion_floor": {
+      "Input Completeness": 3.0,
+      "Multiplier Justification": 3.0,
+      "Guardrail Enforcement": 3.0
+    },
+    "weights_note": "Formula Correctness and Guardrail Enforcement are weighted 1.5x because they are the load-bearing computations -- an error here directly misstates the bid. All other criteria weighted 1.0x."
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Skipped calibration with sufficient data",
+      "symptom": "faab-log has 8+ valid entries but season_pace_multiplier uses the base value unchanged",
+      "detection": "calibration block in output shows faab_log_entries_read >= 5 but season_pace_multiplier_calibrated == season_pace_multiplier_base",
+      "fix": "Always apply calibration when >= 5 valid rows exist. Clamp to [0.6, 1.4] after applying."
+    },
+    {
+      "failure": "Over-bid in April",
+      "symptom": "faab_max_bid exceeds 40% of FAAB remaining and week <= 13 without guardrail flag",
+      "detection": "Check faab_max_bid / FAAB_remaining and week_number; if ratio > 0.40 and week <= 13, the april_40pct_cap_triggered flag must be present",
+      "fix": "Enforce guardrail 1. Cap max_bid at 40% and recompute rec_bid from the capped max. Flag in output."
+    },
+    {
+      "failure": "Speculation cap missed",
+      "symptom": "role_certainty < 30 and faab_max_bid > 20% of FAAB remaining, no flag",
+      "detection": "Inspect role_certainty and faab_max_bid / FAAB_remaining; speculation_20pct_cap_triggered must fire when both conditions met",
+      "fix": "Enforce guardrail 2. Cap max at 20% and flag."
+    },
+    {
+      "failure": "Formula trace omitted",
+      "symptom": "Output shows only final bid amounts with no intermediate values",
+      "detection": "formula_trace field missing or partial in output block",
+      "fix": "Include every intermediate fraction, the multipliers (base and calibrated), and pre-round dollar amount. Reproducibility requires the trace."
+    },
+    {
+      "failure": "Jargon leak",
+      "symptom": "User brief uses terms like 'xwOBA regression', 'BABIP lucky', 'platoon neutral' without translation",
+      "detection": "Scan user-facing rationale for any baseball-specific vocabulary not defined inline",
+      "fix": "Translate every technical term on first use. Example: 'his expected stats (what his contact quality predicts) are lower than his actual stats (what he has produced), suggesting some luck'."
+    },
+    {
+      "failure": "$0 bid opportunity missed",
+      "symptom": "positional_need_fit < 30 and FAAB tight, but formula still recommends $3-5",
+      "detection": "Check whether guardrail 4 should have fired; compute 0.15 x FAAB_original and compare to FAAB_remaining",
+      "fix": "Apply guardrail 4. Default to $0 and flag zero_bid_preservation. Free claims are cost-free insurance."
+    },
+    {
+      "failure": "faab-log not updated after bid",
+      "symptom": "Bid placed but no append-entry in tracker/faab-log.md showing winning_bid and industry_consensus",
+      "detection": "Compare dates of decisions-log.md entries to faab-log.md entries; every bid should produce both",
+      "fix": "After waiver period closes, append the faab-log row with winning_bid, winner, and industry_consensus_at_time. The 3-week outcome field can be filled later."
+    },
+    {
+      "failure": "Variant divergence silently resolved",
+      "symptom": "advocate and critic bids differ by >30% but output shows only synthesis bid with no flag",
+      "detection": "Compare advocate_bid and critic_bid if both captured; if |diff| / max > 0.30, variant_divergence_applied must be flagged",
+      "fix": "Apply guardrail 3. Set rec_bid to the critic's (lower) number and flag in output."
+    }
+  ]
+}

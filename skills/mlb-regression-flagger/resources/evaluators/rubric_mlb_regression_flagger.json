@@ -1,0 +1,158 @@
+{
+  "criteria": [
+    {
+      "name": "Data Sourcing and Citation",
+      "1": "No source URLs cited, stats pulled from memory or without verification, or cited sources unreachable / wrong player / stale (prior season) data",
+      "3": "Primary sources (Baseball Savant for expected stats, FanGraphs for surface stats) cited with URLs, data is current season, but 1-2 fields missing citations or minor data mismatches",
+      "5": "Every stat that enters the formula has a live 2026-season URL in source_urls, both Baseball Savant and FanGraphs consulted per player, fallbacks documented if primary source failed, URLs point to player-specific pages (not leaderboard snapshots)"
+    },
+    {
+      "name": "Sample-Size Discipline",
+      "1": "Emits actionable BUY/SELL for hitters with <80 PA or pitchers with <30 IP without caveat, recommends trades based on April-level samples",
+      "3": "Acknowledges sample-size concerns, applies thresholds but inconsistently, routes some small-sample players to WATCHLIST",
+      "5": "Hard thresholds enforced (80 PA hitter, 30 IP SP, 20 IP RP), below-threshold players are auto-WATCHLIST with confidence ≤0.30 and labeled 'too-early', re-check date specified in signal, user-facing output makes clear no action is recommended yet"
+    },
+    {
+      "name": "Formula Accuracy and Sign Convention",
+      "1": "Wrong formula (e.g., using xBA instead of xwOBA for hitters, missing the ×500 factor), or sign flipped for pitchers (reporting positive index for a lucky pitcher, causing SELL recommendations to be flagged as BUY)",
+      "3": "Correct formula applied, clamp to ±100 respected, but sign convention for pitchers stated but occasionally applied inconsistently across the output",
+      "5": "Hitter index = (xwOBA - wOBA) × 500 clamped, pitcher index = (ERA - FIP) × 50 clamped with sign convention consistently applied (positive = BUY for both player types), each computation shows the intermediate raw value and the clamp check"
+    },
+    {
+      "name": "Secondary Flag Integration",
+      "1": "BABIP, HR/FB, LOB% ignored entirely, or used to override primary index without justification, or no distinction made between elite-contact hitters and regular hitters on BABIP",
+      "3": "Secondary flags applied per the thresholds (BABIP >.370 / <.240; HR/FB <8% / >17%), agreement with primary noted, but no adjustment to confidence",
+      "5": "Secondary flags applied with proper thresholds, elite-contact exception handled (Barrel % ≥90th percentile sustains high BABIP), career HR/FB used for pitchers with 3+ seasons (not just league average), flag agreement/disagreement explicitly feeds into confidence score, tertiary flags (LOB%, Hard-Hit %) used as additional confirmers"
+    },
+    {
+      "name": "Confidence Calibration",
+      "1": "All outputs emit the same confidence (e.g., everything is 0.70), or confidence inversely correlated with quality (high confidence on small-sample noise)",
+      "3": "Confidence differentiated across players, small samples have lower confidence, but adjustment logic is ad hoc rather than rule-based",
+      "5": "Confidence computed from explicit rule table: base 0.70, +0.10 for secondary confirmer, -0.15 for contradictor, -0.20 for small sample, -0.30 for source failure, minimum 0.20 (else suppress). Every emitted signal shows its confidence breakdown"
+    },
+    {
+      "name": "Action Translation and Beginner Accessibility",
+      "1": "Output uses jargon (xwOBA, FIP, BABIP) without inline translation, recommendations are hedged ('consider buying'), or does not end with a verb per CLAUDE.md rule #6",
+      "3": "Most stat abbreviations translated on first use, recommendations end with a verb, but some sections assume baseball knowledge or use passive voice",
+      "5": "Every stat abbreviation gets an inline plain-English translation on first mention ('wOBA — a single catch-all hitting stat where .320 is league average'), every player recommendation ends with an imperative action verb from the approved ladder (BUY/SELL/HOLD/ADD/DROP/OFFER TRADE), FAAB bid amount specified when ADD is recommended, trade target archetype specified when OFFER is recommended"
+    },
+    {
+      "name": "Ranking and Prioritization",
+      "1": "Flagged players presented in no order, or sorted alphabetically, or SELL and BUY candidates mixed in the same list",
+      "3": "Players separated into BUY and SELL buckets, sorted by index within each, but no distinction between actionable and watchlist",
+      "5": "Output organized as: (1) aggressive BUY (|index| ≥ 30 with high confidence), (2) mild BUY (+15 to +29), (3) aggressive SELL, (4) mild SELL, (5) WATCHLIST (small sample or conflicting flags), sorted by |index| descending within each bucket, top-3 actionable names surfaced in the user-facing headline"
+    },
+    {
+      "name": "Signal File Compliance",
+      "1": "Signal file not emitted, or emitted without YAML frontmatter, or missing required fields (type, date, emitted_by, source_urls, confidence), or schema does not validate against signal-framework.md",
+      "3": "Signal file emitted with required frontmatter, type=regression, source_urls populated, but some fields missing (variant_synthesis, red_team_findings) or per-player data not structured as list",
+      "5": "Signal file written to signals/YYYY-MM-DD-regression.md with complete frontmatter per signal-framework.md (type, date, emitted_by, variant_synthesis, variants_fired, synthesis_confidence, red_team_findings with severity/likelihood/score, source_urls), players listed as structured YAML with all inputs and the computed regression_index + direction + confidence per player, body has BUY/SELL tables"
+    }
+  ],
+  "guidance_by_type": {
+    "Early-season (April, <30 days into season)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Sample-size discipline is paramount — almost everyone is below 80 PA / 30 IP in April",
+        "Default most flagged players to WATCHLIST with confidence ≤0.30",
+        "Output should lead with 'Most regression signals are too early to act on' and only escalate 2-3 extreme cases",
+        "Warn the user explicitly that early-season Statcast numbers are volatile"
+      ],
+      "common_pitfalls": [
+        "Treating a 20-PA hot streak as a SELL signal (it is noise)",
+        "Recommending high FAAB bids on BUY candidates whose sample is too small",
+        "Not providing a re-check date, leaving the user confused about when the signal becomes actionable"
+      ]
+    },
+    "Mid-season (May through July)": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Sample sizes are mature; most players cross the PA/IP thresholds",
+        "Focus on the largest xwOBA-wOBA gaps and ERA-FIP gaps in the league",
+        "Cross-reference with waiver availability and trade market activity",
+        "Weight secondary flags heavily — multi-confirmer signals are where real edge lives"
+      ],
+      "common_pitfalls": [
+        "Assuming a player who has been underperforming xwOBA for 8 weeks will regress fast; some hitters have persistent BABIP issues due to shifts or spray profiles",
+        "Ignoring career HR/FB for established pitchers and defaulting to 12% league average",
+        "Missing park-factor effects for mid-season trades"
+      ]
+    },
+    "Trade-deadline window (late July)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Factor in remaining weeks — a BUY candidate with 8 weeks to regress is more valuable than one with 3 weeks",
+        "Incorporate playoff-week schedule (from mlb-playoff-scheduler signals) into SELL decisions",
+        "Identify players whose regression signal intersects with a real-life MLB trade that might change their environment"
+      ],
+      "common_pitfalls": [
+        "Recommending BUY on a regression candidate who will then be benched after an MLB trade",
+        "Not discounting the index for players with limited playoff-week starts"
+      ]
+    },
+    "Specific-player query (user asks about one name)": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "Single deep dive rather than a broad scan",
+        "All inputs explicitly listed with source URLs, all intermediate math shown",
+        "Worked example format per methodology.md",
+        "Clear BUY/SELL/HOLD verdict with confidence and a 30-day expected trajectory"
+      ],
+      "common_pitfalls": [
+        "Giving a one-line answer without showing the math",
+        "Not citing sources (user can't verify)",
+        "Omitting the secondary-flag cross-check"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Pitcher sign convention flipped",
+      "symptom": "A pitcher with ERA 2.50 and FIP 4.20 (clearly lucky) is flagged BUY instead of SELL; regression_index is reported as positive when it should be negative",
+      "detection": "Check any pitcher where FIP > ERA — the regression_index must be negative (SELL) not positive",
+      "fix": "Use the formula `regression_index = (ERA - FIP) × 50`, not `(FIP - ERA) × 50`. Or compute raw = (FIP-ERA)×50 and always negate. Verify with the rule: positive index = BUY for both hitters AND pitchers"
+    },
+    {
+      "failure": "Small-sample false signal",
+      "symptom": "Player has 30 PA and the skill outputs regression_index +60 with a BUY recommendation",
+      "detection": "Check PA / IP field on every flagged player against the 80/30/20 thresholds",
+      "fix": "Enforce hard threshold: route below-threshold players to WATCHLIST with confidence capped at 0.30, no action verb stronger than 'monitor'"
+    },
+    {
+      "failure": "Elite-contact hitter flagged as lucky on BABIP alone",
+      "symptom": "Judge / Ohtani / Caminero flagged SELL because BABIP is .360, despite Barrel % being 95th percentile and xwOBA matching wOBA",
+      "detection": "Any SELL flag driven by BABIP alone where Barrel % is in the top decile",
+      "fix": "Primary index (xwOBA-wOBA) governs. Only use BABIP as a SELL confirmer when Barrel % is below the 50th percentile. Elite-contact hitters sustain high BABIPs on skill"
+    },
+    {
+      "failure": "Unverified data from memory or training",
+      "symptom": "Signal file lists stats but source_urls is empty or contains non-specific URLs (homepage rather than player page)",
+      "detection": "Every entry in source_urls should be a deep link to a player-specific page on Baseball Savant or FanGraphs",
+      "fix": "Web-search every stat. If a search fails, emit confidence 0.3 and flag the failure in red_team_findings. Never fabricate or recall stats"
+    },
+    {
+      "failure": "Action without verb",
+      "symptom": "User-facing output says 'Caminero might be worth considering as a regression candidate'",
+      "detection": "Scan user-facing recommendations for hedging language ('consider', 'think about', 'might', 'could be')",
+      "fix": "Per CLAUDE.md rule #6, every recommendation ends with an imperative verb: BUY, SELL, HOLD, ADD, DROP, OFFER TRADE, BID $X"
+    },
+    {
+      "failure": "Jargon without translation",
+      "symptom": "User-facing output uses xwOBA, FIP, BABIP without inline plain-English translations",
+      "detection": "First occurrence of every baseball abbreviation should be followed by a parenthetical explanation",
+      "fix": "Per CLAUDE.md rule #5, every stat gets an inline translation on first use. Example: 'wOBA (weighted on-base average — a catch-all hitting stat where .320 is league average)'"
+    },
+    {
+      "failure": "Primary and secondary flags contradict without resolution",
+      "symptom": "Hitter has regression_index +40 (very unlucky BUY) but BABIP .380 (lucky). Output recommends BUY without addressing the tension",
+      "detection": "Flag any output where primary and secondary point in opposite directions and the report doesn't explain",
+      "fix": "When flags conflict, confidence drops to ≤0.50, explain the tension in red-team findings, route to WATCHLIST instead of actionable bucket"
+    },
+    {
+      "failure": "Missing re-check date for watchlist entries",
+      "symptom": "A too-early player is flagged WATCHLIST but the signal doesn't specify when to re-evaluate",
+      "detection": "Every WATCHLIST entry should have a `re_check_on: YYYY-MM-DD` field",
+      "fix": "Add re-check date = today + 14 days for small-sample entries. For conflicting-flag entries, re-check = today + 21 days"
+    }
+  ]
+}

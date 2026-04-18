@@ -1,0 +1,157 @@
+{
+  "criteria": [
+    {
+      "name": "Frontmatter Completeness",
+      "1": "Signal written despite missing one or more required frontmatter fields (type, date, emitted_by, confidence, source_urls), OR validator fails to detect a missing required field.",
+      "3": "Validator detects missing required fields but error message is vague (e.g., 'invalid frontmatter' with no field name), OR the check is partial and misses edge cases like empty-string confidence.",
+      "5": "Validator detects every missing required field, names the specific field in the failure, distinguishes 'absent' from 'empty-string' from 'null', returns a structured error object with reason code 'missing_required_field', and does not write the file."
+    },
+    {
+      "name": "Type Enum Enforcement",
+      "1": "Validator accepts any value for 'type', OR rejects valid enum values due to case mismatch without explanation, OR writes signals with unknown types.",
+      "3": "Validator checks the enum for most common types but has gaps (e.g., accepts 'cat_state' instead of 'cat-state'), OR does not give a clear error listing the 13 allowed values.",
+      "5": "Validator exactly matches against the 13 allowed values from signal-framework.md, is case-sensitive, rejects aliases, returns reason code 'invalid_type_enum' with the actual value and the full allowed set, and refuses to write on mismatch."
+    },
+    {
+      "name": "Confidence Range Check",
+      "1": "Validator accepts confidence outside [0.0, 1.0], OR treats missing confidence as 1.0 by default, OR accepts non-numeric values like 'high'.",
+      "3": "Validator checks that confidence is numeric and in [0, 1] for most cases but handles edge cases poorly (e.g., treats 1.00001 as valid due to float tolerance, or accepts integer 0 and 1 but rejects 0.0).",
+      "5": "Validator enforces 0.0 <= confidence <= 1.0 strictly (inclusive on both ends), rejects non-numeric and missing values, returns reason code 'confidence_out_of_range' with actual value, and applies the same check to synthesis_confidence when variant_synthesis is true."
+    },
+    {
+      "name": "Source URL Validation",
+      "1": "Validator accepts empty source_urls, OR does not check that entries parse as URLs, OR writes signals with no web grounding despite the CLAUDE.md rule requiring it.",
+      "3": "Validator checks that source_urls is non-empty but does not validate that each entry parses as a URL, OR rejects empty-string entries but accepts malformed schemes.",
+      "5": "Validator requires source_urls to be a non-empty list, verifies each entry has a scheme and host, rejects empty strings and non-URL values, returns reason codes 'empty_source_urls' and 'malformed_url' with the offending entry, and does not judge domain quality (that is the red-team pass's job)."
+    },
+    {
+      "name": "Numeric Range Enforcement",
+      "1": "Validator does not range-check signal values, OR clamps out-of-range values instead of rejecting, OR applies wrong ranges (e.g., checks regression_index against 0-100 instead of -100 to +100).",
+      "3": "Validator range-checks the most common signals but misses specialized ones (playoff_games, trade_cat_delta, faab_rec_bid <= faab_max_bid), OR errors are not specific about which signal failed.",
+      "5": "Validator applies the correct range to every signal in the catalog: unipolar 0-100, bipolar -100 to +100, dollar >= 0, integer >= 0, enums match their allowed sets, faab_rec_bid <= faab_max_bid. Rejects out-of-range values with reason code 'signal_value_out_of_range' naming the signal and both the actual and expected range. Never clamps."
+    },
+    {
+      "name": "Variant Synthesis Integrity",
+      "1": "Validator does not check variant_synthesis claims, OR accepts variant_synthesis: true with empty variants_fired, OR lets intermediate variant files through without a variant suffix in the filename.",
+      "3": "Validator checks that variant_synthesis: true implies a non-empty variants_fired list but misses synthesis_confidence, OR accepts variant_synthesis: false without requiring a variant suffix in the filename.",
+      "5": "Validator enforces all variant rules: variant_synthesis: true requires variants_fired (length >= 1) AND synthesis_confidence (float in [0, 1]); variant_synthesis: false requires a variant suffix in the filename; red_team_findings entries require severity/likelihood/score/note/mitigation. Rejects each violation with the specific reason code."
+    },
+    {
+      "name": "File Path Correctness",
+      "1": "Validator writes files outside ~/Documents/Projects/yahoo-mlb/signals/, OR uses wrong filename format, OR silently overwrites existing signals, OR accepts mismatched date in frontmatter vs filename.",
+      "3": "Validator enforces the canonical path pattern but has a weak overwrite policy (e.g., overwrites by default), OR does not cross-check the date in frontmatter against the date in the filename.",
+      "5": "Validator enforces signals/YYYY-MM-DD-<type>[-id|-variant].md strictly, creates the directory if missing, rejects paths that escape the signals directory (reason code 'path_escape'), cross-checks date in frontmatter against filename (reason code 'date_filename_mismatch'), requires overwrite: true to replace an existing file (reason code 'target_exists_no_overwrite')."
+    },
+    {
+      "name": "Failure Handling and Logging",
+      "1": "On validation failure, validator silently drops the signal without logging, OR writes the failed signal anyway, OR logs to stdout instead of tracker/decisions-log.md, OR returns no error to the caller.",
+      "3": "On failure, validator refuses to write and returns an error but logs incompletely (missing reason code or field name), OR logs directly to the decisions log instead of delegating to mlb-decision-logger.",
+      "5": "On failure, validator (a) refuses to write the signal file, (b) builds a structured failure entry with kind/timestamp/emitter/signal_type/attempted_path/reason/field/expected/actual, (c) calls mlb-decision-logger to append the entry to tracker/decisions-log.md (preserves append-only guarantee from CLAUDE.md rule 4), (d) returns a structured error object to the caller with the reason code and logged_to path. Every failure is visible in the Monday calibration review."
+    }
+  ],
+  "guidance_by_type": {
+    "Per-player daily signal (type: player)": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "Filename must carry a player identifier: YYYY-MM-DD-player-<lastname>.md",
+        "Required body signals: daily_quality plus its three components (form_score, matchup_score, opportunity_score)",
+        "source_urls must include at least Baseball Savant, FanGraphs, and MLB.com confirmed lineup",
+        "variant_synthesis: true with variants_fired: [advocate, critic] is the standard"
+      ],
+      "common_pitfalls": [
+        "Accepting daily_quality without its three component signals present",
+        "Letting role_certainty default to 100 when the lineup is not actually confirmed",
+        "Missing MLB.com confirmed-lineup URL in source_urls"
+      ]
+    },
+    "Waiver / FAAB signal (type: waivers or faab)": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "faab_rec_bid <= faab_max_bid must hold",
+        "acquisition_value, faab_max_bid, faab_rec_bid all dollar-valued (>= 0)",
+        "positional_need_fit must be present to justify a bid",
+        "role_certainty is mandatory -- never bid on a player with role_certainty absent"
+      ],
+      "common_pitfalls": [
+        "Recommending a bid higher than the computed max",
+        "Missing role_certainty, leading to bids on players with no path to playing time"
+      ]
+    },
+    "Trade evaluation signal (type: trade)": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "trade_cat_delta must cover all 10 categories (no missing cats)",
+        "verdict must be one of accept / counter / reject",
+        "positional_flex_delta in [-100, +100]",
+        "If verdict is counter, body should include the suggested counter-offer"
+      ],
+      "common_pitfalls": [
+        "Partial trade_cat_delta that skips cats we are 'not contending in' -- still include them at 0",
+        "Verdict not matching the sign of the weighted trade_cat_delta sum"
+      ]
+    },
+    "Intermediate variant dump": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "variant_synthesis: false",
+        "Filename carries variant suffix (-advocate or -critic)",
+        "emitted_by uses agent/variant form",
+        "Synthesized file written separately, consuming both intermediate files"
+      ],
+      "common_pitfalls": [
+        "Writing the variant dump to the canonical path, overwriting the synthesized signal",
+        "Forgetting to later write the synthesis, leaving only one perspective on the record"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Silently accepting missing confidence",
+      "symptom": "Signal file exists with no confidence field, or confidence: null",
+      "detection": "Grep signals/*.md for files missing a confidence line; Monday calibration review shows signals with no confidence tag",
+      "fix": "Make confidence a hard required field; treat null and empty string as missing; return reason code 'missing_required_field' with field='confidence'"
+    },
+    {
+      "failure": "Out-of-range signal clamped instead of rejected",
+      "symptom": "A form_score of 105 gets silently written as 100, masking an upstream normalization bug",
+      "detection": "Compare signal values in decisions-log.md against the raw upstream computation; any clamp-at-boundary pattern is suspicious",
+      "fix": "Range checks are hard limits. Out-of-range means the upstream skill has a bug. Reject, log, and let the caller fix the computation."
+    },
+    {
+      "failure": "Lying about variant synthesis",
+      "symptom": "variant_synthesis: true but variants_fired is empty or missing, suggesting the synthesis label was applied without actually running both variants",
+      "detection": "Validator check: if variant_synthesis == true and len(variants_fired) < 1 -> fail",
+      "fix": "Refuse to write. The team protocol (CLAUDE.md rule 3) requires both variants to fire every time. A mislabeled synthesis corrupts the calibration data."
+    },
+    {
+      "failure": "Overwriting a prior morning's signal",
+      "symptom": "A mid-day re-run of a skill overwrites the morning's signal file, losing the provenance the brief was based on",
+      "detection": "File mtime diverges from the morning-brief time; prior reasoning is no longer reproducible",
+      "fix": "Refuse to overwrite unless overwrite: true is explicitly passed. Prefer writing a new file with a timestamp-suffixed name (-HHMM) if a re-run is genuinely needed."
+    },
+    {
+      "failure": "Path escape via user-supplied identifier",
+      "symptom": "Caller passes identifier containing '../' or starting with '/'; file gets written outside the signals directory",
+      "detection": "Computed path does not start with ~/Documents/Projects/yahoo-mlb/signals/",
+      "fix": "Sanitize identifiers to lowercase-kebab-ASCII, reject any containing path separators, validate resolved path prefix against SIGNALS_DIR."
+    },
+    {
+      "failure": "Empty source_urls accepted for 'internal' signals",
+      "symptom": "Computed signals like cat_pressure written with no source URLs because 'they derive from other signals'",
+      "detection": "source_urls: [] or source_urls: null in the frontmatter",
+      "fix": "Every signal cites sources. For derived signals, cite the upstream signal files AND the original URLs those files cite. No signal is ever rootless."
+    },
+    {
+      "failure": "Dropping failure entries instead of logging",
+      "symptom": "When validation fails, nothing appears in tracker/decisions-log.md; the team has no visibility into rejected signals",
+      "detection": "Monday calibration review: count of 'signal_validation_failure' entries is zero despite upstream bugs being observed",
+      "fix": "Always call mlb-decision-logger on failure. A rejected signal that is never logged is invisible and teaches the team nothing."
+    },
+    {
+      "failure": "Not recognizing /advocate or /critic suffix in emitted_by",
+      "symptom": "A variant dump sent with emitted_by: mlb-lineup-optimizer/advocate is rejected by a strict regex that only allows known skill names",
+      "detection": "Intermediate variant files fail validation with 'unknown emitter' despite being structurally correct",
+      "fix": "Parse emitted_by as <agent>(/<variant>)? and validate the agent portion against the known set while allowing the optional variant suffix."
+    }
+  ]
+}
