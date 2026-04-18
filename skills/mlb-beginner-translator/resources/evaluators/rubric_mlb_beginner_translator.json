@@ -1,0 +1,208 @@
+{
+  "criteria": [
+    {
+      "name": "Jargon Detection",
+      "1": "Multiple jargon terms left unhandled (bare category stats like OBP/WHIP/QS, matchup terms like RHP/platoon, or internal signals); the draft reads like it was never run through a translator.",
+      "3": "Most common jargon (category stats, position abbreviations) detected and handled, but some matchup terms (platoon, park factor) or archetypes (innings-eater, ace) slipped through unglossed.",
+      "5": "Every jargon term from the full glossary detected (category stats, positions, matchup terms, advanced stats, transaction terms, archetypes, internal signal names). No bare jargon term appears in user output without either a gloss or a rewrite."
+    },
+    {
+      "name": "First-Mention Rule Compliance",
+      "1": "First-mention rule not applied -- either every mention is glossed (noisy) or no mentions are glossed (unreadable for beginner).",
+      "3": "First mentions are glossed for most major terms, but at least one major term's first mention is bare, or at least one second mention redundantly re-glosses.",
+      "5": "Every jargon term gets a gloss on its first document-level mention and a bare form on subsequent mentions. Running gloss set is consistent across the document. New documents reset the set."
+    },
+    {
+      "name": "Assumed-Knowledge Phrase Rewrites",
+      "1": "Trap phrases (hot streak, plus matchup, tough lefty, juicy park, ace, live arm, stud) left intact, assuming the user can interpret them.",
+      "3": "Several trap phrases rewritten, but at least one ('hot streak' or 'plus matchup' are the most common misses) still present in final output.",
+      "5": "Every trap phrase from the methodology trap table rewritten into concrete plain-English components. No 'hot streak,' no 'plus matchup,' no archetype slang without translation. Traps rewritten (not merely glossed)."
+    },
+    {
+      "name": "Internal Signal Stripping",
+      "1": "Internal signal names (daily_quality, regression_index, streamability_score, etc.) or numeric values leaked into user output.",
+      "3": "Most numeric signal values stripped, but at least one signal name or confidence tag slipped through, or variant labels (advocate/critic/synthesis) remain.",
+      "5": "Zero internal signal names, numeric signal values, variant labels, or confidence tags in user output. Underlying ideas translated to plain English where needed."
+    },
+    {
+      "name": "Action-Verb Presence",
+      "1": "Recommendations hedged ('consider,' 'think about,' 'lean toward,' 'in play') or missing a verb entirely. No consolidated actions list.",
+      "3": "Most recommendations end in an approved verb (START, SIT, ADD, DROP, BID $X, ACCEPT, COUNTER, REJECT, PASS), but at least one hedge remains or the actions list is missing.",
+      "5": "Every recommendation ends in a single approved verb with no hedge. A consolidated 'Actions' list appears at the end of every document, including single-action outputs. Fallbacks for unverified facts are themselves expressed as verbs."
+    },
+    {
+      "name": "Player Identification",
+      "1": "Players introduced by bare last name with no team or position, leaving the user without context.",
+      "3": "Most first mentions include team and position, but at least one player is introduced without one or both, or the position is given as an abbreviation (3B) without being spelled out.",
+      "5": "Every player's first document-level mention includes full name, team (city or club name), and position spelled out in plain English (e.g., 'Junior Caminero (Tampa Bay, third base)'). Subsequent mentions use last name alone."
+    },
+    {
+      "name": "Abbreviation Glossing",
+      "1": "Position or category abbreviations (3B, BN, IL, SP, HR, SV, SB, OBP) used without a spelled-out first mention.",
+      "3": "Most abbreviations introduced with a long-form first mention, but at least one abbreviation appears bare on first use (common misses: BN, DH, IL stash).",
+      "5": "Every abbreviation (positions, category stats, roster slots, transaction terms) is paired with its spelled-out form on first use in the document. Subsequent uses of the abbreviation alone are fine."
+    },
+    {
+      "name": "Uncertainty Surfacing",
+      "1": "Unverified facts (upstream confidence: low) presented as confident statements, or uncertainty dumped in agent-speak rather than plain English.",
+      "3": "Unverified facts flagged, but the flag is not paired with a concrete fallback action, or the uncertainty is framed awkwardly.",
+      "5": "Every unverified fact is surfaced in plain English in a dedicated 'Unverified' block (or inline if short), paired with a specific fallback action expressed as an approved verb. User never has to infer what to do if the primary plan fails."
+    },
+    {
+      "name": "Tone and Decoration Discipline",
+      "1": "Cheerleader phrases ('great pick!'), emojis, smileys, or performative friendliness present. Or the output is cold and mechanical, reading like an internal report.",
+      "3": "Tone is mostly neutral and action-oriented, but at least one emoji, exclamation mark, or cheerleader phrase remains; or the output is stiff where a short clarifying sentence would help.",
+      "5": "Tone is neutral, direct, and respectful of a busy beginner. No emojis, no exclamation marks, no performative friendliness. Bold used only for player names and action verbs. Reads as a trusted advisor speaking plainly."
+    },
+    {
+      "name": "Overall Readability and Actionability",
+      "1": "User would be unable to act on the document without asking follow-up questions; key decisions are buried, structure is unclear, or the document contradicts itself.",
+      "3": "Document is readable and actionable for the main recommendations, but some blocks have unclear structure (no clear 'why' for a call, actions list and prose disagree, or paragraphs are too dense).",
+      "5": "A zero-baseball-knowledge reader can read the document once and execute every action correctly. Structure is predictable (player block + reasoning + actions at end). Prose is tight; actions are unambiguous; fallbacks are explicit."
+    }
+  ],
+  "guidance_by_document_type": {
+    "Daily lineup brief": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "One block per player in question, ending in START or SIT.",
+        "Consolidated 'Actions' list at the end with every player's slot named.",
+        "Every matchup reason named concretely (park, opposing pitcher, hand, weather) -- no 'plus matchup.'",
+        "Every internal signal (daily_quality, regression_index, role_certainty, etc.) stripped."
+      ],
+      "common_pitfalls": [
+        "'Hot bat' or 'hot streak' left in the copy because it feels conversational.",
+        "Position abbreviations (3B, SS, OF) used in the actions list without being spelled out earlier.",
+        "Bullpen game or opener mentioned without a gloss.",
+        "Variant synthesis paragraph accidentally shipped to the user."
+      ]
+    },
+    "Trade recommendation memo": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "Offer stated clearly with every player's team + position on first mention.",
+        "Category impact expressed as plain-English gains/losses (not numeric deltas).",
+        "Every category code (HR, SB, OBP, QS, SV, K, R, RBI) glossed on first mention.",
+        "COUNTER recommendations include a specific counter offer stated as plain text."
+      ],
+      "common_pitfalls": [
+        "Archetype terms (innings-eater, ace, stud, closer) dropped in without gloss.",
+        "Roster-fit reasoning (eligibility, slot conflicts) implied rather than stated.",
+        "COUNTER verdict given without the specific counter offer."
+      ]
+    },
+    "Waiver / FAAB add memo": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "FAAB glossed on first mention ('$100 season-long waiver budget').",
+        "Bid stated as dollars, not a percentage.",
+        "Drop candidate named with reason.",
+        "Backup plan (PASS or alternate player) stated explicitly."
+      ],
+      "common_pitfalls": [
+        "'Rolling waivers' or 'handcuff' used without a gloss.",
+        "Bid expressed as '10% of remaining FAAB' rather than '$8.'",
+        "No drop candidate named -- user has to figure out the roster move."
+      ]
+    },
+    "Weekly category plan": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "H2H categories format explained on first mention.",
+        "'Punt' glossed on first mention (if used).",
+        "'Streaming' glossed on first mention.",
+        "Actions tied to specific days of the week, not vague 'mid-week.'"
+      ],
+      "common_pitfalls": [
+        "Punting a category stated without explaining what punting means.",
+        "Streaming schedule given in agent shorthand (SP4, SP5) instead of named pitchers.",
+        "Actions list missing FAAB dollar amounts."
+      ]
+    },
+    "Chat reply": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "1-3 sentence answer -- no padding.",
+        "Single action verb at the end.",
+        "First-mention gloss rule still applies even for one-line answers if a jargon term is used."
+      ],
+      "common_pitfalls": [
+        "Dumping internal signals because 'it's just chat.'",
+        "Narrating the agent debate ('I weighed advocate vs critic...').",
+        "Hedging the action because the question was ambiguous -- ask a follow-up instead of hedging."
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Trap phrase left intact",
+      "symptom": "'Hot streak,' 'plus matchup,' 'tough lefty,' 'juicy park,' 'live arm,' 'ace' appear in final user output.",
+      "detection": "Search the final draft for any entry in methodology.md's trap table.",
+      "fix": "Rewrite the phrase into concrete plain-English components; do not merely bolt on a parenthetical gloss."
+    },
+    {
+      "failure": "Re-glossing within the same document",
+      "symptom": "'OBP (how often he gets on base)' appears twice in the same brief.",
+      "detection": "Search the document for duplicate parentheticals or duplicate gloss phrasings.",
+      "fix": "Build and enforce a running 'already-glossed' set; bare form for second and later mentions in the same document."
+    },
+    {
+      "failure": "Missing first-mention gloss",
+      "symptom": "A bare jargon term (OBP, QS, WHIP, FAAB, RHP) appears with no gloss on its first mention in a new document.",
+      "detection": "Walk each document top-to-bottom and confirm every jargon term's first instance carries a gloss.",
+      "fix": "Insert the gloss template from resources/template.md for the term's category."
+    },
+    {
+      "failure": "Internal signal leak",
+      "symptom": "'daily_quality = 66' or 'regression_index +15' or 'confidence: low' visible in user output.",
+      "detection": "Grep final draft for underscores, equals signs, numeric scores on a 0-100 scale, 'confidence:' tags, variant labels.",
+      "fix": "Strip the signal reference; translate the underlying idea into plain English (see methodology.md strip mapping)."
+    },
+    {
+      "failure": "Hedged recommendation",
+      "symptom": "'Consider starting Caminero,' 'lean toward SIT,' 'might want to add,' 'in play for a start.'",
+      "detection": "Grep for: consider, think about, might, could, lean, leaning, in play, worth a look, on the radar.",
+      "fix": "Collapse to a single approved verb; if a contingency is real, add an explicit verb-based fallback."
+    },
+    {
+      "failure": "Missing player context",
+      "symptom": "Last name used on first mention without team + spelled-out position.",
+      "detection": "List every player named; check whether the first occurrence of each has '(Team, position spelled out)'.",
+      "fix": "Add '(Team, position spelled out)' to every first mention; subsequent mentions can use last name alone."
+    },
+    {
+      "failure": "Abbreviation without long form",
+      "symptom": "'SS,' '3B,' 'BN,' 'HR,' 'SV,' 'QS,' 'IL' used without a spelled-out first mention.",
+      "detection": "Cross-reference every abbreviation in the document against the first-mention spell-out.",
+      "fix": "Pair the long form with the abbreviation on first use."
+    },
+    {
+      "failure": "Uncertainty hidden",
+      "symptom": "An upstream 'confidence: low' fact is presented in user output as a confident statement, or an unverified fact has no fallback action.",
+      "detection": "Cross-reference upstream draft's confidence tags against translated output.",
+      "fix": "Add an 'Unverified' block (or short inline note) with the uncertainty stated in plain English and a specific fallback expressed as an approved verb."
+    },
+    {
+      "failure": "Variant debate leaked",
+      "symptom": "'Advocate said...,' 'Critic flagged...,' 'Synthesis leans...' appear in user output.",
+      "detection": "Grep for: advocate, critic, synthesis, variant, steelman, red-team.",
+      "fix": "Keep only the synthesized conclusion. Variant debate belongs in the decision log, never in user output."
+    },
+    {
+      "failure": "Tone drift",
+      "symptom": "Emojis, exclamation marks, smileys, or cheerleader phrases ('great pick!', 'nice call!') appear.",
+      "detection": "Grep for non-ASCII characters and exclamation marks; scan for cheerleader phrasing.",
+      "fix": "Revert to neutral tone. Only bold (for player names and action verbs) is allowed as decoration."
+    }
+  ],
+  "thresholds": {
+    "minimum_average_score": 4.0,
+    "minimum_criterion_score": 3,
+    "must_be_at_least_4": [
+      "Action-Verb Presence",
+      "First-Mention Rule Compliance",
+      "Internal Signal Stripping",
+      "Assumed-Knowledge Phrase Rewrites"
+    ]
+  }
+}

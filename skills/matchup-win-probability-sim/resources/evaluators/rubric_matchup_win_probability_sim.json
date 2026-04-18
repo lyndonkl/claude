@@ -1,0 +1,180 @@
+{
+  "criteria": [
+    {
+      "name": "Input-Spec Correctness",
+      "1": "Inputs are missing required fields (cat_list, thresholds, or per-side projections), or field types do not match the schema, or cat_list does not match the keys of the projection dicts",
+      "3": "All required fields present with correct types, but minor issues such as missing cat_inverse_list when an inverse cat exists in the list, or stddev floor not enforced when a zero stddev is passed",
+      "5": "All required fields present with correct types; cat_list keys match both projection dicts exactly; cat_win_threshold is validated to be within [1, len(cat_list)]; cat_inverse_list is validated as a subset of cat_list; all stddev values positive (floored at 1e-6 if needed); distribution_family keys validated against cat_list; cat_correlation_matrix (if present) is square, symmetric, PSD, with correct dimension"
+    },
+    {
+      "name": "Monte-Carlo Accuracy",
+      "1": "MC implementation has a bug (wrong sampling distribution, forgotten inverse handling, or off-by-one in cats_won count); results disagree with PB by more than 3 standard errors consistently",
+      "3": "MC formula correct and produces results broadly aligned with PB under independence; some edge cases (very low mean cats, ties) not handled cleanly",
+      "5": "MC draws X_s(c) and Y_s(c) independently from the specified distribution per cat; margin computed as (X_s - Y_s) then inverted for inverse cats; cats_won summed with the correct tie rule; matchup_win indicator thresholded at K; aggregate statistics computed over all S sims; monte_carlo_stderr returned in meta; results match PB (under independence, normal cats) within 2 standard errors"
+    },
+    {
+      "name": "Poisson-Binomial Accuracy",
+      "1": "PB implementation has a bug: wrong per-cat probability formula (e.g., missing the combined stddev or the sqrt), or the recurrence is miswritten (missing the Bernoulli step), or tail sum starts at wrong index",
+      "3": "PB formulas correct in the common case but PB mode silently accepts a cat_correlation_matrix (which it should reject) or returns an undefined tail for edge cases like K=0 or K=N+1",
+      "5": "Per-cat p computed as Φ(margin_mean / combined_stddev) with inverse cats negated on margin_mean; recurrence implemented correctly with P_0(0)=1 and the standard two-term update; tail computed as Σ_{k>=K} P_N(k); expected_cats_won returned as exact Σ p_c; variance_estimate returned as exact Σ p_c(1-p_c); rejects cat_correlation_matrix with a clear error; gracefully handles K=0 (returns 1.0) and K > N (returns 0.0)"
+    },
+    {
+      "name": "Inverse-Cat Handling",
+      "1": "Inverse cats are ignored (ERA/WHIP treated as higher-is-better), or the inversion is applied to input means breaking the sim_trace semantics, or the inversion is applied inconsistently across MC and PB modes",
+      "3": "Inverse cats correctly inverted at comparison time in MC mode but PB mode has a sign bug, or vice versa; sim_trace shows natural-unit values but the inversion is not visible in the trace",
+      "5": "Inverse cats negate the computed margin (not the inputs) in both MC and PB modes; inputs preserved in natural units throughout; verified by the round-trip test (symmetric inputs for an inverse cat yield p_c = 0.5 exactly); a comment or assertion explains why margin-time negation is the chosen approach"
+    },
+    {
+      "name": "Ratio-Cat Volume Weighting",
+      "1": "Ratio cats and count cats treated identically with no acknowledgment that OBP/ERA/WHIP stddevs depend on volume; caller silently passes a full-season stddev and the skill uses it without warning",
+      "3": "Methodology documents the volume-weighting formula (σ/sqrt(n)) and notes that the caller is responsible for supplying a volume-adjusted stddev; no runtime check or warning when a ratio cat looks suspicious",
+      "5": "Methodology documents the volume-weighting formula with worked examples for OBP/ERA/WHIP; skill treats the supplied stddev as truth but the documentation makes the caller's responsibility explicit; ratio-cat rows in the per-cat projection worksheet enumerate the expected scaling; guardrail covers minimum-volume frozen cats (near-zero stddev)"
+    },
+    {
+      "name": "Threshold Application",
+      "1": "Wrong threshold semantics: using > instead of >=, hardcoded 6 instead of parameterized, or the tie rule is ignored",
+      "3": "Threshold applied with correct >= semantics; tie rule applied consistently within a single mode but MC and PB disagree on tie convention",
+      "5": "Threshold applied as cats_won >= K uniformly; tie_rule (half | strict) documented and applied identically in MC and PB; matchup-level tie edge cases (T = K - 0.5 when half-wins are possible) discussed in methodology; threshold range validated against len(cat_list)"
+    },
+    {
+      "name": "Reproducibility (seeding)",
+      "1": "No random_seed parameter exposed; or seed is accepted but not propagated to the RNG so repeated calls give different results; or the seed only controls our draws and not the opponent's",
+      "3": "random_seed is accepted and propagated to a local RNG instance (not the global numpy state); PB mode correctly noted as deterministic regardless of seed; documentation mentions the RNG library used",
+      "5": "random_seed is accepted and propagated to a fresh RNG instance (np.random.default_rng or equivalent); identical inputs + seed produce bit-exact identical output across runs; the RNG is used for both sides' draws and any correlation-induced covariance draws; meta returns random_seed and rng_library so external reviewers can reproduce; PB mode labeled as deterministic in meta; audit convention (seed = week number) suggested in documentation"
+    },
+    {
+      "name": "Output Completeness",
+      "1": "Missing one or more primary outputs (matchup_win_probability, per_cat_win_probability, expected_cats_won, or variance_estimate)",
+      "3": "All four primary outputs present; sim_trace present only when requested; meta present with some fields; output dict shape varies slightly between MC and PB modes",
+      "5": "All four primary outputs present in every call; sim_trace present with first 100 sims only when return_sim_trace=true; meta includes sim_mode, n_simulations, random_seed, tie_rule, cat_list, cat_inverse_list, monte_carlo_stderr (null for PB), and rng_library; output schema identical between MC and PB modes (same keys, same nesting); all probabilities in [0, 1] and all per-cat probabilities sum consistently with expected_cats_won"
+    },
+    {
+      "name": "Variance Estimation",
+      "1": "Variance not returned, or the wrong variance is returned (e.g., variance of p_hat reported as variance_estimate, or sample variance with / N instead of / (N-1))",
+      "3": "variance_estimate returned as the variance of the cats-won count; MC uses the unbiased estimator (divide by S-1); PB uses the closed-form Σ p(1-p); meta distinguishes variance_estimate from monte_carlo_stderr",
+      "5": "variance_estimate explicitly documented as the variance of T (cats-won count), not the variance of the matchup-win estimator; MC uses the unbiased estimator (/(S-1)); PB uses the exact closed form Σ p(1-p); monte_carlo_stderr = sqrt(p(1-p)/S) returned separately under meta (null for PB); documentation explains when each variance is the correct one to use downstream (e.g., lineup-variance decision vs sim-precision decision)"
+    },
+    {
+      "name": "Citations",
+      "1": "No references to upstream frameworks; skill does not cite game-theory-principles.md or category-math.md; no mention of which game-theory principles motivate the skill",
+      "3": "Skill cites category-math.md (matchup win probability section) and game-theory-principles.md in the SKILL.md or methodology; downstream usage referenced loosely (e.g., 'used by lineup optimizer')",
+      "5": "SKILL.md and methodology explicitly cite game-theory-principles.md principles #1 (dominated-strategy / 6-of-10 rule), #5 (matchup-contingent lineup), #6 (variance-seeking as underdog) as the decision-theoretic justification; cites category-math.md 'Matchup win probability' section as the methodology ancestor; identifies upstream callers (mlb-category-state-analyzer or equivalent) and downstream consumers (lineup optimizer, category strategist); every citation points to a specific file and section"
+    }
+  ],
+  "guidance_by_type": {
+    "Yahoo MLB 10-Cat (5x5)": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "cat_win_threshold = 6, cat_inverse_list = [ERA, WHIP]",
+        "Default sim_mode = monte_carlo, n_simulations = 10000 for weekly strategy",
+        "Ratio cats (OBP, ERA, WHIP) require volume-weighted stddev from upstream caller",
+        "SV and HR (for short weeks) may warrant distribution_family = poisson",
+        "Seed with week number by convention for audit log reproducibility"
+      ],
+      "common_pitfalls": [
+        "Caller passes full-season stddev for OBP (too tight) -> overstates cat-win certainty",
+        "SV stddev drawn from normal on mean=2 -> non-trivial negative-side probability mass",
+        "Forgetting to invert WHIP alongside ERA (easy to remember ERA, miss WHIP)"
+      ]
+    },
+    "NBA 9-Cat": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "cat_win_threshold = 5, cat_inverse_list = [TO]",
+        "Ratio cats (FG%, FT%) need volume-weighted stddev from FGA and FTA",
+        "Per-cat correlations stronger than MLB (usage patterns link PTS-AST-3PM); pass cat_correlation_matrix when available",
+        "Use monte_carlo mode when correlations matter; PB ignores correlation by definition"
+      ],
+      "common_pitfalls": [
+        "Ignoring positive correlation between PTS, AST, 3PM -> variance_estimate understated",
+        "Treating FG% with per-game stddev when the ratio is over weekly FGA aggregate"
+      ]
+    },
+    "NHL 10-Cat": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "cat_win_threshold = 6 typically, cat_inverse_list = [GAA]",
+        "Ratio cats (SV%, GAA) need volume-weighted stddev from shots against and games played",
+        "Moderate correlation between G, A, SOG at team-week level"
+      ],
+      "common_pitfalls": [
+        "Forgetting GAA is inverse but SV% is higher-is-better (common source of direction bugs)",
+        "Under-weighting volatility of goalie shutouts (discrete, low mean)"
+      ]
+    },
+    "Optimizer Inner Loop": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Use sim_mode = poisson_binomial for 100-1000x speedup",
+        "Skip sim_trace output (return_sim_trace = false)",
+        "Final candidate should be re-scored with monte_carlo for confirmation"
+      ],
+      "common_pitfalls": [
+        "Running monte_carlo 10000x inside a lineup optimizer (minutes to hours instead of seconds)",
+        "Using PB for an optimizer and never re-scoring with MC (missing correlation effects)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Sign-flip bug on inverse cats",
+      "symptom": "per_cat_win_probability for ERA is symmetrically wrong (0.35 when it should be 0.65), or MC and PB disagree dramatically on inverse cats only",
+      "detection": "Feed symmetric inputs (mu_us = mu_op, sigma_us = sigma_op) for an inverse cat; per-cat prob must be exactly 0.5. If it is not, inversion is miswired.",
+      "fix": "Negate margin at comparison time, not inputs at ingest. Apply the negation identically in MC and PB code paths. Add a unit test for the symmetric-inputs invariant."
+    },
+    {
+      "failure": "Wrong combined stddev in PB mode",
+      "symptom": "PB per-cat probabilities are systematically too extreme (0.95 / 0.05) compared to MC results",
+      "detection": "Compare combined_stddev computed in PB to sqrt(sigma_us^2 + sigma_op^2). If PB uses sigma_us alone or max(sigma_us, sigma_op), it is wrong.",
+      "fix": "combined_stddev = sqrt(sigma_us^2 + sigma_op^2). This is the stddev of the difference of two independent normals."
+    },
+    {
+      "failure": "Non-reproducible output despite random_seed",
+      "symptom": "Two calls with the same seed and inputs produce slightly different matchup_win_probability values",
+      "detection": "Run the identical call twice in the same process; compare full output dicts. They must be bit-identical (for MC) or exactly identical (for PB).",
+      "fix": "Ensure random_seed is passed to a local RNG instance (np.random.default_rng(seed)) and that instance is used for every draw. Do not mix with global np.random or random module calls."
+    },
+    {
+      "failure": "Variance of p_hat returned as variance_estimate",
+      "symptom": "variance_estimate is tiny (like 2.5e-5) and scales inversely with n_simulations",
+      "detection": "variance_estimate of 2.5e-5 at N=10000 is p(1-p)/N, not Var(T).",
+      "fix": "variance_estimate should be Var(cats_won count), in the range 0.5 to N/4. Move p(1-p)/N to meta.monte_carlo_stderr (as sqrt)."
+    },
+    {
+      "failure": "Threshold applied with wrong comparison",
+      "symptom": "matchup_win_probability for a clearly-winning scenario (per_cat_probs all 0.9) is 0.0 instead of ~1.0",
+      "detection": "Construct inputs where every cat should have per-cat prob > 0.8 and verify matchup_win_probability > 0.95.",
+      "fix": "Use cats_won >= cat_win_threshold, not >. Check PB tail sum starts at k=threshold, not k=threshold+1."
+    },
+    {
+      "failure": "Normal approximation fails on low-mean counting cats",
+      "symptom": "per_cat_win_probability for SV (mean=2 vs mean=5) shows meaningful probability mass on negative draws, distorting the cat win prob by ~5%",
+      "detection": "Sample the raw draws for a sim; count fraction of draws below zero. If > 1% of SV draws are negative, normal is a poor fit.",
+      "fix": "Allow distribution_family = 'poisson' per cat. In MC use numpy.random.poisson(lam=mean). In PB approximate via Skellam-normal: p = Phi((mu_us - mu_op + 0.5) / sqrt(mu_us + mu_op)) with continuity correction."
+    },
+    {
+      "failure": "Correlation matrix silently ignored in PB mode",
+      "symptom": "Caller passes cat_correlation_matrix to PB mode; skill returns a result as if correlations were honored",
+      "detection": "Set a cat_correlation_matrix with strong off-diagonal entries (+0.8) and run PB mode. The result should be identical to PB with no correlation passed. If so, the skill silently ignored the matrix.",
+      "fix": "In PB mode, if cat_correlation_matrix is non-null, raise a clear error. Either route the call to MC mode or require the caller to switch."
+    },
+    {
+      "failure": "Ratio cat stddev passed as full-season value",
+      "symptom": "OBP stddev = 0.025 regardless of how many PA are remaining; matchup_win_probability is too confident (too far from 0.5) on ratio cats",
+      "detection": "Check that OBP stddev scales with 1/sqrt(PA_remaining). For 100 PA, expect ~0.015; for 25 PA, expect ~0.030.",
+      "fix": "Document in the template that the caller must compute volume-weighted stddev. In the upstream skill (category-state-analyzer), implement the scaling explicitly."
+    },
+    {
+      "failure": "Tie rule inconsistent between MC and PB",
+      "symptom": "For a cat with identical means and stddevs, MC returns per-cat prob 0.5 but PB returns 0.5 - epsilon or 0.5 + epsilon",
+      "detection": "Feed identical inputs and check both modes return exactly 0.5 for that cat.",
+      "fix": "In PB, Phi(0) = 0.5 exactly. In MC, with tie_rule='half', ensure exact ties (if they occur with discrete distributions) count as 0.5. For continuous normal draws, ties have measure zero so no effect."
+    },
+    {
+      "failure": "No documentation of which frameworks this skill derives from",
+      "symptom": "SKILL.md makes no reference to game-theory-principles.md or category-math.md; a reviewer cannot trace the methodology back to its source",
+      "detection": "Grep SKILL.md and methodology for 'game-theory' and 'category-math' and 'principle'. If absent, the skill is unmoored.",
+      "fix": "Add explicit citations in SKILL.md (Quick Reference or intro) and in methodology. Identify principles #1, #5, #6 from game-theory-principles.md and the 'Matchup win probability' section of category-math.md as the source material."
+    }
+  ]
+}

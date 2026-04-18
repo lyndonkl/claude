@@ -1,0 +1,105 @@
+{
+  "name": "auction-first-price-shading",
+  "description": "Rubric for evaluating outputs of the auction-first-price-shading skill. Eight criteria, one of which (Formula Correctness) is weighted double. Scores are 1-5 per criterion; minimum acceptable weighted average is 3.5.",
+  "scoring": {
+    "scale": [1, 2, 3, 4, 5],
+    "weighted": true,
+    "minimum_weighted_average": 3.5
+  },
+  "criteria": [
+    {
+      "name": "Formula Correctness",
+      "weight": 2,
+      "1": "Base shade does not use (N-1)/N for uniform values, or shaded_bid differs from true_value x shade_fraction by more than rounding tolerance, or core arithmetic is wrong",
+      "3": "(N-1)/N applied correctly for uniform case, shaded_bid consistent with shade_fraction, minor rounding or edge-case inconsistencies",
+      "5": "(N-1)/N applied correctly, shaded_bid = true_value x shade_fraction to rounding tolerance, all arithmetic traceable, risk-aversion and distribution adjustments composed in the documented order (distribution -> risk -> caps), shade_fraction field exactly matches shaded_bid / true_value after capping"
+    },
+    {
+      "name": "Distribution Handling",
+      "weight": 1,
+      "1": "value_distribution input ignored, or same shade used for all three distributions, or log-normal formula is wrong",
+      "3": "Uniform and log-normal produce different shades per the documented formulas; empirical falls back reasonably; spread parameter respected when supplied",
+      "5": "All three distributions handled per methodology.md: uniform uses (N-1)/N, log-normal uses 1 - 1/(N x spread) with spread default 1.5, empirical uses supplied lookup or log-normal fallback with flag, differences between the three are visible in outputs for the same (true_value, N), and the distribution assumption appears in assumptions_flagged"
+    },
+    {
+      "name": "Risk-Aversion Adjustment",
+      "weight": 1,
+      "1": "risk_aversion input ignored, or the adjustment moves shade the wrong direction (e.g., deeper shade with more risk aversion), or the adjustment can push shade above 1",
+      "3": "risk_aversion raises shade toward 1 per the formula shade + risk_aversion x (1 - shade) x 0.4, zero risk aversion leaves shade unchanged, scaling factor 0.4 respected",
+      "5": "Risk-aversion adjustment exactly implements shade + risk_aversion x (1 - shade) x 0.4, clamped to stay below the 0.9 safety cap, no adjustment when risk_aversion = 0, monotonically raises the bid as risk_aversion grows, and the risk-aversion assumption is listed in assumptions_flagged when non-zero"
+    },
+    {
+      "name": "Budget Clamping",
+      "weight": 1,
+      "1": "Output can exceed budget_remaining, or exceed 0.9 x true_value, or both caps ignored",
+      "3": "shaded_bid never exceeds budget_remaining or 0.9 x true_value; clamping applied but not flagged when it binds",
+      "5": "shaded_bid = min(raw_bid, 0.9 x true_value, budget_remaining) in all cases, the binding cap is explicitly identified in rationale, and assumptions_flagged lists 'budget cap binds' or '0.9 x true_value safety cap binds' whenever a cap activates; min_bid_floor respected when true_value > 0 and raw bid would be 0"
+    },
+    {
+      "name": "Rationale Quality",
+      "weight": 1,
+      "1": "Rationale missing, empty, or generic (e.g., 'bid calculated') with no reference to N, shade, or caps",
+      "3": "Rationale names the distribution used, cites the shade value, and mentions any cap that binds, in one-to-two sentences",
+      "5": "Rationale is one-to-two sentences, domain-neutral, cites the specific rule applied (e.g., 'uniform (N-1)/N at N=6'), states the shade_fraction, notes whether risk aversion moved the bid, and explicitly identifies any binding cap, while being readable by a downstream consumer who lacks auction-theory background"
+    },
+    {
+      "name": "N-Bidder Input Validation",
+      "weight": 1,
+      "1": "Accepts non-integer or out-of-range N silently, computes bid with N = 0 or negative, or fails noisily on N above 12",
+      "3": "N is cast to int and clamped to [1, 12], but clamp not flagged to caller",
+      "5": "N is cast to int, clamped to [1, 12], clamp reported in assumptions_flagged whenever the input was outside the range, and the shade table (N=1 -> minimum increment, N=2 -> 0.5, ..., N=12 -> 0.917 pre-cap) matches the documented values"
+    },
+    {
+      "name": "Edge Cases (N=1, N=12)",
+      "weight": 1,
+      "1": "N=1 produces a nonsense bid (e.g., 0, NaN, or the full true_value); N=12 produces a bid above 0.9 x true_value",
+      "3": "N=1 returns the minimum increment with a rationale; N=12 respects the 0.9 cap; both flagged in assumptions",
+      "5": "N=1 returns max(1, min_bid_floor) with rationale 'no competition — minimum bid wins'; N=12 hits the 0.9 safety cap and the cap appears in both rationale and assumptions_flagged; true_value = 0 returns shaded_bid = 0; budget_remaining = 0 returns shaded_bid = 0 with an explicit no-bid rationale"
+    },
+    {
+      "name": "Citation",
+      "weight": 1,
+      "1": "No citation of the auction-theory basis for (N-1)/N or revenue equivalence; formula presented as a black-box heuristic",
+      "3": "Mentions that (N-1)/N is the symmetric Bayes-Nash equilibrium for uniform private values; references first-price sealed-bid theory",
+      "5": "methodology.md derives (N-1)/N from the symmetric equilibrium first-order condition, references Vickrey (1961) for the second-price benchmark, invokes the revenue equivalence theorem to justify the result, and cites Krishna's Auction Theory (Chapters 2 and 4) for the formal treatment; rationale in skill output can point downstream consumers to methodology.md for the derivation"
+    }
+  ],
+  "common_failure_modes": [
+    {
+      "failure": "Shade formula applied before input validation",
+      "symptom": "N = 0 or negative produces division-by-zero or negative shade; non-integer N produces a non-standard shade",
+      "detection": "Pass N = 0, N = -1, N = 2.5, N = 20 and verify outputs are all clamped and flagged",
+      "fix": "Always cast N to int and clamp to [1, 12] before computing shade. Flag the clamp in assumptions_flagged."
+    },
+    {
+      "failure": "Risk-aversion adjustment pushes past the 0.9 safety cap",
+      "symptom": "High risk_aversion values produce shaded_bid > 0.9 x true_value",
+      "detection": "Test risk_aversion = 1.0 at N = 8 or higher; verify shaded_bid <= 0.9 x true_value",
+      "fix": "Apply the 0.9 safety cap after the risk-aversion adjustment, not before. Re-check in the cap step."
+    },
+    {
+      "failure": "Budget cap silently applied without flagging",
+      "symptom": "Bidder receives shaded_bid that equals budget_remaining without any indication that the budget constraint is binding",
+      "detection": "Pass budget_remaining well below (N-1)/N x true_value and verify assumptions_flagged lists 'budget cap binds'",
+      "fix": "Check after capping whether shaded_bid was limited by budget_remaining; if so, append flag."
+    },
+    {
+      "failure": "Wrong formula for log-normal distribution",
+      "symptom": "Log-normal shade equals uniform shade (N-1)/N or moves the wrong direction with spread",
+      "detection": "Pass value_distribution='log-normal' with spread = 2 and verify shade is closer to 1 than the uniform baseline",
+      "fix": "Use shade = 1 - 1/(N x spread). Higher spread raises shade (bid closer to true value)."
+    },
+    {
+      "failure": "N=1 bid equals true_value instead of minimum increment",
+      "symptom": "When N = 1, shaded_bid equals true_value because formula gives shade = (1-1)/1 = 0 and bid = 0, then the floor is missed",
+      "detection": "Pass N=1 and verify shaded_bid = max(1, min_bid_floor) with rationale citing no competition",
+      "fix": "Handle N=1 as an explicit edge case before applying the general formula."
+    },
+    {
+      "failure": "Domain leakage into rationale",
+      "symptom": "Rationale contains baseball, FAAB, procurement, or other domain-specific terms",
+      "detection": "Scan rationale for domain tokens; compare against domain-neutral vocabulary in SKILL.md",
+      "fix": "Use domain-neutral language: 'units of budget currency', 'bidders', 'auction'. Domain framing is the caller's responsibility."
+    }
+  ]
+}

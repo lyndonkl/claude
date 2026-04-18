@@ -1,0 +1,184 @@
+{
+  "criteria": [
+    {
+      "name": "Taxonomy Parsing",
+      "1": "Archetype taxonomy not fully parsed, required fields missing (prior, feature_distributions, best_response), inconsistent feature-name sets across archetypes, or malformed input accepted silently",
+      "3": "Taxonomy parsed with required fields present per archetype, feature-name set consistent across archetypes, priors normalized if they do not sum to 1.0, but minor validation gaps (e.g., categorical probabilities not checked for sum-to-1)",
+      "5": "Taxonomy fully validated: every archetype has prior + feature_distributions + best_response, every feature uses the same name and type (Gaussian or categorical) across all archetypes, priors sum to 1.0 (or normalized with explicit note), categorical probabilities per feature per archetype sum to 1.0, missing fields surface specific errors, and any deviations are logged to assumptions_flagged"
+    },
+    {
+      "name": "Likelihood Correctness",
+      "1": "Likelihood formula wrong (e.g., uses unnormalized kernel without constant, mixes Gaussian and categorical formulas, or fails to handle missing features), categorical features treated as Gaussian or vice versa, or no log-space computation",
+      "3": "Gaussian and categorical likelihoods computed with correct formulas, log-space used for Gaussian, but minor issues such as inconsistent treatment across features or missing edge cases (features outside Gaussian support, zero-probability categories without smoothing)",
+      "5": "All likelihoods computed correctly using the appropriate form (Gaussian for continuous, categorical with Laplace smoothing for discrete), log-space used throughout, truncated-support cases handled explicitly, missing observed features dropped and flagged (not imputed), unit and sanity tests pass"
+    },
+    {
+      "name": "Prior Handling",
+      "1": "Priors ignored (uniform forced without note), or priors applied but do not correctly enter the posterior, or caller-supplied archetype_prior not respected",
+      "3": "Priors from taxonomy applied correctly, caller override accepted if supplied, basic normalization performed, but no explicit flagging when priors are uniform vs informed or when they have been overridden",
+      "5": "Priors handled transparently: taxonomy priors used by default, caller archetype_prior overrides if supplied, priors validated to sum to 1 (normalized if not), uniform priors explicitly flagged as a choice rather than a neutral default, and the prior vector is exposed in output so the caller can audit"
+    },
+    {
+      "name": "Conditional-Independence Caveat",
+      "1": "Naive Bayes applied without any note that features are assumed conditionally independent; correlated features silently double-count",
+      "3": "Conditional independence assumption stated in output, obviously-correlated feature pairs (if any) acknowledged, but no quantitative adjustment applied",
+      "5": "Conditional independence explicitly flagged in assumptions_flagged, specific correlated feature pairs identified when present (e.g., via caller-supplied correlated_feature_pairs or heuristic detection), appropriate remedy applied (down-weighting, collapsing, or joint modeling) with the choice documented, and the caller is warned that the confidence number may be inflated if strong correlations remain unaddressed"
+    },
+    {
+      "name": "Posterior Normalization",
+      "1": "Posterior does not sum to 1.0 within tolerance, normalization missing or applied in non-log space causing underflow, ruled-out archetypes (near-zero probability) lose precision",
+      "3": "Posterior sums to 1.0 within rounding, normalization applied in log-space using max-subtraction, minor precision issues for extremely ruled-out archetypes",
+      "5": "Posterior normalization performed in log-space with the log-sum-exp trick (subtract max before exponentiating), sum-to-1 verified within 1e-9 tolerance, underflow/overflow avoided, ruled-out archetypes reported at true probability (not clipped to 0), full posterior returned even when inconclusive"
+    },
+    {
+      "name": "MAP Selection",
+      "1": "MAP chosen incorrectly (not argmax of posterior), ties broken arbitrarily without note, or MAP returned even when inconclusive threshold triggered",
+      "3": "MAP correctly selected as argmax, inconclusive threshold applied, ties handled deterministically (e.g., alphabetical) with a note",
+      "5": "MAP correctly selected as argmax of posterior, ties explicitly handled and flagged to caller (near-ties with gap < 0.05 surface as 'near-tie with X' note), top-2 gap computed and exposed, inconclusive threshold correctly applied, and the full posterior is always returned alongside MAP for downstream expected-value decisions"
+    },
+    {
+      "name": "Confidence Calibration",
+      "1": "Confidence formula wrong (e.g., uses max posterior alone without observation_weight, or scales incorrectly), no guidance on interpretation, no bands",
+      "3": "Confidence computed as max(posterior) * observation_weight * 100, basic band interpretation (confident / moderate / low) provided, observation_weight documented",
+      "5": "Confidence formula explicitly documented and computed, observation_weight calibrated per domain with a lookup table, confidence bands (0-39 / 40-59 / 60-79 / 80-100) mapped to recommended actions, sample_adequacy_note written in plain English, and the relationship between posterior entropy, top-2 gap, and confidence discussed so the caller can diagnose low-confidence cases"
+    },
+    {
+      "name": "Inconclusive Handling",
+      "1": "No inconclusive path -- always returns a MAP even when data is thin and confidence is below threshold",
+      "3": "Inconclusive returned when confidence below threshold, full posterior still exposed, advice to collect more data included",
+      "5": "Inconclusive correctly returned when classification_confidence < inconclusive_threshold (default 40), full posterior still returned so caller can act on top-2 or hedge, specific advice on what additional data would help, recommended wait period (e.g., 2-3 more weeks, 500 more hands) tailored to the domain, and threshold is configurable with documented guidance on when to raise (high-stakes) or lower (low-stakes) it"
+    },
+    {
+      "name": "Feature-Contribution Transparency",
+      "1": "No per-feature contribution breakdown, caller cannot see which features drove the classification",
+      "3": "Per-feature likelihood ratios reported (L(feature | MAP) / L(feature | 2nd-best)), dominant feature identified",
+      "5": "Full feature_contribution_breakdown reported for every observed feature including map_likelihood, alternative_max, likelihood_ratio, and log-contribution; features supporting vs opposing MAP counted; dominant-feature flag raised when one feature's LR > 10; features with LR < 1.0 (evidence against MAP) explicitly surfaced so the caller can audit whether the classification is fragile"
+    },
+    {
+      "name": "Citations",
+      "1": "No reference to taxonomy source, no provenance for feature distributions (SME vs empirical), no linkage to downstream consumer schema",
+      "3": "Taxonomy source cited (e.g., 'per game-theory-principles.md #7' or 'per poker TAG/LAG convention'), feature-distribution provenance noted, best-response hints attributed to taxonomy author",
+      "5": "Every archetype's best_response hints are directly pulled from the taxonomy (not invented), taxonomy source is cited with a specific reference (file path, framework name, or SME), feature-distribution construction method noted (empirical fit vs SME elicitation vs hybrid), and the output schema links to any downstream consumer schema (e.g., opponent-profile-schema.md) so the caller can see how the posterior plugs into downstream decisions"
+    }
+  ],
+  "guidance_by_type": {
+    "Fantasy Sports (season-long)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "6-archetype taxonomy (or similar) per game-theory-principles.md #7; features include roster composition, transaction frequency, FAAB aggression",
+        "Observation weight calibration: 0.25 at Week 1-2, 0.45 at Week 3-4, 0.65 at Week 5-7, 0.80 at Week 8-11, 0.90 at Week 12+",
+        "State features (persistent roster composition) fed once; flow features (weekly moves, bids) fed each week in sequential updates",
+        "Best-response hints map cleanly to weekly play-calls: which categories to push/concede, FAAB-bidder inclusion, trade-partner probe/avoid"
+      ],
+      "common_pitfalls": [
+        "Re-feeding persistent roster features each week, driving artificial overconfidence in the posterior",
+        "Ignoring correlation between sp_roster_share and rp_roster_share (they sum to ~1, so one is redundant)",
+        "Using uniform priors in a 12-team league when archetypes like 'inactive' have a true base rate of ~1-2 per league"
+      ]
+    },
+    "Poker (cash/tournament)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Taxonomy: tight_aggressive (TAG), loose_aggressive (LAG), tight_passive (rock), loose_passive (calling station), maniac",
+        "Features: VPIP, PFR, 3-bet %, aggression factor, c-bet frequency, WTSD%, showdown-winning %",
+        "Observation weight scales with hand count: 0.20 (<100), 0.45 (100-500), 0.70 (500-2000), 0.85 (2000-10000), 0.95 (10000+)",
+        "Acknowledge VPIP/PFR correlation (r ~ 0.7-0.9 within an archetype) -- down-weight or collapse into VPIP-PFR gap as a single feature"
+      ],
+      "common_pitfalls": [
+        "Treating VPIP and PFR as independent when they are tightly coupled within archetype",
+        "Not distinguishing live vs online player populations -- priors differ significantly",
+        "Ignoring position sensitivity -- a player may be TAG in LP and rock in EP; classify per position or per overall pool"
+      ]
+    },
+    "DFS (GPP vs cash)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Taxonomy: cash_game_optimizer, GPP_ceiling_chaser, contrarian_pivot, chalk_herding, late-swap-exploiter",
+        "Features: avg salary utilization, stack count, ownership-vs-projection ratio, tournament-to-cash entry ratio, late-swap frequency",
+        "Observation weight: rises quickly with entry count since DFS behavior is highly consistent within-archetype (0.50 at 5-20 entries)",
+        "Correlated features: stack count and ownership-vs-projection covary for GPP players -- acknowledge and down-weight"
+      ],
+      "common_pitfalls": [
+        "Confusing cash-game-ness with conservatism -- a cash optimizer can still use contrarian plays strategically",
+        "Ignoring slate-dependence: GPP archetype may appear more conservative on small slates",
+        "Not resetting priors when a player transitions from cash to GPP focus mid-season"
+      ]
+    },
+    "M&A Bidder Classification": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Taxonomy: strategic_premium_bidder, financial_disciplined_bidder, fishing_expedition, structured_earnout_preferer",
+        "Features: announced bid count per quarter, strategic vs financial press-release language mix, premium multiple paid, deal structure distribution (cash/stock/earnout)",
+        "Observation weight low per deal (0.25 at 1 deal, 0.50 at 2-3), rises slowly since each data point is expensive and bidder behavior is partly deal-specific",
+        "High-stakes domain: raise inconclusive_threshold to 55-60 given the cost of miscalling an M&A counterparty"
+      ],
+      "common_pitfalls": [
+        "Treating every deal as representative -- a specific deal may be driven by unique strategic rationale unrelated to archetype",
+        "Ignoring market-cycle context: during cheap-debt periods, financial bidders look like strategics",
+        "Classifying on announced bids only -- failed bids and walkaways are also informative but often missed"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Silent double-counting of correlated features",
+      "symptom": "Posterior spikes to >0.95 on one archetype with only 3-4 features observed, often driven by 2-3 correlated features all pointing the same way",
+      "detection": "Compute pairwise feature correlations within the archetype's feature_distribution; flag any pair with |r| > 0.6; compare posterior entropy to expected entropy given independent features",
+      "fix": "Down-weight log-likelihoods for correlated features by (1 - r^2), collapse them into a composite feature, or switch to a multivariate Gaussian likelihood with covariance"
+    },
+    {
+      "failure": "Forced MAP on inconclusive data",
+      "symptom": "Classification_confidence < 40 but map_archetype returned anyway, caller acts on overconfident wrong label",
+      "detection": "Verify that inconclusive threshold logic fires whenever confidence < threshold; test with deliberately thin observations",
+      "fix": "Ensure inconclusive branch triggers correctly; return full posterior with map_archetype='inconclusive' and a specific recommendation for additional observations"
+    },
+    {
+      "failure": "Categorical feature rules out archetype on one observation",
+      "symptom": "Archetype posterior is exactly 0 because one categorical feature had P(observed value | a) = 0 in the taxonomy",
+      "detection": "Any archetype with exactly 0 posterior probability should be investigated; it likely should be very low but non-zero",
+      "fix": "Apply Laplace smoothing (epsilon = 0.01 by default) to all categorical likelihoods; document the smoothing in assumptions_flagged"
+    },
+    {
+      "failure": "Numeric underflow in direct-space likelihood product",
+      "symptom": "All posteriors become NaN or 0 when 5+ features are observed",
+      "detection": "Run with 5+ features and check that posterior is well-defined",
+      "fix": "Compute sum of log-likelihoods; apply log-sum-exp trick (subtract max before exponentiating) before normalization"
+    },
+    {
+      "failure": "Best-response hints invented rather than retrieved",
+      "symptom": "Output best_response_hints contain domain advice not present in the taxonomy's best_response field",
+      "detection": "Diff output hints against the MAP archetype's taxonomy-declared best_response",
+      "fix": "Always pull hints verbatim from taxonomy; if taxonomy has no hints for MAP archetype, return an empty array and flag that the taxonomy needs enrichment"
+    },
+    {
+      "failure": "Observation weight confused with likelihood weight",
+      "symptom": "Observation_weight incorrectly applied to raw likelihoods instead of only to the final confidence score, distorting the posterior shape",
+      "detection": "Compare posterior distribution for same features at observation_weight=0.3 vs 1.0 -- should be identical; only confidence changes",
+      "fix": "observation_weight multiplies only the final confidence number; the posterior itself is unaffected"
+    },
+    {
+      "failure": "Sequential update re-uses persistent features",
+      "symptom": "Posterior becomes artificially more confident week after week even when no new behavior is observed, because the same roster-composition features are being multiplied in repeatedly",
+      "detection": "Run sequential updates with unchanged observations; posterior should stay flat or slightly diffuse, not sharpen",
+      "fix": "Separate state features (persistent -- fed once at initialization) from flow features (renewing -- fed each week); apply sequential updates only to flow features"
+    },
+    {
+      "failure": "No archetype-drift detection",
+      "symptom": "Opponent changes behavior mid-season but classifier stays committed to old archetype because prior (old posterior) dominates new evidence",
+      "detection": "Compute KL divergence between consecutive posteriors; flag if > 2.0",
+      "fix": "On drift flag, either restart with flat prior and accumulate fresh evidence, or down-weight the old posterior before using as new prior"
+    },
+    {
+      "failure": "Prior not exposed in output",
+      "symptom": "Caller cannot tell whether a high posterior is driven by evidence or by a strongly-informed prior",
+      "detection": "Check output schema for presence of the prior vector used",
+      "fix": "Always return the effective prior (taxonomy priors, or caller override, or normalization result) so the caller can audit whether the posterior reflects evidence or inherited belief"
+    },
+    {
+      "failure": "Taxonomy with mismatched feature sets across archetypes",
+      "symptom": "Some archetypes have feature_f in their distribution but others don't; classifier silently treats missing features as probability 1 (no penalty)",
+      "detection": "Compare feature-name sets across all archetypes in the taxonomy at parse time",
+      "fix": "Require every archetype to declare a distribution for every feature in the union set; reject taxonomy with mismatched features or use a flat wide distribution as default"
+    }
+  ]
+}

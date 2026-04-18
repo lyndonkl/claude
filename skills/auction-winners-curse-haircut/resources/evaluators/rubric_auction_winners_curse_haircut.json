@@ -1,0 +1,146 @@
+{
+  "criteria": [
+    {
+      "name": "Classification Accuracy",
+      "1": "value_type is chosen without reference to the decision tree, or a common-value target is classified as private-value (or vice versa) with no defensible justification, or the classification field is missing/inferred silently.",
+      "3": "value_type is passed explicitly and matches the obvious reading of the target, but the justification is thin (e.g., single-word rationale) or edge cases (mixed vs pure) are resolved without explicit reasoning.",
+      "5": "value_type is chosen explicitly using the decision tree in resources/template.md, with a written justification that cites the specific indicator (shared informational basis vs structural private increment vs both). Edge cases are resolved conservatively (prefer common over mixed when ambiguous; prefer mixed over private when ambiguous). The classification would be reproducible by another analyst given the same evidence."
+    },
+    {
+      "name": "Haircut Formula Correctness",
+      "1": "Formula is misapplied: wrong base constant, wrong log base or coefficient, dispersion term omitted or miscoded, or the min(35, ...) ceiling is not enforced.",
+      "3": "Formula uses the correct structure (intercept + log(N) term + dispersion term + cap) but has a minor numerical error (e.g., slight miscalculation of log(N), wrong rounding), or the ceiling is not triggered when inputs warrant it.",
+      "5": "Formula is computed correctly as min(35, 10 + log(N) * 5 + signal_dispersion * 0.2). Intermediate steps are shown (each term's contribution), the ceiling is correctly applied when triggered, and the final haircut_pct matches the formula to within rounding."
+    },
+    {
+      "name": "N-Sensitivity",
+      "1": "The N input is ignored, or the haircut does not change when N changes, or the relationship between N and haircut is inverted (larger N -> smaller haircut).",
+      "3": "Haircut scales with N in the correct direction but with minor inconsistencies (e.g., rounding artifacts that produce equal haircut for N=3 and N=4 when they should differ, or the log is approximated crudely).",
+      "5": "Haircut correctly grows with log(N): doubling N from 3 to 6 increases the log(N) contribution by ~5 * log(2) = ~3.5 percentage points. Sanity checks confirm N=1 yields the minimum haircut (before dispersion), N=6 yields a mid-range haircut, and N=12 approaches the cap for any positive dispersion."
+    },
+    {
+      "name": "Signal-Dispersion Handling",
+      "1": "Dispersion is ignored, or is miscoded (e.g., passed in wrong units like decimals instead of 0-100), or moves haircut in the wrong direction.",
+      "3": "Dispersion is incorporated with the correct sign and coefficient but with minor issues (e.g., no guidance on estimating it, or defaults chosen silently without documentation).",
+      "5": "Dispersion is on a 0-100 scale and contributes signal_dispersion * 0.2 percentage points to the haircut. When dispersion is unobservable, the rationale documents how it was estimated (projection-system spread, historical bid range, public-information asymmetry). Extreme values (0 or 100) are sanity-checked against the output."
+    },
+    {
+      "name": "Private-Value Short-Circuit",
+      "1": "Private-value classification still produces a non-zero haircut, or 'applied' is incorrectly true, or the skill computes the common-value formula and then multiplies by zero (wasteful and error-prone).",
+      "3": "Private-value classification correctly produces haircut = 0 and adjusted_valuation = raw_valuation, but 'applied' may be incorrectly set or rationale does not explain why the short-circuit is mathematically correct.",
+      "5": "Private-value classification triggers an explicit short-circuit before any formula evaluation. Output has haircut_pct = 0, adjusted_valuation = raw_valuation, applied = false, and rationale names the Bayesian reason (winning does not reveal information about this bidder's own value because the target's value is not shared)."
+    },
+    {
+      "name": "Mixed-Value Interpolation",
+      "1": "Mixed value is treated identically to either pure common or pure private, or mix_common_weight is not used in the computation, or the interpolation formula multiplies haircuts incorrectly.",
+      "3": "Mixed value uses a linear interpolation between common and zero haircut with mix_common_weight, but default weight is used silently or the weight has no documented basis.",
+      "5": "Mixed value correctly computes haircut_pct = mix_common_weight * common_value_haircut. The mix_common_weight is either passed explicitly by the caller with justification, or defaulted to 0.6 with an explicit note that the default was used. Rationale names both components (common core and private increment) and their approximate weights."
+    },
+    {
+      "name": "Rationale Clarity",
+      "1": "classification_rationale is missing, a single word, or vague ('common value because it is common'); does not cite the drivers or Bayesian intuition.",
+      "3": "Rationale is a complete sentence that names the value_type and at least one driver (N or dispersion or private-value structure), but stops short of tying it to the Bayesian mechanism.",
+      "5": "Rationale is one clear sentence that: (a) names the chosen value_type, (b) identifies the key driver(s) -- N, dispersion, or private-value claim, (c) gestures at the Bayesian mechanism (adverse selection on winning, or the lack of it). Readable by another analyst without context."
+    },
+    {
+      "name": "Citations",
+      "1": "No reference to the Kagel-Levin empirical range or any theoretical basis; the 15-30% range appears as an unsupported number.",
+      "3": "Kagel-Levin range is cited as the empirical anchor, but without specific references; the connection between the formula and the experimental literature is asserted rather than explained.",
+      "5": "The empirical 15-30% range is explicitly cited to Kagel & Levin (2002) or Thaler (1988); the theoretical log(N) term is linked to the order-statistic intuition from Milgrom-Weber or Wilson; the formula's calibration anchors (N=6 + dispersion=40 producing ~27%) are shown to fall inside the cited empirical range. Sources are listed in resources/methodology.md."
+    }
+  ],
+  "guidance_by_type": {
+    "Common-Value Target": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Classification justification must cite shared informational basis (public info, similar projections across systems, broad need)",
+        "N should count informed bidders, not total participants; document the count",
+        "Signal dispersion should be estimated from a defensible source (projection spread, bid history, public-info asymmetry)",
+        "Haircut should land in 15-30% for typical inputs; values near the 35% cap require extreme N or dispersion"
+      ],
+      "common_pitfalls": [
+        "Counting uninformed or budget-constrained bidders in N (overstates N)",
+        "Using a very low dispersion when bidders have different private information, or very high dispersion when they all see the same public data",
+        "Applying the haircut and then also applying a separate bid-shading factor that already contains a winner's-curse correction (double-count)"
+      ]
+    },
+    "Private-Value Target": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "The private-value claim must be structural, not motivational (others genuinely value the target less, not just 'I want it more')",
+        "Short-circuit must trigger: haircut_pct = 0, applied = false, adjusted_valuation = raw_valuation",
+        "Rationale names the structural reason other bidders do not share the value (complementarity, fit, adjacency)",
+        "N may still be passed (it is irrelevant here) but should be small in practice"
+      ],
+      "common_pitfalls": [
+        "Classifying a common-value target as private-value to avoid the haircut",
+        "Applying a small haircut 'just in case' instead of trusting the short-circuit",
+        "Failing to record the structural reason, making the classification non-reproducible"
+      ]
+    },
+    "Mixed-Value Target": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Both the common core and the private increment must be named explicitly",
+        "mix_common_weight must be stated and justified (do not silently accept the 0.6 default)",
+        "Haircut = mix_common_weight * common-value haircut; verify the math",
+        "If uncertainty is high, prefer a higher mix_common_weight (more conservative; larger haircut)"
+      ],
+      "common_pitfalls": [
+        "Using 'mixed' as a hedge to avoid committing to common-or-private when the target is actually one or the other",
+        "Silently using the 0.6 default without documenting the weight",
+        "Forgetting that mix_common_weight = 1.0 should reproduce the common-value haircut exactly (sanity check)"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Silent classification inference",
+      "symptom": "Skill output reflects a value_type that was never explicitly specified in the inputs",
+      "detection": "Check whether the caller passed value_type as an explicit field; if inferred from context, flag",
+      "fix": "Require value_type as a mandatory input; error or refuse to run if missing. Never default."
+    },
+    {
+      "failure": "Haircut ceiling not enforced",
+      "symptom": "Reported haircut_pct above 35 for extreme N or dispersion inputs",
+      "detection": "Check formula output against the min(35, ...) cap for inputs that would otherwise exceed 35",
+      "fix": "Apply the min(35, ...) wrapper after computing the sum of terms. Test with N=20, dispersion=100."
+    },
+    {
+      "failure": "N=1 treated as private-value",
+      "symptom": "Skill short-circuits to zero haircut when N=1 was passed, even though value_type=common_value",
+      "detection": "Compare haircut for common-value + N=1 (should be ~10 + dispersion * 0.2) against private-value (should be 0)",
+      "fix": "The short-circuit triggers only on value_type=private_value, not on small N. A sole bidder in a common-value auction still faces residual uncertainty."
+    },
+    {
+      "failure": "Double-counted winner's-curse correction",
+      "symptom": "Downstream bid is shaded further by a formula that itself contains a winner's-curse term, producing a cumulative discount of 40-50%",
+      "detection": "Check the full bid pipeline for any other formula that includes a common-value-specific factor",
+      "fix": "Apply winner's-curse haircut to valuation; apply first-price strategic shading to bid; ensure neither contains the other's logic."
+    },
+    {
+      "failure": "Uninformed bidders counted in N",
+      "symptom": "N is set to total league size or total auction participants without filtering for information",
+      "detection": "Ask: 'Do all N bidders have enough information to arrive at a competitive estimate, and enough motivation/budget to actually bid?' If not, N is overstated",
+      "fix": "Count only informed bidders with competitive budgets. In fantasy contexts, exclude tanking teams or teams with trivial FAAB remaining."
+    },
+    {
+      "failure": "Dispersion on the wrong scale",
+      "symptom": "Dispersion passed as 0.4 instead of 40 (decimal instead of 0-100) yields a haircut 10x too small",
+      "detection": "Check the contribution of the dispersion term; should be in [0, 20] for valid inputs",
+      "fix": "Validate signal_dispersion in [0, 100]; reject or rescale if outside range."
+    },
+    {
+      "failure": "Mixed with extreme mix_common_weight",
+      "symptom": "mix_common_weight = 0.0 or 1.0 is passed, making 'mixed' equivalent to private or common",
+      "detection": "If weight is 0 or 1, the classification should have been pure private or pure common respectively",
+      "fix": "When mix_common_weight reaches an endpoint, warn and suggest reclassifying as pure private_value or common_value for clarity."
+    },
+    {
+      "failure": "Rationale omits the value_type",
+      "symptom": "classification_rationale describes the drivers but does not name 'common-value' / 'private-value' / 'mixed'",
+      "detection": "Grep the rationale for one of the three value-type strings",
+      "fix": "Rationale must open with the value_type label so the reader immediately knows which branch was taken."
+    }
+  ]
+}

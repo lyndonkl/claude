@@ -1,0 +1,114 @@
+{
+  "rubric_name": "mlb_opponent_profiler",
+  "description": "Quality evaluation for the mlb-opponent-profiler skill -- a baseball-specific wrapper around opponent-archetype-classifier. Scores 1-5 on each of 10 criteria; target average is 4.0 for weekly Monday runs, 4.3 for one-shot pre-trade refreshes.",
+  "criteria": [
+    {
+      "name": "Taxonomy Completeness",
+      "1": "Taxonomy missing multiple archetypes (fewer than 8 of 10), priors do not sum to 1.0, feature distributions inconsistent across archetypes (different features per archetype), no best_response strings, or best_response generic (e.g. 'play well').",
+      "3": "All 10 MLB archetypes present (balanced, stars_and_scrubs, punt_sv, punt_sb, punt_wins_qs, hitter_heavy, pitcher_heavy, inactive, frustrated_active, unknown), priors sum to 1.0, each archetype has feature distributions for the same feature set, best_response strings present but may be boilerplate.",
+      "5": "All 10 archetypes fully specified, priors sum to 1.0 with documented rationale for informed (non-uniform) values, feature distributions use consistent feature names AND types (Gaussian with sensible mean/std, categorical with sum-to-1 probabilities) across every archetype, every archetype's best_response contains at least 3 concrete play-calls tied to the game-theory-principles.md principles (push/concede cats, FAAB N-bidder inclusion, trade probe/avoid), correlated_feature_pairs enumerated and passed to classifier."
+    },
+    {
+      "name": "Feature Extraction Correctness",
+      "1": "Features extracted with wrong formulas (e.g. closer_count = any RP-eligible player, ignoring save_role_certainty), units wrong (fractions vs percentages), or features silently imputed when source data is missing.",
+      "3": "Core features (sp_roster_share, closer_count, moves_per_week, faab_spent_pct) computed correctly; secondary features (lineup_set_daily, trade_offers_sent) may have minor issues; missing data mostly handled as null.",
+      "5": "All 9+ features computed correctly per methodology.md formulas; closer_count cross-references mlb-closer-tracker save_role_certainty rather than raw Yahoo RP-eligibility; sb_speed_count and power_bat_count use FanGraphs ATC projections (not stale YTD stats); rate stats (OBP/ERA/WHIP when feeding cat_strength) are PA- or IP-weighted; missing data returns null (never imputed) and is recorded in scrape_errors and assumptions."
+    },
+    {
+      "name": "Yahoo Scrape Coverage",
+      "1": "Only one or two of the required four Yahoo URLs visited; key data missing (no FAAB remaining, no transactions, no draft picks); or scrapes all hit the team page twice redundantly.",
+      "3": "All four URLs scraped for each target team (teams index, team page, draftresults, transactions); some redundant scrapes or missing cache usage for immutable data (drafts re-scraped weekly).",
+      "5": "All four URLs scraped per team following methodology.md exactly; league teams index scraped once per run and cached across 11 teams; draftresults cached at season level and reused; transactions cached weekly with delta extraction; each scrape URL recorded in the profile's source_urls; re-auth triggers pause rather than partial write."
+    },
+    {
+      "name": "Classifier Delegation Purity",
+      "1": "Skill re-implements Bayesian math: computes log-likelihoods, normalizes posteriors, selects MAP. Or overrides classifier output (e.g. 'if classifier says balanced but team has 4 closers, force pitcher_heavy').",
+      "3": "Skill calls opponent-archetype-classifier for core classification and respects its output, but may duplicate some normalization or re-compute confidence with a custom formula.",
+      "5": "All Bayesian math lives in opponent-archetype-classifier. This skill only: (a) assembles taxonomy + features + prior, (b) invokes the classifier, (c) maps classifier output into profile fields as-is. No posterior normalization, no likelihood computation, no MAP selection, no confidence math happens in this skill. cat_strength estimator is clearly separated from the archetype classifier (roster-based rank normalization, not Bayesian)."
+    },
+    {
+      "name": "Output Schema Conformance",
+      "1": "Output file does not match opponent-profile-schema.md: missing required frontmatter fields (team_name, team_id, manager_alias, last_updated, confidence, source_urls), section order wrong, or required sections absent.",
+      "3": "Frontmatter has all required fields; all 9 body sections present in correct order; minor content issues (e.g. cat_strength shows 9 of 10 cats, or behavioral section missing trade_cooperation_score).",
+      "5": "Perfect conformance: all frontmatter fields populated (including full posterior and scrape_errors), all 9 sections in authoritative order, cat_strength has all 10 cats with 0-100 scores, presumed_punts and likely_pushes populated from thresholds, archetype_evidence has 3+ concrete observable signals tied to feature_contribution_breakdown, Behavioral Signals fully specified including faab_avg_bid_pct computed from transactions."
+    },
+    {
+      "name": "Preserve Manual Notes",
+      "1": "Profile refresh overwrites §1 Summary, §5 Weaknesses, §6 Best response, §8 Reactivity, or §9 Open questions. User hand-authored strategic content is lost on refresh.",
+      "3": "Most manual sections preserved (read-modify-write implemented); one or two sections occasionally reformatted or re-wrapped; byte-level preservation not guaranteed.",
+      "5": "All five manual sections (§1, §5, §6, §8, §9) preserved byte-for-byte across refreshes. Diff-validation gate blocks any write whose diff touches manual sections. Atomic write via temp-file + rename. New-file bootstrap clearly stubs manual sections as TODOs rather than leaving them blank, and surfaces a warning to the caller."
+    },
+    {
+      "name": "Sequential-Update Correctness",
+      "1": "Classifier called with taxonomy priors every week (evidence thrown away), or with a uniform prior regardless of prior_profile; observation_weight hardcoded to a single value across the season.",
+      "3": "prior_profile.posterior used as archetype_prior when supplied; observation_weight scales with week number; prior-reset logic present but coarse (e.g. always restart at week 1).",
+      "5": "Last week's posterior is this week's prior in every refresh; observation_weight follows the methodology.md schedule (0.25 -> 0.45 -> 0.65 -> 0.80 -> 0.90); flow features (moves, bids, record) re-fed weekly while state features (roster composition) re-fed with the documented caveat; prior reset triggered when prior_profile.confidence < 0.20 OR when user manually edits archetype, with reset logged in assumptions."
+    },
+    {
+      "name": "Signal File Emission",
+      "1": "Weekly signal file not emitted, or emitted for single-team refreshes (noisy), or signal file does not follow signal-framework.md schema (missing required frontmatter: type, date, emitted_by, confidence, source_urls).",
+      "3": "Weekly signal emitted at signals/wkNN-opponent-profiles.md after all_opponents: true runs; frontmatter includes required fields; body covers archetype shifts; some sections terse (confidence-changes, reactivity-triggers).",
+      "5": "Weekly signal emitted only in all_opponents: true mode (suppressed for single-team refreshes); frontmatter fully populated with dedupe-unioned source_urls across all 11 teams; body covers all four sections (archetype shifts > 0.05, confidence changes > 0.10, reactivity triggers, scrape health); explicit action-items for each of the 5 downstream consumer agents; validates through mlb-signal-emitter before write."
+    },
+    {
+      "name": "Graceful Scrape Failure",
+      "1": "Any scrape failure causes run to abort; partial data discarded; or failure papered over by imputation so downstream agents cannot tell data is stale.",
+      "3": "Scrape failures marked and recorded in scrape_errors; affected features null'd out; confidence dropped; run continues on other teams.",
+      "5": "Granular failure handling per methodology.md table: teams-index 5xx aborts run (cannot resolve), individual team 4xx nulls roster features and drops confidence 0.15, transactions 4xx nulls activity features and drops 0.10, auth-expired pauses and requests re-auth without writing partial profiles, HTML parse failures flag the parser for review; confidence floored at 0.10; every failed URL recorded in scrape_errors so downstream agents know to treat the profile as degraded."
+    },
+    {
+      "name": "Citations",
+      "1": "No source_urls in frontmatter, no linkage to opponent-profile-schema.md, no attribution for the 10-archetype taxonomy, best_response strings are inventions not tied to game-theory-principles.md.",
+      "3": "source_urls list the Yahoo URLs visited, taxonomy attributed to game-theory-principles.md #7, schema attributed to opponent-profile-schema.md; best_response strings pull from taxonomy but attribution is implicit.",
+      "5": "Every profile's source_urls list the exact Yahoo URLs consulted this refresh; taxonomy in template.md cites game-theory-principles.md #7 for the 6-archetype core plus the 4-archetype extension rationale; per-archetype best_response strings are directly pulled from the taxonomy (never invented by this skill); weekly signal source_urls are the deduplicated union across all 11 teams; methodology.md cites data-sources.md for the Yahoo URL patterns; output frontmatter includes archetype_posterior for auditability; downstream-consumer contract explicitly lists the 5 agents and which sections they read per opponent-profile-schema.md."
+    }
+  ],
+  "guidance_by_mode": {
+    "Weekly Monday All-Opponents Refresh": {
+      "target_avg_score": 4.0,
+      "key_requirements": [
+        "All 11 opposing teams refreshed (user's team excluded)",
+        "Weekly summary signal emitted at signals/wkNN-opponent-profiles.md",
+        "Sequential update: every team's prior is last week's posterior",
+        "observation_weight scales correctly with week number",
+        "Manual notes preserved byte-for-byte in all 11 profiles"
+      ],
+      "common_pitfalls": [
+        "Re-scraping draft results every week (wasted bandwidth; use cache)",
+        "Emitting weekly signal for single-team refreshes (noise)",
+        "Using uniform priors week 1 when informed priors are available (inactive base rate is ~1-2 teams, not 1/10)"
+      ]
+    },
+    "Pre-Trade Single-Team Refresh": {
+      "target_avg_score": 4.3,
+      "key_requirements": [
+        "Single-team mode: refresh only counterparty's profile",
+        "Do NOT emit weekly signal file",
+        "Confidence must be above 0.40 before downstream mlb-trade-analyzer consumes (otherwise trade-analyzer falls back to heuristics)",
+        "Trade features (trade_offers_sent/received) freshly scraped even if other features are cached"
+      ],
+      "common_pitfalls": [
+        "Overwriting manual Best Response notes that include trade-specific user context",
+        "Skipping the transactions-page scrape and using stale data (trade features must be current)"
+      ]
+    },
+    "Post-FAAB-Observation Refresh": {
+      "target_avg_score": 4.0,
+      "key_requirements": [
+        "Refresh only the winning bidder's profile after we lose a FAAB target",
+        "Update faab_avg_bid_pct in §4 Behavioral based on observed bid amount",
+        "Potentially re-classify if bid reveals new archetype signal (e.g., a 'balanced' team suddenly spending $40 on a closer flags punt_sv invalidation)",
+        "Single-team mode -- no weekly signal emitted"
+      ],
+      "common_pitfalls": [
+        "Forgetting to update our own internal N-bidder estimate after confirming this opponent was a bidder",
+        "Treating a single $40 bid as strong archetype evidence (it's one data point; let Bayesian update handle it)"
+      ]
+    }
+  },
+  "scoring_notes": {
+    "averaging": "Simple arithmetic mean of the 10 criterion scores.",
+    "minimum_acceptable": "No criterion below 3 in production runs; below 3 on Preserve Manual Notes or Classifier Delegation Purity is a hard fail (must re-run).",
+    "aspiration": "Average 4.5 once the skill has been through 3+ weeks of production refresh cycles and taxonomy distributions have been tuned against actual observed data."
+  }
+}

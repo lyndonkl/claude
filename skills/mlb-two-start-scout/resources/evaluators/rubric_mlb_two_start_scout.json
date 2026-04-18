@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "name": "Source Completeness and Cross-Reference",
+      "1": "Only one source consulted (e.g., FantasyPros only). No cross-reference with FanGraphs probables-grid. URLs not cited or generic. Two-start list taken at face value.",
+      "3": "Both FantasyPros and FanGraphs consulted. Specific URLs recorded. Conflicts between the two sources noted but not always resolved.",
+      "5": "FantasyPros (primary) + FanGraphs probables-grid (cross-reference) + weather source + Yahoo FA snapshot all consulted with exact URLs cited. Every SP on the FantasyPros list is validated against FanGraphs; conflicts are explicitly resolved with a decision (drop / flag / downgrade confidence). Source URLs include query parameters (week, date) where applicable."
+    },
+    {
+      "name": "Both Starts Validated",
+      "1": "Only start dates are listed without confirming the pitcher is actually probable on those dates. Rotation shifts (pushed / scratched / bumped) not checked.",
+      "3": "Both starts identified with opponents and dates. Basic confirmation via FanGraphs probables-grid for most SPs but not all. Rotation shifts checked informally.",
+      "5": "Each SP's two starts are individually confirmed on FanGraphs probables-grid with the date, opponent, and home/away field. Any conflict with FantasyPros is flagged and resolved. Recent news (injury, scratched, weather push) is cross-checked via RotoWire. SPs whose second start has slipped to next week are removed from the two-start board."
+    },
+    {
+      "name": "Opener and Bullpen-Game Detection",
+      "1": "All SPs on the FantasyPros list treated as traditional starters. No check of typical-IP history. Opener-heavy teams (MIA, OAK, CHW, PIT) treated the same as normal teams.",
+      "3": "Known opener teams flagged. Most SPs checked against recent game logs for sub-5-IP outings. Opener risk mentioned qualitatively.",
+      "5": "Every SP's last 5 appearances reviewed for average IP. Opener-heavy team list verified week-by-week (not taken as static). Team announcements of bullpen days checked via web search. Opener-risk SPs receive a -30 streamability penalty or are dropped from the board entirely with reason documented in the 'dropped' footer. Swing-starter / long-reliever role ambiguity flagged."
+    },
+    {
+      "name": "Per-Start Matchup Scoring (QS-weighted)",
+      "1": "A single streamability score computed for the whole week without per-start breakdown. Weighting does not reflect the league's QS scoring. Park factors, weather, opponent wOBA not individually scored per start.",
+      "3": "Per-start scores computed for qs_probability, k_ceiling, and era_whip_risk. QS-weighted aggregation applied. Most signal inputs sourced correctly but some approximated.",
+      "5": "Each of the two starts is independently scored for qs_probability, k_ceiling, and era_whip_risk using the formulas in methodology.md. Opponent wOBA is specifically pulled vs the pitcher's handedness (vs LHP or vs RHP). Park factors are pulled from FanGraphs. Weather is checked per start. QS probability weight of 0.55 in the streamability formula is explicitly applied (reflecting our QS-scoring league, not W-scoring)."
+    },
+    {
+      "name": "Yahoo Free-Agent Cross-Reference",
+      "1": "No FA status annotation. User presented with SPs they cannot add. Rostered SPs mixed indiscriminately with FAs.",
+      "3": "Each SP annotated as fa / rostered-other / rostered-user. Some may be stale. FA SPs called out as actionable.",
+      "5": "Every SP on the board is annotated with roster_status from a Yahoo snapshot <= 6 hours old. The ranked table surfaces FA SPs prominently; rostered-other SPs are included for context (they explain why a particular FA is the best available option, not the absolute best). User's own roster is cross-checked so 'START both' verdicts are given where appropriate."
+    },
+    {
+      "name": "Weather and Park Adjustments",
+      "1": "Weather not checked. Park factors not applied. Coors Field treated the same as T-Mobile Park.",
+      "3": "Park factor applied in per-start scoring. Weather flagged for obvious rain risk but not systematically.",
+      "5": "RotoWire weather pulled for each game. Rain probability >30% triggers a -5 per-start penalty and a note in the narrative block. Coors Field start triggers a -10 penalty and a streamability cap. Park factors are pulled per-game from the FanGraphs 2026 park-factor table and applied to both qs_probability (via pitcher_factor) and era_whip_risk (via hitter_factor). Wind direction noted for hitter-park games where it matters (out to CF at Wrigley, etc.)."
+    },
+    {
+      "name": "Variance Handling (Good Start / Bad Start)",
+      "1": "Two-start SPs averaged naively. An SP with one great matchup and one disaster matchup ranked the same as one with two average matchups.",
+      "3": "Variance between the two starts acknowledged. Narrative blocks mention if one start is much worse than the other.",
+      "5": "When |start_1_streamability - start_2_streamability| > 25, a variance flag is set and the narrative explicitly discusses the bimodal week. Because Yahoo is a daily-lineup league, the variance is NOT penalized -- instead, the narrative recommends START-the-good-day and BENCH-the-bad-day. In weekly-lock leagues the recommendation would be opposite. The distinction is made explicitly so the streaming-strategist can act on it."
+    },
+    {
+      "name": "Signal File Quality and Verdict Clarity",
+      "1": "Signal file missing frontmatter fields, source_urls incomplete, no timestamp. Verdicts vague ('consider adding') or missing.",
+      "3": "Signal file has frontmatter, source_urls, timestamp. Most rows have verdicts using action verbs. Dropped SPs listed but reason sometimes vague.",
+      "5": "Signal file passes mlb-signal-emitter validation. Frontmatter has type, date, week_end, emitted_by, synthesis_confidence, source_urls, computed_at, and red_team_findings where applicable. Every row's verdict ends in an action verb (ADD + START both / ADD $X / SKIP / IGNORE) per CLAUDE.md operating rule #6. Dropped-from-board footer lists specific reasons (opener risk, rotation shift, etc.). Confidence calibrated per methodology (0.80+ for fully corroborated, <= 0.40 if major sources failed)."
+    }
+  ],
+  "guidance_by_type": {
+    "standard_week": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Cross-reference FantasyPros with FanGraphs probables-grid for every SP",
+        "Compute per-start signals (not week-level) because one good + one bad matchup is different from two average",
+        "Apply 0.55 weight to qs_probability in the aggregation (league is QS, not W)",
+        "Yahoo FA cross-reference is mandatory -- non-FAs are context, not recommendations"
+      ],
+      "common_pitfalls": [
+        "Treating 'two starts' as automatically good -- it is not when the matchups are bad",
+        "Missing rotation shifts that happen Monday AM after the Sunday-night FantasyPros publication",
+        "Ignoring opener-heavy teams (MIA, OAK) whose nominal starter goes 3 IP"
+      ]
+    },
+    "opener_heavy_week": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Explicit check of each SP's last 5 appearances for IP trends",
+        "Team-level opener frequency review (last 4 weeks), updated each week",
+        "Drop-from-board action for any SP with opener_risk on either start",
+        "Narrative block explains why bullpen-game pitchers hurt ratios even with 'two starts'"
+      ],
+      "common_pitfalls": [
+        "Trusting FantasyPros to have flagged opener risk -- they often don't",
+        "Assuming an opener pattern ended because of one 6-IP game -- verify the trend",
+        "Including an opener-risk SP in the ranked board instead of dropping to the footer"
+      ]
+    },
+    "early_season_week": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "Rolling QS rate has small sample -- use prior year or projection as a supplement",
+        "Opponent wOBA from the current season has small sample -- cross-reference preseason projections",
+        "Weather risk is elevated in April (rain-outs and cold games) -- apply penalties liberally",
+        "Note in red_team_findings that early-season signals carry higher uncertainty"
+      ],
+      "common_pitfalls": [
+        "Using only current-season stats when the sample is < 4 starts",
+        "Ignoring April cold-weather effects on offense (suppresses wOBA vs a RHP who usually struggles)",
+        "Overreacting to a single bad start from the target SP"
+      ]
+    },
+    "playoff_weeks_21_to_23": {
+      "target_score": 4.4,
+      "key_requirements": [
+        "Hand off to mlb-playoff-planner for multi-week view -- a two-start week in week 22 is not equal in value to one in week 20",
+        "Emphasize ADD decisions that can be carried across the playoff window",
+        "Verdicts should be higher-confidence (closer to 0.85) because stakes are higher",
+        "Variance flag weight increased -- a disaster start in the playoffs is catastrophic"
+      ],
+      "common_pitfalls": [
+        "Streaming a two-start SP in week 22 without checking their week 23 schedule",
+        "Using regular-season thresholds (60+ streamability) in playoffs when the bar should be higher (70+)",
+        "Missing that playoff teams rest starters in week 23, turning a planned two-start into a one-start"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "FantasyPros-only sourcing",
+      "symptom": "Signal file has only one source_url (FantasyPros). No FanGraphs cross-reference.",
+      "detection": "Check source_urls list length and domains. If only fantasypros.com present, fail.",
+      "fix": "Pull FanGraphs probables-grid for each of the two start dates. Add URLs to source_urls. Note any conflicts in red_team_findings."
+    },
+    {
+      "failure": "Wins-weighted aggregation",
+      "symptom": "streamability_score weights k_ceiling or a 'win_probability' signal heavily instead of qs_probability. User ends up streaming an SP on a great team but with a bad matchup.",
+      "detection": "Inspect the weighting coefficients. If qs_probability weight < 0.50, fail.",
+      "fix": "Re-compute with 0.55 on qs_probability, 0.25 on k_ceiling, 0.20 on (100 - era_whip_risk). This league scores QS, not W."
+    },
+    {
+      "failure": "Opener risk not detected",
+      "symptom": "An SP from MIA, OAK, or another opener-heavy team appears in the top 3 of the ranking. Their last 5 starts averaged 3.5 IP.",
+      "detection": "For each top-ranked SP, pull last 5 appearances. If average IP < 5.0, the opener check was skipped.",
+      "fix": "Apply the opener-risk detection procedure in methodology.md. Drop the SP from the board or penalize -30."
+    },
+    {
+      "failure": "Week-level score, no per-start breakdown",
+      "symptom": "Narrative blocks describe 'a good week' without separately scoring each start. Variance between the two starts is not exposed.",
+      "detection": "Look for per-start signal rows (start_1_qs_prob, start_2_qs_prob, etc.) in the output. If missing, fail.",
+      "fix": "Compute qs_probability, k_ceiling, era_whip_risk for each start independently. Populate the narrative block's 'Start 1' and 'Start 2' sections. Add the variance flag if the gap > 25."
+    },
+    {
+      "failure": "Stale Yahoo FA data",
+      "symptom": "User told to ADD a pitcher who is already rostered by another team, or vice versa.",
+      "detection": "Check the Yahoo FA snapshot timestamp. If > 6 hours before the skill run, fail.",
+      "fix": "Request a fresh Yahoo snapshot from mlb-league-state-reader before emitting the signal. If unavailable, mark roster_status: unknown and cap confidence at 0.5."
+    },
+    {
+      "failure": "Rotation shift missed",
+      "symptom": "A pitcher listed on FantasyPros as starting Sunday has been pushed to Monday next week. The SP is no longer a two-start SP for this fantasy week.",
+      "detection": "FanGraphs probables-grid shows a different pitcher on the Sunday date. Was this cross-checked?",
+      "fix": "For every SP on the FantasyPros list, confirm both dates on FanGraphs. If the second start slips to next week, move the SP to the 'dropped' footer with reason 'rotation shift: second start moved to {new date}'."
+    },
+    {
+      "failure": "Weather and Coors ignored",
+      "symptom": "An SP with a Coors Field start ranks in the top 3. Or a start with 50% rain probability has no penalty applied.",
+      "detection": "Inspect penalties column. Coors start should always trigger -10; >30% rain should trigger -5 per start.",
+      "fix": "Apply penalty table from methodology.md. Update streamability_score. Re-rank."
+    },
+    {
+      "failure": "Non-actionable recommendations (no action verb)",
+      "symptom": "Verdict column says 'consider adding' or 'could be a streamer' -- no action verb.",
+      "detection": "Search verdict column for 'consider' / 'could' / 'might'. Any hit is a failure per CLAUDE.md rule #6.",
+      "fix": "Every verdict must end in ADD / START / SKIP / IGNORE / BID $X. Rewrite any soft recommendations."
+    }
+  ]
+}

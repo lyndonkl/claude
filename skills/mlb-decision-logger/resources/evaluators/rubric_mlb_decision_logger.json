@@ -1,0 +1,129 @@
+{
+  "criteria": [
+    {
+      "name": "Schema Conformance",
+      "1": "Appended entry is missing required fields, uses wrong field names, or uses field order inconsistent with decision-log-format.md; entry cannot be parsed downstream.",
+      "3": "All required fields present and named correctly, minor formatting drift (extra whitespace, smart quotes, slightly off indent) but entry is parseable.",
+      "5": "Entry matches resources/template.md byte-for-byte in structure: correct header line, exact bullet keys, right indentation for variants block, separator line after entry; downstream parsers can reliably extract every field."
+    },
+    {
+      "name": "Decision ID Assignment",
+      "1": "decision_id reused, wrong format, or inconsistent with existing log entries; same-day same-type collision not detected.",
+      "3": "decision_id follows the {YYYY-MM-DD}-{decision_type}-{NN} format and is unique, but NN not strictly sequential or zero-padding inconsistent.",
+      "5": "decision_id is deterministic, zero-padded to 2 digits, strictly next sequential NN for that day+type, derived from a tail re-read immediately before writing, and collision-safe under parallel agent invocations."
+    },
+    {
+      "name": "Append-Only Integrity",
+      "1": "Skill rewrites, reorders, or deletes existing entries; modifies fields other than the three outcome fields; truncates the log on error.",
+      "3": "Append and calibration edits are correct in the happy path but leave occasional whitespace or trailing separator anomalies; existing content preserved but reformatting risk present.",
+      "5": "Append writes are strictly additive (new block + separator), calibration edits touch only the three outcome lines, every other byte in the file is preserved, and a byte-level diff of non-target content is empty."
+    },
+    {
+      "name": "Validation Rigor",
+      "1": "Malformed payloads are written without checks; enum violations, out-of-range confidence, missing variants, or unverifiable will_verify_on pass through.",
+      "3": "Most required fields validated; some edge cases (e.g., 'end of week N' parsing, action-verb detection on the recommendation) pass without strict checking.",
+      "5": "Every validation rule in methodology.md enforced: timestamp format, decision_type enum, emitted_by whitelist, action-verb prefix on recommendation, signals_in non-empty with named signal, both variants present, confidence in [0,1], will_verify_on parseable, calibrate-mode enums. Failures return structured error with field+reason and no partial write."
+    },
+    {
+      "name": "Calibration Accuracy",
+      "1": "Calibration edits wrong entry, overwrites already-calibrated entry, touches non-outcome fields, or silently no-ops on missing decision_id.",
+      "3": "Calibration locates the right entry and fills outcome fields but occasionally rewrites surrounding whitespace or double-counts on retry.",
+      "5": "Calibration is idempotent: detects already-populated outcome_recorded_on and returns without re-applying; surgical line replacement with no side effects; triggers calibration-review.md entry when high-confidence decision was wrong; returns both decision_id and scoreboard-row-updated confirmation."
+    },
+    {
+      "name": "Concurrency Handling",
+      "1": "No re-read before write; parallel agents produce duplicate decision_ids or interleaved garbled entries; race conditions corrupt the log.",
+      "3": "Re-reads log tail before each write so sequential agent calls in one run get unique ids; no explicit collision detection after the write.",
+      "5": "Re-reads tail immediately before every write (no cached state from earlier in the run), assigns decision_id from the just-read state, re-reads last 20 lines after write to confirm no id collision, and auto-bumps NN on the rare collision without corrupting the file."
+    },
+    {
+      "name": "Scoreboard Update Correctness",
+      "1": "Scoreboard row for wrong agent updated, counts incremented incorrectly, 'both' / 'neither' not handled, or table structure damaged.",
+      "3": "Correct row found and Total/Advocate/Critic counts incremented, but Synthesis correct not handled for 'partial' outcomes, or other non-table text slightly disturbed.",
+      "5": "Increments exactly the right row: Total +1, Advocate +1 on {advocate, both}, Critic +1 on {critic, both}, Synthesis correct uses +1/+0/+0.5 for happened/did-not-happen/partial, idempotent on retries (skip if entry already calibrated), scoreboard non-table text unchanged."
+    },
+    {
+      "name": "Tilt Recomputation",
+      "1": "Tilt reported with <10 verified decisions, thresholds applied incorrectly, or uses full history instead of the recent window.",
+      "3": "Tilt computed over recent window with 10+ decisions threshold, but thresholds slightly off (e.g., at 15 instead of 10/20 pct points) or 'both' not credited to both variants in the window.",
+      "5": "Tilt uses the most recent 20 verified decisions per agent, reports 'neutral' below N=10, applies the exact 10/20 pct-point thresholds, credits 'both' to both variants and 'neither' to neither, and is re-run on every calibration so the coach always sees current tilt."
+    }
+  ],
+  "guidance_by_mode": {
+    "append": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Schema Conformance, Decision ID Assignment, Validation Rigor, Append-Only Integrity, and Concurrency Handling are the load-bearing criteria.",
+        "Calibration Accuracy, Scoreboard Update, and Tilt Recomputation are not exercised in append mode and are scored N/A (exclude from average)."
+      ],
+      "common_pitfalls": [
+        "Caching the log tail from an earlier skill invocation in the same run -> duplicate decision_ids under parallel agents.",
+        "Auto-fixing a missing field instead of rejecting -> corrupts downstream calibration.",
+        "Writing when the action verb does not match the vocabulary (e.g., 'Consider Caminero') -> breaks the action-ladder rule from CLAUDE.md."
+      ]
+    },
+    "calibrate": {
+      "target_score": 4.4,
+      "key_requirements": [
+        "Calibration Accuracy, Scoreboard Update Correctness, and Tilt Recomputation are the load-bearing criteria.",
+        "Append-Only Integrity still applies: only three lines in the target entry may change.",
+        "Validation Rigor applies to the calibrate payload (outcome and variant_that_was_right enums)."
+      ],
+      "common_pitfalls": [
+        "Editing the full entry block to 'reformat' -> silently modifies recommendation or variants text.",
+        "Double-counting when the calibration call is retried because outcome_recorded_on idempotency check is missing.",
+        "Computing Tilt off full history instead of the recent-20 window -> stale bias hints for the coach."
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Duplicate decision_id under parallel agent calls",
+      "symptom": "Two entries in the log share the same decision_id (e.g., two 2026-04-17-lineup-01).",
+      "detection": "After writing, re-read the last 20 lines and scan for a repeated id.",
+      "fix": "Bump NN on the later entry, rewrite only that id line in place. Add this check as a permanent post-write step."
+    },
+    {
+      "failure": "Calibration modifies non-outcome fields",
+      "symptom": "Byte diff on calibration shows changes to recommendation, variants, or confidence lines.",
+      "detection": "Compare pre- and post-calibration entry; only the three outcome lines should differ.",
+      "fix": "Locate target lines within the entry block by exact substring match; replace just those lines; never round-trip the full block through a reformatter."
+    },
+    {
+      "failure": "Scoreboard double-count on retry",
+      "symptom": "Total decisions increments twice for one decision_id after a retried calibration call.",
+      "detection": "Before incrementing, check whether outcome_recorded_on is already populated in the log entry.",
+      "fix": "Early-exit the scoreboard update when the entry is already calibrated; return a 'no-op, already calibrated' status."
+    },
+    {
+      "failure": "Silent write of invalid entry",
+      "symptom": "Entries appear with confidence=1.5, unknown decision_type, or missing variants.",
+      "detection": "Parse every appended entry against the schema immediately after writing.",
+      "fix": "Validate payload before the write, not after. Reject with structured error and never attempt auto-repair."
+    },
+    {
+      "failure": "Tilt reported on tiny sample",
+      "symptom": "Scoreboard shows 'advocate++' with Total decisions = 3.",
+      "detection": "Verify the recent-window count is >=10 before emitting any non-neutral tilt.",
+      "fix": "Gate tilt computation on N>=10; below that, hard-code 'neutral'."
+    },
+    {
+      "failure": "Caching tail across invocations",
+      "symptom": "Two consecutive append calls in the same coach run produce the same NN.",
+      "detection": "Add logging of the tail-read bytes per invocation; compare.",
+      "fix": "Always re-read the log tail inside the skill invocation, not once at coach startup. Treat each invocation as stateless."
+    },
+    {
+      "failure": "Calibration review not triggered on high-confidence miss",
+      "symptom": "Agent consistently misses calls at confidence >= 0.80 with no entries in tracker/calibration-review.md.",
+      "detection": "After each calibration, check the rule: if confidence >= 0.80 AND variant_that_was_right != advocate (for an advocate-wins synthesis) OR outcome == 'did not happen', log a lesson.",
+      "fix": "Make the calibration-review write a mandatory step in calibration mode, not optional."
+    },
+    {
+      "failure": "Agent writes to log directly (bypassing the skill)",
+      "symptom": "Entries appear in decisions-log.md without going through this skill's validator, often missing separator or malformed.",
+      "detection": "Log entries failing schema check on the next read pass.",
+      "fix": "Coach rule: no agent has write permission on decisions-log.md. Document in CLAUDE.md and enforce in agent system prompts. Log any bypass instance in calibration-review.md."
+    }
+  ]
+}

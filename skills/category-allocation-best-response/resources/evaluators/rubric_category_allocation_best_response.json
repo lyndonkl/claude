@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "name": "Classification Accuracy",
+      "1": "Cats assigned to wrong buckets, classification thresholds misapplied, or bucket boundaries not enforced (e.g., cat with per_cat_win_probability 0.30 placed in conceded instead of contested)",
+      "3": "Classification mostly correct with the four-tier scheme (conceded <0.25, contested 0.25-0.70, pushed 0.70-0.85, locked >0.85), one or two boundary errors, buckets non-overlapping",
+      "5": "Every cat correctly classified using closed-open intervals [0.00, 0.25), [0.25, 0.70), [0.70, 0.85], (0.85, 1.00]. Boundary cases resolved consistently (e.g., exactly 0.25 goes to contested, exactly 0.70 goes to pushed, exactly 0.85 goes to pushed). Inverse cats treated identically to normal cats at classification (upstream has already applied inverse handling)."
+    },
+    {
+      "name": "Leverage Weight Assignment",
+      "1": "Leverage weights not in the prescribed set {0.0, 1.0, 1.2, 1.5}, or wrong weight assigned to a bucket, or leverage softened for conceded cats (e.g., 0.1 instead of 0.0)",
+      "3": "Leverage weights from the correct set, mostly matching the classification, but minor inconsistencies (e.g., one contested cat at 1.2 instead of 1.5)",
+      "5": "Every cat has a leverage weight from {0.0, 1.0, 1.2, 1.5} matching its bucket exactly: conceded=0.0, locked=1.0, pushed=1.2, contested=1.5. Conceded cats get a hard zero (not softened). Leverage dict has one entry per cat (not per bucket)."
+    },
+    {
+      "name": "Dominated-Strategy Identification",
+      "1": "Conceded cats not identified as dominated, or resources recommended for conceded cats, or the 'hard zero' leverage convention violated",
+      "3": "Conceded cats identified correctly, leverage 0.0 applied, but rationale does not explain why the cat is dominated or the hard-zero implication",
+      "5": "Conceded cats explicitly named as dominated strategies in the rationale, leverage 0.0 applied as a hard constraint, explanation references principle #1 in frameworks/game-theory-principles.md or the Colonel Blotto dominance logic. Opportunity-cost argument stated: 'every slot here is a slot not on a contested cat.'"
+    },
+    {
+      "name": "Threshold Satisfaction Check",
+      "1": "Step 4 threshold check (pushed + contested >= K) omitted, or miscounted, or failure case not flagged",
+      "3": "Threshold check performed, count correct, but failure case handling incomplete (e.g., presumptive-loss flag missing or variance-pivot not suggested)",
+      "5": "Threshold check performed with correct count of pushed + contested cats. If >= K, proceeds normally. If < K, applies borderline-upgrade logic (Step 5). If still < K after upgrade, flags the matchup as presumptively losing AND sets a variance-pivot flag pointing to variance-strategy-selector with the computed k_of_n_win_probability."
+    },
+    {
+      "name": "Rationale Quality",
+      "1": "Rationale missing, or is a list of cats without allocation logic, or contradicts the structured output (leverage_weights, classifications)",
+      "3": "Rationale present, 2-4 sentences, names at least one conceded cat and one contested cat, consistent with structured output",
+      "5": "Rationale is 2-4 sentences of plain-English allocation logic: names conceded cats with reason, names contested cats with the highest-leverage resource move, notes any borderline upgrade with specific resource cost, and flags variance-pivot if k_of_n_win_probability < 0.40. No numeric leverage weights quoted in prose (they live in leverage_weights). No specific player recommendations (downstream skills handle those)."
+    },
+    {
+      "name": "Borderline-Upgrade Logic",
+      "1": "Upgrade logic omitted when threshold check fails, or upgrades conceded cats outside the [0.20, 0.25) band, or upgrades without specifying resource cost",
+      "3": "Upgrade logic applied when threshold fails, candidate is in the upgrade band, reclassification to contested performed, but resource cost not specified or upgrade applied despite threshold already met",
+      "5": "Upgrade logic only runs when Step 4 threshold check fails. Candidates are strictly in [0.20, 0.25) band, sorted by per_cat_win_probability descending. Reclassified to contested with leverage 1.5. Resource cost specified concretely (e.g., '1 roster slot + $15 FAAB on a power bat'). If upgrades still don't meet threshold, escalates to variance-pivot rather than upgrading sub-0.20 cats."
+    },
+    {
+      "name": "Generalization to Non-10-Cat Leagues",
+      "1": "Skill output hardcodes MLB-specific cats or a 10-cat / threshold-6 assumption, fails on NBA 9-cat or NHL 10-cat inputs",
+      "3": "Skill runs on NBA 9-cat and NHL 10-cat inputs, thresholds adjusted, but some MLB-specific language leaks into rationale or output",
+      "5": "Skill is fully sport-agnostic. Works for MLB 10-cat (threshold 6), NBA 9-cat (threshold 5), NHL 10-cat (threshold 6), or any K-of-N format. Classification thresholds (0.25 / 0.70 / 0.85) and leverage weights (0.0 / 1.0 / 1.2 / 1.5) stay constant across sports. Only cat list, cat_win_threshold, and inverse_cats vary per sport. Rationale language does not assume MLB (no 'saves', 'ERA', etc. baked in unless those cats are in the input)."
+    },
+    {
+      "name": "Output Completeness",
+      "1": "One or more required outputs missing (pushed_cats, conceded_cats, contested_cats, leverage_weights, k_of_n_win_probability, rationale)",
+      "3": "All six outputs present but one is malformed (e.g., leverage_weights missing an entry for one cat, or contested_cats not ordered)",
+      "5": "All six outputs present and well-formed. pushed_cats ordered by per_cat_win_probability descending. contested_cats ordered by per_cat_win_probability descending (most losing first to highlight flip candidates). conceded_cats ordered by per_cat_win_probability descending (closest-to-upgradable first). leverage_weights has exactly one entry per input cat. k_of_n_win_probability is a float in [0,1]. rationale is 2-4 sentences."
+    },
+    {
+      "name": "Upstream-Signal Integration",
+      "1": "per_cat_win_probability invented from raw capacity vs projection without calling matchup-win-probability-sim, or passed through without the upstream seed / source documented",
+      "3": "per_cat_win_probability sourced from matchup-win-probability-sim, but no cross-validation against upstream matchup_win_probability is performed, or divergence check missing",
+      "5": "per_cat_win_probability explicitly sourced from matchup-win-probability-sim with the upstream random_seed recorded. k_of_n_win_probability cross-validated against upstream matchup_win_probability (tolerance 0.03 for PB approximation error). Divergences larger than 0.03 investigated and explained. Skill never invents per-cat probabilities from point estimates."
+    },
+    {
+      "name": "Citations",
+      "1": "No references to upstream dependencies, game-theory principles, or methodology documents",
+      "3": "References matchup-win-probability-sim as the upstream signal source and cites at least one principle from frameworks/game-theory-principles.md",
+      "5": "Cites matchup-win-probability-sim as upstream dependency by name, cites principles #1 (dominated-strategy elimination) and #5 (matchup-contingent lineup construction) from frameworks/game-theory-principles.md explicitly, cites variance-strategy-selector as downstream variance-pivot consumer (principle #6) when presumptive-loss fires, cites Colonel Blotto game-theory origin in methodology. Every quantitative claim (thresholds, weights, PB recurrence) traces back to a named source."
+    }
+  ],
+  "guidance_by_type": {
+    "MLB 10-cat Yahoo 5x5": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "per_cat_win_probability sourced from matchup-win-probability-sim in Monte Carlo mode with at least 10k sims",
+        "inverse_cats = [ERA, WHIP] declared; upstream has already inverted, do not re-invert",
+        "Typical concedes: SV vs closer-heavy opponents, SB vs power-heavy rosters, QS vs all-RP staffs",
+        "Resource types: roster_slots, faab, streamer_starts -- leverage weights propagate to lineup-optimizer, streaming-strategist, waiver-analyst"
+      ],
+      "common_pitfalls": [
+        "Softening SV leverage from 0.0 to 0.1 because 'you never know' (violates principle #1 -- do not do this)",
+        "Upgrading HR from 0.15 to contested because resources allow (the cat is genuinely dominated; resources should go to actual contested cats)",
+        "Using mid-week running totals as capacity without updating variance (stddev should shrink as the week progresses)"
+      ]
+    },
+    "NBA 9-cat": {
+      "target_score": 4.1,
+      "key_requirements": [
+        "cat_win_threshold = 5 (not 6)",
+        "inverse_cats = [TO]",
+        "Higher cat-to-cat correlation in NBA -- if correlation matrix available, pass to upstream matchup-win-probability-sim, do not adjust here",
+        "streamer_games (not streamer_starts) for resources -- NBA has daily lineup streaming"
+      ],
+      "common_pitfalls": [
+        "Using MLB threshold (6) by accident -- check cat_win_threshold matches league format",
+        "Treating BLK as always contested because the mean is close; BLK variance is high and many matchups settle into clear push/concede",
+        "Ignoring the FG%/FT% bundling with personnel (one big-man add lifts both FG% and REB but may drop FT%)"
+      ]
+    },
+    "NHL 10-cat": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "cat_win_threshold = 6",
+        "inverse_cats = [GAA]",
+        "Goalie cats (W, GAA, SV%, SO) are deeply correlated -- one streamer goalie start affects four cats",
+        "Downstream must recognize the bundling: a goalie add with leverage 1.5 on W, 1.2 on GAA, 1.5 on SV%, 0.0 on SO is effectively a single decision"
+      ],
+      "common_pitfalls": [
+        "Treating goalie cats as independent (they are not -- one game moves all four)",
+        "Classifying SO as contested when it's almost always a lottery cat (typically belongs in conceded or locked, rarely contested)",
+        "Applying leverage to +/- and PIM when those cats are high-variance noise (often the correct classification is conceded at 0.35 win prob rather than contested)"
+      ]
+    },
+    "Presumptive Underdog Matchup": {
+      "target_score": 3.8,
+      "key_requirements": [
+        "When k_of_n_win_probability < 0.40, explicitly flag variance-pivot in rationale",
+        "Point the downstream caller to variance-strategy-selector with the computed win probability",
+        "Do not over-invest resources in a losing matchup -- preserve FAAB and waiver priority for future weeks",
+        "Principle #6 (cope principle) applies: variance-seeking lineup construction raises underdog win probability by ~10pp"
+      ],
+      "common_pitfalls": [
+        "Recommending upgrading multiple conceded cats to reach the threshold (if we're structurally worse, upgrades don't close the gap)",
+        "Allocating full FAAB budget to this week's presumptive-loss matchup",
+        "Failing to set the variance-pivot flag, so downstream lineup-optimizer uses a balanced lineup instead of a variance-seeking one"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Inventing per-cat probabilities",
+      "symptom": "per_cat_win_probability values that look suspiciously round (0.30, 0.50, 0.70) or that are derived from a simple capacity > projection comparison without variance",
+      "detection": "Check whether matchup-win-probability-sim was called upstream. Its output has distinctive decimal structure (e.g., 0.612, 0.356) from Monte Carlo noise.",
+      "fix": "Run matchup-win-probability-sim first. Pass its per_cat_win_probability dict directly into this skill. Do not re-compute."
+    },
+    {
+      "failure": "Softened conceded leverage",
+      "symptom": "leverage_weights dict contains values like 0.1 or 0.2 for conceded cats",
+      "detection": "Inspect the leverage_weights values. Any non-zero value for a cat in conceded_cats is a failure.",
+      "fix": "Enforce the hard-zero convention. conceded -> leverage 0.0 exactly. If the operator disagrees with the classification, move the cat out of conceded (increase per_cat_win_probability above 0.25)."
+    },
+    {
+      "failure": "Wrong threshold applied",
+      "symptom": "cat_win_threshold = 6 passed for an NBA 9-cat league, or threshold = 5 for MLB 10-cat",
+      "detection": "k_of_n_win_probability diverges from upstream matchup_win_probability by more than 0.03 without PB approximation explaining the gap.",
+      "fix": "Verify cat_win_threshold matches league format before running. MLB 10-cat = 6. NBA 9-cat = 5. NHL 10-cat = 6. Confirm with league-config doc."
+    },
+    {
+      "failure": "Boundary cats misclassified",
+      "symptom": "A cat with per_cat_win_probability = 0.25 exactly lands in conceded, or = 0.70 lands in contested",
+      "detection": "Check classification at the threshold values. Convention is closed-open: [0.25, 0.70) -> contested; [0.70, 0.85] -> pushed.",
+      "fix": "Use closed-open intervals consistently. Exactly 0.25 is the lowest contested, exactly 0.70 is the lowest pushed, exactly 0.85 is the highest pushed (stays in pushed, not locked)."
+    },
+    {
+      "failure": "Missing variance-pivot flag",
+      "symptom": "k_of_n_win_probability < 0.40 but rationale does not mention variance-seeking play or variance-strategy-selector",
+      "detection": "Scan the rationale text when k_of_n_win_probability is below 0.40.",
+      "fix": "When k_of_n_win_probability < 0.40, add a sentence to the rationale: 'Presumptive underdog -- flagging for variance-strategy-selector with win probability X.' Downstream consumers expect this flag."
+    },
+    {
+      "failure": "Over-upgrading borderline cats",
+      "symptom": "Multiple conceded cats upgraded to contested when the threshold check already passed, or cats below 0.20 upgraded",
+      "detection": "Check that Step 5 upgrade logic was triggered only when Step 4 failed. Check that no upgrades hit cats with per_cat_win_probability < 0.20.",
+      "fix": "Upgrade logic is conditional. If pushed + contested >= K at Step 4, skip Step 5 entirely. If Step 5 runs, pick candidates strictly from the [0.20, 0.25) band, take as few as needed to satisfy threshold."
+    },
+    {
+      "failure": "Rationale contradicts structured output",
+      "symptom": "Rationale says 'push SV hard this week' but leverage_weights has SV at 0.0, or rationale lists HR as pushed but structured output has HR in contested",
+      "detection": "Cross-check rationale named cats against pushed_cats / conceded_cats / contested_cats arrays and leverage_weights.",
+      "fix": "Write rationale AFTER the structured output is finalized. Rationale is a summary of the structured output, not an independent narrative."
+    },
+    {
+      "failure": "Poisson-binomial computed incorrectly",
+      "symptom": "k_of_n_win_probability > 1.0, or < 0.0, or implausibly far from upstream matchup_win_probability",
+      "detection": "Range-check the output. Cross-validate against upstream's matchup_win_probability (tolerance 0.03).",
+      "fix": "Verify the PB recurrence: P_0(0)=1, P_i(k) = P_{i-1}(k)*(1-p_i) + P_{i-1}(k-1)*p_i. Sum from k=K to N at the end. Common bug: off-by-one in the sum bounds (using k>K instead of k>=K)."
+    }
+  ]
+}

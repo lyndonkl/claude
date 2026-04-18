@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "name": "Win-Probability Band Accuracy",
+      "1": "Posture label does not match the win_probability band; e.g. reports 'neutral' at win_probability = 0.25, or 'seek' at 0.70. Thresholds (0.40, 0.60) misapplied or ignored.",
+      "3": "Posture label matches the correct band (seek / neutral / minimize), but the base multiplier within the band is only loosely calibrated or picks an endpoint without justification.",
+      "5": "Posture label matches the correct band and the base multiplier is a smooth function of win_probability within the band (1.15-1.30 for seek, 1.00 for neutral, 0.80-0.90 for minimize). Boundary values (0.40 exactly, 0.60 exactly) handled unambiguously and documented."
+    },
+    {
+      "name": "Downside-Asymmetry Adjustment",
+      "1": "Asymmetry input ignored despite being a required input, or applied in the wrong direction (e.g., high asymmetry making favorites more aggressive, or underdogs more conservative).",
+      "3": "Asymmetry shift applied correctly in direction (+0.10 for seek, -0.10 for minimize) when above the 0.8 threshold, but threshold handling or interaction with neutral band not fully documented.",
+      "5": "Asymmetry shift applied correctly: +0.10 for seek + high asymmetry, -0.10 for minimize + high asymmetry, no shift for neutral (and rationale explains why). Threshold behavior (0.8 strict vs inclusive) documented consistently. Shift never flips the posture direction (clamped at 1.0 if it would cross)."
+    },
+    {
+      "name": "Slot-Count Dampening",
+      "1": "Slot count ignored, or dampening applied in the wrong direction (amplifying variance with more slots instead of dampening), or dampening applied to the multiplier itself rather than to (multiplier - 1.0).",
+      "3": "Dampening applied when slots > 5 with roughly the right magnitude (factor ~5/slots), but factor floor (0.5) missing or boundary handling sloppy.",
+      "5": "Dampening applied only when slots > 5. Factor = max(0.5, 5/slots). Formula: multiplier = 1.0 + (base - 1.0) * factor. Floor at 0.5 preserves strategic posture at very high slot counts. Rationale flags the independence assumption when consumer domain is known to have correlated slots."
+    },
+    {
+      "name": "Multiplier Range Validation",
+      "1": "Multiplier outside [0.70, 1.40] accepted silently, or no clamping applied, or clamp bounds inconsistent with the documented seek/minimize band ranges.",
+      "3": "Multiplier clamped to [0.70, 1.40] but clamping logic not stress-tested at edges (probability 0, probability 1, max asymmetry).",
+      "5": "Multiplier always in [0.70, 1.40]. Clamping triggers only when asymmetry shift would push out of range; otherwise base + shift stays within band ranges plus the 0.10 shift. Clamping events noted in rationale for transparency."
+    },
+    {
+      "name": "Rationale Clarity",
+      "1": "Rationale missing, or fewer than 2 sentences, or does not cite win_probability / asymmetry / slot count, or uses domain-specific jargon that breaks reusability.",
+      "3": "Rationale is 2-3 sentences citing at least two of the three inputs, but interpretation guidance for the consumer is vague or missing.",
+      "5": "Rationale is 2-3 sentences covering (a) win probability and band, (b) asymmetry effect (including 'no effect' when applicable), (c) slot-count dampening effect, and (d) explicit consumer-side interpretation ('boost high-variance options by X%' or 'damp high-variance options by X%'). Uses domain-neutral language."
+    },
+    {
+      "name": "Edge Cases (prob=0, prob=1)",
+      "1": "Edge cases crash, return NaN, or produce multipliers outside the documented range. Probability of 0 or 1 treated like near-zero or near-one with no special handling.",
+      "3": "Edge cases return valid outputs but rationale does not acknowledge the degenerate nature of the input (lottery ticket for p=0, guaranteed-win for p=1).",
+      "5": "p=0 returns posture 'seek' with multiplier at seek-band ceiling (1.30 pre-asymmetry, 1.40 post). p=1 returns posture 'minimize' with multiplier at minimize-band floor (0.80 pre-asymmetry, 0.70 post). Rationale explicitly notes that variance is the only path to a non-zero outcome (p=0) or is pure downside (p=1). Inputs validated to reject values outside [0,1]."
+    },
+    {
+      "name": "Monotonicity Check",
+      "1": "Multiplier is non-monotonic in win_probability (e.g., decreases then increases as p_win increases) or in downside_asymmetry, or slot dampening non-monotonically changes the tilt direction.",
+      "3": "Weakly monotonic in all three inputs when tested at the documented test-case grid, but implementation has no explicit monotonicity assertion or test.",
+      "5": "Multiplier weakly decreases as win_probability increases (strictly decreases within seek and minimize bands; flat in neutral band). |multiplier - 1.0| weakly increases as asymmetry crosses 0.8 threshold. Slot dampening strictly pulls multiplier toward 1.0 as slots increase (without crossing 1.0). Monotonicity tests pass at all grid points in template.md."
+    },
+    {
+      "name": "Citations",
+      "1": "No citation to game-theory-principles.md or underlying theory. Skill reads as a bare formula with no justification.",
+      "3": "Cites Game Theory Principles #6 and one or two supporting references (Kelly, CLT), but citations not tied to the specific computations they justify.",
+      "5": "Cites Game Theory Principles #6 for the core underdog/favorite posture. Cites Kelly Criterion as the conceptual reference for why variance preference depends on edge. Cites Central Limit Theorem for the slot-dampening formula. Cites Kahneman & Tversky / prospect theory for the asymmetry amplification. Each citation is tied to the specific part of the decision rule it supports, and the `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/frameworks/game-theory-principles.md` reference is the anchor."
+    }
+  ],
+  "guidance_by_type": {
+    "Heavy Underdog Must-Win": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "Posture must be 'seek' with multiplier in [1.25, 1.40]",
+        "Asymmetry shift of +0.10 applied because asymmetry > 0.8",
+        "Slot dampening absent or minimal (must-win scenarios usually have few slots left)",
+        "Rationale explicitly frames the decision as right-tail probability seeking"
+      ],
+      "common_pitfalls": [
+        "Clamping multiplier too aggressively at 1.30 when asymmetry shift warrants 1.40",
+        "Applying slot dampening when only 1-3 slots remain (no dampening should apply below 5)",
+        "Rationale reads as generic 'seek variance' without connecting to must-win context"
+      ]
+    },
+    "Modest Underdog": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "Posture 'seek' with multiplier near 1.10-1.20 depending on exact win_probability",
+        "No asymmetry shift (asymmetry below 0.8)",
+        "Slot dampening applied if slots > 5 (common in full-week fantasy or multi-hand poker)",
+        "Rationale notes that variance is a mild tilt, not a full commitment"
+      ],
+      "common_pitfalls": [
+        "Over-tilting to the seek ceiling when win probability is only 0.38",
+        "Forgetting slot dampening for medium-length decision sequences",
+        "Applying asymmetry shift to asymmetry = 0.7 (below the 0.8 threshold)"
+      ]
+    },
+    "Even Matchup": {
+      "target_score": 4.5,
+      "key_requirements": [
+        "Posture 'neutral' with multiplier exactly 1.00",
+        "No asymmetry shift applied (neutral band is immune to asymmetry)",
+        "Slot dampening applied but has no effect (dampening 1.00 toward 1.00 is a no-op)",
+        "Rationale notes no variance tilt and recommends base-merit decision-making"
+      ],
+      "common_pitfalls": [
+        "Introducing a small tilt (0.98 or 1.02) when the input clearly sits in the neutral band",
+        "Applying asymmetry shift to neutral posture (asymmetry does not tilt neutral)",
+        "Rationale over-elaborating on variance when the answer is 'no variance adjustment'"
+      ]
+    },
+    "Heavy Favorite": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "Posture 'minimize' with multiplier in [0.70, 0.85]",
+        "Asymmetry shift of -0.10 applied if asymmetry > 0.8",
+        "Slot dampening applied if slots > 5 (common in diversified portfolios)",
+        "Rationale explicitly frames the decision as left-tail probability avoidance"
+      ],
+      "common_pitfalls": [
+        "Confusing 'minimize variance' with 'minimize position' (the multiplier dampens variance, not the position itself)",
+        "Over-dampening a highly diversified portfolio when correlation assumption is violated",
+        "Rationale reads as 'play it safe' without connecting to lock-in-the-lead logic"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Posture label contradicts multiplier",
+      "symptom": "Posture reported as 'seek' but multiplier is 0.95, or 'minimize' with multiplier 1.10",
+      "detection": "Check that posture = 'seek' implies multiplier > 1.0, 'minimize' implies multiplier < 1.0, 'neutral' implies multiplier = 1.0",
+      "fix": "Apply the asymmetry shift and slot dampening after band classification, and verify posture label reflects the sign of (multiplier - 1.0) before emitting."
+    },
+    {
+      "failure": "Asymmetry shift flips direction",
+      "symptom": "Minimize posture with high asymmetry gets multiplier shifted to 0.95 (+0.10 applied instead of -0.10), or seek posture gets 1.05 (-0.10 applied instead of +0.10)",
+      "detection": "At asymmetry > 0.8, minimize multipliers should be strictly less than at asymmetry <= 0.8; seek multipliers should be strictly greater.",
+      "fix": "The sign of the asymmetry shift is determined by the posture: +0.10 for seek, -0.10 for minimize. Do not use a single sign regardless of posture."
+    },
+    {
+      "failure": "Slot dampening pulls past 1.0",
+      "symptom": "Dampening a seek multiplier of 1.25 over 100 slots produces 0.95, crossing the neutral line",
+      "detection": "At any slot count, dampened multiplier should be on the same side of 1.0 as the pre-dampening value",
+      "fix": "Dampening formula is multiplier = 1.0 + (base - 1.0) * factor, with factor floored at 0.5. This can approach but never cross 1.0."
+    },
+    {
+      "failure": "Thresholds treated as fuzzy",
+      "symptom": "At win_probability = 0.41, reports posture 'seek' instead of 'neutral'",
+      "detection": "Test at 0.39, 0.40, 0.41, 0.59, 0.60, 0.61; posture should flip sharply at the threshold",
+      "fix": "Use strict comparisons: `< 0.40` for seek, `> 0.60` for minimize, closed interval in between for neutral."
+    },
+    {
+      "failure": "Slot dampening applied to probability or asymmetry",
+      "symptom": "Dampening formula multiplies the posture probability or the asymmetry value instead of the multiplier distance from 1.0",
+      "detection": "With fixed win_probability and fixed asymmetry, varying slots should only change the final multiplier, not the posture label",
+      "fix": "Apply dampening as the final step, only to (multiplier - 1.0), after band classification and asymmetry shift."
+    },
+    {
+      "failure": "Rationale leaks domain-specific jargon",
+      "symptom": "Rationale says 'start the boom-bust bat' or 'buy the out-of-the-money call' when the skill should be domain-neutral",
+      "detection": "Search rationale for fantasy / finance / poker / racing specific terms",
+      "fix": "Use neutral language: 'high-variance options' and 'stable options'. Let consumers attach domain meaning."
+    },
+    {
+      "failure": "Missing edge case handling",
+      "symptom": "win_probability = 0.0 produces an error, or returns a multiplier outside [0.70, 1.40]",
+      "detection": "Unit-test at win_probability = 0, 0.40, 0.60, 1.0 with all combinations of asymmetry (0, 1) and slots (1, 10)",
+      "fix": "Explicitly handle p=0 (seek ceiling, full asymmetry shift) and p=1 (minimize floor, full asymmetry shift). Validate clamping at both ends."
+    },
+    {
+      "failure": "No citation to Principle #6",
+      "symptom": "Skill runs correctly but rationale or methodology never references the game-theory-principles.md file or the cope principle",
+      "detection": "Grep rationale and methodology for the phrase 'cope' or 'Principle #6' or 'game-theory-principles'",
+      "fix": "Add an explicit citation in the rationale (for user-facing) and in methodology.md (for provenance). The skill is derivative of a documented principle; the link must be visible."
+    }
+  ]
+}

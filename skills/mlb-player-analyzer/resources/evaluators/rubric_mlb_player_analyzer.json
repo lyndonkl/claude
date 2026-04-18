@@ -1,0 +1,165 @@
+{
+  "criteria": [
+    {
+      "name": "Source Citation",
+      "1": "No source URLs in frontmatter, or URLs point to generic landing pages rather than player-specific resources, or factual claims in the body have no traceable source.",
+      "3": "source_urls includes player-specific URLs for primary data (Savant player page, FanGraphs player page, MLB.com lineups) but some secondary facts (park factor, weather) have no URL.",
+      "5": "Every factual claim in the signal body traces to a specific URL in source_urls. Player-specific URLs used (not leaderboard landing pages). League-specific citations where relevant (FanGraphs ATC page, not just the projections index). Weather and park factor URLs included."
+    },
+    {
+      "name": "Role Classification",
+      "1": "Role not set, or signals emitted that do not match role (e.g., qs_probability on a hitter, sb_opportunity on a pitcher), or dual-role player handled incorrectly.",
+      "3": "role: hitter or role: pitcher set correctly, correct signals populated, but edge cases (opener, two-way, platoon-only hitter) handled with minor inconsistencies.",
+      "5": "role and subrole set correctly including SP/RP distinction. Unused signals are null, not zero. Openers/bulk pitchers flagged explicitly. Dual-eligible players emit separate hitter and pitcher files when applicable."
+    },
+    {
+      "name": "Form Score Accuracy (hitters) / QS Probability Accuracy (pitchers)",
+      "1": "form_score computed from AVG instead of wOBA/xwOBA, or from a single-game sample, or qs_probability computed from wins instead of 6+IP/<=3ER probability.",
+      "3": "form_score uses rolling xwOBA vs season baseline with reasonable window, or qs_probability uses IP/ER logic but matchup multiplier is crude or missing.",
+      "5": "form_score uses 15-day xwOBA vs season xwOBA scaled as documented; qs_probability starts from ATC-derived or recent QS rate, applies opp wOBA / park / weather multipliers explicitly. League-appropriate (QS not W)."
+    },
+    {
+      "name": "Matchup Composite Correctness",
+      "1": "matchup_score is a single component (just park, or just opp SP), weights wrong, or components not normalized to 0-100 before combining.",
+      "3": "Weighted composite present with opp SP, park, and platoon, but weather omitted or one component uses raw instead of normalized values.",
+      "5": "Full four-component composite (0.40 opp SP + 0.25 park + 0.25 platoon + 0.10 weather), each component normalized to 0-100 first, consumes matchup-analyzer signal when available instead of re-deriving."
+    },
+    {
+      "name": "OBP and QS Alignment with League",
+      "1": "obp_contribution uses AVG instead of OBP/wOBA, or qs_probability uses win-probability / run support, showing unawareness of this league's cats.",
+      "3": "obp_contribution uses OBP but no position-baseline normalization, or qs_probability correctly targets 6+IP/<=3ER but ignores the matchup-adjustment step.",
+      "5": "obp_contribution uses projected OBP x PAs normalized against position baseline. qs_probability targets 6+IP/<=3ER and explicitly ignores W. Free-swinger discount / walk-rate premium reflected. League context (OBP not AVG, QS not W) cited in methodology."
+    },
+    {
+      "name": "Regression Index Computation",
+      "1": "regression_index absent, or computed as AVG vs xBA only, or sign reversed (positive for lucky).",
+      "3": "regression_index computed from xwOBA - wOBA scaled and clamped, but buy/sell threshold not stated or confidence not provided.",
+      "5": "regression_index = clamp((xwOBA - wOBA) * 500, -100, +100). Sign convention correct (positive = unlucky / buy). Threshold for action (>=+25 buy, <=-25 sell) cited in body. Confidence reflects whether both inputs were sourceable."
+    },
+    {
+      "name": "Composite Signal Formulas",
+      "1": "daily_quality or streamability_score missing, or computed with incorrect weights, or components not normalized first.",
+      "3": "Composite present with documented weights, but does not match the authoritative weights (0.35/0.40/0.25 for daily_quality; 0.40/0.30/0.30 for streamability_score).",
+      "5": "daily_quality = 0.35*form + 0.40*matchup + 0.25*opportunity and streamability_score = 0.40*qs_prob + 0.30*k_ceiling + 0.30*(100 - era_whip_risk) exactly. Computed after components, not before. Rounded to integer. Thresholds (>=60 START / >=70 STREAM) cited."
+    },
+    {
+      "name": "Role / Save-Role Certainty",
+      "1": "role_certainty or save_role_certainty absent or invented, or reported as confirmed when lineup not yet posted.",
+      "3": "role_certainty set but scale compressed (100 for confirmed, 0 for missing) without intermediate values; save_role_certainty sourced from RotoBaller but tier mapping unclear.",
+      "5": "role_certainty uses full scale (100 confirmed / 85 beat writer / 70 projected / 50 platoon / 20 likely bench / 0 IL). save_role_certainty maps explicitly to RotoBaller tiers with cross-check against secondary source."
+    },
+    {
+      "name": "Confidence and Degradation",
+      "1": "All signals report identical confidence (e.g., 1.0 for every signal), or missing data produces zeros instead of null with low confidence, or source failures are not acknowledged.",
+      "3": "Per-signal confidences vary plausibly, sources for missing data acknowledged in body but red_team_findings sparse.",
+      "5": "Per-signal confidence reflects actual data quality (low when inputs were partial). Any component below 0.4 appears in red_team_findings with severity, likelihood, note, and mitigation. Omitted-data signals are null (not zero). Source-failure fallbacks used and documented."
+    }
+  ],
+  "guidance_by_type": {
+    "Hitter (star, confirmed in lineup)": {
+      "target_score": 4.3,
+      "key_requirements": [
+        "form_score draws from 15-day xwOBA vs season xwOBA with 40+ PA sample",
+        "matchup_score consumes matchup-analyzer signal if present rather than re-deriving",
+        "opportunity_score reflects confirmed lineup slot and expected PAs",
+        "obp_contribution uses OBP projection (not AVG), normalized against position baseline",
+        "regression_index always computed (xwOBA vs wOBA gap)"
+      ],
+      "common_pitfalls": [
+        "Using AVG instead of OBP in this league",
+        "Confusing wOBA (actual) with xwOBA (expected) when computing regression_index",
+        "Re-deriving park factor when matchup-analyzer already emitted it"
+      ]
+    },
+    "Hitter (platoon / uncertain lineup)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "role_certainty <= 70 if lineup not confirmed; cap confidence accordingly",
+        "Emit platoon_component correctly in matchup_score (large swing for strong-side vs wrong-side)",
+        "Flag as pending in red_team_findings with a mitigation to re-check post-lineup"
+      ],
+      "common_pitfalls": [
+        "Treating a platoon-half hitter's full-season wOBA as true-talent vs the relevant hand",
+        "Setting role_certainty to 100 based on projection rather than confirmation"
+      ]
+    },
+    "SP (standard start)": {
+      "target_score": 4.2,
+      "key_requirements": [
+        "qs_probability targets 6+IP/<=3ER, not W",
+        "k_ceiling blends ATC projection with opp team K-rate",
+        "era_whip_risk captures park + opp wOBA + pitcher volatility",
+        "streamability_score uses authoritative 0.40/0.30/0.30 weights",
+        "two_start_bonus lookup from FantasyPros is cited"
+      ],
+      "common_pitfalls": [
+        "Letting team win probability leak into qs_probability",
+        "Ignoring Coors or GABP in era_whip_risk",
+        "Counting opener games as starts"
+      ]
+    },
+    "RP (closer / save role)": {
+      "target_score": 4.0,
+      "key_requirements": [
+        "qs_probability, streamability_score, two_start_bonus set to null (not zero)",
+        "save_role_certainty sourced from RotoBaller closer chart with tier mapping explicit",
+        "era_whip_risk computed from opp wOBA and pitcher volatility; k_ceiling from projected Ks per appearance"
+      ],
+      "common_pitfalls": [
+        "Emitting 0 for qs_probability instead of null (implies a claim, not a non-applicable)",
+        "Using stale closer-chart data (chart updates after manager comments / blown saves)",
+        "Conflating setup men with closers when a team is in committee"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    {
+      "failure": "Unsourced numeric claim",
+      "symptom": "A signal value appears in the frontmatter but no URL in source_urls could have produced it.",
+      "detection": "Trace each signal input to a URL. If any input has no citation, flag.",
+      "fix": "Either add the missing URL (re-run the web search) or drop the signal's confidence to 0.3 with a red-team note."
+    },
+    {
+      "failure": "AVG used instead of OBP",
+      "symptom": "obp_contribution driven by batting average or hit rate rather than on-base percentage.",
+      "detection": "Check formula inputs. If AVG or BA appears, this league's category is violated.",
+      "fix": "Re-compute using OBP (preferred) or wOBA (acceptable). Walks are a feature in this league."
+    },
+    {
+      "failure": "Win probability in qs_probability",
+      "symptom": "qs_probability correlates with team run support rather than pitcher innings/ER profile.",
+      "detection": "A top SP on a bad offense gets a low qs_probability; a mediocre SP on a great offense gets a high one.",
+      "fix": "qs_probability is independent of team offense. It is P(6+ IP and <=3 ER). Re-derive from pitcher's IP and ER distribution, matchup-adjusted."
+    },
+    {
+      "failure": "Zero instead of null",
+      "symptom": "A hitter signal file has qs_probability: 0 or a pitcher file has sb_opportunity: 0.",
+      "detection": "Scan frontmatter for signals outside the player's role.",
+      "fix": "Set to null. Zero is a claim; null is non-applicability."
+    },
+    {
+      "failure": "Role confirmation inflated",
+      "symptom": "role_certainty: 100 when MLB.com lineups have not yet posted for that game.",
+      "detection": "Check computed_at timestamp vs typical lineup-post time (~2-3h pre-game).",
+      "fix": "If lineup not posted at compute time, role_certainty cap at 70. Flag re-check in red_team_findings."
+    },
+    {
+      "failure": "Matchup signal re-derived when matchup-analyzer already emitted",
+      "symptom": "Duplicate computation of park/weather/opp_sp_quality, inconsistent numbers across two signal files for the same game.",
+      "detection": "Compare to same-day matchup signal in signals/ directory.",
+      "fix": "Consume the matchup-analyzer signals directly. Note the source of the consumed values in source_urls."
+    },
+    {
+      "failure": "Stale closer chart",
+      "symptom": "save_role_certainty uses a RotoBaller chart from last week; recent blown save or manager comment not reflected.",
+      "detection": "Check the chart's own 'last updated' date.",
+      "fix": "Re-fetch chart. Cross-check Pitcher List Bullpen Report for recent news. Lower confidence if any ambiguity."
+    },
+    {
+      "failure": "Composite weights wrong",
+      "symptom": "daily_quality or streamability_score doesn't match the 0.35/0.40/0.25 or 0.40/0.30/0.30 split.",
+      "detection": "Recompute from the three components and compare.",
+      "fix": "Apply authoritative weights from signal-framework.md. Do not improvise."
+    }
+  ]
+}
