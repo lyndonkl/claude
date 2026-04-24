@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-120-blue) ![Agents](https://img.shields.io/badge/agents-18-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-188-blue) ![Agents](https://img.shields.io/badge/agents-27-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **120 skills** and **18 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, and fantasy baseball.
+A production-ready library of **188 skills** and **27 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -28,6 +28,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Design a dashboard, viz, or UI grounded in cognition | [`cognitive-design-architect`](agents/cognitive-design-architect.md) |
 | Build a GraphRAG / knowledge-graph retrieval system | [`graphrag-specialist`](agents/graphrag-specialist.md) |
 | Design equivariant / symmetry-aware neural networks | [`geometric-deep-learning-architect`](agents/geometric-deep-learning-architect.md) |
+| Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more (see `~/Documents/Thinking/substacker/`) |
 | Use just one tool (no agent) | Browse the [Skills Index](#skills-index) below |
 
 ## How the pieces fit together
@@ -73,12 +74,21 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**mlb-trade-analyzer**](agents/mlb-trade-analyzer.md) | On-demand trade offer evaluation with always-counter ladder |
 | [**mlb-category-strategist**](agents/mlb-category-strategist.md) | Weekly push/punt plan across the 10 H2H categories |
 | [**mlb-playoff-planner**](agents/mlb-playoff-planner.md) | July-onward positioning for weeks 21–23 playoff window |
+| [**librarian**](agents/librarian.md) | Ingest + tag + index a Substack writer's corpus; topic ledger maintenance |
+| [**intuition-builder**](agents/intuition-builder.md) | 5 distinct framings (everyday / physical / contrarian / historical / counterfactual) per technical topic |
+| [**editor**](agents/editor.md) | Two-pass voice + structural review of drafts; voice gate before publish |
+| [**distribution-translator**](agents/distribution-translator.md) | Turn published essays into Substack Note / X thread / LinkedIn post / cross-post blurb |
+| [**growth-analyst**](agents/growth-analyst.md) | Weekly Substack CSV → rolling baseline → attribution → per-section report |
+| [**trend-scout**](agents/trend-scout.md) | Weekly ML/systems signal digest from ~35 curated intuition-first sources |
+| [**technical-reviewer**](agents/technical-reviewer.md) | Pre-publish claim check — simplified / wrong / contested / overclaim classification with primary sources |
+| [**curator**](agents/curator.md) | Every 4-6 weeks: section map maintenance; active + reactive; handles per-section voice overlays |
+| [**growth-strategist**](agents/growth-strategist.md) | Quarterly (rolling 13-week) strategic zoomout with uncomfortable questions and kill list |
 
 ---
 
 ## Skills Index
 
-**120 skills** across 6 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**188 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -294,6 +304,108 @@ Baseball-specific skills for a H2H Categories league. Pairs with the companion r
 
 </details>
 
+<details>
+<summary><b>📰 Substack Growth</b> — 9-agent team for growing "From First Principles / The Thinker's Notebook" (68 skills)</summary>
+
+Pairs with the working folder at `~/Documents/Thinking/substacker/` (inbox, corpus, shared-context, ops). Voice-profile, section-map, per-section visual identities, analogy catalog, topic ledger all live there.
+
+### Librarian (8) — corpus ingest + index
+
+- **[ingest-inbox-item](skills/ingest-inbox-item/SKILL.md)** — Orchestrate per-file ingest: normalize → tag → score → dedupe → write seed.
+- **[normalize-format](skills/normalize-format/SKILL.md)** — Convert markdown / Claude exports / transcripts / Readwise into canonical seed bodies.
+- **[tag-by-topic](skills/tag-by-topic/SKILL.md)** — Assign 1-4 topic tags from controlled vocabulary; log pending tags.
+- **[score-intuition-density](skills/score-intuition-density/SKILL.md)** — Compute 0-10 density from 8 explicit signals (analogy, concrete example, counterfactual, etc.).
+- **[dedupe-against-corpus](skills/dedupe-against-corpus/SKILL.md)** — Exact fingerprint + near-match Jaccard; link rather than merge.
+- **[search-corpus](skills/search-corpus/SKILL.md)** — "What have I already thought about X?" — ranked matches with excerpts.
+- **[update-topic-ledger](skills/update-topic-ledger/SKILL.md)** — Maintain counts, last_touched, hot/warm/cold, top_seeds per topic.
+- **[sweep-stale-seeds](skills/sweep-stale-seeds/SKILL.md)** — Flag seeds >30d old with no links; recommend keep/promote/kill.
+
+### Intuition Builder (7) — 5 framings per topic
+
+- **[generate-analogy-set](skills/generate-analogy-set/SKILL.md)** — 5 framings: everyday / physical / contrarian / historical / counterfactual.
+- **[check-analogy-novelty](skills/check-analogy-novelty/SKILL.md)** — Cross-check against analogy-catalog; flag reuse.
+- **[stress-test-analogy](skills/stress-test-analogy/SKILL.md)** — Find the boundary where each analogy breaks; propose a fold.
+- **[map-analogy-to-concept](skills/map-analogy-to-concept/SKILL.md)** — Component-by-component source → target mapping (Gentner structure-mapping).
+- **[propose-counterfactual](skills/propose-counterfactual/SKILL.md)** — "What if this weren't here?" — reveal function via subtraction.
+- **[update-analogy-catalog](skills/update-analogy-catalog/SKILL.md)** — Append entry on publish; track freshness.
+- **[voice-fitness-check](skills/voice-fitness-check/SKILL.md)** — Rank framings by voice-profile analogy-direction priority (biology > organizational > sports).
+
+### Editor (10) — voice + structural review gate
+
+- **[structural-review](skills/structural-review/SKILL.md)** — Macro-structure: argument flow, pivot, signposting, outline.
+- **[voice-check](skills/voice-check/SKILL.md)** — Phrase-by-phrase against voice-profile don't-list.
+- **[hedge-detector](skills/hedge-detector/SKILL.md)** — Precision hedge (keep) vs epistemic-weakness (commit or specific).
+- **[slop-detector](skills/slop-detector/SKILL.md)** — 10 signatures of AI-generated explainer slop.
+- **[opener-critique](skills/opener-critique/SKILL.md)** — Confession / reframe / admission pass; news-hook / generic-opener fail.
+- **[closer-critique](skills/closer-critique/SKILL.md)** — Bolded maxim / scoreboard check for series posts.
+- **[analogy-weight-check](skills/analogy-weight-check/SKILL.md)** — Mechanical-weight test; flag decorative and wrong-domain analogies.
+- **[paragraph-rhythm-check](skills/paragraph-rhythm-check/SKILL.md)** — Long/short mix, pivot paragraph, no walls.
+- **[citation-form-check](skills/citation-form-check/SKILL.md)** — Papers cited with Author, Institution, Year inline.
+- **[section-break-check](skills/section-break-check/SKILL.md)** — Asterisks for essays vs H2 for methodology; no mixing.
+
+### Distribution Translator (7) — platform-native rewrites
+
+- **[extract-thread-spine](skills/extract-thread-spine/SKILL.md)** — 5-7 point argument backbone with translatability scoring.
+- **[hook-generator](skills/hook-generator/SKILL.md)** — Platform-specific first-line hook candidates.
+- **[substack-note-rewrite](skills/substack-note-rewrite/SKILL.md)** — 60-180 word Note; bolded maxim closer; single link.
+- **[x-thread-rewrite](skills/x-thread-rewrite/SKILL.md)** — Short / medium / long variants; ≤12 tweets; no numbering by default.
+- **[linkedin-post-rewrite](skills/linkedin-post-rewrite/SKILL.md)** — 900-2500 chars; 210-char fold hook; 0-2 niche hashtags.
+- **[cross-poster-blurb](skills/cross-poster-blurb/SKILL.md)** — 60-140 word third-person blurb for Substack cross-post feature.
+- **[platform-voice-check](skills/platform-voice-check/SKILL.md)** — Voice audit gate with loop-back on FAIL.
+
+### Growth Analyst (8) — weekly Substack stats
+
+- **[fetch-substack-stats](skills/fetch-substack-stats/SKILL.md)** — **Primary path.** Pull stats from the Substack dashboard via Claude-in-Chrome browser automation.
+- **[ingest-substack-csv](skills/ingest-substack-csv/SKILL.md)** — **Fallback path.** Load + validate manual CSV; halt on schema drift.
+- **[compute-baseline](skills/compute-baseline/SKILL.md)** — Rolling 4-week median + trimmed median + IQR z-scores.
+- **[attribute-performance](skills/attribute-performance/SKILL.md)** — Plain-English outlier attribution with calibrated confidence.
+- **[per-section-tracking](skills/per-section-tracking/SKILL.md)** — Per-section aggregates + prune candidates for Curator.
+- **[fetch-public-page-stats](skills/fetch-public-page-stats/SKILL.md)** — WebFetch supplement for stale CSV data.
+- **[write-weekly-report](skills/write-weekly-report/SKILL.md)** — Compose 400-800 word report; hard word cap.
+- **[update-audience-notes](skills/update-audience-notes/SKILL.md)** — Append confidence ≥ medium observations.
+
+### Trend Scout (6) — weekly ML/systems signal digest
+
+- **[fetch-watchlist-sources](skills/fetch-watchlist-sources/SKILL.md)** — Pull 7-day updates from 30-50 intuition-first sources.
+- **[summarize-signal](skills/summarize-signal/SKILL.md)** — "Teaches X" summary; mechanism / empirical / tool / opinion / announcement / benchmark.
+- **[cross-ref-topic-ledger](skills/cross-ref-topic-ledger/SKILL.md)** — NEW / OVERLAPS seed|draft|published; reinforcement angle.
+- **[rank-by-user-fit](skills/rank-by-user-fit/SKILL.md)** — Weighted-sum scoring; top 10 keeps + explicit drops.
+- **[write-weekly-digest](skills/write-weekly-digest/SKILL.md)** — Compose Friday digest; Saturday-morning readable.
+- **[update-watchlist](skills/update-watchlist/SKILL.md)** — Monthly: propose adds/removes via diff; writer approves.
+
+### Technical Reviewer (6) — pre-publish claim check
+
+- **[claim-extractor](skills/claim-extractor/SKILL.md)** — Extract atomic technical claims from prose.
+- **[classify-claim](skills/classify-claim/SKILL.md)** — simplified-correct / simplified-boundary / wrong / contested / overclaim.
+- **[cross-reference-claim](skills/cross-reference-claim/SKILL.md)** — Find primary source (arXiv, RFC, textbook); never blog posts.
+- **[flag-boundary-break](skills/flag-boundary-break/SKILL.md)** — Fold suggestion for simplified-boundary as teaching moment.
+- **[write-review-artifact](skills/write-review-artifact/SKILL.md)** — Compose go / go-with-hedges / no-go review.
+- **[glossary-alignment-check](skills/glossary-alignment-check/SKILL.md)** — Writer's definitions vs field-standard.
+
+### Curator (9) — section-map maintainer, active + reactive
+
+- **[check-corpus-readiness](skills/check-corpus-readiness/SKILL.md)** — 28-day + 4-post cadence gate.
+- **[cluster-corpus-by-theme](skills/cluster-corpus-by-theme/SKILL.md)** — Axial coding; Braun & Clarke thematic analysis over published corpus.
+- **[propose-section](skills/propose-section/SKILL.md)** — Cluster → named section proposal with fit-confidence.
+- **[write-section-promise](skills/write-section-promise/SKILL.md)** — One-sentence promise; specific, testable, non-overlapping, voiced.
+- **[audit-drift](skills/audit-drift/SKILL.md)** — Flag posts no longer fitting their section's promise.
+- **[recommend-prune](skills/recommend-prune/SKILL.md)** — Retire / merge / reassign with reasons-to-reject.
+- **[update-section-map](skills/update-section-map/SKILL.md)** — Atomic write of section-map.md with snapshot backup.
+- **[classify-post-to-section](skills/classify-post-to-section/SKILL.md)** — Assign a draft or published post to the best-fitting section.
+- **[derive-section-voice-overlay](skills/derive-section-voice-overlay/SKILL.md)** — Draft per-section voice delta once section has ≥3 posts.
+
+### Growth Strategist (7) — quarterly zoomout
+
+- **[quarterly-zoomout](skills/quarterly-zoomout/SKILL.md)** — 400-700 word narrative synthesizing 13 weeks of data.
+- **[answer-uncomfortable-question](skills/answer-uncomfortable-question/SKILL.md)** — Evidence + reasoning + downside triad per question.
+- **[section-portfolio-assessment](skills/section-portfolio-assessment/SKILL.md)** — Healthy / drifting / candidate-for-prune per section.
+- **[product-hiding-scan](skills/product-hiding-scan/SKILL.md)** — Course / book / cohort / consulting candidates from the corpus.
+- **[paid-tier-readiness-check](skills/paid-tier-readiness-check/SKILL.md)** — Four gates: scale / engagement / section candidate / writer capacity.
+- **[goal-reset-proposal](skills/goal-reset-proposal/SKILL.md)** — Propose diff to goals.md; writer applies manually.
+- **[identify-kill-list](skills/identify-kill-list/SKILL.md)** — Max 4 items; easiest kills first.
+
+</details>
+
 ---
 
 ## Installation
@@ -305,7 +417,7 @@ Baseball-specific skills for a H2H Categories league. Pairs with the companion r
 /plugin install thinking-frameworks-skills
 ```
 
-All 120 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
+All 188 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
 
 <details>
 <summary><b>Option 2 — Manual install</b></summary>
