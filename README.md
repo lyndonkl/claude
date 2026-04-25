@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-188-blue) ![Agents](https://img.shields.io/badge/agents-27-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-200-blue) ![Agents](https://img.shields.io/badge/agents-36-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **188 skills** and **27 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, and a 9-agent team for growing a Substack publication.
+A production-ready library of **200 skills** and **36 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -22,6 +22,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Value a company / analyze an M&A target / plan an IPO | [`company-analyst`](agents/company-analyst.md), [`acquisition-analyst`](agents/acquisition-analyst.md), [`ipo-strategist`](agents/ipo-strategist.md), [`special-situations-analyst`](agents/special-situations-analyst.md) |
 | Decide how to allocate capital (debt / dividends / projects) | [`capital-allocation-strategist`](agents/capital-allocation-strategist.md) |
 | Manage my Yahoo Fantasy Baseball team | [`mlb-fantasy-coach`](agents/mlb-fantasy-coach.md) + 6 MLB specialists |
+| Run my household finances from PDF statements (drop in, briefing + dashboard out) | [`household-cfo`](agents/household-cfo.md) + 8 household specialists |
 | Write a paper / grant / recommendation letter | [`scientific-writing-editor`](agents/scientific-writing-editor.md) |
 | Improve any piece of writing (blog, memo, essay) | [`writing-assistant`](agents/writing-assistant.md) |
 | Make a calibrated forecast or probability estimate | [`superforecaster`](agents/superforecaster.md) |
@@ -41,10 +42,11 @@ flowchart LR
     D -->|Forecast / decide| SF[superforecaster]
     D -->|Design / visualize| CD[cognitive-design-architect]
     D -->|Fantasy baseball| MLB[mlb-fantasy-coach<br/>+ 6 specialists]
+    D -->|Household finances| HF[household-cfo<br/>+ 8 specialists]
     D -->|Knowledge retrieval| GR[graphrag-specialist]
     D -->|Symmetry-aware ML| GDL[geometric-deep-<br/>learning-architect]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & WA & SF & CD & MLB & GR & GDL --> S[(120 skills)]
+    CA & WA & SF & CD & MLB & HF & GR & GDL --> S[(200 skills)]
     SK --> S
 ```
 
@@ -74,6 +76,15 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**mlb-trade-analyzer**](agents/mlb-trade-analyzer.md) | On-demand trade offer evaluation with always-counter ladder |
 | [**mlb-category-strategist**](agents/mlb-category-strategist.md) | Weekly push/punt plan across the 10 H2H categories |
 | [**mlb-playoff-planner**](agents/mlb-playoff-planner.md) | July-onward positioning for weeks 21–23 playoff window |
+| [**household-cfo**](agents/household-cfo.md) | Master orchestrator + synthesizer for the household finance team; runs per-drop, monthly, and ad-hoc chat |
+| [**household-intake-classifier**](agents/household-intake-classifier.md) | Per-PDF document classification + manifest + account matching |
+| [**household-bookkeeper**](agents/household-bookkeeper.md) | PDF → reconciled, deduplicated, categorized JSON store with append-only commit |
+| [**household-spending-analyst**](agents/household-spending-analyst.md) | Category trends, recurring detection, 60-day cash-flow forecast, seasonal calendar |
+| [**household-bills-vigilance**](agents/household-bills-vigilance.md) | Missed bills, duplicate / fraud / anomaly / fee scans with severity-tagged alerts |
+| [**household-savings-debt**](agents/household-savings-debt.md) | Goals, emergency fund, debt strategy, mortgage prepay math, rewards optimization |
+| [**household-investment-retirement**](agents/household-investment-retirement.md) | Portfolio drift, contribution optimization, TLH with wash-sale awareness, retirement projection |
+| [**household-tax-compliance**](agents/household-tax-compliance.md) | Document tracking, deduction tracker, HSA receipt vault, year-end packet for CPA |
+| [**household-dashboard-designer**](agents/household-dashboard-designer.md) | Weekly static HTML dashboard with cognitive-design + storytelling + fallacy guard |
 | [**librarian**](agents/librarian.md) | Ingest + tag + index a Substack writer's corpus; topic ledger maintenance |
 | [**intuition-builder**](agents/intuition-builder.md) | 5 distinct framings (everyday / physical / contrarian / historical / counterfactual) per technical topic |
 | [**editor**](agents/editor.md) | Two-pass voice + structural review of drafts; voice gate before publish |
@@ -88,7 +99,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 
 ## Skills Index
 
-**188 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**200 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -247,7 +258,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 </details>
 
 <details>
-<summary><b>💼 Domain Packs</b> — corporate finance, game theory, fantasy baseball, specialized (35 skills)</summary>
+<summary><b>💼 Domain Packs</b> — corporate finance, household finance, game theory, fantasy baseball, specialized (47 skills)</summary>
 
 ### Corporate finance & valuation (11)
 
@@ -264,6 +275,23 @@ Based on Damodaran's valuation curriculum.
 - **[special-situations-valuation](skills/special-situations-valuation/SKILL.md)** — Value distressed, private, high-growth, and financial firms.
 - **[valuation-reconciler](skills/valuation-reconciler/SKILL.md)** — Reconcile DCF and multiples into a buy / sell / hold call.
 - **[financial-unit-economics](skills/financial-unit-economics/SKILL.md)** — Analyze CAC, LTV, contribution margin, cohort payback.
+
+### Household finance (12)
+
+PDF-driven personal-finance pipeline. Pairs with the orchestration runtime at `~/Documents/Projects/financialplanning/` (inbox, archive, canonical JSON store, prompts, weekly static HTML dashboards). Powers the `household-cfo` agent and 8 specialists.
+
+- **[pdf-statement-parser](skills/pdf-statement-parser/SKILL.md)** — Parse a single bank / brokerage / 401k / HSA / mortgage / tax PDF into normalized JSON with confidence.
+- **[transaction-categorizer](skills/transaction-categorizer/SKILL.md)** — Rules-then-LLM categorization with merchant normalization and rule learning.
+- **[transaction-deduplicator](skills/transaction-deduplicator/SKILL.md)** — Composite-key dedupe across overlapping statement imports; preserves legitimate same-day repeats.
+- **[recurring-charge-detector](skills/recurring-charge-detector/SKILL.md)** — Cluster same-merchant charges by cadence; promote at ≥3 occurrences; track dormant.
+- **[statement-reconciler](skills/statement-reconciler/SKILL.md)** — Verify opening + Σ = closing; diagnose sign flips, missing rows, double-counts.
+- **[cash-flow-forecaster](skills/cash-flow-forecaster/SKILL.md)** — 60-day daily projection per cash account with trough confidence band.
+- **[category-trend-analyzer](skills/category-trend-analyzer/SKILL.md)** — Current vs 6-month rolling vs YoY vs budget; outliers ranked by dollar impact.
+- **[anomaly-fraud-scanner](skills/anomaly-fraud-scanner/SKILL.md)** — 5-rule fraud / anomaly scan with severity, evidence, recommended action.
+- **[portfolio-drift-rebalancer](skills/portfolio-drift-rebalancer/SKILL.md)** — Aggregate allocation across taxable + 401k + HSA; tax-efficient rebalance proposal.
+- **[tax-loss-harvest-scanner](skills/tax-loss-harvest-scanner/SKILL.md)** — TLH candidates with wash-sale guard across all household accounts including spousal.
+- **[hsa-receipt-vault](skills/hsa-receipt-vault/SKILL.md)** — Track HSA-qualified out-of-pocket expenses for deferred tax-free reimbursement.
+- **[household-finance-dashboard-builder](skills/household-finance-dashboard-builder/SKILL.md)** — Single self-contained static HTML dashboard from the JSON store.
 
 ### Game theory & strategic competition (8)
 
