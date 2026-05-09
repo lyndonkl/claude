@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-200-blue) ![Agents](https://img.shields.io/badge/agents-36-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-205-blue) ![Agents](https://img.shields.io/badge/agents-37-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **200 skills** and **36 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
+A production-ready library of **205 skills** and **37 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -29,6 +29,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Design a dashboard, viz, or UI grounded in cognition | [`cognitive-design-architect`](agents/cognitive-design-architect.md) |
 | Build a GraphRAG / knowledge-graph retrieval system | [`graphrag-specialist`](agents/graphrag-specialist.md) |
 | Design equivariant / symmetry-aware neural networks | [`geometric-deep-learning-architect`](agents/geometric-deep-learning-architect.md) |
+| Build geometric intuition for ML math (attention, PCA, eigenvectors, high-dim spaces) | [`math-intuition-coach`](agents/math-intuition-coach.md) |
 | Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more (see `~/Documents/Thinking/substacker/`) |
 | Use just one tool (no agent) | Browse the [Skills Index](#skills-index) below |
 
@@ -45,8 +46,9 @@ flowchart LR
     D -->|Household finances| HF[household-cfo<br/>+ 8 specialists]
     D -->|Knowledge retrieval| GR[graphrag-specialist]
     D -->|Symmetry-aware ML| GDL[geometric-deep-<br/>learning-architect]
+    D -->|Math intuition| MI[math-intuition-<br/>coach]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & WA & SF & CD & MLB & HF & GR & GDL --> S[(200 skills)]
+    CA & WA & SF & CD & MLB & HF & GR & GDL & MI --> S[(205 skills)]
     SK --> S
 ```
 
@@ -63,6 +65,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**superforecaster**](agents/superforecaster.md) | Forecasting and probability via 5-phase calibrated pipeline |
 | [**cognitive-design-architect**](agents/cognitive-design-architect.md) | Cognitive design, information architecture, D3 viz, fallacy check |
 | [**geometric-deep-learning-architect**](agents/geometric-deep-learning-architect.md) | Symmetry discovery → group ID → equivariant architecture |
+| [**math-intuition-coach**](agents/math-intuition-coach.md) | 3Blue1Brown-style geometric intuition for any ML/data math (attention, PCA, gradients, high-dim spaces) |
 | [**graphrag-specialist**](agents/graphrag-specialist.md) | Knowledge graph construction, embedding fusion, retrieval orchestration |
 | [**company-analyst**](agents/company-analyst.md) | End-to-end company valuation → buy/sell/hold recommendation |
 | [**special-situations-analyst**](agents/special-situations-analyst.md) | Distressed / private / high-growth / financial-firm valuation |
@@ -230,7 +233,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 </details>
 
 <details>
-<summary><b>📊 Data & ML</b> — data modeling, visualization, GraphRAG, geometric deep learning (14 skills)</summary>
+<summary><b>📊 Data & ML</b> — data modeling, visualization, math intuition, GraphRAG, geometric deep learning (19 skills)</summary>
 
 ### Data modeling & visualization
 
@@ -246,6 +249,16 @@ Agents detect your need and route to the right skills. Each agent's page documen
 - **[symmetry-validation-suite](skills/symmetry-validation-suite/SKILL.md)** — Empirically test invariance and equivariance claims.
 - **[equivariant-architecture-designer](skills/equivariant-architecture-designer/SKILL.md)** — Design G-CNN, steerable, and e3nn architectures.
 - **[model-equivariance-auditor](skills/model-equivariance-auditor/SKILL.md)** — Verify implemented models respect their intended symmetries.
+
+### Math intuition
+
+3Blue1Brown-style teaching moves for explaining vector / matrix / high-dim concepts geometrically. Powers the `math-intuition-coach` agent.
+
+- **[concept-rediscovery-walk](skills/concept-rediscovery-walk/SKILL.md)** — Socratic walks that let learners invent eigenvectors, gradient, attention themselves.
+- **[geometric-algebraic-bridge](skills/geometric-algebraic-bridge/SKILL.md)** — Dual-view exposition: geometric picture + algebraic formula + the one-sentence bridge.
+- **[ml-primitive-decoder](skills/ml-primitive-decoder/SKILL.md)** — Decompose attention / layer norm / softmax / conv into LA primitives + ablation table.
+- **[high-dim-intuition-rebuild](skills/high-dim-intuition-rebuild/SKILL.md)** — Repair misleading 3D intuition for high-dim spaces (concentration, manifold hypothesis).
+- **[worked-example-walkthrough](skills/worked-example-walkthrough/SKILL.md)** — Numbered "frame" computation walkthroughs — text equivalent of a 3b1b animation.
 
 ### GraphRAG
 
