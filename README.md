@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-205-blue) ![Agents](https://img.shields.io/badge/agents-37-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-209-blue) ![Agents](https://img.shields.io/badge/agents-38-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **205 skills** and **37 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
+A production-ready library of **209 skills** and **38 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -30,6 +30,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Build a GraphRAG / knowledge-graph retrieval system | [`graphrag-specialist`](agents/graphrag-specialist.md) |
 | Design equivariant / symmetry-aware neural networks | [`geometric-deep-learning-architect`](agents/geometric-deep-learning-architect.md) |
 | Build geometric intuition for ML math (attention, PCA, eigenvectors, high-dim spaces) | [`math-intuition-coach`](agents/math-intuition-coach.md) |
+| Get a weekly digest of new bioRxiv / medRxiv / PubMed papers against my keyword watchlist | [`paper-synthesizer`](agents/paper-synthesizer.md) |
 | Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more (see `~/Documents/Thinking/substacker/`) |
 | Use just one tool (no agent) | Browse the [Skills Index](#skills-index) below |
 
@@ -47,8 +48,9 @@ flowchart LR
     D -->|Knowledge retrieval| GR[graphrag-specialist]
     D -->|Symmetry-aware ML| GDL[geometric-deep-<br/>learning-architect]
     D -->|Math intuition| MI[math-intuition-<br/>coach]
+    D -->|Weekly paper digest| PS[paper-synthesizer]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & WA & SF & CD & MLB & HF & GR & GDL & MI --> S[(205 skills)]
+    CA & WA & SF & CD & MLB & HF & GR & GDL & MI & PS --> S[(209 skills)]
     SK --> S
 ```
 
@@ -66,6 +68,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**cognitive-design-architect**](agents/cognitive-design-architect.md) | Cognitive design, information architecture, D3 viz, fallacy check |
 | [**geometric-deep-learning-architect**](agents/geometric-deep-learning-architect.md) | Symmetry discovery → group ID → equivariant architecture |
 | [**math-intuition-coach**](agents/math-intuition-coach.md) | 3Blue1Brown-style geometric intuition for any ML/data math (attention, PCA, gradients, high-dim spaces) |
+| [**paper-synthesizer**](agents/paper-synthesizer.md) | Weekly bioRxiv / medRxiv / PubMed digest against a keyword watchlist; clusters by theme; layered-reasoning synthesis with paper links |
 | [**graphrag-specialist**](agents/graphrag-specialist.md) | Knowledge graph construction, embedding fusion, retrieval orchestration |
 | [**company-analyst**](agents/company-analyst.md) | End-to-end company valuation → buy/sell/hold recommendation |
 | [**special-situations-analyst**](agents/special-situations-analyst.md) | Distressed / private / high-growth / financial-firm valuation |
@@ -102,7 +105,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 
 ## Skills Index
 
-**200 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**209 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -165,7 +168,9 @@ Agents detect your need and route to the right skills. Each agent's page documen
 </details>
 
 <details>
-<summary><b>🔬 Research & Evidence</b> — research design, evidence evaluation, rubrics, ethics (6 skills)</summary>
+<summary><b>🔬 Research & Evidence</b> — research design, evidence evaluation, rubrics, ethics, literature scan (10 skills)</summary>
+
+### Research design & evaluation
 
 - **[discovery-interviews-surveys](skills/discovery-interviews-surveys/SKILL.md)** — Run unbiased JTBD interviews and surveys with thematic coding.
 - **[design-of-experiments](skills/design-of-experiments/SKILL.md)** — Design rigorous factorial, RSM, and Taguchi experiments.
@@ -173,6 +178,15 @@ Agents detect your need and route to the right skills. Each agent's page documen
 - **[research-claim-map](skills/research-claim-map/SKILL.md)** — Verify claims via triangulation, source grading, confidence calibration.
 - **[ethics-safety-impact](skills/ethics-safety-impact/SKILL.md)** — Assess harms, fairness, and mitigations across stakeholders.
 - **[evaluation-rubrics](skills/evaluation-rubrics/SKILL.md)** — Design rubrics with calibrated scales and inter-rater reliability.
+
+### Literature scan
+
+Domain-neutral primitives for any weekly paper-digest workflow. Powers the `paper-synthesizer` agent.
+
+- **[fetch-preprint-recent](skills/fetch-preprint-recent/SKILL.md)** — Fetch bioRxiv / medRxiv preprints for a date window with cursor pagination and client-side keyword filter.
+- **[fetch-pubmed-recent](skills/fetch-pubmed-recent/SKILL.md)** — Fetch PubMed records for a date window via PubMed MCP when available, E-utilities fallback otherwise.
+- **[paper-relevance-filter](skills/paper-relevance-filter/SKILL.md)** — Score candidate papers KEEP / REVIEW / DROP on match strength + criteria fit + novelty against last-4-weeks history.
+- **[paper-cluster-by-theme](skills/paper-cluster-by-theme/SKILL.md)** — Group filtered papers into 2-5 argument-shaped clusters before synthesis.
 
 </details>
 
