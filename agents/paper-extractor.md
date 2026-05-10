@@ -143,25 +143,81 @@ Reports a 24% RMSD improvement on CASP15 by conditioning protein generation on c
 
 ## Pass 2 — Content Grasp
 
-Runs only when the caller escalates (typical trigger: this paper passed `paper-relevance-filter` as KEEP). Reads the full paper, skipping heavy proofs and derivations. Needs the full-text source.
+Runs only when the caller escalates (typical trigger: this paper passed `paper-relevance-filter` as KEEP). Reads the full paper, skipping heavy proofs and derivations. Needs the full-text source — and you have to actually fetch it. WebFetch does not handle PDFs; use Bash to download to disk, then the Read tool to ingest.
+
+### Full-text acquisition recipe (this is the part the agent gets wrong if not spelled out)
 
 ```
 Pass 2 checklist:
-- [ ] Acquire full text. Try in this order:
-       1. paper_record.pdf_url, if present (arXiv records always have one)
-       2. {paper.url} content (some preprint sites serve full HTML)
-       3. PMC OA service for PubMed records (optional — only if a free PMC id is present)
-       4. If none available, mark full_text_available=false in the return summary
-          and write a note to the extraction file. Do NOT skip Pass 2 — apply it
-          to the abstract + intro paragraphs you have, with reduced confidence.
+- [ ] Determine paper_slug from the paper id (same slug rule as Pass 1's extraction
+       filename — strip dots/colons in the id, hash if needed).
+- [ ] Construct the cache path:
+       pdf_cache = ops/paper-synthesizer/.cache/pdfs/{paper_slug}.pdf
+       (the .cache/ directory is gitignored; safe to leave PDFs there)
+- [ ] Ensure the cache directory exists:
+       Bash: `mkdir -p ops/paper-synthesizer/.cache/pdfs`
+- [ ] Try sources in order. STOP at the first one that succeeds.
+
+       Source 1 (preferred) — direct PDF download via Bash + curl.
+         Applies when paper_record.pdf_url is set (arXiv always; bioRxiv / medRxiv
+         always; PubMed only when a PMC OA full-text URL is present in the record).
+         Bash: `curl -L --max-time 60 --fail -sS -o {pdf_cache} "{pdf_url}"`
+         Check exit code. Non-zero → curl failed (404, network, redirect loop).
+         Move to Source 2. Zero → continue to Read step below.
+
+       Source 2 (fallback for HTML-only abstract pages) — WebFetch on paper.url.
+         Some preprint sites serve usable full text as HTML. WebFetch returns
+         markdown. If the result is genuinely the full text (length > ~5K chars,
+         contains methods + results sections), proceed with it as full_text. If
+         it's just the abstract page (length < 2K chars; only abstract content),
+         move to Source 3.
+
+       Source 3 (PubMed records only) — PMC Open Access service.
+         If paper_record.source == "pubmed" and a PMC id is present, construct:
+           https://www.ncbi.nlm.nih.gov/pmc/articles/PMC{pmc_id}/
+         and try Source 1's curl recipe against the PMC PDF endpoint:
+           https://www.ncbi.nlm.nih.gov/pmc/articles/PMC{pmc_id}/pdf/
+         Many PubMed records have no PMC id (paywalled). That's expected.
+
+       If all three sources fail:
+         Set full_text_available=false in the return summary. Write a note to
+         the extraction file. Do NOT skip Pass 2 — apply it to the abstract +
+         intro you have at reduced confidence, and explicitly tag any answer
+         that relied on a missing section as "(abstract-only; full text unavailable)".
+
+- [ ] Read the cached PDF using the Read tool with the pages parameter.
+       The Read tool caps at 20 pages per call. Most papers fit in one call.
+       For papers > 20 pages:
+         First call: Read({file_path: pdf_cache, pages: "1-20"})
+         If you have not yet seen the references section or appendix, continue:
+           Read({file_path: pdf_cache, pages: "21-40"})
+         And so on. Stop when you reach the references / appendix or the file ends.
+       For HTML full text from Source 2, just use the WebFetch result directly.
+
 - [ ] Read in linear order, skipping proofs and heavy derivations.
 - [ ] Note unfamiliar terms or concepts the synthesizer's audience may need glossed.
 - [ ] Examine figures and graphs critically (axes labeled? error bars? what story?).
+       Figures are visible to you when reading a PDF — actually look at them, don't
+       just summarize the caption.
 - [ ] Mark references worth follow-up (cited as load-bearing, not just background).
 - [ ] Answer the Pass 2 questions (next section).
 - [ ] Write the Pass 2 section of the extraction file (append; do not overwrite Pass 1).
-- [ ] Update passes_completed = [1, 2] in the return summary.
+- [ ] Update passes_completed = [1, 2] in the return summary. Set full_text_available
+       to true if any of Source 1 / 2 / 3 succeeded; false only if all three failed.
+- [ ] Leave the cached PDF in place. Re-runs (RE_SYNTHESIZE intent, Pass 3 escalation)
+       skip the download step when the cache is already populated.
 ```
+
+### Pass 2 reduced-confidence mode
+
+When `full_text_available=false`, you operate on abstract + (when accessible) the HTML abstract page's intro paragraphs only. In this mode:
+
+- Answer Pass 2 questions with the material you have, and tag each affected answer with `(abstract-only; full text unavailable)`.
+- Skip the figure-by-figure question entirely — write `(skipped; full text unavailable)`.
+- The references-worth-follow-up list shrinks to "those named in the abstract" only.
+- Set the per-paper one-liner with reduced specificity; do not invent details the abstract didn't carry.
+
+Reduced-confidence Pass 2 still beats no Pass 2 for downstream synthesis. The synthesizer's Pass A will see the tags and lower the per-paper summary's specificity correspondingly.
 
 ### Pass 2 questions (the agent answers — not the operator)
 
@@ -222,6 +278,10 @@ Runs only on explicit operator request. Time investment: 1-4 hours of agent comp
 
 ```
 Pass 3 checklist:
+- [ ] Re-use the cached PDF from Pass 2 at ops/paper-synthesizer/.cache/pdfs/{slug}.pdf.
+       If it's missing (Pass 2 ran in reduced-confidence mode, or the cache was cleared),
+       re-run the full-text acquisition recipe from Pass 2 first. Pass 3 against an
+       abstract-only source is not meaningful — halt and report instead.
 - [ ] Re-read methods and proofs sections that Pass 2 skipped.
 - [ ] Virtually re-implement the core idea — what choices would you have made differently?
 - [ ] Challenge every assumption explicitly: write down what would have to be true.
@@ -257,7 +317,7 @@ Append a Pass 3 section structured around those five answers, each as a short pa
 3. Never overwrite a prior Pass 1 or Pass 2 section. Append. The full extraction history per paper is the artifact.
 4. Never promote a paper's hedging upward. If the abstract says "suggests" or "is consistent with", the extraction preserves the hedge. The synthesizer can decide how to reframe it later, but the source-of-truth notes do not editorialize.
 5. Never invent results not in the paper. If a number, citation, or figure is not in the source, do not include it. When uncertain, write `(not stated)` — that's high-information.
-6. Never proceed to Pass 2 without full text *unless* the caller explicitly asked for "best-effort Pass 2 from abstract." If the PDF is unavailable and the caller did not say best-effort, return at Pass 1 with full_text_available=false; let the caller decide whether to skip the paper.
+6. Never set `full_text_available=false` without first attempting the full-text acquisition recipe end-to-end (Source 1 curl + Source 2 WebFetch fallback + Source 3 PMC fallback for PubMed). WebFetch alone on a `.pdf` URL does not count as "tried" — that always fails because WebFetch is HTML-only. The Bash + curl + Read sequence is required. If the recipe genuinely fails on all three sources, then proceed in reduced-confidence mode (abstract-only Pass 2, with explicit tags) — do not skip Pass 2 entirely.
 7. Never write outside `{output_root}/{week_tag}/`. Construct no absolute paths.
 8. Never use banned vocabulary the project's `synthesis-style.md` excludes (delve, unpack, paradigm shift, let's explore, moreover, furthermore, it's worth noting). The synthesizer enforces this downstream too, but starting clean costs nothing.
 9. Never run Pass 3 unless explicitly instructed by the spawning agent. Pass 3 is operator-driven.

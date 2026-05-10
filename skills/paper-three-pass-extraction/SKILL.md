@@ -68,13 +68,55 @@ Runs when the caller escalates (typical trigger: paper passed a relevance filter
 
 7. **Confusions or unresolved points.** What did not land for you on this read? Mark them — Pass 3 (if escalated) will return to them.
 
-### Pass 2 acquisition order
+### Pass 2 acquisition recipe
 
-When fetching full text, try in this order:
-1. The paper record's PDF URL (arXiv records always carry one).
-2. The paper's URL content (some preprint sites serve full HTML).
-3. PMC OA service for PubMed records (only when a free PMC id exists).
-4. If none of the above, mark `full_text_available=false` and apply Pass 2 to the abstract + intro you have, with reduced confidence. Do not skip Pass 2 — degraded Pass 2 still beats no Pass 2 for downstream synthesis.
+The agent has to actually fetch the full text — not just say it tried. WebFetch is HTML→markdown only; it does not handle PDFs. The reliable recipe uses the calling agent's Bash and Read tools together: `curl` the PDF to a local cache path, then read it with the Read tool's `pages` parameter (max 20 pages per call).
+
+```
+1. Construct a local cache path:
+   pdf_cache = {output_root}/.cache/pdfs/{paper_slug}.pdf
+   (or whatever cache convention the calling workflow uses; the cache should
+    be gitignored so PDFs don't get committed)
+
+2. Ensure the cache directory exists:
+   Bash: `mkdir -p {output_root}/.cache/pdfs`
+
+3. Try sources in order. STOP at the first one that succeeds.
+
+   Source 1 (preferred) — direct PDF download via Bash + curl:
+     `curl -L --max-time 60 --fail -sS -o {pdf_cache} "{pdf_url}"`
+     Non-zero exit code → curl failed (404, network, redirect loop). Move on.
+     Zero exit → continue to step 4.
+
+   Source 2 (HTML fallback) — WebFetch on the abstract page URL:
+     WebFetch returns markdown. Accept only if length > ~5K chars and the
+     result clearly contains methods + results sections (not just the abstract).
+     Otherwise treat as "abstract page only" and move on.
+
+   Source 3 (PubMed PMC OA fallback):
+     Only attempts when source == "pubmed" and a PMC id is present in the
+     paper_record. Apply Source 1's curl recipe to the PMC PDF URL:
+       https://www.ncbi.nlm.nih.gov/pmc/articles/PMC{pmc_id}/pdf/
+
+4. Read the full text:
+   For PDF cache files, use Read({file_path: pdf_cache, pages: "1-20"}).
+     Continue with pages "21-40", "41-60" etc. until you reach the references
+     or the file ends. Most papers fit in one call.
+   For Source 2 HTML, use the WebFetch result directly.
+
+5. Failure mode — if all three sources fail:
+   Mark full_text_available=false and proceed in reduced-confidence mode.
+   Pass 2 still runs on abstract + (when accessible) intro paragraphs, but
+   each affected answer is tagged "(abstract-only; full text unavailable)"
+   and the figure-by-figure question is skipped entirely. Degraded Pass 2
+   still beats no Pass 2 for downstream synthesis.
+```
+
+The calling agent's required tools for this recipe: `Bash` (for `mkdir -p` and `curl`), `Read` (for PDF ingestion with the `pages` parameter), and `WebFetch` (for the HTML fallback). Skill callers without one of these cannot execute the recipe and should fall back to abstract-only mode explicitly.
+
+### When `full_text_available=false` is the honest answer
+
+Most PubMed records are paywalled outside PMC OA. arXiv, bioRxiv, and medRxiv all serve open PDFs. If a calling workflow is reporting `full_text_available=false` for arXiv or preprint records, something is wrong — verify the recipe was actually run (curl exit code observed; Read attempted on the cached file) before accepting the false flag.
 
 ## Pass 3 — Deep Understanding
 
