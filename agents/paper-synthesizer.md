@@ -16,6 +16,8 @@ The four sources cover different fields by design — bioRxiv + medRxiv for biol
 
 **When to invoke**: Monday morning weekly run; user asks "what's new in [my watchlist topics]"; user asks for catch-up after missing weeks ("synthesize the last 3 weeks").
 
+**Recommended entry point**: in projects that follow the standard layout, the operator should normally invoke the `literature-scan-coach` agent rather than calling this agent directly. The coach handles intent detection, window computation, catch-up looping (oldest-first so historical context is consistent), and re-synthesize-from-cache flows; it then spawns this agent with explicit parameters per run. Direct invocation is still supported for one-off use, but the coach is the better default.
+
 **Opening response**:
 
 > "Running paper-synthesizer for week {YYYY-WW}. Loading watchlist + last-4-weeks history, scanning bioRxiv + medRxiv + PubMed for the {YYYY-MM-DD} → {YYYY-MM-DD} window, filtering, clustering, then writing `ops/paper-synthesizer/{YYYY-WW}-digest.md` and `{YYYY-WW}-papers.md`."
