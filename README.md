@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-210-blue) ![Agents](https://img.shields.io/badge/agents-40-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-213-blue) ![Agents](https://img.shields.io/badge/agents-40-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **210 skills** and **40 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
+A production-ready library of **213 skills** and **40 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -50,7 +50,7 @@ flowchart LR
     D -->|Math intuition| MI[math-intuition-<br/>coach]
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(210 skills)]
+    CA & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(213 skills)]
     SK --> S
 ```
 
@@ -106,7 +106,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 
 ## Skills Index
 
-**210 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**213 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -169,7 +169,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 </details>
 
 <details>
-<summary><b>🔬 Research & Evidence</b> — research design, evidence evaluation, rubrics, ethics, literature scan (11 skills)</summary>
+<summary><b>🔬 Research & Evidence</b> — research design, evidence evaluation, rubrics, ethics, reading methodology, literature scan (14 skills)</summary>
 
 ### Research design & evaluation
 
@@ -180,9 +180,15 @@ Agents detect your need and route to the right skills. Each agent's page documen
 - **[ethics-safety-impact](skills/ethics-safety-impact/SKILL.md)** — Assess harms, fairness, and mitigations across stakeholders.
 - **[evaluation-rubrics](skills/evaluation-rubrics/SKILL.md)** — Design rubrics with calibrated scales and inter-rater reliability.
 
+### Reading methodology (Adler-style; reusable across paper extraction, skill creation, evidence triage)
+
+- **[inspectional-reading](skills/inspectional-reading/SKILL.md)** — First-level systematic skim — classify document type, decide whether deeper reading is worth it. Adler's "How to Read a Book" Level 1, generalized.
+- **[synthesis-application](skills/synthesis-application/SKILL.md)** — Completeness + logic + applicability gate after component extraction; produces GO / GO_WITH_GAPS / NO_GO verdict. Adler's "Is it true? What of it?" pass.
+- **[paper-three-pass-extraction](skills/paper-three-pass-extraction/SKILL.md)** — Three-pass + Five Cs extraction methodology specifically for academic papers. Wraps inspectional-reading as Pass 1; adds Pass 2 (content grasp) and Pass 3 (deep understanding). Powers the `paper-extractor` agent.
+
 ### Literature scan
 
-Domain-neutral primitives for any weekly paper-digest workflow. Powers the `paper-synthesizer` agent.
+Domain-neutral primitives for any weekly paper-digest workflow. Powers the `literature-scan-coach` + `paper-extractor` + `paper-synthesizer` pipeline.
 
 - **[fetch-preprint-recent](skills/fetch-preprint-recent/SKILL.md)** — Fetch bioRxiv / medRxiv preprints for a date window with cursor pagination and client-side keyword filter.
 - **[fetch-pubmed-recent](skills/fetch-pubmed-recent/SKILL.md)** — Fetch PubMed records for a date window via PubMed MCP when available, E-utilities fallback otherwise.

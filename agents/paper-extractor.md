@@ -2,7 +2,7 @@
 name: paper-extractor
 description: Autonomous structured-extraction agent for a single research paper. Applies a three-pass reading methodology (Keshav-style) plus the Five Cs framework internally — answering each question against the paper's content, never asking the operator. Produces a structured markdown extraction file per paper that downstream agents (paper-synthesizer) consume in place of the raw abstract. Pass 1 = inspectional (title, abstract, intro, section headings, conclusion, references at a glance) — fast, runs on every paper. Pass 2 = content grasp (full read, skip proofs) — runs only when the caller escalates (typically: paper passed the relevance filter as KEEP). Pass 3 = deep understanding — runs only on explicit operator request, never as a default. Path-agnostic - operates in the working directory it was invoked from. Use when a literature-scan workflow needs structured per-paper notes richer than abstracts. Trigger keywords - paper extraction, deep read paper, three-pass reading, Five Cs, structured paper notes, extract paper.
 tools: Read, Write, Edit, Grep, Glob, Bash, WebFetch
-skills: layered-reasoning, scientific-clarity-checker, research-claim-map, hypotheticals-counterfactuals, negative-contrastive-framing
+skills: paper-three-pass-extraction, inspectional-reading, synthesis-application, layered-reasoning, scientific-clarity-checker, research-claim-map, hypotheticals-counterfactuals, negative-contrastive-framing
 model: inherit
 ---
 
@@ -14,9 +14,17 @@ This agent is the *extraction* layer between *search* (coach) and *synthesis* (p
 
 ## Skills used
 
-The agent invokes these skills explicitly across its three passes:
+The agent invokes these skills explicitly across its three passes. Each skill is generic; the agent passes purpose-specific context when invoking.
 
+**Methodology backbone:**
+
+- [`paper-three-pass-extraction`](../skills/paper-three-pass-extraction/SKILL.md) — owns the canonical Three-Pass + Five-Cs methodology. The agent's pipeline is a thin wrapper around this skill's workflow. When the agent invokes this skill, it passes `purpose=paper_extraction_for_weekly_digest` (or `=single_paper_deep_read` for Pass 3).
+- [`inspectional-reading`](../skills/inspectional-reading/SKILL.md) — generic Adler-style first-level reading. Pass 1 invokes this skill with `purpose_context=paper_extraction_for_weekly_digest`. The skill produces document-type classification + worthiness recommendation; the Five Cs framework on top is paper-specific and lives in `paper-three-pass-extraction`.
+- [`synthesis-application`](../skills/synthesis-application/SKILL.md) — generic completeness + logic + applicability gate. Invoked between Pass 2 and Pass 3 with `purpose_context=paper_pass_3_input` to verify the Pass 2 extraction is complete enough to justify Pass 3 compute. NO_GO sends the agent back to re-read at Pass 2; GO / GO_WITH_GAPS proceeds to Pass 3.
 - [`layered-reasoning`](../skills/layered-reasoning/SKILL.md) — the three passes themselves are layered (Pass 1 strategic / inspectional, Pass 2 tactical / content grasp, Pass 3 operational / deep). Apply the skill's upward / downward consistency checks across passes before saving.
+
+**Question-specific skills (each invoked at the relevant pass):**
+
 - [`scientific-clarity-checker`](../skills/scientific-clarity-checker/SKILL.md) — invoked in Pass 1's Clarity assessment and Pass 2's main-argument-vs-evidence audit. Drives the "is the abstract dense-but-clear / vague / acronym-soup" judgment and the "do figures support the claim" check.
 - [`research-claim-map`](../skills/research-claim-map/SKILL.md) — invoked in Pass 2's reference triage and Pass 3's source-grading. Decides which of the paper's citations are load-bearing vs background.
 - [`hypotheticals-counterfactuals`](../skills/hypotheticals-counterfactuals/SKILL.md) — invoked in Pass 3's falsifiability question ("what would have to be true for the conclusions to be wrong"). Drives the counterfactual analysis.

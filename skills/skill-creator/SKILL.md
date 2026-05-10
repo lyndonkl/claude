@@ -19,6 +19,13 @@ description: Transforms documents containing theoretical knowledge or frameworks
 
 This skill applies Mortimer Adler's systematic reading methodology ("How to Read a Book") through a six-step progressive approach: inspectional reading, structural analysis, component extraction, synthesis, skill construction, and validation. The process is collaborative -- at decision points, options and trade-offs are presented for the user to choose.
 
+**Methodology composition.** Two of the steps are now backed by domain-neutral standalone skills, reusable beyond skill creation:
+
+- Step 1 (Inspectional Reading) — see [`inspectional-reading`](../inspectional-reading/SKILL.md). Invoke with `purpose_context=skill_extraction_from_methodology`. The local resource at `resources/inspectional-reading.md` documents the skill-creation-specific session-initialization and `$SESSION_DIR` mechanics that the generic skill does not own.
+- Step 4 (Synthesis and Application) — see [`synthesis-application`](../synthesis-application/SKILL.md). Invoke with `purpose_context=skill_construction`. The local resource at `resources/synthesis-application.md` documents the skill-creation-specific completeness inventory (terms / propositions / arguments / solutions / decision-criteria / triggers) that the generic skill defers to its caller.
+
+The remaining steps (structural analysis, component extraction, skill construction, validation) are still documented inline via local resources only — promote to standalone skills if and when other agents need them.
+
 ---
 
 ## Workflow
