@@ -19,12 +19,16 @@ description: Transforms documents containing theoretical knowledge or frameworks
 
 This skill applies Mortimer Adler's systematic reading methodology ("How to Read a Book") through a six-step progressive approach: inspectional reading, structural analysis, component extraction, synthesis, skill construction, and validation. The process is collaborative -- at decision points, options and trade-offs are presented for the user to choose.
 
-**Methodology composition.** Two of the steps are now backed by domain-neutral standalone skills, reusable beyond skill creation:
+**Methodology composition.** All five extractable steps are now backed by domain-neutral standalone skills, reusable beyond skill creation. The orchestration is owned by the [`skill-creator` agent](../../agents/skill-creator.md); this skill-file remains as documentation of the methodology and as a way to apply the methodology without the agent's session-workspace overhead.
 
-- Step 1 (Inspectional Reading) — see [`inspectional-reading`](../inspectional-reading/SKILL.md). Invoke with `purpose_context=skill_extraction_from_methodology`. The local resource at `resources/inspectional-reading.md` documents the skill-creation-specific session-initialization and `$SESSION_DIR` mechanics that the generic skill does not own.
-- Step 4 (Synthesis and Application) — see [`synthesis-application`](../synthesis-application/SKILL.md). Invoke with `purpose_context=skill_construction`. The local resource at `resources/synthesis-application.md` documents the skill-creation-specific completeness inventory (terms / propositions / arguments / solutions / decision-criteria / triggers) that the generic skill defers to its caller.
-
-The remaining steps (structural analysis, component extraction, skill construction, validation) are still documented inline via local resources only — promote to standalone skills if and when other agents need them.
+| Step | Standalone skill | `purpose_context` to pass | Local resource still useful for |
+| ---- | ---------------- | ------------------------- | ------------------------------- |
+| 1 | [`inspectional-reading`](../inspectional-reading/SKILL.md) | `skill_extraction_from_methodology` | session init mechanics (`$SESSION_DIR`, `global-context.md`) |
+| 2 | [`structural-analysis`](../structural-analysis/SKILL.md) | `skill_extraction_from_methodology` | unity-formula examples specific to skill creation |
+| 3 | [`component-extraction`](../component-extraction/SKILL.md) | `skill_extraction_from_methodology` | section-based reading patterns specific to long-form skill sources |
+| 4 | [`synthesis-application`](../synthesis-application/SKILL.md) | `skill_construction` | completeness inventory specific to skills (terms / propositions / arguments / solutions / decision-criteria / triggers) |
+| 5 | [`skill-construction`](../skill-construction/SKILL.md) | `skill_construction` | rubric template + complexity-level decision aid |
+| 6 | [`evaluation-rubrics`](../evaluation-rubrics/SKILL.md) | (existing skill, no purpose_context needed) | n/a |
 
 ---
 

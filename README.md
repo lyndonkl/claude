@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-213-blue) ![Agents](https://img.shields.io/badge/agents-40-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-216-blue) ![Agents](https://img.shields.io/badge/agents-41-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **213 skills** and **40 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
+A production-ready library of **216 skills** and **41 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -50,7 +50,7 @@ flowchart LR
     D -->|Math intuition| MI[math-intuition-<br/>coach]
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(213 skills)]
+    CA & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(216 skills)]
     SK --> S
 ```
 
@@ -70,6 +70,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**math-intuition-coach**](agents/math-intuition-coach.md) | 3Blue1Brown-style geometric intuition for any ML/data math (attention, PCA, gradients, high-dim spaces) |
 | [**literature-scan-coach**](agents/literature-scan-coach.md) | Single entry point for a weekly literature-scan project; routes weekly / catch-up / on-demand / re-synthesize intents and spawns paper-synthesizer per run with the right parameters |
 | [**paper-synthesizer**](agents/paper-synthesizer.md) | Worker for literature-scan-coach. One window, one digest. Fetches bioRxiv / medRxiv / PubMed / arXiv, filters, clusters by theme, writes the layered-reasoning synthesis with paper links |
+| [**skill-creator**](agents/skill-creator.md) | Orchestrates Adler's six-step methodology to transform a methodology document (PDF, markdown, paper, framework guide) into a properly structured Claude Code skill — SKILL.md + resources + rubric |
 | [**graphrag-specialist**](agents/graphrag-specialist.md) | Knowledge graph construction, embedding fusion, retrieval orchestration |
 | [**company-analyst**](agents/company-analyst.md) | End-to-end company valuation → buy/sell/hold recommendation |
 | [**special-situations-analyst**](agents/special-situations-analyst.md) | Distressed / private / high-growth / financial-firm valuation |
@@ -106,7 +107,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 
 ## Skills Index
 
-**213 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**216 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -169,7 +170,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 </details>
 
 <details>
-<summary><b>🔬 Research & Evidence</b> — research design, evidence evaluation, rubrics, ethics, reading methodology, literature scan (14 skills)</summary>
+<summary><b>🔬 Research & Evidence</b> — research design, evidence evaluation, rubrics, ethics, reading methodology, literature scan (17 skills)</summary>
 
 ### Research design & evaluation
 
@@ -182,9 +183,12 @@ Agents detect your need and route to the right skills. Each agent's page documen
 
 ### Reading methodology (Adler-style; reusable across paper extraction, skill creation, evidence triage)
 
-- **[inspectional-reading](skills/inspectional-reading/SKILL.md)** — First-level systematic skim — classify document type, decide whether deeper reading is worth it. Adler's "How to Read a Book" Level 1, generalized.
-- **[synthesis-application](skills/synthesis-application/SKILL.md)** — Completeness + logic + applicability gate after component extraction; produces GO / GO_WITH_GAPS / NO_GO verdict. Adler's "Is it true? What of it?" pass.
-- **[paper-three-pass-extraction](skills/paper-three-pass-extraction/SKILL.md)** — Three-pass + Five Cs extraction methodology specifically for academic papers. Wraps inspectional-reading as Pass 1; adds Pass 2 (content grasp) and Pass 3 (deep understanding). Powers the `paper-extractor` agent.
+- **[inspectional-reading](skills/inspectional-reading/SKILL.md)** — Level 1. First-level systematic skim — classify document type, decide whether deeper reading is worth it. Adler's "How to Read a Book" Level 1, generalized.
+- **[structural-analysis](skills/structural-analysis/SKILL.md)** — Level 2. Classify content (practical vs theoretical, structure type, completeness 1-5), state unity in one sentence, enumerate parts, define problems. Adler's analytical-reading first stage.
+- **[component-extraction](skills/component-extraction/SKILL.md)** — Level 3. Section-by-section extraction of terms, propositions, arguments, solutions. Reading-strategy selection (section-based / windowing / targeted) for the right document size.
+- **[synthesis-application](skills/synthesis-application/SKILL.md)** — Level 4. Completeness + logic + applicability gate after component extraction; produces GO / GO_WITH_GAPS / NO_GO verdict. Adler's "Is it true? What of it?" pass.
+- **[skill-construction](skills/skill-construction/SKILL.md)** — Construction step. Build SKILL.md + resources + rubric from extracted components at appropriate complexity (Level 1-3).
+- **[paper-three-pass-extraction](skills/paper-three-pass-extraction/SKILL.md)** — Three-pass + Five Cs extraction methodology specifically for academic papers. Wraps inspectional-reading as Pass 1; adds Pass 2 (content grasp via structural-analysis + component-extraction) and Pass 3 (deep understanding). Powers the `paper-extractor` agent.
 
 ### Literature scan
 
