@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-216-blue) ![Agents](https://img.shields.io/badge/agents-42-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-216-blue) ![Agents](https://img.shields.io/badge/agents-43-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **216 skills** and **42 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
+A production-ready library of **216 skills** and **43 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -21,6 +21,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 |---|---|
 | Value a company / analyze an M&A target / plan an IPO | [`company-analyst`](agents/company-analyst.md), [`acquisition-analyst`](agents/acquisition-analyst.md), [`ipo-strategist`](agents/ipo-strategist.md), [`special-situations-analyst`](agents/special-situations-analyst.md) |
 | Research a thematic macro trend cluster (AI compute cycle, demographic shift, climate transition, etc.) | [`macroeconomic-analyst`](agents/macroeconomic-analyst.md) |
+| Reverse-engineer a real product's vision / strategy / tactics / ML and system architecture from public material | [`product-strategist`](agents/product-strategist.md) |
 | Decide how to allocate capital (debt / dividends / projects) | [`capital-allocation-strategist`](agents/capital-allocation-strategist.md) |
 | Manage my Yahoo Fantasy Baseball team | [`mlb-fantasy-coach`](agents/mlb-fantasy-coach.md) + 6 MLB specialists |
 | Run my household finances from PDF statements (drop in, briefing + dashboard out) | [`household-cfo`](agents/household-cfo.md) + 8 household specialists |
@@ -41,6 +42,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 flowchart LR
     U([What do you need?]) --> D{Task}
     D -->|Analyze a company| CA[company-analyst<br/>acquisition-analyst<br/>ipo-strategist]
+    D -->|Analyze a product| PS[product-strategist]
     D -->|Write something| WA[writing-assistant<br/>scientific-writing-editor]
     D -->|Forecast / decide| SF[superforecaster]
     D -->|Design / visualize| CD[cognitive-design-architect]
@@ -51,7 +53,7 @@ flowchart LR
     D -->|Math intuition| MI[math-intuition-<br/>coach]
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(216 skills)]
+    CA & PS & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(216 skills)]
     SK --> S
 ```
 
@@ -76,6 +78,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**company-analyst**](agents/company-analyst.md) | End-to-end company valuation → buy/sell/hold recommendation |
 | [**special-situations-analyst**](agents/special-situations-analyst.md) | Distressed / private / high-growth / financial-firm valuation |
 | [**macroeconomic-analyst**](agents/macroeconomic-analyst.md) | Deep thematic research on one trend cluster — sub-trends, value chains, beneficiary archetypes, pricing-in assessment, watch-indicators |
+| [**product-strategist**](agents/product-strategist.md) | Outside-in layered analysis of a real product — vision, strategy, tactics, operational surface, system & ML architecture map, strategist synthesis |
 | [**capital-allocation-strategist**](agents/capital-allocation-strategist.md) | Financing mix, dividends/buybacks, project investment |
 | [**acquisition-analyst**](agents/acquisition-analyst.md) | M&A standalone + synergy + max bid |
 | [**ipo-strategist**](agents/ipo-strategist.md) | Pre-IPO → post-IPO valuation and pricing range |
