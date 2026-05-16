@@ -11,6 +11,8 @@ A production-ready library of **218 skills** and **43 orchestrating agents** for
 /plugin install thinking-frameworks-skills
 ```
 
+> **Note:** A small number of skills wrap native CLI tools (currently only [`markdown-to-pdf`](skills/markdown-to-pdf/SKILL.md), which needs `pandoc` and a LaTeX engine). Those tools must be installed separately. See [Optional native dependencies](#optional-native-dependencies) below. **All other skills work out of the box.**
+
 ---
 
 ## I want to…
@@ -107,6 +109,30 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**technical-reviewer**](agents/technical-reviewer.md) | Pre-publish claim check — simplified / wrong / contested / overclaim classification with primary sources |
 | [**curator**](agents/curator.md) | Every 4-6 weeks: section map maintenance; active + reactive; handles per-section voice overlays |
 | [**growth-strategist**](agents/growth-strategist.md) | Quarterly (rolling 13-week) strategic zoomout with uncomfortable questions and kill list |
+
+---
+
+## Optional native dependencies
+
+A small number of skills wrap native command-line tools and only work if those tools are installed on the user's machine. **All such skills are optional.** If a required tool is missing, the skill exits immediately with the exact install commands; nothing breaks silently and the rest of the library continues to work normally.
+
+If you do not want to install the tools below, simply do not invoke the skills that need them. Every other skill in this repository, and every agent that does not include one of these skills in its pipeline, works without any additional native dependencies.
+
+### Skills with native dependencies
+
+| Skill | Native dependency | Why it's needed | Install (macOS) | Install (Linux / Debian) |
+|---|---|---|---|---|
+| [`markdown-to-pdf`](skills/markdown-to-pdf/SKILL.md) | `pandoc` and a LaTeX engine (`xelatex`) | Renders a finished markdown report to an analyst-style PDF. The LaTeX engine produces the typography. Without these tools the skill cannot run; it has no fallback rendering path. | `brew install pandoc basictex`<br/>`sudo tlmgr update --self`<br/>`sudo tlmgr install xetex` | `sudo apt install pandoc texlive-xetex texlive-fonts-recommended` |
+
+`basictex` on macOS is about 90 MB. Do not install `mactex` unless you specifically need the full LaTeX stack (~5 GB).
+
+### Agents that invoke these skills
+
+Currently only one agent pipeline includes a dependency-requiring skill:
+
+- [`product-strategist`](agents/product-strategist.md) calls `markdown-to-pdf` in its final step to render the finished strategist report.
+
+If you run `product-strategist` without `pandoc` or `xelatex` installed, the agent still produces its primary markdown report; only the PDF rendering step is affected, and the agent will surface the install instructions in that case. You can install the tools later and re-render any past markdown report on demand.
 
 ---
 
@@ -220,7 +246,7 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 - **[translation-reframing-audience-shift](skills/translation-reframing-audience-shift/SKILL.md)** — Adapt content for a new audience without losing accuracy.
 - **[one-pager-prd](skills/one-pager-prd/SKILL.md)** — Write concise one-pagers and PRDs for stakeholder alignment.
 - **[strategist-voice](skills/strategist-voice/SKILL.md)** — Apply the analyst-grade house style for long-form strategist reports: no em dashes, footnoted citations, opinion via phrasing.
-- **[markdown-to-pdf](skills/markdown-to-pdf/SKILL.md)** — Render a finished markdown report to PDF via pandoc and xelatex with analyst-style typography.
+- **[markdown-to-pdf](skills/markdown-to-pdf/SKILL.md)** — Render a finished markdown report to PDF via pandoc and xelatex with analyst-style typography. *Requires `pandoc` and a LaTeX engine installed locally — see [Optional native dependencies](#optional-native-dependencies).*
 
 ### Scientific & academic writing
 
