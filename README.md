@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-216-blue) ![Agents](https://img.shields.io/badge/agents-43-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-218-blue) ![Agents](https://img.shields.io/badge/agents-43-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **216 skills** and **43 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
+A production-ready library of **218 skills** and **43 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
 
 **Install in 30 seconds:**
 
@@ -53,7 +53,7 @@ flowchart LR
     D -->|Math intuition| MI[math-intuition-<br/>coach]
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(216 skills)]
+    CA & PS & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(218 skills)]
     SK --> S
 ```
 
@@ -112,7 +112,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 
 ## Skills Index
 
-**216 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**218 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -208,7 +208,7 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 </details>
 
 <details>
-<summary><b>✍️ Communication & Writing</b> — writing pipeline, scientific writing, audience adaptation (13 skills)</summary>
+<summary><b>✍️ Communication & Writing</b> — writing pipeline, scientific writing, audience adaptation, analyst voice, PDF rendering (15 skills)</summary>
 
 ### General writing
 
@@ -219,6 +219,8 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 - **[communication-storytelling](skills/communication-storytelling/SKILL.md)** — Craft narratives using arcs, tension, and audience framing.
 - **[translation-reframing-audience-shift](skills/translation-reframing-audience-shift/SKILL.md)** — Adapt content for a new audience without losing accuracy.
 - **[one-pager-prd](skills/one-pager-prd/SKILL.md)** — Write concise one-pagers and PRDs for stakeholder alignment.
+- **[strategist-voice](skills/strategist-voice/SKILL.md)** — Apply the analyst-grade house style for long-form strategist reports: no em dashes, footnoted citations, opinion via phrasing.
+- **[markdown-to-pdf](skills/markdown-to-pdf/SKILL.md)** — Render a finished markdown report to PDF via pandoc and xelatex with analyst-style typography.
 
 ### Scientific & academic writing
 
