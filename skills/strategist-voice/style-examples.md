@@ -11,6 +11,8 @@ Concrete rewrites that follow the house rules in SKILL.md. Use as reference when
 - 5. Citation form
 - 6. Synthesis statements
 - 7. Architecture section prose
+- 8. Defining or avoiding strategy jargon
+- 9. Replacing X-shaped abstractions
 
 ## 1. Opening paragraphs
 
@@ -120,3 +122,37 @@ The first sentence states the take in one line. The next three sentences earn it
 > Figma's multiplayer is not a true CRDT. The choice was deliberate. Server authority plus property-level last-writer-wins gives the same offline-tolerant behavior at a fraction of the operational complexity, and the company has been explicit about that tradeoff in its engineering writeups.[^3] The actual architectural moat is one layer below the protocol choice: one Rust process per active document, with a DynamoDB write-ahead journal absorbing roughly 2.2 billion property changes a day, and a separate Go service called LiveGraph that handles every non-canvas update by tailing the Postgres WAL.[^7] None of that is the sort of system a model lab could reproduce from a standing start.
 
 Note the structure: claim, justification, the technical material, and a final sentence of analyst opinion that connects the architecture back to the competitive position. The footnotes carry the URLs.
+
+## 8. Defining or avoiding strategy jargon
+
+### Bad: undefined term assumed twice
+
+> The risk of this stage is classic: companies that try to platform-expand before fully consolidating the wedge get punished when the wedge gets attacked.
+
+A generalist reader does not know what *the wedge* is. The term carries the load-bearing claim of the sentence, and the reader has no anchor. The sentence treats the reader as already inside the conversation.
+
+### Good: define inline on first use
+
+> A company's *wedge* is the narrow product or customer segment it used to enter the market: in Figma's case, the lone product designer or small design team doing UI work in the browser. Companies that move on to adjacent surfaces before that wedge is unassailable tend to get punished the moment something attacks it.
+
+The first sentence does the defining. The second sentence uses the term once it has been earned. Note that *the* is not capitalized and the definition is folded into a normal sentence.
+
+### Even better: avoid the term entirely
+
+> Figma is most vulnerable on its original product, the browser-native UI design canvas, not on its newer products. That original surface is what every other Figma bet rests on. It is also what Anthropic's Claude Design is targeting most directly.
+
+The jargon is gone. The argument is the same. The reader did not have to learn a new term to follow the analysis.
+
+## 9. Replacing X-shaped abstractions
+
+### Bad: abstract labels doing analytical work
+
+> The credible vision for this stage is platform-shaped and ecosystem-shaped, not feature-shaped. Figma's MCP server and Payload acquisition match that, while Buzz and Slides do not.
+
+*Platform-shaped*, *ecosystem-shaped*, *feature-shaped* sound like they mean something. They do not. They are placeholders for a description the writer did not commit to.
+
+### Good: concrete description
+
+> At this stage, a credible vision looks like a base layer that other companies build on, not a single new feature. The MCP server and the Payload acquisition fit that pattern: MCP is a protocol other AI agents read from, and Payload is the backend layer underneath Figma Sites. Buzz and Slides do not fit the pattern. They are individual products competing on their own merits against Canva and Google Slides.
+
+The concrete description ("a base layer that other companies build on") replaces three -shaped labels and tells the reader exactly what is meant. The follow-up sentences earn the categorization by showing the mechanism in each case.

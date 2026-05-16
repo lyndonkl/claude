@@ -28,6 +28,8 @@ The consolidating agent must enforce these. They are non-negotiable. Run the che
 6. **No tl;dr-style closers.** No "In conclusion," "Ultimately," "To summarize." The strategist verdict section is the conclusion; the rest of the report should not summarize itself in passing.
 7. **Bulleted lists only where the structure earns them.** Strategic bet lists, surface cards, metric lists, and the bibliography are correct uses. A list as a substitute for an argument-in-prose paragraph is incorrect.
 8. **No "X is doing Y because Z" as a primary sentence shape repeated across paragraphs.** It reads as machine output. Vary.
+9. **No undefined strategy jargon.** Terms like *the wedge*, *flywheel*, *TAM*, *NDR*, *aggregation theory*, *platform-shaped*, *land-and-expand*, *moat*, *take rate*, *attach rate* must be defined on first appearance, or rewritten away. Define inline (a brief parenthetical, an appositive phrase, or a setup sentence immediately before the term). If defining the term breaks the prose flow, restructure the sentence to avoid the term entirely. The reader is a smart generalist, not a strategy consultant. A term used twice without ever being defined is the single clearest signal that the writer has copied a register rather than thought through the argument.
+10. **No abstract X-shaped / Y-shaped labels doing analytical work.** Phrases like *"the vision is platform-shaped, not feature-shaped"* sound analytical but explain nothing. Replace with the concrete description the label was standing in for. Example: *"the credible vision at this stage is a base layer that other products build on, not a single feature."*
 
 ## Opinion signaling
 
@@ -102,6 +104,8 @@ Strategist-voice final pass:
 - [ ] Sentence length varies visibly within paragraphs
 - [ ] First-person ("we," "this analyst's reading") used at most twice per major section
 - [ ] Bibliography is grouped by source type and uses numbered footnote anchors that match in-text markers
+- [ ] Every strategy-jargon term ("wedge", "flywheel", "TAM", "NDR", "moat", "attach rate", "X-shaped" labels, etc.) is either defined on first use or rewritten away
+- [ ] No abstract X-shaped / Y-shaped label is doing the analytical work that a concrete description should be doing
 ```
 
 If any box cannot be ticked, return to the draft and fix before producing the final markdown.
