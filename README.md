@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-218-blue) ![Agents](https://img.shields.io/badge/agents-43-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-225-blue) ![Agents](https://img.shields.io/badge/agents-52-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **218 skills** and **43 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, and a 9-agent team for growing a Substack publication.
+A production-ready library of **225 skills** and **52 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection.
 
 **Install in 30 seconds:**
 
@@ -36,6 +36,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Build geometric intuition for ML math (attention, PCA, eigenvectors, high-dim spaces) | [`math-intuition-coach`](agents/math-intuition-coach.md) |
 | Get a weekly digest of new bioRxiv / medRxiv / PubMed / arXiv papers (life sciences + CS / ML) against my keyword watchlist | [`literature-scan-coach`](agents/literature-scan-coach.md) → [`paper-synthesizer`](agents/paper-synthesizer.md) |
 | Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more (see `~/Documents/Thinking/substacker/`) |
+| Learn ML-driven crop genetics / genomic selection (experiential study → notes → publish in public) | [`biostat-tutor`](agents/biostat-tutor.md), [`biostat-assessor`](agents/biostat-assessor.md), [`biostat-editor`](agents/biostat-editor.md) + 6 more (see `~/Documents/Projects/learnbiostats/`) |
 | Use just one tool (no agent) | Browse the [Skills Index](#skills-index) below |
 
 ## How the pieces fit together
@@ -54,8 +55,9 @@ flowchart LR
     D -->|Symmetry-aware ML| GDL[geometric-deep-<br/>learning-architect]
     D -->|Math intuition| MI[math-intuition-<br/>coach]
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
+    D -->|Learn crop genomics| BIO[biostat-tutor<br/>+ 8 specialists]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC --> S[(218 skills)]
+    CA & PS & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC & BIO --> S[(225 skills)]
     SK --> S
 ```
 
@@ -109,6 +111,15 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**technical-reviewer**](agents/technical-reviewer.md) | Pre-publish claim check — simplified / wrong / contested / overclaim classification with primary sources |
 | [**curator**](agents/curator.md) | Every 4-6 weeks: section map maintenance; active + reactive; handles per-section voice overlays |
 | [**growth-strategist**](agents/growth-strategist.md) | Quarterly (rolling 13-week) strategic zoomout with uncomfortable questions and kill list |
+| [**biostat-tutor**](agents/biostat-tutor.md) | Socratic experiential (Kolb) tutor for one learning module; never summarizes — draws the claim out and routes it to an evergreen note |
+| [**biostat-assessor**](agents/biostat-assessor.md) | Closed-book Bloom-tagged probing; mastery banding; expanding-interval spaced-repetition scheduling |
+| [**biostat-lab**](agents/biostat-lab.md) | Lab + project mentor; designs and reviews experiential genomics projects; enforces cross-validation and predict-then-check |
+| [**biostat-coach**](agents/biostat-coach.md) | Curriculum coach; tracks phase/module progress and pacing; surfaces the spaced-repetition queue |
+| [**biostat-scribe**](agents/biostat-scribe.md) | Generative vault-style note/post writer from the learner's own evergreen claims (provenance-tracked) |
+| [**biostat-editor**](agents/biostat-editor.md) | Advisory-only editor for dictated essays — directs structure, flags grammar, suggests language; never rewrites unless told (read-only by design) |
+| [**biostat-emergence**](agents/biostat-emergence.md) | Bottom-up clustering of evergreen notes into structure notes (4+ to form a cluster, >12 to split) |
+| [**biostat-health**](agents/biostat-health.md) | Vault + curriculum health audit — orphans, duplicate claims, weak titles, status drift, overdue reviews |
+| [**biostat-viz**](agents/biostat-viz.md) | Interactive D3 genetics/genomics visualizations for the docs/ site; delegates design review to cognitive-design-architect |
 
 ---
 
@@ -138,7 +149,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**218 skills** across 7 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**225 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -506,6 +517,21 @@ Pairs with the working folder at `~/Documents/Thinking/substacker/` (inbox, corp
 
 </details>
 
+<details>
+<summary><b>📚 Learning Studio</b> — experiential study + learning-in-public writing for ML-driven crop genetics (7 skills)</summary>
+
+Pairs with the learning vault at `~/Documents/Projects/learnbiostats/` (Kolb curriculum, Zettelkasten evergreen notes, dictation-to-publish writing studio, GitHub Pages site). Powers the 9 `biostat-*` agents.
+
+- **[experiential-kolb-teaching](skills/experiential-kolb-teaching/SKILL.md)** — Run a learning module as a Kolb cycle; withhold the explanation, draw the claim out, route it to an evergreen note.
+- **[mastery-assessment](skills/mastery-assessment/SKILL.md)** — Bloom-tagged closed-book probing + Dreyfus mastery bands + expanding-interval spaced repetition.
+- **[zettel-note](skills/zettel-note/SKILL.md)** — Write atomic declarative-claim vault notes with piped links and search-before-create dedup.
+- **[learning-in-public-voice](skills/learning-in-public-voice/SKILL.md)** — House style for learning-in-public essays; defers to the writer's own voice-profile.md.
+- **[advisory-edit](skills/advisory-edit/SKILL.md)** — Strict advisory-only editing: direct structure, flag grammar, suggest language; never rewrite unless told.
+- **[spoken-draft-cleanup](skills/spoken-draft-cleanup/SKILL.md)** — Turn a dictation transcript into a clean draft with the voice preserved; mechanical-only, flag don't fix.
+- **[genomics-viz](skills/genomics-viz/SKILL.md)** — Build interactive D3 genetics visualizations (HWE, drift, LD, GxE, prediction accuracy) with visual-storytelling.
+
+</details>
+
 ---
 
 ## Installation
@@ -517,7 +543,7 @@ Pairs with the working folder at `~/Documents/Thinking/substacker/` (inbox, corp
 /plugin install thinking-frameworks-skills
 ```
 
-All 188 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
+All 225 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
 
 <details>
 <summary><b>Option 2 — Manual install</b></summary>
