@@ -238,11 +238,10 @@ The red team should:
 
 **Action:** Say "I will now synthesize the Balancer and Puncher variants via `dialectical-mapping-steelmanning` to produce the week plan."
 
-The synthesis seeks the third way between "push 10" and "concede 3":
-- If the variants agree on the ranking of the bottom 2, that is the defensible concede set.
-- If the variants disagree, default to `maintain` (not `concede`) on the disputed cats — leave them live unless the roster cost is clearly wasted.
-- If `cat_punt_score > 70` AND projection delta is strongly negative AND the critic recommends punt, concede the cat.
-- Otherwise, default to the Balancer's push — the cost of a mistaken punt (a free loss) exceeds the cost of a mistaken push (diluted resources).
+The synthesis seeks the third way between "push 10" and "concede 3". **Default toward CONCENTRATION, not balance, whenever the matchup has bloc/lock structure** — in H2H Cats you need exactly 6 of 10, so dominating 6-7 is usually higher-EV than diluting effort across 9. (Audit finding, `yahoo-mlb/signals/2026-06-02-orchestration-audit-report.md`: the reflexive Balancer-default was the single most suspect doctrine in the system, and it contradicts the `category-allocation-best-response` engine this agent runs as primary.)
+- **Concentration default.** If we hold a dominant cat-bloc (≥3 near-locks — e.g. our ace ratio/QS/K core) OR the opponent locks a cat against us (`cat_reachability < 25` — e.g. a 3-closer SV wall), CONCEDE the dominated cat(s) and redeploy that leverage (roster slots, FAAB, streaming starts, lineup tiebreakers) onto the contested cats that decide the 6th win. A dominated-strategy punt is not a free loss — it is freed capacity.
+- **Relaxed punt gate (2-of-3).** Concede a cat when ANY 2 of these hold: `cat_punt_score > 60`; projection delta strongly negative; critic recommends punt. (Previously a triple-AND at >70, which made punting nearly impossible and produced chronic thin-everywhere allocations.)
+- **Balancer-push only when no bloc/lock structure exists** — a broadly even matchup with no dominant strength of ours and no locked cat of theirs. There, leave disputed cats `maintain` (live) rather than concede, since the cost of a mistaken punt exceeds the cost of a mistaken push.
 
 Then red-team the synthesis via `deliberation-debate-red-teaming`: what if the opponent makes a big add Wednesday, what if our ace gets scratched, what if a punted cat unexpectedly becomes live?
 
