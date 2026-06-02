@@ -83,18 +83,20 @@ Pace base: 0.6 (Apr wk 1-4), 1.0 (May-Jun), 1.2 (Jul-Aug), 1.4/0.5 (Sept contend
 
 Default to `common_value` when uncertain (conservative; triggers haircut).
 
-**Step 4: Invoke `auction-winners-curse-haircut`**:
+**Step 4: Invoke `auction-winners-curse-haircut`** — keyed off CONTESTED bidders, not the full field:
 ```
-inputs = { raw_valuation: base_value, value_type, n_informed_bidders: N,
+inputs = { raw_valuation: base_value, value_type, n_informed_bidders: n_contesters,
            signal_dispersion: 40 (default) }
 ```
-Consume `adjusted_valuation`. Preserve `classification_rationale` for output. Dispersion defaults: 60 for prospects, 30 for established players, 40 otherwise.
+`n_contesters` = rivals realistically expected to bid on THIS specific target (see Step 5). **Do NOT pass the full plausible field here.** The winner's-curse haircut (Step 4) and the first-price shade (Step 6) MUST key off different counts — otherwise one "many bidders" signal is counted twice and we systematically under-bid contested closers/call-ups to ~58% of true value (audit 2026-06-02, the verified `mlb-faab-sizer` double-count). If `n_contesters <= 1` the target is effectively uncontested → the haircut short-circuits to 0 (treat as private-value). Consume `adjusted_valuation`; preserve `classification_rationale`. Dispersion defaults: 60 prospects, 30 established, 40 otherwise.
 
-**Step 5: Estimate N** from opponent profiles (teams with positional_need > 50, faab > 20% original, activity >= moderate). Clamp [1, 8]. Defaults: common superstar 6, common role-player 3, private 1-2.
+**Step 5: Estimate the TWO bidder counts** from opponent profiles (they are deliberately different numbers; they converge only when a target is genuinely hotly contested):
+- `n_contesters` (drives Step 4 haircut) — rivals with positional_need > 50 AND faab > 20% original AND activity >= moderate AND a concrete reason to want THIS player. In our deflated market (modal winning bid $1-2) this is typically **1-2**, occasionally 3-4 for a confirmed closer change. Clamp [0, 6].
+- `N_field` (drives Step 6 shading) — the broader set who *could* plausibly bid. Clamp [1, 8]. Defaults: common superstar 6, role-player 3, private 1-2.
 
-**Step 6: Invoke `auction-first-price-shading`**:
+**Step 6: Invoke `auction-first-price-shading`** — keyed off the full field:
 ```
-inputs = { true_value: adjusted_valuation, n_bidders_estimate: N,
+inputs = { true_value: adjusted_valuation, n_bidders_estimate: N_field,
            value_distribution: "log-normal" (MLB default),
            risk_aversion: 0.2 (bump to 0.4 for contending September),
            budget_remaining: faab_remaining }

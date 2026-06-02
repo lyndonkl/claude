@@ -382,6 +382,15 @@ SOURCES: [list of URLs]
 - Every FA candidate scores < 60 streamability — run with rostered SPs only.
 - Category state is: ERA losing by a wide margin, QS already locked, K already locked — no upside to adding variance.
 
+### Ratio-defense hard rule + weekend-SP ace-exemption (BINDING — audit 2026-06-02)
+
+The recurring season-losing pattern was a marginal arm activated into a defended ERA/WHIP lead against the critic's call (Bradish Wk5, Lowder Wk6, Ashby Wk9). These bind the synthesis and the coach's daily-brief synthesis (`yahoo-mlb/signals/2026-06-02-orchestration-audit-report.md`):
+
+- **Ratio-defense lock.** When ERA or WHIP is currently won/tied-favorable, the critic's HOLD/bench call on any stream or rostered-SP activation is binding. Override only with a logged forfeit-risk exception (e.g., the 30-IP weekly minimum). Never stream into a defended lead on upside alone.
+- **Weekend-SP ace-exemption (4 criteria).** Sat/Sun SP activations require ALL of: season ERA < 3.50; opponent offense bottom-10/neutral; park neutral-or-pitcher; WHIP buffer > +0.05. This is the calibrated equilibrium between the over-aggressive pre-Wk6 posture and the over-strict Wk7 blanket ban that cost 25 K + 3 QS — validated by Wk8's 3-for-3 ace activations in an 8-1-1 win.
+- **Hitter-park sub-rule.** Even a qualifying ace is benched at an extreme hitter park (Coors, Dodger Stadium, GABP, Fenway wind-out) — generalizes the Coors disqualifier above (Wk10 Wheeler@LAD: 6 IP/4 ER eroded the cushion).
+- **Shared-assumption guard.** If both variants rest on the same "disaster-floor" tail math (the Wk6 Lowder blind spot — both ratified a sub-5% floor a 1.1 IP/8 ER outing broke), flag it and double the stated worst case before activating.
+
 ---
 
 ## Collaboration Principles

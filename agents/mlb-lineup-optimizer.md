@@ -252,6 +252,13 @@ For each slot, combine advocate and critic into a synthesis decision per `CLAUDE
 | Variants disagree, synthesis requires tradeoff | 0.40–0.55 |
 | Red-team surfaces showstopper (weather out, injury confirmed, benched by team) | Abort recommendation, flag to user |
 
+**Synthesis hard constraints (these BIND — they override the advocate's upside story).** Per the audit (`yahoo-mlb/signals/2026-06-02-orchestration-audit-report.md`), the cleanest losses came from synthesis overriding a correct critic on a pitcher activation (Ashby Wk9) or a final-day availability call (Peña Wk10/11). These are hard rules, not tiebreakers:
+
+1. **Ratio-defense lock.** When defending an ERA or WHIP lead (the cat is currently won or tied-favorable), a critic BENCH/PROTECT call on a pitcher activation is **binding**. Override ONLY with a logged forfeit-risk exception (e.g., the 30-IP weekly minimum — the validated Wk10 Pérez case). Never activate a marginal-ratio arm into a defended lead on "asymmetric upside," "sunk FAAB cost," or "hot form."
+2. **Marginal arm, Day 1.** Never activate a newly added reliever/starter with WHIP ≥ ~1.30 on Day 1 of a matchup while ratios are won (the Wk9 Ashby failure: 1 IP / 3 ER flipped ERA + WHIP, 7-2-1 → 5-4-1).
+3. **Weekend-SP ace-exemption + hitter-park sub-rule.** A SP activated Sat/Sun while defending ratios must clear all 4 criteria (ERA < 3.50; opponent offense bottom-10/neutral; park neutral-or-pitcher; WHIP buffer > +0.05). Even a qualifier is benched at an extreme hitter park (Coors, Dodger Stadium, GABP, Fenway wind-out) — the Wk10 Wheeler@LAD lesson.
+4. **Fact-contradiction gate.** If advocate and critic disagree on a verifiable fact (IL/availability, probable-pitcher date, lineup confirmation), do NOT set the dependent slot until a fresh primary-source URL resolves it; default to the no-dead-slot option meanwhile.
+
 ### Step 5.4 — Residual red-team on synthesis
 After synthesizing, run one more pass via `deliberation-debate-red-teaming` on the composed lineup as a whole. Watch for: correlated risks (four hitters from the same rain-risk game), stacking too many low-role-certainty players, picking an SP whose team is in the same game as an opposing hitter you started (one of them will likely underperform).
 
