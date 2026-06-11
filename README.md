@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-225-blue) ![Agents](https://img.shields.io/badge/agents-52-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-241-blue) ![Agents](https://img.shields.io/badge/agents-62-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **225 skills** and **52 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection.
+A production-ready library of **241 skills** and **62 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection.
 
 **Install in 30 seconds:**
 
@@ -26,6 +26,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Reverse-engineer a real product's vision / strategy / tactics / ML and system architecture from public material | [`product-strategist`](agents/product-strategist.md) |
 | Decide how to allocate capital (debt / dividends / projects) | [`capital-allocation-strategist`](agents/capital-allocation-strategist.md) |
 | Manage my Yahoo Fantasy Baseball team | [`mlb-fantasy-coach`](agents/mlb-fantasy-coach.md) + 6 MLB specialists |
+| Run my FIFA World Cup Fantasy squad (evolutionary boards — agents propose, you decide) | [`wc-director`](agents/wc-director.md) + 9 team agents (see `~/Documents/Projects/footballfantasy/`) |
 | Run my household finances from PDF statements (drop in, briefing + dashboard out) | [`household-cfo`](agents/household-cfo.md) + 8 household specialists |
 | Write a paper / grant / recommendation letter | [`scientific-writing-editor`](agents/scientific-writing-editor.md) |
 | Improve any piece of writing (blog, memo, essay) | [`writing-assistant`](agents/writing-assistant.md) |
@@ -50,6 +51,7 @@ flowchart LR
     D -->|Forecast / decide| SF[superforecaster]
     D -->|Design / visualize| CD[cognitive-design-architect]
     D -->|Fantasy baseball| MLB[mlb-fantasy-coach<br/>+ 6 specialists]
+    D -->|World Cup fantasy| WC[wc-director<br/>+ 9 team agents]
     D -->|Household finances| HF[household-cfo<br/>+ 8 specialists]
     D -->|Knowledge retrieval| GR[graphrag-specialist]
     D -->|Symmetry-aware ML| GDL[geometric-deep-<br/>learning-architect]
@@ -57,7 +59,7 @@ flowchart LR
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
     D -->|Learn crop genomics| BIO[biostat-tutor<br/>+ 8 specialists]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & SF & CD & MLB & HF & GR & GDL & MI & LSC & BIO --> S[(225 skills)]
+    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO --> S[(241 skills)]
     SK --> S
 ```
 
@@ -93,6 +95,16 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**mlb-trade-analyzer**](agents/mlb-trade-analyzer.md) | On-demand trade offer evaluation with always-counter ladder |
 | [**mlb-category-strategist**](agents/mlb-category-strategist.md) | Weekly push/punt plan across the 10 H2H categories |
 | [**mlb-playoff-planner**](agents/mlb-playoff-planner.md) | July-onward positioning for weeks 21–23 playoff window |
+| [**wc-director**](agents/wc-director.md) | FIFA World Cup Fantasy main-thread orchestrator — runs the evolutionary generation loop, presents decision boards, the manager decides |
+| [**wc-strategist**](agents/wc-strategist.md) | Population member — one archetype genotype per parallel spawn, builds a complete candidate squad/plan |
+| [**wc-evolution-engine**](agents/wc-evolution-engine.md) | Fitness, variance-clique selection, building-block crossover + repair, mutation, diversity guard |
+| [**wc-synthesis**](agents/wc-synthesis.md) | Lens fan-in reconciler — integrates advocate/critic verdicts, preserves residual dissent, never argmaxes |
+| [**wc-scout**](agents/wc-scout.md) | Player minutes/role/set-piece/fitness data spine via live web search |
+| [**wc-fixture-analyst**](agents/wc-fixture-analyst.md) | Fixture difficulty, progression odds (2026 best-thirds math), mismatches, swing calendar |
+| [**wc-squad-architect**](agents/wc-squad-architect.md) | Feasibility, value-per-million, transfers, Wildcard rebuild scoping, fragility scan |
+| [**wc-matchday-tactician**](agents/wc-matchday-tactician.md) | XI, captain ladder, bench order by kickoff, manual-sub triggers — the in-round 20–40 pts edge |
+| [**wc-chip-strategist**](agents/wc-chip-strategist.md) | Times the five chips across the tournament horizon (deploy vs hold) |
+| [**wc-ownership-analyst**](agents/wc-ownership-analyst.md) | Effective ownership, template vs differential, field over-concentration, mini-league rival leverage |
 | [**household-cfo**](agents/household-cfo.md) | Master orchestrator + synthesizer for the household finance team; runs per-drop, monthly, and ad-hoc chat |
 | [**household-intake-classifier**](agents/household-intake-classifier.md) | Per-PDF document classification + manifest + account matching |
 | [**household-bookkeeper**](agents/household-bookkeeper.md) | PDF → reconciled, deduplicated, categorized JSON store with append-only commit |
@@ -149,7 +161,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**225 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**241 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -408,6 +420,27 @@ Baseball-specific skills for a H2H Categories league. Pairs with the companion r
 - **[mlb-decision-logger](skills/mlb-decision-logger/SKILL.md)** — Append structured decision entries; run Monday calibration.
 - **[mlb-beginner-translator](skills/mlb-beginner-translator/SKILL.md)** — Wrap jargon in plain English with inline translations.
 
+### FIFA World Cup Fantasy (16)
+
+Skills for the evolutionary World Cup fantasy backroom. Pairs with the companion runtime at `~/Documents/Projects/footballfantasy/`.
+
+- **[wc-player-ev](skills/wc-player-ev/SKILL.md)** — Per-player per-round xEV: minutes cliff, fixture-scaled npxG/xA, pen/set-piece premium.
+- **[wc-clean-sheet-model](skills/wc-clean-sheet-model/SKILL.md)** — Clean-sheet probability + the stack-correlation bonus for defensive blocks.
+- **[wc-captain-ladder](skills/wc-captain-ladder/SKILL.md)** — Rolling-captaincy EV: optimal armband switching across staggered kickoffs.
+- **[wc-fixture-progression](skills/wc-fixture-progression/SKILL.md)** — Two-way fixture difficulty, progression odds (incl. 2026 best-thirds), mismatches, swings.
+- **[wc-ownership-meta](skills/wc-ownership-meta/SKILL.md)** — Effective ownership, template vs differential, rank-leverage under protect/gain.
+- **[wc-matchday-timing](skills/wc-matchday-timing/SKILL.md)** — Kickoff spread, bench order by kickoff, manual-sub triggers, MD3 simultaneity guard.
+- **[wc-transfer-planner](skills/wc-transfer-planner/SKILL.md)** — Free-transfer ROI, forced elimination swaps, Wildcard-rebuild threshold.
+- **[wc-chip-timing](skills/wc-chip-timing/SKILL.md)** — Per-chip leverage by round; earmarks, triggers, the never-hoard-to-the-semis clock.
+- **[wc-fitness-eval](skills/wc-fitness-eval/SKILL.md)** — Risk-adjusted, rank-relative fitness with full decomposition + Goodhart guard.
+- **[wc-building-block-crossover](skills/wc-building-block-crossover/SKILL.md)** — Recombine squads at building-block boundaries with a feasibility repair operator.
+- **[wc-archetype-mutation](skills/wc-archetype-mutation/SKILL.md)** — Bounded, feasibility-preserving perturbations on offspring candidates.
+- **[wc-population-diversity](skills/wc-population-diversity/SKILL.md)** — Anti-inbreeding guard: collapse metrics, wider-kernel re-seed, selection-pressure tuning.
+- **[wc-decision-board](skills/wc-decision-board/SKILL.md)** — Render the advisory decision board: 2–4 options, decomposition, dissent, your-call.
+- **[wc-tournament-state](skills/wc-tournament-state/SKILL.md)** — The tournament state machine: phase, budget, nation cap, chips, elimination horizons.
+- **[wc-decision-logger](skills/wc-decision-logger/SKILL.md)** — Log the option set + pick + reasoning; archive generations; update scoreboards.
+- **[wc-signal-emitter](skills/wc-signal-emitter/SKILL.md)** — Validate and persist signals with schema, range, and citation enforcement.
+
 ### Specialized & meta (2)
 
 - **[chef-assistant](skills/chef-assistant/SKILL.md)** — Cook via technique, food science, flavor architecture.
@@ -543,7 +576,7 @@ Pairs with the learning vault at `~/Documents/Projects/learnbiostats/` (Kolb cur
 /plugin install thinking-frameworks-skills
 ```
 
-All 225 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
+All 241 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
 
 <details>
 <summary><b>Option 2 — Manual install</b></summary>
