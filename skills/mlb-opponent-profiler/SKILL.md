@@ -181,7 +181,7 @@ Classifier returns the archetype; the 10 per-cat strength scores come from a sep
 **Step 8: Write file atomically**
 
 - [ ] Write to temp file `<slug>.md.tmp`, fsync, rename
-- [ ] Validate output against [opponent-profile-schema.md](../../../yahoo-mlb/context/frameworks/opponent-profile-schema.md) frontmatter + section order before rename
+- [ ] Validate output against `yahoo-mlb/context/frameworks/opponent-profile-schema.md` frontmatter + section order before rename
 
 **Step 9: Emit signal file**
 

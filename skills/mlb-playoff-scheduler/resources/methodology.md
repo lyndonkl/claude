@@ -46,7 +46,7 @@ Working backward from Sep 6 (Sunday):
 
 **Total window**: 21 calendar days. **Max games per team**: ~21 (rare; most teams log 17-20). A 21-game team almost certainly has a doubleheader from a makeup game -- flag in the notes column.
 
-**Cross-check**: If Yahoo's league page shows different week-to-date mapping (e.g., if the league commissioner shifted start-of-week for a specific holiday), the league config file wins. Re-read [context/league-config.md](../../../../yahoo-mlb/context/league-config.md) on every run to detect config changes.
+**Cross-check**: If Yahoo's league page shows different week-to-date mapping (e.g., if the league commissioner shifted start-of-week for a specific holiday), the league config file wins. Re-read `yahoo-mlb/context/league-config.md` on every run to detect config changes.
 
 ---
 

@@ -107,7 +107,7 @@ Internal signal values (numeric `daily_quality`, `regression_index`, `streamabil
 
 **Step 6: Collapse to action verbs**
 
-Every recommendation must end in one of the approved action verbs with no hedging. No "consider," "think about," "might want to," "could try." See the full ladder in [CLAUDE.md](/Users/kushaldsouza/Documents/Projects/yahoo-mlb/CLAUDE.md) rule 6. If the upstream agent hedged, collapse the hedge into a single verb plus an explicit fallback action.
+Every recommendation must end in one of the approved action verbs with no hedging. No "consider," "think about," "might want to," "could try." See the full ladder in [CLAUDE.md](yahoo-mlb/CLAUDE.md) rule 6. If the upstream agent hedged, collapse the hedge into a single verb plus an explicit fallback action.
 
 - [ ] Every recommendation ends in: START / SIT / ADD / DROP / BID $X / ACCEPT / COUNTER (with suggested counter) / REJECT
 - [ ] A dedicated "Actions" bullet list appears at the end of every user-facing output
@@ -177,7 +177,7 @@ Score the translated output against [resources/evaluators/rubric_mlb_beginner_tr
 
 ## Quick Reference
 
-**The action-verb ladder (from [CLAUDE.md](/Users/kushaldsouza/Documents/Projects/yahoo-mlb/CLAUDE.md) rule 6):**
+**The action-verb ladder (from [CLAUDE.md](yahoo-mlb/CLAUDE.md) rule 6):**
 
 ```
 START             -- put this player in your active lineup today
@@ -226,7 +226,7 @@ Example:
 - **[resources/template.md](resources/template.md)**: Inline gloss patterns by term category (stats, positions, matchups, advanced, transactions, archetypes, signal names). Before/after translation templates for briefs, trade memos, waiver memos, chat replies.
 - **[resources/methodology.md](resources/methodology.md)**: The first-mention rule, assumed-knowledge trap list, action-verb enforcement, worked before/after examples including a full lineup recommendation with jargon and without.
 - **[resources/evaluators/rubric_mlb_beginner_translator.json](resources/evaluators/rubric_mlb_beginner_translator.json)**: 10-criterion rubric (jargon detection, gloss accuracy, first-mention rule, assumed-knowledge rewrites, signal stripping, action-verb presence, player identification, uncertainty surfacing, tone, overall readability).
-- **Master glossary**: `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/frameworks/beginner-glossary.md` -- authoritative source for plain-English definitions. This skill mirrors and extends it.
+- **Master glossary**: `yahoo-mlb/context/frameworks/beginner-glossary.md` -- authoritative source for plain-English definitions. This skill mirrors and extends it.
 
 **Inputs required:**
 

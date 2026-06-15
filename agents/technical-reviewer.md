@@ -23,11 +23,11 @@ Pre-publish claim-check. **Simplification is the goal**; wrongness is the bug; b
 ## Paths
 
 **Reads:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/drafts/{slug}.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/glossary.md`
+- `substacker/corpus/drafts/{slug}.md`
+- `substacker/shared-context/glossary.md`
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/technical-reviewer/YYYY-MM-DD-{slug}-review.md`
+- `substacker/ops/technical-reviewer/YYYY-MM-DD-{slug}-review.md`
 
 **Never writes to:** `corpus/drafts/` (writer's draft), `shared-context/glossary.md` (writer owns).
 

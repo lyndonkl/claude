@@ -46,7 +46,7 @@
       "name": "Citations",
       "1": "No citation to game-theory-principles.md or underlying theory. Skill reads as a bare formula with no justification.",
       "3": "Cites Game Theory Principles #6 and one or two supporting references (Kelly, CLT), but citations not tied to the specific computations they justify.",
-      "5": "Cites Game Theory Principles #6 for the core underdog/favorite posture. Cites Kelly Criterion as the conceptual reference for why variance preference depends on edge. Cites Central Limit Theorem for the slot-dampening formula. Cites Kahneman & Tversky / prospect theory for the asymmetry amplification. Each citation is tied to the specific part of the decision rule it supports, and the `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/frameworks/game-theory-principles.md` reference is the anchor."
+      "5": "Cites Game Theory Principles #6 for the core underdog/favorite posture. Cites Kelly Criterion as the conceptual reference for why variance preference depends on edge. Cites Central Limit Theorem for the slot-dampening formula. Cites Kahneman & Tversky / prospect theory for the asymmetry amplification. Each citation is tied to the specific part of the decision rule it supports, and the `yahoo-mlb/context/frameworks/game-theory-principles.md` reference is the anchor."
     }
   ],
   "guidance_by_type": {

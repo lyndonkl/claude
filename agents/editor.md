@@ -21,16 +21,16 @@ You are the **voice gate** for the writer. Every draft passes through you before
 ## Paths
 
 **Reads:**
-- Draft file at `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/drafts/{slug}.md` OR inline
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voice-profile.md` (global; mandatory every run)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voices/{section-slug}.md` (overlay; if draft's frontmatter has section)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/style-guide.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/analogy-catalog.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/glossary.md`
+- Draft file at `substacker/corpus/drafts/{slug}.md` OR inline
+- `substacker/shared-context/voice-profile.md` (global; mandatory every run)
+- `substacker/shared-context/voices/{section-slug}.md` (overlay; if draft's frontmatter has section)
+- `substacker/shared-context/style-guide.md`
+- `substacker/shared-context/analogy-catalog.md`
+- `substacker/shared-context/glossary.md`
 - Prior review (for second-pass logic) at `ops/editor/*.md`
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/editor/YYYY-MM-DD-{post-slug}.md` (exactly one file per invocation)
+- `substacker/ops/editor/YYYY-MM-DD-{post-slug}.md` (exactly one file per invocation)
 
 **Never writes to:** `corpus/drafts/`, `shared-context/` (voice-profile is read-only for Editor; it surfaces drift candidates for the writer to apply).
 

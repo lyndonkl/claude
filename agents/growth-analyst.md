@@ -23,18 +23,18 @@ Weekly Substack stats analyst. **Primary path**: Claude-in-Chrome pulls stats di
 ## Paths
 
 **Reads:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/inbox/substack-stats/*.csv` (new CSVs)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/stats/*.csv` (historical baseline)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/published/**` (post titles + section tags)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/section-map.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/goals.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/audience-notes.md`
+- `substacker/inbox/substack-stats/*.csv` (new CSVs)
+- `substacker/corpus/stats/*.csv` (historical baseline)
+- `substacker/corpus/published/**` (post titles + section tags)
+- `substacker/shared-context/section-map.md`
+- `substacker/shared-context/goals.md`
+- `substacker/shared-context/audience-notes.md`
 - Public web via WebFetch (publication URL + public post URLs)
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/growth-analyst/YYYY-WW-report.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/audience-notes.md` (append-only; confidence ≥ medium only)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/stats/{week}.csv` (moved from inbox/)
+- `substacker/ops/growth-analyst/YYYY-WW-report.md`
+- `substacker/shared-context/audience-notes.md` (append-only; confidence ≥ medium only)
+- `substacker/corpus/stats/{week}.csv` (moved from inbox/)
 
 **Never writes:** `shared-context/section-map.md`, `shared-context/goals.md`. Curator / writer own those.
 

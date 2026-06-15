@@ -99,7 +99,7 @@ Every signal must land on a 0-100 scale where **50 = league-average / neutral**.
 
 **Step 7: Write platoon narrative**
 
-Per [CLAUDE.md](../../../yahoo-mlb/CLAUDE.md) rule 5: jargon-free or translated inline. For each key hitter of interest, state handedness and the SP's handedness, then describe the platoon edge or lack thereof in plain English. See [resources/template.md](resources/template.md#platoon-narrative-template).
+Per `yahoo-mlb/CLAUDE.md` rule 5: jargon-free or translated inline. For each key hitter of interest, state handedness and the SP's handedness, then describe the platoon edge or lack thereof in plain English. See [resources/template.md](resources/template.md#platoon-narrative-template).
 
 **Step 8: Emit and validate**
 

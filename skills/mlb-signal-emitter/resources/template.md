@@ -1,6 +1,6 @@
 # Signal File Template
 
-This file documents the canonical shape of a signal file. Every signal written to `~/Documents/Projects/yahoo-mlb/signals/` matches this template. The `mlb-signal-emitter` skill validates every file against these rules before persisting.
+This file documents the canonical shape of a signal file. Every signal written to `yahoo-mlb/signals/` matches this template. The `mlb-signal-emitter` skill validates every file against these rules before persisting.
 
 ## Table of Contents
 - [Canonical Blank Template](#canonical-blank-template)
@@ -103,7 +103,7 @@ consumes:
 
 ## Fully Populated Validated Example
 
-The following is a complete, validated signal file for a per-player daily signal. Every required frontmatter field is present. Every numeric signal in the body is inside its declared range. This file would pass `mlb-signal-emitter` validation cleanly and be written to `~/Documents/Projects/yahoo-mlb/signals/2026-04-17-player-caminero.md`.
+The following is a complete, validated signal file for a per-player daily signal. Every required frontmatter field is present. Every numeric signal in the body is inside its declared range. This file would pass `mlb-signal-emitter` validation cleanly and be written to `yahoo-mlb/signals/2026-04-17-player-caminero.md`.
 
 ```markdown
 ---

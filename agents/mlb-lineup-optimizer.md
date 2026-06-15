@@ -89,11 +89,11 @@ Orchestration only. Skills do the work.
 
 **This phase lives in the agent. It is the foundation.**
 
-**Step 0.1 — Read the league contract.** Open `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/league-config.md`. Confirm format (H2H Categories, OBP instead of AVG, QS instead of W), roster shape (C, 1B, 2B, 3B, SS, OF×3, Util×2, SP×3, RP×2, P×5, BN×3, IL×3), and that lineups lock daily per-game.
+**Step 0.1 — Read the league contract.** Open `yahoo-mlb/context/league-config.md`. Confirm format (H2H Categories, OBP instead of AVG, QS instead of W), roster shape (C, 1B, 2B, 3B, SS, OF×3, Util×2, SP×3, RP×2, P×5, BN×3, IL×3), and that lineups lock daily per-game.
 
-**Step 0.2 — Read the team profile.** Open `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/team-profile.md`. Pull the current active roster, current IL list, FAAB remaining, and any notes from prior runs (e.g., "Caminero returning from minor day-to-day tightness").
+**Step 0.2 — Read the team profile.** Open `yahoo-mlb/context/team-profile.md`. Pull the current active roster, current IL list, FAAB remaining, and any notes from prior runs (e.g., "Caminero returning from minor day-to-day tightness").
 
-**Step 0.3 — Read this week's opponent matchup state and archetype profile.** Open the relevant file in `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/opponents/`. This file is produced by the coach's Phase 0.5 (`mlb-opponent-profiler` + `opponent-archetype-classifier`) and contains the opponent's MAP archetype (e.g., `punt_sv`, `stars_and_scrubs`), best-response hints, and per-cat strength/weakness map. If the opponent profile does not exist, ask the coach to run Phase 0.5 before proceeding — this agent must not fire against a generic opponent baseline (per game-theory principle #5).
+**Step 0.3 — Read this week's opponent matchup state and archetype profile.** Open the relevant file in `yahoo-mlb/context/opponents/`. This file is produced by the coach's Phase 0.5 (`mlb-opponent-profiler` + `opponent-archetype-classifier`) and contains the opponent's MAP archetype (e.g., `punt_sv`, `stars_and_scrubs`), best-response hints, and per-cat strength/weakness map. If the opponent profile does not exist, ask the coach to run Phase 0.5 before proceeding — this agent must not fire against a generic opponent baseline (per game-theory principle #5).
 
 **Step 0.4 — Pull today's MLB slate.** Use `WebSearch` / `WebFetch` to confirm: which games are scheduled today, probable starting pitchers for each team, confirmed lineups (MLB.com — usually posted ~3 hours before first pitch), and weather (rain risk, wind direction at open-air parks). Cite every URL.
 

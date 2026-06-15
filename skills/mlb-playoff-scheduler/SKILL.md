@@ -57,7 +57,7 @@ Today's date is inside the prompt. If today < 2026-07-01, skip Steps 2-8 and emi
 
 **Step 2: Define playoff week windows**
 
-Per [context/league-config.md](../../../yahoo-mlb/context/league-config.md), playoffs are weeks 21, 22, 23 and end Sunday Sep 6, 2026. Working backward (weeks are Mon-Sun):
+Per `yahoo-mlb/context/league-config.md`, playoffs are weeks 21, 22, 23 and end Sunday Sep 6, 2026. Working backward (weeks are Mon-Sun):
 
 | Fantasy Week | Start (Mon) | End (Sun) |
 |---|---|---|
@@ -195,7 +195,7 @@ Pre-July 1: playoff_games = null, playoff_matchup_quality = null,
             body = "insufficient signal -- too early"
 ```
 
-**Key sources** (see [context/frameworks/data-sources.md](../../../yahoo-mlb/context/frameworks/data-sources.md)):
+**Key sources** (see `yahoo-mlb/context/frameworks/data-sources.md`):
 
 - MLB schedule: https://www.mlb.com/schedule
 - FanGraphs team schedule: https://www.fangraphs.com/teams/{team}/schedule

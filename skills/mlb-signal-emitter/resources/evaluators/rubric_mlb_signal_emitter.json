@@ -38,7 +38,7 @@
     },
     {
       "name": "File Path Correctness",
-      "1": "Validator writes files outside ~/Documents/Projects/yahoo-mlb/signals/, OR uses wrong filename format, OR silently overwrites existing signals, OR accepts mismatched date in frontmatter vs filename.",
+      "1": "Validator writes files outside yahoo-mlb/signals/, OR uses wrong filename format, OR silently overwrites existing signals, OR accepts mismatched date in frontmatter vs filename.",
       "3": "Validator enforces the canonical path pattern but has a weak overwrite policy (e.g., overwrites by default), OR does not cross-check the date in frontmatter against the date in the filename.",
       "5": "Validator enforces signals/YYYY-MM-DD-<type>[-id|-variant].md strictly, creates the directory if missing, rejects paths that escape the signals directory (reason code 'path_escape'), cross-checks date in frontmatter against filename (reason code 'date_filename_mismatch'), requires overwrite: true to replace an existing file (reason code 'target_exists_no_overwrite')."
     },
@@ -132,7 +132,7 @@
     {
       "failure": "Path escape via user-supplied identifier",
       "symptom": "Caller passes identifier containing '../' or starting with '/'; file gets written outside the signals directory",
-      "detection": "Computed path does not start with ~/Documents/Projects/yahoo-mlb/signals/",
+      "detection": "Computed path does not start with yahoo-mlb/signals/",
       "fix": "Sanitize identifiers to lowercase-kebab-ASCII, reject any containing path separators, validate resolved path prefix against SIGNALS_DIR."
     },
     {

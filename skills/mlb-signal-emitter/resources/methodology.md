@@ -1,6 +1,6 @@
 # Signal Validation Methodology
 
-This document specifies the exact rules the `mlb-signal-emitter` skill applies to every signal file before persisting it. These rules are the operational expression of `~/Documents/Projects/yahoo-mlb/context/frameworks/signal-framework.md`.
+This document specifies the exact rules the `mlb-signal-emitter` skill applies to every signal file before persisting it. These rules are the operational expression of `yahoo-mlb/context/frameworks/signal-framework.md`.
 
 ## Table of Contents
 - [Required Frontmatter Fields](#required-frontmatter-fields)
@@ -154,7 +154,7 @@ Per CLAUDE.md rule 3 ("Run both variants, every time"), every user-facing decisi
 
 ## File Path Conventions
 
-The canonical signals directory is `~/Documents/Projects/yahoo-mlb/signals/`.
+The canonical signals directory is `yahoo-mlb/signals/`.
 
 ### Naming rules
 
@@ -172,7 +172,7 @@ The canonical signals directory is `~/Documents/Projects/yahoo-mlb/signals/`.
 ### Path validation
 
 1. The skill computes the path from frontmatter `date` + `type` (+ optional identifier the caller passes).
-2. Rejects paths that do not start with the resolved `~/Documents/Projects/yahoo-mlb/signals/` prefix (prevents directory-escape bugs).
+2. Rejects paths that do not start with the resolved `yahoo-mlb/signals/` prefix (prevents directory-escape bugs).
 3. Ensures the `signals/` directory exists; creates it if missing.
 4. If the target path already exists:
    - Default: refuse to overwrite. Log a failure with reason `target exists, overwrite not requested`.
@@ -216,7 +216,7 @@ When any check fails, the skill performs these steps in order:
    actual: <what it got>
    caller_context: <any extra info the caller passed>
    ```
-3. **Call `mlb-decision-logger`** with the failure entry. This appends a structured section to `~/Documents/Projects/yahoo-mlb/tracker/decisions-log.md`. The decisions log is append-only per CLAUDE.md rule 4.
+3. **Call `mlb-decision-logger`** with the failure entry. This appends a structured section to `yahoo-mlb/tracker/decisions-log.md`. The decisions log is append-only per CLAUDE.md rule 4.
 4. **Return an error object to the caller** so the upstream skill/agent knows the emission failed. Shape:
    ```yaml
    status: error

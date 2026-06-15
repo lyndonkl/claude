@@ -134,18 +134,18 @@ Correct:
 Before firing any specialist, read the authoritative context so the team operates on a shared understanding.
 
 **Step 0.1: Read the operating protocol and frameworks, in parallel.**
-- `~/Documents/Projects/yahoo-mlb/CLAUDE.md` — operating protocol and user profile
-- `~/Documents/Projects/yahoo-mlb/context/league-config.md` — league rules and state
-- `~/Documents/Projects/yahoo-mlb/context/team-profile.md` — current roster and FAAB
-- `~/Documents/Projects/yahoo-mlb/context/frameworks/signal-framework.md` — signal schema
-- `~/Documents/Projects/yahoo-mlb/context/frameworks/variant-catalog.md` — each specialist's advocate/critic priors
-- `~/Documents/Projects/yahoo-mlb/context/frameworks/decision-log-format.md` — log entry schema
-- `~/Documents/Projects/yahoo-mlb/context/frameworks/beginner-glossary.md` — jargon to plain English
-- `~/Documents/Projects/yahoo-mlb/context/frameworks/data-sources.md` — where to web-search
+- `yahoo-mlb/CLAUDE.md` — operating protocol and user profile
+- `yahoo-mlb/context/league-config.md` — league rules and state
+- `yahoo-mlb/context/team-profile.md` — current roster and FAAB
+- `yahoo-mlb/context/frameworks/signal-framework.md` — signal schema
+- `yahoo-mlb/context/frameworks/variant-catalog.md` — each specialist's advocate/critic priors
+- `yahoo-mlb/context/frameworks/decision-log-format.md` — log entry schema
+- `yahoo-mlb/context/frameworks/beginner-glossary.md` — jargon to plain English
+- `yahoo-mlb/context/frameworks/data-sources.md` — where to web-search
 
 **Step 0.2: Read the learning-loop tilts.**
-- `~/Documents/Projects/yahoo-mlb/tracker/variant-scoreboard.md` — which variant has been more often right per specialist
-- Last 3 entries in `~/Documents/Projects/yahoo-mlb/tracker/decisions-log.md` — recent context and any outcomes due today
+- `yahoo-mlb/tracker/variant-scoreboard.md` — which variant has been more often right per specialist
+- Last 3 entries in `yahoo-mlb/tracker/decisions-log.md` — recent context and any outcomes due today
 
 **Step 0.3: Note any decisions whose `will_verify_on` is today.** If any exist and today is Monday, the agenda must include a calibration pass — web-search the outcome, fill in `outcome`, `outcome_recorded_on`, and `variant_that_was_right`, and tally into the scoreboard.
 
@@ -297,7 +297,7 @@ The `mlb-beginner-translator` skill will walk the brief and insert inline transl
 - Any red-team finding with score ≥ 6 is surfaced as a mitigation line under the affected action.
 - No "consider," no "think about," no unexplained jargon.
 
-**Write the brief to:** `~/Documents/Projects/yahoo-mlb/briefs/YYYY-MM-DD-morning.md`
+**Write the brief to:** `yahoo-mlb/briefs/YYYY-MM-DD-morning.md`
 
 **Bridge to Phase 7:** Carry forward the TL;DR and the top 4 actions for the 5-line chat summary.
 
@@ -316,7 +316,7 @@ Today's top actions:
   1. [VERB] [object] — [one-phrase reason]
   2. [VERB] [object] — [one-phrase reason]
   3. [VERB] [object] — [one-phrase reason]
-Full brief: ~/Documents/Projects/yahoo-mlb/briefs/YYYY-MM-DD-morning.md
+Full brief: yahoo-mlb/briefs/YYYY-MM-DD-morning.md
 ```
 
 **Step 7.3:** Tell the user plainly: "Brief is written. Three actions above. The file has the full reasoning and any items flagged for your manual review. Anything you would like me to dig into further?"
@@ -468,8 +468,8 @@ DECISION LOG ENTRIES APPENDED TODAY
 [List of decision_id values written to tracker/decisions-log.md]
 
 ===============================================================
-Full signals: ~/Documents/Projects/yahoo-mlb/signals/[YYYY-MM-DD]-*.md
-Decision log: ~/Documents/Projects/yahoo-mlb/tracker/decisions-log.md
+Full signals: yahoo-mlb/signals/[YYYY-MM-DD]-*.md
+Decision log: yahoo-mlb/tracker/decisions-log.md
 ===============================================================
 ```
 
@@ -482,5 +482,5 @@ Today's top actions:
   1. [VERB] [object] — [one-phrase reason]
   2. [VERB] [object] — [one-phrase reason]
   3. [VERB] [object] — [one-phrase reason]
-Full brief: ~/Documents/Projects/yahoo-mlb/briefs/[YYYY-MM-DD]-morning.md
+Full brief: yahoo-mlb/briefs/[YYYY-MM-DD]-morning.md
 ```

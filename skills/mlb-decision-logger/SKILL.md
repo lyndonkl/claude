@@ -191,15 +191,15 @@ e.g., 2026-04-17-lineup-01
 
 **Files touched:**
 
-- `~/Documents/Projects/yahoo-mlb/tracker/decisions-log.md` (append, or surgical edit of outcome fields)
-- `~/Documents/Projects/yahoo-mlb/tracker/variant-scoreboard.md` (row increments, tilt recompute)
-- `~/Documents/Projects/yahoo-mlb/tracker/calibration-review.md` (written only when high-confidence decision was wrong)
+- `yahoo-mlb/tracker/decisions-log.md` (append, or surgical edit of outcome fields)
+- `yahoo-mlb/tracker/variant-scoreboard.md` (row increments, tilt recompute)
+- `yahoo-mlb/tracker/calibration-review.md` (written only when high-confidence decision was wrong)
 
 **Files read:**
 
-- `~/Documents/Projects/yahoo-mlb/context/frameworks/decision-log-format.md` (schema of record)
-- `~/Documents/Projects/yahoo-mlb/tracker/decisions-log.md` (tail, for serialization and id assignment)
-- `~/Documents/Projects/yahoo-mlb/tracker/variant-scoreboard.md` (for calibration updates)
+- `yahoo-mlb/context/frameworks/decision-log-format.md` (schema of record)
+- `yahoo-mlb/tracker/decisions-log.md` (tail, for serialization and id assignment)
+- `yahoo-mlb/tracker/variant-scoreboard.md` (for calibration updates)
 
 **Key resources:**
 

@@ -1,6 +1,6 @@
 # Decision Log Entry Template
 
-The authoritative schema lives at `~/Documents/Projects/yahoo-mlb/context/frameworks/decision-log-format.md`. This file mirrors that schema verbatim so the logger skill has a local reference. If the two diverge, `decision-log-format.md` wins and this file must be updated.
+The authoritative schema lives at `yahoo-mlb/context/frameworks/decision-log-format.md`. This file mirrors that schema verbatim so the logger skill has a local reference. If the two diverge, `decision-log-format.md` wins and this file must be updated.
 
 ## Table of Contents
 - [Entry Schema](#entry-schema)
