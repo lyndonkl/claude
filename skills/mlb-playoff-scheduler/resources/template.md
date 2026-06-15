@@ -14,7 +14,7 @@ Signal file template, per-team games grid, per-opponent quality table, and per-p
 
 ## Signal File Template (Post-July)
 
-Write to `signals/YYYY-MM-DD-playoff.md`. YAML frontmatter per [context/frameworks/signal-framework.md](../../../../yahoo-mlb/context/frameworks/signal-framework.md).
+Write to `signals/YYYY-MM-DD-playoff.md`. YAML frontmatter per `yahoo-mlb/context/frameworks/signal-framework.md`.
 
 ```markdown
 ---

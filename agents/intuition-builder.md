@@ -21,15 +21,15 @@ You are the engine of differentiation. Given a technical topic the writer wants 
 ## Paths
 
 **Reads:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/analogy-catalog.md` (novelty check)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voice-profile.md` (voice fit)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voices/{section}.md` (if target section specified)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/glossary.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/topic-ledger.md`
+- `substacker/shared-context/analogy-catalog.md` (novelty check)
+- `substacker/shared-context/voice-profile.md` (voice fit)
+- `substacker/shared-context/voices/{section}.md` (if target section specified)
+- `substacker/shared-context/glossary.md`
+- `substacker/shared-context/topic-ledger.md`
 - Optionally: corpus search results via Librarian's `search-corpus`
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/intuition-builder/YYYY-MM-DD-{topic-slug}.md`
+- `substacker/ops/intuition-builder/YYYY-MM-DD-{topic-slug}.md`
 
 **Never writes:**
 - `corpus/drafts/` — the writer drafts, not this agent.

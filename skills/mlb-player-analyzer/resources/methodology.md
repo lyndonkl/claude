@@ -1,6 +1,6 @@
 # MLB Player Analyzer — Methodology
 
-Authoritative math and procedure for every signal this skill emits. The signal catalog is defined in `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/frameworks/signal-framework.md`; this document explains *how* to compute each one.
+Authoritative math and procedure for every signal this skill emits. The signal catalog is defined in `yahoo-mlb/context/frameworks/signal-framework.md`; this document explains *how* to compute each one.
 
 ---
 

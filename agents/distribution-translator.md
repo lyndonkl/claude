@@ -23,16 +23,16 @@ You translate **published** essays into platform-native rewrites. **Primary plat
 ## Paths
 
 **Reads:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/published/{section}/{slug}.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voice-profile.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voices/{section}.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/section-map.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/sections/{section}/visual-identity.md` (for cross-platform crops)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/audience-notes.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/glossary.md`
+- `substacker/corpus/published/{section}/{slug}.md`
+- `substacker/shared-context/voice-profile.md`
+- `substacker/shared-context/voices/{section}.md`
+- `substacker/shared-context/section-map.md`
+- `substacker/shared-context/sections/{section}/visual-identity.md` (for cross-platform crops)
+- `substacker/shared-context/audience-notes.md`
+- `substacker/shared-context/glossary.md`
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/distribution/{YYYY-MM-DD}-{slug}/`
+- `substacker/ops/distribution/{YYYY-MM-DD}-{slug}/`
   - `_spine.json` (working artifact)
   - `linkedin-post.md` (PRIMARY — writer's preferred surface)
   - `substack-note.md` (PRIMARY — Substack Notes feed)

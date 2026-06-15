@@ -37,7 +37,7 @@ description: Validates and persists signal files to the yahoo-mlb signals direct
 | All numeric signals in declared range | PASS (all 0-100 signals clamped; regression_index in +-100) |
 | File path matches `signals/YYYY-MM-DD-<type>.md` convention | PASS |
 
-**Action**: Write to `~/Documents/Projects/yahoo-mlb/signals/2026-04-17-player-caminero.md` and return the absolute path.
+**Action**: Write to `yahoo-mlb/signals/2026-04-17-player-caminero.md` and return the absolute path.
 
 **Failure scenario**: If `confidence: 1.4` had been passed, validation fails. The skill does NOT write the file. It calls `mlb-decision-logger` with a failure entry: `kind: signal_validation_failure`, `signal_type: player`, `reason: confidence out of range (1.4 not in [0.0, 1.0])`, `emitter: mlb-player-analyzer`, and returns an error to the calling agent.
 
@@ -94,7 +94,7 @@ If this is a synthesized final signal, it must declare which variants produced i
 
 **Step 5: Determine and validate file path**
 
-The canonical path is `~/Documents/Projects/yahoo-mlb/signals/YYYY-MM-DD-<type>.md`. For an intermediate variant dump, use `YYYY-MM-DD-<type>-<variant>.md`. For per-player or per-game files, an optional identifier suffix is allowed: `YYYY-MM-DD-<type>-<identifier>.md`.
+The canonical path is `yahoo-mlb/signals/YYYY-MM-DD-<type>.md`. For an intermediate variant dump, use `YYYY-MM-DD-<type>-<variant>.md`. For per-player or per-game files, an optional identifier suffix is allowed: `YYYY-MM-DD-<type>-<identifier>.md`.
 
 - [ ] Compute path from `date` and `type` in frontmatter
 - [ ] Check that a signal of this type+date does not already exist unless the caller explicitly passed `overwrite: true`

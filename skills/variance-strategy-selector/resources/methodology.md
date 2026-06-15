@@ -191,7 +191,7 @@ Any repeatable decision with (a) an estimable `P(win)`, (b) a controllable varia
 
 ## Citations and Further Reading
 
-- **Game Theory Principles #6** (`/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/frameworks/game-theory-principles.md`): the "cope" principle -- favorites minimize variance, underdogs maximize it. Operationalized for MLB fantasy in the `mlb-lineup-optimizer` consumer.
+- **Game Theory Principles #6** (`yahoo-mlb/context/frameworks/game-theory-principles.md`): the "cope" principle -- favorites minimize variance, underdogs maximize it. Operationalized for MLB fantasy in the `mlb-lineup-optimizer` consumer.
 - **Kelly, J. L. (1956)**, "A New Interpretation of Information Rate," Bell System Technical Journal. The original optimal-bet-size derivation; the conceptual backbone for why variance preference depends on edge.
 - **Thorp, E. O. (1969)**, "Optimal Gambling Systems for Favorable Games." Fractional Kelly and practical bankroll management.
 - **Markowitz, H. (1952)**, "Portfolio Selection," Journal of Finance. Mean-variance optimization; the foundational framework in which "variance is bad when you're ahead" was first formalized for investment.

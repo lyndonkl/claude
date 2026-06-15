@@ -23,16 +23,16 @@ Quarterly strategic advisor. One job: zoom out, ask the three uncomfortable ques
 ## Paths
 
 **Reads:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/goals.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/section-map.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/audience-notes.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/topic-ledger.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/growth-analyst/*.md` (all since last Strategist review)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/curator/*.md` (most recent)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/published/**` (meta-scan only — titles, dates, first paragraphs)
+- `substacker/shared-context/goals.md`
+- `substacker/shared-context/section-map.md`
+- `substacker/shared-context/audience-notes.md`
+- `substacker/shared-context/topic-ledger.md`
+- `substacker/ops/growth-analyst/*.md` (all since last Strategist review)
+- `substacker/ops/curator/*.md` (most recent)
+- `substacker/corpus/published/**` (meta-scan only — titles, dates, first paragraphs)
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/growth-strategist/YYYY-Q#-review.md` (Q# = rolling-quarter index, not calendar)
+- `substacker/ops/growth-strategist/YYYY-Q#-review.md` (Q# = rolling-quarter index, not calendar)
 
 **Never writes to:** `shared-context/goals.md` (proposes diff; writer applies), `shared-context/section-map.md` (Curator owns), `ops/curator/` or `ops/growth-analyst/` (other agents' homes), `corpus/`.
 

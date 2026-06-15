@@ -98,7 +98,7 @@ This is the baseball-specific calibration that adjusts `season_pace_multiplier` 
 
 **Step 1: Read the faab-log**
 
-Parse `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/tracker/faab-log.md`. Each entry:
+Parse `yahoo-mlb/tracker/faab-log.md`. Each entry:
 
 ```
 ### {date} | {player} | {result}

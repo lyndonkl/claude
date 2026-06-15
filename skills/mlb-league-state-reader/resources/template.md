@@ -16,7 +16,7 @@ Output formats for the two artifacts this skill produces: the overwritten `team-
 
 ## Team Profile Output Format
 
-Overwrite `~/Documents/Projects/yahoo-mlb/context/team-profile.md` with the following structure. This file is "current state" — do not preserve prior runs.
+Overwrite `yahoo-mlb/context/team-profile.md` with the following structure. This file is "current state" — do not preserve prior runs.
 
 ```markdown
 # Team Profile — ⚾ K L's Boomers
@@ -90,7 +90,7 @@ roster:
 
 ## Signal File Output Format
 
-Write to `~/Documents/Projects/yahoo-mlb/signals/YYYY-MM-DD-league-state.md`. Must conform to `context/frameworks/signal-framework.md`.
+Write to `yahoo-mlb/signals/YYYY-MM-DD-league-state.md`. Must conform to `context/frameworks/signal-framework.md`.
 
 ```markdown
 ---

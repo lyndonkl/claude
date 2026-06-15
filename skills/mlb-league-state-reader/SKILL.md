@@ -16,8 +16,8 @@ description: Parses Yahoo Fantasy Baseball league state (roster, standings, curr
 **Scenario**: Morning brief run on 2026-04-17. Coach needs current roster, matchup, FAAB, and standings before launching lineup-optimizer.
 
 **Inputs read first**:
-- `~/Documents/Projects/yahoo-mlb/context/league-config.md` (league ID 23756, team 5, 12 teams, 5x5 cats)
-- `~/Documents/Projects/yahoo-mlb/context/team-profile.md` (prior known roster skeleton)
+- `yahoo-mlb/context/league-config.md` (league ID 23756, team 5, 12 teams, 5x5 cats)
+- `yahoo-mlb/context/team-profile.md` (prior known roster skeleton)
 
 **Chrome navigation sequence** (authenticated):
 1. `https://baseball.fantasysports.yahoo.com/b1/23756/5` — roster with today's opponents per player
@@ -62,10 +62,10 @@ League State Reader Progress:
 
 Load the authoritative contract and the last known state before touching Yahoo. This both verifies the league ID/URL and provides the skeleton to diff against.
 
-- [ ] Read `~/Documents/Projects/yahoo-mlb/context/league-config.md` — confirm league ID 23756, team 5, roster shape (C/1B/2B/3B/SS/3OF/2UTIL/3SP/2RP/5P/3BN/3IL = 26), FAAB budget $100
-- [ ] Read `~/Documents/Projects/yahoo-mlb/context/team-profile.md` — capture prior FAAB remaining, prior roster for diff
-- [ ] Read `~/Documents/Projects/yahoo-mlb/context/frameworks/signal-framework.md` — confirm signal file format
-- [ ] Read `~/Documents/Projects/yahoo-mlb/context/frameworks/data-sources.md` — confirm the 5 Yahoo URLs
+- [ ] Read `yahoo-mlb/context/league-config.md` — confirm league ID 23756, team 5, roster shape (C/1B/2B/3B/SS/3OF/2UTIL/3SP/2RP/5P/3BN/3IL = 26), FAAB budget $100
+- [ ] Read `yahoo-mlb/context/team-profile.md` — capture prior FAAB remaining, prior roster for diff
+- [ ] Read `yahoo-mlb/context/frameworks/signal-framework.md` — confirm signal file format
+- [ ] Read `yahoo-mlb/context/frameworks/data-sources.md` — confirm the 5 Yahoo URLs
 
 **Step 2: Pull Yahoo pages via Claude-in-Chrome**
 
@@ -98,7 +98,7 @@ See [resources/template.md](resources/template.md#team-profile-output-format) fo
 
 **Step 5: Emit signal file**
 
-Write `~/Documents/Projects/yahoo-mlb/signals/YYYY-MM-DD-league-state.md` with YAML frontmatter per the signal framework. Every URL navigated must appear in `source_urls`. Degraded fetches drop `confidence` to 0.5; full-failure fields drop to 0.3 and are flagged. See [resources/template.md](resources/template.md#signal-file-output-format).
+Write `yahoo-mlb/signals/YYYY-MM-DD-league-state.md` with YAML frontmatter per the signal framework. Every URL navigated must appear in `source_urls`. Degraded fetches drop `confidence` to 0.5; full-failure fields drop to 0.3 and are flagged. See [resources/template.md](resources/template.md#signal-file-output-format).
 
 - [ ] Frontmatter: `type: league-state`, `date`, `emitted_by: mlb-league-state-reader`, `confidence`, `source_urls[]`
 - [ ] Body: roster table, standings table, matchup table, FAAB ledger, top-25 free agents

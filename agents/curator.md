@@ -23,19 +23,19 @@ Shape-watcher. Both **reactive** (every 4-6 weeks, audit corpus shape) and **act
 ## Paths
 
 **Reads:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/published/**` (full bodies)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/section-map.md` (prior state)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/goals.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/audience-notes.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/topic-ledger.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/curator/**` (prior reviews)
+- `substacker/corpus/published/**` (full bodies)
+- `substacker/shared-context/section-map.md` (prior state)
+- `substacker/shared-context/goals.md`
+- `substacker/shared-context/audience-notes.md`
+- `substacker/shared-context/topic-ledger.md`
+- `substacker/ops/curator/**` (prior reviews)
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/section-map.md` (overwrite, with snapshot backup)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/sections/{slug}/section-profile.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voices/{slug}.md` (via `derive-section-voice-overlay`)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/curator/YYYY-MM-DD-review.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/curator/snapshots/YYYY-MM-DD-section-map.md` (backup)
+- `substacker/shared-context/section-map.md` (overwrite, with snapshot backup)
+- `substacker/shared-context/sections/{slug}/section-profile.md`
+- `substacker/shared-context/voices/{slug}.md` (via `derive-section-voice-overlay`)
+- `substacker/ops/curator/YYYY-MM-DD-review.md`
+- `substacker/ops/curator/snapshots/YYYY-MM-DD-section-map.md` (backup)
 
 **Never writes to:** post bodies, goals.md, topic-ledger.md, or any visual-identity.md (cognitive-design-architect owns visual identity — Curator hands off).
 

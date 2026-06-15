@@ -231,4 +231,4 @@ def variance_strategy(p_win, asym, slots):
 - Poker bankroll skills that pick bet-size variance
 - Any agent deciding how hard to push a variance knob
 
-**Principle reference:** Game Theory Principles #6 (Variance-seeking as underdog -- the "cope" principle) in `/Users/kushaldsouza/Documents/Projects/yahoo-mlb/context/frameworks/game-theory-principles.md`.
+**Principle reference:** Game Theory Principles #6 (Variance-seeking as underdog -- the "cope" principle) in `yahoo-mlb/context/frameworks/game-theory-principles.md`.

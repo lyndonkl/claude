@@ -26,7 +26,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Reverse-engineer a real product's vision / strategy / tactics / ML and system architecture from public material | [`product-strategist`](agents/product-strategist.md) |
 | Decide how to allocate capital (debt / dividends / projects) | [`capital-allocation-strategist`](agents/capital-allocation-strategist.md) |
 | Manage my Yahoo Fantasy Baseball team | [`mlb-fantasy-coach`](agents/mlb-fantasy-coach.md) + 6 MLB specialists |
-| Run my FIFA World Cup Fantasy squad (evolutionary boards — agents propose, you decide) | [`wc-director`](agents/wc-director.md) + 9 team agents (see `~/Documents/Projects/footballfantasy/`) |
+| Run my FIFA World Cup Fantasy squad (evolutionary boards — agents propose, you decide) | [`wc-director`](agents/wc-director.md) + 9 team agents |
 | Run my household finances from PDF statements (drop in, briefing + dashboard out) | [`household-cfo`](agents/household-cfo.md) + 8 household specialists |
 | Write a paper / grant / recommendation letter | [`scientific-writing-editor`](agents/scientific-writing-editor.md) |
 | Improve any piece of writing (blog, memo, essay) | [`writing-assistant`](agents/writing-assistant.md) |
@@ -36,8 +36,8 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Design equivariant / symmetry-aware neural networks | [`geometric-deep-learning-architect`](agents/geometric-deep-learning-architect.md) |
 | Build geometric intuition for ML math (attention, PCA, eigenvectors, high-dim spaces) | [`math-intuition-coach`](agents/math-intuition-coach.md) |
 | Get a weekly digest of new bioRxiv / medRxiv / PubMed / arXiv papers (life sciences + CS / ML) against my keyword watchlist | [`literature-scan-coach`](agents/literature-scan-coach.md) → [`paper-synthesizer`](agents/paper-synthesizer.md) |
-| Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more (see `~/Documents/Thinking/substacker/`) |
-| Learn ML-driven crop genetics / genomic selection (experiential study → notes → publish in public) | [`biostat-tutor`](agents/biostat-tutor.md), [`biostat-assessor`](agents/biostat-assessor.md), [`biostat-editor`](agents/biostat-editor.md) + 6 more (see `~/Documents/Projects/learnbiostats/`) |
+| Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more |
+| Learn ML-driven crop genetics / genomic selection (experiential study → notes → publish in public) | [`biostat-tutor`](agents/biostat-tutor.md), [`biostat-assessor`](agents/biostat-assessor.md), [`biostat-editor`](agents/biostat-editor.md) + 6 more |
 | Use just one tool (no agent) | Browse the [Skills Index](#skills-index) below |
 
 ## How the pieces fit together
@@ -373,7 +373,7 @@ Based on Damodaran's valuation curriculum.
 
 ### Household finance (12)
 
-PDF-driven personal-finance pipeline. Pairs with the orchestration runtime at `~/Documents/Projects/financialplanning/` (inbox, archive, canonical JSON store, prompts, weekly static HTML dashboards). Powers the `household-cfo` agent and 8 specialists.
+PDF-driven personal-finance pipeline. Pairs with a companion orchestration runtime (inbox, archive, canonical JSON store, prompts, weekly static HTML dashboards). Powers the `household-cfo` agent and 8 specialists.
 
 - **[pdf-statement-parser](skills/pdf-statement-parser/SKILL.md)** — Parse a single bank / brokerage / 401k / HSA / mortgage / tax PDF into normalized JSON with confidence.
 - **[transaction-categorizer](skills/transaction-categorizer/SKILL.md)** — Rules-then-LLM categorization with merchant normalization and rule learning.
@@ -403,7 +403,7 @@ Domain-neutral primitives — portable across fantasy sports, poker, auctions, M
 
 ### Yahoo Fantasy Baseball (14)
 
-Baseball-specific skills for a H2H Categories league. Pairs with the companion runtime at `~/Documents/Projects/yahoo-mlb/`.
+Baseball-specific skills for a H2H Categories league. Pairs with a companion runtime workspace (league state, signals, decision trackers, daily briefs).
 
 - **[mlb-league-state-reader](skills/mlb-league-state-reader/SKILL.md)** — Parse Yahoo league state via Claude-in-Chrome.
 - **[mlb-player-analyzer](skills/mlb-player-analyzer/SKILL.md)** — Deep-dive a player across FanGraphs, Savant, RotoWire.
@@ -422,7 +422,7 @@ Baseball-specific skills for a H2H Categories league. Pairs with the companion r
 
 ### FIFA World Cup Fantasy (16)
 
-Skills for the evolutionary World Cup fantasy backroom. Pairs with the companion runtime at `~/Documents/Projects/footballfantasy/`.
+Skills for the evolutionary World Cup fantasy backroom. Pairs with a companion runtime workspace (tournament state, signals, generations, decision boards).
 
 - **[wc-player-ev](skills/wc-player-ev/SKILL.md)** — Per-player per-round xEV: minutes cliff, fixture-scaled npxG/xA, pen/set-piece premium.
 - **[wc-clean-sheet-model](skills/wc-clean-sheet-model/SKILL.md)** — Clean-sheet probability + the stack-correlation bonus for defensive blocks.
@@ -451,7 +451,7 @@ Skills for the evolutionary World Cup fantasy backroom. Pairs with the companion
 <details>
 <summary><b>📰 Substack Growth</b> — 9-agent team for growing "From First Principles / The Thinker's Notebook" (68 skills)</summary>
 
-Pairs with the working folder at `~/Documents/Thinking/substacker/` (inbox, corpus, shared-context, ops). Voice-profile, section-map, per-section visual identities, analogy catalog, topic ledger all live there.
+Pairs with a companion working folder (inbox, corpus, shared-context, ops). Voice-profile, section-map, per-section visual identities, analogy catalog, topic ledger all live there.
 
 ### Librarian (8) — corpus ingest + index
 
@@ -553,7 +553,7 @@ Pairs with the working folder at `~/Documents/Thinking/substacker/` (inbox, corp
 <details>
 <summary><b>📚 Learning Studio</b> — experiential study + learning-in-public writing for ML-driven crop genetics (7 skills)</summary>
 
-Pairs with the learning vault at `~/Documents/Projects/learnbiostats/` (Kolb curriculum, Zettelkasten evergreen notes, dictation-to-publish writing studio, GitHub Pages site). Powers the 9 `biostat-*` agents.
+Pairs with a companion learning vault (Kolb curriculum, Zettelkasten evergreen notes, dictation-to-publish writing studio, GitHub Pages site). Powers the 9 `biostat-*` agents.
 
 - **[experiential-kolb-teaching](skills/experiential-kolb-teaching/SKILL.md)** — Run a learning module as a Kolb cycle; withhold the explanation, draw the claim out, route it to an evergreen note.
 - **[mastery-assessment](skills/mastery-assessment/SKILL.md)** — Bloom-tagged closed-book probing + Dreyfus mastery bands + expanding-interval spaced repetition.

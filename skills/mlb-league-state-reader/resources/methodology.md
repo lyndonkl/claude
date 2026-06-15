@@ -246,6 +246,6 @@ Before writing the signal file, validate it against `context/frameworks/signal-f
 
 If the `mlb-signal-emitter` skill is available in this run, invoke it to validate before write. Otherwise, write directly and note in `tracker/decisions-log.md` that validation was skipped.
 
-**File path:** `~/Documents/Projects/yahoo-mlb/signals/YYYY-MM-DD-league-state.md` — one signal per day. If two runs happen on the same day, overwrite (the newer is more accurate). Do not append.
+**File path:** `yahoo-mlb/signals/YYYY-MM-DD-league-state.md` — one signal per day. If two runs happen on the same day, overwrite (the newer is more accurate). Do not append.
 
 **Downstream contract:** Once this signal exists for today, every other agent must read it instead of re-scraping Yahoo. This is the single source of truth for league state until tomorrow.

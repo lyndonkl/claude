@@ -23,16 +23,16 @@ Weekly external-signal compressor. Reads ~30-50 curated sources; emits ≤10 ite
 ## Paths
 
 **Reads:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/trend-scout/watchlist.md` (source list)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/topic-ledger.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/goals.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/shared-context/voice-profile.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/corpus/{seeds,drafts,published}/**` metadata only (titles, frontmatter)
+- `substacker/ops/trend-scout/watchlist.md` (source list)
+- `substacker/shared-context/topic-ledger.md`
+- `substacker/shared-context/goals.md`
+- `substacker/shared-context/voice-profile.md`
+- `substacker/corpus/{seeds,drafts,published}/**` metadata only (titles, frontmatter)
 
 **Writes:**
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/trend-scout/YYYY-WW-digest.md`
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/trend-scout/watchlist.md` (only via `update-watchlist` skill, monthly)
-- `/Users/kushaldsouza/Documents/Thinking/substacker/ops/trend-scout/.cache/` (HTML snapshots)
+- `substacker/ops/trend-scout/YYYY-WW-digest.md`
+- `substacker/ops/trend-scout/watchlist.md` (only via `update-watchlist` skill, monthly)
+- `substacker/ops/trend-scout/.cache/` (HTML snapshots)
 
 **Never writes:** `corpus/` (Scout proposes candidates; Librarian or writer promotes), `shared-context/topic-ledger.md` (Librarian owns).
 
