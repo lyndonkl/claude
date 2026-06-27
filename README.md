@@ -38,6 +38,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Get a weekly digest of new bioRxiv / medRxiv / PubMed / arXiv papers (life sciences + CS / ML) against my keyword watchlist | [`literature-scan-coach`](agents/literature-scan-coach.md) → [`paper-synthesizer`](agents/paper-synthesizer.md) |
 | Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more |
 | Learn ML-driven crop genetics / genomic selection (experiential study → notes → publish in public) | [`biostat-tutor`](agents/biostat-tutor.md), [`biostat-assessor`](agents/biostat-assessor.md), [`biostat-editor`](agents/biostat-editor.md) + 6 more |
+| Build a personalized schedule for a conference (ingest the program → cluster themes → a few grounded questions → optimized plan) | [`conf-director`](agents/conf-director.md) + 5 specialists |
 | Use just one tool (no agent) | Browse the [Skills Index](#skills-index) below |
 
 ## How the pieces fit together
@@ -58,8 +59,9 @@ flowchart LR
     D -->|Math intuition| MI[math-intuition-<br/>coach]
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
     D -->|Learn crop genomics| BIO[biostat-tutor<br/>+ 8 specialists]
+    D -->|Plan a conference| CONF[conf-director<br/>+ 5 specialists]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO --> S[(241 skills)]
+    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF --> S[(247 skills)]
     SK --> S
 ```
 
@@ -132,6 +134,12 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**biostat-emergence**](agents/biostat-emergence.md) | Bottom-up clustering of evergreen notes into structure notes (4+ to form a cluster, >12 to split) |
 | [**biostat-health**](agents/biostat-health.md) | Vault + curriculum health audit — orphans, duplicate claims, weak titles, status drift, overdue reviews |
 | [**biostat-viz**](agents/biostat-viz.md) | Interactive D3 genetics/genomics visualizations for the docs/ site; delegates design review to cognitive-design-architect |
+| [**conf-director**](agents/conf-director.md) | Conference-schedule pipeline orchestrator — runs ingest → cluster → elicit → schedule, gates on per-stage confidence, guards its invariants, surfaces conflicts, never auto-commits (reusable across conferences) |
+| [**conf-program-ingestor**](agents/conf-program-ingestor.md) | Stage 1 — parses a conference program into confidence-scored event records + axes; fans out enrichment |
+| [**conf-enrichment-researcher**](agents/conf-enrichment-researcher.md) | Isolated web-research sub-worker — thickens one thin abstract with provenance + confidence |
+| [**conf-theme-cartographer**](agents/conf-theme-cartographer.md) | Stage 2 — embed-then-label clustering into 6–8 themes + outlier bucket + soft multi-membership affinities |
+| [**conf-preference-elicitor**](agents/conf-preference-elicitor.md) | Stage 3 (interactive) — a few grounded, choice-based questions over an uncertainty region, with deliberate outlier probes; builds the preference profile |
+| [**conf-schedule-optimizer**](agents/conf-schedule-optimizer.md) | Stage 4 — constraint optimization under user-owned weights; protects contiguous free time; surfaces unbreakable conflicts |
 
 ---
 
@@ -161,7 +169,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**241 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**247 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -353,7 +361,7 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 </details>
 
 <details>
-<summary><b>💼 Domain Packs</b> — corporate finance, household finance, game theory, fantasy baseball, specialized (47 skills)</summary>
+<summary><b>💼 Domain Packs</b> — corporate finance, household finance, game theory, fantasy baseball, conference scheduling, specialized (53 skills)</summary>
 
 ### Corporate finance & valuation (11)
 
@@ -440,6 +448,17 @@ Skills for the evolutionary World Cup fantasy backroom. Pairs with a companion r
 - **[wc-tournament-state](skills/wc-tournament-state/SKILL.md)** — The tournament state machine: phase, budget, nation cap, chips, elimination horizons.
 - **[wc-decision-logger](skills/wc-decision-logger/SKILL.md)** — Log the option set + pick + reasoning; archive generations; update scoreboards.
 - **[wc-signal-emitter](skills/wc-signal-emitter/SKILL.md)** — Validate and persist signals with schema, range, and citation enforcement.
+
+### Conference scheduling (6)
+
+Reusable, conference-agnostic pipeline for building a personalized conference schedule. Powers the `conf-director` agent + 5 specialists; pairs with a per-conference workflow folder (config, data-flow handoff dirs, state machine, runbook). Built around explicit per-stage uncertainty: confidence travels with the data and the system surfaces the decisions only the attendee can make.
+
+- **[conf-program-extraction](skills/conf-program-extraction/SKILL.md)** — Parse any conference program into normalized event records with per-field confidence and independent axes (topic, depth, format, prereqs, recorded, capacity).
+- **[conf-abstract-enrichment](skills/conf-abstract-enrichment/SKILL.md)** — Thicken thin / missing abstracts via targeted web search, gated, with provenance and confidence on every recovered claim.
+- **[conf-theme-clustering](skills/conf-theme-clustering/SKILL.md)** — Embed-then-label clustering into 6–8 coarse themes + an outlier bucket + soft multi-membership affinities (+ `cluster.py`, with an LLM-reasoned fallback).
+- **[conf-preference-elicitation](skills/conf-preference-elicitation/SKILL.md)** — A few grounded, choice-based questions over a preference region; information-gain question selection, explore/exploit, and mandatory outlier probes against selection bias.
+- **[conf-schedule-optimization](skills/conf-schedule-optimization/SKILL.md)** — Constraint optimization under user-owned weights (interest / breadth / pacing / serendipity); protects contiguous free time and surfaces unbreakable conflicts (+ `schedule.py`).
+- **[conf-pipeline-orchestration](skills/conf-pipeline-orchestration/SKILL.md)** — The staged-pipeline orchestration discipline: confidence propagation, structured artifact contracts, invariant-guard, the diversity floor, concentrated hardening, and the Goodhart caution.
 
 ### Specialized & meta (2)
 
