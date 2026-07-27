@@ -268,7 +268,7 @@ def markdown_to_prose(text: str, include_tables: bool = False) -> str:
 # Abbreviations ("e.g.", "Dr.") will occasionally split early; that costs a little
 # precision in the offender list and does not affect the aggregate scores, which
 # textstat computes independently.
-SENTENCE_SPLIT = re.compile(r"(?<=[.!?])[\"')\]]*\s+(?=[A-Z0-9])")
+SENTENCE_SPLIT = re.compile(r"(?<=[.!?])[\"'”)\]]*\s+(?=[\"'“(\[]*[A-Z0-9])")
 
 
 def split_sentences(prose: str) -> list[str]:
