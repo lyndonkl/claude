@@ -122,23 +122,34 @@ def build_report(result, profile: str) -> str:
     return "\n".join(lines)
 
 
-def emit_advisory(report: str) -> None:
+# hookSpecificOutput is validated against a per-event schema, and hookEventName is
+# required inside it. Omitting it makes the harness reject the whole payload and surface
+# a validation error to the user, which is exactly the disruption this hook exists to avoid.
+def emit_advisory(report: str, event: str) -> None:
     print(json.dumps({
         "systemMessage": "Readability check failed on this draft.",
-        "hookSpecificOutput": {"additionalContext": report},
+        "hookSpecificOutput": {
+            "hookEventName": event,
+            "additionalContext": report,
+        },
     }))
     sys.exit(0)
 
 
+# Blocking uses the JSON decision form rather than exit 2. Both block, but the docs prefer
+# JSON: it is structured, and the reason reaches the model as feedback rather than as an
+# error string on stderr.
 def emit_block(report: str) -> None:
-    print(report, file=sys.stderr)
-    sys.exit(2)
+    print(json.dumps({"decision": "block", "reason": report}))
+    sys.exit(0)
 
 
 def text_for_event(payload: dict, extensions: list[str]) -> str | None:
     event = payload.get("hook_event_name")
 
-    if event == "Stop":
+    # Stop covers the main session; SubagentStop is a separate event with the same payload
+    # shape. Accept both so the hook still works if an operator wires it to either.
+    if event in ("Stop", "SubagentStop"):
         return payload.get("last_assistant_message") or None
 
     if event == "PostToolUse":
@@ -210,7 +221,7 @@ def main() -> None:
     ):
         emit_block(report)
 
-    emit_advisory(report)
+    emit_advisory(report, payload.get("hook_event_name", "Stop"))
 
 
 if __name__ == "__main__":

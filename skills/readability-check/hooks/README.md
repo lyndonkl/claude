@@ -13,11 +13,11 @@ Optional. The skill works without hooks; these make it run on its own so long pr
 
 ## What it does
 
-One script, `readability_hook.py`, handles two events and branches on `hook_event_name`:
+One script, `readability_hook.py`, branches on `hook_event_name`:
 
 | Event | Fires when | Checks |
 |---|---|---|
-| `Stop` | Claude finishes a turn | `last_assistant_message`, if it is long enough |
+| `Stop` / `SubagentStop` | Claude or a subagent finishes a turn | `last_assistant_message`, if it is long enough |
 | `PostToolUse` | after `Write` or `Edit` | the file just written, if its extension matches |
 
 Both are gated on a **300-word minimum**. Short replies and small files are skipped, because readability formulas are unstable on short text and the advice would be noise.
@@ -60,7 +60,6 @@ Add the hooks yourself, pointing at your clone. Replace `/ABSOLUTE/PATH/TO/claud
   "hooks": {
     "Stop": [
       {
-        "matcher": "*",
         "hooks": [
           {
             "type": "command",
@@ -131,7 +130,7 @@ Example — check engineering docs against the technical profile, only for markd
 
 **`advisory` (default)** — exits 0 and returns the report through `additionalContext`. Claude sees it next turn. Nothing is interrupted.
 
-**`block`** — exits 2, which feeds the report to Claude and prevents the turn from completing until it responds. Stronger, and riskier: a `Stop` hook that blocks every failing draft can loop, because the rewrite may also fail.
+**`block`** — returns `{"decision": "block", "reason": ...}`, which feeds the report to Claude and prevents the turn from completing until it responds. Stronger, and riskier: a `Stop` hook that blocks every failing draft can loop, because the rewrite may also fail.
 
 The loop guard makes blocking safe: **the hook blocks at most once per turn.** It writes a marker keyed on `session_id` + `prompt_id` to the system temp directory, and any second failure in the same turn falls back to advisory. If the marker cannot be written, it treats that as "already blocked" and stays advisory — failing toward the safer behavior.
 
@@ -148,6 +147,9 @@ The hook is built to be boring in every failure case:
 5. **Skips short text**, so ordinary conversation is untouched.
 6. **Bounded output.** At most three quoted sentences, each truncated at 200 characters.
 7. **No network.** Everything runs locally.
+8. **Schema-valid output.** `hookSpecificOutput` always carries the required `hookEventName`, echoed from the incoming payload, so the harness never rejects the response.
+
+> **Note on `Stop` and matchers.** `Stop` does not support a `matcher` field — one is silently ignored — so the config above omits it. `PostToolUse` does support matchers, which is why it keeps `Write|Edit`.
 
 ## Troubleshooting
 
