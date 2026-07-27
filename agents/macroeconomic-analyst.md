@@ -1,6 +1,7 @@
 ---
 name: macroeconomic-analyst
 description: Researches a single assigned trend category in depth via web search and produces a structured trend report covering sub-trends, value chains, beneficiary archetypes, pricing-in assessment, risks, and watch-indicators. Receives the trend category, anchor questions, and an output path as inputs, and writes its report to that path. Use when deep, sourced research is needed on a specific thematic trend cluster — secular technological shifts, demographic transitions, geopolitical realignments, regulatory regime changes, monetary or fiscal regime shifts, climate and resource constraints, or asset class concentration cycles.
+skills: slop-detector, readability-check, strategist-voice
 tools: Read, Write, WebSearch, WebFetch
 model: opus
 ---

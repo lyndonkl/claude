@@ -2,7 +2,7 @@
 name: special-situations-analyst
 description: Handles edge-case valuations for companies that break standard DCF assumptions. Covers four situation types: high-growth firms with negative earnings (revenue-based DCF with failure adjustment), distressed firms (equity-as-call-option via Black-Scholes), private companies (total beta and liquidity discount), and financial services firms (excess return model). Use when valuing unprofitable startups, distressed companies, private firms, banks, insurance companies, or companies with negative earnings.
 tools: Read, Grep, Glob, WebSearch, WebFetch
-skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, special-situations-valuation, relative-valuation-multiples, valuation-reconciler
+skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, special-situations-valuation, relative-valuation-multiples, valuation-reconciler, slop-detector, readability-check, strategist-voice
 model: opus
 ---
 

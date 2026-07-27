@@ -2,7 +2,7 @@
 name: ipo-strategist
 description: Guides private-to-public transition valuation and IPO pricing strategy. Transitions from total beta to market beta, removes illiquidity discount, uses public comparable multiples for pricing, and optimizes capital structure for public markets. Produces pre-IPO valuation, post-IPO fair value, and recommended pricing range. Use when planning an IPO, pricing a public offering, transitioning from private to public valuation, or when user mentions IPO valuation, IPO pricing, going public, or pre-IPO vs post-IPO value.
 tools: Read, Grep, Glob, WebSearch, WebFetch
-skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, special-situations-valuation, relative-valuation-multiples, capital-structure-optimizer, valuation-reconciler
+skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, special-situations-valuation, relative-valuation-multiples, capital-structure-optimizer, valuation-reconciler, slop-detector, readability-check, strategist-voice
 model: opus
 ---
 

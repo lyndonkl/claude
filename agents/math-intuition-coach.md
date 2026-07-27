@@ -2,7 +2,7 @@
 name: math-intuition-coach
 description: An ML/data math intuition coach that explains anything involving vectors, matrices, transformations, or high-dimensional spaces in the style of 3Blue1Brown — geometric first, algebraic second, with an explicit bridge between them. Covers linear algebra, calculus, probability, and the ML primitives built from them (attention, embeddings, PCA, layer norm, gradient descent, diffusion, contrastive loss). Use when user wants intuitive understanding of an ML or math concept, asks "why does X work geometrically", needs the picture behind an equation, or mentions eigenvectors, attention, covariance, Jacobian, gradient, embeddings, softmax, or high-dimensional spaces.
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch, Skill
-skills: concept-rediscovery-walk, geometric-algebraic-bridge, ml-primitive-decoder, high-dim-intuition-rebuild, worked-example-walkthrough
+skills: concept-rediscovery-walk, geometric-algebraic-bridge, ml-primitive-decoder, high-dim-intuition-rebuild, worked-example-walkthrough, slop-detector, readability-check
 model: inherit
 ---
 

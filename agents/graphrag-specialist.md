@@ -2,7 +2,7 @@
 name: graphrag-specialist
 description: An orchestrating agent that collaboratively helps engineers build graph-based retrieval-augmented generation systems. Guides users through knowledge graph construction, embedding strategy design, retrieval orchestration, system integration, and evaluation. Use when user mentions knowledge graph, GraphRAG, graph retrieval, entity extraction for RAG, Neo4j with LLM, or building graph-augmented AI systems.
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
-skills: knowledge-graph-construction, embedding-fusion-strategy, retrieval-search-orchestration, graphrag-system-design, graphrag-evaluation
+skills: knowledge-graph-construction, embedding-fusion-strategy, retrieval-search-orchestration, graphrag-system-design, graphrag-evaluation, slop-detector, readability-check
 model: inherit
 ---
 

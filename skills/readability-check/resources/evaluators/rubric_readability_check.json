@@ -1,0 +1,125 @@
+{
+  "name": "Readability Check Quality Rubric",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "description": "1=Poor, 2=Fair, 3=Good, 4=Very Good, 5=Excellent"
+  },
+  "criteria": [
+    {
+      "name": "Tool Usage",
+      "description": "Ran readability.py rather than estimating scores from inspection",
+      "scoring": {
+        "1": "Claimed scores without running the script",
+        "2": "Ran the script but ignored its output",
+        "3": "Ran the script and reported the scores",
+        "4": "Ran the script, reported scores, and used the long-sentence list to drive revision",
+        "5": "Ran the script, revised, and re-ran to verify the fix landed"
+      }
+    },
+    {
+      "name": "Profile Selection",
+      "description": "Chose the profile from the audience, not from what the draft happened to score",
+      "scoring": {
+        "1": "No profile named, or lowered the profile to manufacture a pass",
+        "2": "Profile named but unjustified",
+        "3": "Reasonable profile for the audience",
+        "4": "Profile named with a one-line justification tied to the reader",
+        "5": "Profile justified, and the choice is defended when the draft would pass a looser one"
+      }
+    },
+    {
+      "name": "Revision Quality",
+      "description": "Applied the revision moves without damaging meaning",
+      "scoring": {
+        "1": "Deleted content or stripped technical terms to hit a number",
+        "2": "Mechanical shortening that left the prose choppy or ambiguous",
+        "3": "Sentences split cleanly, meaning preserved",
+        "4": "Moves applied deliberately (split, cut throat-clearing, un-nominalize) with meaning intact",
+        "5": "Revision improves clarity beyond the score; a reader would prefer the new version on its own merits"
+      }
+    },
+    {
+      "name": "Terminology Preservation",
+      "description": "Load-bearing technical terms survived the rewrite",
+      "scoring": {
+        "1": "Replaced precise terms with vague ones to improve the score",
+        "2": "Some terms weakened or dropped",
+        "3": "Terms preserved",
+        "4": "Terms preserved and the surrounding sentence simplified instead",
+        "5": "Terms preserved, sentence simplified, and any unavoidable score cost is stated explicitly"
+      }
+    },
+    {
+      "name": "Exception Honesty",
+      "description": "Reported what could not be fixed rather than silently shipping or quietly relaxing the target",
+      "scoring": {
+        "1": "Shipped a failing document with no mention, or silently switched to a looser profile",
+        "2": "Mentioned failure vaguely",
+        "3": "Named the failing metric",
+        "4": "Named the metric, the reason, and the trade-off",
+        "5": "Named metric, reason, trade-off, and what would have to change for it to pass"
+      }
+    },
+    {
+      "name": "Formula Disagreement Handling",
+      "description": "Interpreted divergence between the five formulas rather than averaging it away",
+      "scoring": {
+        "1": "Reported one formula only",
+        "2": "Reported all five with no interpretation",
+        "3": "Noted that formulas disagreed",
+        "4": "Diagnosed the cause of disagreement (e.g. short sentences with dense vocabulary)",
+        "5": "Diagnosed the cause and chose the right remedy for it, including deciding not to rewrite when the vocabulary is appropriate for the audience"
+      }
+    }
+  ],
+  "evaluations": [
+    {
+      "skills": ["readability-check"],
+      "query": "Check this design doc for readability and fix anything that fails. The audience is the engineering team.",
+      "files": ["test-files/design-doc.md"],
+      "expected_behavior": [
+        "Runs resources/readability.py against the file rather than estimating scores by reading it",
+        "Selects the technical profile and states that the audience is engineers",
+        "Reports all five formulas with their grade bands and the consensus band",
+        "Rewrites the sentences flagged as over-length, starting with the longest",
+        "Preserves domain terminology exactly while simplifying the surrounding sentences",
+        "Re-runs the script after revising and reports the before and after scores"
+      ]
+    },
+    {
+      "skills": ["readability-check"],
+      "query": "This announcement goes on the public website. Make sure it reads at a general-public level.",
+      "files": ["test-files/announcement.md"],
+      "expected_behavior": [
+        "Selects the public profile because the audience is the general population",
+        "Reports the failure against the stricter public thresholds rather than the default general ones",
+        "Applies the revision moves in impact order, splitting long sentences before swapping synonyms",
+        "Does not silently fall back to a looser profile when the draft fails public",
+        "Verifies the fix by re-running the script"
+      ]
+    },
+    {
+      "skills": ["readability-check"],
+      "query": "Score this paragraph. It has short sentences but our reviewers still say it is hard to follow.",
+      "files": ["test-files/jargon-dense.md"],
+      "expected_behavior": [
+        "Notices that syllable-based formulas score easy while Dale-Chall scores hard",
+        "Diagnoses the cause as unfamiliar vocabulary rather than sentence length",
+        "Recommends defining terms on first use instead of shortening already-short sentences",
+        "Does not recommend replacing precise technical terms with vague alternatives"
+      ]
+    },
+    {
+      "skills": ["readability-check"],
+      "query": "Run the readability check over every document in docs/ and tell me which ones need work.",
+      "files": ["test-files/docs/"],
+      "expected_behavior": [
+        "Uses the directory form with --recursive rather than checking files one at a time",
+        "Reports a pass/fail summary across the set",
+        "Ranks the failing documents by severity so the worst is addressed first",
+        "Correctly skips files with too little prose to score rather than reporting a misleading number"
+      ]
+    }
+  ]
+}

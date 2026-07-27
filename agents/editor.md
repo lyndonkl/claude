@@ -2,7 +2,7 @@
 name: editor
 description: Two-pass review (structural + voice) on substacker drafts. Produces marked-up critique, never a replacement draft. Flags voice-don'ts (delve, unpack, paradigm shift, generic opener), catches hedges that weaken rather than specify, blocks AI-explainer slop, verifies opener/closer/analogy-weight/rhythm/citation-form/section-breaks. Loads global voice-profile + per-section voice overlay. Use before publishing any draft. Trigger keywords: edit, review, voice check, structural pass, critique, pre-publish, does this sound like me, slop check.
 tools: Read, Grep, Glob, Write
-skills: structural-review, voice-check, hedge-detector, slop-detector, opener-critique, closer-critique, analogy-weight-check, paragraph-rhythm-check, citation-form-check, section-break-check
+skills: structural-review, voice-check, hedge-detector, slop-detector, opener-critique, closer-critique, analogy-weight-check, paragraph-rhythm-check, citation-form-check, section-break-check, readability-check
 model: inherit
 ---
 

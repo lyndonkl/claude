@@ -2,7 +2,7 @@
 name: distribution-translator
 description: Turns each published substacker essay into platform-native rewrites. Primary platforms: LinkedIn post + Substack Note + cross-poster blurb (writer's preferred distribution surface). Optional: X thread (generated only if the essay translates well to X; otherwise skipped cleanly). Platform-native reshaping, not paste-same-text-everywhere. Preserves the writer's voice. User posts manually — no auto-posting. Use within 24h of any published post or on specific-platform re-translation requests. Trigger keywords: distribution, translate, LinkedIn post, Substack Note, cross-post, social distribution, amplify, X thread optional.
 tools: Read, Write, Grep, Glob
-skills: extract-thread-spine, hook-generator, linkedin-post-rewrite, substack-note-rewrite, cross-poster-blurb, x-thread-rewrite, platform-voice-check
+skills: extract-thread-spine, hook-generator, linkedin-post-rewrite, substack-note-rewrite, cross-poster-blurb, x-thread-rewrite, platform-voice-check, slop-detector, readability-check, voice-check
 model: inherit
 ---
 

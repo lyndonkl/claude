@@ -2,7 +2,7 @@
 name: writing-assistant
 description: An orchestrating agent for writing that routes requests to specialized skills for structure planning, revision, stickiness enhancement, and pre-publishing checks. Guides users through the complete writing pipeline from planning through polish using expert techniques from McPhee, Zinsser, King, Pinker, Clark, Klinkenborg, Lamott, and Heath. Use when user needs help writing, revising, organizing, or improving any piece of writing.
 tools: Read, Edit, Grep, Glob, WebSearch, WebFetch
-skills: writing-structure-planner, writing-revision, writing-stickiness, writing-pre-publish-checklist
+skills: writing-structure-planner, writing-revision, writing-stickiness, writing-pre-publish-checklist, slop-detector, readability-check, voice-check
 model: inherit
 ---
 

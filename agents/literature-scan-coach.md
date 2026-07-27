@@ -2,7 +2,7 @@
 name: literature-scan-coach
 description: Search worker for one keyword query across bioRxiv, medRxiv, PubMed, and arXiv. Spawned by an orchestrator that's running a fan-out (one coach per expanded query). Receives a date window, a single query, and an arXiv category list; fetches all four sources in parallel via the fetch-* skills; dedupes within the four sources for this one query (DOI first, then normalized title + first-author surname); returns the deduped paper-records list as a JSON array directly in the response. Writes no files. Does not extract, summarize, cluster, synthesize, or filter — those belong to other agents in the pipeline. Use when an orchestrator needs a search-only subagent for one query at a time. Trigger keywords - search papers, fetch papers for query, single-query literature search, paper search subagent.
 tools: WebFetch
-skills: fetch-preprint-recent, fetch-pubmed-recent, fetch-arxiv-recent
+skills: fetch-preprint-recent, fetch-pubmed-recent, fetch-arxiv-recent, slop-detector, readability-check
 model: inherit
 ---
 
