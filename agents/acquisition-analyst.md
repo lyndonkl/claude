@@ -2,7 +2,7 @@
 name: acquisition-analyst
 description: Evaluates M&A targets by computing standalone value, synergy value, and maximum acquisition price. Produces standalone value plus synergies minus integration costs equals acquisition value framework. Use when evaluating acquisition targets, computing synergy value, determining bid price, analyzing mergers, or when user mentions M&A, acquisition valuation, synergy analysis, merger premium, or target valuation.
 tools: Read, Grep, Glob, WebSearch, WebFetch
-skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, intrinsic-valuation-dcf, relative-valuation-multiples, project-investment-analyzer, special-situations-valuation, valuation-reconciler
+skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, intrinsic-valuation-dcf, relative-valuation-multiples, project-investment-analyzer, special-situations-valuation, valuation-reconciler, slop-detector, readability-check, strategist-voice
 model: opus
 ---
 

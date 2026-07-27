@@ -2,7 +2,7 @@
 name: superforecaster
 description: An elite forecasting agent that orchestrates reference class forecasting, Fermi decomposition, Bayesian updating, premortems, and bias checking. Adheres to the "Outside View First" principle and generates granular, calibrated probabilities with comprehensive analysis. Use when user asks for forecast, prediction, or probability estimate.
 tools: Read, Grep, Glob, WebSearch, WebFetch
-skills: reference-class-forecasting, estimation-fermi, bayesian-reasoning-calibration, forecast-premortem, scout-mindset-bias-check
+skills: reference-class-forecasting, estimation-fermi, bayesian-reasoning-calibration, forecast-premortem, scout-mindset-bias-check, slop-detector, readability-check, strategist-voice
 model: inherit
 ---
 

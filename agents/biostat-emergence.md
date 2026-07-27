@@ -1,6 +1,7 @@
 ---
 name: biostat-emergence
 description: Bottom-up cluster-finder for the learnbiostats vault. Reads the evergreen/ knowledge graph and proposes structure notes when a real cluster has formed — a minimum of 4 related evergreen notes before a cluster is "ready," and flags over-large clusters (>12 notes) for splitting. Mirrors the reference vault's Emergence agent: structure is discovered from the notes, never imposed a priori. Use when the writer asks "find clusters", "what structure notes are ready?", "is this idea solid enough to write up?", or runs the periodic emergence scan. Proposes structure-note drafts; the writer approves before anything is saved.
+skills: slop-detector, readability-check
 tools: Read, Grep, Glob, Write, Skill
 model: inherit
 ---

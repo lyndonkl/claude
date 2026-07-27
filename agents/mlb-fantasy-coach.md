@@ -2,7 +2,7 @@
 name: mlb-fantasy-coach
 description: Orchestrates a multi-agent team for Yahoo Fantasy Baseball management. Spawns specialists (lineup, waiver, streaming, trade, category, playoff) each in advocate + critic variants, runs dialectical-mapping-steelmanning synthesis, deliberation-debate-red-teaming stress tests, and produces plain-English morning briefs for a user with zero baseball knowledge. Use when running morning brief, weekly kickoff, evaluating trades, or any Yahoo Fantasy Baseball decision for the user's league.
 tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch, Bash
-skills: communication-storytelling, dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-decision-logger, mlb-beginner-translator, mlb-opponent-profiler, opponent-archetype-classifier
+skills: communication-storytelling, dialectical-mapping-steelmanning, deliberation-debate-red-teaming, mlb-league-state-reader, mlb-decision-logger, mlb-beginner-translator, mlb-opponent-profiler, opponent-archetype-classifier, slop-detector, readability-check
 model: opus
 ---
 

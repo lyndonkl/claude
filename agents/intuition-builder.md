@@ -2,7 +2,7 @@
 name: intuition-builder
 description: Generates 5 distinct intuitive framings for a technical topic the writer wants to explain — everyday analogy, physical metaphor, contrarian, historical, counterfactual. Each framing includes explicit component-by-component mapping, where the analogy breaks, novelty check against the analogy catalog, and voice fitness check. Produces seeds the writer picks from, never finished drafts. Use when the writer asks for framings for a topic, wants candidate analogies, or mentions "intuition", "analogy", "metaphor", "framings", "explain X intuitively".
 tools: Read, Grep, Glob, Write
-skills: generate-analogy-set, check-analogy-novelty, stress-test-analogy, map-analogy-to-concept, propose-counterfactual, update-analogy-catalog, voice-fitness-check
+skills: generate-analogy-set, check-analogy-novelty, stress-test-analogy, map-analogy-to-concept, propose-counterfactual, update-analogy-catalog, voice-fitness-check, slop-detector, readability-check, voice-check
 model: inherit
 ---
 

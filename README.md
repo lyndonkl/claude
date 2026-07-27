@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-241-blue) ![Agents](https://img.shields.io/badge/agents-62-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-248-blue) ![Agents](https://img.shields.io/badge/agents-68-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **241 skills** and **62 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection.
+A production-ready library of **248 skills** and **68 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection.
 
 **Install in 30 seconds:**
 
@@ -11,7 +11,7 @@ A production-ready library of **241 skills** and **62 orchestrating agents** for
 /plugin install thinking-frameworks-skills
 ```
 
-> **Note:** A small number of skills wrap native CLI tools (currently only [`markdown-to-pdf`](skills/markdown-to-pdf/SKILL.md), which needs `pandoc` and a LaTeX engine). Those tools must be installed separately. See [Optional native dependencies](#optional-native-dependencies) below. **All other skills work out of the box.**
+> **Note:** Two skills need something installed separately: [`markdown-to-pdf`](skills/markdown-to-pdf/SKILL.md) needs `pandoc` and a LaTeX engine, and [`readability-check`](skills/readability-check/SKILL.md) needs the `textstat` Python package. See [Optional dependencies](#optional-native-dependencies) below. **Every other skill works out of the box.**
 
 ---
 
@@ -61,7 +61,7 @@ flowchart LR
     D -->|Learn crop genomics| BIO[biostat-tutor<br/>+ 8 specialists]
     D -->|Plan a conference| CONF[conf-director<br/>+ 5 specialists]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF --> S[(247 skills)]
+    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF --> S[(248 skills)]
     SK --> S
 ```
 
@@ -154,6 +154,7 @@ If you do not want to install the tools below, simply do not invoke the skills t
 | Skill | Native dependency | Why it's needed | Install (macOS) | Install (Linux / Debian) |
 |---|---|---|---|---|
 | [`markdown-to-pdf`](skills/markdown-to-pdf/SKILL.md) | `pandoc` and a LaTeX engine (`xelatex`) | Renders a finished markdown report to an analyst-style PDF. The LaTeX engine produces the typography. Without these tools the skill cannot run; it has no fallback rendering path. | `brew install pandoc basictex`<br/>`sudo tlmgr update --self`<br/>`sudo tlmgr install xetex` | `sudo apt install pandoc texlive-xetex texlive-fonts-recommended` |
+| [`readability-check`](skills/readability-check/SKILL.md) | `textstat` (Python package) | Computes the five readability formulas. Without it the skill prints the exact install command and exits; it does not guess scores. | `python3 -m pip install --user textstat` | `python3 -m pip install --user textstat` |
 
 `basictex` on macOS is about 90 MB. Do not install `mactex` unless you specifically need the full LaTeX stack (~5 GB).
 
@@ -169,7 +170,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**247 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**248 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -273,6 +274,7 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 - **[writing-revision](skills/writing-revision/SKILL.md)** — Run the three-pass revision: clutter, cognitive load, rhythm.
 - **[writing-stickiness](skills/writing-stickiness/SKILL.md)** — Make messages memorable using the Heath SUCCESs framework.
 - **[writing-pre-publish-checklist](skills/writing-pre-publish-checklist/SKILL.md)** — Final 6-section quality gate before publishing.
+- **[readability-check](skills/readability-check/SKILL.md)** — Score prose on Flesch, Flesch-Kincaid, SMOG, Gunning Fog, and Dale-Chall; rewrite the sentences that fail.
 - **[communication-storytelling](skills/communication-storytelling/SKILL.md)** — Craft narratives using arcs, tension, and audience framing.
 - **[translation-reframing-audience-shift](skills/translation-reframing-audience-shift/SKILL.md)** — Adapt content for a new audience without losing accuracy.
 - **[one-pager-prd](skills/one-pager-prd/SKILL.md)** — Write concise one-pagers and PRDs for stakeholder alignment.
@@ -595,7 +597,7 @@ Pairs with a companion learning vault (Kolb curriculum, Zettelkasten evergreen n
 /plugin install thinking-frameworks-skills
 ```
 
-All 241 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
+All 248 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
 
 <details>
 <summary><b>Option 2 — Manual install</b></summary>

@@ -2,7 +2,7 @@
 name: product-strategist
 description: Reverse-engineers a product from the outside to produce a layered strategist analysis of its vision, competitive strategy, tactical initiatives, operational surface, and the ML and systems architecture likely sitting behind its key features. Captures freeform per-step reasoning as analyst working notes in a scratchpad directory, consolidates those notes into a structured analyst-style markdown report following the strategist-voice house style, and renders that report to PDF via the markdown-to-pdf skill. Receives a product or company name, an optional focusing directive, and an output path. Use when building a holistic mental model of a real product, mapping how a company's vision flows down into its tactics and system architecture, or producing an opinionated strategist read on a product's metrics and system decomposition from publicly available material. PDF rendering requires pandoc and a LaTeX engine on the user's machine.
 tools: Read, Write, Bash, WebSearch, WebFetch
-skills: business-narrative-builder, strategy-and-competitive-analysis, layered-reasoning, metrics-tree, retrieval-search-orchestration, mapping-visualization-scaffolds, systems-thinking-leverage, communication-storytelling, strategist-voice, markdown-to-pdf
+skills: business-narrative-builder, strategy-and-competitive-analysis, layered-reasoning, metrics-tree, retrieval-search-orchestration, mapping-visualization-scaffolds, systems-thinking-leverage, communication-storytelling, strategist-voice, markdown-to-pdf, slop-detector, readability-check
 model: opus
 ---
 

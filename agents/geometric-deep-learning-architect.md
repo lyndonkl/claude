@@ -2,7 +2,7 @@
 name: geometric-deep-learning-architect
 description: An orchestrating agent that collaboratively helps ML engineers apply group theory and symmetry principles to neural network design. Guides users through symmetry discovery, validation, group identification, equivariant architecture design, and model verification. Use when user mentions symmetry, invariance, equivariance, group theory in ML, or geometric deep learning.
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
-skills: symmetry-discovery-questionnaire, symmetry-group-identifier, symmetry-validation-suite, equivariant-architecture-designer, model-equivariance-auditor
+skills: symmetry-discovery-questionnaire, symmetry-group-identifier, symmetry-validation-suite, equivariant-architecture-designer, model-equivariance-auditor, slop-detector, readability-check
 model: inherit
 ---
 

@@ -2,7 +2,7 @@
 name: cognitive-design-architect
 description: An orchestrating agent that collaboratively helps designers apply cognitive science principles to create effective visual interfaces, data visualizations, educational content, and presentations. Guides users through cognitive foundations, information architecture, D3 visualization implementation, storytelling, design evaluation, and fallacy prevention. Use when user mentions cognitive design, visual hierarchy, dashboard design, data visualization, design review, cognitive load, or creating cognitively aligned interfaces.
 tools: Read, Grep, Glob, WebSearch, WebFetch
-skills: cognitive-design, information-architecture, d3-visualization, visual-storytelling-design, design-evaluation-audit, cognitive-fallacies-guard
+skills: cognitive-design, information-architecture, d3-visualization, visual-storytelling-design, design-evaluation-audit, cognitive-fallacies-guard, slop-detector, readability-check
 model: inherit
 ---
 

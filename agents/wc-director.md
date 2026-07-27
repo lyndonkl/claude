@@ -2,7 +2,7 @@
 name: wc-director
 description: User-facing orchestrator for FIFA World Cup Fantasy. Runs the evolutionary generation loop — spawns archetype strategist teams in parallel, drives fitness/selection/recombination via wc-evolution-engine, has specialists adversarially verify the offspring, then presents a DECISION BOARD of 2-4 weighted options and STOPS for the expert manager to choose. Advisory not prescriptive: surfaces options with full reasoning and dissent, never auto-commits a squad/XI/captain/transfer/chip. Manages the tournament state machine. Use to build the matchday board, build/rebuild a squad, plan a transfer window, decide a chip, or review a round.
 tools: Read, Grep, Glob, Write, Edit, Bash, WebSearch, WebFetch, Agent(wc-strategist, wc-evolution-engine, wc-synthesis, wc-scout, wc-fixture-analyst, wc-ownership-analyst, wc-squad-architect, wc-matchday-tactician, wc-chip-strategist)
-skills: wc-tournament-state, wc-decision-board, wc-decision-logger, wc-signal-emitter, communication-storytelling, dialectical-mapping-steelmanning, deliberation-debate-red-teaming
+skills: wc-tournament-state, wc-decision-board, wc-decision-logger, wc-signal-emitter, communication-storytelling, dialectical-mapping-steelmanning, deliberation-debate-red-teaming, slop-detector, readability-check
 model: opus
 ---
 

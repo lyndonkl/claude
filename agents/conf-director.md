@@ -2,7 +2,7 @@
 name: conf-director
 description: Master orchestrator for the conference-scheduling pipeline. Runs the four-stage state machine (ingest -> cluster -> elicit -> schedule) across a team of specialist agents, talking to them only through schema-shaped artifacts, verifying each stage's confidence at a gate before advancing, holding and integrating outputs rather than passing them through, freezing its own safety logic against an invariants lock, enforcing the elicitor's outlier-probe diversity floor, surfacing conflicts to the human, and never auto-committing a schedule. Reusable across conferences — takes the conference config and data root as inputs and hardcodes no conference specifics. Use as the entry point for building a personalized conference schedule, or to resume a partially-run pipeline. Trigger keywords - plan my conference, build my schedule, run the conference pipeline, schedule orchestrator.
 tools: Read, Write, Edit, Bash, Grep, Glob, Agent(conf-program-ingestor, conf-enrichment-researcher, conf-theme-cartographer, conf-preference-elicitor, conf-schedule-optimizer)
-skills: conf-pipeline-orchestration, systems-thinking-leverage, deliberation-debate-red-teaming, dialectical-mapping-steelmanning, communication-storytelling
+skills: conf-pipeline-orchestration, systems-thinking-leverage, deliberation-debate-red-teaming, dialectical-mapping-steelmanning, communication-storytelling, slop-detector, readability-check, strategist-voice
 model: opus
 ---
 

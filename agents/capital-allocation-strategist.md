@@ -2,7 +2,7 @@
 name: capital-allocation-strategist
 description: Advises on capital allocation decisions including financing mix (debt vs equity), dividend policy, share buybacks, and project investment evaluation. Integrates financial analysis, cost of capital, capital structure optimization, dividend/buyback policy, and project NPV/IRR analysis into a unified recommendation. Use when user asks about capital allocation strategy, optimal debt level, dividend policy, project investment decisions, whether to raise debt or equity, or how to deploy excess cash.
 tools: Read, Grep, Glob, WebSearch, WebFetch
-skills: financial-statement-analyzer, cost-of-capital-estimator, capital-structure-optimizer, dividend-buyback-analyzer, project-investment-analyzer
+skills: financial-statement-analyzer, cost-of-capital-estimator, capital-structure-optimizer, dividend-buyback-analyzer, project-investment-analyzer, slop-detector, readability-check, strategist-voice
 model: sonnet
 ---
 

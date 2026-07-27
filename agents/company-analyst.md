@@ -2,7 +2,7 @@
 name: company-analyst
 description: End-to-end company analysis pipeline for standard, profitable companies. Orchestrates business narrative, financial statement cleanup, cost of capital estimation, intrinsic (DCF) and relative (multiples) valuation, capital structure optimization, dividend/buyback policy assessment, and final valuation reconciliation into an investment recommendation. Use when user asks for a complete company analysis, equity valuation, fair value estimate, or investment recommendation for a publicly traded, profitable company.
 tools: Read, Write, Grep, Glob, WebSearch, WebFetch
-skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, intrinsic-valuation-dcf, relative-valuation-multiples, capital-structure-optimizer, dividend-buyback-analyzer, valuation-reconciler
+skills: business-narrative-builder, financial-statement-analyzer, cost-of-capital-estimator, intrinsic-valuation-dcf, relative-valuation-multiples, capital-structure-optimizer, dividend-buyback-analyzer, valuation-reconciler, slop-detector, readability-check, strategist-voice
 model: opus
 ---
 

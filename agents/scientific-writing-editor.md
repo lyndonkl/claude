@@ -2,7 +2,7 @@
 name: scientific-writing-editor
 description: An orchestrating agent for scientific writing that routes requests to specialized skills for manuscripts, grants, letters, emails, career documents, and cross-cutting clarity review. Provides multi-pass editing following structured workflows with document-type-specific frameworks. Use when user needs help with scientific or academic writing.
 tools: Read, Edit, Grep, Glob, WebSearch, WebFetch
-skills: scientific-manuscript-review, grant-proposal-assistant, academic-letter-architect, scientific-email-polishing, career-document-architect, scientific-clarity-checker
+skills: scientific-manuscript-review, grant-proposal-assistant, academic-letter-architect, scientific-email-polishing, career-document-architect, scientific-clarity-checker, slop-detector, readability-check, voice-check
 model: inherit
 ---
 
