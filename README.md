@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-248-blue) ![Agents](https://img.shields.io/badge/agents-68-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-248-blue) ![Agents](https://img.shields.io/badge/agents-73-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **248 skills** and **68 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection.
+A production-ready library of **248 skills** and **73 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection. Also included: five reusable primitives for gated, verifiable research pipelines.
 
 **Install in 30 seconds:**
 
@@ -39,6 +39,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Grow my Substack / publish intuition-first ML & systems essays | [`librarian`](agents/librarian.md), [`intuition-builder`](agents/intuition-builder.md), [`editor`](agents/editor.md) + 6 more |
 | Learn ML-driven crop genetics / genomic selection (experiential study → notes → publish in public) | [`biostat-tutor`](agents/biostat-tutor.md), [`biostat-assessor`](agents/biostat-assessor.md), [`biostat-editor`](agents/biostat-editor.md) + 6 more |
 | Build a personalized schedule for a conference (ingest the program → cluster themes → a few grounded questions → optimized plan) | [`conf-director`](agents/conf-director.md) + 5 specialists |
+| Run a gated research pipeline where every number is sourced, attacked, and verified before anything is built on it | [`market-era-historian`](agents/market-era-historian.md), [`series-archaeologist`](agents/series-archaeologist.md), [`mechanism-analyst`](agents/mechanism-analyst.md), [`claim-verifier`](agents/claim-verifier.md), [`stage-auditor`](agents/stage-auditor.md) |
 | Use just one tool (no agent) | Browse the [Skills Index](#skills-index) below |
 
 ## How the pieces fit together
@@ -60,8 +61,9 @@ flowchart LR
     D -->|Weekly paper digest| LSC[literature-scan-coach<br/>→ paper-synthesizer]
     D -->|Learn crop genomics| BIO[biostat-tutor<br/>+ 8 specialists]
     D -->|Plan a conference| CONF[conf-director<br/>+ 5 specialists]
+    D -->|Gated research pipeline| RP[market-era-historian<br/>series-archaeologist<br/>mechanism-analyst<br/>claim-verifier<br/>stage-auditor]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF --> S[(248 skills)]
+    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF & RP --> S[(248 skills)]
     SK --> S
 ```
 
@@ -140,6 +142,11 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**conf-theme-cartographer**](agents/conf-theme-cartographer.md) | Stage 2 — embed-then-label clustering into 6–8 themes + outlier bucket + soft multi-membership affinities |
 | [**conf-preference-elicitor**](agents/conf-preference-elicitor.md) | Stage 3 (interactive) — a few grounded, choice-based questions over an uncertainty region, with deliberate outlier probes; builds the preference profile |
 | [**conf-schedule-optimizer**](agents/conf-schedule-optimizer.md) | Stage 4 — constraint optimization under user-owned weights; protects contiguous free time; surfaces unbreakable conflicts |
+| [**market-era-historian**](agents/market-era-historian.md) | Reconstructs how a market worked in one bounded period — fills a provided field schema with sourced, calibrated claims; built for parallel fan-out across periods |
+| [**series-archaeologist**](agents/series-archaeologist.md) | Assembles decades-long datasets from incompatible sources — per-point provenance, a concordance of definitional breaks, documented bridges, no silent splices |
+| [**mechanism-analyst**](agents/mechanism-analyst.md) | Worked-number analysis of a market mechanism or deal economics vs named rivals — machine-checkable arithmetic plus a simulation-ready parameterization |
+| [**claim-verifier**](agents/claim-verifier.md) | Refute-first adversarial verification of a claim batch — independent re-sourcing, re-derivation, interval and grade challenge; confirmed / adjusted / rejected / unverified |
+| [**stage-auditor**](agents/stage-auditor.md) | The automated gate between pipeline stages — runs a contract's deterministic checks, judges the rest, emits pass/fail plus a remediation payload; audits, never repairs |
 
 ---
 
