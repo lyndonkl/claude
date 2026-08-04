@@ -1,0 +1,102 @@
+{
+  "name": "Narrative Handoff Contract Rubric",
+  "description": "Evaluation criteria for an architecture object passed between a structural agent and a drafting agent. Minimum standard: average score >= 3.5, with Evidence Binding and Absence Handling both >= 4.",
+  "criteria": [
+    {
+      "name": "Evidence Binding",
+      "description": "Whether every non-absent slot and every scene traces to claim IDs that resolve to external artifacts",
+      "weight": 1.5,
+      "scores": {
+        "1": "Slots carry assertions with no evidence array at all; the contract is decorative",
+        "2": "Some slots cite evidence; others carry a confident sentence and nothing else",
+        "3": "Every slot cites evidence, but pointers are informal and some do not resolve",
+        "4": "Every slot and scene cites resolvable claim IDs; no pointer resolves into the pipeline's own output",
+        "5": "As 4, plus source dates recorded per slot and source interest annotated, so a starting weakness can be checked against a pre-outcome source"
+      }
+    },
+    {
+      "name": "Absence Handling",
+      "description": "Whether unfillable slots are declared and dispositioned rather than invented",
+      "weight": 1.5,
+      "scores": {
+        "1": "Every slot is filled; nothing is marked ABSENT and no gaps are recorded",
+        "2": "Gaps are mentioned in prose but carry no status field and no disposition",
+        "3": "Slots are marked ABSENT but several lack an empty_slot_move",
+        "4": "Every ABSENT slot carries a move, every gap carries one of the four dispositions, and no gap is left as 'draft and flag'",
+        "5": "As 4, plus the inference budget is respected (at most one INFERRED slot, never the climax) and each inference is disclosed in the body"
+      }
+    },
+    {
+      "name": "Layer Discipline",
+      "description": "Whether the structural layer stopped at the scene weave instead of drafting",
+      "weight": 1.2,
+      "scores": {
+        "1": "The architecture contains drafted paragraphs; the drafting agent inherits text to edit",
+        "2": "Scene entries run to several sentences of near-prose",
+        "3": "Scene lines are mostly short but a few exceed the cap",
+        "4": "Every tagged_line is within the cap and construction fields carry the detail",
+        "5": "As 4, and the validator was run and passed before the handoff was made"
+      }
+    },
+    {
+      "name": "Provenance and Reproducibility",
+      "description": "Whether the run can be re-derived, diffed, and audited later",
+      "weight": 1.0,
+      "scores": {
+        "1": "No run header; nothing records what produced this",
+        "2": "A timestamp only",
+        "3": "Model and corpus reference present, but no record of which claims were consulted",
+        "4": "Full run header including the coverage receipt of claim IDs actually consulted",
+        "5": "As 4, plus claims skipped are named explicitly, so partial coverage is visible rather than silent"
+      }
+    },
+    {
+      "name": "Causal Typing",
+      "description": "Whether causal claims carry a tier and stay inside the verbs that tier licenses",
+      "weight": 1.2,
+      "scores": {
+        "1": "No causal tiers; warrants assert causation freely",
+        "2": "Tiers assigned inconsistently, and warrants ignore them",
+        "3": "Every slot carries a tier, but some warrants exceed it",
+        "4": "Every tier is assigned and every warrant stays inside its permitted verbs",
+        "5": "As 4, plus no later reference upgrades a claim's tier anywhere in the artifact"
+      }
+    },
+    {
+      "name": "The Dead Column",
+      "description": "Whether killed findings are retained and the contradicting ones distinguished",
+      "weight": 1.0,
+      "scores": {
+        "1": "No dead column; killed findings were deleted",
+        "2": "A list of discarded items with no reasons",
+        "3": "Reasons recorded but 'did not support' and 'contradicted' are not distinguished",
+        "4": "Every entry carries what killed it and which of the two categories it falls in",
+        "5": "As 4, and every CONTRADICTED entry is routed into the deliverable rather than pruned"
+      }
+    },
+    {
+      "name": "Return Channel",
+      "description": "Whether the drafting layer can send a defect back up, and whether escalations were routed",
+      "weight": 1.0,
+      "scores": {
+        "1": "No escalation mechanism; the pipeline runs one way only",
+        "2": "Escalations arrive as prose notes with nothing to route them",
+        "3": "Escalation objects exist but do not name a layer",
+        "4": "Escalations carry beat, layer, defect and what would resolve it, and are recorded in the artifact",
+        "5": "As 4, and architecture-layer escalations produced a spine version bump and a re-pass rather than a local patch"
+      }
+    },
+    {
+      "name": "Handoff Legibility",
+      "description": "Whether the manifest survives being read by an agent that inherits nothing",
+      "weight": 1.0,
+      "scores": {
+        "1": "Refers to 'the architecture we built' and 'the next section'; unusable without the prior conversation",
+        "2": "Relative paths and an implied scope",
+        "3": "Absolute paths, but scope is described rather than enumerated",
+        "4": "Absolute paths, explicit beat IDs, an out-of-scope statement, and the required return shape",
+        "5": "As 4, plus a precondition check the downstream agent runs first and a style contract with a stated precedence order"
+      }
+    }
+  ]
+}

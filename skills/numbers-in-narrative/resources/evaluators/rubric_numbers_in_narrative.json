@@ -1,0 +1,104 @@
+{
+  "name": "Numbers In Narrative Rubric",
+  "description": "Evaluation criteria for prose that carries quantities: whether the numbers land for a reader and whether they stay inside what the sources support",
+  "criteria": [
+    {
+      "name": "Frame Lock and Denominator Discipline",
+      "description": "Whether unit, denominator, window and population boundary are fixed in writing, and whether the denominator holds across the whole piece",
+      "weight": 1.4,
+      "scores": {
+        "1": "No frame stated; denominators switch between counts, rates and shares across the piece with no acknowledgement",
+        "2": "Frame implied but never written; at least one unnarrated denominator switch survives into the final text",
+        "3": "Frame written for unit and denominator; window and boundary unjustified; denominator sweep not run",
+        "4": "All four locked with justification; denominator sweep run; any switch is narrated as a beat",
+        "5": "All four locked with one rejected alternative and a reason each; sweep table produced; rate-vs-count rule applied and any moving denominator shown as both series"
+      }
+    },
+    {
+      "name": "Number Landing",
+      "description": "Whether each surviving figure is legible: budget respected, rounded appropriately, compared, at human scale, direction before magnitude",
+      "weight": 1.2,
+      "scores": {
+        "1": "Stat walls throughout; bare figures with no comparison; paragraphs open cold on numbers the reader has no frame for",
+        "2": "Some comparisons present but budgets ignored; magnitude given before direction; precision carried unnecessarily",
+        "3": "Budgets mostly respected and most figures compared; human-scale conversion inconsistent",
+        "4": "Budgets respected; every figure compared on the same screen; direction precedes magnitude; frames built before figures land",
+        "5": "As 4, plus human-scale conversions that do not overclaim, rounding tested against the specific claim each sentence makes, and bureaucratic number-words replaced without breaking terms of art"
+      }
+    },
+    {
+      "name": "Source Fidelity and Precision",
+      "description": "Whether figures stay inside their sources: precision ceiling, rounding drift, percent vs percentage point, relative vs absolute, contested values, ranges",
+      "weight": 1.4,
+      "scores": {
+        "1": "Figures exceed source precision; derived numbers computed from rounded prose; percent and percentage point conflated; contested figures silently resolved",
+        "2": "Precision mostly respected but at least one derived figure traces to a prose number, or one contested figure was picked without disclosure",
+        "3": "Precision ceiling held and contested figures carry both values; totals not recomputed from held values at the end",
+        "4": "No precision violations; all derived figures computed from held source values; percent/point and relative/absolute correct throughout; ranges survive into prose",
+        "5": "As 4, plus end-of-draft recomputation of every total and share from held values, parts confirmed to sum, and every figure resolving to an external pointer with no circular sourcing"
+      }
+    },
+    {
+      "name": "Epistemic Grammar",
+      "description": "Whether the sentence shape matches the evidentiary status: measurement vs model, trend claims, qualitative quantifiers, sourced vs verified, intentionality verbs on systems",
+      "weight": 1.3,
+      "scores": {
+        "1": "Model output written as observation; trends asserted from two points; qualitative quantifiers converted to numerals; work described as verified",
+        "2": "Occasional model-as-measurement slips or an unmarked two-point trend; system intentionality verbs used freely",
+        "3": "Model output marked and two-point trends avoided; some intentionality verbs on systems remain unmarked",
+        "4": "Every projection, fit or estimate carries model grammar; no manufactured numerals; provenance language says sourced, not verified",
+        "5": "As 4, plus system intentionality either rewritten as aggregated behaviour of named actors or marked once as an explicit device, and no verb carrying a hidden causal claim survives"
+      }
+    },
+    {
+      "name": "Uncertainty Routing",
+      "description": "Whether uncertainty is typed and routed to a vehicle and a placement, rather than dumped in a methods note or smeared across every sentence",
+      "weight": 1.3,
+      "scores": {
+        "1": "Uncertainty absent, or entirely confined to a trailing methods note",
+        "2": "Uncertainty present but untyped and placed by habit; or hedges appear in nearly every sentence so nothing lands",
+        "3": "Dominant type named for most load-bearing claims and routed roughly by table; momentum rule not applied",
+        "4": "One type per claim, routed to the correct vehicle and placement; momentum rule applied so only conclusion-changing uncertainty takes its own beat",
+        "5": "As 4, plus reference-model sentences written for load-bearing claims, missingness rendered rather than left blank, and specification disagreement made the beat where two defensible specifications diverge"
+      }
+    },
+    {
+      "name": "Likelihood and Confidence Discipline",
+      "description": "Whether banded language is declared, consistent, separated from confidence, and reserved for load-bearing judgments",
+      "weight": 1.0,
+      "scores": {
+        "1": "Probability words used loosely and interchangeably; likelihood and confidence combined in single sentences",
+        "2": "Some banded terms used but no ladder declared, and terms drift between sections",
+        "3": "A ladder is declared but applied to too many non-load-bearing sentences, or the two ladders occasionally blend",
+        "4": "Ladder declared once in the piece; terms hold their bands; likelihood and confidence always separated",
+        "5": "As 4, plus banding restricted to judgments a reader would act on, no banded term paired with a contradicting bare number, and the ladder's status as a declared convention rather than a universal standard made explicit"
+      }
+    },
+    {
+      "name": "Exhibit Contract",
+      "description": "Whether each exhibit carrying a beat has a checkable title, falsification lines, a leap-of-faith mark and survives detachment",
+      "weight": 1.2,
+      "scores": {
+        "1": "Exhibits titled as labels; no annotation discipline; projected values indistinguishable from measured ones",
+        "2": "Titles carry claims but no falsification line was written; caveats live only in the surrounding prose",
+        "3": "Beat sentence written before drawing and title made a claim; density caps or the detachment test skipped",
+        "4": "Beat, checkable title, density caps, leap-of-faith mark, and a falsification line per annotation",
+        "5": "As 4, plus the exhibit passing the detachment test carrying both beat and caveat, provenance on the exhibit, and consistent encodings across the sequence"
+      }
+    },
+    {
+      "name": "Omission and Over-Disclosure Balance",
+      "description": "Whether cuts were reviewed as a set and whether counter-evidence is findable, without answering the audit by burying the reader in caveats",
+      "weight": 1.1,
+      "scores": {
+        "1": "No record of what was cut; disconfirming figures absent; or the draft is padded with caveat exhibits that obscure the argument",
+        "2": "Cuts made ad hoc with no log; strongest counter-evidence appears late or not at all",
+        "3": "Omitted-number log kept but reviewed per cut rather than as a set",
+        "4": "Log reviewed as a set for shared direction; counter-evidence present and reachable; hedge budget respected",
+        "5": "As 4, plus a disagreeing reader able to find the strongest counter-number within one exhibit of where they are, and no defensive volume added in place of a reversal"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5. Scores below 3 in 'Frame Lock and Denominator Discipline' or 'Source Fidelity and Precision' require revision regardless of the average, because both failures survive fact-checking."
+}

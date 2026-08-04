@@ -1,0 +1,102 @@
+{
+  "name": "Scene Construction (SCAM) Rubric",
+  "description": "Evaluation criteria for whether a scene was reported rather than generated: SCAM gate discipline, provenance ledger completeness, detail selection, narrative distance, system-protagonist handling, and honest handling of a thin record. Minimum standard is an average score of 3.5.",
+  "criteria": [
+    {
+      "name": "SCAM Gate Discipline",
+      "description": "Whether all four slots were filled with sourced content and the four gates were applied in order, with Gate 4 (could this have been written without the source material?) actually run",
+      "weight": 1.5,
+      "scores": {
+        "1": "No gate run; the passage was drafted directly and called a scene",
+        "2": "Slots filled but with no source column, or gates named and not applied",
+        "3": "All four slots sourced and Gates 1-3 applied; Gate 4 skipped or run superficially",
+        "4": "All four gates applied per candidate with results recorded; Gate 4 genuinely tested against the hidden-pointer method",
+        "5": "All four gates applied, Gate 4 caused at least one candidate to be killed or reworked, and Gate 2 violations were moved to the following summary block rather than left in the scene"
+      }
+    },
+    {
+      "name": "Provenance and Ledger Completeness",
+      "description": "Whether every scene has a complete ledger row with pointers that resolve to external artifacts, and whether missing fields actually blocked the build",
+      "weight": 1.5,
+      "scores": {
+        "1": "No ledger; scenes drafted from memory or from the pipeline's own summaries",
+        "2": "Ledger present but pointers are coarse ('the 10-K', 'the incident report') or resolve into the pipeline's own outputs",
+        "3": "Most fields filled with resolvable pointers; some gaps were papered over rather than blocking",
+        "4": "All required fields filled, all pointers external and granular, missing fields blocked the build",
+        "5": "As 4, plus the interior-state classes are tagged with a zero D-count, class A/B material is unhedged, class C is marked in the prose, and blocked candidates were dispositioned rather than drafted-and-flagged"
+      }
+    },
+    {
+      "name": "Empty-Slot Handling and Honest Refusal",
+      "description": "Whether unfillable slots produced summary, research requests, declared absences, or refusal, rather than inference or plausible specifics",
+      "weight": 1.5,
+      "scores": {
+        "1": "Empty slots filled by inference; plausible specifics supplied where the record was thin",
+        "2": "Some inference-filling, some demotion; the choice between them tracked what the piece needed rather than what the record held",
+        "3": "Empty slots demoted to summary, but gaps are silent and the reader cannot tell the record ran out",
+        "4": "Every failed candidate has a recorded disposition; absences are declared in the text where they matter",
+        "5": "As 4, plus the output includes a defensible refusal or gap register where the corpus does not support scene, and source conflicts are left open in the text rather than resolved silently"
+      }
+    },
+    {
+      "name": "Detail Selection and Provenance Veto",
+      "description": "Whether the 1-of-20 cut was run with the seven tests, provenance treated as an absolute veto, and survivors held to one or two",
+      "weight": 1.0,
+      "scores": {
+        "1": "Details generated as needed while drafting; several have no source",
+        "2": "Candidates listed but all plausible ones kept, producing an inventory paragraph",
+        "3": "Cut performed and provenance respected, but three or more details survive and carry overlapping inferences",
+        "4": "Seven tests run per candidate, provenance vetoed at least one attractive detail, one or two survivors kept with no explanatory adjective",
+        "5": "As 4, plus the kept and cut details are recorded and reviewed as a set, and the representativeness test produced an on-page flag where the detail was extreme"
+      }
+    },
+    {
+      "name": "Scene Floor, Ceiling, and RUE",
+      "description": "Whether the scene meets the floor (one place, one time marker, one observable action), stops at the ceiling (2-4 concrete elements), and survived the RUE deletion",
+      "weight": 1.0,
+      "scores": {
+        "1": "No located moment, or an establishing shot of invented weather, light, and mood",
+        "2": "Floor met but the scene runs to a room inventory, or the meaning is carried entirely by explanation",
+        "3": "Floor and ceiling respected; RUE run but explanatory sentences were restored rather than the scene swapped",
+        "4": "Floor met, ceiling held at 2-4 elements, entry in medias res, RUE deletions permanent",
+        "5": "As 4, plus at least one scene was swapped rather than annotated when RUE removed its meaning, and any quoted dialogue is verbatim and internal to the scene"
+      }
+    },
+    {
+      "name": "Narrative Distance and Costume Summary",
+      "description": "Whether paragraphs were labeled S/C/X, the scenic share measured against the form's target, and every X resolved by demotion or promotion",
+      "weight": 1.0,
+      "scores": {
+        "1": "No audit; the piece drifts between modes and several paragraphs are sensory generalizations with no date or actor",
+        "2": "Audit attempted but X paragraphs were left in place as a third mode",
+        "3": "Labels applied and ratio computed; some costume summary survives",
+        "4": "Every paragraph labeled, ratio within the form's target, every X demoted to clean summary or promoted with a date, a place, and named actors",
+        "5": "As 4, plus the alternation rule holds in both directions, the ratio targets are stated as tunable defaults rather than published figures, and the close pulls back one notch in distance"
+      }
+    },
+    {
+      "name": "System Protagonist Handling",
+      "description": "Whether the CHARACTER slot for a non-human protagonist is observable state plus one distinguishing behavior, and whether intentional verbs were capped",
+      "weight": 1.2,
+      "scores": {
+        "1": "The system holds wants, beliefs, and decisions throughout; causal claims enter through metaphor",
+        "2": "Personification used repeatedly, with occasional mechanical repair",
+        "3": "CHARACTER slot uses observable state, but intentional verbs recur in the prose without being counted",
+        "4": "State-plus-behavior in the slot, intentional verbs counted and capped, personification used once as an explicit framing device",
+        "5": "As 4, plus every imputed institutional intent traces to a filing, minute, transcript, or quoted executive, and aggregates carry a persistent marker and never enter a scene"
+      }
+    },
+    {
+      "name": "Subtraction, Proportion, and Attribution Accuracy",
+      "description": "Whether cuts were reviewed as a set against the drift and proportion of the record, and whether the skill's own attribution caveats were carried",
+      "weight": 1.2,
+      "scores": {
+        "1": "No subtraction log; disconfirming material cut without trace; SCAM credited to Hart or thresholds presented as published figures",
+        "2": "Cuts logged but reviewed only individually; attribution caveats absent",
+        "3": "Subtraction log present and reviewed as a set; attribution mostly correct but one caveat dropped",
+        "4": "Cuts reviewed as a set with a proportion test, atypical scenes flagged on the page, SCAM attributed to journalism pedagogy rather than Hart, numeric thresholds labeled as derived defaults",
+        "5": "As 4, plus the note on sources is generated from the deviation log with named specifics rather than boilerplate, and the word 'verified' is used nowhere for facts that were only sourced"
+      }
+    }
+  ]
+}

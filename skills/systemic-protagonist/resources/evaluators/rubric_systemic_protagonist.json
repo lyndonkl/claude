@@ -1,0 +1,102 @@
+{
+  "name": "Systemic Protagonist Rubric",
+  "description": "Evaluation criteria for rendering a system as a legible protagonist without faking agency: character-sheet rigour, agency repair, gateway discipline, perceptibility, climax legitimacy, and accountability.",
+  "criteria": [
+    {
+      "name": "Revealed Objective Function Rigour",
+      "description": "Whether the character sentence is derived from outcomes across multiple regimes with citations, rather than from rhetoric or a single episode",
+      "weight": 1.3,
+      "scores": {
+        "1": "No character sentence, or the revealed purpose is just the stated purpose restated",
+        "2": "Character sentence asserted with no outcome list or citations",
+        "3": "Outcome list present with citations, but the sentence rests on a single regime or episode",
+        "4": "Character sentence supported by cited behaviour in two distinct regimes; constraints and loops documented",
+        "5": "Two-regime support plus per-loop delay and quantity, constraints sourced individually, and a stated result code (confirmed / unsupported / regime split)"
+      }
+    },
+    {
+      "name": "Residual and Overfit Control",
+      "description": "Whether outcomes the objective function fails to explain are named, classified, and carried into the finished piece",
+      "weight": 1.2,
+      "scores": {
+        "1": "Every outcome is read as intended; the system is written as a coherent malign optimiser",
+        "2": "Residual field left empty or filled with a token disclaimer",
+        "3": "At least one unexplained outcome named, but it does not appear in the finished piece",
+        "4": "Unexplained outcomes named, classified as incompetence / path dependence / noise, and present in the piece",
+        "5": "As 4, plus the fit is explicitly interrogated — the analysis states what would falsify the character sentence and shows it was checked"
+      }
+    },
+    {
+      "name": "Agency Repair Quality",
+      "description": "Whether intentional and teleological verbs on non-agentive subjects were relocated to real actors, mechanisms, or selection pressures rather than deleted",
+      "weight": 1.3,
+      "scores": {
+        "1": "Systems want, decide, learn, and punish throughout; no ledger run",
+        "2": "Some flagged verbs removed, but replaced with agentless passives; the post-pass passive count rose",
+        "3": "Most intentional verbs repaired; repairs skew to one type and some are vague ('incentives shifted')",
+        "4": "All flagged verbs repaired using the four named repairs; agentless passive count did not rise; unrepairable ones logged as research gaps",
+        "5": "As 4, plus claim typing applied (mechanism / incentive / selection / correlation / attribution) with a back-reference check showing no type upgrades, and a personification budget honoured with each instance's mechanism stated"
+      }
+    },
+    {
+      "name": "Gateway Discipline and Cast Disclosure",
+      "description": "Whether human entry points stay probes rather than protagonists, and how the cast came to be assembled is stated in the text",
+      "weight": 1.2,
+      "scores": {
+        "1": "The piece is a hero's arc with systemic vocabulary; no admission test, no disclosure",
+        "2": "Gateways admitted informally; no wrongness paragraph and no statement of who declined",
+        "3": "Gateways mapped to character-sheet lines and a wrongness paragraph written, but no deletion or ratio test",
+        "4": "Full admission test run including miscalibration and contemporaneous documentation; deletion and ratio tests reported; who declined is stated",
+        "5": "As 4, plus the absence check is analysed — the text says whether the silence of non-participants flatters anyone, and gateway arcs are written epistemically rather than morally"
+      }
+    },
+    {
+      "name": "Perceptibility Without Invention",
+      "description": "Whether abstract forces are made visible through sourced instrument-resolution scenes constrained to contemporaneous knowledge",
+      "weight": 1.1,
+      "scores": {
+        "1": "Sensory detail generated that is not in the source material",
+        "2": "Scenes drawn from material but retro-fit later understanding into the observer's mind at the time",
+        "3": "Scenes sourced and time-constrained, but no threshold stated or no units and normal range given",
+        "4": "Instrument resolution with units, normal range, threshold, and a contemporaneous document evidencing the observer's actual interpretation",
+        "5": "As 4, plus the threshold is classified as a property of the system or of the measurement, and a traveling object with representativeness stated and the gimmick test passed"
+      }
+    },
+    {
+      "name": "Climax and Form Legitimacy",
+      "description": "Whether the peak is a real state transition of the chosen type, or an arc was refused when the material did not support one",
+      "weight": 1.2,
+      "scores": {
+        "1": "An arc forced onto material that does not support one; a person's dramatic moment promoted to the system's turning point",
+        "2": "A climax chosen but of no named type and with no evidence of a state change",
+        "3": "One of the five legitimate types chosen and staged with a timestamp and a witness",
+        "4": "Type chosen, staged concretely, and the transfer-function test passed with before/after stated; famous-date check run",
+        "5": "As 4, plus the form gate is documented, refusal was genuinely available, the denouement re-states the new steady state rather than resolving, and no prescriptive ending was appended"
+      }
+    },
+    {
+      "name": "Accountability and Anti-Fatalism",
+      "description": "Whether systemic framing is additive to named responsibility, and whether the piece admits that the system has ever changed",
+      "weight": 1.2,
+      "scores": {
+        "1": "Systemic framing used to avoid naming decision-makers; every reform attempt fails and unreformability is the conclusion",
+        "2": "One of the two problems present: either no reverse check or no partial success",
+        "3": "Reverse check run on some systemic attributions; at least one reform attempt described",
+        "4": "Every systemic attribution tested for authority and information with named actors added where both hold; at least one partial success or a stated condition of change",
+        "5": "As 4, plus the reform-attempt ledger records what would have had to be different for each attempt to hold, and the inevitability audit includes a forecast-vs-outcome beat"
+      }
+    },
+    {
+      "name": "Artefact Hygiene and Refusal Handling",
+      "description": "Whether planning scaffolding stays out of the prose and whether refusal codes are used honestly when the material is thin",
+      "weight": 1.0,
+      "scores": {
+        "1": "Strand labels, rung tags, and sheet references leak into the prose; thin material papered over with invention",
+        "2": "Some scaffolding removed; no refusal codes considered even where the corpus was clearly abstract",
+        "3": "Prose is clean of scaffolding; refusal codes available but not exercised",
+        "4": "Scaffolding removed, and NO DRAMATIC ENGINE / INSUFFICIENT GROUND-LEVEL MATERIAL / UNSUPPORTED codes used where warranted, with reasons",
+        "5": "As 4, plus billboard drift check run against the finished evidence with any change surfaced to the human as a decision, and every admitted scene traced to a character-sheet line"
+      }
+    }
+  ]
+}

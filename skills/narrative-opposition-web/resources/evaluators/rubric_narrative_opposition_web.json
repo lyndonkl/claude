@@ -1,0 +1,104 @@
+{
+  "name": "Narrative Opposition Web Rubric",
+  "description": "Evaluation criteria for a four-corner opposition web built from researched material. Scores the evidentiary warrant behind each corner, the differentiation between corners, the quality of the opponent's justification, the handling of system protagonists and constraints, whether absence was reported honestly, and whether the web survived into the drive section of the finished draft.",
+  "criteria": [
+    {
+      "name": "Opponent Warrant and Verb Discipline",
+      "description": "Whether every adversarial corner was tiered on documented evidence (competition, awareness, directed action) and whether the prose verbs match the tier assigned",
+      "weight": 1.3,
+      "scores": {
+        "1": "The opponent is whoever lost. No warrant test run; motive inferred from outcome; transitive verbs of intent used with no dated source for the 'because'",
+        "2": "Some evidence cited but tiers not assigned, or tiers assigned and then ignored in the prose; rivals written with opponent verbs",
+        "3": "All corners tiered with citations, but at least one tier is generous relative to its evidence, or verb constraints slip in a few sentences",
+        "4": "Every corner tiered with citation per evidence type; verbs match tier throughout; missing evidence types named explicitly",
+        "5": "Full warrant table delivered as an auditable artifact; at least one candidate correctly demoted to rival or environment with the demotion explained; verbs traceable to tier in every adversarial sentence"
+      }
+    },
+    {
+      "name": "Central Moral Problem Quality",
+      "description": "Whether one shared question genuinely organizes the web and admits more than one defensible answer",
+      "weight": 1.0,
+      "scores": {
+        "1": "No central problem stated, or it is a verdict disguised as a question with one defensible answer",
+        "2": "A question is stated but the corners do not actually answer it differently; it is a topic rather than a problem",
+        "3": "A workable question; two corners answer it distinctly, the others restate one of those answers",
+        "4": "A genuine question with four distinct, defensible answers, each traceable to what that corner said or did",
+        "5": "The question is answerable only from this material, each corner's answer is cited, and the question would change the piece if replaced"
+      }
+    },
+    {
+      "name": "Corner Differentiation and Route Distinctness",
+      "description": "Whether each corner carries an independent value cluster and attacks the protagonist's weakness by a mechanism no other corner uses",
+      "weight": 1.2,
+      "scores": {
+        "1": "Corners padded with generic placeholders ('regulators', 'consumers') carrying no independent values; all oppose the protagonist the same way",
+        "2": "Corners have labels but overlapping value clusters; routes of attack differ in opinion rather than mechanism",
+        "3": "Three corners are distinct; the fourth duplicates another's route or shares a value with it",
+        "4": "All corners have cited, non-overlapping value clusters and mechanically distinct routes; push check run and recorded",
+        "5": "Push check and conflict check run on all six pairs with results recorded; every corner conflicts with corners other than the protagonist, each conflict cited"
+      }
+    },
+    {
+      "name": "Justification Strength and Recognition",
+      "description": "Whether the opponent's case is written in their own voice strongly enough that a smart person holding it would recognise themselves",
+      "weight": 1.3,
+      "scores": {
+        "1": "No justification written, or the opponent is given a villain speech that concedes guilt or narrates malice",
+        "2": "A justification exists but is easy to refute; it hedges on the opponent's own behalf or attributes to them motives they never stated",
+        "3": "A coherent justification, but it reads as the writer's summary of the position rather than the position itself",
+        "4": "First-person, non-conceding, factually grounded in what the opponent knew at the time; passes the recognition test",
+        "5": "Passes recognition, concedes the appearance while still concluding, and survives the falsification pass with the role assignment explicitly checked and defended"
+      }
+    },
+    {
+      "name": "System Protagonist and Constraint Handling",
+      "description": "Whether constraints were used where constraints belong, whether abstractions were kept out of intentional verbs, and whether systemic framing was checked against individual accountability",
+      "weight": 1.2,
+      "scores": {
+        "1": "An abstraction is written as an agent ('the market wanted', 'the protocol decided'); or a person is cast as villain where a documented binding constraint did the work",
+        "2": "Constraints mentioned but not inventoried; intentional verbs attached to abstractions in several places; no responsibility check run",
+        "3": "Constraint inventory present with mechanisms, but binding conditions or carriers are missing, or the responsibility check runs in only one direction",
+        "4": "Constraints typed with mechanism, units, and binding conditions; agency relocated onto named actors rather than deleted; responsibility check run both ways",
+        "5": "As 4, plus agentless passives checked and not increased after the verb pass, and at least one documented partial success or stated condition of past change prevents the frame becoming the finding"
+      }
+    },
+    {
+      "name": "Honest Absence Reporting",
+      "description": "Whether empty slots, three-corner webs, mystery substitutes, and 'no moral problem available' were reported as findings rather than filled",
+      "weight": 1.1,
+      "scores": {
+        "1": "All four corners filled regardless of material; no absence reported anywhere; a party invented or promoted to complete the shape",
+        "2": "Absence acknowledged vaguely but the web still presents four corners as if all were warranted",
+        "3": "One absence reported, but the delete test was not run or its result not recorded",
+        "4": "Delete test run on C and D with results recorded; corner count matches what the material supports; the reason for any drop stated",
+        "5": "Absence reported in the same voice and detail as presence, including, where applicable, a mystery substitute with its four properties or an explicit 'this material supports explanation, not opposition'"
+      }
+    },
+    {
+      "name": "Drive-Section Survival",
+      "description": "Whether corners C and D are live forces in the middle of the finished draft rather than a setup paragraph that lists the parties",
+      "weight": 1.2,
+      "scores": {
+        "1": "Collapse check not run; the draft is protagonist-versus-opponent after the opening and C and D never reappear",
+        "2": "Collapse check run but failing corners left in place with no disposition chosen",
+        "3": "Counts taken; C or D falls below target and a disposition is chosen for one but not the other",
+        "4": "Counts reported per corner in the drive section; every below-target corner promoted, cut, or demoted with the choice stated",
+        "5": "All corners meet the stated target including at least one appearance in the final third; the report names the target used and flags it as a chosen default rather than an established rule"
+      }
+    },
+    {
+      "name": "Exposure Escalation",
+      "description": "Whether real named living parties in adversarial slots were surfaced for human decision rather than adjudicated by the writer",
+      "weight": 1.0,
+      "scores": {
+        "1": "Named living parties cast as opponents with adverse inferences and no flag of any kind",
+        "2": "A generic disclaimer is offered in place of a specific flag, or the flag is treated as authorising the inference",
+        "3": "Exposed parties listed but the adverse inference or the unevidenced portion is not stated plainly",
+        "4": "Full exposure block per party: slot, tier, inference, evidence by type, what is not evidenced, decision routed to a human",
+        "5": "As 4, plus consent status recorded and source-availability bias addressed by naming who declined or is absent and whether their absence flatters anyone"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for the opposition web to be considered complete. A score below 3 in 'Opponent Warrant and Verb Discipline' or 'Justification Strength and Recognition' requires rework regardless of average, because both indicate the losing party was cast as the villain."
+}

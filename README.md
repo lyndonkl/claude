@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-248-blue) ![Agents](https://img.shields.io/badge/agents-73-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-261-blue) ![Agents](https://img.shields.io/badge/agents-75-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **248 skills** and **73 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection. Also included: five reusable primitives for gated, verifiable research pipelines.
+A production-ready library of **261 skills** and **75 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection. Also included: five reusable primitives for gated, verifiable research pipelines, and a 3-agent narrative team that turns researched evidence into structured long-form nonfiction.
 
 **Install in 30 seconds:**
 
@@ -30,6 +30,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 | Run my household finances from PDF statements (drop in, briefing + dashboard out) | [`household-cfo`](agents/household-cfo.md) + 8 household specialists |
 | Write a paper / grant / recommendation letter | [`scientific-writing-editor`](agents/scientific-writing-editor.md) |
 | Improve any piece of writing (blog, memo, essay) | [`writing-assistant`](agents/writing-assistant.md) |
+| Turn a pile of research into structured long-form nonfiction (find the shape, then write it) | [`narrative-architect`](agents/narrative-architect.md) → [`scenewright`](agents/scenewright.md), with [`writing-assistant`](agents/writing-assistant.md) |
 | Make a calibrated forecast or probability estimate | [`superforecaster`](agents/superforecaster.md) |
 | Design a dashboard, viz, or UI grounded in cognition | [`cognitive-design-architect`](agents/cognitive-design-architect.md) |
 | Build a GraphRAG / knowledge-graph retrieval system | [`graphrag-specialist`](agents/graphrag-specialist.md) |
@@ -50,6 +51,7 @@ flowchart LR
     D -->|Analyze a company| CA[company-analyst<br/>acquisition-analyst<br/>ipo-strategist]
     D -->|Analyze a product| PS[product-strategist]
     D -->|Write something| WA[writing-assistant<br/>scientific-writing-editor]
+    D -->|Structure + write research| NA[narrative-architect<br/>scenewright]
     D -->|Forecast / decide| SF[superforecaster]
     D -->|Design / visualize| CD[cognitive-design-architect]
     D -->|Fantasy baseball| MLB[mlb-fantasy-coach<br/>+ 6 specialists]
@@ -63,7 +65,7 @@ flowchart LR
     D -->|Plan a conference| CONF[conf-director<br/>+ 5 specialists]
     D -->|Gated research pipeline| RP[market-era-historian<br/>series-archaeologist<br/>mechanism-analyst<br/>claim-verifier<br/>stage-auditor]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF & RP --> S[(248 skills)]
+    CA & PS & WA & NA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF & RP --> S[(261 skills)]
     SK --> S
 ```
 
@@ -77,6 +79,8 @@ Agents detect your need and route to the right skills. Each agent's page documen
 |---|---|
 | [**writing-assistant**](agents/writing-assistant.md) | Any writing task — structure, revision, stickiness, pre-publish gate |
 | [**scientific-writing-editor**](agents/scientific-writing-editor.md) | Manuscripts, grants, letters, reviewer responses, career docs |
+| [**narrative-architect**](agents/narrative-architect.md) | Researched corpus → validated narrative architecture. Evidence ledger, form triage, designing principle, opposition web, beat map. Selects the structure (or reports that the material has none) and never drafts |
+| [**scenewright**](agents/scenewright.md) | Executes an architecture into prose. SCAM scenes, POV and distance, ladder of abstraction, number handling, Hart's nine line passes. Source-bound, and escalates what it cannot fix at its own layer |
 | [**superforecaster**](agents/superforecaster.md) | Forecasting and probability via 5-phase calibrated pipeline |
 | [**cognitive-design-architect**](agents/cognitive-design-architect.md) | Cognitive design, information architecture, D3 viz, fallacy check |
 | [**geometric-deep-learning-architect**](agents/geometric-deep-learning-architect.md) | Symmetry discovery → group ID → equivariant architecture |
@@ -177,7 +181,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**248 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**261 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -273,7 +277,7 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 </details>
 
 <details>
-<summary><b>✍️ Communication & Writing</b> — writing pipeline, scientific writing, audience adaptation, analyst voice, PDF rendering (15 skills)</summary>
+<summary><b>✍️ Communication & Writing</b> — writing pipeline, narrative architecture and craft, scientific writing, audience adaptation, analyst voice, PDF rendering (28 skills)</summary>
 
 ### General writing
 
@@ -287,6 +291,32 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 - **[one-pager-prd](skills/one-pager-prd/SKILL.md)** — Write concise one-pagers and PRDs for stakeholder alignment.
 - **[strategist-voice](skills/strategist-voice/SKILL.md)** — Apply the analyst-grade house style for long-form strategist reports: no em dashes, footnoted citations, opinion via phrasing.
 - **[markdown-to-pdf](skills/markdown-to-pdf/SKILL.md)** — Render a finished markdown report to PDF via pandoc and xelatex with analyst-style typography. *Requires `pandoc` and a LaTeX engine installed locally — see [Optional native dependencies](#optional-native-dependencies).*
+
+### Narrative architecture & craft (13)
+
+The toolkit behind [`narrative-architect`](agents/narrative-architect.md) and [`scenewright`](agents/scenewright.md). Built on Truby (structure), Hart (scene and line craft), and McPhee (arrangement), and hardened against the failure they share — a fluent model filling every empty slot whether the evidence supports it or not. Works when the protagonist is a person and when it is a system: a market, a protocol, an institution, a supply chain.
+
+*Macro — deciding the shape:*
+
+- **[narrative-evidence-ledger](skills/narrative-evidence-ledger/SKILL.md)** — Build the ledger before any structure is chosen. Frame lock, evidence classes, causal triage L1–L5, one-way finding→claim→beat promotion, and a DEAD column that keeps what the story is not.
+- **[narrative-form-triage](skills/narrative-form-triage/SKILL.md)** — The refusal gate. Six questions and a thirteen-structure table decide story, explanatory, gathering, or *do not narrate*. "This material has no story" is a passing verdict.
+- **[narrative-arc-mapping](skills/narrative-arc-mapping/SKILL.md)** — Truby's steps mapped onto evidence, with step-fit triage and the empty-slot protocol. Every slot filled is a defect, not a triumph.
+- **[narrative-opposition-web](skills/narrative-opposition-web/SKILL.md)** — Four-corner opposition, the best-possible-opponent audit, and the warrant rule that stops whoever lost being cast as the villain.
+- **[mcphee-structure-derivation](skills/mcphee-structure-derivation/SKILL.md)** — McPhee's coding-and-sorting pass: code every chunk, sort by chronology and by theme, resolve the disagreements, name the shape. Derives a structure when no dramatic engine exists; hands off to `writing-structure-planner`.
+- **[systemic-protagonist](skills/systemic-protagonist/SKILL.md)** — Render a market, protocol, or institution as a protagonist without faking agency. POSIWID character sheet, the agency ledger's four verb repairs, gateway proxies, climax by constraint violation.
+
+*Micro — executing it:*
+
+- **[scene-construction-scam](skills/scene-construction-scam/SKILL.md)** — SCAM scene qualification with a provenance gate, scene floor and ceiling, the 1-of-20 detail cut. An unfillable slot demotes to summary rather than being invented.
+- **[ladder-of-abstraction](skills/ladder-of-abstraction/SKILL.md)** — Rung tagging R1–R4, the middle-rung trap, and the honest ceiling. Routes a readability failure to a concrete example rather than to synonym substitution.
+- **[prose-force-and-rhythm](skills/prose-force-and-rhythm/SKILL.md)** — Hart's nine Wordcraft passes in strict order with upward escalation, the claim-strength invariant, and a protected-hedge list so brevity never deletes the uncertainty.
+- **[numbers-in-narrative](skills/numbers-in-narrative/SKILL.md)** — Land a quantity in a sentence without overstating it. Denominator lock, uncertainty routing, the likelihood/confidence lexicon, chart-beat contracts.
+
+*Gates — used by both:*
+
+- **[narrative-fidelity-audit](skills/narrative-fidelity-audit/SKILL.md)** — The bright lines an agent must refuse to cross, the interior-state provenance ladder, an LLM-specific fabrication scan, and the "how do you know?" pass at sentence, paragraph and passage level.
+- **[narrative-fallacy-guard](skills/narrative-fallacy-guard/SKILL.md)** — Stops a true set of facts becoming a false story. Retrospective slot audit, outcome-blind rewrite, inevitability audit, survivorship, proportion and omission. Labels and discloses; never deletes.
+- **[narrative-handoff-contract](skills/narrative-handoff-contract/SKILL.md)** — The machine-readable contract between the two agents, plus a validator that enforces it. Evidence arrays over values, ABSENT as a passing state, and an escalation object for sending defects back upward.
 
 ### Scientific & academic writing
 
@@ -604,7 +634,7 @@ Pairs with a companion learning vault (Kolb curriculum, Zettelkasten evergreen n
 /plugin install thinking-frameworks-skills
 ```
 
-All 248 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
+All 261 skills become available immediately. Claude invokes them automatically based on your request and each skill's trigger description.
 
 <details>
 <summary><b>Option 2 — Manual install</b></summary>

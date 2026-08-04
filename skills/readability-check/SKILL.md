@@ -16,7 +16,7 @@ description: Scores prose with Flesch Reading Ease, Flesch-Kincaid Grade, SMOG, 
 - [Guardrails](#guardrails)
 - [Reference files](#reference-files)
 
-**Related skills:** `slop-detector` catches AI-explainer patterns, `hedge-detector` catches weak hedging, `voice-check` and `strategist-voice` catch voice violations. This skill catches *structural* unreadability — sentence length and word difficulty — which the others do not measure. Run this last, after voice and slop passes.
+**Related skills:** `slop-detector` catches AI-explainer patterns, `hedge-detector` catches weak hedging, `voice-check` and `strategist-voice` catch voice violations. This skill catches *structural* unreadability — sentence length and word difficulty — which the others do not measure. Run this last, after voice and slop passes. When a score fails and splitting sentences does not fix it, use `ladder-of-abstraction`: it diagnoses what a failing score means and routes the fix to supplying a concrete particular rather than to swapping in vaguer words.
 
 ## Quick start
 
