@@ -13,7 +13,7 @@ description: Guides writing architecture planning using McPhee's structural diag
 - [Guardrails](#guardrails)
 - [Quick Reference](#quick-reference)
 
-**Related skills:** Use `writing-revision` for revising existing prose, `writing-stickiness` for memorable messaging, `writing-pre-publish-checklist` for final quality checks.
+**Related skills:** Use `mcphee-structure-derivation` first when you hold a raw research corpus and no structure yet. It runs McPhee's coding-and-sorting pass to derive and name a shape. It then hands the sorted components here, for diagramming and gold-coin placement. Use `writing-revision` for revising existing prose, `writing-stickiness` for memorable messaging, `writing-pre-publish-checklist` for final quality checks.
 
 ## Core Principles
 

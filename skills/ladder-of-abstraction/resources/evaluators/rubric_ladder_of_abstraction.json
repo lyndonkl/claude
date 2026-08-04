@@ -1,0 +1,102 @@
+{
+  "name": "Ladder Of Abstraction Rubric",
+  "description": "Evaluation criteria for a ladder-of-abstraction audit: rung tagging, run-rule enforcement, trap repair by climbing down, gap honesty, top-rung discipline, and readability routing",
+  "criteria": [
+    {
+      "name": "Rung Tagging Completeness",
+      "description": "Whether every paragraph or beat carries exactly one rung tag, with R1 pointers recorded for R3 and R4 claims",
+      "weight": 1.0,
+      "scores": {
+        "1": "No tagging performed; the audit reasons about the draft impressionistically",
+        "2": "Partial tagging; some paragraphs untagged or left ambiguous, which is treated as acceptable",
+        "3": "Every paragraph tagged, but R3/R4 claims carry no pointer to the R1 evidence beneath them",
+        "4": "Every paragraph tagged with one rung, R1 pointers recorded for most R3/R4 claims, rung map produced as a table",
+        "5": "Complete rung map with pointers on every R3/R4 claim, ambiguous cases forced to a decision with the reason noted, and costume-R1 paragraphs correctly demoted"
+      }
+    },
+    {
+      "name": "Run-Rule Enforcement",
+      "description": "Whether the six run rules were applied and every violation reported with its paragraph range before any repair was attempted",
+      "weight": 1.2,
+      "scores": {
+        "1": "No run rules applied; the draft is edited paragraph by paragraph on feel",
+        "2": "One or two rules applied informally; violations fixed as encountered, creating new traps downstream",
+        "3": "Most rules applied; violation list produced but incomplete or missing paragraph ranges",
+        "4": "All six rules applied, full violation list with ranges and rule numbers, produced before repairs began",
+        "5": "All six rules applied with the middle-share computation, plus a sawtooth check confirming the alternation is a run constraint rather than a metronome"
+      }
+    },
+    {
+      "name": "Trap Repair By Climbing Down",
+      "description": "Whether middle-rung traps were repaired with a real particular from the material rather than by simplifying vocabulary",
+      "weight": 1.5,
+      "scores": {
+        "1": "Traps fixed by synonym substitution or by shortening sentences; the paragraph is simpler and just as unintelligible",
+        "2": "Some concrete language added, but it is generic or analogical rather than a specific instance from the record",
+        "3": "Real particulars supplied for most traps, though some repairs still rely on plainer jargon",
+        "4": "Every repaired trap gained a named particular traceable to the material, with the repair type labelled",
+        "5": "Every repair traceable to a source, checked for representativeness, with extreme cases flagged as extreme when used in load-bearing positions"
+      }
+    },
+    {
+      "name": "Fabrication Resistance and Gap Honesty",
+      "description": "Whether missing particulars produced gap entries rather than plausible invented specifics, and whether persistent gaps escalated",
+      "weight": 1.5,
+      "scores": {
+        "1": "Invented dates, names, numbers, or scenes appear in the repaired prose; nothing distinguishes them from sourced material",
+        "2": "Composite or 'typical' examples used to fill gaps, presented as if particular",
+        "3": "No fabrication, but missing particulars are silently left as abstraction with no gap entry recorded",
+        "4": "Gap log produced with mechanism, artifact sought, and where searched, for every unfillable trap",
+        "5": "Complete gap log plus explicit escalation when a section accumulates three or more gaps, stating that the defect is missing material rather than missing prose"
+      }
+    },
+    {
+      "name": "Top-Rung Discipline",
+      "description": "Whether the ceiling was declared from the material in advance, and whether every R4 claim passed the counter-sentence test and the generic test",
+      "weight": 1.5,
+      "scores": {
+        "1": "Piece crowned with a universal significance the material does not support; no ceiling declared and no test run",
+        "2": "Ceiling declared only after drafting, or R4 claims softened with hedges instead of deleted",
+        "3": "Ceiling declared; generic test run but counter-sentences either missing or written weak so the claim survives",
+        "4": "Ceiling declared from the material before drafting, counter-sentence written for every R4, generic claims cut or dropped one rung",
+        "5": "All of level 4, plus counter-sentences recorded in the output as receipts, and material with several independent findings given separate ascents instead of one strained abstraction"
+      }
+    },
+    {
+      "name": "Readability Routing Integrity",
+      "description": "Whether failing readability scores were classified (a) split, (b) middle-rung trap, or (c) necessary term before editing, and whether meaning survived",
+      "weight": 1.2,
+      "scores": {
+        "1": "Score optimized directly: sentences chopped and precise terms swapped for vaguer ones until the number passed",
+        "2": "Some diagnosis attempted, but qualifiers deleted or causal links severed to shorten sentences",
+        "3": "Fixes classified, but no meaning-diff performed after repair",
+        "4": "Every failing paragraph classified before editing, forbidden fixes avoided, meaning diffed after each repair",
+        "5": "All of level 4, plus the fix-class distribution reported, with a (b)-dominated run flagged as a warning sign rather than passed as clean"
+      }
+    },
+    {
+      "name": "System-Protagonist Handling",
+      "description": "Whether the technique was applied correctly when the protagonist is a market, protocol, institution, codebase, or supply chain",
+      "weight": 1.0,
+      "scores": {
+        "1": "System granted wants, decisions, and beliefs throughout; intentional verbs assert causation the analysis never established",
+        "2": "Some anthropomorphism repaired, but the repairs produced agentless passives that obscure causation further",
+        "3": "Intentional verbs largely repaired; R1 rung filled with generalized description rather than dated, instrumented particulars",
+        "4": "Agency relocated onto actors, mechanisms, or selection pressures; R1 supplied by first-detection events with timestamps and units",
+        "5": "All of level 4, with agentless-passive count checked after the pass, at most one flagged personification per section, and the mechanism it stands in for named"
+      }
+    },
+    {
+      "name": "Scaffolding Invisibility",
+      "description": "Whether the planning apparatus was removed from the delivered prose",
+      "weight": 0.8,
+      "scores": {
+        "1": "Rung labels, altitude vocabulary, and section roadmaps appear in the prose; it reads as an outline that learned to talk",
+        "2": "Explicit signposting throughout ('zooming out', 'as we saw above', 'at a high level')",
+        "3": "Most scaffolding removed, some transitional signposting remains",
+        "4": "No rung vocabulary or roadmap sentences survive; the ladder is invisible to a reader",
+        "5": "Scaffolding fully absent, the A-frame close lands without a 'which shows that', and a reader could not recite the structure after one read"
+      }
+    }
+  ]
+}

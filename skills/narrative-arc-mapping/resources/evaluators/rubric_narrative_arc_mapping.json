@@ -1,0 +1,104 @@
+{
+  "name": "Narrative Arc Mapping Rubric",
+  "description": "Evaluation criteria for mapping researched evidence onto structural steps without fabricating the steps the evidence cannot fill. Scores the triage, the warrants, the absence handling, and the handoff discipline.",
+  "criteria": [
+    {
+      "name": "Absence Reporting",
+      "description": "Whether empty structural slots were reported as findings rather than silently filled",
+      "weight": 1.5,
+      "scores": {
+        "1": "All 22 steps filled; ghosts, betrayals, or fake-ally opponents invented to complete the shape",
+        "2": "Most steps filled with at least one clearly invented slot; no triage table emitted",
+        "3": "Triage table emitted with PRESENT/ABSENT/NOT APPLICABLE, but ABSENT entries carry no reason",
+        "4": "At least one step reported ABSENT with a stated reason; empty-slot log present with a move chosen per slot",
+        "5": "Full triage with sourced PRESENT entries and reasoned ABSENT entries; mandatory seven verified; inference-filled slots capped at one and none at the climax; empty-slot log ships with the deliverable"
+      }
+    },
+    {
+      "name": "Evidentiary Warrant per Slot",
+      "description": "Whether each filled slot carries dated sourcing, a causal tier, and the substitution test where required",
+      "weight": 1.5,
+      "scores": {
+        "1": "No sourcing per slot; the architecture exists only inside the narrative",
+        "2": "Some slots cited; no dates, no source-type or interest tags, no causal tiers",
+        "3": "Most slots cited with dates; causal tiers assigned but rivals unnamed and no substitution test",
+        "4": "Warrant card per slot with four dates and a causal tier; RETROSPECTIVE-ONLY slots tagged and hedged",
+        "5": "Every warrant card complete, including two named alternative events a differently-ending narrator would have chosen; source type and interest tagged; no documented-mechanism claim rests on a purely secondary retrospective account"
+      }
+    },
+    {
+      "name": "Hindsight-Determinism Control",
+      "description": "Whether backward derivation from the known outcome was gated on contemporaneous evidence",
+      "weight": 1.3,
+      "scores": {
+        "1": "Starting weakness manufactured to make the ending look inevitable; supported only by post-hoc commentary",
+        "2": "Weakness asserted with retrospective sourcing presented as if contemporaneous",
+        "3": "Contemporaneous sources sought; some weaknesses gated, others left unmarked",
+        "4": "Every claimed weakness carries a pre-outcome citation or is marked INFERRED and kept out of the climax",
+        "5": "Full gate plus source-interest annotation, the flip test on evaluative sentences about decisions, and decision quality stated separately from outcome quality"
+      }
+    },
+    {
+      "name": "Opponent Integrity",
+      "description": "Whether the opponent slot was warranted rather than assigned to whoever lost",
+      "weight": 1.2,
+      "scores": {
+        "1": "Opponent is whoever lost; motive backfilled as stupidity or malice; intent verbs attached to an abstraction",
+        "2": "Opponent asserted with one evidence type; no justification paragraph",
+        "3": "Two of three warrant evidence types present; opponent correctly demoted to rival but verbs not constrained",
+        "4": "Three-of-three warrant or an honest demotion to rival/environment with verbs constrained accordingly; justification paragraph written",
+        "5": "Warrant scored and verbs constrained; justification passes the recognition test; a mystery substituted at the same structural position where no opponent exists; manufactured-conflict check run on the shared scarce object"
+      }
+    },
+    {
+      "name": "Designing Principle Discrimination",
+      "description": "Whether the designing principle is a strategy that cuts material, not a premise or a theme in disguise",
+      "weight": 1.2,
+      "scores": {
+        "1": "No designing principle, or a plot summary with more abstract vocabulary",
+        "2": "One candidate only; contains a should or an ought; excludes nothing",
+        "3": "Multiple candidates drafted; the winner passes process and abstract gates but no exclusions are named",
+        "4": "Passes all four gates with three excluded claims named explicitly",
+        "5": "All four gates passed with named exclusions, all layers derived (world, shape, symbol, inclusion criterion), rival arcs matrixed with the runner-up and its favouring evidence disclosed"
+      }
+    },
+    {
+      "name": "Revelation Sequence Rigor",
+      "description": "Whether revelations were extracted, sequenced, and rated by course change rather than by language",
+      "weight": 1.0,
+      "scores": {
+        "1": "No revelation sequence, or two to three plot points only",
+        "2": "Reveals listed but exposition is mislabelled as revelation",
+        "3": "Reveals extracted with sources; intensity assigned but justified by adjectives",
+        "4": "Intensity rated by the size of the course change forced; monotonic climb verified; pace accelerates",
+        "5": "Full audit with count target met for length, bend-not-break enforced, the three decision points carrying all four co-occurring elements, and every reorder date-checked against sources"
+      }
+    },
+    {
+      "name": "Theme Enactment Discipline",
+      "description": "Whether the moral argument is carried structurally, or narrated, or forced onto neutral material",
+      "weight": 1.0,
+      "scores": {
+        "1": "Theme stated in narrator voice throughout, or a villain manufactured for value-neutral material",
+        "2": "Spine built but the lesson is also stated in prose in several places",
+        "3": "Spine built with evidence mapping; explicit moral language leaks outside the permitted positions once or twice",
+        "4": "Explicit moral language confined to the three permitted positions; unsupported spine elements left visibly EMPTY",
+        "5": "As level 4, plus a correct explanatory-mode declaration where warranted, a balance check of moral beats against event beats, and a double reversal producing a defensible third position"
+      }
+    },
+    {
+      "name": "Handoff Discipline",
+      "description": "Whether the output stopped at a tagged scene weave instead of drifting into drafting",
+      "weight": 1.0,
+      "scores": {
+        "1": "Prose drafted; the craft layer inherits text to edit rather than architecture to execute",
+        "2": "Scene descriptions run to paragraphs; construction fields absent",
+        "3": "One line per scene but over the character limit, or missing step and reveal tags",
+        "4": "Tagged one-line weave within the character limit, with construction fields filled per scene",
+        "5": "Complete weave: tagged, ordered by structure, date-checked, scenes carrying no step and no reveal cut, gaps filled, construction fields complete, and nothing written beyond it"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5. A score below 3 in 'Absence Reporting' or 'Evidentiary Warrant per Slot' is a hard fail regardless of average: an architecture that filled every slot or cannot show its sources is fabrication, not mapping."
+}

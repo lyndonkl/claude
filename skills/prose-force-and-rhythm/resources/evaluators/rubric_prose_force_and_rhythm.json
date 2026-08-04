@@ -1,0 +1,102 @@
+{
+  "name": "Prose Force and Rhythm Rubric",
+  "description": "Evaluation criteria for a line-editing run using Hart's Wordcraft pass order with the claim-strength invariant, protected-hedge list, escalation discipline, and diagnostics-not-objectives rule. Minimum acceptable standard is an average score of 3.5.",
+  "criteria": [
+    {
+      "name": "Pass Order and Separation",
+      "description": "Whether the ten passes ran in the mandated order, each as its own step with its own output, with Mechanics last and never before Voice",
+      "weight": 1.2,
+      "scores": {
+        "1": "All passes collapsed into one 'improve this writing' edit; order not observable in the output",
+        "2": "Some passes named but edits from different classes appear in the same step; Mechanics ran early",
+        "3": "Passes run in order but two or three are merged; Mechanics is last",
+        "4": "All ten passes run separately in the correct order with per-pass output; Mechanics after Voice",
+        "5": "All ten run separately and in order, each output states which edit class it made and which it declined as out of class"
+      }
+    },
+    {
+      "name": "Claim-Strength Invariant",
+      "description": "Whether epistemic strength was recorded before rewriting and preserved after, in both directions",
+      "weight": 1.5,
+      "scores": {
+        "1": "No ledger; verbs strengthened freely ('associated with' became 'drove', 'suggests' became 'shows')",
+        "2": "Ledger exists in name but strength changes went unnoticed; at least one claim silently promoted",
+        "3": "Ledger built for most claim-bearing sentences; strength preserved but silent moves (dropped attribution, scope, date) not tracked",
+        "4": "Ledger complete with before/after S-levels; all raises reverted and reported; silent moves tracked",
+        "5": "Complete ledger, reverts reported with rationale, silent strength moves tracked including rounding, and anti-overcorrection checked so sourced facts were not needlessly hedged"
+      }
+    },
+    {
+      "name": "Hedge Protection",
+      "description": "Whether List A was cut, List B protected, and the scope exception applied instead of blunt deletion",
+      "weight": 1.3,
+      "scores": {
+        "1": "Parasite list applied uniformly; 'approximately', 'in this sample', 'as of [date]' deleted from analytical claims",
+        "2": "List B mostly survived by luck; at least one load-bearing qualifier lost",
+        "3": "List A cut, List B protected, but scope-carrying List A words deleted outright, converting base rates into universals",
+        "4": "Both lists applied correctly and the scope exception used where the material supplied the scope",
+        "5": "Both lists applied, scope exception used, and cases where the material did not supply the scope kept the word and produced a reporting gap entry"
+      }
+    },
+    {
+      "name": "Escalation Discipline",
+      "description": "Whether defects outside a pass's class were escalated upward rather than compensated for with prose polish",
+      "weight": 1.2,
+      "scores": {
+        "1": "No escalations; structural and reporting failures smoothed over with wording changes",
+        "2": "Escalation mentioned as a concept but every defect was fixed in place",
+        "3": "Some escalations filed but without the class, reason, or target layer",
+        "4": "Escalation records complete (defect, real class, why not fixable here, target layer) and passed downstream",
+        "5": "Complete escalation records plus a reporting-gap register, with a passive construction correctly left intact where the actor was unnamed rather than an actor invented"
+      }
+    },
+    {
+      "name": "Metrics as Diagnostics",
+      "description": "Whether rhythm and brevity numbers were reported alongside the prose rather than optimized into it",
+      "weight": 1.2,
+      "scores": {
+        "1": "Variance maximized with fragments and one-word sentences; targets hit, register wrecked",
+        "2": "Metrics driven directly; sentences chopped or padded to reach numbers",
+        "3": "Metrics reported and used to guide edits, but no record of what was declined",
+        "4": "Metrics reported with the reading and the action taken; fixes made at clause level, not by fragments",
+        "5": "Metrics reported with reading, action, and an explicit 'declined' line; clarity split log respected so rhythm did not undo clarity"
+      }
+    },
+    {
+      "name": "Provenance and Attribution Honesty",
+      "description": "Whether numeric thresholds were labelled as derived defaults and attributions were made correctly",
+      "weight": 1.0,
+      "scores": {
+        "1": "Thresholds presented as 'Hart says'; 'the Oregon Method' or the SCAM acronym cited as Hart's",
+        "2": "Thresholds unlabelled; attributions vague",
+        "3": "Thresholds labelled as defaults somewhere; attributions correct but unstated",
+        "4": "Thresholds labelled as derived operational defaults in the config and the report; attributions correct",
+        "5": "Thresholds shipped as tunable config with the full provenance note, and attribution caveats carried explicitly where relevant"
+      }
+    },
+    {
+      "name": "System-Protagonist Handling",
+      "description": "Whether force and humanity passes avoided personifying markets, protocols, institutions, and pipelines",
+      "weight": 1.1,
+      "scores": {
+        "1": "Systems decide, want, believe, and fear throughout; intent asserted across every verb",
+        "2": "Personification used repeatedly with no sweep run",
+        "3": "Anthropomorphism sweep run but some intention verbs survive on non-human subjects",
+        "4": "Sweep run and clean; systems given state-change verbs, named operators, or named constraints",
+        "5": "Sweep clean, re-run after the humanity pass, and any single deliberate personification is declared as a framing device rather than distributed through the piece"
+      }
+    },
+    {
+      "name": "Slop Audit Execution",
+      "description": "Whether the final audit ran in its internal order, respected the hedge carve-out, and avoided the anti-slop tic",
+      "weight": 1.0,
+      "scores": {
+        "1": "Audit skipped, or hedge removal stripped genuine evidential uncertainty",
+        "2": "Audit run out of order; specificity sweep invented specifics it lacked",
+        "3": "Audit run in order; hedge carve-out respected but no meaning re-check at step 13",
+        "4": "Full 13 steps in order, carve-out respected, step 13 re-check performed, Mechanics re-run on changed lines",
+        "5": "All of the above, plus no overcorrection into a second uniformity (no categorical em-dash ban, no sprinkled fragments, no performed casualness), and unfillable specificity gaps stated openly"
+      }
+    }
+  ]
+}

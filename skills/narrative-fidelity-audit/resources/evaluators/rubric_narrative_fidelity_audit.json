@@ -1,0 +1,104 @@
+{
+  "name": "Narrative Fidelity Audit Rubric",
+  "description": "Evaluation criteria for the quality of a fidelity audit run over a fact-based narrative. Scores the AUDIT, not the draft. An audit that reports a clean draft without evidence of having run the expensive passes scores low regardless of how tidy its output looks.",
+  "criteria": [
+    {
+      "name": "Bright-Line Coverage and Disposition",
+      "description": "Whether all fourteen bright lines were swept, breaches recorded with line references, and each breach given one of the four dispositions (DELETE, DOWNGRADE, DECLARE, RESEARCH) rather than being drafted-and-flagged",
+      "weight": 1.2,
+      "scores": {
+        "1": "No systematic sweep; breaches noted impressionistically or not at all",
+        "2": "Some lines swept; breaches listed without line references or dispositions",
+        "3": "All lines swept; most breaches have a disposition, but some are left as 'flag for review'",
+        "4": "All lines swept, breaches referenced to specific text, every breach dispositioned, no fifth disposition used",
+        "5": "All lines swept with per-line counts; every breach dispositioned with the replacement text or the specific research request written out"
+      }
+    },
+    {
+      "name": "Interiority Provenance Rigor",
+      "description": "Whether every interior-state and intentionality claim (person and system) was tagged [A]/[B]/[C]/[D], the [D] count reported as a number, and the zero-D gate enforced",
+      "weight": 1.2,
+      "scores": {
+        "1": "Interior states not tagged; 'he realized', 'the market decided' pass unchallenged",
+        "2": "Person interiority tagged; system intentionality verbs missed entirely",
+        "3": "Both tagged, [D] count reported, but some [D] items left in the draft with a caveat instead of removed",
+        "4": "Both tagged, [D] count reported as a number, gate enforced, each [D] converted to observable behaviour or attributed speech",
+        "5": "As 4, plus every [B] artefact carries its written alternative reading, and substitutes for unfillable realization beats were chosen and stress-tested by striking untraceable nouns and verbs"
+      }
+    },
+    {
+      "name": "Over-Correction Control",
+      "description": "Whether the audit checked in the other direction: that [A] and [B] material is NOT hedged, that hedge load was measured, and that hedge saturation was diagnosed as under-reporting rather than fixed by deleting attributions",
+      "weight": 1.0,
+      "scores": {
+        "1": "No over-correction check; sourced thought left hedged, or attributions added indiscriminately",
+        "2": "Notices hedging in passing but offers no measurement and no diagnosis",
+        "3": "Hedge load measured; some sourced-but-hedged sentences flagged",
+        "4": "Hedge load measured against a stated budget, all sourced-but-hedged sentences flagged and unhedged, diagnosis of saturation is under-reporting",
+        "5": "As 4, plus red-flag deletions are reported alongside sourced-and-kept counts, demonstrating the scan keyed on missing pointers rather than on vividness"
+      }
+    },
+    {
+      "name": "Multi-Altitude Verification",
+      "description": "Whether the How-Do-You-Know pass ran at paragraph and passage level, not only at sentence level, and whether the absence of higher-altitude defects was treated as evidence the pass did not run",
+      "weight": 1.5,
+      "scores": {
+        "1": "Sentence-level checking only; reports a clean piece",
+        "2": "Paragraph questions nominally asked but produce no findings and no comment on that fact",
+        "3": "Defects found at sentence and paragraph level; passage level thin or skipped",
+        "4": "Defects reported separately at all three altitudes, including implicature, ordering-as-causation, and fairness-to-subject findings",
+        "5": "As 4, plus the audit explicitly states that zero higher-altitude defects would mean the pass did not run, and reports counts per altitude to prove it did"
+      }
+    },
+    {
+      "name": "Subtraction and Proportion",
+      "description": "Whether the subtraction log was assembled and reviewed AS A SET, the omission check listed corpus items absent from the draft, and proportion asymmetries were given written justifications rather than mechanical rebalancing",
+      "weight": 1.5,
+      "scores": {
+        "1": "No subtraction log, no omission check; only additions were policed",
+        "2": "Cuts reviewed individually; each found defensible; no set-level question asked",
+        "3": "Log assembled and reviewed as a set, but no omission check or no proportion table",
+        "4": "Set review asks whether cuts share a direction, omission check lists absent corpus items with reasons, proportion asymmetries flagged",
+        "5": "As 4, plus written justifications required for each asymmetry, causal weights recorded independently of the arc, and the absence of a log reported as a RETURN TO RESEARCH finding"
+      }
+    },
+    {
+      "name": "Provenance Integrity",
+      "description": "Whether pointers were resolved mechanically, circular citations into the pipeline's own outputs caught, sources annotated with interest as well as date, and secondary retrospectives barred from carrying documented-mechanism causal tags",
+      "weight": 1.2,
+      "scores": {
+        "1": "Pointers accepted on sight; no resolution attempted",
+        "2": "Pointers checked by reading; granularity not enforced ('the 10-K' accepted)",
+        "3": "Pointers resolved and granularity enforced; circular-citation check not run mechanically",
+        "4": "Mechanical circular-citation check run and reported; pointer granularity enforced throughout",
+        "5": "As 4, plus per-source interest annotation and primary/secondary tagging, with any G1 mechanism tag sourced from a retrospective downgraded"
+      }
+    },
+    {
+      "name": "Disclosure Discipline",
+      "description": "Whether the note on sources was generated from the deviation log after drafting, boilerplate refused, empty registers stated affirmatively, in-body placement enforced within two sentences of the claim, and the inversion check run",
+      "weight": 1.2,
+      "scores": {
+        "1": "Boilerplate disclaimer emitted, or no note produced",
+        "2": "Note produced but written as prose in advance of the deviation log; generic category language",
+        "3": "Note generated from the log; placement rules not enforced or inversion check skipped",
+        "4": "Generated from the log, empty registers stated affirmatively, in-body placement enforced, inversion check run and reported",
+        "5": "As 4, plus disclosures marked non-removable, hedge/disclosure budget reported, and over-budget treated as a signal to change architecture rather than add caveats"
+      }
+    },
+    {
+      "name": "Vocabulary and Verdict Honesty",
+      "description": "Whether the audit consistently says 'sourced' rather than 'verified', emits the full gate verdict block with no omitted fields, and surfaces rather than resolves questions about named parties in adversarial roles",
+      "weight": 1.3,
+      "scores": {
+        "1": "Claims the draft was 'fact-checked' or 'verified'; no verdict block",
+        "2": "Verdict given informally; verification language appears at least once",
+        "3": "Correct vocabulary; verdict block present but with fields omitted",
+        "4": "Correct vocabulary throughout, full verdict block, CLEARED AS SOURCED used as the strongest available verdict",
+        "5": "As 4, plus named parties in adversarial roles and right-of-reply gaps surfaced for human decision rather than quietly softened in the prose"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for the audit to count as run. A score below 3 in 'Multi-Altitude Verification' or 'Subtraction and Proportion' invalidates the audit outright regardless of the average: those are the two passes that catch the fully-sourced-but-false piece, and an audit missing them is more dangerous than no audit, because its output reads as checked."
+}

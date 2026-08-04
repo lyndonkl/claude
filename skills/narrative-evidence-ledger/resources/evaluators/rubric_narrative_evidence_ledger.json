@@ -1,0 +1,104 @@
+{
+  "name": "Narrative Evidence Ledger Rubric",
+  "description": "Evaluation criteria for an evidence ledger produced before narrative structuring. Scores whether the frame is locked, whether findings carry re-findable external provenance, whether causal claims are graded and verb-constrained, whether promotion is disciplined, and whether what was killed and omitted survives into the deliverable.",
+  "criteria": [
+    {
+      "name": "Frame Lock Completeness",
+      "description": "Whether unit, denominator, window and population boundary are written, frozen, and each carries a rejected alternative with a reason",
+      "weight": 1.2,
+      "scores": {
+        "1": "No frame lock; unit and denominator are implicit and shift across the material",
+        "2": "Some of the four named, none with rejected alternatives; denominator language is loose (per-capita misused, percent vs percentage point conflated)",
+        "3": "All four named in writing; rejected alternatives missing or generic ('other options were worse')",
+        "4": "All four named with a specific rejected alternative and reason for each; denominator language correct throughout",
+        "5": "All four locked with rejected alternatives whose reasons are independent of the direction they would move the headline; rate-vs-count rule applied; small-denominator check run; any later frame change logged as a ledger re-open"
+      }
+    },
+    {
+      "name": "Provenance Granularity and Externality",
+      "description": "Whether every finding carries an evidence class and a pointer that resolves to an external artefact at a granularity someone else could re-find",
+      "weight": 1.5,
+      "scores": {
+        "1": "Findings carry no pointers, or pointers resolve into the pipeline's own summaries, notes, or prior drafts (circular citation)",
+        "2": "Pointers exist but are gestural ('the 10-K', 'the logs'); classes assigned inconsistently or not at all",
+        "3": "Every finding has a class and a pointer; some pointers are too coarse to re-find without the draft in hand",
+        "4": "All pointers pass the granularity test (page, line, timestamp, row range, commit); circular-citation check run and clean; zero class F at handoff",
+        "5": "All of the above, plus source interest and source vintage recorded per finding, a 10% re-derivation sample run with results reported, and retrospective-secondary sources barred from supporting L1 grades"
+      }
+    },
+    {
+      "name": "Causal Grading and Verb Discipline",
+      "description": "Whether every causal link is graded L1-L5 with a source for the LINK, verbs constrained to the grade's permitted set, and the back-reference check run",
+      "weight": 1.5,
+      "scores": {
+        "1": "Causal verbs used freely; no grades assigned; two sourced endpoints treated as a documented mechanism",
+        "2": "Grades assigned to some links; verbs not constrained; L1 tags rest on sources that assert a mechanism rather than document one",
+        "3": "All body-sentence links graded and verbs match the grade; scan did not cover headings, captions, juxtapositions, or metaphor",
+        "4": "Full scan including headings, captions, annotations, pull-quotes and adjacency-by-layout; L1 tags each name the artefact establishing the link, separate from endpoint pointers",
+        "5": "All of the above, plus the back-reference check run after each revision reporting all three mismatch sets, causal verbs treated as protected tokens, hindsight fences applied (contemporaneous-knowledge, inevitability ban, retrospective-only tagging, substitution test)"
+      }
+    },
+    {
+      "name": "Promotion Discipline and Referential Integrity",
+      "description": "Whether findings, claims and beats are distinct objects, promoted one-way with the required written justifications, and whether the citation graph resolves",
+      "weight": 1.2,
+      "scores": {
+        "1": "Columns collapsed; findings appear directly as narrative beats with no claim layer and no falsifiers",
+        "2": "Three columns nominally present; promotions unjustified; dangling references between layers",
+        "3": "Referential integrity holds; finding-to-claim promotions carry a leap and a population but falsifiers are missing or untestable",
+        "4": "Every claim has leap, population and falsifier; every beat names the prior belief it overturns and its relation to the previous beat; promotion is one-way per pass",
+        "5": "All of the above, plus the ratio check reported and acted on, cause-effect relations capped near the observed practice baseline with a separate non-data mechanism argument for each, and the recontextualisation test applied per beat"
+      }
+    },
+    {
+      "name": "DEAD Column and Omission Set",
+      "description": "Whether killed findings are kept and typed, and whether the corpus items absent from the ledger are enumerated with reasons",
+      "weight": 1.3,
+      "scores": {
+        "1": "No DEAD column; killed material deleted; no record of what the ledger excluded",
+        "2": "Some kills recorded without the killer named, and without distinguishing did-not-support from contradicted",
+        "3": "DEAD column present and typed; omission set absent or not reasoned",
+        "4": "DEAD entries name the specific veto, check or transform, carry a date, preserve the original pointer, and are typed DID-NOT-SUPPORT vs CONTRADICTED; omission set enumerated with a reason per item",
+        "5": "All of the above, plus the omission set reviewed as a set rather than per-item, any spine-weakening omission without a written reason reinstated, and both DEAD and omission set shipped as deliverables"
+      }
+    },
+    {
+      "name": "Instrument and Robustness Checks",
+      "description": "Whether discontinuities were tested for measurement artifacts and whether claims survived the metamorphic transforms",
+      "weight": 1.2,
+      "scores": {
+        "1": "Discontinuities narrated as world changes with no instrument check; no robustness testing",
+        "2": "Instrument check mentioned but not enumerated across artifact types; no transforms run",
+        "3": "Instrument check run on major discontinuities across the artifact-type list; some transforms run",
+        "4": "Instrument check run on every discontinuity with disposition recorded (re-baselined / killed / checked-and-none-found); all seven transforms run per claim with failures logged to DEAD",
+        "5": "All of the above, plus the forgotten-population pre-check, re-aggregation sign-flip test, change-point forking controlled by pre-registering the scan, time-to-detect computed for survivors, and the transforms explicitly reported as a floor rather than a certificate"
+      }
+    },
+    {
+      "name": "Verification Honesty and Bias Symmetry",
+      "description": "Whether the ledger states plainly that it tracks provenance and verifies nothing, and whether it records the strongest opposing reading rather than defaulting to structure-and-luck",
+      "weight": 1.4,
+      "scores": {
+        "1": "Output claims facts were 'verified', 'fact-checked' or 'confirmed'; no opposing readings recorded",
+        "2": "Verification language avoided inconsistently; no statement of human verification status; agency-based readings absent",
+        "3": "The no-verification statement is present; agency alternatives recorded for some outcome claims",
+        "4": "Explicit no-verification statement with human verification status named; strongest agency-based reading written for each major outcome with a reason for adoption or rejection",
+        "5": "All of the above, plus any human-verified subset named with the verifier, the 'higher truth' rationalisation named as a recognised failure pattern when it arises, anachronism flags raised where present, and adverse positions involving real named parties surfaced for human decision rather than softened"
+      }
+    },
+    {
+      "name": "Apparatus Proportion and Usability",
+      "description": "Whether the ledger produces something a downstream narrative agent can actually use, without drowning the eventual prose in hedges or burying counter-evidence in volume",
+      "weight": 1.0,
+      "scores": {
+        "1": "Output is unusable: either a bare list with no provenance layer, or so hedge-saturated that no claim is legible",
+        "2": "Handoff artefact incomplete; attribution levels assigned without regard to prose cost; L3 used where L1 would carry the same provenance",
+        "3": "Complete handoff artefact; attribution budget not measured; some passages sit above one-in-four at L3+ without diagnosis",
+        "4": "Attribution budget measured; over-budget passages diagnosed as under-reported and sent back to research rather than stripped of attributions; L1 embedded sourcing used as the default carrier",
+        "5": "All of the above, plus the apparatus budget respected with over-budget signalling an architecture change, disclosures placed in the body within two sentences of what they qualify and marked non-removable, and the strongest counter-evidence reachable rather than buried under supportive volume"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5 for the ledger to be handed off to a narrative agent. A score below 3 in 'Provenance Granularity and Externality', 'Causal Grading and Verb Discipline', or 'Verification Honesty and Bias Symmetry' blocks handoff regardless of the average: a circular citation, an ungraded causal spine, or a false verification claim each corrupt everything built on top of them."
+}

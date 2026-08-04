@@ -1,0 +1,104 @@
+{
+  "name": "McPhee Structure Derivation Rubric",
+  "description": "Evaluation criteria for a structure derived from a corpus by the coding-and-sorting procedure. Scores the process artifacts, not the prose. Average must be >= 3.5; a score below 3 on Dual Sort Integrity or Juxtaposition Discipline requires rework regardless of the average.",
+  "criteria": [
+    {
+      "name": "Coding Quality",
+      "description": "Whether the corpus was cold-read and then coded into sortable, sourced, dated cards with topic codes rather than document-part labels",
+      "weight": 1.0,
+      "scores": {
+        "1": "No cards; the corpus was summarized into sections directly",
+        "2": "Cards exist but codes are document parts (BACKGROUND, ANALYSIS) or lack dates and sources",
+        "3": "Topic codes with sources, but dates are patchy and typicality is unlabelled",
+        "4": "Cold read recorded; topic codes pass the four code-quality tests; every card carries source and date or sits in the dated-unknown pile",
+        "5": "As 4, plus kind and typicality labelled on every card, and undated material explicitly quarantined rather than guessed into position"
+      }
+    },
+    {
+      "name": "Dual Sort Integrity",
+      "description": "Whether both a strict chronology sort and a strict theme sort were actually run and written down, with a disagreement log produced",
+      "weight": 1.4,
+      "scores": {
+        "1": "Only a thematic grouping exists; concept-named sections hold time-scrambled evidence (theme-sort capture)",
+        "2": "One sort written down, the other asserted to have been run; no disagreement log",
+        "3": "Both sorts written down; disagreement log present but partial or vague about the nature of each conflict",
+        "4": "Both sequences written in full; every materially disagreeing card logged with the nature of the conflict",
+        "5": "As 4, plus each row states its resolution and required artifact, and near-agreement (if claimed) is explicitly justified by the material"
+      }
+    },
+    {
+      "name": "Chronology-First Resolution",
+      "description": "Whether disagreements resolved toward chronology by default, with any theme-driven break justified and given a named re-entry point",
+      "weight": 1.2,
+      "scores": {
+        "1": "Theme won throughout with no justification; the timeline is unrecoverable",
+        "2": "Multiple unjustified breaks from chronology; flashbacks with no re-entry points",
+        "3": "Chronology mostly won, but at least one break lacks a stated justification or a named re-entry card",
+        "4": "Every break from chronology names its justifying theme and its explicit dated re-entry point",
+        "5": "As 4, plus theme-driven breaks carry a concrete common denominator written as a noun phrase, and interior chronology is restored inside each panel"
+      }
+    },
+    {
+      "name": "Juxtaposition Discipline",
+      "description": "Whether each white-space argument passed the state-and-footnote gate, avoided adjacency-as-causation, and stayed within budget",
+      "weight": 1.3,
+      "scores": {
+        "1": "Juxtapositions imply causation or motive the evidence does not support, and none is written out",
+        "2": "Inferences not written out; pairs kept on aesthetic grounds; no budget applied",
+        "3": "Inferences written out, but at least one would not survive being stated and cited, or the pairs echo rather than revise",
+        "4": "Every pair has a written inference that passes the footnote test, ordered so the second card revises the first, budget respected",
+        "5": "As 4, plus rejected candidates recorded with the reason, and system-protagonist personification capped and counted"
+      }
+    },
+    {
+      "name": "Shape Naming and Invisibility",
+      "description": "Whether the resolved sequence carries a real shape name with a stated emergence test, and whether roadmap sentences were stripped",
+      "weight": 1.0,
+      "scores": {
+        "1": "No shape named; the structure is described as 'a mix' or left implicit",
+        "2": "A shape label asserted with no emergence test, or a hybrid label invented to end the sorting step",
+        "3": "Shape named with a plausible test, but the invisibility test was not run",
+        "4": "Shape named with its emergence test stated about the actual cards; invisibility test run and roadmap sentences removed",
+        "5": "As 4, plus runner-up shape named with the reason it lost, and any surviving signposting justified as navigation furniture for an obligated reader"
+      }
+    },
+    {
+      "name": "Evidence Custody",
+      "description": "Whether discarded material was logged with did-not-support separated from contradicted, and contradicting cards routed into the body",
+      "weight": 1.2,
+      "scores": {
+        "1": "Material that did not fit the shape was dropped silently",
+        "2": "A single undifferentiated discard list; contradicting evidence not distinguished",
+        "3": "Two categories present, but contradicting cards are relegated to endnotes or a closing qualifications block",
+        "4": "Two categories maintained; every contradicting card assigned a position in the body",
+        "5": "As 4, plus each contradicting card's effect on confidence in the shape is stated, and cards invented to fill holes are demonstrably absent"
+      }
+    },
+    {
+      "name": "Refusal Capability",
+      "description": "Whether the derivation was willing to report that the corpus supports no shape, rather than manufacturing one",
+      "weight": 1.0,
+      "scores": {
+        "1": "A shape was imposed on independent findings, manufacturing causality the corpus does not support",
+        "2": "Refusal conditions present in the material but unacknowledged; the shape was forced",
+        "3": "Refusal conditions acknowledged in passing, then worked around without explanation",
+        "4": "Refusal conditions checked explicitly; either a shape is justified against them or the no-shape finding is reported",
+        "5": "As 4, plus multi-causal material was braided or split rather than flattened, with the set-aside contradiction named and explained"
+      }
+    },
+    {
+      "name": "Contract and Handoff",
+      "description": "Whether an immutable shape contract was produced and the component piles were made ready for downstream drafting",
+      "weight": 0.8,
+      "scores": {
+        "1": "No contract; drafting began before the shape was fixed, or the lede was written first",
+        "2": "Shape stated informally; no record of flashbacks, juxtapositions or contradicting cards",
+        "3": "Contract present but incomplete; components not separated into piles",
+        "4": "Full contract (shape, runner-up, flashbacks with re-entry points, juxtapositions, contradicting cards); components piled; lede written last",
+        "5": "As 4, plus the contract is marked immutable with a logged-restart rule, and the handoff to writing-structure-planner is explicit"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5. Scores below 3 in 'Dual Sort Integrity' or 'Juxtaposition Discipline' require rework regardless of the average: the first indicates theme-sort capture, the second indicates uncited claims placed in white space."
+}

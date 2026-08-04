@@ -1,0 +1,104 @@
+{
+  "name": "Narrative Fallacy Guard Rubric",
+  "description": "Evaluation criteria for an audited narrative: whether the retrospective, halo, inevitability, survivorship, proportion, and omission checks were actually run, whether they produced labels rather than deletions, and whether the disclosures survive in the body text.",
+  "criteria": [
+    {
+      "name": "Retrospective Slot Audit Completed",
+      "description": "Whether each structural slot carries its four dates, its retrospectivity tag, and the substitution test where required",
+      "weight": 1.0,
+      "scores": {
+        "1": "No slot audit; the inciting incident and turning points were chosen without asking when they became significant",
+        "2": "Slots listed but only the event dates recorded; no earliest-significance date, so no tag is possible",
+        "3": "All four dates recorded and slots tagged, but the substitution test was skipped on retrospective slots",
+        "4": "Slots tagged, substitution test run with two rival events named per retrospective slot, verbs downgraded where required",
+        "5": "All of level 4, plus the rejected candidates recorded with reasons, the instrument check run on any quantitative discontinuity, and the slot table shipped with the deliverable"
+      }
+    },
+    {
+      "name": "Outcome-Blind Characterisation",
+      "description": "Whether evaluative language rests on dated pre-outcome sources or on the outcome itself, and whether the flip and separation tests were applied to people and to systems alike",
+      "weight": 1.2,
+      "scores": {
+        "1": "Evaluative adjectives throughout (visionary, reckless, disciplined) with no dated support; the outcome supplies every judgment",
+        "2": "Some adjectives attributed, most not; system characterisations ('an efficient market', 'an inevitable standardisation') untouched",
+        "3": "Adjectives audited and either dated or replaced, but replacements are bureaucratic placeholders rather than vivid specifics",
+        "4": "Adjectives dated or replaced with action plus information set plus alternatives, written as specifics; flip and separation tests applied",
+        "5": "All of level 4, applied equally to system protagonists, with quote-laundering checked and the sampling of each retained characterisation stated"
+      }
+    },
+    {
+      "name": "Inevitability Control Without Overshoot",
+      "description": "Whether causal sentences carry live alternatives or stated overdetermination, whether the forecast-vs-outcome beat is present, and whether the piece still asserts anything",
+      "weight": 1.2,
+      "scores": {
+        "1": "Teleological language throughout ('inevitably', 'matured into', 'the seeds of'), or the mirror failure: hedge fog with zero asserted causal claims",
+        "2": "Banned constructions mostly removed but replaced with vagueness; no contemporaneous expectations cited",
+        "3": "Causal sentences carry live alternatives or a stated binding constraint, but no forecast-vs-outcome beat and no overshoot count",
+        "4": "Live alternatives named, overdetermination stated where it applies, one documented wrong prediction included with the reasoning that made it reasonable",
+        "5": "All of level 4, plus the overshoot check passed with a small number of confidently asserted causal claims each carrying its counterfactual, and juxtaposition-level causal claims (headings, captions, scene cuts) audited"
+      }
+    },
+    {
+      "name": "Survivorship and Apportionment",
+      "description": "Whether the corpus selection rule is stated and whether success attributions were tested against entities that did the same thing and failed",
+      "weight": 1.0,
+      "scores": {
+        "1": "Winner's attributes explain the win; no selection rule stated; prescriptions drawn from a survivor corpus",
+        "2": "Selection rule stated but no graveyard search performed",
+        "3": "Graveyard search performed but the result appears only in working notes, not in the text",
+        "4": "Two comparison entities named in the text, or the search-and-not-found result stated, or 'base rate unknown' declared without embarrassment",
+        "5": "All of level 4, plus a cumulative-advantage apportionment sentence where the domain warrants one, and no manufactured comparison cases where the population is genuinely n=1"
+      }
+    },
+    {
+      "name": "Expensive Checks Actually Run",
+      "description": "Whether the proportion audit and the omission check were performed, since the cheap per-sentence checks can all pass while the piece misleads through emphasis and selection alone",
+      "weight": 1.5,
+      "scores": {
+        "1": "Neither run, and the deliverable does not say so; the cheap checks alone make the work read as audited",
+        "2": "Neither run, but the log states plainly that they were skipped",
+        "3": "One of the two run; word counts or omissions tabulated but no written justifications",
+        "4": "Both run: proportion table with both asymmetries flagged, omission list with a reason for every absent corpus item",
+        "5": "All of level 4, with causal weight filled before the arc was chosen, written justification for each flagged asymmetry rather than mechanical rebalancing, and the strongest counter-evidence reachable inside the piece"
+      }
+    },
+    {
+      "name": "Disclosure Placement and Survival",
+      "description": "Whether disclosures sit in the body within two sentences of their claims, in the same register, and whether they survived the revision passes",
+      "weight": 1.2,
+      "scores": {
+        "1": "Disclosures confined to endnotes, an appendix, or a methods block; the body reads as unqualified",
+        "2": "Some disclosures in the body but placed sections away from the claims they qualify",
+        "3": "Disclosures adjacent to claims but in a different register (small type, grey box, methods voice) that reads as optional",
+        "4": "Disclosures in the body, within two sentences, same register, marked non-removable",
+        "5": "All of level 4, with counts re-verified after every revision pass, and one piece-level framing disclosure naming what a rival reading would emphasise"
+      }
+    },
+    {
+      "name": "Agency Reading Stated",
+      "description": "Whether the strongest skill-and-intent explanation was considered and answered on evidence, rather than dismissed because the lens disfavours agency",
+      "weight": 1.0,
+      "scores": {
+        "1": "Absent; every outcome attributed to structure, path, or luck by default",
+        "2": "Mentioned in passing and waved away with a general claim that outcomes are mostly luck",
+        "3": "Written for one major outcome only, or written without naming the evidence supporting it",
+        "4": "One block per major outcome: the reading, the evidence for it, the adopt-or-reject decision, and a specific evidentiary reason",
+        "5": "All of level 4, plus the reverse check: for each systemic attribution, whether a named actor had the authority and information to do otherwise, and either a documented partial success or the conditions under which the system has changed"
+      }
+    },
+    {
+      "name": "Budget and Readability",
+      "description": "Whether the apparatus stayed within budget and whether a binding budget triggered an architecture change rather than more caveats",
+      "weight": 1.0,
+      "scores": {
+        "1": "Either unhedged throughout, or the apparatus has eaten the subject and the author's uncertainty has become the story",
+        "2": "Hedges and disclosures uncounted; likelihood and confidence mixed in the same sentences",
+        "3": "Counted and roughly within budget, but uncertainty rendered as stacked qualifiers rather than as English",
+        "4": "Within budget, likelihood banded only on load-bearing judgments, confidence stated separately, prose reads as prose",
+        "5": "All of level 4, and where the budget bound, the architecture changed (chronicle, braided comparison, taxonomy, single-question investigation) rather than absorbing more caveats"
+      }
+    }
+  ],
+  "threshold": 3.5,
+  "passing_note": "Average score must be >= 3.5. A score below 3 on 'Expensive Checks Actually Run' fails the audit outright regardless of the average, because per-sentence rigor without the proportion and omission checks produces work that reads as audited while misrepresenting drift and emphasis. A score of 1 on 'Disclosure Placement and Survival' or on 'Agency Reading Stated' also requires revision before shipping."
+}

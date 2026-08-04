@@ -1,0 +1,102 @@
+{
+  "name": "Narrative Form Triage Rubric",
+  "description": "Evaluation criteria for a form-triage run and the spine contract it produces. Scores the gate, not the eventual prose. Minimum standard: average >= 3.5.",
+  "criteria": [
+    {
+      "name": "Gate Ran Before Structure",
+      "description": "Whether the six-question triage and the ABT diagnostic were completed on the assembled evidence before any structure, theme or outline was proposed",
+      "weight": 1.3,
+      "scores": {
+        "1": "No gate; a structure was chosen or an arc was described from the outset",
+        "2": "Gate mentioned but run after a structure was already assumed, as justification",
+        "3": "Gate run before structure selection, but the chronology table was thin or partly assembled afterward",
+        "4": "Chronology table complete first, then ABT, then the six questions, in order",
+        "5": "Full order held, source-type flags recorded per row, and no theme or thesis proposed before the table was complete"
+      }
+    },
+    {
+      "name": "Citation Discipline on Every Slot",
+      "description": "Whether each triage answer and each ABT slot carries a specific corpus reference, with uncited answers treated as NO",
+      "weight": 1.3,
+      "scores": {
+        "1": "No citations; answers are assertions and the ABT reads well while citing nothing",
+        "2": "Some slots cited, others asserted, with no distinction drawn between them",
+        "3": "Most slots cited; a few uncited YES answers survived into the form declaration",
+        "4": "Every YES carries a reference; uncited answers were converted to NO",
+        "5": "Every slot cited, sources tagged primary-contemporaneous or secondary-retrospective, and no mechanism claim rests on a secondary retrospective alone"
+      }
+    },
+    {
+      "name": "Refusal Capability",
+      "description": "Whether DO NOT NARRATE, NO BUT IN MATERIAL and NO POINT OF INSIGHT are available and used when the evidence warrants, without being softened into a weaker arc",
+      "weight": 1.5,
+      "scores": {
+        "1": "An arc was produced regardless of evidence; empty slots were filled by inference or invention",
+        "2": "Weaknesses noted in passing, then a story form adopted anyway",
+        "3": "Form correctly downgraded, but the refusal is buried or apologetic rather than delivered as a finding",
+        "4": "Refusal delivered as a first-class output with reasons and failing question numbers, and empty slots logged with a chosen move",
+        "5": "As 4, plus the counter-check: the strongest agency-based reading is named and its rejection reasoned, so the refusal is not anti-narrative reflex"
+      }
+    },
+    {
+      "name": "Structure Fit and Runner-Up",
+      "description": "Whether the selected spine is keyed on contradiction count, subject type, audience obligation, outcome knowledge and audience stance, with a named runner-up and a stated reason it lost",
+      "weight": 1.2,
+      "scores": {
+        "1": "Structure named with no rationale, or a default arc applied to system material",
+        "2": "Rationale given for one or two keys only; no runner-up recorded",
+        "3": "Most keys applied; runner-up named but with no reason it lost",
+        "4": "All five keys applied explicitly; runner-up named with a reason",
+        "5": "As 4, plus the system remap applied where the subject is not a person, and any agentic template either remapped slot by slot or abandoned"
+      }
+    },
+    {
+      "name": "Boredom Budget and Nesting Declared",
+      "description": "Whether the contract states in one sentence where the chosen structure permits low-engagement prose, and declares nesting depth within the one-level limit for explanation inside story",
+      "weight": 1.0,
+      "scores": {
+        "1": "Neither stated; the structure is a label with no operating rules",
+        "2": "Boredom zone gestured at vaguely ('keep it engaging'); nesting unaddressed",
+        "3": "Boredom sentence present and correct for the structure; nesting mentioned without depth",
+        "4": "Both stated precisely, and the one-nut-graf limit on explanation inside story is respected",
+        "5": "As 4, plus dense evidence runs marked and each placed in a permitted zone, appendixed, compressed, or paid for with a scene"
+      }
+    },
+    {
+      "name": "Warranted Antagonists and Non-Agentic Language",
+      "description": "Whether any opponent meets the competition, awareness and directed-action tests, with verbs matching the tier, and whether systems are kept free of wants and intent",
+      "weight": 1.2,
+      "scores": {
+        "1": "A named party is assigned intent with no documentary support, or the subject system decides, wants or believes",
+        "2": "An opponent is asserted with one evidence type; agency language appears unremarked",
+        "3": "Opponent tier assessed but verbs not constrained to the tier",
+        "4": "Tier assigned from the three tests, verbs constrained accordingly, and the empty case declared where nothing reaches two of three",
+        "5": "As 4, plus every system-level force cashed out into its mechanism in the same sentence, with no anthropomorphism anywhere in the contract"
+      }
+    },
+    {
+      "name": "Set-Aside and Contradiction Handling",
+      "description": "Whether DHY material was split or explicitly demoted with disclosure, and whether evidence that contradicts is distinguished from evidence that merely fails to support",
+      "weight": 1.2,
+      "scores": {
+        "1": "Multi-causal material silently flattened to one elegant mechanism; nothing logged",
+        "2": "A single spine chosen with a passing acknowledgment that other factors exist",
+        "3": "Set-aside log present but does not separate contradicting from not-supporting evidence",
+        "4": "Contradictions named, the reduction reasoned, and the two evidence categories separated",
+        "5": "As 4, plus contradicting evidence routed into the body of the plan rather than an appendix, and one thing the chosen lens does not explain stated outright"
+      }
+    },
+    {
+      "name": "Contract Completeness and Immutability",
+      "description": "Whether all eleven contract fields are present, attribution caveats carried, and the spine frozen against mid-draft substitution",
+      "weight": 1.0,
+      "scores": {
+        "1": "No contract; the output is prose or an outline",
+        "2": "Partial contract; several required fields absent",
+        "3": "Most fields present; attribution caveats missing or sources misattributed",
+        "4": "All eleven fields present, attributions correct, and the freeze stated",
+        "5": "As 4, plus derived defaults and the Hart, Oregon Method and SCAM caveats carried verbatim, and a logged restart path defined for structural change"
+      }
+    }
+  ]
+}
