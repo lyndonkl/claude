@@ -2,7 +2,7 @@
 
 ![Skills](https://img.shields.io/badge/skills-261-blue) ![Agents](https://img.shields.io/badge/agents-75-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **261 skills** and **75 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection. Also included: five reusable primitives for gated, verifiable research pipelines, and a 3-agent narrative team that turns researched evidence into structured long-form nonfiction.
+A production-ready library of **262 skills** and **75 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection. Also included: five reusable primitives for gated, verifiable research pipelines, and a 3-agent narrative team that turns researched evidence into structured long-form nonfiction.
 
 **Install in 30 seconds:**
 
@@ -65,7 +65,7 @@ flowchart LR
     D -->|Plan a conference| CONF[conf-director<br/>+ 5 specialists]
     D -->|Gated research pipeline| RP[market-era-historian<br/>series-archaeologist<br/>mechanism-analyst<br/>claim-verifier<br/>stage-auditor]
     D -->|One-off tool| SK[Skills Index ▾]
-    CA & PS & WA & NA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF & RP --> S[(261 skills)]
+    CA & PS & WA & NA & SF & CD & MLB & WC & HF & GR & GDL & MI & LSC & BIO & CONF & RP --> S[(262 skills)]
     SK --> S
 ```
 
@@ -181,7 +181,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**261 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**262 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -277,7 +277,7 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 </details>
 
 <details>
-<summary><b>✍️ Communication & Writing</b> — writing pipeline, narrative architecture and craft, scientific writing, audience adaptation, analyst voice, PDF rendering (28 skills)</summary>
+<summary><b>✍️ Communication & Writing</b> — writing pipeline, narrative architecture and craft, scientific writing, audience adaptation, analyst voice, PDF rendering (29 skills)</summary>
 
 ### General writing
 
@@ -292,7 +292,7 @@ Domain-neutral primitives for any weekly paper-digest workflow. Powers the `lite
 - **[strategist-voice](skills/strategist-voice/SKILL.md)** — Apply the analyst-grade house style for long-form strategist reports: no em dashes, footnoted citations, opinion via phrasing.
 - **[markdown-to-pdf](skills/markdown-to-pdf/SKILL.md)** — Render a finished markdown report to PDF via pandoc and xelatex with analyst-style typography. *Requires `pandoc` and a LaTeX engine installed locally — see [Optional native dependencies](#optional-native-dependencies).*
 
-### Narrative architecture & craft (13)
+### Narrative architecture & craft (14)
 
 The toolkit behind [`narrative-architect`](agents/narrative-architect.md) and [`scenewright`](agents/scenewright.md). Built on Truby (structure), Hart (scene and line craft), and McPhee (arrangement), and hardened against the failure they share — a fluent model filling every empty slot whether the evidence supports it or not. Works when the protagonist is a person and when it is a system: a market, a protocol, an institution, a supply chain.
 
@@ -310,6 +310,7 @@ The toolkit behind [`narrative-architect`](agents/narrative-architect.md) and [`
 - **[scene-construction-scam](skills/scene-construction-scam/SKILL.md)** — SCAM scene qualification with a provenance gate, scene floor and ceiling, the 1-of-20 detail cut. An unfillable slot demotes to summary rather than being invented.
 - **[ladder-of-abstraction](skills/ladder-of-abstraction/SKILL.md)** — Rung tagging R1–R4, the middle-rung trap, and the honest ceiling. Routes a readability failure to a concrete example rather than to synonym substitution.
 - **[prose-force-and-rhythm](skills/prose-force-and-rhythm/SKILL.md)** — Hart's nine Wordcraft passes in strict order with upward escalation, the claim-strength invariant, and a protected-hedge list so brevity never deletes the uncertainty.
+- **[reader-first-prose](skills/reader-first-prose/SKILL.md)** — Rewrites for a reader meeting the subject for the first time: introduce every term before use, ground or cut each metaphor, plain over clever, no em dash and no terse "X. Not Y." antithesis. Keeps inference marked as inference so the prose never out-claims its source.
 - **[numbers-in-narrative](skills/numbers-in-narrative/SKILL.md)** — Land a quantity in a sentence without overstating it. Denominator lock, uncertainty routing, the likelihood/confidence lexicon, chart-beat contracts.
 
 *Gates — used by both:*
