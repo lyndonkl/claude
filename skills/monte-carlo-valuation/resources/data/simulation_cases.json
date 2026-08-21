@@ -1,0 +1,139 @@
+{
+  "as_of": "2021-11",
+  "source": "Aswath Damodaran, NYU Stern valuation lecture notes (valpacket1spr20 p.298-348, valpacket1spr21 p.292-357) and the Motley Fool valuation deck (valuationmotleyfool p.26)",
+  "refresh": "https://pages.stern.nyu.edu/~adamodar/ — lecture-note packets and the accompanying spreadsheets. These are published outputs of Damodaran's own simulations, so they do not go stale the way a spread table does; they are dated because each one is a snapshot of a company at a moment, and the market prices in particular are only meaningful at that date. Re-read the source before quoting a case in a live valuation, and add newer cases rather than editing these.",
+  "purpose": "Calibration anchors and test vectors. This file is reference material, not an input to a valuation. The script never recomputes these numbers; it uses the percentile tables to test the price-location arithmetic and the Shell regression to test the linear map.",
+  "cases": {
+    "paytm_2021": {
+      "company": "Paytm (One97 Communications)",
+      "date": "2021-09",
+      "context": "Valued ahead of the September 2021 IPO. 100,000 trials.",
+      "units": "INR millions, value of equity",
+      "base_case_value": 1456708.0,
+      "simulated_median": 1246824.0,
+      "market_price": null,
+      "input_distributions": [
+        {"driver": "GMV growth rate, years 1-5", "shape": "lognormal"},
+        {"driver": "Target take rate (revenue/GMV), year 10", "shape": "triangular"},
+        {"driver": "Target operating margin, year 10", "shape": "minimum extreme", "correlation": "0.50 with the take rate"},
+        {"driver": "Sales to invested capital, years 2-10", "shape": "uniform"}
+      ],
+      "percentile_table": [
+        {"percentile": 0, "value": -2242001.0},
+        {"percentile": 10, "value": 627263.0},
+        {"percentile": 20, "value": 843180.0},
+        {"percentile": 30, "value": 992398.0},
+        {"percentile": 40, "value": 1121771.0},
+        {"percentile": 50, "value": 1246824.0},
+        {"percentile": 60, "value": 1378339.0},
+        {"percentile": 70, "value": 1528468.0},
+        {"percentile": 80, "value": 1717973.0},
+        {"percentile": 90, "value": 2010052.0},
+        {"percentile": 100, "value": 8020677.0}
+      ],
+      "finding": "Equity was worthless in about 3% of trials. The simulated median sat 14% below the base-case DCF, and the 10th-to-90th range ran from 627,263 to 2,010,052 — a point estimate inside that spread is not a precise claim about value.",
+      "source_pages": ["valuationmotleyfool p.26", "valpacket1spr21 p.292"]
+    },
+    "amazon_2018": {
+      "company": "Amazon",
+      "date": "2018-09",
+      "context": "Simulation run on the September 2018 DCF.",
+      "units": "USD per share",
+      "base_case_value": 1255.09,
+      "simulated_mean": 1343.67,
+      "simulated_median": 1241.98,
+      "market_price": 1970.0,
+      "input_distributions": [
+        {"driver": "Revenue growth", "shape": "uniform 5% to 25%", "correlation": "0.40 with the operating margin"},
+        {"driver": "Operating margin", "shape": "normal, mean 12.50%, sd 2.00%"},
+        {"driver": "Sales to invested capital", "shape": "triangular, min 3.95, likeliest 5.95, max 7.95"},
+        {"driver": "Cost of capital", "shape": "lognormal, location 5.00%, mean 7.97%, sd 0.80%"}
+      ],
+      "percentile_table": [
+        {"percentile": 0, "value": 234.29},
+        {"percentile": 10, "value": 705.19},
+        {"percentile": 20, "value": 832.65},
+        {"percentile": 30, "value": 957.69},
+        {"percentile": 40, "value": 1092.41},
+        {"percentile": 50, "value": 1241.97},
+        {"percentile": 60, "value": 1411.82},
+        {"percentile": 70, "value": 1605.37},
+        {"percentile": 80, "value": 1837.98},
+        {"percentile": 90, "value": 2152.15},
+        {"percentile": 100, "value": 3887.62}
+      ],
+      "finding": "The $1,970 market price sat in the top fifth of the simulated distribution. Overvalued in most scenarios, but not in all of them — a different proposition from overvalued everywhere.",
+      "source_pages": ["valpacket1spr21 p.354", "valpacket1spr20 p.345"]
+    },
+    "shell_2016": {
+      "company": "Royal Dutch Shell",
+      "date": "2016-03",
+      "context": "An oil-price-neutral valuation: the company valued at the market price of oil, with the macro view stated separately as a distribution over that price.",
+      "units": "USD per share",
+      "base_case_value": 39.31,
+      "simulated_median": 36.99,
+      "market_price": null,
+      "revenue_regression": {
+        "formula": "Revenues ($m) = intercept + slope x average oil price per barrel",
+        "intercept": 39992.77,
+        "slope": 4039.4,
+        "r_squared": 0.9644,
+        "window": "annual data, 1989-2015",
+        "oil_price_used": 40.0,
+        "revenue_at_price_used": 201568.77,
+        "note": "An R-squared of 96.44% means the oil price essentially is the revenue model. Simulating the oil price and mapping it through this line is the whole simulation for a commodity firm."
+      },
+      "input_distributions": [
+        {"driver": "Steady-state oil price", "shape": "right-skewed (lognormal-type)"},
+        {"driver": "Target operating margin", "shape": "roughly normal"},
+        {"driver": "Tax rate, revenue growth, cost of capital", "shape": "held fixed"}
+      ],
+      "percentile_table": [
+        {"percentile": 0, "value": 6.55},
+        {"percentile": 10, "value": 23.9},
+        {"percentile": 20, "value": 27.73},
+        {"percentile": 30, "value": 30.89},
+        {"percentile": 40, "value": 33.88},
+        {"percentile": 50, "value": 36.99},
+        {"percentile": 60, "value": 40.28},
+        {"percentile": 70, "value": 44.22},
+        {"percentile": 80, "value": 49.24},
+        {"percentile": 90, "value": 57.49},
+        {"percentile": 100, "value": 197.11}
+      ],
+      "finding": "Two drivers, one of them macro, produce a 10th-to-90th range of $23.90 to $57.49 around a $39.31 point estimate. This is the archetype for a commodity or cyclical company where one macro variable dominates.",
+      "source_pages": ["valpacket1spr21 p.352-357", "valpacket1spr20 p.343-348"]
+    },
+    "sp500_2020": {
+      "company": "S&P 500 index",
+      "date": "2020-11-01",
+      "context": "An index valuation on augmented dividends, simulated. Shows the same machinery applied to a macro object rather than a company.",
+      "units": "index points",
+      "base_case_value": null,
+      "simulated_median": 3091.51,
+      "market_price": 3270.0,
+      "input_distributions": [
+        {"driver": "2020 earnings", "shape": "likeliest 130.2, scale 6"},
+        {"driver": "2021 earnings", "shape": "likeliest 166.2, scale 8", "correlation": "0.80 with 2020 earnings"},
+        {"driver": "Share of lost earnings recouped by 2024", "shape": "triangular, min 60%, max 100%"},
+        {"driver": "Equity risk premium", "shape": "expected value 5.58%, relative standard deviation 15%"},
+        {"driver": "Cash returned as a percent of earnings in 2020", "shape": "likeliest 75.00%, scale 5%", "correlation": "-0.50 with earnings; weaker earnings mean less cash returned"}
+      ],
+      "percentile_table": [
+        {"percentile": 0, "value": 2203.59},
+        {"percentile": 10, "value": 2817.08},
+        {"percentile": 20, "value": 2906.3},
+        {"percentile": 30, "value": 2973.67},
+        {"percentile": 40, "value": 3033.43},
+        {"percentile": 50, "value": 3091.51},
+        {"percentile": 60, "value": 3150.6},
+        {"percentile": 70, "value": 3217.16},
+        {"percentile": 80, "value": 3299.18},
+        {"percentile": 90, "value": 3415.91},
+        {"percentile": 100, "value": 4495.29}
+      ],
+      "finding": "The index traded at 3,270, between the 70th and 80th percentiles. The market was at the upper-middle of the plausible range rather than obviously wrong. Note the two signed correlations: earnings across years positively, payout against earnings negatively.",
+      "source_pages": ["valpacket1spr21 p.357", "valpacket1spr20 p.348"]
+    }
+  }
+}

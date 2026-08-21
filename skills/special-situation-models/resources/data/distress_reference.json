@@ -1,0 +1,67 @@
+{
+  "as_of": "2021-02",
+  "source": "Aswath Damodaran, Valuation lecture packet 1 (Spring 2020 / Spring 2021), NYU Stern. Altman cumulative-default mapping via apv.xls; startup survival from the 2007 study reproduced in the packet; long-run sector survival from US Bureau of Labor Statistics, Business Employment Dynamics, 1994-2019 cohorts.",
+  "refresh": "Default rates are re-estimated annually. Refresh rating_cumulative_default_10y from Altman's current mortality tables or S&P's Annual Global Corporate Default Study, and sector_long_run_survival from the BLS Business Employment Dynamics release. Record the vintage in the valuation. Pass a refreshed file with reference_path rather than editing this copy.",
+
+  "rating_cumulative_default_10y": {
+    "note": "Cumulative likelihood that a bond in this rating class defaults within ten years. Estimated by taking the bonds in each class ten years earlier and measuring the proportion that defaulted. Ratings are S&P letter grades.",
+    "rates": {
+      "AAA": 0.0007,
+      "AA": 0.0051,
+      "A+": 0.0060,
+      "A": 0.0066,
+      "A-": 0.0250,
+      "BBB": 0.0754,
+      "BB": 0.1663,
+      "B+": 0.2500,
+      "B": 0.3680,
+      "B-": 0.4500,
+      "CCC": 0.5901,
+      "CC": 0.7000,
+      "C": 0.8500,
+      "D": 1.0000
+    },
+    "alternate_vintages": {
+      "B+": {
+        "value": 0.2825,
+        "note": "The Las Vegas Sands case (February 2009) quotes 28.25% for B+ from the S&P study of that year rather than 25.00% from the Altman mapping. Rating-implied probabilities move with the vintage; state which one you used."
+      }
+    }
+  },
+
+  "startup_survival_by_year": {
+    "note": "Share of firms started in a given year that are still alive n years later, all sectors, read from the 2007 study chart in the packet. Use one minus the survival rate as the probability of failure over that horizon for a company with no debt to price.",
+    "rates": {
+      "1": 0.81,
+      "2": 0.66,
+      "3": 0.54,
+      "4": 0.44,
+      "5": 0.38,
+      "6": 0.34,
+      "7": 0.31
+    },
+    "seven_year_range": {
+      "highest": {"sector": "Health services", "rate": 0.44},
+      "lowest": {"sector": "Information", "rate": 0.25}
+    }
+  },
+
+  "sector_long_run_survival": {
+    "note": "Share of businesses started in 1994 still operating in 2019. Long-run survival differs by a factor of three across sectors, so an all-firm average is a poor default when the sector is known.",
+    "rates": {
+      "Management of companies and enterprises": 0.352,
+      "Utilities": 0.284,
+      "Health care and social assistance": 0.199,
+      "Wholesale trade": 0.140,
+      "Transportation and warehousing": 0.129,
+      "Information": 0.115,
+      "All-sector average": 0.166
+    }
+  },
+
+  "conventions": {
+    "default_recovery_percent": 0.5,
+    "recovery_note": "Distress proceeds default to 50% of the chosen base, the value used in Damodaran's Ginzu model and in the JC Penney case. Cut it in an economy-wide downturn, when every peer is selling the same assets at once.",
+    "bond_model_note": "The bond-implied probability assumes zero recovery in distress and discounts the promised payments at the riskfree rate. Both are modelling choices. A non-zero recovery assumption lowers the implied probability for the same price."
+  }
+}

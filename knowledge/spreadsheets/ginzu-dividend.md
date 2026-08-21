@@ -1,0 +1,512 @@
+# divginzu.xls — Dividend Discount Model ("Dividend Ginzu")
+
+Source: `/Users/kushaldsouza/Downloads/2020/Spreadsheets/Big Picture Valuation Spreadsheets/divginzu.xls` (Damodaran, 2020 spreadsheet collection). Legacy `.xls` — only computed values are visible; all formulas below reconstructed from labels, layout, and values and verified numerically against the sheet unless noted otherwise. Everything in the **Logic** section is "(inferred)" in that sense; items marked "verified" reproduce the sheet's numbers exactly.
+
+### divginzu.xls
+
+**Purpose:** Flexible 2-stage / 3-stage / stable-growth Dividend Discount Model for valuing equity per share from dividends. Damodaran uses it for firms where dividends are the appropriate cash flow to equity — classically banks and financial-service firms (the sheet's example is JP Morgan Chase) where FCFE is hard to estimate. Growth can be entered directly or derived from fundamentals (g = ROE x retention). Options: normalize earnings (5-year average NI or normalized ROE). Or fade growth, payout, and cost of equity to stable levels over the second half of the high-growth period, making it a 3-stage model. Or set the high-growth period to 0 for a pure stable-growth (Gordon) model. Sheets: `Read me first` (docs), `Inputs`, `Normalized Earnings`, `valuation` (output), plus reference sheets `US Industry averages`, `ERP calculator`, `Country ERP`.
+
+**Inputs (sheet `Inputs`):**
+
+| Cell | Label | Example value |
+|---|---|---|
+| B1 | Name of company | JP Morgan Chase |
+| B2 | Date of valuation | 40100 (Excel serial = 2009-10-14) |
+| B4 | Net Income (last year, currency) | 1500 |
+| B5 | Book Value of Equity — current | 6237 |
+| C5 | Book Value of Equity — last year (beginning BV) | 6155 |
+| B6 | Current Earnings per share | 2.60 |
+| B7 | Current Dividends per share | 1.10 |
+| B8 | Normalize the net income/earnings per share? (Yes/No) | Yes |
+| B11 | Beta of the stock | 0.95 |
+| B12 | Riskfree rate | 0.02 |
+| B13 | Equity Risk Premium | 0.055 |
+| B16 | Length of high growth period (years, ≤ 10) | 10 |
+| B18 | Calculate growth from fundamentals? (Yes/No) | Yes |
+| B19 | If No: expected EPS growth rate in high growth (direct input) | (blank) |
+| B21 | ROE (computed from fundamentals — display, not input) | 0.329033 |
+| B22 | Retention (computed from fundamentals — display, not input) | 0.576923 |
+| B23 | Change these inputs for the high growth period? (Yes/No) | Yes |
+| B25 | If yes: ROE for high growth | 0.30 |
+| B26 | If yes: Retention for high growth | 0.576923 |
+| B27 | Change these inputs for the stable growth period? (Yes/No) | No |
+| B29 | If yes: stable-period ROE | 0.25 |
+| B30 | Gradually adjust inputs during the second half? (Yes/No → 3-stage) | Yes |
+| B33 | Growth rate in stable growth period | 0.02 |
+| B35 | Stable payout ratio from fundamentals (display, computed) | 0.933333 |
+| B36 | Change this payout ratio? (Yes/No) | No |
+| B37 | If yes: stable payout ratio (direct input) | (blank) |
+| B39 | Will the beta change in the stable period? (Yes/No) | No |
+| B40 | If yes: beta for stable period | 0.80 |
+
+**Inputs (sheet `Normalized Earnings`, used only when Inputs!B8 = Yes):**
+
+| Cell | Label | Example value |
+|---|---|---|
+| B2 | Choose the approach to normalized earnings (1 or 2) | 1 |
+| B5:F5 | Net Income for years -5, -4, -3, -2, Current | 1662, 2533, 1876, 1933, 2122 |
+| G5 | Average (computed) = AVERAGE(B5:F5) | 2025.2 |
+| B8 | Approach 2: Normalized ROE | 0.22 |
+
+**Inputs (sheet `ERP calculator`, optional helper — result is NOT auto-linked to Inputs!B13; user copies it in manually (inferred, since B13 = 0.055 matches neither calculator total)):**
+
+- Country table rows 3–14: Country name (A), Revenues (B); ERP (C) looked up from `Country ERP` sheet; the last two rows accept a directly-entered ERP for "rest of world" flexibility. Example: China revenues 800 (ERP 0.063840), United States 1200 (ERP 0.0569).
+- Region table rows 18–28: Region (A), Revenues (B); ERP (C) from the regional averages table at the bottom of `Country ERP`. Example: Caribbean 10, Middle East 30, North America 35, Western Europe 15.
+
+**Logic (all reconstructed — "(inferred)" — and numerically verified against the sheet except where flagged):**
+
+Let NI0 = Inputs!B4, BV_curr = B5, BV_prior = C5, EPS0_raw = B6, DPS0 = B7, beta = B11, rf = B12, ERP = B13, n = B16, g_n = B33.
+
+1. Normalized net income (sheet `Normalized Earnings`):
+   - If Inputs!B8 = "Yes" and approach = 1: NI = AVERAGE(last 5 years' NI) = G5 = 2025.2. Verified.
+   - If approach = 2: NI = Normalized ROE x Book Value of Equity = B8 x Inputs!B5 (inferred, not exercised in the sheet; could plausibly use beginning BV C5 instead — unverifiable from values).
+   - If B8 = "No": NI = NI0.
+2. EPS used in valuation (valuation!D5): EPS = EPS0_raw x NI / NI0 = 2.60 x 2025.2/1500 = 3.510347 — i.e. shares implied = NI0/EPS0_raw = 576.923 and EPS = NI/shares. Verified.
+3. Current payout and retention (Inputs!B22): payout0 = DPS0/EPS0_raw = 1.1/2.6 = 0.423077; retention0 = 1 - payout0 = 0.576923. Verified. (Note: computed from the RAW current EPS, not the normalized EPS.)
+4. Fundamental ROE (Inputs!B21): ROE_fund = NI / BV_prior = 2025.2/6155 = 0.329033 (normalized NI over BEGINNING book equity). Verified.
+5. High-growth ROE and retention: if B23 = "Yes" use overrides (ROE_hg = B25 = 0.30, retention_hg = B26 = 0.576923), else ROE_hg = ROE_fund, retention_hg = retention0.
+6. High-growth EPS growth rate (valuation!D6): if B18 = "Yes": g_hg = ROE_hg x retention_hg = 0.30 x 0.576923 = 0.173077 (verified); if "No": g_hg = B19.
+7. High-growth payout ratio (valuation!D7): payout_hg = 1 - retention_hg = 0.423077. Verified.
+8. Cost of equity, high growth (valuation!D3): r_hg = rf + beta x ERP = 0.02 + 0.95 x 0.055 = 0.07225. Verified.
+9. Stable-period parameters:
+   - ROE_st = B29 if B27 = "Yes", else ROE_hg (verified: sheet uses 0.30, not 0.25, because B27 = "No").
+   - payout_st (Inputs!B35, valuation!D20) = 1 - g_n/ROE_st = 1 - 0.02/0.30 = 0.933333 (verified); overridden by B37 if B36 = "Yes".
+   - beta_st = B40 if B39 = "Yes", else beta. r_st (valuation!D21) = rf + beta_st x ERP = 0.07225 here. Verified.
+10. Year-by-year projection, t = 1..n (valuation rows 11–17; columns beyond n are blank):
+    - Two-stage (B30 = "No"): g_t = g_hg, payout_t = payout_hg, r_t = r_hg for all t = 1..n.
+    - Three-stage (B30 = "Yes"): for t ≤ n/2, g_t = g_hg, payout_t = payout_hg, r_t = r_hg. For t in the second half, linear fade reaching the stable values exactly at t = n:
+      g_t = g_hg - (g_hg - g_n) x (t - n/2)/(n/2);
+      payout_t = payout_hg + (payout_st - payout_hg) x (t - n/2)/(n/2);
+      r_t = r_hg + (r_st - r_hg) x (t - n/2)/(n/2).
+      Verified: n = 10, year 6 g = 0.173077 - 0.153077/5 = 0.142462; year 6 payout = 0.423077 + 0.510256/5 = 0.525128; year 10 g = 0.02, payout = 0.933333. r constant at 0.07225 since r_st = r_hg.
+    - EPS_t = EPS_{t-1} x (1 + g_t), with EPS_0 = EPS (normalized). Verified (EPS_1 = 3.510347 x 1.173077 = 4.117907).
+    - DPS_t = EPS_t x payout_t. Verified (DPS_1 = 1.742191).
+    - Cumulative cost of equity: CumCOE_t = Π_{s=1..t} (1 + r_s). Verified (CumCOE_1 = 1.07225, CumCOE_10 = 2.008910).
+    - PV_t = DPS_t / CumCOE_t. Verified.
+11. Terminal price (valuation!D22): P_n = EPS_n x (1 + g_n) x payout_st / (r_st - g_n) = 11.477071 x 1.02 x 0.933333 / (0.07225 - 0.02) = 209.113335. Verified.
+12. Value per share (valuation!E26): V = Σ_{t=1..n} PV_t + P_n / CumCOE_n = 31.487449 + 209.113335/2.008910 = 31.487449 + 104.092917 = 135.580366. Verified.
+13. Value-of-growth decomposition (valuation rows 30–33):
+    - Value of assets in place (D30) = EPS / r_hg = 3.510347/0.07225 = 48.586113 (current normalized EPS as a no-growth perpetuity, 100% payout). Verified.
+    - Value of stable growth (D31) = EPS x (1 + g_n) x payout_st / (r_st - g_n) - EPS / r_hg = 63.958852 - 48.586113 = 15.372739. Verified.
+    - Value of extraordinary growth (D32) = V - [EPS x (1 + g_n) x payout_st / (r_st - g_n)] = 135.580366 - 63.958852 = 71.621514. Verified.
+    - Value of the stock (D33) = V = 135.580366.
+14. Stable-growth-only mode: setting n = 0 collapses the model to V = EPS x (1 + g_n) x payout_st / (r_st - g_n) (per `Read me first`; not exercised in the sheet) (inferred).
+15. Per `Read me first`: if r_st ≠ r_hg, the cost of equity fades "gradually from the high growth cost of equity to a stable growth cost of equity" over the second half. This is the r_t fade in step 10. Per the text it applies even in two-stage mode (inferred; not exercised here since the betas are equal).
+
+**ERP helper logic (sheet `ERP calculator`) (inferred, verified numerically):**
+- Weight_i = Revenues_i / Total revenues; Weighted ERP_i = ERP_i x Weight_i; result = Σ Weighted ERP_i.
+- Country table example: China 800 @ 0.063840, US 1200 @ 0.0569 → total 2000, weighted ERP = 0.4 x 0.063840 + 0.6 x 0.0569 = 0.059676 (cell E15).
+- Region table example: Caribbean 10 @ 0.111103, Middle East 30 @ 0.072650, North America 35 @ 0.0569, Western Europe 15 @ 0.065009 → total 90, weighted ERP = 0.069524 (cell E29).
+- The last two rows of each table are free-entry rows for a user-supplied "rest of world" ERP.
+
+**Country ERP sheet logic (inferred, verified numerically):**
+- Cell B1: Mature Market ERP = 0.0569.
+- Per country: Equity Risk Premium (col D) = 0.0569 + Country Risk Premium (col E). CRP (col E) = Adjusted Default Spread (col C) x 1.1796, the relative equity-market volatility multiplier. The ratio E/C = 1.1796 holds for every rated country. Aaa countries have spread 0 and ERP = 0.0569.
+- Default spread comes from the Moody's sovereign rating (col B); countries rated "NA" carry their regional average spread.
+- Rating → adjusted default spread mapping present in the data (ratings with no country in this vintage are absent):
+
+| Moody's rating | Adj. default spread |
+|---|---|
+| Aaa | 0.000000 |
+| Aa1 | 0.003319 |
+| Aa2 | 0.004149 |
+| Aa3 | 0.005054 |
+| A1 | 0.005883 |
+| A2 | 0.007090 |
+| A3 | 0.010032 |
+| Baa1 | 0.013351 |
+| Baa2 | 0.015915 |
+| Baa3 | 0.018405 |
+| Ba1 | 0.020894 |
+| Ba2 | 0.025118 |
+| Ba3 | 0.030096 |
+| B1 | 0.037639 |
+| B2 | 0.046011 |
+| B3 | 0.054384 |
+| Caa1 | 0.062681 |
+| Caa2 | 0.075278 |
+| C | 0.150000 |
+
+**Outputs (sheet `valuation`):**
+
+| Cell | Meaning | Example value |
+|---|---|---|
+| D3 | Cost of Equity (high growth) | 0.07225 |
+| D4 | Net Income (normalized if chosen) | 2025.2 |
+| D5 | Earnings per Share used | 3.510347 |
+| D6 | Growth rate in EPS (high growth) | 0.173077 |
+| D7 | Payout Ratio for high growth phase | 0.423077 |
+| C11:L11 | Expected growth rate, years 1..n | 0.173077 (yrs 1-5) fading to 0.02 (yr 10) |
+| C12:L12 | Earnings per share, years 1..n | 4.117907 … 11.477071 |
+| C13:L13 | Payout ratio, years 1..n | 0.423077 (yrs 1-5) fading to 0.933333 |
+| C14:L14 | Dividends per share, years 1..n | 1.742191 … 10.711933 |
+| C15:L15 | Cost of equity, years 1..n | 0.07225 all years |
+| C16:L16 | Cumulative cost of equity Π(1+r) | 1.07225 … 2.008910 |
+| C17:L17 | Present value of each dividend | 1.624800 … 5.332211 |
+| D19 | Growth Rate in Stable Phase | 0.02 |
+| D20 | Payout Ratio in Stable Phase | 0.933333 |
+| D21 | Cost of Equity in Stable Phase | 0.07225 |
+| D22 | Price at the end of growth phase (terminal price) | 209.113335 |
+| E24 | PV of dividends in high growth phase | 31.487449 |
+| E25 | PV of Terminal Price | 104.092917 |
+| E26 | **Value of the stock (per share)** | **135.580366** |
+| D30 | Value of assets in place | 48.586113 |
+| D31 | Value of stable growth | 15.372739 |
+| D32 | Value of extraordinary growth | 71.621514 |
+| D33 | Value of the stock (check sum) | 135.580366 |
+
+**Worked example (JP Morgan Chase, as loaded):**
+1. Normalize = Yes, approach 1 → NI = mean(1662, 2533, 1876, 1933, 2122) = 2025.2.
+2. EPS = 2.6 x 2025.2/1500 = 3.510347; shares implied = 576.923.
+3. Retention = 1 - 1.1/2.6 = 0.576923; fundamental ROE = 2025.2/6155 = 0.329033; user overrides ROE to 0.30.
+4. g_hg = 0.30 x 0.576923 = 0.173077; payout_hg = 0.423077; r = 0.02 + 0.95 x 0.055 = 0.07225.
+5. Stable: g_n = 0.02, ROE_st = 0.30 (no override), payout_st = 1 - 0.02/0.30 = 0.933333, r_st = 0.07225.
+6. Years 1–5: EPS grows at 17.3077%, payout 42.3077% → DPS 1.742191, 2.043724, 2.397446, 2.812388, 3.299148.
+7. Years 6–10 (3-stage fade): g steps down by 0.030615/yr (0.142462, 0.111846, 0.081231, 0.050615, 0.02). Payout steps up by 0.102051/yr (0.525128, 0.627179, 0.729231, 0.831282, 0.933333). Resulting DPS: 4.678314, 6.212417, 7.810020, 9.353611, 10.711933; EPS_10 = 11.477071.
+8. PV of 10 dividends at 7.225% = 31.487449.
+9. Terminal price = 11.477071 x 1.02 x 0.933333/0.05225 = 209.113335; PV = 209.113335/2.008910 = 104.092917.
+10. Value = 135.580366 per share. Decomposition: assets in place 48.586113 + stable growth 15.372739 + extraordinary growth 71.621514.
+
+**Reimplementation notes (Python port):**
+
+Inputs (name, type, units):
+- `net_income_current` (float, currency), `bv_equity_current` (float), `bv_equity_prior` (float), `eps_current` (float, currency/share), `dps_current` (float, currency/share)
+- `normalize` (bool), `normalize_approach` (1|2), `ni_history` (list[float], 5 values incl. current, for approach 1), `normalized_roe` (float, decimal, approach 2)
+- `beta` (float), `riskfree_rate` (float, decimal), `erp` (float, decimal)
+- `n_high_growth` (int, 0–10), `growth_from_fundamentals` (bool), `growth_rate_direct` (float, decimal; used if not from fundamentals)
+- `override_hg` (bool), `roe_hg` (float), `retention_hg` (float)
+- `override_stable_roe` (bool), `roe_stable` (float)
+- `three_stage` (bool — "adjust inputs in second half")
+- `g_stable` (float, decimal), `override_stable_payout` (bool), `payout_stable_direct` (float)
+- `beta_changes` (bool), `beta_stable` (float)
+
+Outputs: cost_of_equity_hg, ni_used, eps_used, g_hg, payout_hg, per-year vectors (g, eps, payout, dps, r, cum_discount, pv), stable params (g, payout, r), terminal_price, pv_dividends, pv_terminal, value_per_share, and the three-way growth decomposition.
+
+Branches:
+- normalize? → approach 1 (mean of 5 NI values) vs approach 2 (ROE_norm x book equity) vs raw NI. EPS always rescaled by NI_used/NI_current.
+- growth from fundamentals? → g = ROE x retention vs direct input. When direct input is used, payout_hg is still 1 - retention (from current DPS/EPS unless overridden) (inferred).
+- high-growth overrides for ROE/retention; stable override for ROE; stable payout override; stable beta change.
+- three_stage: linear fade of g, payout, r over the second half (t > n/2), hitting stable values at t = n; fade step = (stable - high)/(n/2). With odd n, the sheet caps at 10 columns and the fade likely uses ROUND or integer division of n/2 — untestable from this dump; port should define fade start = floor(n/2) and document the choice.
+- n = 0 → pure Gordon growth: V = EPS x (1+g_n) x payout_st/(r_st - g_n).
+
+Edge cases:
+- r_st ≤ g_stable → terminal value division by zero/negative: validate r_st > g_n.
+- Negative or zero current EPS: retention = 1 - DPS/EPS blows up; require EPS > 0 or use normalized figures.
+- Negative NI history: normalization approach 1 can produce NI ≤ 0 → EPS ≤ 0; guard.
+- payout must be clamped to [0, 1] conceptually, but the sheet does NOT clamp (industry table shows payouts > 1); replicate without clamping to match sheet, warn instead.
+- If ROE_st ≤ g_n, fundamental stable payout goes ≤ 0 — warn.
+- Retention from fundamentals uses RAW current EPS/DPS even when earnings are normalized (verified above) — keep this quirk.
+- Cost-of-equity fade also applies (second half) when beta_stable ≠ beta, in both 2-stage and 3-stage modes per the Read-me text (inferred).
+
+**Reference data:** two full verbatim tables follow (values rounded to 6 significant figures from the stored doubles).
+
+#### Reference table 1: `US Industry averages` (94 industries + 2 totals, sheet rows 2-97, verbatim)
+
+All ratios are decimals (0.0569 = 5.69%). 'NA' preserved as in the sheet. Used as comparison/reference data; no formula in the model reads this sheet directly (inferred).
+
+| Industry Name | Number of firms | Annual Average Revenue growth - Last 5 years | Pre-tax Operating Margin (Unadjusted) | After-tax ROC | Average effective tax rate | Unlevered Beta | Equity (Levered) Beta | Cost of equity | Std deviation in stock prices | Pre-tax cost of debt | Market Debt/Capital | Cost of capital | Sales/Capital | EV/Sales | EV/EBITDA | EV/EBIT | Price/Book | Trailing PE | Non-cash WC as % of Revenues | Cap Ex as % of Revenues | Net Cap Ex as % of Revenues | Reinvestment Rate | ROE | Dividend Payout Ratio | Equity Reinvestment Rate | Pre-tax Operating Margin (Lease & R&D adjusted) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Advertising | 47 | 0.189846 | 0.120716 | 0.635138 | 0.241449 | 0.934953 | 1.43961 | 0.09406 | 0.623768 | 0.0367 | 0.459705 | 0.063473 | 5.43193 | 1.93895 | 9.20147 | 15.1176 | 5.98243 | 23.7713 | 0.000523 | 0.022103 | 0.068963 | 0.653833 | 0.260839 | 1.01335 | 1.01335 | 0.121978 |
+| Aerospace/Defense | 77 | 0.035261 | 0.113667 | 0.33933 | 0.190634 | 1.07852 | 1.23158 | 0.083242 | 0.387396 | 0.0327 | 0.195361 | 0.071771 | 3.1505 | 2.26617 | 14.9367 | 19.7666 | 6.09057 | 44.2645 | 0.374736 | 0.027906 | 0.058302 | 1.04367 | 0.314203 | 0.441441 | 0.441441 | 0.117474 |
+| Air Transport | 18 | 0.048417 | 0.11601 | 0.13692 | 0.230401 | 0.843673 | 1.43535 | 0.093838 | 0.317396 | 0.0327 | 0.508425 | 0.058598 | 1.50452 | 1.33929 | 6.53698 | 12.0031 | 2.34292 | 10.5494 | 0.011618 | 0.107702 | 0.054298 | 0.613293 | 0.282028 | 0.150777 | 0.150777 | 0.111615 |
+| Apparel | 51 | -0.025637 | 0.105761 | 0.163391 | 0.156068 | 0.829641 | 1.0551 | 0.074065 | 0.511019 | 0.0367 | 0.294623 | 0.060353 | 1.71571 | 1.89135 | 10.9302 | 17.5649 | 3.72598 | 54.5722 | 0.23726 | 0.025156 | 0.017865 | 0.304881 | 0.167233 | 0.430542 | 0.430542 | 0.107138 |
+| Auto & Truck | 13 | 0.143133 | 0.034075 | 0.02891 | 0.05544 | 0.525735 | 1.09507 | 0.076144 | 0.350189 | 0.0327 | 0.622538 | 0.044009 | 0.874448 | 1.25974 | 14.3869 | 36.5548 | 1.81866 | 16.7637 | -0.055393 | 0.094501 | 0.050881 | 1.18369 | 0.124287 | 0.515764 | 0.515764 | 0.035105 |
+| Auto Parts | 46 | 0.04981 | 0.072421 | 0.170002 | 0.185176 | 0.946994 | 1.21097 | 0.08217 | 0.50433 | 0.0367 | 0.33715 | 0.063747 | 2.46311 | 0.754592 | 6.38228 | 10.184 | 1.94772 | 17.5804 | 0.126199 | 0.043082 | 0.0619 | 1.02999 | 0.125642 | 0.263059 | 0.263059 | 0.074366 |
+| Bank (Money Center) | 7 | 0.02112 | 0 | -0.000255 | 0.17744 | 0.559541 | 1.00086 | 0.071245 | 0.177446 | 0.0272 | 0.639962 | 0.038706 | 0.204238 | 7.27849 | NA | NA | 1.27092 | 10.2265 | NA | 0.014999 | 0.014999 | NA | 0.128027 | 0.274011 | 0.274011 | -0.001551 |
+| Banks (Regional) | 611 | 0.101348 | 0 | -0.000626 | 0.203302 | 0.431316 | 0.566983 | 0.048683 | 0.182632 | 0.0272 | 0.386201 | 0.03776 | 0.25787 | 5.95447 | NA | NA | 1.37391 | 15.407 | NA | 0.035068 | 0.006158 | NA | 0.120479 | 0.297694 | 0.297694 | -0.002941 |
+| Beverage (Alcoholic) | 21 | 0.107733 | 0.221133 | 0.149476 | 0.183891 | 0.918883 | 1.12634 | 0.077769 | 0.424625 | 0.0367 | 0.238267 | 0.065798 | 0.723915 | 4.61831 | 16.3246 | 20.8745 | 2.99355 | 38.6911 | 0.166109 | 0.072522 | 0.054935 | 0.416128 | 0.068845 | 0.670036 | 0.670036 | 0.221113 |
+| Beverage (Soft) | 34 | 0.307464 | 0.204009 | 0.262071 | 0.097558 | 1.09071 | 1.2189 | 0.082583 | 0.570769 | 0.0367 | 0.161344 | 0.073699 | 1.32999 | 4.88142 | 19.9207 | 23.7306 | 8.04826 | 39.869 | -0.076918 | 0.047023 | 0.087601 | 0.485116 | 0.402494 | 0.574387 | 0.574387 | 0.20528 |
+| Broadcasting | 27 | 0.095402 | 0.21993 | 0.21471 | 0.072439 | 0.729937 | 1.21368 | 0.082311 | 0.326515 | 0.0327 | 0.4961 | 0.053643 | 1.13449 | 2.71681 | 9.05843 | 12.4436 | 2.07923 | 8.55694 | 0.216198 | 0.027555 | 0.295251 | 1.66266 | 0.933947 | 0.381473 | 0.381473 | 0.218308 |
+| Brokerage & Investment Banking | 39 | 0.066592 | 0.005464 | 0.0004 | 0.199629 | 0.567674 | 1.46092 | 0.095168 | 0.273616 | 0.0327 | 0.728547 | 0.043701 | 0.198119 | 6.16838 | NA | NA | 1.27345 | 18.0495 | NA | 0.078033 | 0.074358 | -71.6864 | 0.140569 | 0.222122 | 0.222122 | 0.002307 |
+| Building Materials | 42 | 0.123069 | 0.090145 | 0.186537 | 0.248259 | 1.01853 | 1.23165 | 0.083246 | 0.307784 | 0.0327 | 0.242849 | 0.068985 | 2.41607 | 1.6043 | 12.2797 | 17.3552 | 3.98766 | 25.4176 | 0.159149 | 0.028102 | 0.018273 | 0.301025 | 0.140514 | 0.267456 | 0.267456 | 0.092214 |
+| Business & Consumer Services | 165 | 0.095694 | 0.101863 | 0.21937 | 0.202369 | 0.894887 | 1.06592 | 0.074628 | 0.437973 | 0.0367 | 0.232572 | 0.063673 | 2.27747 | 2.39144 | 13.9954 | 22.5666 | 5.00267 | 47.5383 | 0.14663 | 0.034753 | 0.011424 | 0.216463 | 0.102364 | 0.738226 | 0.738226 | 0.105042 |
+| Cable TV | 14 | 0.037786 | 0.179466 | 0.121462 | 0.212187 | 0.776608 | 1.11457 | 0.077157 | 0.250275 | 0.0327 | 0.375671 | 0.057385 | 0.792367 | 3.43857 | 10.12 | 18.5517 | 2.61124 | 80.572 | 0.014944 | 0.111887 | 0.165752 | 1.24403 | 0.117557 | 0.231506 | 0.231506 | 0.179305 |
+| Chemical (Basic) | 43 | 0.067822 | 0.08298 | 0.116816 | 0.258776 | 0.992957 | 1.36683 | 0.090275 | 0.519584 | 0.0367 | 0.379216 | 0.066479 | 1.50218 | 1.29995 | 8.24158 | 15.4015 | 2.11544 | 16.1102 | 0.160894 | 0.055176 | 0.059233 | 0.757195 | 0.091573 | 0.908624 | 0.908624 | 0.083326 |
+| Chemical (Diversified) | 6 | -0.047995 | 0.107489 | 0.117845 | 0.230997 | 1.21472 | 1.85286 | 0.115549 | 0.359186 | 0.0327 | 0.440278 | 0.075473 | 1.23649 | 1.35188 | 7.93929 | 12.5254 | 1.89233 | 10.4804 | 0.199968 | 0.056617 | 0.004696 | 0.0658 | 0.100651 | 0.627214 | 0.627214 | 0.108142 |
+| Chemical (Specialty) | 94 | 0.067822 | 0.125682 | 0.129296 | 0.254287 | 0.964857 | 1.13519 | 0.07823 | 0.483612 | 0.0367 | 0.22195 | 0.066976 | 1.12504 | 2.09079 | 10.5642 | 16.3776 | 2.61177 | 25.3383 | 0.163265 | 0.051255 | 0.047013 | 0.611031 | 0.056846 | 0.639942 | 0.639942 | 0.128948 |
+| Coal & Related Energy | 22 | -0.116871 | 0.066301 | 0.126968 | 0.026527 | 1.04866 | 1.3959 | 0.091787 | 0.547092 | 0.0367 | 0.443489 | 0.063287 | 1.8585 | 0.616618 | 2.2516 | 6.3252 | 0.857999 | 10.2957 | 0.059359 | 0.079254 | -0.008491 | 0.126521 | 0.11589 | 0.168122 | 0.168122 | 0.068987 |
+| Computer Services | 106 | 0.158277 | 0.076459 | 0.248914 | 0.247606 | 0.952866 | 1.20302 | 0.081757 | 0.455214 | 0.0367 | 0.308653 | 0.065018 | 3.36575 | 1.28184 | 10.3615 | 15.9199 | 3.80761 | 29.1332 | 0.127705 | 0.014625 | 0.109103 | 1.7986 | 0.172869 | 0.521356 | 0.521356 | 0.081089 |
+| Computers/Peripherals | 48 | -0.019207 | 0.155053 | 0.226412 | 0.158016 | 1.64008 | 1.74801 | 0.110096 | 0.504059 | 0.0367 | 0.134131 | 0.099021 | 1.51981 | 3.22658 | 15.1291 | 20.7986 | 11.0269 | 28.9187 | -0.081287 | 0.035109 | 0.006736 | 0.093064 | 0.399929 | 0.26844 | 0.26844 | 0.158573 |
+| Construction Supplies | 44 | 0.04333 | 0.119259 | 0.159809 | 0.221468 | 1.1036 | 1.36362 | 0.090108 | 0.299071 | 0.0327 | 0.286415 | 0.071324 | 1.56861 | 1.68191 | 10.4987 | 13.9779 | 3.40804 | 39.5809 | 0.150842 | 0.051659 | 0.044033 | 0.650852 | 0.247774 | 0.285463 | 0.285463 | 0.120892 |
+| Diversified | 23 | 0.15158 | 0.137161 | 0.115546 | 0.178984 | 1.24848 | 1.40185 | 0.092096 | 0.38157 | 0.0327 | 0.237569 | 0.076043 | 0.907165 | 2.44624 | 12.9207 | 17.8435 | 1.93084 | 22.7752 | 0.055529 | 0.056975 | 0.02797 | 0.286042 | 0.0786 | 0.182226 | 0.182226 | 0.136532 |
+| Drugs (Biotechnology) | 503 | 0.318941 | 0.112548 | 0.086419 | 0.148777 | 1.38917 | 1.43345 | 0.093739 | 0.674473 | 0.0442 | 0.127265 | 0.086029 | 0.428418 | 7.32804 | 13.2942 | 45.7683 | 7.07862 | 77.5556 | 0.131363 | 0.040441 | 0.095897 | 1.64062 | -0.009367 | 0.001023 | 0.001023 | 0.202392 |
+| Drugs (Pharmaceutical) | 267 | 0.317205 | 0.24854 | 0.182928 | 0.131935 | 1.28566 | 1.36159 | 0.090003 | 0.771367 | 0.0692 | 0.12991 | 0.085053 | 0.7622 | 5.4364 | 14.5655 | 21.0764 | 6.33194 | 58.1835 | 0.206699 | 0.051572 | 0.094703 | 0.435607 | 0.215081 | 0.613941 | 0.613941 | 0.243367 |
+| Education | 35 | 0.027605 | 0.087501 | 0.10845 | 0.284794 | 1.35601 | 1.6056 | 0.102691 | 0.376441 | 0.0327 | 0.251944 | 0.082998 | 1.31131 | 2.58734 | 14.4607 | 29.2665 | 2.5098 | 22.1956 | 0.123051 | 0.051997 | 0.057971 | 1.21318 | 0.128999 | 0.045585 | 0.045585 | 0.088427 |
+| Electrical Equipment | 113 | 0.091217 | 0.136098 | 0.255953 | 0.180884 | 1.30712 | 1.44474 | 0.094327 | 0.536717 | 0.0367 | 0.173526 | 0.082735 | 1.89756 | 2.56049 | 12.8184 | 17.788 | 4.84666 | 29.8498 | 0.197323 | 0.044427 | 0.055372 | 0.537539 | 0.20082 | 0.367956 | 0.367956 | 0.140336 |
+| Electronics (Consumer & Office) | 20 | 0.058607 | -0.012668 | -0.021171 | 0.627762 | 1.25079 | 1.27542 | 0.085522 | 0.621705 | 0.0367 | 0.171278 | 0.075588 | 1.87492 | 0.914238 | 15.6468 | NA | 2.75539 | 64.2358 | 0.173047 | 0.017173 | 0.001978 | NA | -0.101115 | 0 | 0 | -0.011983 |
+| Electronics (General) | 153 | 0.07855 | 0.088721 | 0.139738 | 0.186796 | 1.07092 | 1.15096 | 0.07905 | 0.427786 | 0.0367 | 0.154246 | 0.071102 | 1.62763 | 1.99256 | 13.0737 | 21.6885 | 3.27268 | 125.824 | 0.211439 | 0.053727 | 0.066663 | 1.06024 | 0.112911 | 0.246695 | 0.246695 | 0.091845 |
+| Engineering/Construction | 54 | 0.08433 | 0.038925 | 0.145544 | 0.245076 | 1.32504 | 1.5973 | 0.10226 | 0.331927 | 0.0327 | 0.281978 | 0.08034 | 3.9179 | 0.702528 | 9.75265 | 16.427 | 1.86604 | 18.7076 | 0.177374 | 0.017774 | 0.028032 | 1.18652 | 0.03426 | 0.368619 | 0.368619 | 0.041021 |
+| Entertainment | 107 | 0.080477 | 0.135234 | 0.185727 | 0.20408 | 1.2017 | 1.33319 | 0.088526 | 0.555724 | 0.0367 | 0.167123 | 0.078331 | 1.40634 | 4.7188 | 21.8499 | 34.9127 | 3.70206 | 47.684 | 0.024933 | 0.052789 | 0.081936 | 0.832119 | 0.176602 | 0.221392 | 0.221392 | 0.134586 |
+| Environmental & Waste Services | 82 | 0.210257 | 0.120986 | 0.200015 | 0.20966 | 1.04851 | 1.26851 | 0.085162 | 0.443353 | 0.0367 | 0.240626 | 0.071293 | 1.69405 | 3.0814 | 13.9297 | 24.9131 | 4.28959 | 735.049 | 0.099521 | 0.083942 | 0.056955 | 0.537994 | 0.106822 | 0.534611 | 0.534611 | 0.123167 |
+| Farming/Agriculture | 31 | 0.000247 | 0.040177 | 0.06273 | 0.211758 | 0.627451 | 0.893625 | 0.065669 | 0.46876 | 0.0367 | 0.384196 | 0.051014 | 1.58685 | 1.07769 | 13.9157 | 23.7612 | 2.54616 | 73.1894 | 0.115061 | 0.035502 | 0.028937 | 1.33057 | 0.091414 | 0.562444 | 0.562444 | 0.041976 |
+| Financial Svcs. (Non-bank & Insurance) | 232 | 0.108685 | 0.075097 | 0.002346 | 0.198305 | 0.098263 | 0.732438 | 0.057287 | 0.257033 | 0.0327 | 0.898189 | 0.027861 | 0.037025 | 30.1547 | NA | NA | 2.22394 | 83.0045 | NA | 0.082434 | 0.083674 | 2.02923 | 0.000749 | 0.159593 | 0.159593 | 0.073965 |
+| Food Processing | 88 | 0.042364 | 0.120044 | 0.155549 | 0.148159 | 0.696808 | 0.875322 | 0.064717 | 0.315291 | 0.0327 | 0.272078 | 0.053781 | 1.36497 | 2.29865 | 14.2641 | 18.841 | 2.58115 | 42.2544 | 0.065259 | 0.036066 | 0.027729 | 0.278686 | 0.019031 | 3.03822 | 3.03822 | 0.121807 |
+| Food Wholesalers | 17 | 0.228563 | 0.027152 | 0.168246 | 0.191663 | 0.657766 | 0.868023 | 0.064337 | 0.315806 | 0.0327 | 0.305332 | 0.052181 | 6.78007 | 0.599284 | 13.9497 | 22.2224 | 5.92796 | 47.9826 | 0.072428 | 0.011803 | 0.024338 | 1.13877 | 0.155129 | 0.506394 | 0.506394 | 0.02691 |
+| Furn/Home Furnishings | 35 | 0.097126 | 0.070874 | 0.133571 | 0.2203 | 0.818327 | 1.07659 | 0.075183 | 0.433843 | 0.0367 | 0.325925 | 0.05965 | 1.96154 | 1.1087 | 9.26938 | 14.8028 | 2.20523 | 14.7933 | 0.132747 | 0.032631 | 0.048547 | 0.865416 | 0.169746 | 0.242196 | 0.242196 | 0.074131 |
+| Green & Renewable Energy | 22 | 0.194825 | 0.118191 | 0.013935 | 0.326611 | 0.593773 | 1.07233 | 0.074961 | 0.537612 | 0.0367 | 0.529711 | 0.049834 | 0.164531 | 9.93816 | 17.1519 | 123.234 | 1.68254 | 26.2347 | 0.030935 | 0.382586 | 0.411499 | 8.13495 | -0.058001 | 0.001163 | 0.001163 | 0.085913 |
+| Healthcare Products | 242 | 0.134012 | 0.15001 | 0.158687 | 0.124964 | 0.981819 | 1.04297 | 0.073434 | 0.530857 | 0.0367 | 0.11697 | 0.068064 | 1.02642 | 5.94234 | 22.6697 | 37.5535 | 5.12799 | 84.4262 | 0.24304 | 0.051237 | 0.062151 | 0.708652 | 0.09776 | 0.302721 | 0.302721 | 0.159911 |
+| Healthcare Support Services | 128 | 0.184398 | 0.043691 | 0.379104 | 0.235952 | 0.946238 | 1.17032 | 0.080057 | 0.499545 | 0.0367 | 0.285236 | 0.065073 | 9.69445 | 0.690101 | 11.7377 | 16.0462 | 2.86154 | 51.6405 | -0.051787 | 0.007576 | 0.051489 | 1.67866 | 0.131568 | 0.383733 | 0.383733 | 0.042626 |
+| Heathcare Information and Technology | 129 | 0.181705 | 0.12578 | 0.143964 | 0.132981 | 1.1527 | 1.24492 | 0.083936 | 0.53864 | 0.0367 | 0.127908 | 0.07672 | 1.1438 | 5.41341 | 23.4917 | 40.4565 | 5.28324 | 99.8107 | 0.221438 | 0.03992 | 0.04532 | 0.591056 | 0.111717 | 0.085385 | 0.085385 | 0.130715 |
+| Homebuilding | 32 | 0.336442 | 0.101517 | 0.112524 | 0.235598 | 0.664056 | 0.827682 | 0.062239 | 0.365507 | 0.0327 | 0.306532 | 0.050679 | 1.3314 | 1.21095 | 10.9454 | 11.8867 | 1.62776 | 16.2609 | 0.730804 | 0.008195 | 0.012893 | 0.560976 | 0.152565 | 0.072612 | 0.072612 | 0.101846 |
+| Hospitals/Healthcare Facilities | 36 | 0.052018 | 0.107595 | 0.153125 | 0.214821 | 0.625562 | 1.22174 | 0.08273 | 0.426321 | 0.0367 | 0.565559 | 0.051508 | 1.59131 | 1.62732 | 9.37358 | 15.5993 | 6.31565 | 38.9376 | 0.122745 | 0.063645 | 0.035351 | 0.552939 | 0.621268 | 0.23617 | 0.23617 | 0.104025 |
+| Hotel/Gaming | 65 | 0.083506 | 0.192202 | 0.116395 | 0.174184 | 0.914445 | 1.26161 | 0.084804 | 0.341034 | 0.0327 | 0.360655 | 0.063064 | 0.715765 | 3.78455 | 12.7368 | 20.314 | 3.85276 | 134.204 | 0.078506 | 0.095732 | 0.049388 | 0.398085 | 0.162283 | 0.543047 | 0.543047 | 0.185883 |
+| Household Products | 127 | 0.17417 | 0.174304 | 0.281812 | 0.269204 | 0.937057 | 1.03001 | 0.07276 | 0.509069 | 0.0367 | 0.146559 | 0.066131 | 1.7127 | 3.73656 | 16.5724 | 21.3176 | 8.19988 | 33.2277 | 0.08782 | 0.041099 | 0.051712 | 0.332654 | 0.105949 | 1.5258 | 1.5258 | 0.174922 |
+| Information Services | 69 | 0.131213 | 0.282827 | 0.415243 | 0.188607 | 1.03152 | 1.09313 | 0.076043 | 0.377976 | 0.0327 | 0.106238 | 0.07057 | 1.58593 | 9.17459 | 26.352 | 32.2503 | 6.5808 | 46.227 | 0.071818 | 0.031941 | 0.170975 | 0.805242 | 0.305232 | 0.249126 | 0.249126 | 0.285516 |
+| Insurance (General) | 19 | 0.077987 | 0.121845 | 0.096117 | 0.214215 | 0.592699 | 0.742626 | 0.057817 | 0.31002 | 0.0327 | 0.292856 | 0.048067 | 0.9323 | 1.95312 | 10.2657 | 15.8931 | 1.47934 | 67.5718 | -0.096673 | 0.007534 | 0.03829 | 0.493615 | 0.074185 | 0.420469 | 0.420469 | 0.122876 |
+| Insurance (Life) | 24 | 0.014992 | 0.132884 | 0.081995 | 0.198223 | 0.732481 | 1.07615 | 0.07516 | 0.251282 | 0.0327 | 0.49367 | 0.050163 | 0.724038 | 1.36066 | 9.53289 | 10.2326 | 0.711842 | 21.0522 | 0.070311 | 0.001604 | 0.002302 | 0.097423 | 0.104388 | 0.260681 | 0.260681 | 0.132884 |
+| Insurance (Prop/Cas.) | 51 | 0.070502 | 0.106735 | 0.104777 | 0.197808 | 0.589072 | 0.678286 | 0.054471 | 0.217098 | 0.0272 | 0.208605 | 0.047364 | 1.13559 | 1.48506 | 11.396 | 13.8029 | 1.53287 | 29.5968 | -0.518544 | 0.011976 | 0.006263 | 0.136032 | 0.10584 | 0.358173 | 0.358173 | 0.107328 |
+| Investments & Asset Management | 192 | 0.008954 | 0.17458 | 0.073141 | 0.172617 | 0.860183 | 1.02729 | 0.072619 | 0.278759 | 0.0327 | 0.352353 | 0.055673 | 0.460215 | 4.58174 | 21.9754 | 25.7863 | 1.67588 | 79.9366 | NA | 0.034739 | 0.082805 | 0.607789 | 0.133138 | 0.493283 | 0.493283 | 0.171736 |
+| Machinery | 120 | 0.035001 | 0.138397 | 0.244941 | 0.223309 | 1.09852 | 1.24702 | 0.084045 | 0.353917 | 0.0327 | 0.192633 | 0.072579 | 1.98101 | 2.58163 | 13.878 | 18.3478 | 4.0896 | 36.0983 | 0.233962 | 0.029006 | 0.087753 | 0.89461 | 0.200299 | 0.280018 | 0.280018 | 0.140963 |
+| Metals & Mining | 92 | 0.148425 | 0.112764 | 0.112565 | 0.532921 | 1.08657 | 1.31028 | 0.087335 | 0.73255 | 0.0442 | 0.276462 | 0.072355 | 1.01092 | 2.039 | 9.58415 | 17.4348 | 1.85936 | 727.096 | 0.162187 | 0.106549 | 0.02813 | 0.384112 | 0.032701 | 2.0298 | 2.0298 | 0.113576 |
+| Office Equipment & Services | 22 | 0.037386 | 0.088492 | 0.174774 | 0.229397 | 1.24423 | 1.64528 | 0.104755 | 0.312796 | 0.0327 | 0.354343 | 0.076326 | 2.2488 | 1.20362 | 8.76806 | 13.286 | 2.96226 | 34.5346 | 0.095487 | 0.032698 | 0.011919 | 0.21577 | 0.182211 | 0.385725 | 0.385725 | 0.091567 |
+| Oil/Gas (Integrated) | 4 | -0.064775 | 0.073264 | 0.05359 | 0.302511 | 1.11747 | 1.30065 | 0.086834 | 0.286224 | 0.0327 | 0.211476 | 0.073657 | 0.959939 | 1.60663 | 9.1727 | 21.7428 | 1.40515 | 22.6721 | 0.043243 | 0.104771 | 0.071228 | 1.37089 | 0.078483 | 0.890736 | 0.890736 | 0.073961 |
+| Oil/Gas (Production and Exploration) | 269 | -0.037269 | 0.198702 | 0.090314 | 0.193668 | 1.07671 | 1.47822 | 0.096067 | 0.593651 | 0.0367 | 0.360568 | 0.071353 | 0.463944 | 2.71154 | 4.89466 | 13.2854 | 1.18989 | 8.66002 | 0.019786 | 0.455587 | 0.142586 | 0.791709 | 0.063623 | 0.2736 | 0.2736 | 0.202156 |
+| Oil/Gas Distribution | 24 | 0.149381 | 0.209037 | 0.079894 | 0.223418 | 0.617519 | 1.01608 | 0.072036 | 0.326577 | 0.0327 | 0.472826 | 0.049572 | 0.404251 | 4.436 | 12.8694 | 20.6759 | 1.58129 | 69.407 | 0.037456 | 0.300162 | 0.206717 | 1.25596 | 0.039099 | 3.03214 | 3.03214 | 0.209042 |
+| Oilfield Svcs/Equip. | 136 | 0.014886 | 0.041612 | 0.11592 | 0.209552 | 1.21866 | 1.57915 | 0.101316 | 0.53497 | 0.0367 | 0.327288 | 0.077165 | 2.79097 | 0.735972 | 8.58291 | 16.7768 | 1.46616 | 25.4384 | 0.079798 | 0.040035 | 0.015783 | 0.436015 | -0.083971 | 0.003155 | 0.003155 | 0.043735 |
+| Packaging & Container | 24 | 0.055162 | 0.101376 | 0.168341 | 0.217096 | 0.678174 | 0.990357 | 0.070699 | 0.331374 | 0.0327 | 0.397366 | 0.052351 | 1.85187 | 1.59359 | 9.50899 | 15.3215 | 3.09748 | 20.6089 | 0.10271 | 0.053023 | 0.119768 | 1.48069 | 0.159553 | 0.449727 | 0.449727 | 0.103497 |
+| Paper/Forest Products | 15 | 0.188848 | 0.054035 | 0.093685 | 0.196186 | 1.25438 | 1.53666 | 0.099107 | 0.373667 | 0.0327 | 0.282876 | 0.078009 | 1.90868 | 0.770474 | 7.53435 | 14.029 | 1.58639 | 24.9175 | 0.140242 | 0.046965 | 0.017666 | 0.392606 | 0.020451 | 1.79432 | 1.79432 | 0.054789 |
+| Power | 52 | 0.034954 | 0.183216 | 0.06476 | 0.17047 | 0.378435 | 0.575829 | 0.049143 | 0.184872 | 0.0272 | 0.420334 | 0.037061 | 0.412471 | 4.11426 | 12.0303 | 22.7259 | 2.01101 | 23.7369 | 0.054338 | 0.341339 | 0.213117 | 1.3995 | 0.057139 | 0.975873 | 0.975873 | 0.181022 |
+| Precious Metals | 83 | 0.140799 | 0.145096 | 0.080664 | 0.271782 | 1.33205 | 1.43507 | 0.093824 | 0.826426 | 0.0692 | 0.155195 | 0.087317 | 0.56822 | 5.05471 | 13.6506 | 34.1715 | 1.74426 | 76.8447 | 0.139668 | 0.151484 | -0.059105 | -0.179457 | 0.129002 | 0.207703 | 0.207703 | 0.144495 |
+| Publishing & Newspapers | 31 | 0.001296 | 0.054339 | 0.104744 | 0.259475 | 0.756784 | 1.06751 | 0.07471 | 0.381782 | 0.0327 | 0.403227 | 0.054474 | 2.13902 | 1.07084 | 9.1787 | 19.7663 | 1.59374 | 28.0495 | 0.134765 | 0.032211 | 0.001897 | -0.05132 | -0.03785 | 0.00804 | 0.00804 | 0.053291 |
+| R.E.I.T. | 234 | 0.10673 | 0.271509 | 0.029249 | 0.021767 | 0.42562 | 0.683839 | 0.05476 | 0.198565 | 0.0272 | 0.45763 | 0.039036 | 0.127068 | 13.4849 | 22.6448 | 51.0055 | 2.26062 | 48.0009 | 0.892505 | 0.036943 | -0.097875 | -0.436394 | 0.05488 | 1.92435 | 1.92435 | 0.234688 |
+| Real Estate (Development) | 20 | -0.025032 | 0.102756 | 0.020832 | 0.225289 | 0.891074 | 1.23615 | 0.08348 | 0.472236 | 0.0367 | 0.411847 | 0.060435 | 0.280689 | 5.36638 | 26.106 | 68.3351 | 1.58049 | 48.4867 | 0.043183 | 0.033486 | -0.050123 | -2.09894 | 0.033675 | 0.000468 | 0.000468 | 0.075876 |
+| Real Estate (General/Diversified) | 12 | 0.02414 | 0.29911 | 0.07412 | 0.163332 | 1.50172 | 1.63261 | 0.104095 | 0.213498 | 0.0272 | 0.312386 | 0.07795 | 0.269239 | 6.57429 | 7.6753 | 13.4832 | 0.883869 | 110.211 | 3.45672 | 0.031953 | -0.05904 | 1.3357 | 0.057098 | 0.22052 | 0.22052 | 0.294583 |
+| Real Estate (Operations & Services) | 57 | 0.034814 | 0.057477 | 0.114694 | 0.222678 | 0.675048 | 0.932613 | 0.067696 | 0.391522 | 0.0327 | 0.370287 | 0.05171 | 2.10559 | 1.38945 | 12.6039 | 22.9818 | 2.57858 | 32.4585 | 0.115822 | 0.01283 | 0.006379 | 0.554666 | 0.119168 | 0.192327 | 0.192327 | 0.057679 |
+| Recreation | 63 | 0.054745 | 0.095767 | 0.140805 | 0.235777 | 0.754029 | 0.901775 | 0.066092 | 0.475304 | 0.0367 | 0.251955 | 0.056375 | 1.62902 | 2.35241 | 13.3102 | 23.2386 | 6.03673 | 30.5105 | 0.186722 | 0.050718 | 0.040062 | 0.739226 | 0.042683 | 2.64948 | 2.64948 | 0.094045 |
+| Reinsurance | 2 | 0.06635 | 0.066097 | 0.058995 | 0.210257 | 0.769854 | 0.819046 | 0.06179 | 0.148716 | 0.0272 | 0.224877 | 0.052483 | 1.09422 | 1.12393 | 14.9148 | 17.1886 | 1.05663 | 57.3991 | -0.040753 | 0.002403 | -0.000651 | 0.122791 | 0.050022 | 0.182633 | 0.182633 | 0.065388 |
+| Restaurant/Dining | 77 | 0.079173 | 0.156919 | 0.190771 | 0.204907 | 0.751896 | 0.97298 | 0.069795 | 0.387567 | 0.0327 | 0.294059 | 0.056483 | 1.53003 | 4.25847 | 16.8792 | 31.8381 | NA | 38.0001 | 0.003934 | 0.063149 | 0.022158 | 0.26503 | NA | 0.539126 | 0.539126 | 0.133449 |
+| Retail (Automotive) | 26 | 0.046967 | 0.056304 | 0.094754 | 0.234943 | 0.868519 | 1.33258 | 0.088494 | 0.373701 | 0.0327 | 0.421536 | 0.061529 | 2.25984 | 1.18937 | 13.9049 | 23.6426 | 6.45296 | 16.6193 | 0.127479 | 0.02139 | 0.017016 | 0.493261 | 0.346009 | 0.044209 | 0.044209 | 0.048779 |
+| Retail (Building Supply) | 17 | 0.063412 | 0.111954 | 0.28826 | 0.251512 | 1.15097 | 1.35886 | 0.089861 | 0.472946 | 0.0367 | 0.204541 | 0.07711 | 3.09864 | 2.02952 | 13.6004 | 18.5694 | 43.0479 | 238.796 | 0.077353 | 0.024169 | 0.007431 | 0.257577 | 0.948065 | 0.537074 | 0.537074 | 0.109312 |
+| Retail (Distributors) | 80 | 0.072263 | 0.083508 | 0.135738 | 0.232182 | 0.893715 | 1.27898 | 0.085707 | 0.428308 | 0.0367 | 0.378341 | 0.063694 | 1.78669 | 1.39533 | 12.6602 | 16.1407 | 2.95613 | 897.323 | 0.170935 | 0.073262 | 0.092433 | 1.37586 | 0.164713 | 0.289079 | 0.289079 | 0.086292 |
+| Retail (General) | 18 | 0.015069 | 0.041799 | 0.138182 | 0.249419 | 0.945727 | 1.1437 | 0.078672 | 0.404022 | 0.0367 | 0.243021 | 0.066243 | 4.2034 | 0.878543 | 12.2056 | 22.5743 | 4.843 | 18.6365 | 0.019978 | 0.02449 | 0.004875 | 0.170145 | 0.181426 | 0.444415 | 0.444415 | 0.0389 |
+| Retail (Grocery and Food) | 13 | 0.055686 | 0.022906 | 0.071272 | 0.241421 | 0.345103 | 0.587787 | 0.049765 | 0.371814 | 0.0327 | 0.491505 | 0.037359 | 4.26185 | 0.486548 | 8.92812 | 25.3718 | 2.68816 | 395.144 | -0.001233 | 0.027878 | 0.006466 | 0.42707 | 0.181119 | 0.341948 | 0.341948 | 0.019174 |
+| Retail (Online) | 70 | 0.182711 | 0.067074 | 0.099948 | 0.14316 | 1.15942 | 1.23013 | 0.083167 | 0.559672 | 0.0367 | 0.11401 | 0.076823 | 1.65002 | 3.41824 | 22.8201 | 53.4761 | 13.5012 | 243.824 | -0.009887 | 0.052648 | -0.002109 | 0.218825 | 0.224052 | 0.03596 | 0.03596 | 0.062401 |
+| Retail (Special Lines) | 89 | 0.076529 | 0.057619 | 0.12045 | 0.223297 | 0.690346 | 1.03032 | 0.072777 | 0.449477 | 0.0367 | 0.413731 | 0.054055 | 2.44772 | 1.18739 | 9.71576 | 21.287 | 4.56869 | 23.7933 | 0.080018 | 0.023883 | 0.005481 | 0.272108 | 0.19919 | 0.400908 | 0.400908 | 0.05584 |
+| Rubber& Tires | 4 | -0.06165 | 0.055146 | 0.061171 | 0.419699 | 0.453181 | 0.982989 | 0.070315 | 0.575892 | 0.0367 | 0.640327 | 0.042916 | 1.28956 | 0.742826 | 5.92552 | 12.4367 | 0.80022 | 21.5491 | 0.192671 | 0.054374 | 0.003025 | 0.773457 | 0.036995 | 0.764268 | 0.764268 | 0.059722 |
+| Semiconductor | 72 | 0.083477 | 0.24618 | 0.170033 | 0.140822 | 1.23689 | 1.2866 | 0.086103 | 0.436946 | 0.0367 | 0.105546 | 0.07992 | 0.712832 | 5.37563 | 13.7096 | 21.6568 | 5.01293 | 97.0937 | 0.169434 | 0.141192 | 0.156988 | 0.709627 | 0.202943 | 0.439142 | 0.439142 | 0.253706 |
+| Semiconductor Equip | 39 | 0.05314 | 0.192211 | 0.221382 | 0.135196 | 1.25348 | 1.27847 | 0.08568 | 0.410637 | 0.0367 | 0.10852 | 0.079369 | 1.22857 | 3.99857 | 15.709 | 20.4265 | 5.85096 | 39.7252 | 0.290048 | 0.043371 | 0.119878 | 0.690353 | 0.276491 | 0.29196 | 0.29196 | 0.199051 |
+| Shipbuilding & Marine | 10 | 0.097783 | 0.074109 | 0.060183 | 0.228179 | 1.5714 | 2.17355 | 0.132225 | 0.340543 | 0.0327 | 0.357799 | 0.09369 | 0.756524 | 1.97917 | 11.3213 | 23.3082 | 1.3401 | 25.1269 | 0.167623 | 0.129796 | 0.104703 | 1.73739 | 0.026936 | 0.321058 | 0.321058 | 0.083644 |
+| Shoe | 11 | 0.031187 | 0.124733 | 0.3057 | 0.152994 | 0.83361 | 0.86816 | 0.064344 | 0.375639 | 0.0327 | 0.080898 | 0.061123 | 2.90537 | 3.55035 | 22.0798 | 29.027 | 12.2114 | 23.09 | 0.207642 | 0.006473 | -0.008388 | -0.039956 | 0.401572 | 0.267804 | 0.267804 | 0.122315 |
+| Software (Entertainment) | 86 | 0.135345 | 0.226438 | 0.170123 | 0.18774 | 1.28587 | 1.28833 | 0.086193 | 0.613731 | 0.0367 | 0.036599 | 0.084046 | 0.708631 | 6.75875 | 20.596 | 30.2729 | 5.12448 | 33.9796 | 0.066934 | 0.167072 | 0.127303 | 0.856061 | 0.18492 | 0 | 0 | 0.245666 |
+| Software (Internet) | 30 | 0.309192 | 0.091508 | 0.111214 | 0.153483 | 1.5032 | 1.67283 | 0.106187 | 0.447814 | 0.0367 | 0.169535 | 0.092851 | 1.02108 | 7.63686 | 20.2293 | 58.7596 | 9.38647 | 66.7509 | 0.097008 | 0.078081 | 0.095322 | 1.56714 | 0.061366 | 0.025777 | 0.025777 | 0.109937 |
+| Software (System & Application) | 363 | 0.150381 | 0.222509 | 0.200289 | 0.112416 | 1.14916 | 1.19646 | 0.081416 | 0.495022 | 0.0367 | 0.088189 | 0.076663 | 0.853019 | 8.76595 | 24.0048 | 35.6244 | 9.91715 | 110.902 | 0.130794 | 0.065155 | 0.071799 | 0.443789 | 0.279145 | 0.30546 | 0.30546 | 0.240576 |
+| Steel | 32 | 0.022897 | 0.077505 | 0.163138 | 0.182755 | 1.28557 | 1.61869 | 0.103372 | 0.393879 | 0.0327 | 0.3196 | 0.078173 | 2.28954 | 0.701439 | 6.24179 | 8.90159 | 1.43502 | 14.3382 | 0.196113 | 0.050299 | 0.033226 | 0.362715 | 0.184094 | 0.196588 | 0.196588 | 0.078511 |
+| Telecom (Wireless) | 18 | 0.0348 | 0.10389 | 0.056546 | 0.25255 | 0.596908 | 1.14293 | 0.078632 | 0.418491 | 0.0367 | 0.567458 | 0.049631 | 0.591218 | 2.42726 | 6.6389 | 23.8707 | 1.54241 | 25.6624 | 0.018495 | 0.22941 | 0.033784 | 1.23924 | 0.01147 | 0.138044 | 0.138044 | 0.101631 |
+| Telecom. Equipment | 91 | 0.048608 | 0.192821 | 0.206965 | 0.219798 | 0.835979 | 0.894386 | 0.065708 | 0.462957 | 0.0367 | 0.146922 | 0.060098 | 1.06273 | 3.50226 | 13.4227 | 17.72 | 4.9997 | 57.039 | 0.181336 | 0.031667 | 0.095469 | 0.625498 | 0.175784 | 0.53306 | 0.53306 | 0.203183 |
+| Telecom. Services | 67 | 0.100815 | 0.182923 | 0.130502 | 0.182071 | 0.666584 | 1.04816 | 0.073704 | 0.544733 | 0.0367 | 0.44194 | 0.053296 | 0.755654 | 2.84726 | 7.93168 | 15.74 | 2.12631 | 742.091 | 0.022549 | 0.123041 | -0.027863 | -0.249359 | 0.056677 | 1.70557 | 1.70557 | 0.180223 |
+| Tobacco | 17 | 0.03837 | 0.393372 | 0.541112 | 0.298916 | 1.42632 | 1.68027 | 0.106574 | 0.384852 | 0.0327 | 0.222149 | 0.088347 | 1.55372 | 5.18922 | 12.3003 | 13.1638 | 89.121 | 24.2986 | 0.162775 | 0.025531 | 0.02651 | 0.19179 | -0.000536 | 1.43693 | 1.43693 | 0.393517 |
+| Transportation | 18 | 0.1435 | 0.050386 | 0.104533 | 0.215348 | 0.95727 | 1.30517 | 0.087069 | 0.279851 | 0.0327 | 0.351631 | 0.065076 | 2.44707 | 1.3481 | 12.3891 | 27.5323 | 4.92706 | 58.5341 | 0.073871 | 0.070613 | 0.035895 | 1.2256 | 0.216138 | 0.599812 | 0.599812 | 0.048964 |
+| Transportation (Railroads) | 8 | 0.000782 | 0.386915 | 0.154382 | 0.233834 | 1.89198 | 2.24043 | 0.135702 | 0.182467 | 0.0272 | 0.207838 | 0.111738 | 0.460409 | 6.32416 | 12.5583 | 16.5514 | 4.90754 | 20.4824 | 0.026113 | 0.162961 | 0.059373 | 0.191321 | 0.234366 | 0.338563 | 0.338563 | 0.382083 |
+| Trucking | 33 | 0.129844 | -0.046154 | 0.003266 | 0.26636 | 1.04107 | 1.37217 | 0.090553 | 0.418538 | 0.0367 | 0.36659 | 0.067448 | 1.14472 | 1.93414 | 9.07552 | NA | 2.81156 | 18.3584 | 0.054979 | 0.194351 | 0.17408 | NA | -0.320709 | 0.001373 | 0.001373 | -0.003829 |
+| Utility (General) | 16 | 0.022727 | 0.174515 | 0.06626 | 0.144287 | 0.189688 | 0.283928 | 0.033964 | 0.131126 | 0.0272 | 0.401001 | 0.028525 | 0.442941 | 4.2604 | 14.1255 | 24.6509 | 2.10822 | 23.7211 | 0.041836 | 0.275706 | 0.266686 | 1.85509 | 0.110674 | 0.754313 | 0.754313 | 0.17283 |
+| Utility (Water) | 17 | 0.075408 | 0.302556 | 0.078667 | 0.222587 | 0.565321 | 0.684513 | 0.054795 | 0.178805 | 0.0272 | 0.263379 | 0.045736 | 0.290399 | 8.82924 | 19.0187 | 29.1004 | 3.34333 | 48.1291 | 0.072291 | 0.448203 | 0.322099 | 1.33046 | 0.136291 | 0.666013 | 0.459692 | 0.301028 |
+| Total Market | 7053 | 0.101481 | 0.107012 | 0.073147 | 0.185709 | 0.829454 | 1.12884 | 0.0779 | 0.423564 | 0.0367 | 0.367105 | 0.059407 | 0.728578 | 3.15812 | 17.5401 | 28.9886 | 3.21385 | 70.8515 | -0.232016 | 0.061494 | 0.051788 | 0.656475 | 0.136291 | 0.459692 | 0.459692 | 0.108139 |
+| Total Market (without financials) | 5878 | 0.105258 | 0.111539 | 0.129589 | 0.18428 | 1.01248 | 1.20953 | 0.082095 | 0.464061 | 0.0367 | 0.240148 | 0.06899 | 1.21668 | 2.62482 | 13.7541 | 22.9733 | 3.88524 | 76.8328 | 0.089063 | 0.06485 | 0.053881 | 0.668223 | 0.132964 | 0.524178 | 0.524178 | 0.112922 |
+
+#### Reference table 2: `Country ERP` — country rows (sheet rows 5-193, verbatim)
+
+Header: Country | Moody's rating | Adj. Default Spread | Equity Risk Premium | Country Risk Premium | Corporate Tax Rate. Mature Market ERP (cell B1) = 0.0569.
+
+| Country | Moody's rating | Adj. Default Spread | Equity Risk Premium | Country Risk Premium | Corporate Tax Rate |
+|---|---|---|---|---|---|
+| Abu Dhabi | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0.55 |
+| Albania | B1 | 0.037639 | 0.101298 | 0.044398 | 0.15 |
+| Algeria | NA | 0.054384 | 0.121051 | 0.064151 | 0.26 |
+| Andorra (Principality of) | Baa2 | 0.015915 | 0.075674 | 0.018774 | 0.1 |
+| Angola | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3 |
+| Anguilla | NA | 0.045951 | 0.111103 | 0.054203 | 0.238808 |
+| Antigua & Barbuda | NA | 0.045951 | 0.111103 | 0.054203 | 0.238808 |
+| Argentina | Caa2 | 0.075278 | 0.145697 | 0.088797 | 0.3 |
+| Armenia | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.2 |
+| Aruba | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0.25 |
+| Australia | Aaa | 0 | 0.0569 | 0 | 0.3 |
+| Austria | Aa1 | 0.003319 | 0.060815 | 0.003915 | 0.25 |
+| Azerbaijan | Ba2 | 0.025118 | 0.086529 | 0.029629 | 0.2 |
+| Bahamas | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0 |
+| Bahrain | B2 | 0.046011 | 0.111175 | 0.054275 | 0 |
+| Bangladesh | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.25 |
+| Barbados | Caa1 | 0.062681 | 0.130838 | 0.073938 | 0.055 |
+| Belarus | B3 | 0.054384 | 0.121051 | 0.064151 | 0.18 |
+| Belgium | Aa3 | 0.005054 | 0.062861 | 0.005961 | 0.29 |
+| Belize | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3236 |
+| Benin | B2 | 0.046011 | 0.111175 | 0.054275 | 0.3 |
+| Bermuda | A2 | 0.00709 | 0.065264 | 0.008364 | 0 |
+| Bolivia | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.25 |
+| Bosnia and Herzegovina | B3 | 0.054384 | 0.121051 | 0.064151 | 0.1 |
+| Botswana | A2 | 0.00709 | 0.065264 | 0.008364 | 0.22 |
+| Brazil | Ba2 | 0.025118 | 0.086529 | 0.029629 | 0.34 |
+| British Virgin Islands | NA | 0.045951 | 0.111103 | 0.054203 | 0.238808 |
+| Brunei | NA | 0.003319 | 0.060815 | 0.003915 | 0.185 |
+| Bulgaria | Baa2 | 0.015915 | 0.075674 | 0.018774 | 0.1 |
+| Burkina Faso | B2 | 0.046011 | 0.111175 | 0.054275 | 0.28 |
+| Cambodia | B2 | 0.046011 | 0.111175 | 0.054275 | 0.2 |
+| Cameroon | B2 | 0.046011 | 0.111175 | 0.054275 | 0.33 |
+| Canada | Aaa | 0 | 0.0569 | 0 | 0.265 |
+| Cape Verde | B2 | 0.046011 | 0.111175 | 0.054275 | 0 |
+| Cayman Islands | Aa3 | 0.005054 | 0.062861 | 0.005961 | 0 |
+| Channel Islands | NA | 0.006874 | 0.065009 | 0.008109 | 0.25037 |
+| Chile | A1 | 0.005883 | 0.06384 | 0.00694 | 0.27 |
+| China | A1 | 0.005883 | 0.06384 | 0.00694 | 0.25 |
+| Colombia | Baa2 | 0.015915 | 0.075674 | 0.018774 | 0.33 |
+| Congo (Democratic Republic of) | Caa1 | 0.062681 | 0.130838 | 0.073938 | 0.35 |
+| Congo (Republic of) | Caa2 | 0.075278 | 0.145697 | 0.088797 | 0.3236 |
+| Cook Islands | B1 | 0.037639 | 0.101298 | 0.044398 | 0.2843 |
+| Costa Rica | B1 | 0.037639 | 0.101298 | 0.044398 | 0.3 |
+| Croatia | Ba2 | 0.025118 | 0.086529 | 0.029629 | 0.18 |
+| Cuba | Caa2 | 0.075278 | 0.145697 | 0.088797 | 0.2724 |
+| Curaçao | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0.22 |
+| Cyprus | Ba2 | 0.025118 | 0.086529 | 0.029629 | 0.125 |
+| Czech Republic | Aa3 | 0.005054 | 0.062861 | 0.005961 | 0.19 |
+| Denmark | Aaa | 0 | 0.0569 | 0 | 0.22 |
+| Dominican Republic | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.27 |
+| Ecuador | B3 | 0.054384 | 0.121051 | 0.064151 | 0.25 |
+| Egypt | B2 | 0.046011 | 0.111175 | 0.054275 | 0.225 |
+| El Salvador | B3 | 0.0753 | 0.1457 | 0.0888 | 0.3 |
+| Estonia | A1 | 0.005883 | 0.06384 | 0.00694 | 0.2 |
+| Ethiopia | B1 | 0.037639 | 0.101298 | 0.044398 | 0.3 |
+| Falkland Islands | NA | 0.027414 | 0.089238 | 0.032338 | 0.310231 |
+| Fiji | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.2 |
+| Finland | Aa1 | 0.003319 | 0.060815 | 0.003915 | 0.2 |
+| France | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0.31 |
+| Gabon | Caa1 | 0.062681 | 0.130838 | 0.073938 | 0.3 |
+| Gambia | NA | 0.054384 | 0.121051 | 0.064151 | 0.31 |
+| Georgia | Ba2 | 0.025118 | 0.086529 | 0.029629 | 0.15 |
+| Germany | Aaa | 0 | 0.0569 | 0 | 0.3 |
+| Ghana | B3 | 0.054384 | 0.121051 | 0.064151 | 0.25 |
+| Gibraltar | NA | 0.006874 | 0.065009 | 0.008109 | 0.25037 |
+| Greece | B1 | 0.037639 | 0.101298 | 0.044398 | 0.28 |
+| Greenland | NA | 0.006874 | 0.065009 | 0.008109 | 0.25037 |
+| Guatemala | Ba1 | 0.020894 | 0.081546 | 0.024646 | 0.25 |
+| Guernsey | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0 |
+| Guinea | NA | 0.083575 | 0.155484 | 0.098584 | 0.2915 |
+| Guinea-Bissau | NA | 0.054384 | 0.121051 | 0.064151 | 0.2915 |
+| Guyana | NA | 0.054384 | 0.121051 | 0.064151 | 0.1864 |
+| Haiti | NA | 0.075278 | 0.145697 | 0.088797 | 0.1864 |
+| Honduras | B1 | 0.037639 | 0.101298 | 0.044398 | 0.25 |
+| Hong Kong | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0.165 |
+| Hungary | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.09 |
+| Iceland | A2 | 0.00709 | 0.065264 | 0.008364 | 0.2 |
+| India | Baa2 | 0.015915 | 0.075674 | 0.018774 | 0.3 |
+| Indonesia | Baa2 | 0.015915 | 0.075674 | 0.018774 | 0.25 |
+| Iran | NA | 0.054384 | 0.121051 | 0.064151 | 0.2023 |
+| Iraq | Caa1 | 0.062681 | 0.130838 | 0.073938 | 0.15 |
+| Ireland | A2 | 0.00709 | 0.065264 | 0.008364 | 0.125 |
+| Isle of Man | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0 |
+| Israel | A1 | 0.005883 | 0.06384 | 0.00694 | 0.23 |
+| Italy | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.24 |
+| Ivory Coast | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.25 |
+| Jamaica | B2 | 0.046011 | 0.111175 | 0.054275 | 0.25 |
+| Japan | A1 | 0.005883 | 0.06384 | 0.00694 | 0.3062 |
+| Jersey | A1 | 0.005883 | 0.06384 | 0.00694 | 0 |
+| Jordan | B1 | 0.037639 | 0.101298 | 0.044398 | 0.2 |
+| Kazakhstan | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.2 |
+| Kenya | B2 | 0.046011 | 0.111175 | 0.054275 | 0.3 |
+| Korea, D.P.R. | NA | 0.10032 | 0.175237 | 0.118337 | 0.231 |
+| Kuwait | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0.15 |
+| Kyrgyzstan | B2 | 0.046011 | 0.111175 | 0.054275 | 0.1 |
+| Laos | B2 | 0.046011 | 0.111175 | 0.054275 | 0.2 |
+| Latvia | A3 | 0.010032 | 0.068734 | 0.011834 | 0.2 |
+| Lebanon | Caa2 | 0.075278 | 0.145697 | 0.088797 | 0.17 |
+| Liberia | NA | 0.14 | 0.222043 | 0.165143 | 0.2915 |
+| Libya | NA | 0.025118 | 0.086529 | 0.029629 | 0.2 |
+| Liechtenstein | Aaa | 0 | 0.0569 | 0 | 0.125 |
+| Lithuania | A3 | 0.010032 | 0.068734 | 0.011834 | 0.15 |
+| Luxembourg | Aaa | 0 | 0.0569 | 0 | 0.2601 |
+| Macao | Aa3 | 0.005054 | 0.062861 | 0.005961 | 0.12 |
+| Macedonia | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.1 |
+| Madagascar | NA | 0.046011 | 0.111175 | 0.054275 | 0.2 |
+| Malawi | NA | 0.054384 | 0.121051 | 0.064151 | 0.3 |
+| Malaysia | A3 | 0.010032 | 0.068734 | 0.011834 | 0.24 |
+| Mali | B3 | 0.054384 | 0.121051 | 0.064151 | 0.2824 |
+| Malta | A2 | 0.00709 | 0.065264 | 0.008364 | 0.35 |
+| Mauritius | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0.15 |
+| Mexico | A3 | 0.010032 | 0.068734 | 0.011834 | 0.3 |
+| Moldova | B3 | 0.054384 | 0.121051 | 0.064151 | 0.12 |
+| Mongolia | B3 | 0.054384 | 0.121051 | 0.064151 | 0.25 |
+| Montenegro | B1 | 0.037639 | 0.101298 | 0.044398 | 0.09 |
+| Montserrat | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.2724 |
+| Morocco | Ba1 | 0.020894 | 0.081546 | 0.024646 | 0.31 |
+| Mozambique | Caa2 | 0.075278 | 0.145697 | 0.088797 | 0.32 |
+| Myanmar | NA | 0.054384 | 0.121051 | 0.064151 | 0.25 |
+| Namibia | Ba2 | 0.025118 | 0.086529 | 0.029629 | 0.32 |
+| Netherlands | Aaa | 0 | 0.0569 | 0 | 0.25 |
+| Netherlands Antilles | NA | 0.045951 | 0.111103 | 0.054203 | 0.238808 |
+| New Zealand | Aaa | 0 | 0.0569 | 0 | 0.28 |
+| Nicaragua | B2 | 0.046011 | 0.111175 | 0.054275 | 0.3 |
+| Niger | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3236 |
+| Nigeria | B2 | 0.046011 | 0.111175 | 0.054275 | 0.3 |
+| Norway | Aaa | 0 | 0.0569 | 0 | 0.22 |
+| Oman | Ba1 | 0.020894 | 0.081546 | 0.024646 | 0.15 |
+| Pakistan | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3 |
+| Palestinian Authority | NA | 0.013352 | 0.07265 | 0.01575 | 0.273658 |
+| Panama | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0.25 |
+| Papua New Guinea | B2 | 0.046011 | 0.111175 | 0.054275 | 0.3 |
+| Paraguay | Ba1 | 0.020894 | 0.081546 | 0.024646 | 0.1 |
+| Peru | A3 | 0.010032 | 0.068734 | 0.011834 | 0.295 |
+| Philippines | Baa2 | 0.015915 | 0.075674 | 0.018774 | 0.3 |
+| Poland | A2 | 0.00709 | 0.065264 | 0.008364 | 0.19 |
+| Portugal | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.21 |
+| Qatar | Aa3 | 0.005054 | 0.062861 | 0.005961 | 0.1 |
+| Ras Al Khaimah (Emirate of) | Caa1 | 0.062681 | 0.130838 | 0.073938 | 0 |
+| Reunion | NA | 0.008588 | 0.06703 | 0.01013 | 0.261175 |
+| Romania | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.16 |
+| Russia | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.2 |
+| Rwanda | B2 | 0.046011 | 0.111175 | 0.054275 | 0.3 |
+| Saint Lucia | NA | 0.045951 | 0.111103 | 0.054203 | 0.238808 |
+| Saudi Arabia | A1 | 0.005883 | 0.06384 | 0.00694 | 0.2 |
+| Senegal | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.3 |
+| Serbia | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.15 |
+| Sharjah | A3 | 0.010032 | 0.068734 | 0.011834 | 0 |
+| Sierra Leone | NA | 0.083575 | 0.155484 | 0.098584 | 0.3 |
+| Singapore | Aaa | 0 | 0.0569 | 0 | 0.17 |
+| Slovakia | A2 | 0.00709 | 0.065264 | 0.008364 | 0.21 |
+| Slovenia | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0.19 |
+| Solomon Islands | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3 |
+| Somalia | NA | 0.10032 | 0.175237 | 0.118337 | 0.2915 |
+| South Africa | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.28 |
+| South Korea | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0.25 |
+| Spain | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0.25 |
+| Sri Lanka | B2 | 0.046011 | 0.111175 | 0.054275 | 0.28 |
+| St. Maarten | Baa3 | 0.018405 | 0.07861 | 0.02171 | 0.35 |
+| St. Vincent & the Grenadines | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3 |
+| Sudan | NA | 0.14 | 0.222043 | 0.165143 | 0.35 |
+| Suriname | B2 | 0.046011 | 0.111175 | 0.054275 | 0.36 |
+| Swaziland | B2 | 0.046011 | 0.111175 | 0.054275 | 0.275 |
+| Sweden | Aaa | 0 | 0.0569 | 0 | 0.214 |
+| Switzerland | Aaa | 0 | 0.0569 | 0 | 0.18 |
+| Syria | NA | 0.10032 | 0.175237 | 0.118337 | 0.28 |
+| Taiwan | Aa3 | 0.005054 | 0.062861 | 0.005961 | 0.2 |
+| Tajikistan | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3019 |
+| Tanzania | B1 | 0.037639 | 0.101298 | 0.044398 | 0.3 |
+| Thailand | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0.2 |
+| Togo | B3 | 0.054384 | 0.121051 | 0.064151 | 0.3236 |
+| Trinidad and Tobago | Ba1 | 0.020894 | 0.081546 | 0.024646 | 0.25 |
+| Tunisia | B2 | 0.046011 | 0.111175 | 0.054275 | 0.25 |
+| Turkey | B1 | 0.037639 | 0.101298 | 0.044398 | 0.22 |
+| Turks and Caicos Islands | Baa1 | 0.013351 | 0.072649 | 0.015749 | 0 |
+| Uganda | B2 | 0.046011 | 0.111175 | 0.054275 | 0.3 |
+| Ukraine | Caa1 | 0.062681 | 0.130838 | 0.073938 | 0.18 |
+| United Arab Emirates | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0.55 |
+| United Kingdom | Aa2 | 0.004149 | 0.061794 | 0.004894 | 0.19 |
+| United States | Aaa | 0 | 0.0569 | 0 | 0.25 |
+| Uruguay | B1 | 0.037639 | 0.101298 | 0.044398 | 0.25 |
+| Venezuela | C | 0.15 | 0.233839 | 0.176939 | 0.34 |
+| Vietnam | Ba3 | 0.030096 | 0.092401 | 0.035501 | 0.2 |
+| Yemen | NA | 0.10032 | 0.175237 | 0.118337 | 0.2 |
+| Zambia | Caa2 | 0.075278 | 0.145697 | 0.088797 | 0.35 |
+| Zimbabwe | NA | 0.10032 | 0.175237 | 0.118337 | 0.25 |
+
+#### Reference table 3: `Country ERP` — regional averages (sheet rows 194-204, verbatim)
+
+| Region | ERP | Default Spread | Tax rate | CRP |  |
+|---|---|---|---|---|---|
+| Africa | 0.103781 | 0.039743 | 0.284916 | 0.046881 |  |
+| Asia | 0.06703 | 0.008588 | 0.261175 | 0.01013 |  |
+| Australia & New Zealand | 0.056932 | 2.8e-05 | 0.297489 | 3.2e-05 |  |
+| Caribbean | 0.111103 | 0.045951 | 0.238808 | 0.054203 |  |
+| Central and South America | 0.089693 | 0.027801 | 0.309565 | 0.032793 |  |
+| Eastern Europe & Russia | 0.078283 | 0.018128 | 0.183598 | 0.021383 |  |
+| Middle East | 0.07265 | 0.013352 | 0.273658 | 0.01575 |  |
+| North America | 0.0569 | 0 | 0.251155 | 0 |  |
+| Western Europe | 0.065009 | 0.006874 | 0.25037 | 0.008109 |  |
+| Global | 0.0667 | 0.0083 | 0.257 | 0.0098 |  |

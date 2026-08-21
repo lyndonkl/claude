@@ -278,7 +278,7 @@ For each driver, trace the connection from narrative element to number.
 
 | Element | Value | Source |
 |---------|-------|--------|
-| Estimated WACC | % | From cost-of-capital-estimator or estimate |
+| Estimated WACC | % | From cost-of-capital-toolkit or estimate |
 | Beta (estimated) | | Comparable firms or regression |
 | Risk-free rate | % | Government bond yield |
 | Equity risk premium | % | Market estimate |

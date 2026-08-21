@@ -136,7 +136,7 @@ Sales-to-Capital Ratio = Revenue / Invested Capital
 Reinvestment = Change in Revenue / Sales-to-Capital Ratio
 
 Value of Firm = Sum of [FCFF_t / (1 + WACC)^t] + Terminal Value / (1 + WACC)^n
-  (preview: detailed DCF mechanics are in intrinsic-valuation-dcf)
+  (preview: detailed DCF mechanics are in dcf-valuation-engine)
 ```
 
 **Life cycle stages (summary):**

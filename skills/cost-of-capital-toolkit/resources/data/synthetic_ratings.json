@@ -1,0 +1,74 @@
+{
+  "as_of": "2021-01",
+  "source": "Aswath Damodaran, ratings.xls / capstru.xlsx / fcffsimpleginzu.xlsx (NYU Stern)",
+  "refresh": "https://pages.stern.nyu.edu/~adamodar/ — 'Ratings, Spreads and Interest Coverage Ratios'. Spreads move materially year to year; refresh annually and record the vintage used.",
+  "lookup_rule": "Find the row where icr_low < interest_coverage_ratio <= icr_high. Negative or undefined coverage maps to the bottom row (sentinel -100000).",
+  "tables": {
+    "large_manufacturing": {
+      "applies_to": "Non-financial firms with market cap above roughly $5 billion",
+      "rows": [
+        {"icr_low": -100000, "icr_high": 0.199999, "rating": "D2/D", "spread": 0.1744},
+        {"icr_low": 0.2, "icr_high": 0.649999, "rating": "C2/C", "spread": 0.1309},
+        {"icr_low": 0.65, "icr_high": 0.799999, "rating": "Ca2/CC", "spread": 0.0997},
+        {"icr_low": 0.8, "icr_high": 1.249999, "rating": "Caa/CCC", "spread": 0.0946},
+        {"icr_low": 1.25, "icr_high": 1.499999, "rating": "B3/B-", "spread": 0.0594},
+        {"icr_low": 1.5, "icr_high": 1.749999, "rating": "B2/B", "spread": 0.0486},
+        {"icr_low": 1.75, "icr_high": 1.999999, "rating": "B1/B+", "spread": 0.0405},
+        {"icr_low": 2.0, "icr_high": 2.2499999, "rating": "Ba2/BB", "spread": 0.0277},
+        {"icr_low": 2.25, "icr_high": 2.49999, "rating": "Ba1/BB+", "spread": 0.0231},
+        {"icr_low": 2.5, "icr_high": 2.999999, "rating": "Baa2/BBB", "spread": 0.0171},
+        {"icr_low": 3.0, "icr_high": 4.249999, "rating": "A3/A-", "spread": 0.0133},
+        {"icr_low": 4.25, "icr_high": 5.499999, "rating": "A2/A", "spread": 0.0118},
+        {"icr_low": 5.5, "icr_high": 6.499999, "rating": "A1/A+", "spread": 0.0107},
+        {"icr_low": 6.5, "icr_high": 8.499999, "rating": "Aa2/AA", "spread": 0.0085},
+        {"icr_low": 8.5, "icr_high": 100000, "rating": "Aaa/AAA", "spread": 0.0069}
+      ]
+    },
+    "small_or_risky": {
+      "applies_to": "Non-financial firms with market cap below roughly $5 billion, or any firm in a risky/volatile business",
+      "rows": [
+        {"icr_low": -100000, "icr_high": 0.499999, "rating": "D2/D", "spread": 0.1744},
+        {"icr_low": 0.5, "icr_high": 0.799999, "rating": "C2/C", "spread": 0.1309},
+        {"icr_low": 0.8, "icr_high": 1.249999, "rating": "Ca2/CC", "spread": 0.0997},
+        {"icr_low": 1.25, "icr_high": 1.499999, "rating": "Caa/CCC", "spread": 0.0946},
+        {"icr_low": 1.5, "icr_high": 1.999999, "rating": "B3/B-", "spread": 0.0594},
+        {"icr_low": 2.0, "icr_high": 2.499999, "rating": "B2/B", "spread": 0.0486},
+        {"icr_low": 2.5, "icr_high": 2.999999, "rating": "B1/B+", "spread": 0.0405},
+        {"icr_low": 3.0, "icr_high": 3.499999, "rating": "Ba2/BB", "spread": 0.0277},
+        {"icr_low": 3.5, "icr_high": 3.9999999, "rating": "Ba1/BB+", "spread": 0.0231},
+        {"icr_low": 4.0, "icr_high": 4.499999, "rating": "Baa2/BBB", "spread": 0.0171},
+        {"icr_low": 4.5, "icr_high": 5.999999, "rating": "A3/A-", "spread": 0.0133},
+        {"icr_low": 6.0, "icr_high": 7.499999, "rating": "A2/A", "spread": 0.0118},
+        {"icr_low": 7.5, "icr_high": 9.499999, "rating": "A1/A+", "spread": 0.0107},
+        {"icr_low": 9.5, "icr_high": 12.499999, "rating": "Aa2/AA", "spread": 0.0085},
+        {"icr_low": 12.5, "icr_high": 100000, "rating": "Aaa/AAA", "spread": 0.0069}
+      ]
+    },
+    "financial_service": {
+      "applies_to": "Banks, insurers and other financial service firms, keyed on the long-term interest coverage ratio",
+      "rows": [
+        {"icr_low": -100000, "icr_high": 0.049999, "rating": "D2/D", "spread": 0.1744},
+        {"icr_low": 0.05, "icr_high": 0.099999, "rating": "C2/C", "spread": 0.1309},
+        {"icr_low": 0.1, "icr_high": 0.199999, "rating": "Ca2/CC", "spread": 0.0997},
+        {"icr_low": 0.2, "icr_high": 0.299999, "rating": "Caa/CCC", "spread": 0.0946},
+        {"icr_low": 0.3, "icr_high": 0.399999, "rating": "B3/B-", "spread": 0.0594},
+        {"icr_low": 0.4, "icr_high": 0.499999, "rating": "B2/B", "spread": 0.0486},
+        {"icr_low": 0.5, "icr_high": 0.599999, "rating": "B1/B+", "spread": 0.0405},
+        {"icr_low": 0.6, "icr_high": 0.749999, "rating": "Ba2/BB", "spread": 0.0277},
+        {"icr_low": 0.75, "icr_high": 0.899999, "rating": "Ba1/BB+", "spread": 0.0231},
+        {"icr_low": 0.9, "icr_high": 1.199999, "rating": "Baa2/BBB", "spread": 0.0171},
+        {"icr_low": 1.2, "icr_high": 1.49999, "rating": "A3/A-", "spread": 0.0133},
+        {"icr_low": 1.5, "icr_high": 1.99999, "rating": "A2/A", "spread": 0.0118},
+        {"icr_low": 2.0, "icr_high": 2.49999, "rating": "A1/A+", "spread": 0.0107},
+        {"icr_low": 2.5, "icr_high": 2.99999, "rating": "Aa2/AA", "spread": 0.0085},
+        {"icr_low": 3.0, "icr_high": 100000, "rating": "Aaa/AAA", "spread": 0.0069}
+      ]
+    }
+  },
+  "rating_to_spread": {
+    "comment": "Direct rating -> default spread map, for firms that already carry an actual agency rating. Same vintage as the tables above.",
+    "Aaa/AAA": 0.0069, "Aa2/AA": 0.0085, "A1/A+": 0.0107, "A2/A": 0.0118, "A3/A-": 0.0133,
+    "Baa2/BBB": 0.0171, "Ba1/BB+": 0.0231, "Ba2/BB": 0.0277, "B1/B+": 0.0405, "B2/B": 0.0486,
+    "B3/B-": 0.0594, "Caa/CCC": 0.0946, "Ca2/CC": 0.0997, "C2/C": 0.1309, "D2/D": 0.1744
+  }
+}

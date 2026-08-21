@@ -1,0 +1,33 @@
+{
+  "as_of": "2014-01",
+  "market": "All US listed companies",
+  "source": "Aswath Damodaran, corporate finance lecture packet (cfpacket2spr20), pages 222-223.",
+  "refresh": "Re-estimate on current data where possible: https://pages.stern.nyu.edu/~adamodar/ publishes the underlying cross-section each January, and the coefficients drift with the market environment. These are a January 2014 snapshot fitted on US firms only; payout norms differ enormously by region. Pass a refreshed file with regressions_path rather than editing this copy.",
+  "caveat": "Both equations are fitted on dividends alone. A firm returning cash through buybacks shows a large negative gap and is wrongly labelled a cash hoarder. Always add buybacks back before acting on the gap.",
+  "inputs": {
+    "BETA": "Company beta, preferably bottom-up, as a decimal.",
+    "EGR": "Expected growth rate in earnings over the next 5 years, as a decimal (0.1473, not 14.73).",
+    "DCAP": "Total debt / (total debt + market value of equity), as a decimal."
+  },
+  "equations": {
+    "payout": {
+      "dependent": "Dividends / Net Income, as a decimal",
+      "intercept": 0.649,
+      "coefficients": {"BETA": -0.296, "EGR": -0.800, "DCAP": 0.300},
+      "t_statistics": {"intercept": 32.16, "BETA": 15.40, "EGR": 8.90, "DCAP": 7.33},
+      "r_squared": 0.196
+    },
+    "yield": {
+      "dependent": "Dividends / Current Price, as a decimal",
+      "intercept": 0.0324,
+      "coefficients": {"BETA": -0.0154, "EGR": -0.038, "DCAP": 0.023},
+      "t_statistics": {"intercept": 38.81, "BETA": 19.41, "EGR": 13.25, "DCAP": 13.45},
+      "r_squared": 0.258
+    }
+  },
+  "sign_interpretation": {
+    "BETA": "Negative. Riskier firms pay out less, because committing to a dividend when cash flows are volatile is dangerous.",
+    "EGR": "Negative. High-growth firms need their cash; this is the life-cycle result in regression form.",
+    "DCAP": "Positive. More levered firms pay higher dividends and yields in the data."
+  }
+}

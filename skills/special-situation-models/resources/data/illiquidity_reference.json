@@ -1,0 +1,56 @@
+{
+  "as_of": "2000-12",
+  "source": "Aswath Damodaran, Valuation lecture packet 2 (Spring 2020 / Spring 2021), NYU Stern, and the liqdisc.xls model. Silber (1991) restricted-stock regression; the bid-ask spread regression was estimated on data from the end of 2000.",
+  "refresh": "The bid-ask coefficients are two decades old and the restricted-stock studies older still. Spreads have narrowed since 2000, so the bid-ask route is probably an upper bound today. Refresh from Damodaran's private company material at https://pages.stern.nyu.edu/~adamodar/ and record the vintage. Pass a refreshed file with reference_path rather than editing this copy.",
+
+  "silber_precomputed_discounts": {
+    "note": "Generated from the Silber-refined formula with a 25% base discount and a 100% block. Use as a sanity check on a computed discount, not as a substitute for it.",
+    "columns": ["revenues_millions", "profitable", "unprofitable"],
+    "rows": [
+      [5, 0.2626, 0.3421],
+      [10, 0.2500, 0.3315],
+      [15, 0.2425, 0.3252],
+      [20, 0.2371, 0.3207],
+      [25, 0.2329, 0.3172],
+      [30, 0.2294, 0.3142],
+      [35, 0.2264, 0.3117],
+      [40, 0.2239, 0.3096],
+      [45, 0.2216, 0.3077],
+      [50, 0.2195, 0.3059],
+      [100, 0.2059, 0.2945],
+      [200, 0.1919, 0.2827],
+      [300, 0.1835, 0.2757],
+      [400, 0.1775, 0.2706],
+      [500, 0.1728, 0.2667],
+      [1000, 0.1579, 0.2542]
+    ]
+  },
+
+  "restricted_stock_studies": {
+    "note": "Aggregate discounts on restricted stock, which cannot be traded for one year after issue. The sample is small, troubled firms out of conventional financing options, so these numbers overstate pure illiquidity.",
+    "rows": [
+      {"study": "Maher", "sample": "Restricted stock purchases by four mutual funds, 1969-73", "discount": 0.3543, "statistic": "average"},
+      {"study": "Moroney", "sample": "146 restricted issues bought by 10 investment companies, 1970 data", "discount": 0.35, "statistic": "mean"},
+      {"study": "Silber (1991)", "sample": "Restricted stock offerings in the 1980s", "discount": 0.3375, "statistic": "median"}
+    ]
+  },
+
+  "pre_ipo_transaction_discounts": {
+    "note": "Median discount on transactions in the five months before an IPO. These sellers were also pricing the risk that the IPO would not happen, so the figures are not a clean measure of illiquidity.",
+    "rows": [
+      {"period": "1980-81", "discount": 0.60, "transactions": 13},
+      {"period": "1985-86", "discount": 0.43, "transactions": 21},
+      {"period": "1987-89", "discount": 0.45, "transactions": 27},
+      {"period": "1989-90", "discount": 0.45, "transactions": 23},
+      {"period": "1990-92", "discount": 0.42, "transactions": 35},
+      {"period": "1991-93", "discount": 0.45, "transactions": 54},
+      {"period": "1994-95", "discount": 0.45, "transactions": 46},
+      {"period": "1995-97", "discount": 0.43, "transactions": 91}
+    ]
+  },
+
+  "sampling_bias": {
+    "note": "Comparing discounts on all private placements with discounts on restricted stock offerings isolates the sampling problem. One such comparison put pure illiquidity below 10%, leaving 20-25 percentage points of the headline 33-35% attributable to sample selection.",
+    "pure_illiquidity_upper_bound": 0.10
+  }
+}

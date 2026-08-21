@@ -1,0 +1,41 @@
+{
+  "as_of": "2013",
+  "basis": "Cumulative probability of default within ten years, by original bond rating. Estimated by taking the bonds outstanding in each rating class ten years earlier and measuring the proportion that had defaulted by the end of the period.",
+  "source": "Edward Altman's default studies, as tabulated in Aswath Damodaran's capital structure material (cfpacket2spr20 p.89-94) and in apv.xls. The same numbers carry unchanged across those vintages, which is why one as_of date covers both.",
+  "refresh": "https://pages.stern.nyu.edu/~adamodar/ and Altman's annual default-rate updates. These are ten-year cumulative rates, so they move slowly, but the speculative-grade end moves with the credit cycle. Record the vintage the valuation used. Pass a refreshed file with probabilities_path rather than editing this copy.",
+  "caution": "Read down the ladder and the column is not monotonic: Ba1/BB+ at 0.10 sits below Ba2/BB at 0.1663, and B2/B at 0.368 sits above Baa2/BBB at 0.0754. That is what the studies report and it is reproduced verbatim, because it is what makes an APV schedule peak at an unexpected debt ratio. It is a property of the data, not a transcription error.",
+  "probabilities": {
+    "Aaa/AAA": 0.0007,
+    "Aa2/AA": 0.0051,
+    "A1/A+": 0.006,
+    "A2/A": 0.0066,
+    "A3/A-": 0.025,
+    "Baa2/BBB": 0.0754,
+    "Ba1/BB+": 0.10,
+    "Ba2/BB": 0.1663,
+    "B1/B+": 0.25,
+    "B2/B": 0.368,
+    "B3/B-": 0.45,
+    "Caa/CCC": 0.5901,
+    "Ca2/CC": 0.70,
+    "C2/C": 0.85,
+    "D2/D": 1.00
+  },
+  "aliases": {
+    "AAA": "Aaa/AAA", "Aaa": "Aaa/AAA",
+    "AA": "Aa2/AA", "Aa2": "Aa2/AA", "Aa": "Aa2/AA",
+    "A+": "A1/A+", "A1": "A1/A+",
+    "A": "A2/A", "A2": "A2/A",
+    "A-": "A3/A-", "A3": "A3/A-",
+    "BBB": "Baa2/BBB", "Baa2": "Baa2/BBB", "Baa": "Baa2/BBB",
+    "BB+": "Ba1/BB+", "Ba1": "Ba1/BB+",
+    "BB": "Ba2/BB", "Ba2": "Ba2/BB",
+    "B+": "B1/B+", "B1": "B1/B+",
+    "B": "B2/B", "B2": "B2/B",
+    "B-": "B3/B-", "B3": "B3/B-",
+    "CCC": "Caa/CCC", "Caa": "Caa/CCC",
+    "CC": "Ca2/CC", "Ca2": "Ca2/CC",
+    "C": "C2/C", "C2": "C2/C",
+    "D": "D2/D", "D2": "D2/D"
+  }
+}

@@ -1,8 +1,10 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-261-blue) ![Agents](https://img.shields.io/badge/agents-75-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-270-blue) ![Agents](https://img.shields.io/badge/agents-85-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **262 skills** and **75 orchestrating agents** for Claude Code — covering thinking frameworks, research, writing, design, data/ML, corporate finance, game theory, fantasy baseball, an evolutionary 10-agent FIFA World Cup fantasy backroom, household personal finance, a 9-agent team for growing a Substack publication, and a 9-agent learning studio for becoming a contributor to ML-driven crop genetics / genomic selection. Also included: five reusable primitives for gated, verifiable research pipelines, and a 3-agent narrative team that turns researched evidence into structured long-form nonfiction.
+A production-ready library of **270 skills** and **85 orchestrating agents** for Claude Code.
+
+It covers thinking frameworks, research, writing, design, and data/ML. It covers game theory and household personal finance. Larger teams handle specific domains: a 15-agent corporate finance and valuation suite, a 10-agent FIFA World Cup fantasy backroom, a 9-agent team for growing a Substack publication, and a 9-agent studio for learning ML-driven crop genetics. Also included: five reusable primitives for gated, verifiable research pipelines, and a 3-agent narrative team that turns researched evidence into long-form nonfiction.
 
 **Install in 30 seconds:**
 
@@ -21,10 +23,10 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 
 | I want to… | Start here |
 |---|---|
-| Value a company / analyze an M&A target / plan an IPO | [`company-analyst`](agents/company-analyst.md), [`acquisition-analyst`](agents/acquisition-analyst.md), [`ipo-strategist`](agents/ipo-strategist.md), [`special-situations-analyst`](agents/special-situations-analyst.md) |
+| Value a company / analyze an M&A target / plan an IPO / evaluate a project | [`valuation-orchestrator`](agents/valuation-orchestrator.md) — one entry point, routes to 14 specialists |
 | Research a thematic macro trend cluster (AI compute cycle, demographic shift, climate transition, etc.) | [`macroeconomic-analyst`](agents/macroeconomic-analyst.md) |
 | Reverse-engineer a real product's vision / strategy / tactics / ML and system architecture from public material | [`product-strategist`](agents/product-strategist.md) |
-| Decide how to allocate capital (debt / dividends / projects) | [`capital-allocation-strategist`](agents/capital-allocation-strategist.md) |
+| Decide how to allocate capital (debt / dividends / projects) | [`valuation-orchestrator`](agents/valuation-orchestrator.md) in `corporate-finance` mode |
 | Manage my Yahoo Fantasy Baseball team | [`mlb-fantasy-coach`](agents/mlb-fantasy-coach.md) + 6 MLB specialists |
 | Run my FIFA World Cup Fantasy squad (evolutionary boards — agents propose, you decide) | [`wc-director`](agents/wc-director.md) + 9 team agents |
 | Run my household finances from PDF statements (drop in, briefing + dashboard out) | [`household-cfo`](agents/household-cfo.md) + 8 household specialists |
@@ -48,7 +50,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 ```mermaid
 flowchart LR
     U([What do you need?]) --> D{Task}
-    D -->|Analyze a company| CA[company-analyst<br/>acquisition-analyst<br/>ipo-strategist]
+    D -->|Value / analyze a company| CA[valuation-orchestrator<br/>+ 14 finance specialists]
     D -->|Analyze a product| PS[product-strategist]
     D -->|Write something| WA[writing-assistant<br/>scientific-writing-editor]
     D -->|Structure + write research| NA[narrative-architect<br/>scenewright]
@@ -89,13 +91,23 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**paper-synthesizer**](agents/paper-synthesizer.md) | Worker for literature-scan-coach. One window, one digest. Fetches bioRxiv / medRxiv / PubMed / arXiv, filters, clusters by theme, writes the layered-reasoning synthesis with paper links |
 | [**skill-creator**](agents/skill-creator.md) | Orchestrates Adler's six-step methodology to transform a methodology document (PDF, markdown, paper, framework guide) into a properly structured Claude Code skill — SKILL.md + resources + rubric |
 | [**graphrag-specialist**](agents/graphrag-specialist.md) | Knowledge graph construction, embedding fusion, retrieval orchestration |
-| [**company-analyst**](agents/company-analyst.md) | End-to-end company valuation → buy/sell/hold recommendation |
-| [**special-situations-analyst**](agents/special-situations-analyst.md) | Distressed / private / high-growth / financial-firm valuation |
+| [**valuation-orchestrator**](agents/valuation-orchestrator.md) | Entry point for all company analysis. Classifies the company, enforces the gates, routes to 14 specialists, reconciles the verdict |
+| [**company-diagnostician**](agents/company-diagnostician.md) | Classifies the company and compiles the hard constraints that bind every later stage |
+| [**financial-data-collector**](agents/financial-data-collector.md) | Gathers filings, market data and reference tables; reports gaps honestly |
+| [**business-narrative-analyst**](agents/business-narrative-analyst.md) | Builds the business story and converts it into valuation drivers |
+| [**financial-statement-analyst**](agents/financial-statement-analyst.md) | Capitalizes leases and R&D, strips one-offs, restates EBIT and capital together |
+| [**cost-of-capital-analyst**](agents/cost-of-capital-analyst.md) | Riskfree rate, equity risk premium, bottom-up beta, synthetic rating, WACC |
+| [**intrinsic-valuation-analyst**](agents/intrinsic-valuation-analyst.md) | Runs the DCF to a value per share, then says what the market price assumes |
+| [**relative-valuation-analyst**](agents/relative-valuation-analyst.md) | Prices against peers and the market; says when a multiple is not usable |
+| [**special-situations-analyst**](agents/special-situations-analyst.md) | Banks, pre-revenue, distressed, private, cyclical — the branches standard DCF cannot handle |
+| [**capital-structure-analyst**](agents/capital-structure-analyst.md) | How much debt the firm should carry, and what kind |
+| [**payout-policy-analyst**](agents/payout-policy-analyst.md) | Whether the company returns the right amount of cash to its owners |
+| [**investment-analyst**](agents/investment-analyst.md) | Projects and acquisitions on incremental cash flows; control and synergy |
+| [**real-options-analyst**](agents/real-options-analyst.md) | Values genuine optionality, and rejects the candidates that only look like options |
+| [**valuation-critic**](agents/valuation-critic.md) | Attacks the finished analysis and raises findings; never edits the work it reviews |
+| [**investment-reconciler**](agents/investment-reconciler.md) | Reconciles every strand into a verdict and writes the report |
 | [**macroeconomic-analyst**](agents/macroeconomic-analyst.md) | Deep thematic research on one trend cluster — sub-trends, value chains, beneficiary archetypes, pricing-in assessment, watch-indicators |
 | [**product-strategist**](agents/product-strategist.md) | Outside-in layered analysis of a real product — vision, strategy, tactics, operational surface, system & ML architecture map, strategist synthesis |
-| [**capital-allocation-strategist**](agents/capital-allocation-strategist.md) | Financing mix, dividends/buybacks, project investment |
-| [**acquisition-analyst**](agents/acquisition-analyst.md) | M&A standalone + synergy + max bid |
-| [**ipo-strategist**](agents/ipo-strategist.md) | Pre-IPO → post-IPO valuation and pricing range |
 | [**mlb-fantasy-coach**](agents/mlb-fantasy-coach.md) | Primary Yahoo Fantasy Baseball orchestrator; morning briefs |
 | [**mlb-lineup-optimizer**](agents/mlb-lineup-optimizer.md) | Daily start/sit with advocate + critic variants |
 | [**mlb-waiver-analyst**](agents/mlb-waiver-analyst.md) | Weekly add/drop and FAAB bid sizing |
@@ -181,7 +193,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**262 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**270 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -403,20 +415,35 @@ The toolkit behind [`narrative-architect`](agents/narrative-architect.md) and [`
 <details>
 <summary><b>💼 Domain Packs</b> — corporate finance, household finance, game theory, fantasy baseball, conference scheduling, specialized (53 skills)</summary>
 
-### Corporate finance & valuation (11)
+### Corporate finance & valuation (19)
 
-Based on Damodaran's valuation curriculum.
+Distilled from Aswath Damodaran's corporate finance and valuation curriculum. The source material and the design record live in [`knowledge/`](knowledge/README.md): 6 playbooks, 362 concept notes, 23 reverse-engineered spreadsheet models, and notes on all 2,424 lecture pages. The ten
+computation skills ship tested Python that runs on a bare interpreter — no third-party
+packages — so the agents choose and defend inputs while scripts do the arithmetic.
 
-- **[business-narrative-builder](skills/business-narrative-builder/SKILL.md)** — Link a company's story to valuation drivers.
-- **[financial-statement-analyzer](skills/financial-statement-analyzer/SKILL.md)** — Normalize financials; compute FCFF, FCFE, key ratios.
-- **[cost-of-capital-estimator](skills/cost-of-capital-estimator/SKILL.md)** — Compute WACC via CAPM, bottom-up beta, country risk.
-- **[intrinsic-valuation-dcf](skills/intrinsic-valuation-dcf/SKILL.md)** — Run DDM / FCFE / FCFF DCF with terminal value and sensitivity.
-- **[relative-valuation-multiples](skills/relative-valuation-multiples/SKILL.md)** — Value via PE, PBV, EV/EBITDA vs peers or regression.
-- **[capital-structure-optimizer](skills/capital-structure-optimizer/SKILL.md)** — Find the debt ratio that minimizes WACC.
-- **[project-investment-analyzer](skills/project-investment-analyzer/SKILL.md)** — Evaluate projects via NPV, IRR, EVA vs hurdle rate.
-- **[dividend-buyback-analyzer](skills/dividend-buyback-analyzer/SKILL.md)** — Decide dividends vs buybacks vs retained cash.
-- **[special-situations-valuation](skills/special-situations-valuation/SKILL.md)** — Value distressed, private, high-growth, and financial firms.
-- **[valuation-reconciler](skills/valuation-reconciler/SKILL.md)** — Reconcile DCF and multiples into a buy / sell / hold call.
+**Computation** — each ships a script with a `selftest` subcommand:
+
+- **[financial-statement-normalization](skills/financial-statement-normalization/SKILL.md)** — Capitalize R&D and leases, derive FCFF/FCFE, invested capital, normalized earnings.
+- **[cost-of-capital-toolkit](skills/cost-of-capital-toolkit/SKILL.md)** — Riskfree rate, equity risk premium, bottom-up beta, synthetic ratings, WACC, optimal debt schedule.
+- **[dcf-valuation-engine](skills/dcf-valuation-engine/SKILL.md)** — Driver-based forecast, terminal value, equity bridge, sensitivity, implied expectations.
+- **[relative-valuation-toolkit](skills/relative-valuation-toolkit/SKILL.md)** — Multiples with consistency enforced, peer statistics, sector and market regressions.
+- **[option-valuation-toolkit](skills/option-valuation-toolkit/SKILL.md)** — Black-Scholes, binomial trees, employee options with dilution, equity as a call.
+- **[project-investment-analysis](skills/project-investment-analysis/SKILL.md)** — NPV, IRR with multiple-root detection, MIRR, equivalent annuities, EVA, synergy.
+- **[payout-policy-analysis](skills/payout-policy-analysis/SKILL.md)** — FCFE against cash returned, the dividend matrix, payout sustainability.
+- **[special-situation-models](skills/special-situation-models/SKILL.md)** — Distress, financial-service excess return, private company, cyclical, young firm.
+- **[monte-carlo-valuation](skills/monte-carlo-valuation/SKILL.md)** — Distributional drivers, seeded simulation, percentile outputs.
+- **[valuation-consistency-checks](skills/valuation-consistency-checks/SKILL.md)** — The cross-artifact gate: currency, growth caps, reinvestment, constraint enforcement.
+
+**Method** — knowledge and procedure, no scripts:
+
+- **[company-classification-routing](skills/company-classification-routing/SKILL.md)** — Route a company to the treatment its type allows; compile the hard constraints.
+- **[narrative-to-numbers](skills/narrative-to-numbers/SKILL.md)** — Build the story, test it as possible/plausible/probable, map it to drivers.
+- **[valuation-red-team](skills/valuation-red-team/SKILL.md)** — Attack a finished valuation: bias, the seven sins, implied expectations.
+- **[financial-data-sourcing](skills/financial-data-sourcing/SKILL.md)** — Every input, its source, its units, and the fallback when it is missing.
+- **[corporate-governance-analysis](skills/corporate-governance-analysis/SKILL.md)** — Who controls the company and whether management is accountable.
+- **[debt-design](skills/debt-design/SKILL.md)** — Match debt to the assets it funds via duration and macro sensitivity.
+- **[valuation-reporting](skills/valuation-reporting/SKILL.md)** — Assemble the deliverable a decision-maker actually reads.
+- **[business-narrative-builder](skills/business-narrative-builder/SKILL.md)** — Link a company's story to valuation drivers (also used by `product-strategist`).
 - **[financial-unit-economics](skills/financial-unit-economics/SKILL.md)** — Analyze CAC, LTV, contribution margin, cohort payback.
 
 ### Household finance (12)
@@ -664,7 +691,7 @@ Skills activate automatically when you use matching trigger phrases — no manua
 ```
 "Help me decide between three options..."      → decision-matrix
 "I need to run user interviews..."              → discovery-interviews-surveys
-"Value this company for acquisition..."         → acquisition-analyst (agent)
+"Value this company for acquisition..."         → valuation-orchestrator (agent)
 "What should I stream at pitcher this week?"    → mlb-streaming-strategist (agent)
 "My chicken keeps coming out dry..."            → chef-assistant
 ```
