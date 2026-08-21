@@ -1,0 +1,322 @@
+{
+  "as_of": "2021-01",
+  "source": "Aswath Damodaran, valuation packet 2 (spring 2021 and spring 2020 editions), NYU Stern. Regional multiple regressions, the US market-wide PE and PEG regressions, the country PE regression, the US grocery sector price-to-sales fits, the early-2000 internet price-to-sales fit, and the S&P 500 earnings-yield regression.",
+  "refresh": "https://pages.stern.nyu.edu/~adamodar/ — 'Multiples by region' and the annual data update. Coefficients move sharply year to year: the US price of an extra percentage point of expected growth ranged from 0.41 (Jan 2012) to 2.62 (Jan 2003) over two decades. Re-estimate every period rather than reusing a stale fit, and record which vintage a valuation used.",
+  "units_warning": "Unless an entry says otherwise, every predictor enters as a decimal: 25% growth is 0.25, a 30% payout is 0.30, a 20% margin is 0.20. Two entries (us_peg_jan2021 and us_pe_2019_through_origin) reproduce SPSS output in which payout and growth are absolute percentages; their units field says so.",
+  "regressions": {
+    "us_pe_jan2021": {
+      "description": "US trailing PE on payout and expected EPS growth, weighted least squares by market cap, after dropping the insignificant beta. This is the form used for firm-level application.",
+      "dependent": "Trailing PE",
+      "region": "United States",
+      "coefficients": {"intercept": 5.91, "payout": 17.10, "growth": 228.40},
+      "units": "payout and growth as decimals",
+      "definition": "payout = dividends / net income in the most recent year, set to zero if net income is negative; growth = consensus expected EPS growth over the next five years",
+      "r_squared": 0.389,
+      "cautions": [
+        "The growth coefficient is the market price of an extra percentage point of expected growth. At 2.28 (decimal scale) January 2021 was the second-richest reading in two decades.",
+        "Beta was dropped because its t-statistic was 0.633. Dropping it moved R-squared only from 0.396 to 0.389."
+      ]
+    },
+    "us_pe_jan2021_with_beta": {
+      "description": "The same US regression before the insignificant beta was dropped.",
+      "dependent": "Trailing PE",
+      "region": "United States",
+      "coefficients": {"intercept": 4.10, "beta": 1.71, "payout": 17.40, "growth": 230.40},
+      "units": "payout and growth as decimals, beta as a plain number",
+      "definition": "as us_pe_jan2021, with beta = regression or bottom-up beta",
+      "r_squared": 0.394,
+      "cautions": ["Beta's t-statistic is 0.633, so its coefficient carries no information."]
+    },
+    "us_pe_2019_through_origin": {
+      "description": "The negative-intercept fix: the 2019 US PE regression re-run through the origin so no firm gets a negative predicted multiple.",
+      "dependent": "Trailing PE",
+      "region": "United States",
+      "coefficients": {"growth": 1.373, "beta": 1.208, "payout": 0.235},
+      "units": "payout and growth in absolute percentage points (25% enters as 25)",
+      "definition": "as us_pe_jan2021, in percent units and with no intercept",
+      "r_squared": null,
+      "cautions": ["Fitting through the origin is an imperfect fix. It removes negative predictions at the cost of forcing the line through a point no firm occupies."]
+    },
+    "europe_pe_jan2021": {
+      "description": "European PE on beta, payout and expected EPS growth.",
+      "dependent": "PE", "region": "Europe",
+      "coefficients": {"intercept": 16.69, "beta": 4.65, "payout": 15.30, "growth": 91.80},
+      "units": "decimals", "definition": "beta, payout, five-year expected EPS growth",
+      "r_squared": 0.145, "cautions": []
+    },
+    "japan_pe_jan2021": {
+      "description": "Japanese PE on beta, payout and expected EPS growth.",
+      "dependent": "PE", "region": "Japan",
+      "coefficients": {"intercept": 20.89, "beta": -7.63, "payout": 14.30, "growth": 149.30},
+      "units": "decimals", "definition": "beta, payout, five-year expected EPS growth",
+      "r_squared": 0.238, "cautions": []
+    },
+    "em_pe_jan2021": {
+      "description": "Emerging-market PE on beta, payout and expected EPS growth.",
+      "dependent": "PE", "region": "Emerging Markets",
+      "coefficients": {"intercept": 17.88, "beta": 0.44, "payout": 3.00, "growth": 113.80},
+      "units": "decimals", "definition": "beta, payout, five-year expected EPS growth",
+      "r_squared": 0.219, "cautions": []
+    },
+    "anzc_pe_jan2021": {
+      "description": "Australia, New Zealand and Canada PE on beta, payout and expected EPS growth.",
+      "dependent": "PE", "region": "Australia, NZ, Canada",
+      "coefficients": {"intercept": 12.07, "beta": 1.72, "payout": 12.00, "growth": 114.10},
+      "units": "decimals", "definition": "beta, payout, five-year expected EPS growth",
+      "r_squared": 0.161, "cautions": []
+    },
+    "global_pe_jan2021": {
+      "description": "Global PE on beta, payout and expected EPS growth.",
+      "dependent": "PE", "region": "Global",
+      "coefficients": {"intercept": 20.04, "beta": -2.57, "payout": 8.70, "growth": 139.20},
+      "units": "decimals", "definition": "beta, payout, five-year expected EPS growth",
+      "r_squared": 0.232, "cautions": []
+    },
+    "us_peg_jan2021": {
+      "description": "US PEG on payout, the log of expected growth, and beta. The log transform is the standard fix for the non-linear PEG-growth relationship: R-squared on raw growth is 0.022 against 0.053 on ln(growth).",
+      "dependent": "PEG",
+      "region": "United States",
+      "coefficients": {"intercept": 5.626, "payout": 0.004, "growth": -0.660, "beta": -1.138},
+      "log_predictors": ["growth"],
+      "units": "payout and growth in absolute percentage points (a 25% payout enters as 25, 20% growth enters as 20 before the log is taken)",
+      "definition": "payout = dividends / net income; growth = expected EPS growth over the next five years; beta = regression or bottom-up beta",
+      "r_squared": 0.116,
+      "cautions": [
+        "R-squared of 0.116 means fundamentals explain far less of PEG than of PE. Hold any conclusion loosely.",
+        "The regional PEG table in the same packet states payout and growth as decimals while this SPSS output states them as percentages. Check which convention a coefficient set uses before applying it.",
+        "PEG falls with beta and with the level of growth, so a low PEG often marks the riskiest or fastest-growing firm rather than the cheapest."
+      ]
+    },
+    "us_pbv_jan2021": {
+      "description": "US price-to-book on beta, payout, expected EPS growth and ROE.",
+      "dependent": "PBV", "region": "United States",
+      "coefficients": {"intercept": 1.72, "beta": -1.13, "payout": 0.50, "growth": 11.00, "roe": 11.10},
+      "units": "decimals", "definition": "roe = net income / book value of equity, most recent year",
+      "r_squared": 0.452, "cautions": []
+    },
+    "europe_pbv_jan2021": {
+      "description": "European price-to-book on beta, payout, expected EPS growth and ROE.",
+      "dependent": "PBV", "region": "Europe",
+      "coefficients": {"intercept": 3.11, "beta": -1.17, "payout": 0.20, "growth": 4.30, "roe": 10.30},
+      "units": "decimals", "definition": "roe = net income / book value of equity",
+      "r_squared": 0.349, "cautions": []
+    },
+    "japan_pbv_jan2021": {
+      "description": "Japanese price-to-book on beta, payout, expected EPS growth and ROE.",
+      "dependent": "PBV", "region": "Japan",
+      "coefficients": {"intercept": 0.98, "beta": 0.47, "payout": -0.20, "growth": 11.20, "roe": 14.60},
+      "units": "decimals", "definition": "roe = net income / book value of equity",
+      "r_squared": 0.278,
+      "cautions": ["The positive beta coefficient is a multicollinearity artefact, not a finding that risk raises price-to-book in Japan."]
+    },
+    "em_pbv_jan2021": {
+      "description": "Emerging-market price-to-book on beta, payout, expected EPS growth and ROE.",
+      "dependent": "PBV", "region": "Emerging Markets",
+      "coefficients": {"intercept": -0.32, "beta": -0.05, "payout": 0.90, "growth": 5.00, "roe": 17.20},
+      "units": "decimals", "definition": "roe = net income / book value of equity",
+      "r_squared": 0.483,
+      "cautions": ["The intercept is negative, so a firm with weak fundamentals can be handed a negative predicted price-to-book. Refuse that prediction rather than reporting it."]
+    },
+    "anzc_pbv_jan2021": {
+      "description": "Australia, New Zealand and Canada price-to-book on beta, payout, expected EPS growth and ROE.",
+      "dependent": "PBV", "region": "Australia, NZ, Canada",
+      "coefficients": {"intercept": 1.73, "beta": -1.22, "payout": 0.30, "growth": 3.90, "roe": 9.80},
+      "units": "decimals", "definition": "roe = net income / book value of equity",
+      "r_squared": 0.324, "cautions": []
+    },
+    "global_pbv_jan2021": {
+      "description": "Global price-to-book on beta, payout, expected EPS growth and ROE.",
+      "dependent": "PBV", "region": "Global",
+      "coefficients": {"intercept": 1.61, "beta": -0.70, "payout": 0.40, "growth": 6.10, "roe": 12.40},
+      "units": "decimals", "definition": "roe = net income / book value of equity",
+      "r_squared": 0.391, "cautions": []
+    },
+    "us_ev_ebitda_jan2021": {
+      "description": "US EV/EBITDA on the debt ratio, expected revenue growth and the effective tax rate.",
+      "dependent": "EV/EBITDA", "region": "United States",
+      "coefficients": {"intercept": 29.71, "debt_ratio": -23.80, "revenue_growth": 35.00, "tax_rate": -32.70},
+      "units": "decimals",
+      "definition": "debt_ratio = total debt / (total debt + market value of equity); revenue_growth = expected near-term revenue growth; tax_rate = effective tax rate in the most recent year",
+      "r_squared": 0.267, "cautions": []
+    },
+    "europe_ev_ebitda_jan2021": {
+      "description": "European EV/EBITDA on the debt ratio, expected revenue growth and the effective tax rate.",
+      "dependent": "EV/EBITDA", "region": "Europe",
+      "coefficients": {"intercept": 24.26, "debt_ratio": -13.90, "revenue_growth": 28.20, "tax_rate": -7.10},
+      "units": "decimals", "definition": "as us_ev_ebitda_jan2021",
+      "r_squared": 0.159, "cautions": []
+    },
+    "japan_ev_ebitda_jan2021": {
+      "description": "Japanese EV/EBITDA on the debt ratio, expected revenue growth and the effective tax rate.",
+      "dependent": "EV/EBITDA", "region": "Japan",
+      "coefficients": {"intercept": 20.74, "debt_ratio": 9.50, "revenue_growth": 85.60, "tax_rate": -23.70},
+      "units": "decimals", "definition": "as us_ev_ebitda_jan2021",
+      "r_squared": 0.103,
+      "cautions": ["R-squared of 10.3% and a wrong-signed debt-ratio coefficient. Treat any prediction from this fit as illustrative."]
+    },
+    "em_ev_ebitda_jan2021": {
+      "description": "Emerging-market EV/EBITDA on the debt ratio, expected revenue growth and the effective tax rate.",
+      "dependent": "EV/EBITDA", "region": "Emerging Markets",
+      "coefficients": {"intercept": 30.03, "debt_ratio": -28.30, "revenue_growth": 31.80, "tax_rate": -17.60},
+      "units": "decimals", "definition": "as us_ev_ebitda_jan2021",
+      "r_squared": 0.278, "cautions": []
+    },
+    "anzc_ev_ebitda_jan2021": {
+      "description": "Australia, New Zealand and Canada EV/EBITDA on the debt ratio, expected revenue growth and the effective tax rate.",
+      "dependent": "EV/EBITDA", "region": "Australia, NZ, Canada",
+      "coefficients": {"intercept": 23.60, "debt_ratio": -10.10, "revenue_growth": 12.60, "tax_rate": -15.80},
+      "units": "decimals", "definition": "as us_ev_ebitda_jan2021",
+      "r_squared": 0.107, "cautions": ["Weak fit; the prediction is weak evidence."]
+    },
+    "global_ev_ebitda_jan2021": {
+      "description": "Global EV/EBITDA on the debt ratio, expected revenue growth and the effective tax rate.",
+      "dependent": "EV/EBITDA", "region": "Global",
+      "coefficients": {"intercept": 27.44, "debt_ratio": -18.60, "revenue_growth": 32.90, "tax_rate": -18.60},
+      "units": "decimals", "definition": "as us_ev_ebitda_jan2021",
+      "r_squared": 0.215, "cautions": []
+    },
+    "us_ev_sales_jan2021": {
+      "description": "US EV/Sales on the effective tax rate, debt ratio, expected revenue growth and operating margin. Slide labelled January 2020, carried in the 2021 packet.",
+      "dependent": "EV/Sales", "region": "United States",
+      "coefficients": {"intercept": 4.35, "tax_rate": -5.40, "debt_ratio": -1.00, "revenue_growth": 7.80, "operating_margin": 6.50},
+      "units": "decimals",
+      "definition": "operating_margin = operating income / sales; the rest as in us_ev_ebitda_jan2021",
+      "r_squared": 0.312, "cautions": []
+    },
+    "europe_ev_sales_jan2021": {
+      "description": "European EV/Sales on the effective tax rate, debt ratio, expected revenue growth and operating margin.",
+      "dependent": "EV/Sales", "region": "Europe",
+      "coefficients": {"intercept": 1.69, "tax_rate": 1.70, "debt_ratio": 2.20, "revenue_growth": 3.20, "operating_margin": 6.70},
+      "units": "decimals", "definition": "as us_ev_sales_jan2021",
+      "r_squared": 0.132, "cautions": ["Weak fit; the tax and debt-ratio signs both invert relative to theory."]
+    },
+    "japan_ev_sales_jan2021": {
+      "description": "Japanese EV/Sales on the effective tax rate, debt ratio, expected revenue growth and operating margin.",
+      "dependent": "EV/Sales", "region": "Japan",
+      "coefficients": {"intercept": 2.10, "tax_rate": -0.80, "debt_ratio": -2.00, "revenue_growth": 9.30, "operating_margin": 6.60},
+      "units": "decimals", "definition": "as us_ev_sales_jan2021",
+      "r_squared": 0.235, "cautions": []
+    },
+    "em_ev_sales_jan2021": {
+      "description": "Emerging-market EV/Sales on the effective tax rate, debt ratio, expected revenue growth and operating margin.",
+      "dependent": "EV/Sales", "region": "Emerging Markets",
+      "coefficients": {"intercept": 3.48, "tax_rate": -2.20, "debt_ratio": -1.00, "revenue_growth": 3.20, "operating_margin": 5.40},
+      "units": "decimals", "definition": "as us_ev_sales_jan2021",
+      "r_squared": 0.146, "cautions": []
+    },
+    "anzc_ev_sales_jan2021": {
+      "description": "Australia, New Zealand and Canada EV/Sales on the effective tax rate, debt ratio, expected revenue growth and operating margin.",
+      "dependent": "EV/Sales", "region": "Australia, NZ, Canada",
+      "coefficients": {"intercept": 2.16, "tax_rate": -2.80, "debt_ratio": 2.60, "revenue_growth": 5.70, "operating_margin": 7.90},
+      "units": "decimals", "definition": "as us_ev_sales_jan2021",
+      "r_squared": 0.318, "cautions": []
+    },
+    "global_ev_sales_jan2021": {
+      "description": "Global EV/Sales on the effective tax rate, debt ratio, expected revenue growth and operating margin.",
+      "dependent": "EV/Sales", "region": "Global",
+      "coefficients": {"intercept": 3.37, "tax_rate": -2.30, "debt_ratio": -0.10, "revenue_growth": 5.20, "operating_margin": 6.30},
+      "units": "decimals", "definition": "as us_ev_sales_jan2021",
+      "r_squared": 0.181,
+      "cautions": ["The operating-margin coefficient sits between 5.4 and 7.9 in every region. Margin is the dominant companion variable everywhere."]
+    },
+    "us_ev_ic_jan2021": {
+      "description": "US EV/Invested Capital on the debt ratio, expected revenue growth and ROIC. Slide labelled January 2020, carried in the 2021 packet.",
+      "dependent": "EV/IC", "region": "United States",
+      "coefficients": {"intercept": 4.29, "debt_ratio": -4.20, "revenue_growth": 2.10, "roic": 6.00},
+      "units": "decimals",
+      "definition": "roic = after-tax return on invested capital; invested capital = book equity + book debt - cash",
+      "r_squared": 0.573,
+      "cautions": ["EV/IC regressions have the tightest fit of any multiple family. When multiples disagree, weight this one more heavily."]
+    },
+    "europe_ev_ic_jan2021": {
+      "description": "European EV/Invested Capital on the debt ratio, expected revenue growth and ROIC.",
+      "dependent": "EV/IC", "region": "Europe",
+      "coefficients": {"intercept": 3.77, "debt_ratio": -3.70, "revenue_growth": 0.80, "roic": 6.20},
+      "units": "decimals", "definition": "as us_ev_ic_jan2021",
+      "r_squared": 0.579, "cautions": []
+    },
+    "japan_ev_ic_jan2021": {
+      "description": "Japanese EV/Invested Capital on the debt ratio, expected revenue growth and ROIC.",
+      "dependent": "EV/IC", "region": "Japan",
+      "coefficients": {"intercept": 3.04, "debt_ratio": -3.10, "revenue_growth": 6.10, "roic": 5.30},
+      "units": "decimals", "definition": "as us_ev_ic_jan2021",
+      "r_squared": 0.505, "cautions": []
+    },
+    "em_ev_ic_jan2021": {
+      "description": "Emerging-market EV/Invested Capital on the debt ratio, expected revenue growth and ROIC.",
+      "dependent": "EV/IC", "region": "Emerging Markets",
+      "coefficients": {"intercept": 3.14, "debt_ratio": -3.70, "revenue_growth": 2.50, "roic": 7.50},
+      "units": "decimals", "definition": "as us_ev_ic_jan2021",
+      "r_squared": 0.628, "cautions": []
+    },
+    "anzc_ev_ic_jan2021": {
+      "description": "Australia, New Zealand and Canada EV/Invested Capital on the debt ratio, expected revenue growth and ROIC.",
+      "dependent": "EV/IC", "region": "Australia, NZ, Canada",
+      "coefficients": {"intercept": 2.87, "debt_ratio": -2.60, "revenue_growth": 0.80, "roic": 4.30},
+      "units": "decimals", "definition": "as us_ev_ic_jan2021",
+      "r_squared": 0.509, "cautions": []
+    },
+    "global_ev_ic_jan2021": {
+      "description": "Global EV/Invested Capital on the debt ratio, expected revenue growth and ROIC.",
+      "dependent": "EV/IC", "region": "Global",
+      "coefficients": {"intercept": 3.62, "debt_ratio": -3.70, "revenue_growth": 1.70, "roic": 6.70},
+      "units": "decimals", "definition": "as us_ev_ic_jan2021",
+      "r_squared": 0.575, "cautions": []
+    },
+    "country_pe_2000": {
+      "description": "Country PE on the local interest rate, expected real GDP growth and a country risk score. Estimated on 16 emerging markets, June 2000.",
+      "dependent": "Country PE", "region": "Emerging markets, cross-country",
+      "coefficients": {"intercept": 16.16, "interest_rate": -7.94, "real_gdp_growth": 154.40, "country_risk": -0.1116},
+      "units": "interest_rate and real_gdp_growth as decimals; country_risk on a 0-100 scale where higher is riskier",
+      "definition": "interest_rate = long-term local rate; real_gdp_growth = expected real GDP growth; country_risk = composite risk score on the scale the regression was fitted on",
+      "r_squared": 0.73,
+      "cautions": [
+        "The risk coefficient is scale-specific. A score on a different scale gives a meaningless prediction.",
+        "Sixteen observations with three predictors is thin. Rates and risk premia have moved enormously since June 2000; refit before use."
+      ]
+    },
+    "us_grocery_ps_2007": {
+      "description": "US grocery sector price-to-sales on the net margin, January 2007.",
+      "dependent": "Price/Sales", "region": "United States, grocery sector",
+      "coefficients": {"intercept": 0.07, "net_margin": 10.49},
+      "units": "net margin as a decimal", "definition": "net_margin = net income / revenues",
+      "r_squared": 0.595, "cautions": []
+    },
+    "us_grocery_ps_2010": {
+      "description": "US grocery sector price-to-sales on the net margin, January 2010.",
+      "dependent": "Price/Sales", "region": "United States, grocery sector",
+      "coefficients": {"intercept": 0.06, "net_margin": 11.43},
+      "units": "net margin as a decimal", "definition": "net_margin = net income / revenues",
+      "r_squared": 0.638, "cautions": []
+    },
+    "us_grocery_ps_2015": {
+      "description": "US grocery sector price-to-sales on the net margin, January 2015.",
+      "dependent": "Price/Sales", "region": "United States, grocery sector",
+      "coefficients": {"intercept": 0.557, "net_margin": 8.50},
+      "units": "net margin as a decimal", "definition": "net_margin = net income / revenues",
+      "r_squared": 0.291,
+      "cautions": ["The fit collapsed from 0.595 in 2007 to 0.291 in 2015 while the coefficients moved in every vintage. Sector regressions are not stable; re-estimate."]
+    },
+    "internet_ps_2000": {
+      "description": "Early-2000 internet stocks: price-to-sales on survival and growth proxies, used because every firm in the sector had a negative margin. Regressing on the current margin gave R-squared of 0.04.",
+      "dependent": "Price/Sales", "region": "United States, internet sector",
+      "coefficients": {"intercept": 30.61, "ln_revenue": -2.77, "revenue_growth": 6.42, "cash_over_revenue": 5.11},
+      "units": "ln_revenue = natural log of revenues, already logged by the caller; revenue_growth and cash_over_revenue as decimals",
+      "definition": "ln_revenue is a size control; cash_over_revenue is the survival proxy",
+      "r_squared": 0.318,
+      "cautions": ["A relative verdict inside a bubble is still relative. Every firm in this sample was priced against peers who were collectively overpriced."]
+    },
+    "sp500_earnings_yield_1960_2020": {
+      "description": "S&P 500 earnings yield on the ten-year Treasury rate and the bond-bill spread, 1960-2020. Invert the predicted yield to get a predicted market PE.",
+      "dependent": "Earnings yield (E/P)", "region": "United States, index level",
+      "coefficients": {"intercept": 0.0359, "tbond_rate": 0.5534, "bond_bill_spread": -0.1559},
+      "units": "all rates as decimals",
+      "definition": "tbond_rate = ten-year Treasury rate; bond_bill_spread = ten-year rate minus the short-term Treasury rate",
+      "r_squared": 0.4481,
+      "cautions": [
+        "The output is an earnings yield, not a multiple. Invert it: predicted market PE = 1 / predicted E/P.",
+        "The relationship weakened after 2008. Fitted through 2008 the same regression had R-squared of 0.5071 and a significant spread term; through 2020 the spread term is insignificant."
+      ]
+    }
+  }
+}

@@ -1,0 +1,1769 @@
+{
+  "as_of": "2020-01",
+  "vintage": "divginzu-2020",
+  "source": "Aswath Damodaran, divginzu.xls sheet 'Country ERP' (NYU Stern, 2020 spreadsheet collection)",
+  "as_of_note": "Dated to the collection year. The mature-market premium of 5.69% in this sheet is carried over from an earlier update while the sovereign ratings match early 2020, so treat 2020-01 as the latest possible date, not a certified one.",
+  "refresh": "https://pages.stern.nyu.edu/~adamodar/ - 'Country Default Spreads and Risk Premiums'. Damodaran updates it every January and July. Sovereign ratings and the mature-market premium both move; refresh at least annually and never mix vintages inside one valuation.",
+  "mature_market_erp": 0.0569,
+  "relative_equity_volatility_multiplier": 1.1796,
+  "identities": [
+    "erp = mature_market_erp + crp",
+    "crp = adj_default_spread * relative_equity_volatility_multiplier"
+  ],
+  "known_quirks": [
+    "El Salvador is entered hand-rounded to four decimals in the source sheet, so its crp misses the multiplier identity by about 2e-05. Kept verbatim rather than recomputed.",
+    "Aaa sovereigns carry a spread of exactly 0, so their erp equals the mature-market premium and their crp is 0."
+  ],
+  "na_means": "moodys_rating null means Moody's does not rate that sovereign in this vintage. The spread is still populated: unrated countries carry their regional average spread. Later vintages put a numeric PRS composite risk score in the rating column instead.",
+  "lookup_rule": "Exact match on the full country list. The source workbook's own VLOOKUP ranges stop short of the last alphabetical rows, which silently returns a wrong spread for late-alphabet countries such as United States. Do not reproduce that defect.",
+  "country_count": 186,
+  "region_count": 10,
+  "countries": [
+    {
+      "country": "Abu Dhabi",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.55
+    },
+    {
+      "country": "Albania",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Algeria",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.26
+    },
+    {
+      "country": "Andorra (Principality of)",
+      "moodys_rating": "Baa2",
+      "rated": true,
+      "adj_default_spread": 0.0159154,
+      "erp": 0.0756737,
+      "crp": 0.0187737,
+      "corporate_tax_rate": 0.1
+    },
+    {
+      "country": "Angola",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Anguilla",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0459509,
+      "erp": 0.111103,
+      "crp": 0.0542033,
+      "corporate_tax_rate": 0.238808
+    },
+    {
+      "country": "Antigua & Barbuda",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0459509,
+      "erp": 0.111103,
+      "crp": 0.0542033,
+      "corporate_tax_rate": 0.238808
+    },
+    {
+      "country": "Argentina",
+      "moodys_rating": "Caa2",
+      "rated": true,
+      "adj_default_spread": 0.0752778,
+      "erp": 0.145697,
+      "crp": 0.088797,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Armenia",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Aruba",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Australia",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Austria",
+      "moodys_rating": "Aa1",
+      "rated": true,
+      "adj_default_spread": 0.00331886,
+      "erp": 0.0608149,
+      "crp": 0.0039149,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Azerbaijan",
+      "moodys_rating": "Ba2",
+      "rated": true,
+      "adj_default_spread": 0.0251177,
+      "erp": 0.0865287,
+      "crp": 0.0296287,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Bahamas",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Bahrain",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Bangladesh",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Barbados",
+      "moodys_rating": "Caa1",
+      "rated": true,
+      "adj_default_spread": 0.0626812,
+      "erp": 0.130838,
+      "crp": 0.0739382,
+      "corporate_tax_rate": 0.055
+    },
+    {
+      "country": "Belarus",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.18
+    },
+    {
+      "country": "Belgium",
+      "moodys_rating": "Aa3",
+      "rated": true,
+      "adj_default_spread": 0.00505372,
+      "erp": 0.0628613,
+      "crp": 0.00596132,
+      "corporate_tax_rate": 0.29
+    },
+    {
+      "country": "Belize",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3236
+    },
+    {
+      "country": "Benin",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Bermuda",
+      "moodys_rating": "A2",
+      "rated": true,
+      "adj_default_spread": 0.00709029,
+      "erp": 0.0652636,
+      "crp": 0.00836364,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Bolivia",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.1
+    },
+    {
+      "country": "Botswana",
+      "moodys_rating": "A2",
+      "rated": true,
+      "adj_default_spread": 0.00709029,
+      "erp": 0.0652636,
+      "crp": 0.00836364,
+      "corporate_tax_rate": 0.22
+    },
+    {
+      "country": "Brazil",
+      "moodys_rating": "Ba2",
+      "rated": true,
+      "adj_default_spread": 0.0251177,
+      "erp": 0.0865287,
+      "crp": 0.0296287,
+      "corporate_tax_rate": 0.34
+    },
+    {
+      "country": "British Virgin Islands",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0459509,
+      "erp": 0.111103,
+      "crp": 0.0542033,
+      "corporate_tax_rate": 0.238808
+    },
+    {
+      "country": "Brunei",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.00331886,
+      "erp": 0.0608149,
+      "crp": 0.0039149,
+      "corporate_tax_rate": 0.185
+    },
+    {
+      "country": "Bulgaria",
+      "moodys_rating": "Baa2",
+      "rated": true,
+      "adj_default_spread": 0.0159154,
+      "erp": 0.0756737,
+      "crp": 0.0187737,
+      "corporate_tax_rate": 0.1
+    },
+    {
+      "country": "Burkina Faso",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.28
+    },
+    {
+      "country": "Cambodia",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Cameroon",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.33
+    },
+    {
+      "country": "Canada",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.265
+    },
+    {
+      "country": "Cape Verde",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Cayman Islands",
+      "moodys_rating": "Aa3",
+      "rated": true,
+      "adj_default_spread": 0.00505372,
+      "erp": 0.0628613,
+      "crp": 0.00596132,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Channel Islands",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.00687424,
+      "erp": 0.0650088,
+      "crp": 0.00810879,
+      "corporate_tax_rate": 0.25037
+    },
+    {
+      "country": "Chile",
+      "moodys_rating": "A1",
+      "rated": true,
+      "adj_default_spread": 0.00588343,
+      "erp": 0.06384,
+      "crp": 0.00694004,
+      "corporate_tax_rate": 0.27
+    },
+    {
+      "country": "China",
+      "moodys_rating": "A1",
+      "rated": true,
+      "adj_default_spread": 0.00588343,
+      "erp": 0.06384,
+      "crp": 0.00694004,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Colombia",
+      "moodys_rating": "Baa2",
+      "rated": true,
+      "adj_default_spread": 0.0159154,
+      "erp": 0.0756737,
+      "crp": 0.0187737,
+      "corporate_tax_rate": 0.33
+    },
+    {
+      "country": "Congo (Democratic Republic of)",
+      "moodys_rating": "Caa1",
+      "rated": true,
+      "adj_default_spread": 0.0626812,
+      "erp": 0.130838,
+      "crp": 0.0739382,
+      "corporate_tax_rate": 0.35
+    },
+    {
+      "country": "Congo (Republic of)",
+      "moodys_rating": "Caa2",
+      "rated": true,
+      "adj_default_spread": 0.0752778,
+      "erp": 0.145697,
+      "crp": 0.088797,
+      "corporate_tax_rate": 0.3236
+    },
+    {
+      "country": "Cook Islands",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.2843
+    },
+    {
+      "country": "Costa Rica",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Croatia",
+      "moodys_rating": "Ba2",
+      "rated": true,
+      "adj_default_spread": 0.0251177,
+      "erp": 0.0865287,
+      "crp": 0.0296287,
+      "corporate_tax_rate": 0.18
+    },
+    {
+      "country": "Cuba",
+      "moodys_rating": "Caa2",
+      "rated": true,
+      "adj_default_spread": 0.0752778,
+      "erp": 0.145697,
+      "crp": 0.088797,
+      "corporate_tax_rate": 0.2724
+    },
+    {
+      "country": "Cura\u00e7ao",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.22
+    },
+    {
+      "country": "Cyprus",
+      "moodys_rating": "Ba2",
+      "rated": true,
+      "adj_default_spread": 0.0251177,
+      "erp": 0.0865287,
+      "crp": 0.0296287,
+      "corporate_tax_rate": 0.125
+    },
+    {
+      "country": "Czech Republic",
+      "moodys_rating": "Aa3",
+      "rated": true,
+      "adj_default_spread": 0.00505372,
+      "erp": 0.0628613,
+      "crp": 0.00596132,
+      "corporate_tax_rate": 0.19
+    },
+    {
+      "country": "Denmark",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.22
+    },
+    {
+      "country": "Dominican Republic",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.27
+    },
+    {
+      "country": "Ecuador",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Egypt",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.225
+    },
+    {
+      "country": "El Salvador",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.0753,
+      "erp": 0.1457,
+      "crp": 0.0888,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Estonia",
+      "moodys_rating": "A1",
+      "rated": true,
+      "adj_default_spread": 0.00588343,
+      "erp": 0.06384,
+      "crp": 0.00694004,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Ethiopia",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Falkland Islands",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0274145,
+      "erp": 0.0892379,
+      "crp": 0.0323379,
+      "corporate_tax_rate": 0.310231
+    },
+    {
+      "country": "Fiji",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Finland",
+      "moodys_rating": "Aa1",
+      "rated": true,
+      "adj_default_spread": 0.00331886,
+      "erp": 0.0608149,
+      "crp": 0.0039149,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "France",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.31
+    },
+    {
+      "country": "Gabon",
+      "moodys_rating": "Caa1",
+      "rated": true,
+      "adj_default_spread": 0.0626812,
+      "erp": 0.130838,
+      "crp": 0.0739382,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Gambia",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.31
+    },
+    {
+      "country": "Georgia",
+      "moodys_rating": "Ba2",
+      "rated": true,
+      "adj_default_spread": 0.0251177,
+      "erp": 0.0865287,
+      "crp": 0.0296287,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Germany",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Ghana",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Gibraltar",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.00687424,
+      "erp": 0.0650088,
+      "crp": 0.00810879,
+      "corporate_tax_rate": 0.25037
+    },
+    {
+      "country": "Greece",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.28
+    },
+    {
+      "country": "Greenland",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.00687424,
+      "erp": 0.0650088,
+      "crp": 0.00810879,
+      "corporate_tax_rate": 0.25037
+    },
+    {
+      "country": "Guatemala",
+      "moodys_rating": "Ba1",
+      "rated": true,
+      "adj_default_spread": 0.0208937,
+      "erp": 0.0815461,
+      "crp": 0.0246461,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Guernsey",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Guinea",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0835749,
+      "erp": 0.155484,
+      "crp": 0.0985842,
+      "corporate_tax_rate": 0.2915
+    },
+    {
+      "country": "Guinea-Bissau",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.2915
+    },
+    {
+      "country": "Guyana",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.1864
+    },
+    {
+      "country": "Haiti",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0752778,
+      "erp": 0.145697,
+      "crp": 0.088797,
+      "corporate_tax_rate": 0.1864
+    },
+    {
+      "country": "Honduras",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Hong Kong",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.165
+    },
+    {
+      "country": "Hungary",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.09
+    },
+    {
+      "country": "Iceland",
+      "moodys_rating": "A2",
+      "rated": true,
+      "adj_default_spread": 0.00709029,
+      "erp": 0.0652636,
+      "crp": 0.00836364,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "India",
+      "moodys_rating": "Baa2",
+      "rated": true,
+      "adj_default_spread": 0.0159154,
+      "erp": 0.0756737,
+      "crp": 0.0187737,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Indonesia",
+      "moodys_rating": "Baa2",
+      "rated": true,
+      "adj_default_spread": 0.0159154,
+      "erp": 0.0756737,
+      "crp": 0.0187737,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Iran",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.2023
+    },
+    {
+      "country": "Iraq",
+      "moodys_rating": "Caa1",
+      "rated": true,
+      "adj_default_spread": 0.0626812,
+      "erp": 0.130838,
+      "crp": 0.0739382,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Ireland",
+      "moodys_rating": "A2",
+      "rated": true,
+      "adj_default_spread": 0.00709029,
+      "erp": 0.0652636,
+      "crp": 0.00836364,
+      "corporate_tax_rate": 0.125
+    },
+    {
+      "country": "Isle of Man",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Israel",
+      "moodys_rating": "A1",
+      "rated": true,
+      "adj_default_spread": 0.00588343,
+      "erp": 0.06384,
+      "crp": 0.00694004,
+      "corporate_tax_rate": 0.23
+    },
+    {
+      "country": "Italy",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.24
+    },
+    {
+      "country": "Ivory Coast",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Jamaica",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Japan",
+      "moodys_rating": "A1",
+      "rated": true,
+      "adj_default_spread": 0.00588343,
+      "erp": 0.06384,
+      "crp": 0.00694004,
+      "corporate_tax_rate": 0.3062
+    },
+    {
+      "country": "Jersey",
+      "moodys_rating": "A1",
+      "rated": true,
+      "adj_default_spread": 0.00588343,
+      "erp": 0.06384,
+      "crp": 0.00694004,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Jordan",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Kazakhstan",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Kenya",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Korea, D.P.R.",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.10032,
+      "erp": 0.175237,
+      "crp": 0.118337,
+      "corporate_tax_rate": 0.231
+    },
+    {
+      "country": "Kuwait",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Kyrgyzstan",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.1
+    },
+    {
+      "country": "Laos",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Latvia",
+      "moodys_rating": "A3",
+      "rated": true,
+      "adj_default_spread": 0.010032,
+      "erp": 0.0687337,
+      "crp": 0.0118337,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Lebanon",
+      "moodys_rating": "Caa2",
+      "rated": true,
+      "adj_default_spread": 0.0752778,
+      "erp": 0.145697,
+      "crp": 0.088797,
+      "corporate_tax_rate": 0.17
+    },
+    {
+      "country": "Liberia",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.14,
+      "erp": 0.222043,
+      "crp": 0.165143,
+      "corporate_tax_rate": 0.2915
+    },
+    {
+      "country": "Libya",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0251177,
+      "erp": 0.0865287,
+      "crp": 0.0296287,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Liechtenstein",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.125
+    },
+    {
+      "country": "Lithuania",
+      "moodys_rating": "A3",
+      "rated": true,
+      "adj_default_spread": 0.010032,
+      "erp": 0.0687337,
+      "crp": 0.0118337,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Luxembourg",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.2601
+    },
+    {
+      "country": "Macao",
+      "moodys_rating": "Aa3",
+      "rated": true,
+      "adj_default_spread": 0.00505372,
+      "erp": 0.0628613,
+      "crp": 0.00596132,
+      "corporate_tax_rate": 0.12
+    },
+    {
+      "country": "Macedonia",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.1
+    },
+    {
+      "country": "Madagascar",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Malawi",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Malaysia",
+      "moodys_rating": "A3",
+      "rated": true,
+      "adj_default_spread": 0.010032,
+      "erp": 0.0687337,
+      "crp": 0.0118337,
+      "corporate_tax_rate": 0.24
+    },
+    {
+      "country": "Mali",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.2824
+    },
+    {
+      "country": "Malta",
+      "moodys_rating": "A2",
+      "rated": true,
+      "adj_default_spread": 0.00709029,
+      "erp": 0.0652636,
+      "crp": 0.00836364,
+      "corporate_tax_rate": 0.35
+    },
+    {
+      "country": "Mauritius",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Mexico",
+      "moodys_rating": "A3",
+      "rated": true,
+      "adj_default_spread": 0.010032,
+      "erp": 0.0687337,
+      "crp": 0.0118337,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Moldova",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.12
+    },
+    {
+      "country": "Mongolia",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Montenegro",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.09
+    },
+    {
+      "country": "Montserrat",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.2724
+    },
+    {
+      "country": "Morocco",
+      "moodys_rating": "Ba1",
+      "rated": true,
+      "adj_default_spread": 0.0208937,
+      "erp": 0.0815461,
+      "crp": 0.0246461,
+      "corporate_tax_rate": 0.31
+    },
+    {
+      "country": "Mozambique",
+      "moodys_rating": "Caa2",
+      "rated": true,
+      "adj_default_spread": 0.0752778,
+      "erp": 0.145697,
+      "crp": 0.088797,
+      "corporate_tax_rate": 0.32
+    },
+    {
+      "country": "Myanmar",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Namibia",
+      "moodys_rating": "Ba2",
+      "rated": true,
+      "adj_default_spread": 0.0251177,
+      "erp": 0.0865287,
+      "crp": 0.0296287,
+      "corporate_tax_rate": 0.32
+    },
+    {
+      "country": "Netherlands",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Netherlands Antilles",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0459509,
+      "erp": 0.111103,
+      "crp": 0.0542033,
+      "corporate_tax_rate": 0.238808
+    },
+    {
+      "country": "New Zealand",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.28
+    },
+    {
+      "country": "Nicaragua",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Niger",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3236
+    },
+    {
+      "country": "Nigeria",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Norway",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.22
+    },
+    {
+      "country": "Oman",
+      "moodys_rating": "Ba1",
+      "rated": true,
+      "adj_default_spread": 0.0208937,
+      "erp": 0.0815461,
+      "crp": 0.0246461,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Pakistan",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Palestinian Authority",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.013352,
+      "erp": 0.0726499,
+      "crp": 0.0157499,
+      "corporate_tax_rate": 0.273658
+    },
+    {
+      "country": "Panama",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Papua New Guinea",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Paraguay",
+      "moodys_rating": "Ba1",
+      "rated": true,
+      "adj_default_spread": 0.0208937,
+      "erp": 0.0815461,
+      "crp": 0.0246461,
+      "corporate_tax_rate": 0.1
+    },
+    {
+      "country": "Peru",
+      "moodys_rating": "A3",
+      "rated": true,
+      "adj_default_spread": 0.010032,
+      "erp": 0.0687337,
+      "crp": 0.0118337,
+      "corporate_tax_rate": 0.295
+    },
+    {
+      "country": "Philippines",
+      "moodys_rating": "Baa2",
+      "rated": true,
+      "adj_default_spread": 0.0159154,
+      "erp": 0.0756737,
+      "crp": 0.0187737,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Poland",
+      "moodys_rating": "A2",
+      "rated": true,
+      "adj_default_spread": 0.00709029,
+      "erp": 0.0652636,
+      "crp": 0.00836364,
+      "corporate_tax_rate": 0.19
+    },
+    {
+      "country": "Portugal",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.21
+    },
+    {
+      "country": "Qatar",
+      "moodys_rating": "Aa3",
+      "rated": true,
+      "adj_default_spread": 0.00505372,
+      "erp": 0.0628613,
+      "crp": 0.00596132,
+      "corporate_tax_rate": 0.1
+    },
+    {
+      "country": "Ras Al Khaimah (Emirate of)",
+      "moodys_rating": "Caa1",
+      "rated": true,
+      "adj_default_spread": 0.0626812,
+      "erp": 0.130838,
+      "crp": 0.0739382,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Reunion",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.00858798,
+      "erp": 0.0670303,
+      "crp": 0.0101303,
+      "corporate_tax_rate": 0.261175
+    },
+    {
+      "country": "Romania",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.16
+    },
+    {
+      "country": "Russia",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Rwanda",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Saint Lucia",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0459509,
+      "erp": 0.111103,
+      "crp": 0.0542033,
+      "corporate_tax_rate": 0.238808
+    },
+    {
+      "country": "Saudi Arabia",
+      "moodys_rating": "A1",
+      "rated": true,
+      "adj_default_spread": 0.00588343,
+      "erp": 0.06384,
+      "crp": 0.00694004,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Senegal",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Serbia",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.15
+    },
+    {
+      "country": "Sharjah",
+      "moodys_rating": "A3",
+      "rated": true,
+      "adj_default_spread": 0.010032,
+      "erp": 0.0687337,
+      "crp": 0.0118337,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Sierra Leone",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.0835749,
+      "erp": 0.155484,
+      "crp": 0.0985842,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Singapore",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.17
+    },
+    {
+      "country": "Slovakia",
+      "moodys_rating": "A2",
+      "rated": true,
+      "adj_default_spread": 0.00709029,
+      "erp": 0.0652636,
+      "crp": 0.00836364,
+      "corporate_tax_rate": 0.21
+    },
+    {
+      "country": "Slovenia",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.19
+    },
+    {
+      "country": "Solomon Islands",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Somalia",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.10032,
+      "erp": 0.175237,
+      "crp": 0.118337,
+      "corporate_tax_rate": 0.2915
+    },
+    {
+      "country": "South Africa",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.28
+    },
+    {
+      "country": "South Korea",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Spain",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Sri Lanka",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.28
+    },
+    {
+      "country": "St. Maarten",
+      "moodys_rating": "Baa3",
+      "rated": true,
+      "adj_default_spread": 0.0184046,
+      "erp": 0.0786099,
+      "crp": 0.0217099,
+      "corporate_tax_rate": 0.35
+    },
+    {
+      "country": "St. Vincent & the Grenadines",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Sudan",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.14,
+      "erp": 0.222043,
+      "crp": 0.165143,
+      "corporate_tax_rate": 0.35
+    },
+    {
+      "country": "Suriname",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.36
+    },
+    {
+      "country": "Swaziland",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.275
+    },
+    {
+      "country": "Sweden",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.214
+    },
+    {
+      "country": "Switzerland",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.18
+    },
+    {
+      "country": "Syria",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.10032,
+      "erp": 0.175237,
+      "crp": 0.118337,
+      "corporate_tax_rate": 0.28
+    },
+    {
+      "country": "Taiwan",
+      "moodys_rating": "Aa3",
+      "rated": true,
+      "adj_default_spread": 0.00505372,
+      "erp": 0.0628613,
+      "crp": 0.00596132,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Tajikistan",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3019
+    },
+    {
+      "country": "Tanzania",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Thailand",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Togo",
+      "moodys_rating": "B3",
+      "rated": true,
+      "adj_default_spread": 0.054384,
+      "erp": 0.121051,
+      "crp": 0.0641509,
+      "corporate_tax_rate": 0.3236
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "moodys_rating": "Ba1",
+      "rated": true,
+      "adj_default_spread": 0.0208937,
+      "erp": 0.0815461,
+      "crp": 0.0246461,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Tunisia",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Turkey",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.22
+    },
+    {
+      "country": "Turks and Caicos Islands",
+      "moodys_rating": "Baa1",
+      "rated": true,
+      "adj_default_spread": 0.0133509,
+      "erp": 0.0726486,
+      "crp": 0.0157486,
+      "corporate_tax_rate": 0.0
+    },
+    {
+      "country": "Uganda",
+      "moodys_rating": "B2",
+      "rated": true,
+      "adj_default_spread": 0.0460115,
+      "erp": 0.111175,
+      "crp": 0.0542747,
+      "corporate_tax_rate": 0.3
+    },
+    {
+      "country": "Ukraine",
+      "moodys_rating": "Caa1",
+      "rated": true,
+      "adj_default_spread": 0.0626812,
+      "erp": 0.130838,
+      "crp": 0.0739382,
+      "corporate_tax_rate": 0.18
+    },
+    {
+      "country": "United Arab Emirates",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.55
+    },
+    {
+      "country": "United Kingdom",
+      "moodys_rating": "Aa2",
+      "rated": true,
+      "adj_default_spread": 0.00414857,
+      "erp": 0.0617936,
+      "crp": 0.00489362,
+      "corporate_tax_rate": 0.19
+    },
+    {
+      "country": "United States",
+      "moodys_rating": "Aaa",
+      "rated": true,
+      "adj_default_spread": 0.0,
+      "erp": 0.0569,
+      "crp": 0.0,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Uruguay",
+      "moodys_rating": "B1",
+      "rated": true,
+      "adj_default_spread": 0.0376389,
+      "erp": 0.101298,
+      "crp": 0.0443985,
+      "corporate_tax_rate": 0.25
+    },
+    {
+      "country": "Venezuela",
+      "moodys_rating": "C",
+      "rated": true,
+      "adj_default_spread": 0.15,
+      "erp": 0.233839,
+      "crp": 0.176939,
+      "corporate_tax_rate": 0.34
+    },
+    {
+      "country": "Vietnam",
+      "moodys_rating": "Ba3",
+      "rated": true,
+      "adj_default_spread": 0.030096,
+      "erp": 0.092401,
+      "crp": 0.035501,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Yemen",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.10032,
+      "erp": 0.175237,
+      "crp": 0.118337,
+      "corporate_tax_rate": 0.2
+    },
+    {
+      "country": "Zambia",
+      "moodys_rating": "Caa2",
+      "rated": true,
+      "adj_default_spread": 0.0752778,
+      "erp": 0.145697,
+      "crp": 0.088797,
+      "corporate_tax_rate": 0.35
+    },
+    {
+      "country": "Zimbabwe",
+      "moodys_rating": null,
+      "rated": false,
+      "adj_default_spread": 0.10032,
+      "erp": 0.175237,
+      "crp": 0.118337,
+      "corporate_tax_rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "region": "Africa",
+      "erp": 0.103781,
+      "adj_default_spread": 0.0397433,
+      "corporate_tax_rate": 0.284916,
+      "crp": 0.0468809
+    },
+    {
+      "region": "Asia",
+      "erp": 0.0670303,
+      "adj_default_spread": 0.00858798,
+      "corporate_tax_rate": 0.261175,
+      "crp": 0.0101303
+    },
+    {
+      "region": "Australia & New Zealand",
+      "erp": 0.0569325,
+      "adj_default_spread": 2.75402e-05,
+      "corporate_tax_rate": 0.297489,
+      "crp": 3.24861e-05
+    },
+    {
+      "region": "Caribbean",
+      "erp": 0.111103,
+      "adj_default_spread": 0.0459509,
+      "corporate_tax_rate": 0.238808,
+      "crp": 0.0542033
+    },
+    {
+      "region": "Central and South America",
+      "erp": 0.0896932,
+      "adj_default_spread": 0.0278005,
+      "corporate_tax_rate": 0.309565,
+      "crp": 0.0327932
+    },
+    {
+      "region": "Eastern Europe & Russia",
+      "erp": 0.0782833,
+      "adj_default_spread": 0.0181277,
+      "corporate_tax_rate": 0.183598,
+      "crp": 0.0213833
+    },
+    {
+      "region": "Middle East",
+      "erp": 0.0726499,
+      "adj_default_spread": 0.013352,
+      "corporate_tax_rate": 0.273658,
+      "crp": 0.0157499
+    },
+    {
+      "region": "North America",
+      "erp": 0.0569,
+      "adj_default_spread": 0.0,
+      "corporate_tax_rate": 0.251155,
+      "crp": 0.0
+    },
+    {
+      "region": "Western Europe",
+      "erp": 0.0650088,
+      "adj_default_spread": 0.00687424,
+      "corporate_tax_rate": 0.25037,
+      "crp": 0.00810879
+    },
+    {
+      "region": "Global",
+      "erp": 0.0667,
+      "adj_default_spread": 0.0083,
+      "corporate_tax_rate": 0.257,
+      "crp": 0.0098
+    }
+  ]
+}

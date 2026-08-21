@@ -1,0 +1,57 @@
+{
+  "as_of": "2021-01",
+  "source": "Aswath Damodaran, valuation packet 2 (spring 2021), NYU Stern. US PE summary statistics across 7,584 firms; regional EV/EBITDA medians at the start of 2021; global price-to-book medians, January 2013.",
+  "refresh": "https://pages.stern.nyu.edu/~adamodar/ — the annual data update carries current multiples by industry and by region. These distributions move far enough year to year to reverse a verdict, so refresh before quoting a percentile.",
+  "threshold_warning": "A fixed threshold decays. 6x EBITDA sat in the modal US bucket (4-6x) in January 2010 and so was not cheap; by January 2021 the US median was 16.6x and the same 6x was below the 10th percentile. Locate a multiple in the current, local distribution before calling it high or low.",
+  "cross_market_warning": "Medians differ across markets because the underlying fundamentals differ — interest rates, real growth, country risk, accounting for goodwill and buybacks, and index composition. A gap between two markets' medians is not a trade until those differences are priced.",
+  "tables": {
+    "us_current_pe_2021": {
+      "kind": "percentiles",
+      "description": "US current PE (last fiscal year EPS), January 2021. 2,780 of 7,584 firms had a usable multiple; the mean was 109.79 and the maximum 36,157.",
+      "points": {"p10": 6.95, "p25": 10.41, "median": 18.15, "p75": 37.26, "p90": 95.44},
+      "mean": 109.79,
+      "firms_with_multiple": 2780,
+      "universe_size": 7584,
+      "share_with_positive_multiple": 0.3666,
+      "truncation_note": "About two-thirds of US firms had no usable current PE. Any conclusion drawn from this distribution describes the profitable subsample."
+    },
+    "us_trailing_pe_2021": {
+      "kind": "percentiles",
+      "description": "US trailing PE (trailing twelve months), January 2021. 2,481 of 7,584 firms had a usable multiple; the mean was 103.25 against a median of 20.30.",
+      "points": {"p10": 7.68, "p25": 11.50, "median": 20.30, "p75": 40.79, "p90": 96.80},
+      "mean": 103.25,
+      "firms_with_multiple": 2481,
+      "universe_size": 7584,
+      "share_with_positive_multiple": 0.324,
+      "truncation_note": "The mean sits above the 90th percentile. Only about a third of US firms had positive trailing earnings, so the sample excludes every money-losing firm."
+    },
+    "us_forward_pe_2021": {
+      "kind": "percentiles",
+      "description": "US forward PE (next-year forecast EPS), January 2021. 2,354 of 7,584 firms had a usable multiple; the mean was 79.74.",
+      "points": {"p10": 8.96, "p25": 12.36, "median": 18.89, "p75": 33.20, "p90": 69.40},
+      "mean": 79.74,
+      "firms_with_multiple": 2354,
+      "universe_size": 7584,
+      "share_with_positive_multiple": 0.3104,
+      "truncation_note": "Forward PE is less skewed than trailing PE because forecast earnings smooth a bad year, but the drop-out rate is just as high."
+    },
+    "regional_ev_ebitda_median_2021": {
+      "kind": "medians_by_group",
+      "description": "Median EV/EBITDA by region, start of 2021.",
+      "groups": {
+        "United States": 16.60, "EU & Environs": 14.44, "China": 21.15, "Japan": 8.46,
+        "E. Europe & Russia": 8.07, "India": 12.95, "Australia & NZ": 16.29,
+        "Canada": 12.44, "UK": 15.16, "Latin America": 11.13,
+        "Africa & Middle East": 11.51, "Small Asia": 12.74
+      }
+    },
+    "regional_pbv_median_2013": {
+      "kind": "medians_by_group",
+      "description": "Median price-to-book by region, January 2013. Japan's persistent discount is the standing exam question: cheap, or justified by low ROE?",
+      "groups": {
+        "United States": 1.54, "Europe": 1.22, "Japan": 0.67,
+        "Australia, NZ & Canada": 1.21, "Emerging Markets": 1.18, "Global": 1.16
+      }
+    }
+  }
+}

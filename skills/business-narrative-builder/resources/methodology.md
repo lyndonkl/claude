@@ -145,7 +145,7 @@ Map each narrative element to a specific valuation input:
 | "How big can it get?" | Revenue growth rate | TAM x target share, compute CAGR from current to target |
 | "How will it make money?" | Target operating margin | Benchmark against mature industry peers (median and quartiles) |
 | "How much reinvestment?" | Sales-to-capital ratio | Revenue / Invested Capital; industry benchmarks |
-| "What can go wrong?" | Cost of capital | WACC from cost-of-capital-estimator; higher for riskier narratives |
+| "What can go wrong?" | Cost of capital | WACC from cost-of-capital-toolkit; higher for riskier narratives |
 | "Could it fail entirely?" | Failure probability | Cash burn analysis, industry failure rates, Altman Z-score |
 
 Every number should be backed by a portion of the story, and every part of the story should have a place in the numbers.
@@ -159,7 +159,7 @@ Expected FCFF = Revenue x Operating Margin x (1 - Tax Rate) - Reinvestment
 Value = Sum of PV(FCFF) over high-growth period + PV(Terminal Value)
 ```
 
-This step is handled by the `intrinsic-valuation-dcf` skill. The narrative builder's job is to produce the inputs; the DCF skill computes the output.
+This step is handled by the `dcf-valuation-engine` skill. The narrative builder's job is to produce the inputs; the DCF skill computes the output.
 
 ### Step 5: Keep the feedback loop open
 

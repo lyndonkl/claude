@@ -1,0 +1,49 @@
+{
+  "as_of": "2002",
+  "source": "McKinsey & Company, Postmerger Management Practice (2002) — client survey and case studies, as reproduced in Aswath Damodaran's acquisitions lecture packet (valpacket3, p.116-117). Attrition range and error lists from the same slides.",
+  "refresh": "This is a published academic reference, not a market data series, so it does not go stale the way spreads do. Replace it if a larger or more recent post-merger realization study becomes available, and record which study a deal analysis used. Damodaran's current packets: https://pages.stern.nyu.edu/~adamodar/",
+  "sample_sizes": {"revenue_synergies": 77, "cost_savings": 92},
+  "headline": "70% of mergers failed to achieve the revenue synergies expected at announcement; a large majority delivered 90% or more of expected cost savings.",
+  "realization_bands": [
+    {"band": "<30%", "midpoint": 0.15, "revenue_pct_of_mergers": 23, "cost_pct_of_mergers": 3},
+    {"band": "30-50%", "midpoint": 0.40, "revenue_pct_of_mergers": 5, "cost_pct_of_mergers": 5},
+    {"band": "51-60%", "midpoint": 0.555, "revenue_pct_of_mergers": 13, "cost_pct_of_mergers": 1},
+    {"band": "61-70%", "midpoint": 0.655, "revenue_pct_of_mergers": 6, "cost_pct_of_mergers": 4},
+    {"band": "71-80%", "midpoint": 0.755, "revenue_pct_of_mergers": 14, "cost_pct_of_mergers": 12},
+    {"band": "81-90%", "midpoint": 0.855, "revenue_pct_of_mergers": 8, "cost_pct_of_mergers": 13},
+    {"band": "91-100%", "midpoint": 0.955, "revenue_pct_of_mergers": 13, "cost_pct_of_mergers": 25},
+    {"band": ">100%", "midpoint": 1.10, "revenue_pct_of_mergers": 17, "cost_pct_of_mergers": 36}
+  ],
+  "defaults": {
+    "revenue": {
+      "realization_rate": 0.655,
+      "basis": "Midpoint of the 61-70% band, which is where the cumulative revenue-synergy distribution crosses 50% of mergers.",
+      "customer_attrition_rate": 0.035,
+      "attrition_basis": "Midpoint of the 2%-5% integration customer-loss range reported on the same slides. Applies to revenue synergies only."
+    },
+    "cost": {
+      "realization_rate": 0.955,
+      "basis": "Midpoint of the 91-100% band, where the cumulative cost-saving distribution crosses 50% of mergers.",
+      "customer_attrition_rate": 0.0,
+      "attrition_basis": "Integration customer loss does not reduce a cost saving; it reduces the revenue it was meant to support."
+    }
+  },
+  "common_estimation_errors": {
+    "revenue": [
+      "Ignoring or underestimating customer losses from integration, typically 2%-5%.",
+      "Growth and share targets out of line with market growth and competitive response — no outside view."
+    ],
+    "cost": [
+      "Underestimating the one-time costs to achieve the savings.",
+      "Using benchmarks from noncomparable situations.",
+      "Not sanity-checking management estimates against precedent transactions.",
+      "No bottom-up analysis such as a location-by-location overlap review."
+    ]
+  },
+  "odds_findings": [
+    "Cost synergies are far more likely to be delivered than growth synergies.",
+    "Concrete synergies planned before the merger closes beat fuzzy ones.",
+    "Synergy shows up much more often when a named person is accountable for delivering it.",
+    "A sole bidder keeps more of the synergy than one of several bidders."
+  ]
+}

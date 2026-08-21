@@ -1,0 +1,94 @@
+{
+  "as_of": "2020-01",
+  "source": "Aswath Damodaran, corporate finance lecture packet (cfpacket2spr20), pages 156-163 and 189-200; global company database, January 2020.",
+  "refresh": "https://pages.stern.nyu.edu/~adamodar/ — 'Dividend Fundamentals by Region' and 'Dividend Payout and Yield' datasets are re-cut every January. Buyback intensity in particular has moved sharply since 2020; refresh annually and record the vintage the analysis used. Pass a refreshed file with benchmarks_path rather than editing this copy.",
+
+  "regional_cash_return": {
+    "units": "Net income, dividends and buybacks in USD millions; ratios as decimals.",
+    "columns": ["firms", "net_income", "dividends", "buybacks", "buyback_share", "dividend_payout", "cash_return_over_net_income", "dividend_yield"],
+    "rows": {
+      "Africa and Middle East": [2217, 238788, 145871, 8415, 0.0545, 0.6109, 0.6461, 0.0378],
+      "Australia & NZ":         [1676,  68690,  49964, 12800, 0.2039, 0.7274, 0.9137, 0.0345],
+      "Canada":                 [2707,  99281,  57484, 53501, 0.4821, 0.5790, 1.1179, 0.0254],
+      "China":                  [6199, 750166, 383121, 21854, 0.0540, 0.5107, 0.5398, 0.0298],
+      "EU & Environs":          [5537, 693958, 352810,140637, 0.2850, 0.5084, 0.7111, 0.0265],
+      "Eastern Europe & Russia":[ 515,  86133,  33809,  5899, 0.1486, 0.3925, 0.4610, 0.0591],
+      "India":                  [3589,  64561,  28009,  6761, 0.1944, 0.4338, 0.5386, 0.0129],
+      "Japan":                  [3854, 396037, 128485, 77562, 0.3764, 0.3244, 0.5203, 0.0208],
+      "Latin America & Caribbean":[928,  89883,  48011,  7885, 0.1411, 0.5342, 0.6219, 0.0253],
+      "Small Asia":             [8876, 328942, 141139, 15160, 0.0970, 0.4291, 0.4752, 0.0270],
+      "UK":                     [1243, 147586,  95403, 39341, 0.2920, 0.6464, 0.9130, 0.0301],
+      "United States":          [7053,1282385, 570044,859748, 0.6013, 0.4445, 1.1149, 0.0168],
+      "Global":                 [null,   null, 2034150,  null,   null,   null,   null, 0.0234]
+    }
+  },
+
+  "fcfe_sign_distribution": {
+    "note": "Share of firms in each cash-return category. A cash accumulator has FCFE > 0 and returns less than FCFE; a cash overpayer returns more than FCFE, including any positive payout when FCFE < 0.",
+    "columns": ["Australia/NZ/Canada", "Developed Europe", "Emerging Markets", "Japan", "United States", "Global"],
+    "rows": {
+      "fcfe_positive_no_payout":        [0.3468, 0.1535, 0.0933, 0.0455, 0.1608, 0.1453],
+      "fcfe_positive_payout_below_fcfe":[0.1240, 0.1838, 0.2129, 0.1326, 0.3193, 0.2101],
+      "cash_accumulators_subtotal":     [0.4708, 0.3373, 0.3062, 0.1781, 0.4801, 0.3554],
+      "fcfe_negative_no_payout":        [0.2819, 0.1353, 0.1175, 0.0607, 0.0864, 0.1160],
+      "fcfe_positive_payout_above_fcfe":[0.1416, 0.3323, 0.3039, 0.4418, 0.2296, 0.2916],
+      "fcfe_negative_with_payout":      [0.1057, 0.1951, 0.2724, 0.3194, 0.2039, 0.2370],
+      "cash_overpayers_subtotal":       [0.2473, 0.5274, 0.5763, 0.7612, 0.4335, 0.5286]
+    }
+  },
+
+  "life_cycle_payout_by_expected_growth": {
+    "note": "US firms sorted by expected earnings growth. Dividend-only measures: firms that buy back stock look lower-payout than they are. Values read from the chart, so treat as anchors and not targets.",
+    "columns": ["dividend_payout", "dividend_yield"],
+    "rows": {
+      "0-3%":   [0.44, 0.0375],
+      "3-5%":   [0.39, 0.0325],
+      "5-10%":  [0.40, 0.0300],
+      "10-15%": [0.35, 0.0240],
+      "15-20%": [0.20, 0.0110],
+      "20-25%": [0.21, 0.0135],
+      ">25%":   [0.20, 0.0110]
+    }
+  },
+
+  "payout_ratio_distribution_among_payers": {
+    "note": "Share of dividend-paying firms in each payout bucket. About 15% pay out more than they earn, so a payout above 100% is common rather than a data error.",
+    "columns": ["global", "united_states"],
+    "rows": {
+      "<10%":    [0.083, 0.078],
+      "10-20%":  [0.127, 0.137],
+      "20-30%":  [0.147, 0.180],
+      "30-40%":  [0.130, 0.146],
+      "40-50%":  [0.100, 0.110],
+      "50-60%":  [0.082, 0.078],
+      "60-70%":  [0.061, 0.049],
+      "70-80%":  [0.050, 0.025],
+      "80-90%":  [0.038, 0.021],
+      "90-100%": [0.033, 0.026],
+      ">100%":   [0.147, 0.150]
+    }
+  },
+
+  "dividend_cut_announcement_returns": {
+    "note": "Cumulative abnormal returns around dividend cut announcements, by how the cut was framed. The investment-story framing has N = 16, so read it as directional.",
+    "columns": ["sample_size", "prior_quarter", "announcement_period", "quarter_after"],
+    "rows": {
+      "simultaneous_earnings_decline": [176, -0.0723, -0.0817, 0.0180],
+      "prior_earnings_decline":        [208, -0.0758, -0.0552, 0.0107],
+      "simultaneous_growth_story":     [ 16, -0.0769, -0.0516, 0.0879]
+    }
+  },
+
+  "equity_flotation_cost": {
+    "note": "Cost of issuing common stock as a share of funds raised, by issue size in USD millions. Used to price the option of keeping an unaffordable dividend and issuing stock for the shortfall.",
+    "bands": [
+      {"issue_size_up_to": 1.0,   "cost": 0.220},
+      {"issue_size_up_to": 2.0,   "cost": 0.170},
+      {"issue_size_up_to": 5.0,   "cost": 0.125},
+      {"issue_size_up_to": 10.0,  "cost": 0.080},
+      {"issue_size_up_to": 20.0,  "cost": 0.060},
+      {"issue_size_up_to": 50.0,  "cost": 0.046},
+      {"issue_size_up_to": null,  "cost": 0.035}
+    ]
+  }
+}
