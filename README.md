@@ -1,8 +1,8 @@
 # Claude Code Skills Collection
 
-![Skills](https://img.shields.io/badge/skills-270-blue) ![Agents](https://img.shields.io/badge/agents-85-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
+![Skills](https://img.shields.io/badge/skills-271-blue) ![Agents](https://img.shields.io/badge/agents-85-blue) ![Status](https://img.shields.io/badge/status-active-brightgreen) [![Run in Smithery](https://smithery.ai/badge/skills/lyndonkl)](https://smithery.ai/skills?ns=lyndonkl&utm_source=github&utm_medium=badge)
 
-A production-ready library of **270 skills** and **85 orchestrating agents** for Claude Code.
+A production-ready library of **271 skills** and **85 orchestrating agents** for Claude Code.
 
 It covers thinking frameworks, research, writing, design, and data/ML. It covers game theory and household personal finance. Larger teams handle specific domains: a 15-agent corporate finance and valuation suite, a 10-agent FIFA World Cup fantasy backroom, a 9-agent team for growing a Substack publication, and a 9-agent studio for learning ML-driven crop genetics. Also included: five reusable primitives for gated, verifiable research pipelines, and a 3-agent narrative team that turns researched evidence into long-form nonfiction.
 
@@ -25,7 +25,7 @@ Pick the fastest entry point for what you're trying to do. Most users start with
 |---|---|
 | Value a company / analyze an M&A target / plan an IPO / evaluate a project | [`valuation-orchestrator`](agents/valuation-orchestrator.md) — one entry point, routes to 14 specialists |
 | Research a thematic macro trend cluster (AI compute cycle, demographic shift, climate transition, etc.) | [`macroeconomic-analyst`](agents/macroeconomic-analyst.md) |
-| Reverse-engineer a real product's vision / strategy / tactics / ML and system architecture from public material | [`product-strategist`](agents/product-strategist.md) |
+| Reverse-engineer a real product's vision / strategy / tactics from public material, explained so a newcomer can follow it | [`product-strategist`](agents/product-strategist.md) |
 | Decide how to allocate capital (debt / dividends / projects) | [`valuation-orchestrator`](agents/valuation-orchestrator.md) in `corporate-finance` mode |
 | Manage my Yahoo Fantasy Baseball team | [`mlb-fantasy-coach`](agents/mlb-fantasy-coach.md) + 6 MLB specialists |
 | Run my FIFA World Cup Fantasy squad (evolutionary boards — agents propose, you decide) | [`wc-director`](agents/wc-director.md) + 9 team agents |
@@ -107,7 +107,7 @@ Agents detect your need and route to the right skills. Each agent's page documen
 | [**valuation-critic**](agents/valuation-critic.md) | Attacks the finished analysis and raises findings; never edits the work it reviews |
 | [**investment-reconciler**](agents/investment-reconciler.md) | Reconciles every strand into a verdict and writes the report |
 | [**macroeconomic-analyst**](agents/macroeconomic-analyst.md) | Deep thematic research on one trend cluster — sub-trends, value chains, beneficiary archetypes, pricing-in assessment, watch-indicators |
-| [**product-strategist**](agents/product-strategist.md) | Outside-in layered analysis of a real product — vision, strategy, tactics, operational surface, system & ML architecture map, strategist synthesis |
+| [**product-strategist**](agents/product-strategist.md) | Outside-in analysis of a real product — vision, strategy, tactics, operational surface, strategist verdict. Every bet graded by the evidence behind it, every term unpacked for a reader with no background |
 | [**mlb-fantasy-coach**](agents/mlb-fantasy-coach.md) | Primary Yahoo Fantasy Baseball orchestrator; morning briefs |
 | [**mlb-lineup-optimizer**](agents/mlb-lineup-optimizer.md) | Daily start/sit with advocate + critic variants |
 | [**mlb-waiver-analyst**](agents/mlb-waiver-analyst.md) | Weekly add/drop and FAAB bid sizing |
@@ -193,7 +193,7 @@ If you run `product-strategist` without `pandoc` or `xelatex` installed, the age
 
 ## Skills Index
 
-**270 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
+**271 skills** across 8 super-categories. Every skill's full methodology, templates, and evaluation rubric live in its `SKILL.md` — click any entry to drill in.
 
 <details>
 <summary><b>🧠 Thinking & Decisions</b> — decision-making, problem-solving, estimation, dialogue, ideation, learning (37 skills)</summary>
@@ -323,6 +323,7 @@ The toolkit behind [`narrative-architect`](agents/narrative-architect.md) and [`
 - **[ladder-of-abstraction](skills/ladder-of-abstraction/SKILL.md)** — Rung tagging R1–R4, the middle-rung trap, and the honest ceiling. Routes a readability failure to a concrete example rather than to synonym substitution.
 - **[prose-force-and-rhythm](skills/prose-force-and-rhythm/SKILL.md)** — Hart's nine Wordcraft passes in strict order with upward escalation, the claim-strength invariant, and a protected-hedge list so brevity never deletes the uncertainty.
 - **[reader-first-prose](skills/reader-first-prose/SKILL.md)** — Rewrites for a reader meeting the subject for the first time: introduce every term before use, ground or cut each metaphor, plain over clever, no em dash and no terse "X. Not Y." antithesis. Keeps inference marked as inference so the prose never out-claims its source.
+- **[term-interrogation](skills/term-interrogation/SKILL.md)** — Walks a finished document line by line, finds every word standing in for a concept, and unpacks each one recursively until it bottoms out in plain language. Targets the assumed-knowledge phrase ("moat", "flywheel", "at scale") that sounds ordinary while hiding the argument. Emits a term ledger and a plain-language glossary.
 - **[numbers-in-narrative](skills/numbers-in-narrative/SKILL.md)** — Land a quantity in a sentence without overstating it. Denominator lock, uncertainty routing, the likelihood/confidence lexicon, chart-beat contracts.
 
 *Gates — used by both:*
