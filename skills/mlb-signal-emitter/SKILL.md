@@ -1,6 +1,6 @@
 ---
 name: mlb-signal-emitter
-description: Validates and persists signal files to the yahoo-mlb signals directory. Every MLB skill calls this skill before writing a signal. Enforces the signal-framework.md schema -- required YAML frontmatter fields (type, date, emitted_by, confidence, source_urls), range-checks numeric signals (0-100 unipolar, -100 to +100 bipolar), verifies variant_synthesis metadata, and enforces file naming. On validation failure, does not persist and routes a failure entry to mlb-decision-logger. Use when an agent or skill needs to emit a signal, validate a signal file, write to signals/YYYY-MM-DD-<type>.md, or check signal frontmatter. Triggers: "emit signal", "validate signal", "write signal file", "signal frontmatter".
+description: Validates and persists signal files to the yahoo-mlb signals directory. Every MLB skill calls this skill before writing a signal. Enforces the signal-framework.md schema -- required YAML frontmatter fields (type, date, emitted_by, confidence, source_urls), range-checks numeric signals (0-100 unipolar, -100 to +100 bipolar), verifies variant_synthesis metadata, and enforces file naming. On validation failure, does not persist and routes a failure entry to mlb-decision-logger. Use when an agent or skill needs to emit a signal, validate a signal file, write to signals/YYYY-MM-DD-<type>.md, or check signal frontmatter. Triggers — "emit signal", "validate signal", "write signal file", "signal frontmatter".
 ---
 # MLB Signal Emitter
 

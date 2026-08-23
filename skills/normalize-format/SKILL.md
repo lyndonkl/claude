@@ -1,6 +1,6 @@
 ---
 name: normalize-format
-description: Normalizes a single inbox file of any supported format (plain markdown, Claude.ai JSON export, Claude Code JSONL session, Readwise markdown/CSV highlight, transcript with timestamps or speaker labels, link capture) into a clean markdown body plus partial frontmatter (id, title, source block, word_count). Handles format-specific failure modes — JSON content-block arrays, timestamp stripping, per-highlight chunking, URL-vs-commentary separation. Use when ingesting any inbox item for the substacker Librarian. Trigger keywords: normalize, convert, parse, transcript, export, JSON, JSONL, highlight, CSV.
+description: Normalizes a single inbox file of any supported format (plain markdown, Claude.ai JSON export, Claude Code JSONL session, Readwise markdown/CSV highlight, transcript with timestamps or speaker labels, link capture) into a clean markdown body plus partial frontmatter (id, title, source block, word_count). Handles format-specific failure modes — JSON content-block arrays, timestamp stripping, per-highlight chunking, URL-vs-commentary separation. Use when ingesting any inbox item for the substacker Librarian. Trigger keywords — normalize, convert, parse, transcript, export, JSON, JSONL, highlight, CSV.
 ---
 
 # Normalize Format

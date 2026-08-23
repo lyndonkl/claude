@@ -1,6 +1,6 @@
 ---
 name: update-analogy-catalog
-description: Appends an entry to substacker shared-context/analogy-catalog.md when the writer PUBLISHES a post that uses a new analogy. Not invoked on seed or draft — only on publish. Records source, target, post, freshness, mapping, where-it-breaks, and why-it-worked. Prevents silent recycling in future Intuition Builder runs. Use at publish time for any post that contains a non-trivial analogy. Trigger keywords: catalog, analogy catalog, update catalog, publish, analogy archive.
+description: Appends an entry to substacker shared-context/analogy-catalog.md when the writer PUBLISHES a post that uses a new analogy. Not invoked on seed or draft — only on publish. Records source, target, post, freshness, mapping, where-it-breaks, and why-it-worked. Prevents silent recycling in future Intuition Builder runs. Use at publish time for any post that contains a non-trivial analogy. Trigger keywords — catalog, analogy catalog, update catalog, publish, analogy archive.
 ---
 
 # Update Analogy Catalog

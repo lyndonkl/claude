@@ -1,6 +1,6 @@
 ---
 name: paragraph-rhythm-check
-description: Checks paragraph rhythm in a substacker draft — long/short mix, one-sentence paragraph at pivots, no walls, avoid monotony. Flags drafts where >3 consecutive paragraphs share the same length bucket, where the pivot lacks a one-sentence paragraph, or where any paragraph exceeds 120 words. Use in the Editor's structural pass. Trigger keywords: rhythm, paragraph length, wall of text, one-sentence paragraph, pivot, monotone.
+description: Checks paragraph rhythm in a substacker draft — long/short mix, one-sentence paragraph at pivots, no walls, avoid monotony. Flags drafts where >3 consecutive paragraphs share the same length bucket, where the pivot lacks a one-sentence paragraph, or where any paragraph exceeds 120 words. Use in the Editor's structural pass. Trigger keywords — rhythm, paragraph length, wall of text, one-sentence paragraph, pivot, monotone.
 ---
 
 # Paragraph Rhythm Check

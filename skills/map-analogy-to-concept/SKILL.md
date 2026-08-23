@@ -1,6 +1,6 @@
 ---
 name: map-analogy-to-concept
-description: Produces an explicit component-by-component mapping from the analogy's source domain to the target technical concept. Rejects vague analogies by forcing each source element to map to a specific target element, and flags unmapped elements as voice-breaking ("it's like a brain" is rejected because "brain" is unmapped). Use after generate-analogy-set, for each of the 5 framings. Trigger keywords: map, component mapping, source target, explicit mapping, what does the X correspond to.
+description: Produces an explicit component-by-component mapping from the analogy's source domain to the target technical concept. Rejects vague analogies by forcing each source element to map to a specific target element, and flags unmapped elements as voice-breaking ("it's like a brain" is rejected because "brain" is unmapped). Use after generate-analogy-set, for each of the 5 framings. Trigger keywords — map, component mapping, source target, explicit mapping, what does the X correspond to.
 ---
 
 # Map Analogy to Concept

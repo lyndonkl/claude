@@ -1,6 +1,6 @@
 ---
 name: claim-extractor
-description: Extracts atomic technical claims from a substacker essay draft, converting flowing intuition-first prose into a numbered list where each item is a statement that could in principle be verified or falsified. Skips non-technical sections (personal anecdote, motivation, call-to-action). Use when the Technical Reviewer starts a per-draft review. Trigger keywords: extract claims, atomic claims, technical claim list, fact-check prep.
+description: Extracts atomic technical claims from a substacker essay draft, converting flowing intuition-first prose into a numbered list where each item is a statement that could in principle be verified or falsified. Skips non-technical sections (personal anecdote, motivation, call-to-action). Use when the Technical Reviewer starts a per-draft review. Trigger keywords — extract claims, atomic claims, technical claim list, fact-check prep.
 ---
 
 # Claim Extractor

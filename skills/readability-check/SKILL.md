@@ -1,6 +1,6 @@
 ---
 name: readability-check
-description: Scores prose with Flesch Reading Ease, Flesch-Kincaid Grade, SMOG, Gunning Fog, and Dale-Chall, reports every score on one shared grade-band scale, and rewrites the sentences that fail. Runs on markdown files or on piped draft text before it is sent, and can run automatically through Claude Code hooks. Use before delivering any substantial written output, when a draft reads as convoluted or bloated, when a document must hit a reading-level target, or when checking a folder of documents for prose quality. Trigger keywords: readability, reading level, Flesch, Flesch-Kincaid, SMOG, Gunning Fog, Dale-Chall, grade level, hard to read, convoluted, dense prose, plain language, reading ease.
+description: Scores prose with Flesch Reading Ease, Flesch-Kincaid Grade, SMOG, Gunning Fog, and Dale-Chall, reports every score on one shared grade-band scale, and rewrites the sentences that fail. Runs on markdown files or on piped draft text before it is sent, and can run automatically through Claude Code hooks. Use before delivering any substantial written output, when a draft reads as convoluted or bloated, when a document must hit a reading-level target, or when checking a folder of documents for prose quality. Trigger keywords — readability, reading level, Flesch, Flesch-Kincaid, SMOG, Gunning Fog, Dale-Chall, grade level, hard to read, convoluted, dense prose, plain language, reading ease.
 ---
 
 # Readability Check

@@ -1,6 +1,6 @@
 ---
 name: section-break-check
-description: Verifies the section-break style in a substacker draft matches the post register — asterisks (* * *) for essayistic posts under 2500 words, H2 for methodology / how-to / technical posts. Flags mixed registers (H2 in a reflective essay, asterisks in a structured how-to). Per the style-guide rhythm rule. Use every draft. Trigger keywords: section break, asterisk, H2, headers, register, essayistic vs methodology.
+description: Verifies the section-break style in a substacker draft matches the post register — asterisks (* * *) for essayistic posts under 2500 words, H2 for methodology / how-to / technical posts. Flags mixed registers (H2 in a reflective essay, asterisks in a structured how-to). Per the style-guide rhythm rule. Use every draft. Trigger keywords — section break, asterisk, H2, headers, register, essayistic vs methodology.
 ---
 
 # Section Break Check

@@ -1,6 +1,6 @@
 ---
 name: platform-voice-check
-description: Runs a voice-fidelity audit on each of the four substacker platform outputs (Substack Note, X thread, LinkedIn post, cross-post blurb) before reporting Distribution Translator completion. Checks for voice-don'ts (banned vocabulary, emoji, generic openers, marketing math without source), voice-do compliance (paper attribution preserved, hedges preserved, em-dash reframes present), platform-specific tonal shifts. Emits voice-check.md with pass/fail per artifact. Trigger keywords: platform voice check, voice-check, gate, distribution voice, slop-leak check.
+description: Runs a voice-fidelity audit on each of the four substacker platform outputs (Substack Note, X thread, LinkedIn post, cross-post blurb) before reporting Distribution Translator completion. Checks for voice-don'ts (banned vocabulary, emoji, generic openers, marketing math without source), voice-do compliance (paper attribution preserved, hedges preserved, em-dash reframes present), platform-specific tonal shifts. Emits voice-check.md with pass/fail per artifact. Trigger keywords — platform voice check, voice-check, gate, distribution voice, slop-leak check.
 ---
 
 # Platform Voice Check

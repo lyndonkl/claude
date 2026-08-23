@@ -1,6 +1,6 @@
 ---
 name: sweep-stale-seeds
-description: Identifies substacker seeds older than 30 days with status=seed and no incoming related_seeds links, flags them for writer review, and recommends keep / promote-to-draft / kill based on density score. Does NOT auto-execute any action. Emits a review list to ops/librarian/YYYY-MM-DD-stale-sweep.md. Run at session start after ingest, once per day max. Trigger keywords: stale, sweep, review, old seeds, cleanup, gardener, corpus hygiene.
+description: Identifies substacker seeds older than 30 days with status=seed and no incoming related_seeds links, flags them for writer review, and recommends keep / promote-to-draft / kill based on density score. Does NOT auto-execute any action. Emits a review list to ops/librarian/YYYY-MM-DD-stale-sweep.md. Run at session start after ingest, once per day max. Trigger keywords — stale, sweep, review, old seeds, cleanup, gardener, corpus hygiene.
 ---
 
 # Sweep Stale Seeds

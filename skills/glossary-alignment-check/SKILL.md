@@ -1,6 +1,6 @@
 ---
 name: glossary-alignment-check
-description: For each technical term in a substacker draft's claims, checks shared-context/glossary.md for a writer-specific definition and compares to field-standard. Emits a note for terms where the two diverge (aligned / diverged-safe / diverged-risky). Feeds into classify-claim (which definition governs) and write-review-artifact's Glossary Alignment section. Use on every claim. Trigger keywords: glossary alignment, term definition, writer vs field, load-bearing term.
+description: For each technical term in a substacker draft's claims, checks shared-context/glossary.md for a writer-specific definition and compares to field-standard. Emits a note for terms where the two diverge (aligned / diverged-safe / diverged-risky). Feeds into classify-claim (which definition governs) and write-review-artifact's Glossary Alignment section. Use on every claim. Trigger keywords — glossary alignment, term definition, writer vs field, load-bearing term.
 ---
 
 # Glossary Alignment Check

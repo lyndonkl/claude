@@ -1,6 +1,6 @@
 ---
 name: rank-by-user-fit
-description: Scores and ranks substacker Trend Scout annotated candidates against voice-profile and goals, producing a top-10 keep list and an explicit drop list with reasons. Weighted-sum scoring across intuition-density fit, goal alignment, dedup penalty, source reliability, freshness. Produces the digest's keeps and drops sections. Use after cross-ref-topic-ledger. Trigger keywords: rank, fit score, user fit, keep list, drop list, signal weight.
+description: Scores and ranks substacker Trend Scout annotated candidates against voice-profile and goals, producing a top-10 keep list and an explicit drop list with reasons. Weighted-sum scoring across intuition-density fit, goal alignment, dedup penalty, source reliability, freshness. Produces the digest's keeps and drops sections. Use after cross-ref-topic-ledger. Trigger keywords — rank, fit score, user fit, keep list, drop list, signal weight.
 ---
 
 # Rank by User Fit

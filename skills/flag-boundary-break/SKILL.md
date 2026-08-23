@@ -1,6 +1,6 @@
 ---
 name: flag-boundary-break
-description: For each simplified-boundary claim, drafts a one-paragraph suggestion for how to acknowledge the boundary inside the post — usually a single sentence or "but" clause — so the break becomes a teaching moment rather than hidden fragility. Runs for exactly the claims classified as simplified-boundary. Skip for all other classifications. Use after cross-reference-claim. Trigger keywords: boundary break, fold break into post, feature not flaw, simplified-boundary.
+description: For each simplified-boundary claim, drafts a one-paragraph suggestion for how to acknowledge the boundary inside the post — usually a single sentence or "but" clause — so the break becomes a teaching moment rather than hidden fragility. Runs for exactly the claims classified as simplified-boundary. Skip for all other classifications. Use after cross-reference-claim. Trigger keywords — boundary break, fold break into post, feature not flaw, simplified-boundary.
 ---
 
 # Flag Boundary Break

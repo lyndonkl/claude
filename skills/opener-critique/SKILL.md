@@ -1,6 +1,6 @@
 ---
 name: opener-critique
-description: Evaluates the first 1-3 sentences of a substacker draft against the writer's signature opener patterns — confession / "I hadn't done X" / reframe / small concrete admission. Classifies opener as confession | reframe | admission | news-hook | generic-opener and flags news-hook/generic as tier-1. The opener sets the voice contract for the essay. Use on every draft. Trigger keywords: opener, hook, first sentence, opening, confession opener, news hook, generic opener.
+description: Evaluates the first 1-3 sentences of a substacker draft against the writer's signature opener patterns — confession / "I hadn't done X" / reframe / small concrete admission. Classifies opener as confession | reframe | admission | news-hook | generic-opener and flags news-hook/generic as tier-1. The opener sets the voice contract for the essay. Use on every draft. Trigger keywords — opener, hook, first sentence, opening, confession opener, news hook, generic opener.
 ---
 
 # Opener Critique

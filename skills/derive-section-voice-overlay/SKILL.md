@@ -1,6 +1,6 @@
 ---
 name: derive-section-voice-overlay
-description: Derives a draft per-section voice overlay (deltas against substacker global voice-profile) once a section reaches ≥3 published posts with shared voice tells. Writes to shared-context/voices/{slug}.md. Writer reviews and commits. Overlay expresses only the DELTA from global voice — not a full rewrite. Use when a section crosses the 3-post threshold. Trigger keywords: voice overlay, section voice, overlay delta, per-section voice.
+description: Derives a draft per-section voice overlay (deltas against substacker global voice-profile) once a section reaches ≥3 published posts with shared voice tells. Writes to shared-context/voices/{slug}.md. Writer reviews and commits. Overlay expresses only the DELTA from global voice — not a full rewrite. Use when a section crosses the 3-post threshold. Trigger keywords — voice overlay, section voice, overlay delta, per-section voice.
 ---
 
 # Derive Section Voice Overlay

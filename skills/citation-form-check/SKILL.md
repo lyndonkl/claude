@@ -1,6 +1,6 @@
 ---
 name: citation-form-check
-description: Verifies every paper or named research result cited in a substacker draft uses the inline "Author(s), Institution, Year" form per style-guide, not a bare hyperlink or title-alone reference. Flags bare-hyperlink citations and missing-institution attributions. Use whenever the draft references external research. Trigger keywords: citation, paper citation, bare hyperlink, authors, institution, reference format.
+description: Verifies every paper or named research result cited in a substacker draft uses the inline "Author(s), Institution, Year" form per style-guide, not a bare hyperlink or title-alone reference. Flags bare-hyperlink citations and missing-institution attributions. Use whenever the draft references external research. Trigger keywords — citation, paper citation, bare hyperlink, authors, institution, reference format.
 ---
 
 # Citation Form Check

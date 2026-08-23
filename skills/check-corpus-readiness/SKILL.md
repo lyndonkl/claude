@@ -1,6 +1,6 @@
 ---
 name: check-corpus-readiness
-description: Checks whether the substacker corpus has enough material to justify a Curator run. Counts published posts, time-gates against the last review, and reports go/no-go with the specific gate that failed. Use before any Curator run, and on cold start to decide whether to propose sections yet. Trigger keywords: readiness, corpus ready, gate check, cadence gate, pre-flight.
+description: Checks whether the substacker corpus has enough material to justify a Curator run. Counts published posts, time-gates against the last review, and reports go/no-go with the specific gate that failed. Use before any Curator run, and on cold start to decide whether to propose sections yet. Trigger keywords — readiness, corpus ready, gate check, cadence gate, pre-flight.
 ---
 
 # Check Corpus Readiness

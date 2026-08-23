@@ -1,6 +1,6 @@
 ---
 name: fetch-public-page-stats
-description: Uses WebFetch to pull publicly visible subscriber count and per-post public view count from substacker's Substack archive page and individual post URLs. Supplements the CSV when subscriber-count field is stale (>24h old) or when a post has public shares not yet reflected. Rate-limited to ≤10 fetches per invocation. Use when CSV subscribers-end field may have drifted or when external-share attribution needs a public signal. Trigger keywords: public stats, Substack public page, subscriber count check, post views supplement, WebFetch.
+description: Uses WebFetch to pull publicly visible subscriber count and per-post public view count from substacker's Substack archive page and individual post URLs. Supplements the CSV when subscriber-count field is stale (>24h old) or when a post has public shares not yet reflected. Rate-limited to ≤10 fetches per invocation. Use when CSV subscribers-end field may have drifted or when external-share attribution needs a public signal. Trigger keywords — public stats, Substack public page, subscriber count check, post views supplement, WebFetch.
 ---
 
 # Fetch Public Page Stats

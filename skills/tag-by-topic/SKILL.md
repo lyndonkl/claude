@@ -1,6 +1,6 @@
 ---
 name: tag-by-topic
-description: Assigns 1-4 topic tags to a seed body from the controlled vocabulary in substacker shared-context/topic-ledger.md. Prevents tag sprawl at small-corpus scale by requiring existing-tag match or logged addition. Uses keyword + title match; logs near-miss candidates to pending-tags. Use after format normalization and before dedupe. Trigger keywords: tag, topics, categorize, classify, taxonomy, controlled vocabulary, topic ledger.
+description: Assigns 1-4 topic tags to a seed body from the controlled vocabulary in substacker shared-context/topic-ledger.md. Prevents tag sprawl at small-corpus scale by requiring existing-tag match or logged addition. Uses keyword + title match; logs near-miss candidates to pending-tags. Use after format normalization and before dedupe. Trigger keywords — tag, topics, categorize, classify, taxonomy, controlled vocabulary, topic ledger.
 ---
 
 # Tag by Topic

@@ -1,6 +1,6 @@
 ---
 name: answer-uncomfortable-question
-description: Takes one strategic question about substacker ("should we launch paid?", "is this section dead?", "are we writing for the wrong audience?") and produces the mandatory evidence + reasoning + downside triad plus a recommendation. Used 3 times per Growth Strategist review. Trigger keywords: uncomfortable question, strategic question, evidence reasoning downside, triad.
+description: Takes one strategic question about substacker ("should we launch paid?", "is this section dead?", "are we writing for the wrong audience?") and produces the mandatory evidence + reasoning + downside triad plus a recommendation. Used 3 times per Growth Strategist review. Trigger keywords — uncomfortable question, strategic question, evidence reasoning downside, triad.
 ---
 
 # Answer Uncomfortable Question

@@ -1,6 +1,6 @@
 ---
 name: write-review-artifact
-description: Composes the final Technical Reviewer artifact at ops/technical-reviewer/YYYY-MM-DD-{slug}-review.md. Enforces frontmatter schema, section order (Summary → Blockers → Claims → Boundary-Break Suggestions → Glossary Alignment → Could-Not-Verify → Research Log), go/no-go decision rule, and never-modify-draft principle. Use exactly once per Technical Reviewer run as the last step. Trigger keywords: write review, technical review artifact, compose review, claim review output.
+description: Composes the final Technical Reviewer artifact at ops/technical-reviewer/YYYY-MM-DD-{slug}-review.md. Enforces frontmatter schema, section order (Summary → Blockers → Claims → Boundary-Break Suggestions → Glossary Alignment → Could-Not-Verify → Research Log), go/no-go decision rule, and never-modify-draft principle. Use exactly once per Technical Reviewer run as the last step. Trigger keywords — write review, technical review artifact, compose review, claim review output.
 ---
 
 # Write Review Artifact

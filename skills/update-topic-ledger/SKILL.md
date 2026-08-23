@@ -1,6 +1,6 @@
 ---
 name: update-topic-ledger
-description: Maintains substacker shared-context/topic-ledger.md as an append-and-update index of all topics in the corpus. Each topic row tracks seed/draft/published counts, last-touched date, top-3 seed ids by density, and a hot/warm/cold temperature indicator. Use after any seed is created, promoted to draft, published, or killed. Trigger keywords: ledger, topic index, update index, topic ledger, hot/cold topics.
+description: Maintains substacker shared-context/topic-ledger.md as an append-and-update index of all topics in the corpus. Each topic row tracks seed/draft/published counts, last-touched date, top-3 seed ids by density, and a hot/warm/cold temperature indicator. Use after any seed is created, promoted to draft, published, or killed. Trigger keywords — ledger, topic index, update index, topic ledger, hot/cold topics.
 ---
 
 # Update Topic Ledger

@@ -1,6 +1,6 @@
 ---
 name: cluster-corpus-by-theme
-description: Performs axial-coding-style thematic clustering over the substacker corpus of published posts to surface candidate sections. Uses Braun & Clarke's six-phase thematic analysis — familiarization, initial coding, searching for themes, reviewing themes, defining themes, naming. Reads full bodies, not titles. Use when re-opening the section question. Trigger keywords: cluster, theme, axial coding, thematic analysis, candidate sections.
+description: Performs axial-coding-style thematic clustering over the substacker corpus of published posts to surface candidate sections. Uses Braun & Clarke's six-phase thematic analysis — familiarization, initial coding, searching for themes, reviewing themes, defining themes, naming. Reads full bodies, not titles. Use when re-opening the section question. Trigger keywords — cluster, theme, axial coding, thematic analysis, candidate sections.
 ---
 
 # Cluster Corpus by Theme

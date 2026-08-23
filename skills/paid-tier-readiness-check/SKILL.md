@@ -1,6 +1,6 @@
 ---
 name: paid-tier-readiness-check
-description: Evaluates whether substacker has the four preconditions for launching a paid tier — enough subs, healthy engagement, a clear candidate section, writer capacity. Produces readiness score (not-ready / close / ready) with named gaps. Used when the "should we launch paid?" question is selected or at writer's explicit request. Trigger keywords: paid tier, paid readiness, monetization, Substack paid, launch paid, 1000 subscribers.
+description: Evaluates whether substacker has the four preconditions for launching a paid tier — enough subs, healthy engagement, a clear candidate section, writer capacity. Produces readiness score (not-ready / close / ready) with named gaps. Used when the "should we launch paid?" question is selected or at writer's explicit request. Trigger keywords — paid tier, paid readiness, monetization, Substack paid, launch paid, 1000 subscribers.
 ---
 
 # Paid Tier Readiness Check

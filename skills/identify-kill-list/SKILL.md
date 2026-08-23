@@ -1,6 +1,6 @@
 ---
 name: identify-kill-list
-description: Names what the substacker writer should stop doing — habits with no evidence of use, goals that became theatre, sections with 2 consecutive dormant quarters, and agents in the team whose output the writer ignores. Produces a bulleted list, each item with one sentence of why. Max 4 items. Ordered by ease (easiest first). Used once per Growth Strategist review. Trigger keywords: kill list, stop doing, what to cut, dead habits, dormant, ignored output.
+description: Names what the substacker writer should stop doing — habits with no evidence of use, goals that became theatre, sections with 2 consecutive dormant quarters, and agents in the team whose output the writer ignores. Produces a bulleted list, each item with one sentence of why. Max 4 items. Ordered by ease (easiest first). Used once per Growth Strategist review. Trigger keywords — kill list, stop doing, what to cut, dead habits, dormant, ignored output.
 ---
 
 # Identify Kill List

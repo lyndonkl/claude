@@ -1,6 +1,6 @@
 ---
 name: section-portfolio-assessment
-description: Classifies each substacker section as healthy / drifting / candidate-for-prune based on post volume, engagement trend, and niche alignment. Produces table + 2-4 paragraph narrative. Used in every quarterly review. Trigger keywords: portfolio, section health, healthy drifting prune, section assessment, which section is carrying.
+description: Classifies each substacker section as healthy / drifting / candidate-for-prune based on post volume, engagement trend, and niche alignment. Produces table + 2-4 paragraph narrative. Used in every quarterly review. Trigger keywords — portfolio, section health, healthy drifting prune, section assessment, which section is carrying.
 ---
 
 # Section Portfolio Assessment

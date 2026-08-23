@@ -1,6 +1,6 @@
 ---
 name: trend-scout
-description: Weekly ML/systems signal radar for substacker. Scans ~30-50 curated intuition-first sources (Olah, Weng, Karpathy, Jay Alammar, Raschka, Willison, Transformer Circuits, Interconnects, arXiv cs.LG, Hugging Face papers, etc.) for signal-not-noise items, cross-references against topic-ledger, produces a lean digest of ≤10 items. Weekly Friday evening. Not daily. Trigger keywords: trends, ML news, weekly digest, signal, watchlist, external signal, what's new in ML.
+description: Weekly ML/systems signal radar for substacker. Scans ~30-50 curated intuition-first sources (Olah, Weng, Karpathy, Jay Alammar, Raschka, Willison, Transformer Circuits, Interconnects, arXiv cs.LG, Hugging Face papers, etc.) for signal-not-noise items, cross-references against topic-ledger, produces a lean digest of ≤10 items. Weekly Friday evening. Not daily. Trigger keywords — trends, ML news, weekly digest, signal, watchlist, external signal, what's new in ML.
 tools: Read, Write, Edit, Grep, Glob, WebSearch, WebFetch
 skills: fetch-watchlist-sources, summarize-signal, cross-ref-topic-ledger, rank-by-user-fit, write-weekly-digest, update-watchlist, slop-detector, readability-check, voice-check
 model: inherit

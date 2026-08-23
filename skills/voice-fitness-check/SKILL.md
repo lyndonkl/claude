@@ -1,6 +1,6 @@
 ---
 name: voice-fitness-check
-description: Ranks a proposed set of framings against the writer's voice profile, especially the analogy-direction priority — biology > organizational > sports, with physics/military as voice violations. Produces a tier rating per framing and flags any framing that would break voice. Use in the Intuition Builder pipeline after generating framings, to order them by fit with the writer's register. Trigger keywords: voice fit, analogy direction, biology to AI, organizational to multi-agent, sports to calibration.
+description: Ranks a proposed set of framings against the writer's voice profile, especially the analogy-direction priority — biology > organizational > sports, with physics/military as voice violations. Produces a tier rating per framing and flags any framing that would break voice. Use in the Intuition Builder pipeline after generating framings, to order them by fit with the writer's register. Trigger keywords — voice fit, analogy direction, biology to AI, organizational to multi-agent, sports to calibration.
 ---
 
 # Voice Fitness Check

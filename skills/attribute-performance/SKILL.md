@@ -1,6 +1,6 @@
 ---
 name: attribute-performance
-description: For each substacker post that materially over- or under-performs the rolling baseline (|z| ≥ 1.0), produces a plain-English attribution paragraph with calibrated confidence (high / medium / low / unexplained). Considers subject-line effect, topic zeitgeist, external share, day-of-week, length effect, and audience-notes signals. Labels unexplained outliers explicitly rather than fabricating a story. Use after compute-baseline when outlier posts exist. Trigger keywords: attribution, why did this post work, outlier explanation, performance analysis.
+description: For each substacker post that materially over- or under-performs the rolling baseline (|z| ≥ 1.0), produces a plain-English attribution paragraph with calibrated confidence (high / medium / low / unexplained). Considers subject-line effect, topic zeitgeist, external share, day-of-week, length effect, and audience-notes signals. Labels unexplained outliers explicitly rather than fabricating a story. Use after compute-baseline when outlier posts exist. Trigger keywords — attribution, why did this post work, outlier explanation, performance analysis.
 ---
 
 # Attribute Performance

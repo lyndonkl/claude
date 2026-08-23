@@ -1,6 +1,6 @@
 ---
 name: fetch-substack-stats
-description: Pulls substacker's weekly Substack stats directly from the dashboard via Claude-in-Chrome browser automation. Navigates to substack.com/stats, parses the posts table and subscribers table, and produces the same typed WeekExport object that ingest-substack-csv produces — but without requiring a manual CSV export. The writer keeps Chrome signed in to Substack; this skill opens the dashboard in a new tab, reads the rendered stats, closes the tab. Primary data path for the Growth Analyst; ingest-substack-csv is the fallback when browser automation is unavailable. Trigger keywords: fetch stats, Substack dashboard, auto stats, Chrome stats, dashboard scrape, live stats, no CSV.
+description: Pulls substacker's weekly Substack stats directly from the dashboard via Claude-in-Chrome browser automation. Navigates to substack.com/stats, parses the posts table and subscribers table, and produces the same typed WeekExport object that ingest-substack-csv produces — but without requiring a manual CSV export. The writer keeps Chrome signed in to Substack; this skill opens the dashboard in a new tab, reads the rendered stats, closes the tab. Primary data path for the Growth Analyst; ingest-substack-csv is the fallback when browser automation is unavailable. Trigger keywords — fetch stats, Substack dashboard, auto stats, Chrome stats, dashboard scrape, live stats, no CSV.
 ---
 
 # Fetch Substack Stats (Chrome automation)

@@ -1,6 +1,6 @@
 ---
 name: hedge-detector
-description: Classifies every hedge in a substacker draft as either a precision hedge (keep — "n=1 may not replicate", "I do not know") or an epistemic-weakness hedge (flag — "I think", "perhaps", "arguably", "it could be argued"). Only flags weakness hedges; suggests either a commit (remove hedge, take position) or a specific hedge (name the uncertainty). Use when a draft feels wishy-washy or when a cluster of modal verbs appears. Trigger keywords: hedging, I think, perhaps, arguably, uncertainty, weak claim, wishy-washy.
+description: Classifies every hedge in a substacker draft as either a precision hedge (keep — "n=1 may not replicate", "I do not know") or an epistemic-weakness hedge (flag — "I think", "perhaps", "arguably", "it could be argued"). Only flags weakness hedges; suggests either a commit (remove hedge, take position) or a specific hedge (name the uncertainty). Use when a draft feels wishy-washy or when a cluster of modal verbs appears. Trigger keywords — hedging, I think, perhaps, arguably, uncertainty, weak claim, wishy-washy.
 ---
 
 # Hedge Detector

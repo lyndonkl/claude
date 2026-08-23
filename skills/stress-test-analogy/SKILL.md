@@ -1,6 +1,6 @@
 ---
 name: stress-test-analogy
-description: Stress-tests a proposed analogy by finding the edge where the mapping breaks, then frames that break as a teaching opportunity the writer can fold into the post. Every analogy has a boundary; the writer's style treats that boundary as a feature. Use after generate-analogy-set and map-analogy-to-concept, for each framing. Trigger keywords: where does it break, stress-test, boundary, edge case, fold the break, analogy limits.
+description: Stress-tests a proposed analogy by finding the edge where the mapping breaks, then frames that break as a teaching opportunity the writer can fold into the post. Every analogy has a boundary; the writer's style treats that boundary as a feature. Use after generate-analogy-set and map-analogy-to-concept, for each framing. Trigger keywords — where does it break, stress-test, boundary, edge case, fold the break, analogy limits.
 ---
 
 # Stress Test Analogy

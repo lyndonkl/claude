@@ -1,6 +1,6 @@
 ---
 name: write-section-promise
-description: Crafts the one-sentence promise a substacker section makes to its reader — specific, testable, non-overlapping with other sections, written in the writer's voice (not marketing). Use when propose-section stages a new section or when an existing promise is being revised. Trigger keywords: section promise, one-sentence promise, section statement, reader promise.
+description: Crafts the one-sentence promise a substacker section makes to its reader — specific, testable, non-overlapping with other sections, written in the writer's voice (not marketing). Use when propose-section stages a new section or when an existing promise is being revised. Trigger keywords — section promise, one-sentence promise, section statement, reader promise.
 ---
 
 # Write Section Promise

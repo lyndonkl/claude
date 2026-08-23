@@ -1,6 +1,6 @@
 ---
 name: x-thread-rewrite
-description: Rewrites a published substacker essay as three X thread variants (short 3-5 tweets, medium 6-8, long 9-12). Each tweet ≤280 chars. Hook tweet works standalone. No numbering by default (2026 convention for tech-first-principles accounts). Final tweet is the link. If essay doesn't translate to X, emits a VERDICT line and halts rather than producing weak variants. Trigger keywords: X thread, Twitter thread, thread, tweet, threaded post, thread variants.
+description: Rewrites a published substacker essay as three X thread variants (short 3-5 tweets, medium 6-8, long 9-12). Each tweet ≤280 chars. Hook tweet works standalone. No numbering by default (2026 convention for tech-first-principles accounts). Final tweet is the link. If essay doesn't translate to X, emits a VERDICT line and halts rather than producing weak variants. Trigger keywords — X thread, Twitter thread, thread, tweet, threaded post, thread variants.
 ---
 
 # X Thread Rewrite

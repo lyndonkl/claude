@@ -1,6 +1,6 @@
 ---
 name: analogy-weight-check
-description: For every analogy in a substacker draft, verifies it carries mechanical weight — the analogy does real work explaining the mechanism, not merely decorates it. Cross-references analogy-catalog.md for novelty (is this analogy reused from a prior post?) and domain fit (biology > organizational > sports preferred; physics/military disfavored). Use whenever an analogy appears in the draft. Trigger keywords: analogy weight, decorative, mechanical weight, reused analogy, catalog check, metaphor check.
+description: For every analogy in a substacker draft, verifies it carries mechanical weight — the analogy does real work explaining the mechanism, not merely decorates it. Cross-references analogy-catalog.md for novelty (is this analogy reused from a prior post?) and domain fit (biology > organizational > sports preferred; physics/military disfavored). Use whenever an analogy appears in the draft. Trigger keywords — analogy weight, decorative, mechanical weight, reused analogy, catalog check, metaphor check.
 ---
 
 # Analogy Weight Check
