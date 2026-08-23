@@ -1,6 +1,6 @@
 ---
 name: fetch-watchlist-sources
-description: Fetches the last 7 days of updates from every entry in the substacker Trend Scout watchlist — blogs, paper aggregators (arXiv, Hugging Face papers), social feeds. Returns normalized {title, url, author, published, excerpt, source_type} tuples. Use at the start of a weekly Trend Scout run. Trigger keywords: watchlist, fetch sources, weekly fetch, last 7 days, source normalization.
+description: Fetches the last 7 days of updates from every entry in the substacker Trend Scout watchlist — blogs, paper aggregators (arXiv, Hugging Face papers), social feeds. Returns normalized {title, url, author, published, excerpt, source_type} tuples. Use at the start of a weekly Trend Scout run. Trigger keywords — watchlist, fetch sources, weekly fetch, last 7 days, source normalization.
 ---
 
 # Fetch Watchlist Sources

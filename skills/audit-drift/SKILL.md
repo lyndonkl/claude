@@ -1,6 +1,6 @@
 ---
 name: audit-drift
-description: Checks every post currently assigned to a substacker section against that section's promise and flags posts that no longer fit. Distinguishes acceptable-stretch (minor) from borderline (surface for review) from genuine-drift (violates promise). Never reassigns automatically — only flags. Use on every Curator run where at least one section already exists. Trigger keywords: drift, drift audit, section fit, promise violation, post in wrong section.
+description: Checks every post currently assigned to a substacker section against that section's promise and flags posts that no longer fit. Distinguishes acceptable-stretch (minor) from borderline (surface for review) from genuine-drift (violates promise). Never reassigns automatically — only flags. Use on every Curator run where at least one section already exists. Trigger keywords — drift, drift audit, section fit, promise violation, post in wrong section.
 ---
 
 # Audit Drift

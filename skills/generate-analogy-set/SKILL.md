@@ -1,6 +1,6 @@
 ---
 name: generate-analogy-set
-description: Generates exactly 5 distinct intuitive framings for a given technical topic — one everyday analogy, one physical metaphor, one contrarian take, one historical angle, one counterfactual. Each framing is a short scaffold (not prose), paired with its archetype and a one-line framing statement. Use when the writer invokes the Intuition Builder agent, as the core generation step before mapping, stress-testing, novelty checking, and voice fitness. Trigger keywords: generate framings, analogies for, give me 5, intuitive angles, framing set.
+description: Generates exactly 5 distinct intuitive framings for a given technical topic — one everyday analogy, one physical metaphor, one contrarian take, one historical angle, one counterfactual. Each framing is a short scaffold (not prose), paired with its archetype and a one-line framing statement. Use when the writer invokes the Intuition Builder agent, as the core generation step before mapping, stress-testing, novelty checking, and voice fitness. Trigger keywords — generate framings, analogies for, give me 5, intuitive angles, framing set.
 ---
 
 # Generate Analogy Set

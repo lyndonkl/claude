@@ -1,6 +1,6 @@
 ---
 name: write-weekly-digest
-description: Renders the Trend Scout ranked keep-and-drop lists into ops/trend-scout/YYYY-WW-digest.md using the agent voice profile and including an appendix of all sources surveyed. Use once per weekly run as the terminal skill. Trigger keywords: weekly digest, write digest, Trend Scout digest, Saturday morning digest.
+description: Renders the Trend Scout ranked keep-and-drop lists into ops/trend-scout/YYYY-WW-digest.md using the agent voice profile and including an appendix of all sources surveyed. Use once per weekly run as the terminal skill. Trigger keywords — weekly digest, write digest, Trend Scout digest, Saturday morning digest.
 ---
 
 # Write Weekly Digest

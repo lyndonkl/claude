@@ -1,6 +1,6 @@
 ---
 name: substack-note-rewrite
-description: Rewrites a published substacker essay as a Substack Note using the extracted spine and chosen hook. Closest voice to the essay. Bolded maxim closer. Single link line. 60-180 words. Emits substack-note.md in the post's distribution folder. Use as the Substack-native arm of the Distribution Translator. Trigger keywords: Substack Note, note rewrite, note post, tease, Notes feed.
+description: Rewrites a published substacker essay as a Substack Note using the extracted spine and chosen hook. Closest voice to the essay. Bolded maxim closer. Single link line. 60-180 words. Emits substack-note.md in the post's distribution folder. Use as the Substack-native arm of the Distribution Translator. Trigger keywords — Substack Note, note rewrite, note post, tease, Notes feed.
 ---
 
 # Substack Note Rewrite

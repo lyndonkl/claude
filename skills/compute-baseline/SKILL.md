@@ -1,6 +1,6 @@
 ---
 name: compute-baseline
-description: Computes substacker's rolling 4-week baseline for open rate, click rate, views-per-send, and weekly subscriber delta using corpus/stats/ archived CSVs. Produces per-metric z-scores of the current week against the baseline and flags cold-start windows where fewer than 4 prior weeks exist. Use after ingest-substack-csv each Monday. Trigger keywords: baseline, rolling median, z-score, cold start, per-metric comparison.
+description: Computes substacker's rolling 4-week baseline for open rate, click rate, views-per-send, and weekly subscriber delta using corpus/stats/ archived CSVs. Produces per-metric z-scores of the current week against the baseline and flags cold-start windows where fewer than 4 prior weeks exist. Use after ingest-substack-csv each Monday. Trigger keywords — baseline, rolling median, z-score, cold start, per-metric comparison.
 ---
 
 # Compute Baseline

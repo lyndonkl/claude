@@ -1,6 +1,6 @@
 ---
 name: update-watchlist
-description: Proposes adds and removes to the Trend Scout watchlist based on consecutive-failure sources, repeated-reference external authors, and user-added feedback markers. Emits a proposed diff at ops/trend-scout/watchlist-proposed-diff.md for user review. On explicit approval, applies the diff. Monthly cadence. Trigger keywords: watchlist update, add source, remove source, watchlist review, monthly review, source pruning.
+description: Proposes adds and removes to the Trend Scout watchlist based on consecutive-failure sources, repeated-reference external authors, and user-added feedback markers. Emits a proposed diff at ops/trend-scout/watchlist-proposed-diff.md for user review. On explicit approval, applies the diff. Monthly cadence. Trigger keywords — watchlist update, add source, remove source, watchlist review, monthly review, source pruning.
 ---
 
 # Update Watchlist

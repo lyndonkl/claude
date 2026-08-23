@@ -1,6 +1,6 @@
 ---
 name: voice-check
-description: Scans a substacker draft line-by-line against the canonical voice-profile.md don't-list and signature moves. Emits phrase-level flags with location, quoted phrase, violation type, voice-profile citation, and up-to-2 suggested rewrites per flag. Use as pass-2 skill (voice) after structural-review completes, when a draft reads competent but not in the writer's voice, or when the writer asks "does this sound like me?" Trigger keywords: voice check, delve, unpack, paradigm shift, sounds AI, does this sound like me, voice violation.
+description: Scans a substacker draft line-by-line against the canonical voice-profile.md don't-list and signature moves. Emits phrase-level flags with location, quoted phrase, violation type, voice-profile citation, and up-to-2 suggested rewrites per flag. Use as pass-2 skill (voice) after structural-review completes, when a draft reads competent but not in the writer's voice, or when the writer asks "does this sound like me?" Trigger keywords — voice check, delve, unpack, paradigm shift, sounds AI, does this sound like me, voice violation.
 ---
 
 # Voice Check

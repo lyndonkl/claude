@@ -1,6 +1,6 @@
 ---
 name: cross-reference-claim
-description: Finds and cites a primary source for each substacker draft claim — original arXiv paper, official documentation, RFC, canonical textbook. Source hierarchy enforced: primary > secondary > tertiary > not-a-source. Records URL, title, passage/result that settles the claim. Use after classify-claim; runs once per claim unless classification is simplified-correct with high confidence on standard undergrad material. Trigger keywords: cross-reference, primary source, citation, arXiv, RFC, paper lookup, source hierarchy.
+description: Finds and cites a primary source for each substacker draft claim — original arXiv paper, official documentation, RFC, canonical textbook. Source hierarchy enforced — primary > secondary > tertiary > not-a-source. Records URL, title, passage/result that settles the claim. Use after classify-claim; runs once per claim unless classification is simplified-correct with high confidence on standard undergrad material. Trigger keywords — cross-reference, primary source, citation, arXiv, RFC, paper lookup, source hierarchy.
 ---
 
 # Cross-Reference Claim

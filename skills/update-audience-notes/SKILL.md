@@ -1,6 +1,6 @@
 ---
 name: update-audience-notes
-description: Appends one structured YAML observation block to substacker shared-context/audience-notes.md iff the week produced at least one observation with confidence ≥ medium. Includes supporting evidence (post slugs + numbers) and reviewed_by_curator flag. Never rewrites or deletes prior entries. Append-only discipline protects downstream agents' shared context. Use at the end of each weekly pipeline after write-weekly-report. Trigger keywords: audience notes, append observation, audience insight, confidence-rated.
+description: Appends one structured YAML observation block to substacker shared-context/audience-notes.md iff the week produced at least one observation with confidence ≥ medium. Includes supporting evidence (post slugs + numbers) and reviewed_by_curator flag. Never rewrites or deletes prior entries. Append-only discipline protects downstream agents' shared context. Use at the end of each weekly pipeline after write-weekly-report. Trigger keywords — audience notes, append observation, audience insight, confidence-rated.
 ---
 
 # Update Audience Notes

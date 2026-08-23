@@ -1,6 +1,6 @@
 ---
 name: closer-critique
-description: Evaluates the final paragraph of a substacker draft for compression and closing form — bolded maxim, forward-looking question, or compressed mechanism statement. For series posts (frontmatter series: {slug}), verifies the running scoreboard (P&L, Brier, W-L) is present and updated. Use on every draft. Blocks publication of series posts missing the scoreboard. Trigger keywords: closer, closing, last paragraph, bolded maxim, scoreboard, CTA, wrap up, conclusion.
+description: Evaluates the final paragraph of a substacker draft for compression and closing form — bolded maxim, forward-looking question, or compressed mechanism statement. For series posts (frontmatter series — {slug}), verifies the running scoreboard (P&L, Brier, W-L) is present and updated. Use on every draft. Blocks publication of series posts missing the scoreboard. Trigger keywords — closer, closing, last paragraph, bolded maxim, scoreboard, CTA, wrap up, conclusion.
 ---
 
 # Closer Critique

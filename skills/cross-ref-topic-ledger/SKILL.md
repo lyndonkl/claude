@@ -1,6 +1,6 @@
 ---
 name: cross-ref-topic-ledger
-description: For each Trend Scout candidate item, checks substacker shared-context/topic-ledger.md and tags with NEW | OVERLAPS seed:{slug} | OVERLAPS draft:{slug} | OVERLAPS published:{slug}. Adds a reinforcement_angle note for items overlapping with published posts ("external confirmation of X"). Read-only against the ledger. Use after summarize-signal, before rank-by-user-fit. Trigger keywords: cross-ref, ledger check, overlap, reinforcement, dedup external.
+description: For each Trend Scout candidate item, checks substacker shared-context/topic-ledger.md and tags with NEW | OVERLAPS seed:{slug} | OVERLAPS draft:{slug} | OVERLAPS published:{slug}. Adds a reinforcement_angle note for items overlapping with published posts ("external confirmation of X"). Read-only against the ledger. Use after summarize-signal, before rank-by-user-fit. Trigger keywords — cross-ref, ledger check, overlap, reinforcement, dedup external.
 ---
 
 # Cross-Ref Topic Ledger

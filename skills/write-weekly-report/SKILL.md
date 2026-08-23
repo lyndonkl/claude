@@ -1,6 +1,6 @@
 ---
 name: write-weekly-report
-description: Composes the substacker final ops/growth-analyst/YYYY-WW-report.md from ingest + baseline + attribute + per-section + public-page outputs. Enforces 400-800 word budget, YAML frontmatter schema, seven-section body structure. Truncates weakest sections first when over budget. Injects data-caveats from any degraded-mode flags upstream. Use as the final compose step of the weekly pipeline. Trigger keywords: weekly report, compose report, growth report, Monday report.
+description: Composes the substacker final ops/growth-analyst/YYYY-WW-report.md from ingest + baseline + attribute + per-section + public-page outputs. Enforces 400-800 word budget, YAML frontmatter schema, seven-section body structure. Truncates weakest sections first when over budget. Injects data-caveats from any degraded-mode flags upstream. Use as the final compose step of the weekly pipeline. Trigger keywords — weekly report, compose report, growth report, Monday report.
 ---
 
 # Write Weekly Report

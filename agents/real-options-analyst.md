@@ -1,6 +1,6 @@
 ---
 name: real-options-analyst
-description: Values genuine embedded optionality and rejects the candidates that only look like options. Runs the three-part gate — option test, exclusivity test, pricing test — over every candidate the routing flagged, rejects the ones that fail, and prices the survivors with Black-Scholes or a binomial tree, scaled by an explicit exclusivity factor. Delegate to it when classification.json carries the has-real-options overlay or lists option_candidates: patents, undeveloped reserves, exclusive licences, expansion rights, contractual exit rights, financing flexibility, or equity in a deeply levered firm. Writes real-options.json and real-options.md.
+description: Values genuine embedded optionality and rejects the candidates that only look like options. Runs the three-part gate — option test, exclusivity test, pricing test — over every candidate the routing flagged, rejects the ones that fail, and prices the survivors with Black-Scholes or a binomial tree, scaled by an explicit exclusivity factor. Delegate to it when classification.json carries the has-real-options overlay or lists option_candidates — patents, undeveloped reserves, exclusive licences, expansion rights, contractual exit rights, financing flexibility, or equity in a deeply levered firm. Writes real-options.json and real-options.md.
 tools: Read, Write, Bash, Glob, Grep, Skill
 model: opus
 skills: option-valuation-toolkit

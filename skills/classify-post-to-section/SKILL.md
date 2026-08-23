@@ -1,6 +1,6 @@
 ---
 name: classify-post-to-section
-description: Assigns a substacker draft or published post to the best-fitting section (or to unassigned) based on content + section promises in section-map.md. Used by the Editor on every draft review (to load the right voice overlay) and by the Curator in batch mode. Trigger keywords: classify post, section assignment, which section, route post, per-draft section.
+description: Assigns a substacker draft or published post to the best-fitting section (or to unassigned) based on content + section promises in section-map.md. Used by the Editor on every draft review (to load the right voice overlay) and by the Curator in batch mode. Trigger keywords — classify post, section assignment, which section, route post, per-draft section.
 ---
 
 # Classify Post To Section

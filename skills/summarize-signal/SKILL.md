@@ -1,6 +1,6 @@
 ---
 name: summarize-signal
-description: Given a candidate item from the substacker Trend Scout fetch, WebFetches the full post or arXiv abstract and produces a one-line "teaches X" summary plus signal_type classification (mechanism / empirical / tool / opinion / announcement / benchmark). Distinguishes teaching-content from capability-announcement explicitly. Use during the weekly run, after fetching and before ranking. Trigger keywords: summarize, signal type, mechanism vs announcement, teaching content.
+description: Given a candidate item from the substacker Trend Scout fetch, WebFetches the full post or arXiv abstract and produces a one-line "teaches X" summary plus signal_type classification (mechanism / empirical / tool / opinion / announcement / benchmark). Distinguishes teaching-content from capability-announcement explicitly. Use during the weekly run, after fetching and before ranking. Trigger keywords — summarize, signal type, mechanism vs announcement, teaching content.
 ---
 
 # Summarize Signal

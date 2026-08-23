@@ -1,6 +1,6 @@
 ---
 name: score-intuition-density
-description: Computes a 0-10 intuition-density score for a seed body using 8 concrete measurable signals — analogy presence, concrete worked example, counterfactual offered, reframe against default, biology-to-AI transfer, question posed, calibrated hedge, math-to-metaphor handoff. Emits both the numeric score and the list of triggered signals for auditability. Use after topic tagging to enrich seed frontmatter in the substacker Librarian pipeline. Trigger keywords: intuition density, score, signals, analogy count, worked example, density proxy.
+description: Computes a 0-10 intuition-density score for a seed body using 8 concrete measurable signals — analogy presence, concrete worked example, counterfactual offered, reframe against default, biology-to-AI transfer, question posed, calibrated hedge, math-to-metaphor handoff. Emits both the numeric score and the list of triggered signals for auditability. Use after topic tagging to enrich seed frontmatter in the substacker Librarian pipeline. Trigger keywords — intuition density, score, signals, analogy count, worked example, density proxy.
 ---
 
 # Score Intuition Density

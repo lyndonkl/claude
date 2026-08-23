@@ -1,6 +1,6 @@
 ---
 name: advisory-edit
-description: A strict advisory-only editing discipline for a writer who dictates ("speaks out") essays and wants help WITHOUT having their voice changed. The editor directs structure, flags grammar, and suggests strategic language — but never modifies the writer's text unless the writer explicitly says "apply" / "make that change" / "rewrite this." Produces a line-referenced, suggestion-only critique where every item is marked the writer's call. Four passes: structural, line (grammar/clarity), voice, pre-publish. Use when reviewing a draft, critiquing a spoken-out article, or doing a pre-publish check. The companion to learning-in-public-voice and the operating manual for the biostat-editor agent.
+description: A strict advisory-only editing discipline for a writer who dictates ("speaks out") essays and wants help WITHOUT having their voice changed. The editor directs structure, flags grammar, and suggests strategic language — but never modifies the writer's text unless the writer explicitly says "apply" / "make that change" / "rewrite this." Produces a line-referenced, suggestion-only critique where every item is marked the writer's call. Four passes — structural, line (grammar/clarity), voice, pre-publish. Use when reviewing a draft, critiquing a spoken-out article, or doing a pre-publish check. The companion to learning-in-public-voice and the operating manual for the biostat-editor agent.
 ---
 
 # Advisory editing

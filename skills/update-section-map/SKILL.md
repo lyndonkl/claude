@@ -1,6 +1,6 @@
 ---
 name: update-section-map
-description: Writes the canonical substacker shared-context/section-map.md after writer confirmation of review-artifact proposals. Atomic write with backup snapshot. Validates schema before writing. Use as the final step of a Curator run, only after writer has accepted/modified proposals. Trigger keywords: update section map, write section map, commit sections, apply changes.
+description: Writes the canonical substacker shared-context/section-map.md after writer confirmation of review-artifact proposals. Atomic write with backup snapshot. Validates schema before writing. Use as the final step of a Curator run, only after writer has accepted/modified proposals. Trigger keywords — update section map, write section map, commit sections, apply changes.
 ---
 
 # Update Section Map

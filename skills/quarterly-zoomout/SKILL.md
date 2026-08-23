@@ -1,6 +1,6 @@
 ---
 name: quarterly-zoomout
-description: Synthesizes 13 weeks of substacker Growth Analyst reports + the most recent Curator review + a meta-scan of the published corpus into a 400-700 word narrative that names the quarter's shape — what happened, what changed, what held steady, what surprised. Used by the Growth Strategist at the opening of every review. Trigger keywords: quarterly, zoomout, quarter narrative, rollup, what happened this quarter.
+description: Synthesizes 13 weeks of substacker Growth Analyst reports + the most recent Curator review + a meta-scan of the published corpus into a 400-700 word narrative that names the quarter's shape — what happened, what changed, what held steady, what surprised. Used by the Growth Strategist at the opening of every review. Trigger keywords — quarterly, zoomout, quarter narrative, rollup, what happened this quarter.
 ---
 
 # Quarterly Zoomout

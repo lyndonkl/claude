@@ -1,6 +1,6 @@
 ---
 name: dedupe-against-corpus
-description: Checks a candidate seed against the existing substacker corpus (seeds, drafts, published) for exact duplicates (sha256 fingerprint) and near-duplicates (title Jaccard, first-200-word Jaccard, shared topic cluster). Exact match exits as SKIPPED. Near-match links via related_seeds rather than creating a duplicate. Use after topic tagging and density scoring, before writing the seed. Trigger keywords: dedupe, duplicate, already thought, near-match, related seed, fingerprint.
+description: Checks a candidate seed against the existing substacker corpus (seeds, drafts, published) for exact duplicates (sha256 fingerprint) and near-duplicates (title Jaccard, first-200-word Jaccard, shared topic cluster). Exact match exits as SKIPPED. Near-match links via related_seeds rather than creating a duplicate. Use after topic tagging and density scoring, before writing the seed. Trigger keywords — dedupe, duplicate, already thought, near-match, related seed, fingerprint.
 ---
 
 # Dedupe Against Corpus

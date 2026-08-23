@@ -1,6 +1,6 @@
 ---
 name: goal-reset-proposal
-description: Drafts a proposed diff to substacker shared-context/goals.md showing which lines to add, remove, or change based on the quarter's review. Never writes to goals.md directly — writer applies manually. Used once per Growth Strategist review. Trigger keywords: goal reset, goals diff, update goals, goals proposal, rework goals.
+description: Drafts a proposed diff to substacker shared-context/goals.md showing which lines to add, remove, or change based on the quarter's review. Never writes to goals.md directly — writer applies manually. Used once per Growth Strategist review. Trigger keywords — goal reset, goals diff, update goals, goals proposal, rework goals.
 ---
 
 # Goal Reset Proposal

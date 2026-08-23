@@ -1,6 +1,6 @@
 ---
 name: linkedin-post-rewrite
-description: Rewrites a published substacker essay as a LinkedIn post with a hook fitting the 210-char fold, practitioner framing (less confessional than Substack), short 2-3 line paragraphs, and 0-2 niche hashtags. 900-2500 characters. Emits linkedin-post.md. Use as the LinkedIn-native arm of the Distribution Translator. Trigger keywords: LinkedIn post, LinkedIn rewrite, practitioner, professional network, niche hashtags.
+description: Rewrites a published substacker essay as a LinkedIn post with a hook fitting the 210-char fold, practitioner framing (less confessional than Substack), short 2-3 line paragraphs, and 0-2 niche hashtags. 900-2500 characters. Emits linkedin-post.md. Use as the LinkedIn-native arm of the Distribution Translator. Trigger keywords — LinkedIn post, LinkedIn rewrite, practitioner, professional network, niche hashtags.
 ---
 
 # LinkedIn Post Rewrite

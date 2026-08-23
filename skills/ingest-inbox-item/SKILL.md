@@ -1,6 +1,6 @@
 ---
 name: ingest-inbox-item
-description: Ingests a single file from the substacker inbox/ into corpus/seeds/ as a normalized markdown seed with full frontmatter. Orchestrates format normalization, topic tagging, intuition-density scoring, dedupe, changelog, ledger update, and inbox-file move to .processed/. Use when the user drops raw material into inbox/ and runs /ingest, at session start, or whenever a single inbox file needs to become an indexed seed. Trigger keywords: ingest, inbox, new note, new transcript, new highlight, index this, add to corpus.
+description: Ingests a single file from the substacker inbox/ into corpus/seeds/ as a normalized markdown seed with full frontmatter. Orchestrates format normalization, topic tagging, intuition-density scoring, dedupe, changelog, ledger update, and inbox-file move to .processed/. Use when the user drops raw material into inbox/ and runs /ingest, at session start, or whenever a single inbox file needs to become an indexed seed. Trigger keywords — ingest, inbox, new note, new transcript, new highlight, index this, add to corpus.
 ---
 
 # Ingest Inbox Item

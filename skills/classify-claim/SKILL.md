@@ -1,6 +1,6 @@
 ---
 name: classify-claim
-description: Assigns each extracted claim to one of five buckets — simplified-correct, simplified-boundary, wrong, contested, overclaim — with low/medium/high confidence and one-sentence rationale. Classification happens before primary-source verification (which confirms, not invents). Use for every claim from claim-extractor. Trigger keywords: classify, bucket, simplified vs wrong, claim type, technical classification.
+description: Assigns each extracted claim to one of five buckets — simplified-correct, simplified-boundary, wrong, contested, overclaim — with low/medium/high confidence and one-sentence rationale. Classification happens before primary-source verification (which confirms, not invents). Use for every claim from claim-extractor. Trigger keywords — classify, bucket, simplified vs wrong, claim type, technical classification.
 ---
 
 # Classify Claim

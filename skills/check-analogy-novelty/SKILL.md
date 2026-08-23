@@ -1,6 +1,6 @@
 ---
 name: check-analogy-novelty
-description: Cross-references each proposed analogy in a 5-framing set against substacker shared-context/analogy-catalog.md to flag reuse. Classifies each analogy as new, reused-from-catalog (and which entry), or adjacent-to-catalog (close to an existing entry but not identical). Prevents the writer from recycling "imagine a library" for the twentieth time. Use after generate-analogy-set and before presenting framings to the writer. Trigger keywords: novelty, catalog, analogy reuse, already used, imagine a library.
+description: Cross-references each proposed analogy in a 5-framing set against substacker shared-context/analogy-catalog.md to flag reuse. Classifies each analogy as new, reused-from-catalog (and which entry), or adjacent-to-catalog (close to an existing entry but not identical). Prevents the writer from recycling "imagine a library" for the twentieth time. Use after generate-analogy-set and before presenting framings to the writer. Trigger keywords — novelty, catalog, analogy reuse, already used, imagine a library.
 ---
 
 # Check Analogy Novelty

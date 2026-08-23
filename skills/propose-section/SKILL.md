@@ -1,6 +1,6 @@
 ---
 name: propose-section
-description: Converts one candidate cluster from cluster-corpus-by-theme into a named, promised section proposal ready for writer review. Calls write-section-promise for the one-sentence promise. Rates fit confidence (high / medium / low / provisional) and flags borderline posts. Use once per cluster that passes ≥3-post threshold. Trigger keywords: propose section, section proposal, new section candidate.
+description: Converts one candidate cluster from cluster-corpus-by-theme into a named, promised section proposal ready for writer review. Calls write-section-promise for the one-sentence promise. Rates fit confidence (high / medium / low / provisional) and flags borderline posts. Use once per cluster that passes ≥3-post threshold. Trigger keywords — propose section, section proposal, new section candidate.
 ---
 
 # Propose Section

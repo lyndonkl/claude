@@ -1,6 +1,6 @@
 ---
 name: hook-generator
-description: Generates 3-5 candidate first-line hooks for a specific platform (Substack Note, X, LinkedIn, cross-post) from a given spine. Uses platform-appropriate hook patterns (confession / claim / question / reframe) and voice-profile constraints. Runs before each platform rewrite so the rewrite skill picks the strongest hook rather than reusing the essay's opener verbatim on every platform. Trigger keywords: hook, opening line, platform hook, first tweet, LinkedIn hook, Substack Note hook.
+description: Generates 3-5 candidate first-line hooks for a specific platform (Substack Note, X, LinkedIn, cross-post) from a given spine. Uses platform-appropriate hook patterns (confession / claim / question / reframe) and voice-profile constraints. Runs before each platform rewrite so the rewrite skill picks the strongest hook rather than reusing the essay's opener verbatim on every platform. Trigger keywords — hook, opening line, platform hook, first tweet, LinkedIn hook, Substack Note hook.
 ---
 
 # Hook Generator

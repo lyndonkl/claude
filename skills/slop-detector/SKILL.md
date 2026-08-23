@@ -1,6 +1,6 @@
 ---
 name: slop-detector
-description: Scans a substacker draft for 10 signatures of AI-generated explainer slop — meta-framing openers ("In this post"), list-heavy argument, nominalization clusters, generic examples lacking first-person texture, prompt-residue phrases ("Let's break this down"), buzzword stuffing, outline-shaped paragraphs, hedge clusters, flattened uncertainty. Use when a draft "feels generic" even after voice-check passes. Trigger keywords: slop, AI-written, generic, template, meta-framing, zombie nouns, prompt residue, outline-shaped.
+description: Scans a substacker draft for 10 signatures of AI-generated explainer slop — meta-framing openers ("In this post"), list-heavy argument, nominalization clusters, generic examples lacking first-person texture, prompt-residue phrases ("Let's break this down"), buzzword stuffing, outline-shaped paragraphs, hedge clusters, flattened uncertainty. Use when a draft "feels generic" even after voice-check passes. Trigger keywords — slop, AI-written, generic, template, meta-framing, zombie nouns, prompt residue, outline-shaped.
 ---
 
 # Slop Detector

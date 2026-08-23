@@ -1,6 +1,6 @@
 ---
 name: propose-counterfactual
-description: Produces the counterfactual framing in an Intuition Builder 5-set — "what if this component were not here?" Reveals the function of a technical element by subtracting it and observing what breaks. Uses Pearl's causal ladder (counterfactual = level 3) as the theoretical spine. Use as the 5th archetype slot of generate-analogy-set, or invoked standalone when the writer wants to build intuition for why a specific element exists. Trigger keywords: counterfactual, what if not, remove, subtract, reveal function, why does this exist.
+description: Produces the counterfactual framing in an Intuition Builder 5-set — "what if this component were not here?" Reveals the function of a technical element by subtracting it and observing what breaks. Uses Pearl's causal ladder (counterfactual = level 3) as the theoretical spine. Use as the 5th archetype slot of generate-analogy-set, or invoked standalone when the writer wants to build intuition for why a specific element exists. Trigger keywords — counterfactual, what if not, remove, subtract, reveal function, why does this exist.
 ---
 
 # Propose Counterfactual

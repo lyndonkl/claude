@@ -1,6 +1,6 @@
 ---
 name: recommend-prune
-description: Recommends structural cleanups for the substacker section map — sections to retire, sections to merge, posts to reassign. Applies under-filled, stale, and overlapping heuristics. Writes proposals with reasons-to-reject (steelman counter). Does not execute. Use once per Curator run, after drift audit. Trigger keywords: prune, retire section, merge sections, reassign post, cleanup.
+description: Recommends structural cleanups for the substacker section map — sections to retire, sections to merge, posts to reassign. Applies under-filled, stale, and overlapping heuristics. Writes proposals with reasons-to-reject (steelman counter). Does not execute. Use once per Curator run, after drift audit. Trigger keywords — prune, retire section, merge sections, reassign post, cleanup.
 ---
 
 # Recommend Prune

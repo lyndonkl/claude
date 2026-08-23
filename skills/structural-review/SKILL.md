@@ -1,6 +1,6 @@
 ---
 name: structural-review
-description: Performs pass-1 structural review of a substacker essay draft — argument flow, out-of-order moves, buried topic sentences, missing pivots, weak signposting, paragraph-logic issues. Emits the "Argument flow" and "Structural blockers" sections of the Editor artifact. Use when reviewing a draft's macro-structure before addressing voice, when a draft feels like it meanders, or when the user asks whether the argument lands. Trigger keywords: structure, argument flow, outline, signposting, meandering, pivot, macro edit, substantive edit.
+description: Performs pass-1 structural review of a substacker essay draft — argument flow, out-of-order moves, buried topic sentences, missing pivots, weak signposting, paragraph-logic issues. Emits the "Argument flow" and "Structural blockers" sections of the Editor artifact. Use when reviewing a draft's macro-structure before addressing voice, when a draft feels like it meanders, or when the user asks whether the argument lands. Trigger keywords — structure, argument flow, outline, signposting, meandering, pivot, macro edit, substantive edit.
 ---
 
 # Structural Review

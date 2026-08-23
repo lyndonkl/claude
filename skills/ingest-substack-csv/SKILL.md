@@ -1,6 +1,6 @@
 ---
 name: ingest-substack-csv
-description: Loads and validates a weekly Substack CSV stats export for the substacker Growth Analyst. Reconciles header against expected-columns schema, parses post rows + subscriber aggregates, moves file into corpus/stats/ on success, emits schema-warning stub on header drift. Never reads subscriber emails row-by-row — aggregates only. FALLBACK path when fetch-substack-stats (Chrome automation) is unavailable. Use when a CSV appears in inbox/substack-stats/, when Chrome is not logged in, or when the writer prefers manual export. Trigger keywords: CSV, Substack export, stats export, schema validation, subscriber data, manual export, CSV fallback.
+description: Loads and validates a weekly Substack CSV stats export for the substacker Growth Analyst. Reconciles header against expected-columns schema, parses post rows + subscriber aggregates, moves file into corpus/stats/ on success, emits schema-warning stub on header drift. Never reads subscriber emails row-by-row — aggregates only. FALLBACK path when fetch-substack-stats (Chrome automation) is unavailable. Use when a CSV appears in inbox/substack-stats/, when Chrome is not logged in, or when the writer prefers manual export. Trigger keywords — CSV, Substack export, stats export, schema validation, subscriber data, manual export, CSV fallback.
 ---
 
 # Ingest Substack CSV

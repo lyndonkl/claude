@@ -1,6 +1,6 @@
 ---
 name: product-hiding-scan
-description: Scans the substacker published corpus for clusters of posts that could become a product — a course, a book, a cohort, or a consulting offer. Produces at most 2 candidates with evidence + audience signal, or an honest "not yet" verdict if nothing qualifies. Typically fires once the writer has 30+ posts. Trigger keywords: product hiding, course from essays, book from essays, corpus to product, product scan.
+description: Scans the substacker published corpus for clusters of posts that could become a product — a course, a book, a cohort, or a consulting offer. Produces at most 2 candidates with evidence + audience signal, or an honest "not yet" verdict if nothing qualifies. Typically fires once the writer has 30+ posts. Trigger keywords — product hiding, course from essays, book from essays, corpus to product, product scan.
 ---
 
 # Product Hiding Scan

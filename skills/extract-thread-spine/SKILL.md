@@ -1,6 +1,6 @@
 ---
 name: extract-thread-spine
-description: Extracts the 5-7 point argument backbone of a published substacker essay into a structured _spine.json working artifact that downstream platform-rewrite skills consume. Pulls verbatim sentences where possible (not paraphrases). Tags each point with evidence anchor (paper, anecdote, formula, analogy), essay section, and translatability score. Use at the start of a Distribution Translator run. Trigger keywords: spine, backbone, extract claims, thread spine, argument skeleton.
+description: Extracts the 5-7 point argument backbone of a published substacker essay into a structured _spine.json working artifact that downstream platform-rewrite skills consume. Pulls verbatim sentences where possible (not paraphrases). Tags each point with evidence anchor (paper, anecdote, formula, analogy), essay section, and translatability score. Use at the start of a Distribution Translator run. Trigger keywords — spine, backbone, extract claims, thread spine, argument skeleton.
 ---
 
 # Extract Thread Spine

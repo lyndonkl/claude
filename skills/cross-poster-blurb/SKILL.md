@@ -1,6 +1,6 @@
 ---
 name: cross-poster-blurb
-description: Writes a 60-140 word third-person blurb for the Substack cross-post feature, positioned so another newsletter writer can paste it into their cross-post popup without editing. Third-person throughout ("In this piece, Kushal argues…"). No subscriber CTAs. Use as the cross-post arm of the Distribution Translator. Trigger keywords: cross-post, cross-poster, blurb, Substack cross-post, third person, positioning.
+description: Writes a 60-140 word third-person blurb for the Substack cross-post feature, positioned so another newsletter writer can paste it into their cross-post popup without editing. Third-person throughout ("In this piece, Kushal argues…"). No subscriber CTAs. Use as the cross-post arm of the Distribution Translator. Trigger keywords — cross-post, cross-poster, blurb, Substack cross-post, third person, positioning.
 ---
 
 # Cross-Poster Blurb

@@ -1,6 +1,6 @@
 ---
 name: per-section-tracking
-description: Breaks down weekly and trailing-4-week substacker performance per Substack section, keyed on section tags in corpus/published/ and section-map.md. Reports opens, clicks, subs-attributable-to-section per section with ≥3 posts. Skips if section-map has <2 sections. Feeds Curator with pruning candidates (sections with 4-week median z ≤ -1.0). Use when section-map has ≥2 live sections. Trigger keywords: per-section, section performance, section metrics, section pruning, differential engagement.
+description: Breaks down weekly and trailing-4-week substacker performance per Substack section, keyed on section tags in corpus/published/ and section-map.md. Reports opens, clicks, subs-attributable-to-section per section with ≥3 posts. Skips if section-map has <2 sections. Feeds Curator with pruning candidates (sections with 4-week median z ≤ -1.0). Use when section-map has ≥2 live sections. Trigger keywords — per-section, section performance, section metrics, section pruning, differential engagement.
 ---
 
 # Per Section Tracking

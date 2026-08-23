@@ -1,6 +1,6 @@
 ---
 name: search-corpus
-description: Answers "what have I already thought about X?" by searching the substacker corpus (seeds, drafts, published) for seeds matching a topic, keyword, analogy, or author. Returns a ranked list of seeds with id, title, status, density score, and a one-line excerpt. Use when another agent (Intuition Builder, Editor) needs prior thinking before generating new material, or when the writer asks "have I written about X." Trigger keywords: search, find, what have I, already thought, prior work, precedent, have I written about.
+description: Answers "what have I already thought about X?" by searching the substacker corpus (seeds, drafts, published) for seeds matching a topic, keyword, analogy, or author. Returns a ranked list of seeds with id, title, status, density score, and a one-line excerpt. Use when another agent (Intuition Builder, Editor) needs prior thinking before generating new material, or when the writer asks "have I written about X." Trigger keywords — search, find, what have I, already thought, prior work, precedent, have I written about.
 ---
 
 # Search Corpus
