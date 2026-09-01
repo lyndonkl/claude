@@ -119,7 +119,7 @@ itself — the answer just comes out wrong.
 Run the validator yourself at `G5` and again at `G6`:
 
 ```bash
-python3 <repo>/skills/valuation-consistency-checks/resources/validate.py \
+python3 <skills>/valuation-consistency-checks/resources/validate.py \
   --mandate 00-mandate/mandate.json --classification 02-diagnosis/classification.json \
   --capital 05-capital/cost-of-capital.json --forecast 06-intrinsic/forecast.json \
   --dcf 06-intrinsic/dcf-result.json --quiet
@@ -199,6 +199,13 @@ Give every agent, every time:
 4. **The constraints from `classification.json`** that apply to its stage, quoted with the
    reason. Do not make the agent infer which ones bind it.
 5. **The mandate currency and valuation date.**
+6. **The absolute skills root**, which is what every specialist's `<skills>/...` script path
+   resolves against. Resolve it once at the start of the run and pass the same value to every
+   agent. It is the directory holding the skill folders — `.claude/skills` in the project when
+   the suite is linked there, otherwise the `skills/` directory of the repository this agent
+   was installed from. Confirm `<skills>/valuation-consistency-checks/resources/validate.py`
+   exists before the first spawn; if it does not, the root is wrong and every downstream
+   script call will fail.
 
 Never tell an agent where anything else lives. Never let two agents write the same file.
 

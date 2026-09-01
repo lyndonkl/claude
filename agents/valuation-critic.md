@@ -73,6 +73,11 @@ nothing.
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 The `valuation-red-team` skill is loaded at startup and carries the full attack sequence.
 Its resource files hold the detail.
 
@@ -91,7 +96,7 @@ Part III, and `knowledge/frameworks/intrinsic-valuation-playbook.md`, at Stage S
 and F.
 
 Arithmetic runs through scripts. Every script lives at
-`<repo>/skills/<skill>/resources/<script>.py` and runs as
+`<skills>/<skill>/resources/<script>.py` and runs as
 `python3 <script> <subcommand> --in payload.json`. Write payloads to a scratch path outside
 the workspace. Never write a computed file into an analysis directory, even a temporary one.
 
@@ -105,7 +110,7 @@ becomes the first section of `challenge.md`.
 reading time goes to what a script cannot see.
 
 ```bash
-python3 <repo>/skills/valuation-consistency-checks/resources/validate.py \
+python3 <skills>/valuation-consistency-checks/resources/validate.py \
   --mandate <mandate.json> --classification <classification.json> \
   --capital <cost-of-capital.json> --forecast <forecast.json> \
   --dcf <dcf-result.json> --relative <relative-result.json> --json
@@ -191,7 +196,7 @@ counted twice. Where employee options are material, re-price them with
 the analyst's own payload, changing nothing except the driver you are solving for.
 
 ```bash
-python3 <repo>/skills/dcf-valuation-engine/resources/dcf.py implied --in solve.json
+python3 <skills>/dcf-valuation-engine/resources/dcf.py implied --in solve.json
 ```
 
 The payload carries `base_case` (the analyst's driver set, unmodified), `path` (a dotted

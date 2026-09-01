@@ -82,7 +82,7 @@ thing you need.
 ## Process
 
 Every number below comes from a script. The skills root is supplied by the orchestrator;
-scripts sit at `<skills-root>/<skill>/resources/`. Load a skill with the Skill tool before
+scripts sit at `<skills>/<skill>/resources/`. Load a skill with the Skill tool before
 you use it, so your payload matches its current interface.
 
 ### 1. Fix the engine and record the exclusions
@@ -113,7 +113,7 @@ is missing, return `blocked` naming the analyst who owns it.
 **B5 financial service — excess return or FCFE to regulatory capital.**
 
 ```bash
-python3 <skills-root>/special-situation-models/resources/special.py excess-return --in payload.json
+python3 <skills>/special-situation-models/resources/special.py excess-return --in payload.json
 ```
 
 Use `reinvestment: "retention"` for a stable bank and `reinvestment: "regulatory_capital"`
@@ -137,8 +137,8 @@ in your return that no script covers it rather than doing that arithmetic yourse
 **B1 young or pre-revenue — revenue-driven, working backwards.**
 
 ```bash
-python3 <skills-root>/special-situation-models/resources/special.py young-company --in end-state.json > young.json
-python3 <skills-root>/dcf-valuation-engine/resources/dcf.py value --in dcf_payload.json
+python3 <skills>/special-situation-models/resources/special.py young-company --in end-state.json > young.json
+python3 <skills>/dcf-valuation-engine/resources/dcf.py value --in dcf_payload.json
 ```
 
 Choose the end-state first: target margin from the mature sector's distribution, terminal
@@ -159,7 +159,7 @@ the whole story, which is that the firm matures.
 **B4 distress — probability-weighted blend, and the option cross-check.**
 
 ```bash
-python3 <skills-root>/special-situation-models/resources/special.py distress --in payload.json
+python3 <skills>/special-situation-models/resources/special.py distress --in payload.json
 ```
 
 Prefer the `bond` route when a traded bond exists; it is the sharpest source and usually the
@@ -173,7 +173,7 @@ When market debt to capital exceeds 50% and earnings are negative, run the optio
 second, alternative equity estimate:
 
 ```bash
-python3 <skills-root>/option-valuation-toolkit/resources/options.py equity-as-option --in payload.json
+python3 <skills>/option-valuation-toolkit/resources/options.py equity-as-option --in payload.json
 ```
 
 Firm value comes from the DCF. Volatility must be a firm-value volatility, not the equity's
@@ -183,7 +183,7 @@ are standing behind.
 **B6 commodity and B7 cyclical — normalize, then run the standard engine.**
 
 ```bash
-python3 <skills-root>/special-situation-models/resources/special.py cyclical --in payload.json
+python3 <skills>/special-situation-models/resources/special.py cyclical --in payload.json
 ```
 
 With a usable price driver, pass the revenue-and-price history and today's price. Report the
@@ -200,7 +200,7 @@ The normalized EBIT changes the interest coverage ratio, so it changes the synth
 and the cost of debt. Test that:
 
 ```bash
-python3 <skills-root>/cost-of-capital-toolkit/resources/costofcapital.py rating --in coverage.json
+python3 <skills>/cost-of-capital-toolkit/resources/costofcapital.py rating --in coverage.json
 ```
 
 If the rating moves, `cost-of-capital.json` is now built on the wrong earnings basis. You do
@@ -222,7 +222,7 @@ Hand off to B4 whenever leverage puts survival in doubt.
 **B13 private and B14 IPO — the rate identity and the discount stack.**
 
 ```bash
-python3 <skills-root>/special-situation-models/resources/special.py private --in payload.json
+python3 <skills>/special-situation-models/resources/special.py private --in payload.json
 ```
 
 Set `buyer` to match the transaction: `private` for an undiversified individual, `public` or
@@ -266,7 +266,7 @@ adjustment, cross-holdings, and other non-operating assets. Value employee optio
 options and subtract them:
 
 ```bash
-python3 <skills-root>/option-valuation-toolkit/resources/options.py employee-options --in options.json
+python3 <skills>/option-valuation-toolkit/resources/options.py employee-options --in options.json
 ```
 
 Then divide by the undiluted share count. Subtracting option value and also using a diluted
@@ -275,8 +275,8 @@ count charges shareholders twice.
 ### 6. Show the range
 
 ```bash
-python3 <skills-root>/dcf-valuation-engine/resources/dcf.py sensitivity --in grid.json
-python3 <skills-root>/monte-carlo-valuation/resources/simulate.py simulate --in run.json
+python3 <skills>/dcf-valuation-engine/resources/dcf.py sensitivity --in grid.json
+python3 <skills>/monte-carlo-valuation/resources/simulate.py simulate --in run.json
 ```
 
 Sweep the two drivers that actually move value for this branch. For a young firm that is
@@ -291,7 +291,7 @@ Add a `method` field to the DCF result — `fcff`, `fcfe`, `ddm` or `excess_retu
 the cross-artifact validator:
 
 ```bash
-python3 <skills-root>/valuation-consistency-checks/resources/validate.py \
+python3 <skills>/valuation-consistency-checks/resources/validate.py \
   --mandate <path> --classification <path> --capital <path> \
   --forecast <path> --dcf <path> --quiet
 ```

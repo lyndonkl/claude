@@ -59,6 +59,11 @@ agents cannot tell the difference.
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 The `company-classification-routing` skill is loaded at startup and carries the full
 procedure. Its resource files hold the detail: `resources/signal-extraction.md` for how each
 signal is computed, `resources/branch-catalogue.md` for the sixteen branches,
@@ -67,7 +72,7 @@ signal is computed, `resources/branch-catalogue.md` for the sixteen branches,
 `knowledge/frameworks/special-situations-routing.md`.
 
 Arithmetic runs through scripts. Every script below lives at
-`<repo>/skills/<skill>/resources/<script>.py` and runs as
+`<skills>/<skill>/resources/<script>.py` and runs as
 `python3 <script> <subcommand> --in payload.json`. Write payloads to a scratch path, not
 into the workspace.
 
@@ -171,7 +176,7 @@ branch, every constraint sourced, constraints match the fired branches, no contr
 pair, discount stack matches the branch, geography shares sum to one. Then run:
 
 ```bash
-python3 <repo>/skills/valuation-consistency-checks/resources/validate.py \
+python3 <skills>/valuation-consistency-checks/resources/validate.py \
   --classification <abs path to classification.json>
 ```
 

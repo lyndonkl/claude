@@ -71,8 +71,13 @@ diversified — return `needs_input` with the question and the options.
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 All arithmetic runs through
-`/Users/kushaldsouza/Documents/Projects/claude/skills/cost-of-capital-toolkit/resources/costofcapital.py`,
+`<skills>/cost-of-capital-toolkit/resources/costofcapital.py`,
 invoked as `python3 costofcapital.py <subcommand> --in payload.json`. Write each payload to
 a file so the run is reproducible. Run `--example` on any subcommand whose shape you are
 unsure of.

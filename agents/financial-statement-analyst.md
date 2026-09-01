@@ -99,10 +99,15 @@ recurrence, that is a finding, not a block. Note the shortened window and procee
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 Arithmetic runs through scripts. Let `NORM` be
-`/Users/kushaldsouza/Documents/Projects/claude/skills/financial-statement-normalization/resources/normalize.py`
+`<skills>/financial-statement-normalization/resources/normalize.py`
 and `COC` be
-`/Users/kushaldsouza/Documents/Projects/claude/skills/cost-of-capital-toolkit/resources/costofcapital.py`.
+`<skills>/cost-of-capital-toolkit/resources/costofcapital.py`.
 Every subcommand takes JSON: `python3 <script> <subcommand> --in payload.json`. Run
 `<subcommand> --example` when you need the input shape.
 

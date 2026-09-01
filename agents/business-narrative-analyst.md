@@ -71,6 +71,11 @@ what you need. Do not guess and proceed.
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 Invoke the `narrative-to-numbers` skill's own reference files when you need the detail behind
 a step: `resources/narrative-tests.md` for the screens, `resources/driver-mapping.md` for the
 lever menus and terminal defaults, `resources/failure-gallery.md` for the three pathologies.

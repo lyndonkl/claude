@@ -79,6 +79,11 @@ exactly the artifact or field you need. Do not substitute a guess and proceed.
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 Arithmetic runs through the scripts. Where a calculation below has no script, say so in
 the return rather than doing it in prose.
 

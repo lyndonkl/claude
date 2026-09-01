@@ -79,14 +79,19 @@ exactly what is missing and the gate it fails. Do not substitute a default and p
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 Every figure in the report is pulled from the artifact that owns it. The report reports; it
 does not calculate. A few derived figures do belong to the report: a percentage gap, price as
 a percent of value, a margin of safety, a sum of disclosed line items. Compute each with a
 short `python3 -c` expression through Bash and record the expression. Never do it in prose.
 Let `DCF` stand for
-`/Users/kushaldsouza/Documents/Projects/claude/skills/dcf-valuation-engine/resources/dcf.py`
+`<skills>/dcf-valuation-engine/resources/dcf.py`
 and `VALIDATE` for
-`/Users/kushaldsouza/Documents/Projects/claude/skills/valuation-consistency-checks/resources/validate.py`.
+`<skills>/valuation-consistency-checks/resources/validate.py`.
 
 **1. Read the mode and load its template.** `mandate.json.mode` selects one template from
 the preloaded `valuation-reporting` skill. Read the file before drafting, because it fixes
@@ -216,7 +221,7 @@ must agree figure by figure. Any derived figure that appears twice is computed o
 quoted twice. Then run the readability check on the report:
 
 ```bash
-python3 /Users/kushaldsouza/Documents/Projects/claude/skills/readability-check/resources/readability.py \
+python3 <skills>/readability-check/resources/readability.py \
   --profile technical <REPORT.md>
 ```
 

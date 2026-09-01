@@ -71,6 +71,11 @@ not yours. Return `blocked` naming `special-situations-analyst` and the branch t
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 Each step that computes names the script that computes it. You never do arithmetic in prose,
 and you never retype a number the engine produced.
 

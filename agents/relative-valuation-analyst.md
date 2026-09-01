@@ -66,8 +66,13 @@ exactly what is needed. Do not substitute a default and proceed.
 
 ## Process
 
+
+`<skills>` is the absolute skills root the orchestrator supplies with your inputs; every
+script path below resolves against it. If you were not given one, ask for it rather than
+guessing a path.
+
 Every number comes from a script. Let `RVT` stand for
-`/Users/kushaldsouza/Documents/Projects/claude/skills/relative-valuation-toolkit/resources/multiples.py`.
+`<skills>/relative-valuation-toolkit/resources/multiples.py`.
 Each subcommand reads JSON and prints JSON:
 `python3 RVT <subcommand> --in payload.json`. Run `python3 RVT <subcommand> --example` when
 you need the input shape, and `python3 RVT selftest` if a result looks wrong.
